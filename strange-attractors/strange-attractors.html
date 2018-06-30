@@ -11,10 +11,19 @@
 <link rel="icon" type="image/png" href="../assets/img/png/icon/infinity16.png" sizes="16x16">
                         
 <!--Style Stars-->
-<link rel="stylesheet" href="../assets/style/w3p.css">
+
 <link rel="stylesheet" href="../assets/style/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Marcellus+SC">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    
+    <style>
+        .center {
+            margin-left:auto;
+            margin-right:auto;
+            max-width:900px;
+        }
+    </style>
+    
 <!--Style ends-->
                                     
 <!--MathJax starts-->
@@ -49,46 +58,91 @@
         <!-- Navbar Ends-->
 
 <!-- Main content Stars-->
-<div class="w3-main" style="margin-top:45px" style="margin-left:300px">
+<div class="w3-main center" style="margin-top:45px">
     
     <div class="w3-container">
-     <h1>Strange attractors in three dimensions</h1>
+     <h1>Strange attractors in 3d</h1>
      <hr>
      <p>
      Velocity field simulations with particles and a solution curve.
      </p>
+     <p>
+     For the 3d perspective I used the <a href="https://diwi.github.io/p5.EasyCam/">p5.EasyCam</a> library developed by Thomas Diewald (<a href="http://thomasdiewald.com">http://thomasdiewald.com</a>).
+     </p>
+     
+     <p>
+     The fourth-degree <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta method</a> is used to calculate the numerical solutions of each system of non-linear differential equations.
+     </p>
+     
      <hr>
 </div>
 
 <div class="w3-container">
     <!-- First Photo Grid-->
     <div class="w3-row-padding">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="https://jcponce.github.io/abcmath/Thomas"><img src="../assets/img/png/thomas.png" alt="Thomas" style="width:100%" class="w3-hover-opacity"></a>
+        <div class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/abcmath/Thomas"><img src="img/thomas.png" alt="Thomas" style="width:100%" class="w3-hover-opacity"></a>
             <div class="w3-container w3-white">
                 <p><b>Thomas attractor</b></p>
+                <p>Parameter:</p>
+                <p>$b=0.19$</p>
+                <p>System:</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp;bx+\sin(y)\\
+                \frac{dy}{dt}&amp;=&amp;-by+\sin(z)\\
+                \frac{dz}{dt}&amp;=&amp;-bz+\sin(x)
+                \end{eqnarray*}\right.
+                $$</p>
             </div>
         </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="https://jcponce.github.io/abcmath/Aizawa"><img src="../assets/img/png/aizawa.png" alt="Aizawa" style="width:100%" class="w3-hover-opacity"></a>
+        <div class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/abcmath/Aizawa"><img src="img/aizawa.png" alt="Aizawa" style="width:100%" class="w3-hover-opacity"></a>
             <div class="w3-container w3-white">
                 <p><b>Aizawa attractor</b></p>
+                <p>Parameters:</p>
+                <p>$a = 0.95,$ $b = 0.7,$ $c = 0.6,$ $d = 3.5,$ $e = 0.25,$ $f = 0.1$</p>
+                <p>System:</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp;(z - b)  x - d  y\\
+                \frac{dy}{dt}&amp;=&amp; d  x + (z - b)  y\\
+                \frac{dz}{dt}&amp;=&amp;c + a z - \frac{z^3}{3} - (x^2+y^2)(1+e z)+f z x^3
+                \end{eqnarray*}\right.
+                $$</p>
             </div>
         </div>
-        <div class="w3-third w3-container">
-            <a href="https://jcponce.github.io/abcmath/Dadras"><img src="../assets/img/png/dadras.png" alt="Dadras" style="width:100%" class="w3-hover-opacity"></a>
-            <div class="w3-container w3-white">
-                <p><b>Dadras attractor</b></p>
-            </div>
-        </div>
+        
     </div>
     
     <!--Second Photo Grid-->
     <div class="w3-row-padding">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="https://jcponce.github.io/abcmath/Lorenz"><img src="../assets/img/png/lorenz.png" alt="Lorenz" style="width:100%" class="w3-hover-opacity"></a>
+        <div class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/abcmath/Lorenz"><img src="img/lorenz.png" alt="Lorenz" style="width:100%" class="w3-hover-opacity"></a>
             <div class="w3-container w3-white">
                 <p><b>Lorenz attractor</b></p>
+                <p>Parameters:</p>
+                <p>$p = 10,$ $r = 28,$ $b = 8/3$</p>
+                <p>System:</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp;p  (-x + y)\\
+                \frac{dy}{dt}&amp;=&amp;  -x  z + r  x - y \\
+                \frac{dz}{dt}&amp;=&amp; x  y - b  z
+                \end{eqnarray*}\right.
+                $$</p>
+            </div>
+        </div>
+        <div class="w3-half w3-container">
+            <a href="https://jcponce.github.io/abcmath/Dadras"><img src="img/dadras.png" alt="Dadras" style="width:100%" class="w3-hover-opacity"></a>
+            <div class="w3-container w3-white">
+                <p><b>Dadras attractor</b></p>
+                <p>Parameters:</p>
+                <p>$a = 3,$ $b = 2.7,$ $c = 1.7,$ $d = 2,$ $e = 9$</p>
+                <p>System:</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp; y - a x +b  y  z\\
+                \frac{dy}{dt}&amp;=&amp;  c  y - x  z +z\\
+                \frac{dz}{dt}&amp;=&amp; d  x  y - e  z
+                \end{eqnarray*}\right.
+                $$</p>
             </div>
         </div>
        <!-- <div class="w3-third w3-container w3-margin-bottom">
