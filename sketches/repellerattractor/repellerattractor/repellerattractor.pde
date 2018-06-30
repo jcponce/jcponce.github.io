@@ -23,8 +23,8 @@ int b = 255;
 
 void setup() {
   //size(screen.width, screen.height);
-  //size(850,600);
-  fullScreen();
+  size(850,500);
+  //fullScreen();
   ps = new ParticleSystem(new PVector(random(width/3,2*width/3),random(4*height/20,6*height/20)));
   background(0);
 }
