@@ -30,23 +30,19 @@ void setup() {
 }
 
 void draw() {
-  
-  
-  
- 
+
   ps.addParticle();
-  // We’re applying a universal gravity.
+  // We're applying a universal gravity.
   PVector gravity = new PVector(0,0.1);
   ps.applyForce(gravity);
   
   fill(0,11);
   stroke(0)
-  rect(0,0,width,height);
+  rect(0, 0, width, height);
   // Applying the repeller
-  repeller = new Repeller(mouseX,mouseY);
+  repeller = new Repeller(mouseX, mouseY);
   
   ps.applyRepeller(repeller);
-  
   
   ps.run();
   repeller.display();
