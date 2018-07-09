@@ -40,7 +40,7 @@ void renderMyDesign() {
 
   textSize(40);
   fill(255);
-  text("Error 404;;", x, 100);
+  text("Error 404", x, 100);
 
   textSize((int)random(10, 22));
   pushMatrix();
