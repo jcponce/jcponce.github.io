@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Time dependent</title>
+<title>Time-dependent velocity fields</title>
 <meta charset="UTF-8">
 <meta name="description" content="Velocity fields">
 <meta name="author" content="Juan Carlos Ponce Campuzano">
@@ -63,7 +63,7 @@
             <div class="w3-bar w3-black w3-top w3-left-align">
                 <a href="../" class="w3-bar-item w3-button w3-hover-indigo"> <i class="fa fa-arrow-left"></i> <i class="fa fa-home"></i></a>
                 
-                <a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-indigo serif">Time dependent vector fields</a>
+                <a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-indigo serif">Time-dependent velocity fields</a>
             </div>
         </div>
         <!-- Navbar Ends-->
@@ -72,32 +72,29 @@
 <div class="w3-main center" style="margin-top:45px">
 
 <div class="w3-container">
- <h1>Time dependent velocity vector fields</h1>
+ <h1>Time-dependent velocity fields</h1>
  <hr>
  </div>
 
  <div class="w3-container">
-     <p>Coming soon!</p>
- <!--<p><i class="fas fa-code"></i> <a href="https://jcponce.github.io/calculus/velfields/vortex/vortex.js">Code</a></p>
- <p><i class="fas fa-info"></i> Drag sliders to change parameters.</p>-->
+     <p><i class="fas fa-info"></i> Keep the mouse pressed on the black screen to add particles.</p>
  <hr>
  </div>
  
  <div class="w3-container">
  <p>
  <ul>
-     <li>To add.
+     <li>$\mathbf v = u\,\mathbf &nbsp;i + v\cos (kx-\alpha t)\, \mathbf j$.
      </li>
      
      </br>
      
-     <div class="w3-hide-small">
+     <div class="w3-hide-small w3-center">
          <iframe  name="TimeDep" src="https://jcponce.github.io/calculus/velfields/timedependent/index.html" width="700px" height="500px" style="border:none;"></iframe>
          
-         <div class="w3-container">
+         <div class="w3-container w3-center">
              <button onclick="var ifr=document.getElementsByName('TimeDep')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
-             
-             
+             <a class="w3-btn w3-ripple w3-grey w3-hover-text-white" href="https://jcponce.github.io/calculus/velfields/timedependent/timedependent.js"><i class="fas fa-code"></i> Code</a>
          </div>
      </div>
      
@@ -111,15 +108,17 @@
      
      </br>
      
-     <li>To add </li>
+     <li>$\mathbf v(x,y,t)=\cos(y+t)\,\mathbf i+\sin(x-\frac12 t)\,\mathbf j$.
+     </li>
      
      </br>
      
-     <div class="w3-hide-small">
+     <div class="w3-hide-small w3-center">
          <iframe  name="Periodic" src="https://jcponce.github.io/calculus/velfields/periodic/index.html" width="700px" height="500px" style="border:none;"></iframe>
          
-         <div class="w3-container">
+         <div class="w3-container w3-center">
              <button onclick="var ifr=document.getElementsByName('Periodic')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
+             <a class="w3-btn w3-ripple w3-grey w3-hover-text-white" href="https://jcponce.github.io/calculus/velfields/periodic/periodic.js"><i class="fas fa-code"></i> Code</a>
          </div>
      </div>
      
@@ -133,16 +132,27 @@
      
      </br>
      
-     <li>To add</li>
+     <li>First, defined the functions $f,g$ and $h$ as follows:
+         <div class="w3-responsive">
+             \begin{eqnarray*}
+             f(x,t)&amp;=&amp;\pi (0.25\sin(2\pi / 10 t) x^2 + (1 - 2 (0.25) \sin(2\pi / 10 t)) x),\\
+             g(x,t)&amp;=&amp;\pi (0.25\sin(2\pi / 10 t) x^2 + (1 - 2 (0.25) \sin(2\pi / 10 t)) x),\\
+             h(x,t)&amp;=&amp;2 (0.25) \sin(2\pi / 10 t) x + 1 - 2 (0.25) \sin(2\pi / 10 t).
+             \end{eqnarray*}
+         </div><br/>
+         Thus the velocity field is defined as
+         <div class="w3-responsive">$$\mathbf v = -\pi 0.5 \sin(g(x,t)) \cos(\pi y)\,\mathbf i + \pi 0.5 \cos(g(x,t)) \sin(\pi y) h(x,t)\,\mathbf j.$$
+         </div>
+     </li>
      
      </br>
      
-     <div class="w3-hide-small">
+     <div class="w3-hide-small w3-center">
          <iframe  name="Gyro" src="https://jcponce.github.io/calculus/velfields/qdgyro/index.html" width="500px" height="500px" style="border:none;"></iframe>
          
-         <div class="w3-container">
+         <div class="w3-container w3-center">
              <button onclick="var ifr=document.getElementsByName('Gyro')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
-             
+             <a class="w3-btn w3-ripple w3-grey w3-hover-text-white" href="https://jcponce.github.io/calculus/qdgyro/qdgyro.js"><i class="fas fa-code"></i> Code</a>
          </div>
      </div>
      
