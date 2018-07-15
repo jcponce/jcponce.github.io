@@ -1,4 +1,4 @@
-let max = 200;
+let max = 70;
 let particles = [];
 
 function setup() {
