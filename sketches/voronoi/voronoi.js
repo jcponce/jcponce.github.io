@@ -26,7 +26,7 @@ class Particle {
     constructor() {
         this.x = random(0, width);
         this.y = random(0, height);
-        this.r = 300;
+        this.r = 250;
         this.R = random(0, 255);
         this.G = random(0, 255);
         this.B = random(0, 255);
