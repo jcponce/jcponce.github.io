@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>3d Curves</title>
+<meta charset="UTF-8">
+<meta name="description" content="3d Curves">
+<meta name="author" content="Juan Carlos Ponce Campuzano">
+<meta name="language" content="en"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../assets/img/png/icon/infinity32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/img/png/icon/infinity16.png" sizes="16x16">
+                        
+<!--Style Stars-->
+
+<link rel="stylesheet" href="../assets/style/w3.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    
+    <style>
+        .center {
+            margin-left:auto;
+            margin-right:auto;
+            max-width:930px;
+        }
+    </style>
+    
+<!--Style ends-->
+                                    
+<!--MathJax starts-->
+      <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+            });
+       </script>
+       <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+       </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+         MathJax.Hub.Config({
+               displayAlign: "left",
+               displayIndent: "5em"
+               });
+</script>--->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<!--MathJax Ends-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-121691678-1');
+    </script>
+
+    </head>
+    <body>
+        
+        <!-- Navbar Stars-->
+        <div class="w3-top">
+            <div class="w3-bar w3-black w3-top w3-left-align">
+                <a href="../" class="w3-bar-item w3-button w3-hover-indigo"> <i class="fa fa-arrow-left"></i> <i class="fa fa-home"></i></a>
+                <a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-indigo serif">3d Curves</a>
+            </div>
+        </div>
+        <!-- Navbar Ends-->
+
+<!-- Main content Stars-->
+<div class="w3-main center" style="margin-top:45px">
+    
+    <div class="w3-container">
+     <h1>3d Curves</h1>
+     <hr>
+     <p>
+     For the 3d enviroment I used the <a href="https://diwi.github.io/p5.EasyCam/">p5.EasyCam</a> library developed by <a href="http://thomasdiewald.com">Thomas Diewald</a>. For the controls I used the  <a href="https://github.com/dataarts/dat.gui">dat.GUI</a> library.</p>
+     
+     
+     <hr>
+     <p><i class="fas fa-code"></i> <a href="https://jcponce.github.io/calculus/3d-curves/knotTorus/knotTorus.js">Code</a></p>
+     <p><i class="fas fa-info"></i> Press mouse and drag to change 3d view.</p>
+     
+     <hr>
+</div>
+
+<div class="w3-container">
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding">
+        <div class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/calculus/3d-curves/knotTorus"><img src="img/torusknot.png" alt="Thomas" style="width:100%" class="w3-hover-opacity"></a>
+            <div class="w3-container w3-white">
+                <p><b>Torus knot</b></p>
+                <p>Parameters:</p>
+                <div class="w3-center">
+                <p>$p, q$</p>
+                </div>
+                <p>Parametric equation:</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                x(t)&amp;=&amp;\cos(q t) \cos (p t)\\
+                y(t)&amp;=&amp;\cos(q t) \sin (p t)\\
+                z(t)&amp;=&amp;\sin (q t)
+                \end{eqnarray*}\right.
+                $$</p>
+            </div>
+        </div>
+        <div class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/calculus/3d-curves/knots"><img src="img/knots.png" alt="Aizawa" style="width:100%" class="w3-hover-opacity"></a>
+            <div class="w3-container w3-white">
+                <p><b>Knots</b></p>
+                <p>Parameters:</p>
+                <div class="w3-center">
+                    <p>$a, b, c, d, e, f$</p>
+                </div>
+                <p>Parametric equation:</p>
+                <p> \begin{eqnarray*}
+                \phi(t)&amp;=&amp;c \pi \sin (d t)\\
+                r(t)&amp;=&amp;f+a\sin(6t+e)\\
+                \theta(t)&amp;=&amp;bt
+                \end{eqnarray*}</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                x(t)&amp;=&amp;r(t)\cos(\phi (t)) \cos (\theta(t))\\
+                y(t)&amp;=&amp;r(t)\cos(\phi (t)) \sin (\theta(t))\\
+                z(t)&amp;=&amp;\sin (\phi (t))
+                \end{eqnarray*}\right.
+                $$</p>
+            </div>
+        </div>
+        
+    </div>
+    
+        
+    </div>
+
+</div>
+<!-- END MAIN -->
+
+<!--Footer-->
+
+    <div class="w3-container w3-dark-grey w3=padding-24">
+        <p></p>
+    </div>
+
+<!--Footer-->
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
