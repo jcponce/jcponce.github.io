@@ -69,5 +69,6 @@ function controls(){
     button = createButton('Update');
     button.position(inpIm.x + inpIm.width+90, imgText.y+25);
     button.style('font-size', '16px');
+    button.style('cursor', 'pointer');
     button.mousePressed(redraw);
 }
