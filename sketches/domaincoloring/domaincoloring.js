@@ -1,52 +1,25 @@
-let lim = 2.5;
+let lim, button;
 
-let realInput;
-let imaginaryInput;
-let button;
+let realText, imgText, boxText;
 
-let inpRe;
-let inpIm;
-
+let inpRe, inpIm, inpLim;
 
 function setup() {
-    createCanvas(500, 500);
-    
-    noLoop();
-    
+    createCanvas(400, 400);
     colorMode(HSB, 360, 100, 100);
-    
-    inpRe = createInput();
-    inpIm = createInput();
-    inpRe.value('x');
-    inpIm.value('y');
-    inpRe.style('font-size', '20px');
-    inpIm.style('font-size', '20px');
-    
-    inpRe.position(60, 510);
-    inpIm.position(60, 550);
-    
-    realImput = createElement('h2', 'Re:');
-    realImput.position(20, 490);
-    
-    imaginaryImput = createElement('h2', 'Im:');
-    imaginaryImput.position(20, 530);
-    
-    button = createButton('Submit');
-    button.position(inpIm.x + inpIm.width+70, imaginaryImput.y);
-    button.style('font-size', '16px');
-    button.mousePressed(colorDomain);
-    
-    
+    background(0);
+    controls();
+    noLoop();
 }
 
-function colorDomain() {
+function draw() {
     
     loadPixels();
     
     for (let xp = 0; xp < width; xp++) {
         for (let yp = 0; yp < height; yp++) {
             let x, y;
-            
+            lim = inpLim.value();
             x = map(xp, 0, width, -lim, lim);
             y = map(yp, height, 0, -lim, lim);
             
@@ -59,18 +32,42 @@ function colorDomain() {
             
             z = new p5.Vector(z.x + nextz.x, z.y + nextz.y);
             
-            let h = map(atan2(-z.y, -z.x), -PI, PI, 0, 360);
-            let s = sqrt(abs( 3*sin( 2* PI * (log(sqrt( z.x*z.x + z.y*z.y ))/log(2) - floor( log(sqrt( z.x*z.x + z.y*z.y ))/log(2) )) )));
-            let s2 = map(s, 0, 1, 0, 100);
-            let b = sqrt(sqrt(abs( sin(2 * PI * z.y) * sin(2 * PI * z.x) )));
-            let b2 = 0.5 * ((1 - s) + b + sqrt((1 - s - b) * (1 - s - b) + 0.01));
-            let b3 = map(b2, 0, 1, 0, 100);
+            let h = map(atan2(-z.y, -z.x), -PI, PI, 0, 360) ;
+            let b = max(map(log(5*sqrt(z.x*z.x + z.y*z.y))/log(1.5) - floor(log(5*sqrt(z.x*z.x + z.y*z.y))/log(1.5))+0.1, 0,5, 100, 0), 0);
             
-            set(xp, yp, color(h, s2, b3));
-            
+            set(xp, yp, color(h, 100, b));
         }
     }
-    
     updatePixels();
+}
+
+function controls(){
+    inpRe = createInput();
+    inpIm = createInput();
+    inpRe.value('x');
+    inpIm.value('y');
+    inpRe.style('font-size', '20px');
+    inpIm.style('font-size', '20px');
+    inpRe.position(50, 410);
+    inpIm.position(50, 450);
     
+    inpLim = createInput();
+    inpLim.value('2.5');
+    inpLim.style('font-size', '20px');
+    inpLim.style('width', '60px');
+    inpLim.position(305, 410)
+    
+    realText = createElement('h2', 'Re:');
+    realText.position(10, 390);
+    
+    imgText = createElement('h2', 'Im:');
+    imgText.position(10, 430);
+    
+    boxText = createElement('h2', 'Box:');
+    boxText.position(255, 390);
+    
+    button = createButton('Update');
+    button.position(inpIm.x + inpIm.width+90, imgText.y+25);
+    button.style('font-size', '16px');
+    button.mousePressed(redraw);
 }

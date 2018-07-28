@@ -15,6 +15,10 @@
 <link rel="stylesheet" href="../assets/style/w3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="../assets/style/loading.css"><!--this adds a loading spinner-->
+        <!--Style ends-->
+<script src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
+
     
 <style>
 .center {
@@ -22,6 +26,7 @@
     margin-right:auto;
     max-width:900px;
 }
+hr{border-width: 2px;}
 </style>
     
 <!--Style ends-->
@@ -58,14 +63,14 @@
     </head>
     <body>
         
-        <!-- Navbar Stars-->
-        <div class="w3-top">
-            <div class="w3-bar w3-black w3-top w3-left-align">
-                <a href="../" class="w3-bar-item w3-button w3-hover-indigo"> <i class="fa fa-arrow-left"></i> <i class="fa fa-home"></i></a>
-                <a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-indigo serif">Domain coloring</a>
-            </div>
-        </div>
-        <!-- Navbar Ends-->
+<!-- Navbar Stars-->
+<div class="w3-top">
+<div class="w3-bar w3-black w3-top w3-left-align">
+<a href="../" class="w3-bar-item w3-button w3-hover-indigo"> <i class="fa fa-arrow-left"></i> <i class="fa fa-home"></i></a>
+<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-indigo serif">Domain coloring</a>
+</div>
+</div>
+<!-- Navbar Ends-->
 
 <!-- Main content Stars-->
 <div class="w3-main center" style="margin-top:45px">
@@ -74,76 +79,60 @@
      <h1>Domain coloring</h1>
      <hr>
      <p>
-     Coming soon!
+     The sketch below plots the enhanced phase portrait of a complex function $f(z)$ with modulus contour lines. The HSB color scheme is used with the following equations:
+     \begin{eqnarray*}
+     H&amp;=&amp;\text{atan2}(y, x),\\
+     S&amp;=&amp;100,\\
+     B&amp;=&amp;\log_{1.5}\left(5 \sqrt{x^2+y^2}\right)-\text{floor}\left(\log_{1.5}\left(5 \sqrt{x^2+y^2}\right)\right)+0.1
+     \end{eqnarray*}
+     where $x,y$ are the real and imaginary components, respectively.
      </p>
      
-     <p><a href="dcgallery.html" class="w3-bar-item w3-button w3-grey w3-hover-indigo"> Gallery</a></p>
+     <p>Visit the <a href="dcgallery.html" class="w3-bar-item w3-button w3-grey w3-hover-indigo">Gallery</a> showing different color schemes and alternative representations.</p>
      <hr>
 </div>
     
 <div class="w3-container w3-padding-16">
+    <h2>Complex Functions Plotter</h2>
+    <p>Things to try:
+    <ul>
+        <li>Change the real and imaginary components. <br/>
+            <br/>
+            <b>Example 1:</b> $f(z)=z^3-1$<br/>
+            <b>Re:</b> pow(x, 3)-3*x*y*y-1<br/>
+            <b>Im:</b>  3*x*x*y - pow(y, 3)<br/>
+            <br/>
+            <b>Example 2:</b> $f(z)=\log(z)$<br/>
+            <b>Re:</b> log(sqrt(x*x + y*y))<br/>
+            <b>Im:</b> atan2(y, x)<br/>
+            <br/>
+            <b>Example 3:</b> $f(z)=\sin(z)$<br/>
+            <b>Re:</b> sin(x)*( ( exp(y) + exp(-y) ) / 2 )<br/>
+            <b>Im:</b> cos(x)*( ( exp(y) - exp(-y) ) / 2 )<br/>
+            <br/>
+        Go to <a class="w3-hover-text-blue" href="https://p5js.org/reference/#group-Math">p5.js reference</a> to see the functions that are admitted.</li>
+        <li>The function is plot by default in the set given by $|\textbf{Re}z|\leq 2.5$, $|\textbf{Im}z|\leq 2.5$. To change this set enter a <b>positive</b> number in the input <b>Box</b>. </li>
+        <li>Click the button <b>Update</b> after every change to plot a new function.</li>
+    </ul>
+    </p>
     
     <div class="w3-center">
-        <iframe name="domaincolor" src="../sketches/domaincoloring/index.html"  frameBorder="1px" scrolling="no" width="500" height="600"></iframe>
+        <iframe name="domaincolor" src="../sketches/domaincoloring/index.html"  style="border:1px solid lightgrey;" scrolling="no" width="400" height="500"></iframe>
     </div>
     <div class="w3-center w3-padding-16">
         <button onclick="var ifr=document.getElementsByName('domaincolor')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
         
         <a href="../sketches/domaincoloring/domaincoloring.js" class="w3-btn w3-ripple w3-grey w3-hover-text-white"><i class="fas fa-code"></i> Code</a>
     </div>
-    <!-- First Photo Grid
-    <div class="w3-row-padding">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="mappings/inversion.html"><img src="img/inversion.png" alt="Inversion" style="width:100%" class="w3-hover-opacity"></a>
-            <div class="w3-container w3-white">
-                <p><b>Inversion</b></p>
-     
-            </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="mappings/expz.html"><img src="img/expz.png" alt="Exponential" style="width:100%" class="w3-hover-opacity"></a>
-            <div class="w3-container w3-white">
-                <p><b>Exponential</b></p>
-            </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="mappings/logz.html"><img src="img/logz.png" alt="Logarithm" style="width:100%" class="w3-hover-opacity"></a>
-            <div class="w3-container w3-white">
-                <p><b>Logarithm</b></p>
-            </div>
-        </div>
-     
-    </div>-->
-    
-    
+   
+   
+    <hr>
 
 </div>
 
 <div class="w3-container">
-    <!-- First Photo Grid
-    <div class="w3-row-padding">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="mappings/inversion.html"><img src="img/inversion.png" alt="Inversion" style="width:100%" class="w3-hover-opacity"></a>
-            <div class="w3-container w3-white">
-                <p><b>Inversion</b></p>
-                
-            </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="mappings/expz.html"><img src="img/expz.png" alt="Exponential" style="width:100%" class="w3-hover-opacity"></a>
-            <div class="w3-container w3-white">
-                <p><b>Exponential</b></p>
-            </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <a href="mappings/logz.html"><img src="img/logz.png" alt="Logarithm" style="width:100%" class="w3-hover-opacity"></a>
-            <div class="w3-container w3-white">
-                <p><b>Logarithm</b></p>
-            </div>
-        </div>
-        
-    </div>-->
-    
+   <h2>Reference</h2>
+    <p>Wegert, E. (2012). <i>Visual Complex Functions: An introduction with phase portraits.</i> New York: Springer Basel. </p>
     
 
 </div>
@@ -160,7 +149,16 @@
 
 <!--Footer-->
 
-
+<script language="javascript" type="text/javascript">
+    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+    $(window).on('load', function(){
+                 setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+                 });
+    function removeLoader(){$( "#loadingDiv" ).fadeOut(500, function() {// fadeOut complete. Remove the loading div
+        $( "#loadingDiv" ).remove(); //makes page more lightweight
+         });
+       }
+</script>
 
 
 </body>
