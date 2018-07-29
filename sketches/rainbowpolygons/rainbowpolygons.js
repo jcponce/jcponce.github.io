@@ -1,3 +1,9 @@
+/* Written in p5.js (https://p5js.org/)
+ * Under Creative Commons License
+ * https://creativecommons.org/licenses/by-sa/4.0/
+ * Writen by Juan Carlos Ponce Campuzano, 19-June-2018
+ */
+
 let color = 360;
 let splatter = 40;
 let paint = false;
