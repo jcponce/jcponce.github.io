@@ -1,18 +1,13 @@
 let color = 360;
 let splatter = 40;
-let WIDTH = 810;
-let HEIGHT = 560;
 let paint = false;
 let beating = 0;
 let speed;
-let clear = false;
-
 
 function setup() {
+    
     createCanvas(windowWidth, windowHeight);
     background(255);
-    
-    //noStroke();
     colorMode(HSB);
     rectMode(CENTER);
 }
@@ -40,7 +35,7 @@ function draw() {
     let xh = random(-splatter, splatter);
     let yh = random(-splatter, splatter);
     
-    var x = new regularPolygon(xh + mouseX, yh + mouseY);
+    let x = new regularPolygon(xh + mouseX, yh + mouseY);
     if(mouseIsPressed){
         x.display();
         speed = 30;
@@ -141,17 +136,17 @@ function robot(){
 function eye(spec,xpos,ypos,size,sens){
 name: spec;
     
-    var xDis = width-xpos+size;
-    var yDis = height-ypos+size;
+    let xDis = width-xpos+size;
+    let yDis = height-ypos+size;
     //print(xpos-size);
-    //var d = dist(xpos, ypos, mouseX, mouseY);
-    var upXpos= map(mouseX,-size,width+size,-(size*sens),width+size);
-    var upYpos= map(mouseY,-size,height+size,-(size*0.5*sens),height+(size*0.5));
+    //let d = dist(xpos, ypos, mouseX, mouseY);
+    let upXpos= map(mouseX,-size,width+size,-(size*sens),width+size);
+    let upYpos= map(mouseY,-size,height+size,-(size*0.5*sens),height+(size*0.5));
     
     
     //How do you creat a circular constraint area??
-    var pubXpos= constrain(upXpos, xpos-(size/4),xpos+(size/4));
-    var pubYpos= constrain(upYpos, ypos-(size/4),ypos+(size/4));
+    let pubXpos= constrain(upXpos, xpos-(size/4),xpos+(size/4));
+    let pubYpos= constrain(upYpos, ypos-(size/4),ypos+(size/4));
     
     noStroke();
     fill(255);
