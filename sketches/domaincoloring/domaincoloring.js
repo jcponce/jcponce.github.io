@@ -46,14 +46,16 @@ function controls(){
     inpIm = createInput();
     inpRe.value('x');
     inpIm.value('y');
-    inpRe.style('font-size', '20px');
-    inpIm.style('font-size', '20px');
+    inpRe.style('font-size', '16px');
+    inpRe.style('width', '150px');
+    inpIm.style('font-size', '16px');
+    inpIm.style('width', '150px');
     inpRe.position(50, 410);
     inpIm.position(50, 450);
     
     inpLim = createInput();
     inpLim.value('2.5');
-    inpLim.style('font-size', '20px');
+    inpLim.style('font-size', '16px');
     inpLim.style('width', '60px');
     inpLim.position(305, 410)
     
@@ -67,7 +69,7 @@ function controls(){
     boxText.position(255, 390);
     
     button = createButton('Update');
-    button.position(inpIm.x + inpIm.width+90, imgText.y+25);
+    button.position(inpIm.x + inpIm.width+70, imgText.y+25);
     button.style('font-size', '16px');
     button.style('cursor', 'pointer');
     button.mousePressed(redraw);
