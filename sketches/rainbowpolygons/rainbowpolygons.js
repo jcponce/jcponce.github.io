@@ -36,7 +36,7 @@ function draw() {
     let yh = random(-splatter, splatter);
     
     let x = new regularPolygon(xh + mouseX, yh + mouseY);
-    if(mouseIsPressed){
+    if(paint==true){
         x.display();
         speed = 30;
     }else speed = 10;
