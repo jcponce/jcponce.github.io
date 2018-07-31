@@ -48,7 +48,15 @@
   </style>
 </head>
 
-<body>
+<script>
+var fixed = document.getElementById('fixed');
+    
+fixed.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+}, false);
+</script>
+
+<body id="fixed">
 <!-- Navbar Stars-->
 <div class="w3-container w3-black w3-xlarge sticky w3-text-black">
 <div class="w3-display-topmiddle">
