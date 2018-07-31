@@ -16,11 +16,13 @@ attackTime : 0.01,
 decayTime : 0.1,
 susPercent : 0.5,
 releaseTime : 0.5,
-Preset : function(){
+PresetValues : function(){
     this.attackTime = 0.01;
     this.decayTime = 0.1;
     this.susPercent = 0.5;
-    this.releaseTime = 0.5; },
+    this.releaseTime = 0.5;
+    updateScketch();
+},
 ApplyChanges: updateScketch,
 Reset : resetC,
 };
@@ -88,12 +90,12 @@ function setup() {
     gui.add(parDef, 'Sequence');
     //gui.add(parDef, 'attackLevel'  , 0, 5 , 1 ).listen();
     //gui.add(parDef, 'releaseLevel'  , 0, 5 , 1 ).listen();
-    gui.add(parDef, 'attackTime'  , 0, 2 , 0.01).listen();
-    gui.add(parDef, 'decayTime'  , 0, 2 , 0.01 ).listen();
-    gui.add(parDef, 'susPercent'  , 0, 2 , 0.01 ).listen();
-    gui.add(parDef, 'releaseTime'  , 0, 2 , 0.01 ).listen();
-    gui.add(parDef, 'Preset');
+    gui.add(parDef, 'attackTime'  , 0, 0.07 , 0.001).listen();
+    gui.add(parDef, 'decayTime'  , 0, 1 , 0.001 ).listen();
+    gui.add(parDef, 'susPercent'  , 0, 1 , 0.001 ).listen();
+    gui.add(parDef, 'releaseTime'  , 0, 1 , 0.001 ).listen();
     gui.add(parDef, 'ApplyChanges');
+    gui.add(parDef, 'PresetValues');
     gui.add(parDef, 'Reset');
     gui.add(this, 'backHome').name("Go Back Home");
     gui.close();
@@ -112,7 +114,7 @@ function updateScketch(){
     env.setRange(parDef.attackLevel, parDef.releaseLevel);
     
     osc = new p5.Oscillator();
-    osc.setType('sine');
+    osc.setType('triangle');
     osc.amp(env);
     osc.start();
     
