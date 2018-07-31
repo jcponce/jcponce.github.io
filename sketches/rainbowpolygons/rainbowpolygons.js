@@ -20,7 +20,7 @@ function setup() {
 
 
 function draw() {
-    
+    cursor(HAND);
     robot();
     
     if(color >= 355) {
