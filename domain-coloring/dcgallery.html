@@ -9,7 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="../assets/img/png/icon/infinity32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="../assets/img/png/icon/infinity16.png" sizes="16x16">
-                        
+<link rel="stylesheet" href="../assets/style/loadingrainbow.css"><!--this adds a loading spinner-->
+<script rel="stylesheet" src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
 <!--Style Stars-->
 <style>
     /*body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}/*/
@@ -416,6 +417,17 @@ function onClick(element) {
 }
 
     </script>
+
+<script language="javascript" type="text/javascript">
+    $('body').append('<div style="" id="loadingDiv"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div>');
+    $(window).on('load', function(){
+                 setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+                 });
+    function removeLoader(){$( "#loadingDiv" ).fadeOut(500, function() {// fadeOut complete. Remove the loading div
+        $( "#loadingDiv" ).remove(); //makes page more lightweight
+         });
+       }
+</script>
 
 </body>
 </html>
