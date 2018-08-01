@@ -15,9 +15,10 @@
 <link rel="stylesheet" href="../assets/style/w3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="../assets/style/loading.css"><!--this adds a loading spinner-->
-        <!--Style ends-->
-<script src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
+
+<link rel="stylesheet" href="../assets/style/loadingrainbow.css"><!--this adds a loading spinner-->
+    
+<script rel="stylesheet" src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
 
 <style>
 .center {
@@ -152,7 +153,7 @@ hr{border-width: 2px;}
 <!--Footer-->
 
 <script language="javascript" type="text/javascript">
-    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+    $('body').append('<div style="" id="loadingDiv"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div>');
     $(window).on('load', function(){
                  setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
                  });
@@ -161,6 +162,7 @@ hr{border-width: 2px;}
          });
        }
 </script>
+
 
 
 </body>
