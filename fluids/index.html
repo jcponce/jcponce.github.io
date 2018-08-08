@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Fluid Simulation (with WebGL demo)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stylesheets/screen.css" />
+  <link rel="stylesheet" href="stylesheets/pygments.css" />
+  <link href='//fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto+Condensed|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Fluid Simulation (with WebGL demo)" />
+    <meta name="twitter:title" content="Fluid Simulation (with WebGL demo)" />
+    
+  
+</head>
+
+<body lang="en" >
+  <div id="main">
+   <article>
+   <h1 class="title">Fluid Simulation (with WebGL demo)</h1>
+   
+       
+       <figure>
+           <canvas id="demo" width="600" height="600"></canvas>
+           <figcaption>Click and drag to change the fluid flow. Double click to
+               reset.</figcaption>
+       </figure>
+       
+       
+       <p><em>Note: The demos in this post rely on WebGL features that might not be
+           implemented in mobile browsers.</em></p>
+       
+       <p>About a year and a half ago, I had a passing interest in trying to figure out
+how to make a fluid simulation. At the time, it felt just a bit out of my reach,
+requiring knowledge of shaders, vector calculus, and numerical computation that
+were all just a little bit past my grasp. At the time, I was working through the
+<a href="https://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf">Fluid Simulation Course Notes from SIGGRAPH 2007</a>, and was struggling with
+the math. Now armed with a bit more knowledge and a lot more time, and with the
+help of other less dense resources like <a href="http://developer.download.nvidia.com/books/HTML/gpugems/gpugems_ch38.html">GPU Gems Chapter 38.  Fast Fluid
+Dynamics Simulation on the GPU</a>, I was finally able to figure out enough to
+get something working. I am still a beginner at simulations like this, and I&rsquo;m
+going to brazenly ignore things like numerical stability, but hopefully I can
+help leapfrog you past a few places I got stuck.</p>
+
+<p>We&rsquo;re going to work with the simplest 2D fluid simulation, where the entire area
+is full of fluid, and we&rsquo;re going to ignore viscosity.</p>
+
+<p><nav id="TableOfContents">
+<ul>
+<li><a href="#the-velocity-field">The Velocity Field</a></li>
+<li><a href="#advection">Advection</a></li>
+<li><a href="#advecting-the-velocity-field">Advecting the Velocity Field</a></li>
+<li><a href="#divergent-fields">Divergent Fields</a></li>
+<li><a href="#navier-stokes">Navier-Stokes</a></li>
+<li><a href="#solving-for-pressure">Solving for Pressure</a></li>
+<li><a href="#iteratively-solving-the-pressure-equation">Iteratively Solving the Pressure Equation</a></li>
+<li><a href="#all-together-now">All Together Now!</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</nav></p>
+
+<h1 id="the-velocity-field">The Velocity Field</h1>
+
+<p>As compared to a rigid, unrotating solid, where every bit of the thing has to be
+moving in the same direction at the same speed, each bit of a fluid might be
+moving differently. One way to model this is to use a vector field representing
+velocity. For any given \( (x, y) \) coordinate, this field will tell you the
+velocity of the fluid at that point.</p>
+
+<p>$$
+\vec u(x, y) = (u_x, u_y)
+$$</p>
+
+<p>A nice way to get an intuition about what a given field looks like is to sample
+the function in a grid of points, then draw arrows starting at each grid point
+whose size and orientation are dictated by the value of the function at that
+point.
+For the purposes of this post, we&rsquo;re always going to be working over the domain
+\( x \in [-1, 1] \), \( y \in [-1, 1] \).</p>
+
+<p>For instance, here&rsquo;s a very simple field \( \vec u(x, y) = (1, 0) \)
+representing everything moving at a constant speed to the right.</p>
+
+<p><img src="images/vecfield1.png"></p>
+
+<p>And here&rsquo;s a more interesting one \( \vec u(x, y) = (x, y) \) where things
+move away from the origin, increasing in speed the farther away from the origin
+they are.</p>
+
+<p><img src="images/vecfield2.png"></p>
+
+<p>We&rsquo;re going to play with this one,
+\( \vec u(x, y) = \left( \sin (2 \pi y), \sin (2 \pi x) \right) \), since it
+creates some interesting visual results once we start making the fluid move
+accordingly.</p>
+
+<p><img src="images/vecfield3.png"></p>
+
+<p>For a more thorough introduction to vector fields, check out the <a href="https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/visualizing-vector-valued-functions/v/vector-fields-introduction">Introduction
+to Vector Fields</a> video on Khan Academy. The rest of the videos on
+multivariate calculus might prove useful for understanding concepts in fluid
+flow too.</p>
+
+<p>Now then, let&rsquo;s get things moving.</p>
+
+<h1 id="advection">Advection</h1>
+
+<p>Advection is the transfer of a property from one place to another due to the
+motion of the fluid. If you&rsquo;ve got some black dye in some water, and the water
+is moving to the right, then surprise surprise, the black dye moves right.</p>
+
+<canvas id="advection1" width="400" height="400"></canvas>
+
+<p>If the fluid is moving in a more complex manner, that black dye will get pulled
+through the liquid in a more complex manner.</p>
+
+<canvas id="advection2" width="400" height="400"></canvas>
+
+<p>Before we dive into how advection works, we need to talk a bit about the format
+of the data underlying these simulations.</p>
+
+<p>The simulation consist of two fields: color and velocity. Each field is
+represented by a two dimensional grid. For simplicity, we use the same
+dimensions as the output pixel grid.</p>
+
+<p>Previously, I described the velocity field as an analytical function \( \vec
+u(x, y) \). In practice, that analytical function is only used to initialize
+the grid values.</p>
+
+<p>The simulation runs by stepping forward bit-by-bit in time, with the state of
+the color and velocity grids depending only on the state of the color and
+velocity grids from the previous time step. We&rsquo;ll use \( \vec u(\vec p, t) \)
+to represent the velocity grid at 2d position \( \vec p \) and time \( t \),
+and \( \vec c(\vec p, t) \) to represent the color in the same manner.</p>
+
+<p>So how do we move forward in time? Let&rsquo;s just talk about how the color field
+changes for now. If we consider each grid point as a little particle in the
+fluid, then one approach is to update the color of the fluid where that particle
+will be, one time step in the future.</p>
+
+<div>$$
+\vec c(\vec p + \vec u(\vec p, t) \Delta t, t + \Delta t) := \vec c(\vec p, t)
+$$</div>
+
+<p><img src="images/advection1.png"></p>
+
+<p>In order to run these simulations in real-time at high resolution, we want to
+implement them on the GPU. It turns out that this method of updating the value
+at the new location of the particle is difficult to implement on the GPU.</p>
+
+<p>First, the position we want to write, \( \vec p + \vec u(\vec p, t) \Delta t
+\) might not lie on a grid point, so we&rsquo;d have to distribute the impact of the
+write across the surrounding grid points. Second, many of our imaginary
+particles might end up in the same place, meaning we need to analyze the entire
+grid before we decide what the new values of each grid point might be.</p>
+
+<p>So, instead of figuring out where our imaginary particles at the grid points <em>go
+to</em>, we&rsquo;ll figure out where they <em>came from</em> in order to calculate the next time
+step.</p>
+
+<div>$$
+\vec c(\vec p, t + \Delta t) := \vec c(\vec p - \vec u(\vec p) \Delta t, t)
+$$</div>
+
+<p><img src="images/advection2.png"></p>
+
+<p>With this scheme, we only need to write to a single grid point, and we don&rsquo;t
+need to consider the contributions of imaginary particles coming from multiple
+different places.</p>
+
+<p>The last teensy hurdle is figuring out the value of \( \vec c(\vec p - \vec
+u(\vec p, t) \Delta t, t ) \), since \( \vec p - \vec u(\vec p, t) \) might
+not be at a grid point. We can hop this hurdle using <a href="https://en.wikipedia.org/wiki/Bilinear_interpolation">bilinear interpolation</a>
+on the surrounding 4 grid points (the ones linked by the dashed grey rectangle
+above).</p>
+
+<h1 id="advecting-the-velocity-field">Advecting the Velocity Field</h1>
+
+<p>Barring a bizarre sequence of perfectly aligned fans underneath the liquid,
+there&rsquo;s no reason why the velocity field wouldn&rsquo;t change over time. Just as
+black ink would move through the fluid, so too will the velocity field itself!
+Just as we can <em>advect</em> \( \vec c \) through \( \vec u \), we can also
+<em>advect</em> \( \vec u \) through itself!</p>
+
+<p>Intuitively you can think of it this way: a particle moving in a certain
+direction will continue moving in that direction, even after it&rsquo;s moved.</p>
+
+<p>Since we&rsquo;re storing velocity in a grid just like we did with color, we can use
+the exact same routine to advect velocity through itself. Below, watch the
+velocity change over time, with an initial velocity field of \( \vec u = (1,
+\sin(2 \pi y)) \).</p>
+
+<figure>
+<canvas id="advectV1" width="400" height="400"></canvas>
+<figcaption>See how the changes you make by dragging propagate through space via
+advection.</figcaption>
+</figure>
+
+<p>If you tried playing around with this, and saw a bunch of weird hard edges and
+might&rsquo;ve thought to yourself &ldquo;I don&rsquo;t think fluids work like that&hellip;&rdquo;, you&rsquo;d be
+right. We&rsquo;re missing an important ingredient, but before we look at the
+solution, let&rsquo;s take a closer look at the problem.</p>
+
+<h1 id="divergent-fields">Divergent Fields</h1>
+
+<p>Something about the velocity field below makes this intuitively not feel like a
+fluid.  Fluids just don&rsquo;t <em>behave</em> like this.</p>
+
+<canvas id="divergent1" width="400" height="400"></canvas>
+
+<p>Same problem with this one&hellip;</p>
+
+<canvas id="divergent2" width="400" height="400"></canvas>
+
+<p>If you look at where the arrows are pointing in each of the above 2 simulations,
+you&rsquo;ll see that there are spots where the all the arrows point away from that
+spot, and others where all the arrows point toward that spot.  Assuming the
+volume of the liquid is staying constant, the density of the fluid has to be
+changing for such a velocity field to be possible.</p>
+
+<p>Water is roughly incompressible. That means that at every spot, you have to have
+the same amount of fluid entering that spot as leaving it.</p>
+
+<p>Mathematically, we can represent this fact by saying a field is
+<em>divergence-free</em>. The divergence of a velocity field \( \vec u \), indicated
+with \( div(\vec u) \) or \( \nabla \cdot \vec u \), is a measure of how
+much net stuff is entering or leaving a given spot in the field. For our 2D
+velocity field, it&rsquo;s defined like this:</p>
+
+<div>$$\begin{aligned}
+\nabla \cdot \vec u &=
+    \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y} \right)
+    \cdot
+    \left( u_x, u_y \right) \\
+&= \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y}
+\end{aligned}$$</div>
+
+<p>The first of the two not-very-fluidy fields above has an equation \( \vec u(x,
+y) = (x, y) \). Taking the divergence, we find:</p>
+
+<div>$$\begin{aligned}
+\nabla \cdot \vec u &=
+    \frac{\partial}{\partial x}(x) + \frac{\partial}{\partial y}(y) \\
+&= 1 + 1 \\
+&= 2
+\end{aligned}$$</div>
+
+<p>This positive value tells us that, in all places, more stuff is leaving that
+point than entering it. In physical terms, this means that the density is
+decreasing uniformly everywhere.</p>
+
+<p>The other not-very-fluidy field has an equation \( \vec u(x, y) = \sin(2 \pi
+x), 0) \). If we look at its divergence, we see:</p>
+
+<div>$$\begin{aligned}
+\nabla \cdot \vec u &=
+    \frac{\partial}{\partial x}(\sin(2 \pi x)) + \frac{\partial}{\partial y}(0)
+\\
+&= 2 \pi \cos (2 \pi x)
+\end{aligned}$$</div>
+
+<p>Which tells us that in some places, density is increasing (where \( \nabla
+\cdot \vec u &lt; 0 \)), and in others, density is decreasing (where \( \nabla
+\cdot \vec u &gt; 0 \)).</p>
+
+<p>Doing the same operation on the more fluidy looking swirly velocity field \(
+\vec u = (\sin ( 2 \pi y), \sin ( 2 \pi x ) \) that you saw in the section
+about advection, we discover \( \nabla \cdot \vec u = 0 \).</p>
+
+<p>An incompressible fluid will have a divergence of zero everywhere. So, if we
+want our simulated fluid to look kind of like a real fluid, we better make sure
+it&rsquo;s divergence-free.</p>
+
+<p>Since our velocity field undergoes advection and can be influenced by clicking
+and dragging around the fluid, having an initially divergence-free velocity
+field isn&rsquo;t enough to guarantee that the field will continue to be
+divergence-free. For example, if we take our swirly simulation and start
+advecting the velocity field through itself, we end up with something divergent:</p>
+
+<canvas id="divergent3" width="400" height="400"></canvas>
+
+<p>So we need a way of taking a divergent field and <em>making</em> it divergence-free. To
+understand what force makes that happen in the real world, we need to talk about
+some honest-to-goodness physics.</p>
+
+<h1 id="navier-stokes">Navier-Stokes</h1>
+
+<p>The Navier-Stokes equations describe the motion of fluids. Here are the
+Navier-Stokes equations for incompressible fluid flow:</p>
+
+<div>$$\begin{aligned}
+& \frac{\partial \vec u}{\partial t} =
+    -\vec u \cdot \nabla \vec u
+    -\frac{1}{\rho} \nabla p + \nu \nabla^2 \vec u + \vec F \\
+\\
+& \nabla \cdot \vec u = 0
+\end{aligned}$$</div>
+
+<p>Where \( \vec u \) is the velocity field, \( \rho \) is density, \( p \)
+is pressure,
+\( \nu \) is the kinematic viscosity, and \( \vec F \) is external forces
+acting upon the fluid.</p>
+
+<p>Since we&rsquo;re pretending the viscosity of our fluid is zero, we can drop the \(
+\nu \) term in the first equation. In our simple simulation, external forces
+are only applied by dragging the mouse, so we&rsquo;ll ignore that term for now,
+opting to allow it to influence the velocity field directly.</p>
+
+<p>Dropping those terms, we&rsquo;re left with the following:</p>
+
+<div>$$
+\frac{\partial \vec u}{\partial t} =
+    -\vec u \cdot \nabla \vec u
+    -\frac{1}{\rho} \nabla p
+$$</div>
+
+<p>We can expand this to its partial derivative form, expanding vector components
+to leave us with only scalar variables.</p>
+
+<div>$$\begin{aligned}
+\begin{bmatrix}
+    \frac{\partial u_x}{\partial t} \\
+    \\
+    \frac{\partial u_y}{\partial t}
+\end{bmatrix} &=
+    -
+    \begin{bmatrix}
+        \frac{\partial u_x}{\partial x} & \frac{\partial u_x}{\partial y} \\
+        \\
+        \frac{\partial u_y}{\partial x} & \frac{\partial u_y}{\partial y}
+    \end{bmatrix}
+    \begin{bmatrix}
+        u_x \\
+        \\
+        u_y
+    \end{bmatrix}
+    -
+    \frac{1}{\rho}
+    \begin{bmatrix}
+        \frac{\partial p}{\partial x} \\
+        \\
+        \frac{\partial p}{\partial y}
+    \end{bmatrix}
+    \\
+\begin{bmatrix}
+    \frac{\partial u_x}{\partial t} \\
+    \\
+    \frac{\partial u_y}{\partial t}
+\end{bmatrix} &=
+    \begin{bmatrix}
+        - u_x \frac{\partial u_x}{\partial x}
+        - u_y \frac{\partial u_x}{\partial y}
+        - \frac{1}{\rho} \frac{\partial p}{\partial x} \\
+        \\
+        - u_x \frac{\partial u_y}{\partial x}
+        - u_y \frac{\partial u_y}{\partial y}
+        - \frac{1}{\rho} \frac{\partial p}{\partial y}
+    \end{bmatrix}
+\end{aligned}$$</div>
+
+<p>Remembering that these fields are all functions on \( (x, y, t) \), we can
+approximate the partial derivatives with <a href="https://en.wikipedia.org/wiki/Finite_difference#Forward.2C_backward.2C_and_central_differences">finite differences</a>. For instance,
+we can approximate the partial derivative of \( u_x \) with respect to \( t
+\) like so:</p>
+
+<div>$$
+\frac{\partial u_x}{\partial t} \approx \frac{u_x(x, y, t + \Delta t) - u_x(x,
+y, t)}{\Delta t} $$</div>
+
+<p>Because the procedure ends up being the same for both components, we&rsquo;ll focus on
+only the \( x \) component here. Applying finite differences to all of the
+partial derivatives, we have this:</p>
+
+<div>$$
+\begin{aligned}
+\frac{u_x(x, y, t + \Delta t) - u_x(x, y, t)}{\Delta t} =&
+    -u_x(x, y, t)
+        \frac{u_x(x + \epsilon, y, t) - u_x(x - \epsilon, y, t)}{2 \epsilon}
+    \\
+    &
+    -u_y(x, y, t)
+        \frac{u_x(x, y + \epsilon, t) - u_x(x, y - \epsilon, t)}{2 \epsilon}
+    \\
+    &
+    -\frac{1}{\rho}
+        \frac{p(x + \epsilon, y, t) - p(x - \epsilon, y, t)}{2 \epsilon}
+\end{aligned}
+$$</div>
+
+<p>Ultimately what we want is \( \vec u(x, y, t + \Delta t) \), which will tell
+us, for a given point, what the velocity will be at the next time step. So let&rsquo;s
+solve for that by rearranging the big long formula above:</p>
+
+<div>$$
+\begin{aligned}
+u_x(x, y, t + \Delta t) = &
+    u_x(x, y, t)
+    \\
+    &
+
+    - u_x(x, y, t) \Delta t
+        \frac{u_x(x + \epsilon, y, t) - u_x(x - \epsilon, y, t)}{2 \epsilon}
+    \\
+    &
+    -u_y(x, y, t) \Delta t
+        \frac{u_x(x, y + \epsilon, t) - u_x(x, y - \epsilon, t)}{2 \epsilon}
+    \\
+    &
+    -\frac{1}{\rho} \Delta t
+        \frac{p(x + \epsilon, y, t) - p(x - \epsilon, y, t)}{2 \epsilon}
+\end{aligned}
+$$</div>
+
+<p>If you look at the first three terms in this expression, what does it look like
+they conceptually represent? It looks like they represent the next velocity
+after we&rsquo;ve taken into account changes due to the motion of the fluid itself.
+That sounds an awful like advection as discussed earlier. In fact, it will work
+quite well if we substitute the velocity field after it&rsquo;s undergone advection.
+We&rsquo;ll call the advected velocity field \( \vec u ^ a \). So now we have:</p>
+
+<div>$$
+\begin{aligned}
+u_x(x, y, t + \Delta t) =
+    u^a_x(x, y, t)
+    -\frac{1}{\rho} \Delta t
+        \frac{p(x + \epsilon, y, t) - p(x - \epsilon, y, t)}{2 \epsilon}
+\end{aligned}
+$$</div>
+
+<p>So after all of that, we have an equation that relates the velocity field at the
+next time tick to the current velocity field after it&rsquo;s undergone advection,
+followed by application of pressure.</p>
+
+<p>We know that a divergence-free field that undergoes advection isn&rsquo;t necessarily
+still divergence-free, and yet we know that the Navier-Stokes equations for
+impressible flow represent divergence-free velocity fields, so
+therefore we have our answer about what in nature prevents the velocity field
+from becoming divergent: pressure!</p>
+
+<h1 id="solving-for-pressure">Solving for Pressure</h1>
+
+<p>Now that we have an equation that relates \( \vec u \) to \( p \). This is
+where the math gets messy. We start from the second Navier-Stokes equation for
+incompressible flow, applied at time \( t + \Delta t \), and apply finite
+differences again:</p>
+
+<div>$$
+\begin{aligned}
+\nabla \cdot \vec u & = 0
+\\
+
+\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} & = 0
+\\
+
+\frac{
+    u_x(x + \epsilon, y, t + \Delta t) - u_x(x - \epsilon, y, t + \Delta t)
+}{
+    2 \epsilon
+} +
+\\
+\\
+\frac{
+    u_y(x, y + \epsilon, t + \Delta t) - u_y(x, y - \epsilon, t + \Delta t)
+}{
+    2 \epsilon
+} & = 0
+\end{aligned}
+$$</div>
+
+<p>Here, we can substitute our equations for \( \vec u \) expressed in terms of
+\( \vec u ^ a \) and \( p \) to get this monster:</p>
+
+<div>$$\begin{aligned}
+0 = \frac{1}{2 \epsilon} \left(
+
+    \left(
+    u^a_x(x + \epsilon, y, t)
+    -\frac{1}{\rho} \Delta t
+        \frac{p(x + 2\epsilon, y, t) - p(x, y, t)}{2 \epsilon}
+    \right)
+
+    \right. \\ \left.
+
+    -
+    \left(
+    u^a_x(x - \epsilon, y, t)
+    -\frac{1}{\rho} \Delta t
+        \frac{p(x, y, t) - p(x - 2\epsilon, y, t)}{2 \epsilon}
+    \right)
+
+    \right. \\ \left.
+
+    +
+    \left(
+    u^a_y(x, y + \epsilon, t)
+    -\frac{1}{\rho} \Delta t
+        \frac{p(x, y + 2\epsilon, t) - p(x, y, t)}{2 \epsilon}
+    \right)
+
+    \right. \\ \left.
+
+    -
+    \left(
+    u^a_y(x, y - \epsilon, t)
+    -\frac{1}{\rho} \Delta t
+        \frac{p(x, y, t) - p(x, y - 2\epsilon, t)}{2 \epsilon}
+    \right)
+\right)
+\end{aligned}$$</div>
+
+<p>Rearranging to have all of the \( p \) terms on the left and all the \( \vec
+u ^ a \) terms on the right, and multiplying both sides by \( 2 \epsilon \),
+we have:</p>
+
+<div>$$
+-\frac{\Delta t}{2 \epsilon \rho}
+\left(
+
+\begin{matrix}
+ 4 p(x, y, t) \\
+-p(x + 2 \epsilon, y, t) \\
+-p(x - 2 \epsilon, y, t) \\
+-p(x, y + 2 \epsilon, t) \\
+-p(x, y - 2 \epsilon, t)
+\end{matrix}
+
+\right)
+=
+
+\begin{matrix}
+ u^a_x(x + \epsilon, y, t) \\
+-u^a_x(x - \epsilon, y, t) \\
++u^a_y(x, y + \epsilon, t) \\
+-u^a_y(x, y - \epsilon, t)
+\end{matrix}
+
+$$</div>
+
+<p><em>Note: the above expression is a scalar expression, despite being laid out in a
+somewhat vector-y form.</em></p>
+
+<p>At this point, it&rsquo;s helpful to remember that, for the purposes of the
+simulation, we&rsquo;re not interested in knowing the value of \( p \) everywhere:
+we only care about knowing its value at enough places to calculate the value of
+the velocities at the grid points. To meet that end, we can similarly calculate
+\( p \) on the grid. To accomplish this, we can make \( \epsilon \) the
+distance between adjacent grid cells.</p>
+
+<p>The above equation yields a new equation for every \( (x, y) \) of a grid
+point we substitute. For the purposes of discussion, let&rsquo;s assume that the gap
+between adjacent cells is 0.1 units, so \( \epsilon = 0.1 \). Let&rsquo;s examine
+what the equation yields for \( (x, y) = (0.3, 0.7) \).</p>
+
+<div>$$\begin{aligned}
+-\frac{\Delta t}{2 \epsilon \rho}
+\left(
+
+\begin{matrix}
+ 4 p(0.3, 0.7, t) \\
+-p(0.3 + 2(0.1), 0.7, t) \\
+-p(0.3 - 2(0.1), 0.7, t) \\
+-p(0.3, 0.7 + 2(0.1), t) \\
+-p(0.3, 0.7 - 2(0.1), t)
+\end{matrix}
+
+\right)
+& =
+
+\begin{matrix}
+ u^a_x(0.3 + 0.1, 0.7, t) \\
+-u^a_x(0.3 - 0.1, 0.7, t) \\
++u^a_y(0.3, 0.7 + 0.1, t) \\
+-u^a_y(0.3, 0.7 - 0.1, t)
+\end{matrix}
+
+\\
+
+\frac{\Delta t}{2 \epsilon \rho}
+\left(
+
+\begin{matrix}
+ 4 p(0.3, 0.7, t) \\
+-p(0.5, 0.7, t) \\
+-p(0.1, 0.7, t) \\
+-p(0.3, 0.9, t) \\
+-p(0.3, 0.5, t)
+\end{matrix}
+
+\right)
+& =
+
+\begin{matrix}
+ u^a_x(0.4, 0.7, t) \\
+-u^a_x(0.2, 0.7, t) \\
++u^a_y(0.3, 0.8, t) \\
+-u^a_y(0.3, 0.6, t)
+\end{matrix}
+
+\end{aligned}$$</div>
+
+<p>All the values on the right hand side of this equation are known, and on the
+left we have 5 unknowns: the value of \( p \) at 5 different grid locations.</p>
+
+<p>If we repeat this process and evaluate \( (x, y) \) at every grid point, we
+get one equation with 5 unknowns for each grid location. If our grid has \( n
+\times m \) grid locations in it, then we have \( n \times m \) equations,
+each with 5 unknowns.</p>
+
+<p>If you&rsquo;re wondering about what&rsquo;s happening at the edges, we&rsquo;re going to lazily
+side-step that question by making our grid wrap around: if you ask for the
+velocity past the bottom edge, you&rsquo;ll get a value near the top edge.</p>
+
+<p>Before we move on, our notation is getting a bit clunky, so let&rsquo;s clean it up a
+tad since we know we&rsquo;re working on a grid. For the next part, we&rsquo;ll say \(
+p_{i,j} = p(i \epsilon, j \epsilon, t) \), and we&rsquo;ll stick all the known values
+together into a value \( d \) (for <strong>d</strong>ivergence), like so:</p>
+
+<div>$$
+d_{i,j} = -\frac{2 \epsilon \rho}{\Delta t}
+\begin{pmatrix}
+ u^a_x((i + 1) \epsilon, j \epsilon, t) \\
+-u^a_x((i - 1) \epsilon, j \epsilon, t) \\
++u^a_y(i \epsilon, (j + 1) \epsilon, t) \\
+-u^a_y(i \epsilon, (j - 1) \epsilon, t)
+\end{pmatrix}
+$$</div>
+
+<p>With this nicer notation, we can express the system of equations on pressure
+that we&rsquo;re trying to solve like so:</p>
+
+<div>$$
+4p_{i, j} - p_{i+2,j} - p_{i-2,j} - p_{i,j+2} - p_{i,j-2} = d_{i, j}
+$$</div>
+
+<h1 id="iteratively-solving-the-pressure-equation">Iteratively Solving the Pressure Equation</h1>
+
+<p>Solving for \( p_{i, j} \) for every grid point analytically would be an
+enormous mess. Instead, we&rsquo;re going to use an <em>iterative</em> method of solving this
+system of equations, where each iteration provides values closer and closer to a
+real solution. We&rsquo;re going to use the <a href="http://college.cengage.com/mathematics/larson/elementary_linear/5e/students/ch08-10/chap_10_2.pdf">Jacobi Method</a>.</p>
+
+<p>In the Jacobi method, we first rearrange our equation to isolate one term, like
+so:</p>
+
+<div>$$
+p_{i, j} = \frac{
+    d_{i, j} + p_{i+2,j} + p_{i-2,j} + p_{i,j+2} + p_{i,j-2}
+}{4}
+$$</div>
+
+<p>Next, we make an initial guess for all of our unknowns. We&rsquo;ll call this initial
+guess \( p_{i,j}^{(0)} \), and just set it to 0 everywhere.</p>
+
+<p>Here&rsquo;s where the iteration comes in: our next guess, \( p_{i, j}^{(1)} \) is
+obtained by plugging in our initial guess into the above formula:</p>
+
+<div>$$
+p_{i, j}^{(1)} = \frac{
+    d_{i, j} + p_{i+2,j}^{(0)} + p_{i-2,j}^{(0)} + p_{i,j+2}^{(0)} + p_{i,j-2}^{(0)}
+}{4}
+$$</div>
+
+<p>And, more generally, each iteration relies upon the previous one:</p>
+
+<div>$$
+p_{i, j}^{(k)} = \frac{
+    d_{i, j} + p_{i+2,j}^{(k-1)} + p_{i-2,j}^{(k-1)} + p_{i,j+2}^{(k-1)} + p_{i,j-2}^{(k-1)}
+}{4}
+$$</div>
+
+<p>You would usually run this until the values of one iteration are equal to the
+values from the previous iteration, rounded to a certain accuracy. For our
+purposes, we&rsquo;re more interested in this running in a consistent period of time,
+so we&rsquo;ll arbitrarily run this for 10 iterations, and hope the result is accurate
+enough to look realistic.</p>
+
+<p>For a bit of intuition on <em>why</em> this converges to a solution, check out
+<a href="http://math.stackexchange.com/questions/1255790/what-is-the-intuition-behind-matrix-splitting-methods-jacobi-gauss-seidel/1255821#1255821">Algebraic Pavel&rsquo;s answer on Math Exchange</a>.</p>
+
+<h1 id="all-together-now">All Together Now!</h1>
+
+<p>Phew! That was a lot to get through. Now let&rsquo;s put it all together. Roughly, as
+pseudo-code, here&rsquo;s our whole simulation:</p>
+
+<pre><code>initialize color field, c
+initialize velocity field, u
+
+while(true):
+    u_a := advect field u through itself
+    d := calculate divergence of u_a
+    p := calculate pressure based on d, using jacobi iteration
+    u := u_a - gradient of p
+    c := advect field c through velocity field u
+    draw c
+    wait a bit
+</code></pre>
+
+<p>Here are the key formulas for those steps on grid coordinates \( (i, j) \),
+uncluttered by derivations:</p>
+
+<p>Advecting field \( vec u \) through itself:</p>
+
+<div>$$
+\vec u^a_{i,j} = \vec u^a(x:=i \epsilon, y:= j \epsilon, t + \Delta t) := \vec
+u(x - u_x(x, y) \Delta t, y - u_y(x, y) \Delta t, t)
+$$</div>
+
+<p>Divergence of \( \vec u_a \) (multiplied by constant terms):</p>
+
+<div>$$
+d_{i,j} = -\frac{2 \epsilon \rho}{\Delta t} (
+    u^a_{x_{i+1, j}} - u^a_{x_{i-1, j}} +
+    u^a_{y_{i, j+1}} - u^a_{y_{i,j-1}}
+)
+$$</div>
+
+<p>Pressure calculation Jacobi iteration step, with \( p_{i, j}^{(0)} = 0 \):</p>
+
+<div>$$
+p_{i, j}^{(k)} = \frac{
+    d_{i, j} + p_{i+2,j}^{(k-1)} + p_{i-2,j}^{(k-1)} + p_{i,j+2}^{(k-1)} + p_{i,j-2}^{(k-1)}
+}{4}
+$$</div>
+
+<p>Subtracting the pressure gradient from the advected velocity field:</p>
+
+<div>$$
+\begin{aligned}
+u_{x_{i, j}} &:= u^a_{x_{i,j}}
+    -\frac{\Delta t}{2 \rho \epsilon} (p_{i + 1, j} - p_{i - 1, j})
+\\
+u_{y_{i, j}} &:= u^a_{y_{i, j}}
+    -\frac{\Delta t}{2 \rho \epsilon} (p_{i, j + 1} - p_{i, j - 1})
+\end{aligned}
+$$</div>
+
+<p>Advecting the color field through the final velocity field:</p>
+
+<div>$$
+\vec {c^a} = \vec{c^a}(x:=i \epsilon, y:= j \epsilon, t + \Delta t) := \vec c(x
+- u_x(x, y) \Delta t, y - u_y(x, y) \Delta t)
+$$</div>
+
+<h1 id="implementation">Implementation</h1>
+
+<canvas id="implementation1" width="400" height="400"></canvas>
+
+<p>Pulling all those steps together, you can make something like this! Woohoo! When
+I got this working for the first time, I was pretty ecstatic.</p>
+
+<p>I won&rsquo;t delve too far into the implementation, but you can have a look at it
+yourself: <a href="https://github.com/jlfwong/blog/blob/master/static/javascripts/fluid-sim.js">fluid-sim.js</a>. It relies upon the elegant <a href="https://github.com/evanw/lightgl.js">lightgl.js</a>, which
+is an abstraction layer on top of WebGL that makes it much nicer to work with.
+Unlike THREE.js, it doesn&rsquo;t make any assumptions about you wanting any concept
+of a camera or lighting or that you&rsquo;re working in 3D at all.</p>
+
+<p>The key technique for running the simulation efficiently is doing all the hard
+work on the GPU. To meet this need, all of the computations are done via the
+<a href="http://webglfundamentals.org/webgl/lessons/webgl-image-processing-continued.html">render to texture</a> technique, ping-ponging which texture is being rendered
+to facilitate reading and writing to the same conceptual texture (e.g. reading
+from the velocity field and writing to the velocity field representing the next
+time step).</p>
+
+<p>Each one of the major components of the algorithm is implemented in a separate
+shader. There&rsquo;s a shader for advection, a shader for calculating the divergence,
+one for a single iteration of the Jacobi method, and another for subtracting the
+pressure gradient from the advected velocity.</p>
+
+<h1 id="references">References</h1>
+
+<p>To make this, I had to draw from a lot of difference references, many of which
+are linked inline in the post.</p>
+
+<ul>
+<li><p><em><a href="https://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf">Fluid Simulation Course Notes from SIGGRAPH 2007</a></em>: Now a textbook, this
+is a pretty mathematically dense tutorial. It took me 4 or 5 times reading
+through most sections to make sense of it, and ultimately I only understood
+parts of it after I did the derivations myself. It uses the more complex
+<a href="https://en.wikipedia.org/wiki/Conjugate_gradient_method">conjugate gradient method</a> instead of the Jacobi method to solve the system
+of pressure equations, which I got completely lost in, and abandoned. It delves
+into a lot of arguments about numerical accuracy and uses a more complex grid
+layout than I did, which I still don&rsquo;t follow fully. It also has resources for
+other kinds of fluid simulations, like heightfield simulation, and smoothed
+particle hydrodynamics.</p></li>
+
+<li><p><em><a href="http://developer.download.nvidia.com/books/HTML/gpugems/gpugems_ch38.html">GPU Gems Chapter 38.  Fast Fluid Dynamics Simulation on the GPU</a></em>: This
+was the single most useful reference I found, and describes something very
+similar to this post.  It walks through specific implementation ideas, and gave
+me a much better intuition for advection. Some of the math (or at least the
+notation) seems shaky here. I think the Gaussian &ldquo;splat&rdquo; formula is missing a
+negative sign inside of the \( exp() \), and I&rsquo;m not sure what the notation
+\( (\vec u \cdot \nabla) u_x \) means in the first Navier-Stokes equation,
+since \( \nabla \cdot \vec u = 0 \) in the second equation.</p></li>
+
+<li><p><a href="http://college.cengage.com/mathematics/larson/elementary_linear/5e/students/ch08-10/chap_10_2.pdf">&ldquo;Elementary Linear Algebra&rdquo; by Ron Larson, Section 10.2: Iterative Methods
+for Solving Linear Systems</a>. This had a much clearer explanation of the
+Jacobi method than the GPU Gems chapter that allowed me to derive the pressure
+solve iteration myself. The full textbook can be found here: <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1133110878">&ldquo;Elementary Linear
+Algebra&rdquo; on amazon.com</a>.</p></li>
+
+<li><p><a href="https://29a.ch/sandbox/2012/fluidcanvas/">Jonas Wagner&rsquo;s fluid simulation on <code>canvas</code></a>, and particularly the source
+for it (<a href="https://29a.ch/sandbox/2012/fluidcanvas/fluid.js">fluid.js</a>) were helpful for understanding what a full solution
+actually looks like. It&rsquo;s also how I found the GPU Gems article in the first
+place. Jonas went on later to reimplement his solution in WebGL: <a href="https://29a.ch/2012/12/16/webgl-fluid-simulation">WebGL Fluid
+Simulation</a>.</p></li>
+</ul>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js" integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js" integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous"></script>
+       
+
+  </div>
+
+
+<script>
+renderMathInElement(document.body);
+</script>
+
+<script src="javascripts/lightgl.js"></script>
+
+<script src="javascripts/fluid-sim.js"></script>
+
+<script>
+
+new FluidSim("demo", {
+    threshold: false,
+    advectV: true,
+    applyPressure: true,
+    showArrows: false,
+    initCFn: [
+        'step(1.0, mod(floor((x + 1.0) / 0.2) + floor((y + 1.0) / 0.2), 2.0))',
+        'step(1.0, mod(floor((x + 1.0) / 0.3) + floor((y + 1.0) / 0.3), 2.0))',
+        'step(1.0, mod(floor((x + 1.0) / 0.4) + floor((y + 1.0) / 0.4), 2.0))'
+    ],
+    dyeSpots: true,
+    size: 600,
+});
+
+new FluidSim("advection1", {
+    threshold: false,
+    advectV: false,
+    initVFn: ['1.0', '0.0']
+});
+
+new FluidSim("advection2", {
+    threshold: false,
+    advectV: false
+});
+
+new FluidSim("advectV1", {
+    threshold: false,
+    advectV: true,
+    initVFn: ['1.0', 'sin(2.0 * 3.1415 * x)']
+});
+
+new FluidSim("divergent1", {
+    threshold: false,
+    advectV: false,
+    initVFn: ['x', 'y']
+});
+
+new FluidSim("divergent2", {
+    threshold: false,
+    advectV: false,
+    initVFn: ['sin(2.0 * 3.1415 * x)', '0.0']
+});
+
+new FluidSim("divergent3", {
+    threshold: false,
+    advectV: true
+});
+
+new FluidSim("implementation1", {
+    threshold: false,
+    advectV: true,
+    applyPressure: true,
+    showArrows: false
+});
+
+</script>
+
+</article>
+
+</body>
+
+</html>
