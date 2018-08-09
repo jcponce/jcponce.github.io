@@ -14,6 +14,36 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+img.grayscale {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* Firefox 3.5+, IE10 */
+  filter: gray;
+  /* IE6-9 */
+  -webkit-filter: grayscale(80%);
+  /* Chrome 19+ & Safari 6+ */
+  -webkit-transition: all .6s ease;
+  /* Fade to color for Chrome and Safari */
+  -webkit-backface-visibility: hidden;
+  /* Fix for transition flickering */
+}
+
+img.grayscale:hover {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+}
+
+svg {
+  background: url(http://4.bp.blogspot.com/-IzPWLqY4gJ0/T01CPzNb1KI/AAAAAAAACgA/_8uyj68QhFE/s400/a2cf7051-5952-4b39-aca3-4481976cb242.jpg);
+}
+
+svg image {
+  transition: all .6s ease;
+}
+
+svg image:hover {
+  opacity: 0;
+}
+
 </style>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -79,21 +109,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <!-- First Photo Grid-->
   <div class="w3-row-padding">
     <div class="w3-third w3-container w3-margin-bottom">
-        <a href="strange-attractors/"><img src="assets/img/png/thomas.png" alt="Strange attractors" style="width:100%" class="w3-hover-opacity"></a>
+        <a href="strange-attractors/"><img  src="assets/img/png/thomas.png" alt="Strange attractors" style="width:100%" class="grayscale"></a>
       <div class="w3-container w3-white">
         <p><b>Strange attractors in 3d</b></p>
         <p>Velocity field simulations with particles and a solution curve.</p>
       </div>
     </div>
     <div class="w3-third w3-container w3-margin-bottom">
-      <a href="complex-mapping/"><img src="assets/img/png/mapping.png" alt="Complex mapping" style="width:100%" class="w3-hover-opacity"></a>
+      <a href="complex-mapping/"><img   src="assets/img/png/mapping.png" alt="Complex mapping" style="width:100%" class="grayscale"></a>
       <div class="w3-container w3-white">
         <p><b>Complex mappings</b></p>
         <p>Animated complex mapping using homotopy.</p>
       </div>
     </div>
     <div class="w3-third w3-container w3-margin-bottom">
-        <a href="sketches/rainbowpolygons/"><img src="assets/img/png/rainbowpoly.png" alt="Rainbow polygons" style="width:100%" class="w3-hover-opacity"></a>
+        <a href="sketches/rainbowpolygons/"><img  src="assets/img/png/rainbowpoly.png" alt="Rainbow polygons" style="width:100%" class="grayscale"></a>
         <div class="w3-container w3-white">
             <p><b>Rainbow polygons</b></p>
             <p>Draw with mouse colorful regular polygons to make the robot happy.</p>
@@ -104,21 +134,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
    <!--Second Photo Grid-->
   <div class="w3-row-padding">
     <div class="w3-third w3-container w3-margin-bottom">
-      <a href="domain-coloring/"><img src="assets/img/png/domaincoloring.png" alt="Domain coloring" style="width:100%" class="w3-hover-opacity"></a>
+      <a href="domain-coloring/"><img src="assets/img/png/domaincoloring.png" alt="Domain coloring" style="width:100%" class="grayscale"></a>
       <div class="w3-container w3-white">
         <p><b>Domain coloring</b></p>
         <p>Representation of complex functions using the method of domain coloring.</p>
       </div>
     </div>
    <div class="w3-third w3-container w3-margin-bottom">
-       <a href="velocity-fields/time-independent.html"><img src="assets/img/png/classicexamples.png" alt="Velocity fields" style="width:100%" class="w3-hover-opacity"></a>
+       <a href="velocity-fields/time-independent.html"><img src="assets/img/png/classicexamples.png" alt="Velocity fields" style="width:100%" class="grayscale"></a>
       <div class="w3-container w3-white">
         <p><b>Time-independent velocity fields in 2d</b></p>
         <p>Animations of velocity fields with particles and vector fields.</p>
       </div>
     </div>
    <div class="w3-third w3-container w3-margin-bottom">
-       <a href="velocity-fields/time-dependent.html"><img src="assets/img/png/velfields.png" alt="Velocity fields" style="width:100%" class="w3-hover-opacity"></a>
+       <a href="velocity-fields/time-dependent.html"><img src="assets/img/png/velfields.png" alt="Velocity fields" style="width:100%" class="grayscale"></a>
        <div class="w3-container w3-white">
            <p><b>Time-dependent velocity fields in 2d</b></p>
            <p>Animations of velocity fields with particles and vector fields.</p>
@@ -130,21 +160,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <!--Third Photo Grid-->
   <div class="w3-row-padding">
       <div class="w3-third w3-container w3-margin-bottom">
-          <a href="misc/repeller-attractor.html"><img src="assets/img/png/repellerattractor.png" alt="Repeller/Attractor" style="width:100%" class="w3-hover-opacity"></a>
+          <a href="misc/repeller-attractor.html"><img src="assets/img/png/repellerattractor.png" alt="Repeller/Attractor" style="width:100%" class="grayscale"></a>
           <div class="w3-container w3-white">
               <p><b>Repeller/Attractor</b></p>
               <p>Particle system animation with repeller and attractor. Click mouse to switch.</p>
           </div>
       </div>
       <div class="w3-third w3-container">
-          <a href="misc/voronoi.html"><img src="assets/img/png/voronoi.png" alt="Voronoi" style="width:100%" class="w3-hover-opacity"></a>
+          <a href="misc/voronoi.html"><img src="assets/img/png/voronoi.png" alt="Voronoi" style="width:100%" class="grayscale"></a>
           <div class="w3-container w3-white">
               <p><b>Voronoi diagram</b></p>
               <p>A coloful, animated voronoi diagram.</p>
           </div>
       </div>
         <div class="w3-third w3-container">
-          <a href="3dcurves/"><img src="assets/img/png/torusknot.png" alt="3d Curves" style="width:100%" class="w3-hover-opacity"></a>
+          <a href="3dcurves/"><img src="assets/img/png/torusknot.png" alt="3d Curves" style="width:100%" class="grayscale"></a>
           <div class="w3-container w3-white">
               <p><b>3d Curves</b></p>
               <p>Parametric curves in 3d.</p>
@@ -155,7 +185,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <!--fourth Photo Grid-->
   <div class="w3-row-padding">
       <div class="w3-third w3-container w3-margin-bottom">
-          <a href="sketches/recamansequence/"><img src="assets/img/png/recamanseq.png" alt="Recaman's sequence" style="width:100%" class="w3-hover-opacity"></a>
+          <a href="sketches/recamansequence/"><img src="assets/img/png/recamanseq.png" alt="Recaman's sequence" style="width:100%" class="grayscale"></a>
           <div class="w3-container w3-white">
               <p><b>Recaman's sequence</b></p>
               <p>Visualisation of the <a href="https://oeis.org/A005132">Recaman's sequence</a> with music using <a href="https://p5js.org/reference/#/libraries/p5.sound">p5sound</a>. </p>
