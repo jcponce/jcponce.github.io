@@ -14,7 +14,7 @@ var s = 0.5;
 var r = 0;
 
 function setup() {
-    createCanvas(512, 512);
+    createCanvas(500, 500);
     background(242, 242, 242);
     textAlign(LEFT,TOP);
     verts = poly(4);
