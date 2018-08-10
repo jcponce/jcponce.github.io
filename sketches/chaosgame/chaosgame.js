@@ -15,7 +15,7 @@ var r = 0;
 
 function setup() {
     createCanvas(512, 512);
-    background(200);
+    background(242, 242, 242);
     textAlign(LEFT,TOP);
     verts = poly(4);
     
@@ -26,12 +26,13 @@ function setup() {
 var timeJump = 5000;
 
 function draw() {
-    fill(200);
+    fill(242);
     noStroke();
-    rect(0,0,40,10);
+    rect(0,0,50,32);
     fill(0);
-    text("rule: " + r,0,0);
-    stroke(random(100,200),random(50,100),random(255),50);
+    text("Rule: " + r,0,0);
+    text("Sides: " + verts.length, 0, 20);
+    stroke(random(10,200),random(90,100),random(200,255),50);
     for(var t = 0;t<timeJump;t++)
         if(!chaosPoint(20)) {
             timeJump = 1;
@@ -51,7 +52,7 @@ function keyPressed(){
         print(randomRule);
         r = -1;
     }
-    background(200);
+    background(242);
     timeJump = 5000;
 }
 
