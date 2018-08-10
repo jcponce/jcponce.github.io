@@ -43,8 +43,8 @@ function draw() {
 var randomRule;
 
 function keyPressed(){
-    if(keyCode == 39) r++;
-    if(keyCode == 37) r--;
+    if(keyCode == 39) r+=0.5;
+    if(keyCode == 37) r-=0.5;
     if(keyCode == 38) verts = poly(verts.length+1);
     if(keyCode == 40) verts = poly(verts.length-1);
     if(r<0){
