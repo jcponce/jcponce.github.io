@@ -205,7 +205,7 @@
             <div class="w3-half w3-container w3-margin-bottom">
                 <a href="https://jcponce.github.io/calculus/velfields/Rossler"><img src="img/rossler.png" alt="Chen" style="width:100%" class="w3-hover-opacity"></a>
                 <div class="w3-container w3-white">
-                    <p><b>Rossler attractor</b></p>
+                    <p><b>Rössler attractor</b></p>
                     <p>Parameters:</p>
                     <div class="w3-center">
                     <p>$a = 0.2$, $b = 0.2$, $c = 5.7$</p>
@@ -258,43 +258,57 @@
                     $$</p>
                 </div>
             </div>
-            <!--<div class="w3-half w3-container w3-margin-bottom">
-                <a href="https://jcponce.github.io/calculus/velfields/Halvorsen"><img src="img/halvorsen.png" alt="Loren84" style="width:100%" class="w3-hover-opacity"></a>
+            <div class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Tscus"><img src="img/tscus.png" alt="Tscus" style="width:100%" class="w3-hover-opacity"></a>
                 <div class="w3-container w3-white">
-                    <p><b>Halvorsen attractor</b></p>
+                    <p><b>Three-Scroll Unified Chaotic System attractor</b></p>
                     <p>Parameter:</p>
                     <div class="w3-center">
-                        <p>$a = 1.4$ </p>
+                        <p>$a = 40,$ $b = 55,$ $c = 11/6,$ <br> $d = 0.16,$ $e = 0.65$, $f = 20$</p>
                     </div>
                     <p>System:</p>
                     <p> $$\left\{ \begin{eqnarray*}
-                    \frac{dx}{dt}&amp;=&amp;-a x-4y-4z-y^2 \\
-                    \frac{dy}{dt}&amp;=&amp; -a y-4z-4x-z^2  \\
-                    \frac{dz}{dt}&amp;=&amp; -a z-4x-4y-x^2
+                    \frac{dx}{dt}&amp;=&amp;a(y-x)+d x y \\
+                    \frac{dy}{dt}&amp;=&amp; bx-x z + f y  \\
+                    \frac{dz}{dt}&amp;=&amp; cz+xy-ex^2
                     \end{eqnarray*}\right.
                     $$</p>
                 </div>
             </div>
-            -->
+            
         </div>
         <hr>
     </div>
 
+
+<div class="w3-container center">
+    <h2>References</h2>
+    <ol>
+    <li>Rössler, Otto E. (1976). <i>An Equation for Continuous Chaos.</i> Physics Letters, 57<b>A</b> (5): 397–398. <a href="https://doi.org/10.1016/0375-9601(76)90101-8" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue">(pdf)</a></li>
+    <li> Lorenz Edward N. (1963). <i>Deterministic Nonperiodic Flow.</i> Journal of the Atmospheric Sciences. <b>20</b>(2): 130–141. <a href="http://journals.ametsoc.org/doi/abs/10.1175/1520-0469%281963%29020%3C0130%3ADNF%3E2.0.CO%3B2" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue">(pdf)</a></li>
+    <li> L. Pan, W. Zhou, J. Fang, and D. Li. (2010). A new three-scroll unified chaotic system coined, <i>International Journal of Nonlinear Science,</i> vol. 10, 462-474.</li>
+    <li> Dadras, S., Momeni, H.R., Qi, G. (2010). Analysis of a new 3D smooth autonomous system with different wing chaotic attractors and transient chaos. <i>Nonlinear Dyn.</i> 62(1–2), 391– 405 (2010)</li>
+    <li> Thomas, René. (1999). Deterministic chaos seen in terms of feedback circuits: Analysis, synthesis, ‘labyrinth chaos’. <i>Int. J. Bifurcation and Chaos</i> 9 (10): 1889–1905.</li>
+    <li>Tam L., Chen J., Chen H., &amp; Tou W. (2008). Generation of hyperchaos from the Chen–Lee system via sinusoidal perturbation.<i> Chaos, Solitons and Fractals</i>, Vol. 38, 826-839.</li>
+        </ol>
+    <hr>
+</div>
+
 <div class="w3-container">
     <details>
         <summary class="w3-hover-indigo" style="background-color:#f2f2f2; cursor:pointer" ><b style="font-size:20px" >Notes</b></summary>
-    
-    <p>
-    For the 3d enviroment I used the <a href="https://diwi.github.io/p5.EasyCam/">p5.EasyCam</a> library developed by <a href="http://thomasdiewald.com">Thomas Diewald</a>.
-    </p>
-    
-    <p>For the controls I used the  <a href="https://github.com/dataarts/dat.gui">dat.GUI</a> library.</p>
-    
-    <p>
-    Finally, the position of a particle is computed with 4th order <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta method</a>.
-    </p>
-    
-</details>
+        
+        <p>
+        For the 3d enviroment I used the <a href="https://diwi.github.io/p5.EasyCam/">p5.EasyCam</a> library developed by <a href="http://thomasdiewald.com">Thomas Diewald</a>.
+        </p>
+        
+        <p>For the controls I used the  <a href="https://github.com/dataarts/dat.gui">dat.GUI</a> library.</p>
+        
+        <p>
+        Finally, the position of a particle is computed with 4th order <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta method</a>.
+        </p>
+        
+    </details>
     <br/>
 </div>
 
