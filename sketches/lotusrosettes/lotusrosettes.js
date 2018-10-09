@@ -6,7 +6,7 @@
  * https://www.openprocessing.org/sketch/519299
  */
 
-let gridsize = 16;
+let gridsize = 13;
 
 function setup() {
     createCanvas(550, 550);
@@ -19,7 +19,7 @@ function draw() {
     textAlign(LEFT, CENTER);
     stroke(0, 0, 80);
     fill(0, 0, 80);
-    text("r=asin(cos(a/b * t))", 6, 0 + width / (2 * gridsize));
+    //text("r=asin(cos(a/b * t))", 6, 0 + width / (2 * gridsize));
     textAlign(CENTER, CENTER);
     text("a", width / 2, height / (6 * gridsize));
     text("b", width / (6 * gridsize), height / 2);
