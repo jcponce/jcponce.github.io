@@ -30,7 +30,7 @@ Points: 500,
 xyzAxes: axesSketch,
 Sphere: sphSketch,
 Random: function() { this.Angle = random(0, 2*PI); this.Points = floor(random(0,1500)); },
-GoldenRatio: function() { this.Angle = 1.61803398875; this.Points = 1000; },
+GoldenRatio: function() { this.Angle = 1.61803398875; this.Points = 1618; },
 };
 
 function backHome() {
@@ -43,12 +43,12 @@ function setup() {
     let gui = new dat.GUI();
     gui.add(parDef, 'Title');
     gui.add(parDef, 'Angle'  , 0, 2 * PI , PI/10 ).listen();
-    gui.add(parDef, 'Points'  , 0, 1500 , 1 ).listen();
+    gui.add(parDef, 'Points'  , 0, 1618 , 1 ).listen();
     gui.add(parDef, 'Random'  );
     gui.add(parDef, 'GoldenRatio'  );
     gui.add(parDef, 'xyzAxes'  );
     gui.add(this, 'backHome').name("Go Back");
-    //gui.add(parDef, 'Sphere'  );
+    //gui.add(parDef, 'Sphere'  );//Optional
     
     pixelDensity(1);
     
@@ -92,47 +92,42 @@ function draw(){
     // BG
     background(0);
     
-    //noFill();
-    //stroke(255);
     rotateX(0.9)
     rotateY(0.0);
     rotateZ(0.3);
     
-    if(sph==true){
-        ambientLight(0,0,40);
-        pointLight(0,0, 100, 100, 100, 0);
-        ambientMaterial(0, 0, 90);
-        noStroke();
-        sphere(1);
-    }
+    //The points are defined by the following coordinates:
+    //x = cos(pi * 2 * Angle * ) * sin(acos(1-2 * i/numP)),
+    //y = sin(pi * 2 * Angle * i) * sin(acos(1-2* i/numP)),
+    //z = cos(acos(1-2 * i/numP))
     
-     //cos(pi * 2 * Angle * "+i+") * sin(acos(1-2 * "+i+"/numP)),
-    //sin(pi * 2 * Angle * "+i+") * sin(acos(1-2*"+i+"/numP)),
-    //cos(acos(1-2 * "+i+"/numP))
-    for (var i = 0; i < parDef.Points; i++) {
-        //var a = i * 137.5;
-        //var r = c * sqrt(i);
-        var x = cos(PI * 2 * parDef.Angle * i) * sin(acos(1-2 * i/parDef.Points));
-        var y = sin(PI * 2 * parDef.Angle * i) * sin(acos(1-2* i/parDef.Points));
-        var z = cos(acos(1-2 * i/parDef.Points));
-        //var hu = sin(i * 0.5);
-        var hu = map(i, 0, parDef.Points, 0, 255);
+    for (let i = 0; i < parDef.Points; i++) {
+        let x = cos(PI * 2 * parDef.Angle * i) * sin(acos(1-2 * i/parDef.Points));
+        let y = sin(PI * 2 * parDef.Angle * i) * sin(acos(1-2* i/parDef.Points));
+        let z = cos(acos(1-2 * i/parDef.Points));
+        let hu = map(i, 0, parDef.Points, 0, 255);
         push();
         translate(x, y, z);
         ambientMaterial(hu, 100, 100);
         noStroke();
-        sphere(0.015, 10,10);
+        sphere(0.015, 15, 15);
         pop();
     }
     
-    
-
-    
     if(gizmo==true){
     // gizmo
-    strokeWeight(0.01);
-    stroke(0 , 100,  100); line(0,0,0,1,0,0);
-    stroke( 100, 100,  100); line(0,0,0,0,1,0);
-    stroke( 255, 100,  100); line(0,0,0,0,0,1);
+        strokeWeight(0.01);
+        stroke(0 , 100,  100); line(0,0,0,1,0,0);
+        stroke( 100, 100,  100); line(0,0,0,0,1,0);
+        stroke( 255, 100,  100); line(0,0,0,0,0,1);
     }
 }
+
+/*This is just to add a unit sphere (optional)
+function unitSphere(){
+    ambientLight(0,0,40);
+    pointLight(0,0, 100, 100, 100, 0);
+    ambientMaterial(0, 0, 90);
+    noStroke();
+    sphere(1);
+}*/
