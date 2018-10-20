@@ -1,4 +1,4 @@
-// Based upon Daniel Shiffman's code
+// Original code by Daniel Shiffman
 // http://youtube.com/thecodingtrain
 // http://codingtra.in
 
