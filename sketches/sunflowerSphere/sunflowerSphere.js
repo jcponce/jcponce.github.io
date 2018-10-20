@@ -26,10 +26,10 @@ let numP = 1000;
 let parDef = {
 Title: 'Points on Sphere',
 Angle: 1.61803398875,
+//PlayAngle : false,//For later
 Points: 500,
 xyzAxes: axesSketch,
-Sphere: sphSketch,
-Random: function() { this.Angle = random(0, 2*PI); this.Points = floor(random(0,1500)); },
+Random: function() { this.Angle = random(0, 2*PI); },
 GoldenRatio: function() { this.Angle = 1.61803398875; this.Points = 1618; },
 };
 
@@ -43,12 +43,12 @@ function setup() {
     let gui = new dat.GUI();
     gui.add(parDef, 'Title');
     gui.add(parDef, 'Angle'  , 0, 2 * PI , PI/10 ).listen();
+    //gui.add(parDef, 'PlayAngle').listen();//For later
     gui.add(parDef, 'Points'  , 0, 1618 , 1 ).listen();
     gui.add(parDef, 'Random'  );
     gui.add(parDef, 'GoldenRatio'  );
     gui.add(parDef, 'xyzAxes'  );
     gui.add(this, 'backHome').name("Go Back");
-    //gui.add(parDef, 'Sphere'  );//Optional
     
     pixelDensity(1);
     
@@ -61,13 +61,18 @@ function setup() {
     
     colorMode(HSB);
     
-    
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
 }
+
+var update = function() {
+    requestAnimationFrame(update);
+};
+
+update();
 
 let gizmo = false;
 function axesSketch(){
@@ -76,15 +81,9 @@ function axesSketch(){
     }else gizmo = false;
 }
 
-let sph = false;
-function sphSketch(){
-    if(sph == false){
-        return sph = true;
-    }else sph = false;
-}
-
-
 function draw(){
+    
+    update();
     
     // projection
     perspective(60 * PI/180, width/height, 1, 5000);
@@ -123,11 +122,3 @@ function draw(){
     }
 }
 
-/*This is just to add a unit sphere (optional)
-function unitSphere(){
-    ambientLight(0,0,40);
-    pointLight(0,0, 100, 100, 100, 0);
-    ambientMaterial(0, 0, 90);
-    noStroke();
-    sphere(1);
-}*/
