@@ -7,15 +7,20 @@
  */
 
 let gridsize = 13;
+let slider;
 
 function setup() {
     createCanvas(550, 550);
     colorMode(HSB);
+    slider = createSlider(4, 12, 1);
+    slider.position(180, 510);
+    slider.style('width', '200px');
 }
 
 function draw() {
     background(0);
-    gridsize = int(map(mouseX, 0, width, 4, 13));
+    let val = slider.value();
+    gridsize = val;//int(map(mouseX, 0, width, 4, 13));
     textAlign(LEFT, CENTER);
     stroke(0, 0, 80);
     fill(0, 0, 80);
