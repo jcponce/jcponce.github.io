@@ -58,7 +58,7 @@ function draw() {
                 
                 x = cx + r * asin(cos(1.0 * a / b * t)) * cos(t);
                 y = cy + r * asin(cos(1.0 * a / b * t)) * sin(t);
-                stroke(cx, cy, 100);
+                stroke((cx + cy) % 360, 80, 100);
                 vertex(x, y);
                 
                 if ((abs(x - ox) + abs(y - oy) < 0.05) && (t > TWO_PI / 150)) {
