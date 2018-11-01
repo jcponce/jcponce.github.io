@@ -1,0 +1,119 @@
+<html>
+ 	<head>
+ 		<title>Exploraciones Geométricas - Fundamentos </title>
+	  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  	<script type="text/javascript" src="third_party/d3/d3.min.js"></script>
+
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			  jax: ["input/TeX","input/MathML","output/SVG"],
+			  extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+			  TeX: {
+			    extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+			  }
+			});
+		</script>
+
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+		</script>
+
+		<script type="text/x-mathjax-config">
+		    MathJax.Hub.Config(
+		    	{
+		        	SVG: {linebreaks: { automatic:true }},
+		        	displayAlign: "center"
+		       	}
+		        );
+		</script>
+
+		<script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+		</script>
+
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Vollkorn:400italic,400" rel='stylesheet' type='text/css'>
+
+		<style>
+			@import url("fontello-b1d57784/css/fontello.css");
+			@import url("style.css");
+		</style>
+
+		
+        <link rel="icon" type="image/png" href="icon/infinity32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="icon/infinity16.png" sizes="16x16">
+    </head>
+
+  <body>
+  	<div class="title">
+  		<table width="900">
+  			<tr>
+	  			<td width="90%">
+				  	<div class="bigheader" id="titleinfo">
+				 	</div>
+			 	</td>
+			 </tr>
+			 <tr>
+			 	<td width="70%">
+			 		<br/>
+			 		<div id="menu" class="menu" style="margin-left: 45; ">
+			 			<table> <tr id="menurow"> </tr> </table>
+			 		</div>
+			 	</td>
+		 	</tr>
+	 	</table>
+  	</div>
+
+		<div class="littleheader"> FUNDAMENTOS DE LA GEOMETRÍA
+			<div class="subheader" style="font-size: 14px"> INTRODUCCIÓN, TALES DE MILETO, ESENCIA DE LA GEOMETRÍA Y GEOMETRÍAS NO EUCLIDIANAS </div>
+		</div>
+
+
+		<table class="figureTable">
+			<tr>
+				<td style="vertical-align: top;">
+				 <div class="text" style="margin-left: 0">
+
+				 	<p>
+				 	
+
+
+1.7 El número π
+Si consideramos un círculo cualquiera, no es difícil observar que su diámetro cabe tres veces y una pequeña fracción en su circunferencia.
+
+Este hecho geométrico, descubierto desde hace más de 4,000 años por diferentes culturas alrededor del mundo, marcó un paso decisivo en el desarrollo de las matemáticas. En la actualidad, decimos que la razón de la circunferencia al diámetro de un círculo es siempre constante. Es decir, si C es la circunferencia y D el diámetro de cualquier círculo, entonces
+
+En el siglo XVIII (d. C.), se usó por primera vez el símbolo π para referirse a esta razón, cuyo valor –familiar para la mayoría de nosotros– es de 3.1415, aproximadamente. Este número es  famoso por sus diversas aplicaciones, desde el sencillo cálculo del área de un círculo, hasta las intrincadas ecuaciones de la física moderna que describen el origen del universo.
+π en la antigüedad
+El hecho de que la razón de la circunferencia al diámetro de un círculo es constante ha sido conocido durante tanto tiempo que es casi imposible de rastrear. Sin embargo, existe evidencia de que el valor de π fue calculado por diversas culturas de la antigüedad.
+En el Papiro Egipcio de Rhind, que data del 1650 a. C., se ha encontrado que los egipcios usaron como valor aproximado de π el número:
+
+Hacia el 1900-1600 a. C., los babilonios  estimaron un valor de π igual a:
+
+Tiempo después, el matemático griego Arquímedes (siglo III a. C.) fue capaz de acotar el valor π con gran precisión. El método que usó es simple y consiste en circunscribir e inscribir polígonos regulares de n lados en circunferencias y calcular el perímetro de dichos polígonos. Arquímedes observó que el perímetro de los polígonos inscritos en el círculo es menor que la circunferencia; mientras que el perímetro de los polígonos circunscritos es mayor que la circunferencia. Al incrementar el número de lados $n$, Arquímedes logró aproximar los dos perímetros al valor de la circunferencia, comenzando con el hexágono.
+De manera progresiva, continuó doblando el número de lados del hexágono hasta llegar a polígonos de 96 lados, de lo cual dedujo que:
+
+o aproximadamente
+3.14084&lt;π &lt; 3.142858.
+En China, hacia el año 264 d. C., el matemático Liu Hui fue el primero en sugerir que 3.14 era una buena aproximación. Usando un método similar al de Arquímedes, pero con un polígono de 192 lados, Lui Hui encontró que
+ 3.141024&lt;π &lt;3.142704.
+Después, usando un polígono de 3,072 lados, estimó π con un valor de 3.14159.
+Lo más sorprendente es que  ninguna de las culturas de China, Egipto o Mesopotamia, ni mucho menos Arquímedes, contaban con las herramientas del álgebra o la trigonometría para realizar sus cálculos, ni tampoco con un sistema posicional como el que usamos actualmente.
+El cálculo de las cifras decimales
+Muchos europeos, desde la época del renacimiento, lograron calcular mejores aproximaciones de π, esto fue debido a la introducción de los números arábigos. Algunos de los personajes que destacan son: Leibniz, Newton, Euler, Wallis, entre otros.
+Desde el diseño de la primera computadora se empezaron a desarrollar programas para el cálculo del número π con la mayor cantidad de cifras decimales. En el 2000, por ejemplo, las computadoras fueron capaces de obtener números que poseen una inmensa cantidad de decimales. En 2009 se hallaron más de dos billones y medio de decimales de π mediante el uso de una supercomputadora T2K Tsukuba System, compuesta por 640 computadoras de alto rendimiento, que juntas consiguen velocidades de procesamiento de 95 teraflops. Lo obtuvieron en 73 horas y 36 minutos.
+En 2010, los informáticos Alexander J. Yee y Shigeru Kondo establecieron el récord al calcular cinco billones (5,000,000,000,000) de cifras decimales de π, con la ayuda de un programa y una computadora. Dicho cálculo tardó en realizarse 90 días. Al año siguiente, rompieron su propio record calculando diez billones de cifras decimales de π. Para el nuevo hito utilizaron el mismo equipo que en la anterior ocasión, sin embargo tardaron 371 días en realizar el cálculo.
+En términos prácticos, solo se necesitan 39 dígitos de π para realizar cálculos precisos y determinar con mayor exactitud, por ejemplo distancias entre estrellas o el tamaño de un átomo de hidrógeno. Asumiendo que hay un total de 7 billones de personas en el planeta, cada persona tendría que memorizar 1,428 dígitos para preservar todas las cifras conocidas de π. Una persona puede leer aproximadamente 120 dígitos por minuto. Si se mantiene esta velocidad de manera constante, se necesitarían más de 158,000 años para recitar las diez billones de cifras decimales de π.
+
+
+
+                    </p>
+                    
+			</tr>
+		</table>
+		</p>
+		<br/><br/>
+	<div class="title" id=""><div class="footerbutton" style=""><a href="c1s8conicas.html">NEXT <span style="font-size: 12px">▶</span></a></div></div>
+	<script type="text/javascript" src="menu.js"></script></body>
+</html>

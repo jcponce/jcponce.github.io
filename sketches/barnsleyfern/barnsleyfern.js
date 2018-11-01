@@ -12,7 +12,7 @@ let x = 0;
 let y = 0;
 
 function setup() {
-    createCanvas(600, 600);
+    createCanvas(450, 450);
     background(0);
 }
 function nextPoint() {

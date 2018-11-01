@@ -1,0 +1,143 @@
+<html>
+ 	<head>
+ 		<title>Exploraciones Geométricas - Fundamentos </title>
+	  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  	<script type="text/javascript" src="third_party/d3/d3.min.js"></script>
+
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			  jax: ["input/TeX","input/MathML","output/SVG"],
+			  extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+			  TeX: {
+			    extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+			  }
+			});
+		</script>
+
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+		</script>
+
+		<script type="text/x-mathjax-config">
+		    MathJax.Hub.Config(
+		    	{
+		        	SVG: {linebreaks: { automatic:true }},
+		        	displayAlign: "center"
+		       	}
+		        );
+		</script>
+
+		<script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+		</script>
+
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Vollkorn:400italic,400" rel='stylesheet' type='text/css'>
+
+		<style>
+			@import url("fontello-b1d57784/css/fontello.css");
+			@import url("style.css");
+		</style>
+
+		
+        <link rel="icon" type="image/png" href="icon/infinity32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="icon/infinity16.png" sizes="16x16">
+    </head>
+
+  <body>
+  	<div class="title">
+  		<table width="900">
+  			<tr>
+	  			<td width="90%">
+				  	<div class="bigheader" id="titleinfo">
+				 	</div>
+			 	</td>
+			 </tr>
+			 <tr>
+			 	<td width="70%">
+			 		<br/>
+			 		<div id="menu" class="menu" style="margin-left: 45; ">
+			 			<table> <tr id="menurow"> </tr> </table>
+			 		</div>
+			 	</td>
+		 	</tr>
+	 	</table>
+  	</div>
+
+		<div class="littleheader"> FUNDAMENTOS DE LA GEOMETRÍA
+			<div class="subheader" style="font-size: 14px"> INTRODUCCIÓN, TALES DE MILETO, ESENCIA DE LA GEOMETRÍA Y GEOMETRÍAS NO EUCLIDIANAS </div>
+		</div>
+
+
+		<table class="figureTable">
+			<tr>
+				<td style="vertical-align: top;">
+				 <div class="text" style="margin-left: 0">
+
+				 	<p>
+				 	
+
+1.5 Ejercicio: Una tabla pentagonal
+En la actualidad los carpinteros cuentan con herramientas muy eficientes para realizar, de manera sencilla, diversos diseños en madera. En cierta ocasión, un carpintero se encontró con el siguiente reto: uno de sus clientes le pregunto si era posible hacer el diseño de una mesa con la forma de un pentágono regular, usando solamente la regla y el compás.
+Discusión:
+El carpintero ya había hecho antes una mesa con forma hexagonal usando seis triángulos equiláteros. Pero en este caso, pensó que con cinco triángulos isósceles podría hacer la mesa al ponerlos todos juntos. Los cinco ángulos en el centro del pentágono deben sumar 360o. Así que el ángulo en el vértice de cada triángulo debe ser 72o. Sin embargo, no es fácil construir este ángulo con el compás.
+
+El carpintero entonces se preguntó si sería más fácil hacer una polígono de 10 lados (decágono) en lugar de un pentágono. Si esto es posible, al dividir los segmentos y ángulos del decágono, es posible construir el pentágono fácilmente. En el caso del decágono, tendríamos 10 triángulos isósceles en el interior de este, así que el ángulo en cada vértice debe medir 36o. Esto implica que los otros dos ángulos suman 144o y, consecuentemente, cada uno de ellos medirá 72o. De nuevo nos encontramos con este curioso ángulo 72o.
+
+Sin embargo, hacer diez triángulos isósceles llevaría mucho tiempo. Entonces el carpintero recordó que había visto un pentágono formado al colocar adecuadamente 5 triángulos isósceles cada uno con ángulos internos de 72o, 36o y 72o, como se muestra a continuación en la Figura:
+
+En cualquier caso, la clave está en construir el triángulo isósceles cuyos ángulos internos sean de 72o, 36o y 72o. Pero ¿cómo se puede construir dicho triángulo?
+Para construir el triángulo isósceles requerido el carpintero consultó un resultado de los Elementos de Euclides, en el cual se construye un triángulo isósceles cada uno de cuyos ángulos de la base es el doble del restante (Proposición 10, Libro IV).
+Consideremos un segmento AB y denotemos su longitud con la letra d.
+
+Trazamos el  punto C que divide al segmento AB con la siguiente propiedad: Si x es la longitud AC y  d-x la longitud CB. Entonces
+AC2=CB×AB.
+Es decir,
+x2=(d-x)d.
+Usando el segmento construido, trazamos dos círculos, uno con centro en A y radio AB; y otro con centro en B y radio AC. Consideremos un punto D de intersección de entre ambos círculos.
+
+Al unir los puntos A, B y D, obtenemos un triángulo isósceles cada uno de cuyos ángulos de la base es el doble del restante, esto es, con ángulos internos de 72o, 36o y 72o.
+
+Si el segmento AB es de longitud 1, es decir d=1; entonces tenemos la ecuación
+x2=1-x,
+la cual podemos reescribir como
+x2+x-1=0.
+Esta es una ecuación cuadrática que se puede resolver fácilmente usando la famosa fórmula:
+
+Con la cual obtenemos dos valores
+
+En este caso podemos ignorar el valor de x2 dado que es negativo. Por lo cual podemos concluir que la base del triángulo isósceles ABD mide
+
+
+Este número está relacionado con la llamada proporción áurea, de la cual comentaremos más adelante en el siguiente capítulo. De hecho, en cualquier pentágono regular la razón de la diagonal y su lado están en proporción áurea.
+De esta manera, usando el triángulo isósceles anterior, el carpintero puede construir el  pentágono regular.
+
+Solución:
+Seguramente te has dado cuenta de que hemos usado un poco de álgebra, cuando el reto era usar solamente regla y compás. Sin embargo, como tenemos a la mano tan poderosa herramienta, podemos hacer uso de ella. De otra forma, tendríamos que hacer referencia a cientos de resultados previos, tal y como lo hace Euclides en sus Elementos, para demostrar que efectivamente podemos construir un triángulo isósceles con las propiedades requeridas.
+Veamos ahora una construcción relativamente más sencilla, la cual se atribuye al matemático y astrónomo persa Abû al-Wafâ (940-998): A partir de un segmento dibujamos un pentágono regular usando solamente regla y compás de modo que este segmento sea un lado del pentágono. Sabemos que la diagonal de un pentágono regular y su lado están en proporción áurea. A dicha razón la denotamos con la letra griega φ y su valor es:
+
+Comenzamos trazando un segmento AB de longitud igual a 1. No es difícil construir el triángulo rectángulo BDG cuyos lados midan
+
+
+Si trazamos el círculo con centro en D y radio DG, obtenemos el punto de intersección H con la recta que se extiende por los puntos AB. Entonces el segmento AH debe medir
+
+Esto se puede apreciar en la siguiente Figura:
+
+Trazamos dos círculos: uno con centro A y radio AH; otro con centro en B y  radio AB. Consideremos el punto I, uno de los puntos de intersección entre ambos círculos, como se muestra a continuación:
+
+Con centro en I trazamos el círculo de radio AB y marcamos el punto de intersección J, como se muestra en la Figura abajo.
+
+Trazamos los círculos con radio AB, uno con centro en J y otro con centro en A, para marcar el último punto de intersección K. Finalmente unimos los puntos A, B, I, J y K para obtener un pentágono regular.
+
+
+
+                    </p>
+                    
+			</tr>
+		</table>
+		</p>
+		<br/><br/>
+	<div class="title" id=""><div class="footerbutton" style=""><a href="c1s6imposible.html">NEXT <span style="font-size: 12px">▶</span></a></div></div>
+	<script type="text/javascript" src="menu.js"></script></body>
+</html>

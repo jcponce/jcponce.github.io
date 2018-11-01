@@ -1,0 +1,444 @@
+<html>
+ 	<head>
+ 		<title>Exploraciones Geométricas - Introducción </title>
+	  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  	<script type="text/javascript" src="third_party/d3/d3.min.js"></script>
+
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			  jax: ["input/TeX","input/MathML","output/SVG"],
+			  extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+			  TeX: {
+			    extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+			  }
+			});
+		</script>
+
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+		</script>
+
+		<script type="text/x-mathjax-config">
+		    MathJax.Hub.Config(
+		    	{
+		        	SVG: {linebreaks: { automatic:true }},
+		        	displayAlign: "center"
+		       	}
+		        );
+		</script>
+
+		<script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+		</script>
+
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Vollkorn:400italic,400" rel='stylesheet' type='text/css'>
+
+		<style>
+			@import url("fontello-b1d57784/css/fontello.css");
+			@import url("style.css");
+		</style>
+
+
+        <link rel="icon" type="image/png" href="icon/infinity32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="icon/infinity16.png" sizes="16x16">
+    </head>
+
+  <body>
+  	<div class="title">
+  		<table width="900">
+  			<tr>
+	  			<td width="90%">
+				  	<div class="bigheader" id="titleinfo">
+				 	</div>
+			 	</td>
+			 </tr>
+			 <tr>
+			 	<td width="70%">
+			 		<br/>
+			 		<div id="menu" class="menu" style="margin-left: 45; ">
+			 			<table> <tr id="menurow"> </tr> </table>
+			 		</div>
+			 	</td>
+		 	</tr>
+	 	</table>
+  	</div>
+
+		<div class="littleheader"> INTRODUCCIÓN
+			<div class="subheader" style="font-size: 14px"> INTRODUCCIÓN, TALES DE MILETO, ESENCIA DE LA GEOMETRÍA Y GEOMETRÍAS NO EUCLIDIANAS </div>
+		</div>
+
+
+		<table class="figureTable">
+			<tr>
+				<td style="vertical-align: top;">
+				 <div class="text" style="margin-left: 0">
+
+				 	<p>
+				 	Cuando hablamos de geometría quizá lo primero que viene a nuestra mente son triángulos, cuadrados, círculos, rectas, polígonos, etc. Incluso es posible que creamos que la geometría fue desarrollada por los griegos de la antigüedad debido a los populares nombres de matemáticos como Pitágoras o Arquímedes. En efecto, la palabra «geometría» proviene del griego antiguo formado a partir de un derivado de las palabras «geo», tierra, y «metría», medida o medición. Ciertamente los griegos establecieron la palabra «geometría», sin embargo, no fueron ellos los primeros en desarrollar o usar esta disciplina.
+                    </p>
+                    
+                    <p>
+En la antigüedad, los sumerios de Mesopotamia (3000 a 2300 a. C.) y los egipcios (2700 a 1650 a. C.) ya habían desarrollado un cuerpo de conocimientos geométricos elementales para el cálculo de longitudes, áreas y volúmenes. Sin embargo, dicho cuerpo de conocimientos era más bien un conjunto de recetas para resolver problemas específicos. Los resultados de estas culturas no tenían la forma de enunciados generales y tampoco existía la idea de demostración.
+</p>
+
+<p>
+Fuentes antiguas escritas en tablillas de arcilla y papiros son evidencia del desarrollo de la geometría en la antigüedad. Por ejemplo, la tablilla de barro babilónica YBC 7289:
+</p>
+
+<table  width="750">
+    <tr>
+        <td >
+            <img src="img/intro/001claytbw.jpg" style="padding: 5px; margin-left: 200px" width="45%"></img>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Illustración 1.</b> Tablilla YBC 7289. <br/><sub>Fuente: Wikipedia</sub>
+        </td>
+    </tr>
+</table>
+
+<p>
+La diagonal que se observa en la imagen anterior, es una representación geométrica de la aproximación de la raíz cuadrada de 2 en cuatro cifras sexagesimales, que son aproximadamente seis cifras decimales. Por otra parte, tenemos el famoso Papiro de Ahmes, también conocido como Papiro Matemático Rhind:
+</p>
+
+<table  width="750">
+    <tr>
+        <td >
+            <img src="img/intro/002papyrus.jpg" style="padding: 5px; margin-left: 200px" width="50%"></img>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Illustración 2.</b> Papiro Matemático Rhind. <br/><sub>Fuente: Wikipedia</sub>
+        </td>
+    </tr>
+</table>
+
+<p>
+El papiro contiene 87 problemas matemáticos con cuestiones aritméticas básicas, fracciones, cálculo de áreas, volúmenes, progresiones, repartos proporcionales, regla de tres, ecuaciones lineales y trigonometría básica.
+</p>
+
+<p>
+Durante el periodo griego, que abarca el año 700 a. C. al 100 d. C., la ciencia de la medición de la tierra (geometría) se volvió más refinada. Los antiguos geómetras griegos, basándose en el razonamiento deductivo, realizaron descubrimientos esenciales, a veces de imposible comprobación experimental, pero fundamentales para el desarrollo de la geometría. Esto fue posible debido a que los griegos tomaron las ideas matemáticas de las culturas que los precedieron y las transformaron en enunciados generales. Esto es el aporte esencial de la cultura griega a la geometría: considerar los resultados matemáticos como afirmaciones generales. Además, los griegos crearon el método deductivo y esta creación se debe en gran medida a su cultura que privilegiaba la discusión y el razonamiento.
+</p>
+
+<p>
+Los geómetras griegos también realizaron mediciones de gran precisión como es el caso de Eratóstenes (276 a. C.-194 a. C.) quien realizó la medición de la circunferencia de la tierra, al rededor del año 230 a. C.
+</p>
+
+<table  width="750">
+    <tr>
+        <td >
+            <img src="img/intro/003eratostenes1.jpg" style="padding: 5px; margin-left: 280px" width="25%"></img>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Illustración 3.</b> Eratóstenes.<br/><sub>Fuente: Wikipedia</sub>
+        </td>
+    </tr>
+</table>
+
+<p>
+La historia cuenta que estando en la Biblioteca de Alejandría, encontró un informe de observaciones sobre Siena, ciudad situada a unos 800 km al sur de Alejandría, en el que se decía que el día del solsticio de verano (21 de junio) a mediodía, los objetos (como por ejemplo, los obeliscos) no producían sombra y en el fondo de los pozos podía verse la luz del sol. Eratóstenes observó que, en Alejandría, el mismo día y a la misma hora no se producía este mismo hecho. Asumió de manera correcta que el Sol se encontraba a gran distancia y que sus rayos, al alcanzar la tierra, lo hacían en forma (prácticamente) paralela. Esto ratificaba su idea de que la superficie de la Tierra era curva pues, de haber sido plana, no se hubiese producido esta diferencia entre las dos ciudades.
+</p>
+
+<p>
+El siguiente paso fue medir en Alejandría el ángulo que formaban los rayos del sol con la vertical que por construcción es igual al ángulo cuyo vértice está en el centro de la Tierra:
+</p>
+
+<table  width="750">
+    <tr>
+        <td >
+            <img src="img/intro/003eratostenes2.jpg" style="padding: 5px; margin-left: 200px" width="55%"></img>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Figura 1.</b> Diagrama para calcular la circunferencia de la tierra.
+        </td>
+    </tr>
+</table>
+
+<p>
+
+Este ángulo resultó ser de 7.2 grados. Con estos datos y conociendo la distancia entre las dos ciudades, Eratóstenes concluyó que la circunferencia de la Tierra medía (en unidades actuales) 40,000 km, aproximadamente. Esto representa solamente 75 km, o un 0.2%, de error de la circunferencia real de la Tierra medida por satélites avanzados, que es de 40,075 km.
+</p>
+
+<p>
+En la actualidad la geometría todavía se utiliza para realizar mediciones, pero con la ayuda de instrumentos de medición más sofisticados como los cientos de satélites artificiales que orbitan la Tierra diariamente. Los griegos de la antigüedad reciben la mayoría del crédito por el desarrollo de la geometría basada en axiomas y demostraciones, algo similar a la geometría que se estudia todavía en la escuela elemental. Ellos reconocieron la belleza de la geometría como una disciplina con una estructura y comprendieron que la demostración de un teorema era más excitante que el descubrimiento de una simple aplicación práctica.
+</p>
+
+<br/>
+<hr>
+</div>
+</td>
+</tr>
+    </table>
+        
+        
+
+		<div class="littleheader"> TALES DE MILETO
+			<!--<div class="subheader" style="font-size: 14px"> ... </div>-->
+		</div>
+
+	  	<table class="figureTable">
+			<tr>
+				<td style="vertical-align: top;">
+					<div class="text" style="margin-left: 0px">
+
+<p>
+Si pedimos a cualquier persona mencionar el nombre de algún matemático griego, seguramente muchos mencionarán el nombre de Pitágoras y posiblemente el de Euclides. Aunque actualmente no se usa como libro de texto las escuelas, los Elementos de Euclides se usó para estudiar geometría hasta el siglo XIX. De hecho, se suele referir a Euclides como <i>el Padre de la geometría</i>, pero en realidad ese título lo merece más Tales de Mileto (circa 624 - 546 a.C.) quien realizó estudios de geometría 300 años (aproximadamente) antes que Euclides. De hecho, los griegos adquirieron mucho del conocimiento geométrico de la civilización egipcia gracias a él.
+    </p>
+    
+    <table  width="750">
+        <tr>
+            <td >
+                <img src="img/intro/004tales.jpg" style="padding: 5px; margin-left: 280px" width="30%"></img>
+            </td>
+        </tr>
+        <tr class="figureCaption">
+            <td>
+                <b>Illustración 4.</b> Tales de Mileto.<br/><sub>Fuente: Wikipedia</sub>
+            </td>
+        </tr>
+    </table>
+    
+    <p>
+A pesar de que no existen escritos realizados por Tales, existen muchas historias acerca de él. Una de las más famosas habla acerca del método que utilizó para calcular la altura de la gran pirámide de Giza, la cual fue construida alrededor del año 2,600 a.C. No se conoce exactamente cuales fueron los elementos de geometría que los egipcios usaron en el diseño de las pirámides, pero al parecer el cálculo de su altura  había sido, por mucho tiempo, un reto sin resolver. Tales resolvió este problema al darse cuenta que, a cierta hora, la longitud de su sombra proyectada en el suelo era la misma que su altura. Al esperar hasta que el sol se encontrara en una posición en el cielo de tal manera que su propia sombra era la misma que su altura, Tales midió la longitud de la sombra de la pirámide desde su base. Al sumar la mitad de la longitud de la base de la pirámide a la longitud de la sombra, Tales dedujo que el resultado daría la altura de la pirámide.
+</p>
+
+<table  width="750">
+    <tr>
+        <td >
+            <img src="img/intro/004piramidesombra.jpg" style="padding: 5px; margin-left: 40px" width="90%"></img>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Figura 2.</b> Cálculo de la altura de la pirámide.
+        </td>
+    </tr>
+</table>
+
+<p>
+Historiadores de las matemáticas suponen que Tales conocía otros resultados geométricos, por ejemplo el hecho de que cualquier diámetro de un círculo lo dividiría en partes idénticas, que un triángulo isósceles tiene necesariamente dos ángulos iguales en su base o las propiedades relacionales entre los ángulos que se forman al cortar dos paralelas por una línea recta. En la actualidad, este tipo de resultados geométricos pueden causar poca sorpresa en cualquier persona –incluso en aquellas personas  han desarrollado cierto miedo o aversión por las matemáticas– ya que se pueden considerar como un conocimiento del sentido común y no como un  profundo conocimiento matemático. Sin embargo, para los filósofos contemporáneos a Tales, estas observaciones conformaban pasos mayores para el estudio de las matemáticas ya que él estableció sus conclusiones no para un círculo en particular, sino para todos los círculos, o para todos los triángulos isósceles, en general. De hecho, Tales estableció una nueva aproximación deductiva de pensamiento y análisis que transformaría a las matemáticas (consideradas al inicio sólo desde un punto de visto práctico) en el estudio abstracto de generalidades. Más aún, Tales estableció el estilo de pensamiento en el cual se fundamentan las matemáticas de la actualidad.
+</p>
+
+<p>
+Podemos decir que Tales cambió el enfoque del estudio de la geometría, desde un aspecto de medida a un estudio de invariantes: propiedades de círculos, o triángulos isósceles, que son independientes del tamaño de las figuras. Los diámetros de los círculos cambian, si se cambia el tamaño de las circunferencias pero el invariante es que cualquier diámetro divide a la circunferencia en dos partes iguales. De hecho, el estudio de invariantes se puede considerar como el vínculo entre las diferentes ramas que existen de la geometría.
+</p>
+
+<br/>
+<hr>
+
+                    </div>
+                </td>
+			</tr>
+		</table>
+        
+        
+
+        <div class="littleheader"> LA ESENCIA DE LA GEOMETRÍA: SIMETRÍA E INVARIANTES
+			<!--<div class="subheader" style="font-size: 14px"> ... </div>-->
+		</div>
+
+	  	<table class="figureTable">
+			<tr>
+				<td style="vertical-align: top;">
+					<div class="text" style="margin-left: 0px">
+
+<p>
+La mayoría de las personas tienen una idea general del concepto de  simetría, pues es una característica que se reconoce fácilmente en la naturaleza. Por ejemplo, la simetría del cuerpo de los insectos (como el de una mariposa), la simetría de las flores con cinco pétalos, o la simetría que se observa al cortar una manzana por la mitad.
+</p>
+
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr height="250px">
+                    <td>
+                        <img src="img/intro/005mariposa.jpg" style="padding:10px;" width="200" height="200"></img>
+                    </td>
+                    <td>
+                        <img src="img/intro/006florcinco.jpg" style="padding:10px;" width="200" height="200"></img>
+                    </td>
+                    <td>
+                        <img src="img/intro/007manzana.jpg" style="padding:10px;" width="200" height="200"></img>
+                    </td>
+                </tr>
+                <tr style="text-align:center;font-size:14px;font-family: 'Lato', serif;">
+                    <td>Mariposa</td>
+                    <td>Flor de cinco pétalos</td>
+                    <td>Corte de manzana</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td width="100%">
+            <b>Ilustración 5.</b>&nbsp; Tipos de simetría.
+        </td>
+    </tr>
+</table>
+
+<p>
+Este tipo de simetrías informales, o intuitivas, se abordan formalmente en la geometría Euclidiana como el estudio de la simetría reflectiva y rotacional. La mariposa, por ejemplo, tiene una simetría axial. El diseño que se observa en el centro de una manzana cortada trasversalmente es un caso de simetría reflectiva, pero también se puede observar una simetría rotacional. Asimismo, una flor con cinco pétalos se puede rotar (usando un ángulo de 72 grados) en cinco posiciones y aún así se verá exactamente igual después de cada rotación.
+</p>
+
+<p>
+En esencia, el concepto intuitivo y cotidiano de  simetría –reflectiva o rotacional– se puede extender a un significado matemático. Esto es, en matemáticas se define un objeto matemático como simétrico con respecto a una operación matemática si esa operación, cuando se aplica al objeto, preserva algunas propiedades del objeto.
+</p>
+
+<p>
+En este caso, hemos usados el término «objeto matemático», para distinguir entre objetos del mundo real y el objeto matemático ideal (en el sentido de perfección). En el mundo real, una mariposa real nunca será perfectamente simétrica: si observamos con detalle a sus alas, podremos apreciar pequeñas diferencias entre ellas. Incluso un dibujo de una mariposa realizado cuidadosamente revelará algunas diferencias minúsculas, si se agranda a una gran escala. En la vida cotidiana, tales imperfecciones son imperceptibles y nimias; sin embargo, estas imperfecciones son de gran importancia para los matemáticos, quienes trabajan con la perfección absoluta. Como veremos más adelante, uno de los grandes legados de Euclides fue el hecho distinguir entre lo real y lo ideal. De hecho, la geometría trata con objetos ideales; es decir, objetos matemáticos tales como puntos, líneas, polígonos, poliedros y fractales (aunque estos últimos Euclides no los consideró).
+</p>
+
+<p>
+En el caso de nuestra mariposa (matemática), la operación matemática que usamos es la reflexión con respecto a un eje. Esta operación preserva la imagen de la mariposa de tal manera que es imposible decidir si se está mirando a la mariposa original o a su reflexión. De manera similar, al aplicar  la operación de rotación a la flor de cinco pétalos, o al corazón de la manzana, se preserva su imagen.
+</p>
+
+<p>
+Las simetrías descritas anteriormente son quizá las más comunes pero no son las únicas. Consideremos un triángulo cualquiera y cambiemos su forma de tal manera que sus lados se contraen o dilatan uniformemente. En este caso, la operación matemática de contracción, o dilatación, uniforme preserva ciertas propiedades de los triángulos. Puedes usar el siguiente applet para explorar la contracción y dilatación con respecto a un punto.
+</p></br>
+
+<table  width="619">
+    <tr>
+        <td >
+            <iframe scrolling="no" title="Dilatación y contracción" src="https://www.geogebra.org/material/iframe/id/NqQU7K99/width/619/height/485/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/true" width="619px" height="485px" style="border:0px; margin-left: 50px"> </iframe> <!--sfsb=Full screen; ctl=PLaybutton;  sri=Reset icon-->
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Interactivo 1.</b> Dilatación y contracción.
+        </td>
+    </tr>
+</table>
+
+</br>
+
+<p>
+Si aplicamos la dilatación o contracción a un triángulo, la medida de los ángulos no cambia y las proporciones relativas de los lados son invariantes también. Los triángulos son simétricos con respecto a estas operaciones en términos de propiedades de ángulos y razones de lados.
+</p>
+
+<p>
+Si elegimos ahora un punto en el plano y giramos el triángulo con respecto a ese punto, tenemos una rotación. Finalmente, si ahora movemos el triángulo a otra posición, a esta operación se le conoce como traslación. En el siguiente applet puedes explorar estas operaciones.
+</p>
+
+<table  width="606">
+    <tr>
+        <td >
+            <iframe scrolling="no" title="Traslación y rotación" src="https://www.geogebra.org/material/iframe/id/gsD66KDJ/width/606/height/485/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true" width="606px" height="485px" style="border:0px; margin-left: 50px"> </iframe> <!--sfsb=Full screen; ctl=PLaybutton;  sri=Reset icon-->
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Interactivo 2.</b> Traslación y rotación.
+        </td>
+    </tr>
+</table>
+
+
+
+<p>
+Nuevamente, las propiedades del triángulo se preservan. Estos movimientos son considerados como otros tipos de simetría.
+</p>
+
+<p>
+Estas simetrías básicas –reflexión, rotación, contracción, dilatación, translación– y la combinación  entre ellas, forman la base del estudio de la geometría Euclidiana, también llamada geometría de figuras planas. Las figuras planas son aquellas que se pueden representar en dos dimensiones en una superficie perfectamente plana (y se extiende a tres dimensiones por medio de planos verticales). El estudio de estas simetrías se aborda en la geometría escolar, la cual es familiar para la mayoría de nosotros. Los hechos geométricos que se enseñan en la escuela –por ejemplo, la suma los ángulos internos de un triángulo siempre es 180 grados– se originan de estas simetrías.
+</p>
+
+<br/>
+<hr>
+
+                    </div>
+                </td>
+			</tr>
+		</table>
+        
+
+		<div class="littleheader"> GEOMETRÍAS NO EUCLIDIANAS
+			<!--<div class="subheader" style="font-size: 14px"> ... </div>-->
+		</div>
+
+	  	<table class="figureTable">
+			<tr>
+				<td style="vertical-align: top;">
+					<div class="text" style="margin-left: 0px">
+
+<p>
+La geometría euclidiana se utilizó con éxito durante más de dos mil años y en la actualidad sigue siendo la base para la realización de obras de ingeniería, proyectos arquitectónicos y muchas otras aplicaciones. Sin embargo, los objetos matemáticos definidos en esta geometría, y sus propiedades, existen en un universo perfectamente plano. Es claro que la suma de los ángulos internos de cualquier triángulo definido en el plano es 180 grados, pero si un triángulo está definido en una esfera, la suma de sus ángulos será mayor que 180 grados. Este último triángulo existe en un universo esférico y su geometría se considera no euclidiana.
+</p>
+
+<p>
+Las geometrías no euclidianas (algunas de ellas desarrolladas apenas hace unos 300 años aproximadamente) permiten estudiar nuevos tipos simetrías. En la geometría proyectiva, por ejemplo, se estudian las propiedades de incidencia de los objetos geométricos, como en el caso de la representación de un objeto tridimensional proyectado en un plano en dos dimensiones. Muchos artistas italianos del renacimiento utilizaron este tipo de geometría para representar con mayor precisión la realidad en sus pinturas. Como es el caso del pintor Pietro di Cristoforo Vanucci:
+</p>
+
+<table  width="750">
+    <tr>
+        <td >
+            <img src="img/intro/010renacimiento.jpg" style="padding: 5px; margin-left: 40px" width="90%"></img>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Ilustración 6.</b> Entrega de las llaves a San Pedro, realizada en 1482.<br/><sub>Fuente: Wikipedia</sub>
+        </td>
+    </tr>
+</table>
+
+<p>
+Otro tipo de geometría no euclidiana, en la cual se consideran simetrías de transformaciones más extremas, es la llamada topología. En esta rama de las matemáticas se estudia cómo ciertos objetos matemáticos se pueden transformar  en otro tipo de objetos por medio de deformaciones continuas, como si estuvieran hechos de una goma elástica. Imaginemos, por ejemplo, una taza hecha de un material deformable. Si la moldeamos y estiramos, podemos transformarla en una dona.
+</p>
+
+<table  width="750">
+    <tr>
+        <td >
+            <img src="img/intro/mugtorus.gif" style="padding: 5px; margin-left: 260px" width="240" height="240"></img>
+        </td>
+    </tr>
+    <tr class="figureCaption">
+        <td>
+            <b>Animación.</b> Deformación de la taza en una doza<br/><sub>Fuente: Wikipedia</sub>
+        </td>
+    </tr>
+</table>
+
+<p>
+La única condición que necesitamos es que el material no se rompa, se corte, o se hagan más hoyos en su superficie. Sin embargo, esta taza no se puede transformar en una esfera, precisamente porque tiene un hoyo. De esta manera, podemos decir que las donas y las tazas son simétricas, en el contexto de la topología.
+</p>
+
+<p>
+Otro tipo de geometría no euclidiana es la geometría fractal. Un fractal es un objeto geométrico cuya estructura básica, fragmentada o irregular, se repite a diferentes escalas. En este contexto, la forma básica del objeto matemático permanece invariante con la operación matemática definida como escala. El término «fractal» fue propuesto por el matemático Benoît Mandelbrot (1924-2010) en 1975 y deriva del latín <i>fractus</i>, que significa quebrado o fracturado. Muchas estructuras naturales son de tipo fractal.
+</p>
+                    </div>
+                </td>
+			</tr>
+		</table>
+        
+        
+
+		<div class="littleheader"> EXPLORACIONES GEOMÉTRICAS
+			<!--<div class="subheader" style="font-size: 14px"> A EXPLORAR SE HA DICHO</div>-->
+		</div>
+
+
+		<table class="figureTable">
+            <tr>
+                <td style="vertical-align: top;">
+                <div class="text" style="margin-left: 0">
+                <p>
+                El los siguientes capítulos exploraremos con más detalle los conceptos mencionados anteriormente y tambíen nuevos conceptos y resultados de geometría que han fascinado a los pensadores y la imaginación de muchas personas. Espero disfrutes del contenido de este libro tanto como yo he disfrutado haciendolo.
+                </p>
+               </div>
+               </td>
+			</tr>
+		</table>
+		</p>
+		<br/><br/>
+	<div class="title" id=""><div class="footerbutton" style=""><a href="c1s1fundamentos.html">NEXT <span style="font-size: 12px">▶</span></a></div></div>
+	<script type="text/javascript" src="menu.js"></script></body>
+</html>
