@@ -1,7 +1,7 @@
 var menuoptions =
 [
-  ["Presentación e Introducción", "index.html", "---"],
-  ["Presentación", "index.html"],
+  ["Presentación e Introducción", "presentacion.html", "---"],
+  ["Presentación", "presentacion.html"],
   ["¿Cómo leer el libro?", "leerlibro.html"],
   ["Introducción", "introduccion.html"],
   //["Discrete Signals", "discrete_signals.html"],
