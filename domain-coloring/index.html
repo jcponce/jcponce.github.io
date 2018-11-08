@@ -83,12 +83,12 @@ hr{border-width: 2px;}
      The sketch below plots the enhanced phase portrait of a complex function $f(z)$ with modulus contour lines. The Hue-Saturation-Brightness (HSB) color scheme is used with the following equations:
      <div class="w3-responsive">
      \begin{eqnarray*}
-     \text{H}&amp;=&amp;\text{atan2}(y, x),\\
-     \text{S}&amp;=&amp;100,\\
-     \text{B}&amp;=&amp;\log_{1.5}\left(5 \sqrt{x^2+y^2}\right)-\text{floor}\left(\log_{1.5}\left(5 \sqrt{x^2+y^2}\right)\right)+0.1
+     \text{H}&amp;=&amp;\left(\pi - \text{atan2}(-y, -x)\right)/2\pi,\\
+     \text{S}&amp;=&amp;1,\\
+     \text{B}&amp;=&amp;1/5\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)-\text{floor}\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)\right)\right)+0.75
      \end{eqnarray*}
      </div>
-     where $x,y$ are the real and imaginary components, respectively. The values of H and B are mapped in p5.js onto the ranges $[0,360]$ and $[0,100]$, respectively.
+     where $x,y$ are the real and imaginary components, respectively. The function <a href="https://p5js.org/reference/#/p5/colorMode" class="w3-hover-text-indigo">colorMode(HSB, 1)</a> is used in the sketch.
      </p>
      
      <p>Visit the <a href="dcgallery.html" class="w3-bar-item w3-button w3-grey w3-hover-indigo">Gallery</a> containing different color schemes and alternative representations.</p>
@@ -114,7 +114,7 @@ hr{border-width: 2px;}
             <b>Im:</b> cos(x)*( ( exp(y) - exp(-y) ) / 2 )<br/>
             <br/>
         List of available built-in functions is <a class="w3-hover-text-blue" href="https://p5js.org/reference/#group-Math">available here</a>.</li>
-        <li>By default the function is plotted on the set given by $|\textbf{Re}\,z|\leq 2.5$, $|\textbf{Im}\,z|\leq 2.5$. To change this set enter a <b>positive</b> number in the input <b>Box</b>. </li>
+        <li>By default the function is plotted on the set given by $|\textbf{Re}\,z|\leq 4.5$, $|\textbf{Im}\,z|\leq 4.5 \cdot c $, with $c=400/550$. To change this set enter a <b>positive</b> number in the input <b>Box</b>. </li>
         <li>Click the button <b>Update</b> after every change to plot a new function.</li>
     </ul>
     </p>
