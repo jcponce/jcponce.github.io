@@ -13,6 +13,7 @@
 <!--Style Stars-->
 
 <link rel="stylesheet" href="../assets/style/w3.css">
+<link rel="stylesheet" href="styledc.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
 
@@ -20,15 +21,7 @@
     
 <script rel="stylesheet" src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
 
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: 'Martel Sans', sans-serif;}
-.center {
-    margin-left:auto;
-    margin-right:auto;
-    max-width:900px;
-}
-hr{border-width: 2px;}
-</style>
+
     
 <!--Style ends-->
                                     
@@ -74,30 +67,174 @@ hr{border-width: 2px;}
 <!-- Navbar Ends-->
 
 <!-- Main content Stars-->
-<div class="w3-main center" style="margin-top:45px">
+<div class="w3-main center w3-padding-16" style="margin-top:45px">
     
-    <div class="w3-container">
-     <h1>Domain coloring for plotting complex functions</h1>
-     <hr>
-     <p>
-     The tool below plots the enhanced phase portrait of a complex function $f(z)$ with modulus contour lines. The Hue-Saturation-Brightness (HSB) color scheme is used with the following equations:
-     <div class="w3-responsive">
-     \begin{eqnarray*}
-     \text{H}&amp;=&amp;\frac{\pi - \text{atan2}(y, -x)}{2\pi},\\
-     \text{S}&amp;=&amp;1,\\
-     \text{B}&amp;=&amp;\frac15\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)-\text{floor}\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)\right)\right)+0.75
-     \end{eqnarray*}
+<div class="w3-container">
+     <h1>Domain coloring for visualizing complex functions</h1>
+     <br>
+     <div class="w3-center">
+         <p>$f(z)=\dfrac{1}{z^5}+c$</p>
+         <iframe src="https://editor.p5js.org/jcponce/embed/rJehfibpQ" scrolling="no" width="350" height="350" style="border:0px;"></iframe>
+         <br>
+         <a href="#gallery" class="w3-xlarge w3-button w3-hover-light-grey w3-round-xxlarge "> <i class="fas fa-chevron-down"></i></a>
      </div>
-     where $x,y$ are the real and imaginary components, respectively. The p5 function <a href="https://p5js.org/reference/#/p5/colorMode" class="w3-hover-text-indigo">colorMode(HSB, 1)</a> is used in the tool.
-     </p>
      
-     <p>Visit the <a href="dcgallery.html" class="w3-bar-item w3-button w3-grey w3-hover-indigo">Gallery</a> containing different color schemes and alternative representations.</p>
+     
+     <br><br><br>
      <hr>
 </div>
+
+<div class="w3-container" id="gallery">
     
-<div class="w3-container w3-padding-16">
-    <h2>Complex Functions Plotter</h2>
-    <p>Things to try:
+    <br><br><br>
+    <div class="w3-center">
+        <div class="w3-row-padding">
+        <a href="dcgallery.html" class="w3-button w3-hover-light-grey w3-opacity w3-xlarge w3-round-xxlarge w3-center">Visit the Gallery</a>
+        <a href="dcgallery.html"><img src="img/gallery.png" alt="Gallery" style="width:80%"></a>
+        <br><br>
+        <br>
+        <a href="#basic" class="w3-xlarge w3-button w3-hover-light-grey w3-round-xxlarge "> <i class="fas fa-chevron-down"></i></a>
+    </div>
+        </div>
+    
+    
+    <br><br><br>
+    <hr>
+</div>
+    
+    <div class="w3-container" id="basic">
+    <br><br><br>
+    <h2>Basic Tools: Real and Imaginary components</h2>
+    <p>With the following tools you just need to enter the real and imaginary components of a complex function $$f(z)=\text{Re}(x, y)+ i \,\text{Im}(x,y).$$</p>
+    
+    <div class="w3-center w3-padding-16">
+        <a class="w3-button w3-hover-light-grey w3-opacity w3-xlarge w3-round-xxlarge w3-center" id="myBtn">  <i class="fas fa-hand-point-right"></i> How to use the basic tool?</a><br>
+        <a class="w3-button w3-hover-light-grey w3-opacity w3-large w3-round-xxlarge w3-center" href="#notes">  <i class="fas fa-info-circle"></i> Notes</a>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div style="text-align:center">
+                <button onclick="playPause()" class="w3-button w3-hover-grey" >Play/Pause</button>&nbsp;
+                <button onclick="makeBig()" class="w3-button w3-hover-grey">Big</button>&nbsp;
+                <button onclick="makeSmall()" class="w3-button w3-hover-grey">Small</button>
+                <br><br>
+                <video id="video1" width="450">
+                    <source src="howtodc.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                        </video>
+            </div>
+        </div>
+        
+    </div>
+    <p class="w3-center">Open the tool by clicking on the image.</p>
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding">
+        <div class="w3-third w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/calculus/complex/dcolorHSB/"><img src="img/hsb2.png" alt="HSB" style="width:100%" class="w3-hover-opacity"></a>
+            <div class="w3-container w3-white">
+                <p><b>HSB enhanced scheme</b></p>
+                <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
+            </div>
+        </div>
+        <div class="w3-third w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/calculus/complex/dcolorHSBReIm/"><img src="img/hsb1.png" alt="HSBReIm" style="width:100%" class="w3-hover-opacity"></a>
+            <div class="w3-container w3-white">
+                <p><b>HSB enhanced scheme</b></p>
+                <p>Plots the level curves of the modulus, imaginary and real components of $f(z)$.</p>
+            </div>
+        </div>
+        <div class="w3-third w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/complex/dcolorRGB/"><img src="img/rgb1.png" alt="RGB" style="width:100%" class="w3-hover-opacity"></a>
+            <div class="w3-container w3-white">
+                <p><b>RGB enhanced scheme</b></p>
+                <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    
+     <hr>
+     
+    <div class="w3-container">
+        <br><br><br>
+        <h2>Advanced Tools: General complex functions</h2>
+        <p>With the following tools you can plot an extensive variety of complex functions. Howerver, you will need to use the sintax from the JavaScript library:  <a href="https://github.com/infusion/Complex.js/" class="w3-hover-text-blue"> Complex.js.</a> </p>
+        <div class="w3-center w3-padding-16">
+            <a class="w3-button w3-hover-light-grey w3-opacity w3-xlarge w3-round-xxlarge w3-center" id="myBtn2">  <i class="fas fa-hand-point-right"></i> How to use the advanced tool?</a><br>
+           <!-- <a class="w3-button w3-hover-light-grey w3-opacity w3-large w3-round-xxlarge w3-center" href="#notes">  <i class="fas fa-info-circle"></i> Notes</a>-->
+        </div>
+        <!-- The Modal -->
+        <div id="myModal2" class="modal">
+            
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close2">&times;</span>
+                <div style="text-align:center">
+                    <button onclick="playPause()" class="w3-button w3-hover-grey" >Play/Pause</button>&nbsp;
+                    <button onclick="makeBig()" class="w3-button w3-hover-grey">Big</button>&nbsp;
+                    <button onclick="makeSmall()" class="w3-button w3-hover-grey">Small</button>
+                    <br><br>
+                    <video id="video2" width="450">
+                        <source src="howtofull.mp4" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                            </video>
+                </div>
+            </div>
+            
+        </div>
+        <p class="w3-center">Open the tool by clicking on the image.</p>
+        
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/complex/dcolorHSBfull/"><img src="img/hsb3.png" alt="HSB" style="width:100%" class="w3-hover-opacity"></a>
+                <div class="w3-container w3-white">
+                    <p><b>HSB enhanced scheme</b></p>
+                    <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
+                </div>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/complex/dcolorHSBReImfull/"><img src="img/hsb4.png" alt="HSBReIm" style="width:100%" class="w3-hover-opacity"></a>
+                <div class="w3-container w3-white">
+                    <p><b>HSB enhanced scheme</b></p>
+                    <p>Plots the level curves of the modulus, imaginary and real components of $f(z)$.</p>
+                </div>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/complex/dcolorRGBfull/"><img src="img/rgb2.png" alt="RGBfull" style="width:100%" class="w3-hover-opacity"></a>
+                <div class="w3-container w3-white">
+                    <p><b>RGB enhanced scheme</b></p>
+                    <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
+                </div>
+            </div>
+            
+        </div>
+        <br>
+          <hr>
+       </div>
+    
+<div class="w3-container w3-padding-16" id="notes">
+<br><br><br>
+<h2>Notes about the basic tools </h2>
+    
+    <p>
+    The basic tools for visualizing complex function used the enhanced phase portrait based on the work of E. Wegert [1]. The Hue-Saturation-Brightness (HSB) color scheme is used.  For plotting the level curves of the modulus I used the following equations:
+    <div class="w3-responsive">
+        \begin{eqnarray*}
+        \text{H}&amp;=&amp;\frac{\pi - \text{atan2}(y, -x)}{2\pi},\\
+        \text{S}&amp;=&amp;1,\\
+        \text{B}&amp;=&amp;\frac15\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)-\text{floor}\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)\right)\right)+0.75
+        \end{eqnarray*}
+    </div>
+    where $x,y$ are the real and imaginary components, respectively. The p5.js function <a href="https://p5js.org/reference/#/p5/colorMode" class="w3-hover-text-indigo">colorMode()</a> is used for all tools.
+    </p>
+    
+    <p>Others things to try:
     <ul>
         <li>Change the real and imaginary components. <br/>
             <br/>
@@ -114,11 +251,9 @@ hr{border-width: 2px;}
             <b>Im:</b> cos(x)*( ( exp(y) - exp(-y) ) / 2 )<br/>
             <br/>
         List of available built-in functions is <a class="w3-hover-text-blue" href="https://p5js.org/reference/#group-Math">available here</a>.</li>
-        <li>By default the function is plotted on the set given by $|\textbf{Re}\,z|\leq 4$, $|\textbf{Im}\,z|\leq 4 \cdot c = 2.9$, with $c=8/11$. To change this set enter a <b>positive</b> number in the input <b>Box</b>. </li>
-        <li>Click the button <b>Update</b> after every change to plot a new function.</li>
     </ul>
     </p>
-    
+    <!--
     <div class="w3-center">
         <iframe name="domaincolor" src="https://jcponce.github.io/complex/domaincoloring/index.html"  style="border:1px solid lightgrey;" scrolling="no" width="550" height="500"></iframe>
         
@@ -127,7 +262,7 @@ hr{border-width: 2px;}
         <button onclick="var ifr=document.getElementsByName('domaincolor')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
         
         <a href="https://jcponce.github.io/complex/domaincoloring/domaincoloring.js" class="w3-btn w3-ripple w3-grey w3-hover-text-white"><i class="fas fa-code"></i> Code</a>
-    </div>
+    </div>-->
    
    
     <hr>
@@ -136,7 +271,7 @@ hr{border-width: 2px;}
 
 <div class="w3-container">
    <h2>Reference</h2>
-    <p>Wegert, E. (2012). <i>Visual Complex Functions: An introduction with phase portraits.</i> New York: Springer Basel. </p>
+    <p>[1] Wegert, E. (2012). <i>Visual Complex Functions: An introduction with phase portraits.</i> New York: Springer Basel. </p>
     
 
 </div>
@@ -167,6 +302,109 @@ hr{border-width: 2px;}
 
 
 </body>
+    
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<script>
+    var myVideo = document.getElementById("video1");
+    
+    function playPause() {
+        if (myVideo.paused)
+        myVideo.play();
+        else
+        myVideo.pause();
+    }
+
+function makeBig() {
+    myVideo.width = 650;
+}
+
+function makeSmall() {
+    myVideo.width = 450;
+}
+
+function makeNormal() {
+    myVideo.width = 450;
+}
+</script>
+
+<script>
+    // Get the modal
+    var modal2 = document.getElementById('myModal2');
+    
+    // Get the button that opens the modal
+    var btn2 = document.getElementById("myBtn2");
+    
+    // Get the <span> element that closes the modal
+    var span2 = document.getElementsByClassName("close2")[0];
+    
+    // When the user clicks the button, open the modal
+    btn2.onclick = function() {
+        modal2.style.display = "block";
+    }
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+}
+</script>
+
+<script>
+    var myVideo2 = document.getElementById("video2");
+    
+    function playPause() {
+        if (myVideo2.paused)
+        myVideo2.play();
+        else
+        myVideo2.pause();
+    }
+
+function makeBig() {
+    myVideo2.width = 650;
+}
+
+function makeSmall() {
+    myVideo2.width = 450;
+}
+
+function makeNormal() {
+    myVideo2.width = 450;
+}
+</script>
+    
 </html>
 
 
