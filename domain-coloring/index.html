@@ -108,47 +108,51 @@
     <p>With the following tools you just need to enter the real and imaginary components of a complex function $$f(z)=\text{Re}(x, y)+ i \,\text{Im}(x,y).$$</p>
     
     <div class="w3-center w3-padding-16">
-        <a class="w3-button w3-hover-light-grey w3-opacity w3-xlarge w3-round-xxlarge w3-center" id="myBtn">  <i class="fas fa-hand-point-right"></i> How to use the basic tool?</a><br>
+        
+        <a class="myBtn_multi w3-button w3-hover-light-grey w3-opacity w3-xlarge w3-round-xxlarge w3-center" id="myBtn">  <i class="fas fa-hand-point-right"></i> How to use the basic tool?</a><br>
+        
         <a class="w3-button w3-hover-light-grey w3-opacity w3-large w3-round-xxlarge w3-center" href="#notes">  <i class="fas fa-info-circle"></i> Notes</a>
+        
     </div>
+    
     <!-- The Modal -->
-    <div id="myModal" class="modal">
+    <div class="modal modal_multi">
         
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close close_multi">&times;</span>
             <div style="text-align:center">
-                <button onclick="playPause()" class="w3-button w3-hover-grey" >Play/Pause</button>&nbsp;
-                <button onclick="makeBig()" class="w3-button w3-hover-grey">Big</button>&nbsp;
-                <button onclick="makeSmall()" class="w3-button w3-hover-grey">Small</button>
-                <br><br>
-                <video id="video1" width="450">
-                    <source src="howtodc.mp4" type="video/mp4">
-                        Your browser does not support HTML5 video.
-                        </video>
+                
+                <iframe width="600" height="355" src="https://www.youtube.com/embed/Z_D1GqVSs6w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br>
+                <p class="w3-large"><b class="w3-xlarge">Example:</b> <br>
+                For plotting $\large{f(z)=z^2}$, enter the values <br>
+                <t>Re(x,y)=x*x-y*y</t> and <t>Im(x, y)= 2*x*y</t><br></p>
+                <br>
             </div>
         </div>
         
     </div>
+    
     <p class="w3-center">Open the tool by clicking on the image.</p>
     <!-- First Photo Grid-->
     <div class="w3-row-padding">
         <div class="w3-third w3-container w3-margin-bottom">
-            <a href="https://jcponce.github.io/complex/dcolorHSB/"><img src="img/hsb2.png" alt="HSB" style="width:100%" class="w3-hover-opacity"></a>
+            <a href="https://jcponce.github.io/complex/domaincoloringsite/dcolorHSB/"><img src="img/hsb2.png" alt="HSB" style="width:100%" class="w3-hover-opacity"></a>
             <div class="w3-container w3-white">
                 <p><b>HSB enhanced scheme</b></p>
                 <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
             </div>
         </div>
         <div class="w3-third w3-container w3-margin-bottom">
-            <a href="https://jcponce.github.io/complex/dcolorHSBReIm/"><img src="img/hsb1.png" alt="HSBReIm" style="width:100%" class="w3-hover-opacity"></a>
+            <a href="https://jcponce.github.io/complex/domaincoloringsite/dcolorHSBReIm/"><img src="img/hsb1.png" alt="HSBReIm" style="width:100%" class="w3-hover-opacity"></a>
             <div class="w3-container w3-white">
                 <p><b>HSB enhanced scheme</b></p>
                 <p>Plots the level curves of the modulus, imaginary and real components of $f(z)$.</p>
             </div>
         </div>
         <div class="w3-third w3-container w3-margin-bottom">
-            <a href="https://jcponce.github.io/complex/dcolorRGB/"><img src="img/rgb1.png" alt="RGB" style="width:100%" class="w3-hover-opacity"></a>
+            <a href="https://jcponce.github.io/complex/domaincoloringsite/dcolorRGB/"><img src="img/rgb1.png" alt="RGB" style="width:100%" class="w3-hover-opacity"></a>
             <div class="w3-container w3-white">
                 <p><b>RGB enhanced scheme</b></p>
                 <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
@@ -164,25 +168,28 @@
         <br><br><br>
         <h2>Advanced Tools: General complex functions</h2>
         <p>With the following tools you can plot an extensive variety of complex functions. Howerver, you will need to use the sintax from the JavaScript library:  <a href="https://github.com/infusion/Complex.js/" class="w3-hover-text-blue"> Complex.js.</a> </p>
+        
         <div class="w3-center w3-padding-16">
-            <a class="w3-button w3-hover-light-grey w3-opacity w3-xlarge w3-round-xxlarge w3-center" id="myBtn2">  <i class="fas fa-hand-point-right"></i> How to use the advanced tool?</a><br>
-           <!-- <a class="w3-button w3-hover-light-grey w3-opacity w3-large w3-round-xxlarge w3-center" href="#notes">  <i class="fas fa-info-circle"></i> Notes</a>-->
+            
+            <a class="myBtn_multi w3-button w3-hover-light-grey w3-opacity w3-xlarge w3-round-xxlarge w3-center" id="myBtn">  <i class="fas fa-hand-point-right"></i> How to use the advanced tool?</a><br>
+            
+            <!--<a class="w3-button w3-hover-light-grey w3-opacity w3-large w3-round-xxlarge w3-center" href="#notes">  <i class="fas fa-info-circle"></i> Notes</a>-->
+            
         </div>
+        
         <!-- The Modal -->
-        <div id="myModal2" class="modal">
+        <div class="modal modal_multi">
             
             <!-- Modal content -->
             <div class="modal-content">
-                <span class="close2">&times;</span>
+                <span class="close close_multi">&times;</span>
                 <div style="text-align:center">
-                    <button onclick="playPause()" class="w3-button w3-hover-grey" >Play/Pause</button>&nbsp;
-                    <button onclick="makeBig()" class="w3-button w3-hover-grey">Big</button>&nbsp;
-                    <button onclick="makeSmall()" class="w3-button w3-hover-grey">Small</button>
-                    <br><br>
-                    <video id="video2" width="450">
-                        <source src="howtofull.mp4" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                            </video>
+                    <iframe width="600" height="355" src="https://www.youtube.com/embed/AapItlylQT0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <br>
+                    <p class="w3-large"><b class="w3-xlarge">Example:</b> <br>
+                    For plotting $\large{f(z)=z^2+i}$, enter the values <br>
+                    <t>Re(x,y)=x*x-y*y</t> and <t>Im(x, y)= 2*x*y+1</t><br></p>
+                    <br>
                 </div>
             </div>
             
@@ -192,21 +199,21 @@
         <!-- First Photo Grid-->
         <div class="w3-row-padding">
             <div class="w3-third w3-container w3-margin-bottom">
-                <a href="https://jcponce.github.io/complex/dcolorHSBfull/"><img src="img/hsb3.png" alt="HSB" style="width:100%" class="w3-hover-opacity"></a>
+                <a href="https://jcponce.github.io/complex/domaincoloringsite/dcolorHSBfull/"><img src="img/hsb3.png" alt="HSB" style="width:100%" class="w3-hover-opacity"></a>
                 <div class="w3-container w3-white">
                     <p><b>HSB enhanced scheme</b></p>
                     <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
                 </div>
             </div>
             <div class="w3-third w3-container w3-margin-bottom">
-                <a href="https://jcponce.github.io/complex/dcolorHSBReImfull/"><img src="img/hsb4.png" alt="HSBReIm" style="width:100%" class="w3-hover-opacity"></a>
+                <a href="https://jcponce.github.io/complex/domaincoloringsite/dcolorHSBReImfull/"><img src="img/hsb4.png" alt="HSBReIm" style="width:100%" class="w3-hover-opacity"></a>
                 <div class="w3-container w3-white">
                     <p><b>HSB enhanced scheme</b></p>
                     <p>Plots the level curves of the modulus, imaginary and real components of $f(z)$.</p>
                 </div>
             </div>
             <div class="w3-third w3-container w3-margin-bottom">
-                <a href="https://jcponce.github.io/complex/dcolorRGBfull/"><img src="img/rgb2.png" alt="RGBfull" style="width:100%" class="w3-hover-opacity"></a>
+                <a href="https://jcponce.github.io/complex/domaincoloringsite/dcolorRGBfull/"><img src="img/rgb2.png" alt="RGBfull" style="width:100%" class="w3-hover-opacity"></a>
                 <div class="w3-container w3-white">
                     <p><b>RGB enhanced scheme</b></p>
                     <p>Plots the level curves of the modulus and phase of $f(z)$.</p>
@@ -253,6 +260,8 @@
         List of available built-in functions is <a class="w3-hover-text-blue" href="https://p5js.org/reference/#group-Math">available here</a>.</li>
     </ul>
     </p>
+    
+    <p>The source code is available at <a class="w3-hover-text-blue" href="https://p5js.org/reference/#group-Math">GitHub</a> </p>
     <!--
     <div class="w3-center">
         <iframe name="domaincolor" src="https://jcponce.github.io/complex/domaincoloring/index.html"  style="border:1px solid lightgrey;" scrolling="no" width="550" height="500"></iframe>
@@ -303,107 +312,89 @@
 
 </body>
     
-<script>
+    <script>
+        // Get the modal
+        
+        var modalparent = document.getElementsByClassName("modal_multi");
+        
+        // Get the button that opens the modal
+        
+        var modal_btn_multi = document.getElementsByClassName("myBtn_multi");
+        
+        // Get the <span> element that closes the modal
+        var span_close_multi = document.getElementsByClassName("close_multi");
+        
+        // When the user clicks the button, open the modal
+        function setDataIndex() {
+            
+            for (i = 0; i < modal_btn_multi.length; i++)
+            {
+                modal_btn_multi[i].setAttribute('data-index', i);
+                modalparent[i].setAttribute('data-index', i);
+                span_close_multi[i].setAttribute('data-index', i);
+            }
+        }
+    
+    
+    
+    for (i = 0; i < modal_btn_multi.length; i++)
+    {
+        modal_btn_multi[i].onclick = function() {
+            var ElementIndex = this.getAttribute('data-index');
+            modalparent[ElementIndex].style.display = "block";
+        };
+        
+        // When the user clicks on <span> (x), close the modal
+        span_close_multi[i].onclick = function() {
+            var ElementIndex = this.getAttribute('data-index');
+            modalparent[ElementIndex].style.display = "none";
+        };
+        
+    }
+    
+    window.onload = function() {
+        
+        setDataIndex();
+    };
+    
+    window.onclick = function(event) {
+        if (event.target === modalparent[event.target.getAttribute('data-index')]) {
+            modalparent[event.target.getAttribute('data-index')].style.display = "none";
+        }
+        
+        // OLD CODE
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+    
+    //XXXXXXXXXXXXXXXXXXXXXXX    Modified old code    XXXXXXXXXXXXXXXXXXXXXXXXXX
+    
     // Get the modal
+    
     var modal = document.getElementById('myModal');
     
     // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
     
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    var span = modal.getElementsByClassName("close")[0]; // Modified by dsones uk
     
-    // When the user clicks the button, open the modal
+    // When the user clicks on the button, open the modal
+    
     btn.onclick = function() {
+        
         modal.style.display = "block";
     }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
         modal.style.display = "none";
     }
-}
-</script>
-
-<script>
-    var myVideo = document.getElementById("video1");
     
-    function playPause() {
-        if (myVideo.paused)
-        myVideo.play();
-        else
-        myVideo.pause();
-    }
-
-function makeBig() {
-    myVideo.width = 650;
-}
-
-function makeSmall() {
-    myVideo.width = 450;
-}
-
-function makeNormal() {
-    myVideo.width = 450;
-}
-</script>
-
-<script>
-    // Get the modal
-    var modal2 = document.getElementById('myModal2');
     
-    // Get the button that opens the modal
-    var btn2 = document.getElementById("myBtn2");
     
-    // Get the <span> element that closes the modal
-    var span2 = document.getElementsByClassName("close2")[0];
-    
-    // When the user clicks the button, open the modal
-    btn2.onclick = function() {
-        modal2.style.display = "block";
-    }
-
-// When the user clicks on <span> (x), close the modal
-span2.onclick = function() {
-    modal2.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal2) {
-        modal2.style.display = "none";
-    }
-}
-</script>
-
-<script>
-    var myVideo2 = document.getElementById("video2");
-    
-    function playPause() {
-        if (myVideo2.paused)
-        myVideo2.play();
-        else
-        myVideo2.pause();
-    }
-
-function makeBig() {
-    myVideo2.width = 650;
-}
-
-function makeSmall() {
-    myVideo2.width = 450;
-}
-
-function makeNormal() {
-    myVideo2.width = 450;
-}
-</script>
+        </script>
     
 </html>
 
