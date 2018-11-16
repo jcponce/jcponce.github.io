@@ -29,7 +29,7 @@ function draw() {
   loadPixels();
 
   // Maximum number of iterations for each point on the complex plane
-  let maxiterations = 100;
+  let maxiterations = 90;
 
   // x goes from xmin to xmax
   let xmax = xmin + w;
