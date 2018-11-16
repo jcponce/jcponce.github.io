@@ -33,6 +33,10 @@ Random: function() { this.Angle = random(0, 2*PI); },
 GoldenRatio: function() { this.Angle = 1.61803398875; this.Points = 1618; },
 };
 
+function sourceCode() {
+    window.location.href = "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/sunflowerSphere";
+}
+
 function backHome() {
     window.location.href = "https://jcponce.github.io/";
 }
@@ -44,11 +48,12 @@ function setup() {
     gui.add(parDef, 'Title');
     gui.add(parDef, 'Angle'  , 0, 2 * PI , PI/10 ).listen();
     //gui.add(parDef, 'PlayAngle').listen();//For later
-    gui.add(parDef, 'Points'  , 0, 1618 , 1 ).listen();
+    gui.add(parDef, 'Points'  , 0, 2000 , 1 ).listen();
     gui.add(parDef, 'Random'  );
     gui.add(parDef, 'GoldenRatio'  );
     gui.add(parDef, 'xyzAxes'  );
-    gui.add(this, 'backHome').name("Go Back");
+    gui.add(this, 'sourceCode').name("Source Code");
+    gui.add(this, 'backHome').name("Back Home");
     
     pixelDensity(1);
     
@@ -109,7 +114,7 @@ function draw(){
         translate(x, y, z);
         ambientMaterial(hu, 100, 100);
         noStroke();
-        sphere(0.015, 15, 15);
+        sphere(0.015, 16, 16);
         pop();
     }
     
