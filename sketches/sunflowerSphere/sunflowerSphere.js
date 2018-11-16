@@ -38,7 +38,7 @@ function sourceCode() {
 }
 
 function backHome() {
-    window.location.href = "https://jcponce.github.io/";
+    window.location.href = "https://jcponce.github.io/#sketches";
 }
 
 function setup() {
