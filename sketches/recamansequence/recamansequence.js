@@ -45,7 +45,7 @@ let hu = 0;
 let clear = false;
 
 function backHome () {
-    window.location.href = "https://jcponce.github.io/";
+    window.location.href = "https://jcponce.github.io/#sketches";
 }
 
 class Arc {
