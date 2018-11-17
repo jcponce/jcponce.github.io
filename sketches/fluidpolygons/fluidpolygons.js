@@ -169,11 +169,11 @@ function Particle(_x, _y, _t, _h) {
 
 function controls() {
     buttonTrace = createButton('Trace');
-    buttonTrace.position(width/15, height*0.05);
+    buttonTrace.position(width/20, height*0.05);
     buttonTrace.mousePressed(traceShow);
     
     buttonField = createButton('Field');
-    buttonField.position(width/8, height*0.05);
+    buttonField.position(width/20, height*0.05+40);
     buttonField.mousePressed(fieldShow);
     
 }
