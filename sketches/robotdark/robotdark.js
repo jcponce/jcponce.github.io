@@ -45,7 +45,7 @@ function draw() {
     stroke(0);
     textAlign(RIGHT);
     textSize(18);
-    text("Click mouse to switch!", width/6, 30);
+    text("Click mouse to switch!", width/4, 30);
     
     if (pushed) {
         particles.push(new Particle(createVector(mouseX, mouseY)));
