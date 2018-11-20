@@ -20,19 +20,33 @@ let color = 360;
 let clts = {
     
 title: 'Particle system',
+inst: 'Click mouse',
+Up: false,
     
 };
+
+let gv = -1;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     colorMode(HSB, 360, 100, 100, 300);
     // create gui (dat.gui)
-    let gui = new dat.GUI();
-    gui.add(clts, 'title').name("Polygons");
+    let gui = new dat.GUI({width: 295});
+    gui.add(clts, 'title').name("Polygons:");
+    gui.add(clts, 'inst').name("Instructions:");
+    gui.add(clts, 'Up').name("Gravity").onChange(applyGravity);
     gui.add(this, 'backHome').name("Back Home");
 }
 
-function backHome () {
+function applyGravity() {
+    if(clts.Up == false){
+        gv = -1;
+    }else {
+        gv = 1;
+    }
+}
+
+function backHome() {
     window.location.href = "https://jcponce.github.io/#sketches";
 }
 
@@ -41,16 +55,11 @@ function draw() {
     cursor(HAND);
     
     
-    fill('#ffffff');
-    stroke(0);
-    textAlign(RIGHT);
-    textSize(18);
-    text("Click mouse to switch!", width/4, 30);
     
     if (pushed) {
         particles.push(new Particle(createVector(mouseX, mouseY)));
     } else {
-        particles.push(new Particle(createVector(width / 2, 100))); //chu shi zhi
+        particles.push(new Particle(createVector(width / 2, height/2+70))); //chu shi zhi
     }
     for (var i = particles.length - 1; i >= 0; i--) {
         particles[i].update();
@@ -69,7 +78,7 @@ function Particle(_loc) {
     
     var loc = _loc.copy();
     var vel = createVector(random(-1, 1), random(-2, 0));
-    var acc = createVector(0, 0.05);
+    var acc = createVector(0, gv * 0.04);
     var lifespan = 255;
     var h = random(360);
     var sz = random(11, 32);
@@ -84,9 +93,9 @@ function Particle(_loc) {
     
     // Method to display
     this.paint = function() {
-        stroke(h, 90, 90, lifespan);
+        stroke(h, 98, 98, lifespan);
         strokeWeight(2);
-        fill(h, 90, 50, lifespan);
+        fill(h, 98, 58, lifespan);
         //ellipse(loc.x, loc.y, sz, sz);
         beginShape();
         for(let i=0; i<=n; i++){
@@ -139,9 +148,20 @@ let paint = false;
 function robot(){
     rectMode(CENTER);
     //Body
-    fill(0);
+    if (pushed) {
+        fill(0, 0, 20);
+    }else {
+        fill(0);
+    }
     rect(width/2,2*height/8+75,15,20);//neck
-    stroke(20);
+    
+    if (pushed) {
+        stroke(0, 0, 70);
+    }else {
+        stroke(20);
+    }
+    
+    
     rect(width/2,2*height/8+40,100,70);//head
     
     rect(width/2,2*height/8+125,80,80);//chest
