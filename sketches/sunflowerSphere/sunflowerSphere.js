@@ -31,7 +31,12 @@ Points: 500,
 xyzAxes: false,
 Random: function() { this.Angle = random(0, 2*PI); },
 Play: false,
-GoldenRatio: function() { this.Angle = 1.61803398875; this.Points = 1300; this.Play = false; },
+GoldenRatio: function() {
+        this.Angle = 1.61803398875;
+        this.Points = 1300;
+        this.Play = false;
+        this.xyzAxes = false;
+    },
 };
 
 function sourceCode() {
@@ -46,16 +51,16 @@ function setup() {
     
     // create gui (dat.gui)
     let gui = new dat.GUI({
-                          width: 289
+                          width: 280
                           });
     gui.add(parDef, 'Title');
     gui.add(parDef, 'Angle'  , 0, 2 * PI , PI/10 ).listen();
-    gui.add(parDef, 'Play' ).name("Play");
-    gui.add(parDef, 'Points'  , 0, 2500 , 1 ).listen();
+    gui.add(parDef, 'Play' ).name("Play").listen();
+    gui.add(parDef, 'Points'  , 0, 2200 , 1 ).listen();
     gui.add(parDef, 'Sphere');
-    gui.add(parDef, 'Random' );
-    gui.add(parDef, 'GoldenRatio'  );
-    gui.add(parDef, 'xyzAxes' ).name("Axes");
+    gui.add(parDef, 'Random');
+    gui.add(parDef, 'GoldenRatio');
+    gui.add(parDef, 'xyzAxes' ).name("Axes").listen();
     
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
@@ -73,15 +78,12 @@ function setup() {
     
 }
 
-
-
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
 }
 
 function draw(){
-    
     
     // projection
     perspective(60 * PI/180, width/height, 1, 5000);
@@ -97,10 +99,8 @@ function draw(){
     //x = cos(pi * 2 * Angle * ) * sin(acos(1-2 * i/numP)),
     //y = sin(pi * 2 * Angle * i) * sin(acos(1-2* i/numP)),
     //z = cos(acos(1-2 * i/numP))
+    
     ambientLight(80);
-    //pointLight(100, 30, 100, 80, 100, 0);
-    var locX = mouseX - width / 2;
-    var locY = mouseY - height / 2;
     pointLight(100, 0, 100, 90, -50, 50);
     
     if(parDef.PlayAngle==true){
@@ -135,7 +135,7 @@ function draw(){
     }
     
     //console.log(parDef.Sphere);
-    //update();
+    
     if(parDef.Play == true){
         if(parDef.Angle < 2 * PI){
             parDef.Angle = parDef.Angle + PI/400000;
