@@ -26,10 +26,11 @@ let numP = 1000;
 let parDef = {
 Title: 'Points on Sphere',
 Angle: 1.61803398875,
-//PlayAngle : false,//For later
+Sphere : false,
 Points: 500,
-xyzAxes: axesSketch,
+xyzAxes: false,
 Random: function() { this.Angle = random(0, 2*PI); },
+//Play: function() { this.Angle = this.Angle + PI/100; },
 GoldenRatio: function() { this.Angle = 1.61803398875; this.Points = 1618; },
 };
 
@@ -47,11 +48,12 @@ function setup() {
     let gui = new dat.GUI();
     gui.add(parDef, 'Title');
     gui.add(parDef, 'Angle'  , 0, 2 * PI , PI/10 ).listen();
-    //gui.add(parDef, 'PlayAngle').listen();//For later
     gui.add(parDef, 'Points'  , 0, 2000 , 1 ).listen();
-    gui.add(parDef, 'Random'  );
+    gui.add(parDef, 'Sphere');
+    gui.add(parDef, 'Random' );
     gui.add(parDef, 'GoldenRatio'  );
-    gui.add(parDef, 'xyzAxes'  );
+    gui.add(parDef, 'xyzAxes' ).name("Axes");
+    //gui.add(parDef, 'Play' ).name("Play");
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
@@ -64,31 +66,19 @@ function setup() {
     
     easycam = new Dw.EasyCam(this._renderer, {distance : 3});
     
-    colorMode(HSB);
+    colorMode(HSB, 100);
     
 }
+
+
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
 }
 
-var update = function() {
-    requestAnimationFrame(update);
-};
-
-update();
-
-let gizmo = false;
-function axesSketch(){
-    if(gizmo == false){
-        return gizmo = true;
-    }else gizmo = false;
-}
-
 function draw(){
     
-    update();
     
     // projection
     perspective(60 * PI/180, width/height, 1, 5000);
@@ -104,12 +94,18 @@ function draw(){
     //x = cos(pi * 2 * Angle * ) * sin(acos(1-2 * i/numP)),
     //y = sin(pi * 2 * Angle * i) * sin(acos(1-2* i/numP)),
     //z = cos(acos(1-2 * i/numP))
+    ambientLight(80);
+    pointLight(100, 30, 100, 50, -100, 0);
+    
+    if(parDef.PlayAngle==true){
+        update();
+    }
     
     for (let i = 0; i < parDef.Points; i++) {
         let x = cos(PI * 2 * parDef.Angle * i) * sin(acos(1-2 * i/parDef.Points));
         let y = sin(PI * 2 * parDef.Angle * i) * sin(acos(1-2* i/parDef.Points));
         let z = cos(acos(1-2 * i/parDef.Points));
-        let hu = map(i, 0, parDef.Points, 0, 255);
+        let hu = map(i, 0, parDef.Points, 0, 100);
         push();
         translate(x, y, z);
         ambientMaterial(hu, 100, 100);
@@ -118,12 +114,21 @@ function draw(){
         pop();
     }
     
-    if(gizmo==true){
+    if(parDef.Sphere == true){
+        ambientMaterial(10, 0, 45);
+        noStroke();
+        sphere(1, 24, 16);
+    }
+    
+    if(parDef.xyzAxes == true){
     // gizmo
         strokeWeight(0.01);
-        stroke(0 , 100,  100); line(0,0,0,1,0,0);
-        stroke( 100, 100,  100); line(0,0,0,0,1,0);
-        stroke( 255, 100,  100); line(0,0,0,0,0,1);
+        stroke( 0, 100,  100); line(0,0,0,1,0,0);
+        stroke( 30, 100,  100); line(0,0,0,0,1,0);
+        stroke( 70, 100,  100); line(0,0,0,0,0,1);
     }
+    
+    //console.log(parDef.Sphere);
+    //update();
 }
 
