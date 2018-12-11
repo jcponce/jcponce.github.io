@@ -1,13 +1,14 @@
 /* Written in p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Writen by Juan Carlos Ponce Campuzano, 28-Nov-2018
+ * Written by Juan Carlos Ponce Campuzano, 28-Nov-2018
  * Original code by Kato https://www.openprocessing.org/user/114431
  */
 
 // Last update ??
 
-//Original code by https://gist.github.com/fogleman/c11a5cbcd845946b851518adedbf6a32
+//The following code is an adaptation found here https://gist.github.com/fogleman/c11a5cbcd845946b851518adedbf6a32
+// written by Fogleman
 
 function hypotrochoid(R, r, d, theta) {
     var x = (R - r) * cos(theta) + d * cos((R - r) / r * theta);
