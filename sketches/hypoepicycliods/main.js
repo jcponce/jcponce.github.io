@@ -40,11 +40,11 @@ var Controls = function() {
 
 var controls = new Controls();
 
-var rotating = 0;
+//var rotating = 0;
 
-var points = [];
+//var points = [];
 
-var polygons = [];
+//var polygons = [];
 
 
 let stepTheta;
