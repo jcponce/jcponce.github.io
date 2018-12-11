@@ -62,7 +62,7 @@ function setup() {
     gui.add(controls, 'r', 1, 30).step(1);
     gui.add(controls, 'd', 0, 30).step(0.1);
     gui.add(controls, 'rotation', 0, 360).step(1);
-    gui.add(controls, 'scale', 0.3, 0.8).step(0.1);
+    gui.add(controls, 'scale', 0.1, 0.8).step(0.1);
     createCanvas(520, 520);
     pixelDensity(1);
     
