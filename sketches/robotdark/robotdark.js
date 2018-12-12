@@ -32,9 +32,11 @@ function setup() {
     colorMode(HSB, 360, 100, 100, 300);
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
+    gui.close();
     gui.add(clts, 'title').name("Polygons:");
     gui.add(clts, 'inst').name("Instructions:");
     gui.add(clts, 'Up').name("Gravity").onChange(applyGravity);
+    gui.add(this, 'backHome').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
 }
 
@@ -44,6 +46,10 @@ function applyGravity() {
     }else {
         gv = 1;
     }
+}
+
+function sourceCode() {
+    window.location.href = "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/robotdark";
 }
 
 function backHome() {
@@ -81,7 +87,7 @@ function Particle(_loc) {
     var acc = createVector(0, gv * 0.04);
     var lifespan = 255;
     var h = random(360);
-    var sz = random(11, 32);
+    var sz = random(9, 32);
     var n = Math.round(random(3,10));
     
     // Method to update location
