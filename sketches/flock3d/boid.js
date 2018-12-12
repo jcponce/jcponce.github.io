@@ -1,7 +1,7 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 19-Jul-2018
+ * Written by Juan Carlos Ponce Campuzano, 12-Dec-2018
  */
 
 // Original code:
@@ -12,27 +12,33 @@
 
 class Boid {
     constructor() {
-        this.position = createVector(random(width), random(height));
-        this.velocity = p5.Vector.random2D();
+        this.m = 700
+        this.position = createVector(random(-this.m, this.m), random(-this.m, this.m), random(-this.m, this.m));
+        this.velocity = p5.Vector.random3D();
         this.velocity.setMag(random(2, 4));
         this.acceleration = createVector();
         this.maxForce = 0.2;
         this.maxSpeed = 5;
-        this.sz = 7;
-        this.n = Math.round(random(3, 10));
+        this.sz = 10;
+        //this.n = Math.round(random(3, 10));
         this.h = random(360);
     }
     
     edges() {
-        if (this.position.x > width) {
-            this.position.x = 0;
-        } else if (this.position.x < 0) {
-            this.position.x = width;
+        if (this.position.x > this.m) {
+            this.position.x = -this.m;
+        } else if (this.position.x < -this.m) {
+            this.position.x = this.m;
         }
-        if (this.position.y > height) {
-            this.position.y = 0;
-        } else if (this.position.y < 0) {
-            this.position.y = height;
+        if (this.position.y > this.m) {
+            this.position.y = -this.m;
+        } else if (this.position.y < -this.m) {
+            this.position.y = this.m;
+        }
+        if (this.position.z > this.m) {
+            this.position.z = -this.m;
+        } else if (this.position.z < -this.m) {
+            this.position.z = this.m;
         }
     }
     
@@ -41,7 +47,7 @@ class Boid {
         let steering = createVector();
         let total = 0;
         for (let other of boids) {
-            let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+            let d = dist(this.position.x, this.position.y, this.position.z, other.position.x, other.position.y, other.position.z);
             if (other != this && d < perceptionRadius) {
                 steering.add(other.velocity);
                 total++;
@@ -61,7 +67,7 @@ class Boid {
         let steering = createVector();
         let total = 0;
         for (let other of boids) {
-            let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+            let d = dist(this.position.x, this.position.y, this.position.z, other.position.x, other.position.y, other.position.z);
             if (other != this && d < perceptionRadius) {
                 let diff = p5.Vector.sub(this.position, other.position);
                 diff.div(d * d);
@@ -83,7 +89,7 @@ class Boid {
         let steering = createVector();
         let total = 0;
         for (let other of boids) {
-            let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+            let d = dist(this.position.x, this.position.y, this.position.z, other.position.x, other.position.y, other.position.z);
             if (other != this && d < perceptionRadius) {
                 steering.add(other.position);
                 total++;
@@ -124,16 +130,14 @@ class Boid {
         //strokeWeight(6);
         //stroke(255);
         //point(this.position.x, this.position.y);
-        stroke(this.h, 98, 98);
-        strokeWeight(1);
-        fill(this.h, 98, 58);
-        beginShape();
-        for(let i=0; i<=this.n; i++){
-            let nextx, nexty;
-            nextx = this.position.x + this.sz * cos(i*2*PI/this.n);
-            nexty = this.position.y + this.sz * sin(i*2*PI/this.n);
-            vertex(nextx, nexty);
-        }
-        endShape(CLOSE);
+        //stroke(this.h, 98, 98);
+        //strokeWeight(1);
+        //fill(this.h, 98, 58);
+        push();
+        translate(this.position.x, this.position.y, this.position.z);
+        ambientMaterial(this.h, 98, 98);
+        noStroke();
+        sphere(this.sz);
+        pop();
     }
 }

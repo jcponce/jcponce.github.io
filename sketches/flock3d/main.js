@@ -1,7 +1,7 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 19-Jul-2018
+ * Written by Juan Carlos Ponce Campuzano, 12-Dec-2018
  */
 
 // Original code:
@@ -9,6 +9,8 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
 // https://youtu.be/mhjuuHl6qHM
+
+let easycam;
 
 const flock = [];
 
@@ -22,7 +24,17 @@ let Controls = function() {
 let controls = new Controls();
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    //createCanvas(windowWidth, windowHeight);
+    
+    pixelDensity(1);
+    
+    let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+    setAttributes('antialias', true);
+    
+    console.log(Dw.EasyCam.INFO);
+    
+    easycam = new Dw.EasyCam(this._renderer, {distance : 1000});
+    
     colorMode(HSB, 360, 100, 100, 300);
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
@@ -39,6 +51,12 @@ function setup() {
     
 }
 
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    easycam.setViewport([0,0,windowWidth, windowHeight]);
+    
+}
+
 function sourceCode() {
     window.location.href = "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/flock";
 }
@@ -48,11 +66,28 @@ function backHome() {
 }
 
 function draw() {
+    // projection
+    perspective(60 * PI/180, width/height, 1, 5000);
+    
     background(0);
+    
+    rotateX(0.9)
+    rotateY(0.0);
+    rotateZ(0.3);
+    
+    ambientLight(80);
+    pointLight(100, 0, 100, 90, -50, 50);
+    
+    
     for (let boid of flock) {
         boid.edges();
         boid.flock(flock);
         boid.update();
         boid.show();
     }
+    
+    strokeWeight(0.01);
+    stroke( 0, 100,  100); line(0,0,0,1,0,0);
+    stroke( 30, 100,  100); line(0,0,0,0,1,0);
+    stroke( 70, 100,  100); line(0,0,0,0,0,1);
 }
