@@ -4,7 +4,8 @@
  * Written by Juan Carlos Ponce Campuzano, 19-Jul-2018
  */
 
-// Flocking
+// Original code:
+// Flocking by
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
 // https://youtu.be/mhjuuHl6qHM
