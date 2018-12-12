@@ -12,7 +12,7 @@ let slider;
 function setup() {
     createCanvas(550, 550);
     colorMode(HSB);
-    slider = createSlider(4, 12, 1);
+    slider = createSlider(4, 10, 1);
     slider.position(180, 510);
     slider.style('width', '200px');
 }
