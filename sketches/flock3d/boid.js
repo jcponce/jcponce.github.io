@@ -1,7 +1,7 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 12-Dec-2018
+ * Written by Juan Carlos Ponce Campuzano, 19-Jul-2018
  */
 
 // Original code:
