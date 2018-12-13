@@ -27,9 +27,9 @@ function setup() {
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
     gui.close();
-    gui.add(controls, 'align', 0, 2).name("Align").step(0.1);
-    gui.add(controls, 'cohesion', 0, 2).name("Cohesion").step(0.1);
-    gui.add(controls, 'separation', 0, 2).name("Separation").step(0.1);
+    gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
+    gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
+    gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
     gui.add(this, 'backHome').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
