@@ -51,20 +51,23 @@ let stepTheta;
 let maxTheta;
 
 function setup() {
+    
+    createCanvas(520, 520);
+    pixelDensity(1);
+    
     var gui = new dat.GUI({
-                          width: 300
+                          width: 260
                           });
     gui.add(controls, 'type', {
-            hypotrochoid: 0,
-            epitrochoid: 1
-            });
+            Hypotrochoid: 0,
+            Epitrochoid: 1
+            }).name("Type");
     gui.add(controls, 'R', 1, 30).step(1);
     gui.add(controls, 'r', 1, 30).step(1);
     gui.add(controls, 'd', 0, 30).step(0.1);
     gui.add(controls, 'rotation', 0, 360).step(1);
     gui.add(controls, 'scale', 0.1, 0.8).step(0.1);
-    createCanvas(520, 520);
-    pixelDensity(1);
+    
     
     maxTheta = 0;
     stepTheta = 0.9;
@@ -73,7 +76,6 @@ function setup() {
 function windowResized() {
     resizeCanvas(520, 520);
 }
-
 
 
 function draw() {
