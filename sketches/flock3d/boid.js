@@ -13,7 +13,7 @@
 class Boid {
     constructor() {
         this.m = 700
-        this.position = createVector(random(-this.m, this.m), random(-this.m, this.m), random(-this.m, this.m));
+        this.position = createVector(random(-10, 10), random(-10, 10), random(-10, 10));
         this.velocity = p5.Vector.random3D();
         this.velocity.setMag(random(2, 4));
         this.acceleration = createVector();
@@ -137,7 +137,8 @@ class Boid {
         translate(this.position.x, this.position.y, this.position.z);
         ambientMaterial(this.h, 98, 98);
         noStroke();
-        sphere(this.sz);
+        //sphere(this.sz);
+        torus(15, 6);
         pop();
     }
 }

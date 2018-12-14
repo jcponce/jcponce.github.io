@@ -85,6 +85,9 @@ function draw() {
         boid.update();
         boid.show();
     }
+    //noFill();
+    //stroke(255);
+    //box(700);
     
     strokeWeight(0.01);
     stroke( 0, 100,  100); line(0,0,0,1,0,0);

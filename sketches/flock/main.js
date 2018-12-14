@@ -21,9 +21,14 @@ let Controls = function() {
 
 let controls = new Controls();
 
+let quadTree;
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     colorMode(HSB, 360, 100, 100, 300);
+    
+    quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
+    
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
     gui.close();
@@ -48,7 +53,17 @@ function backHome() {
 }
 
 function draw() {
+    
+    quadTree.clear();
+    for (const boid of flock) {
+        quadTree.addItem(boid.position.x, boid.position.y, boid);
+    }
+    
     background(0);
+    
+    quadTree.debugRender();
+    
+    
     for (let boid of flock) {
         boid.edges();
         boid.flock(flock);
