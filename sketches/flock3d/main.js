@@ -29,9 +29,9 @@ const flock = [];
 
 let Controls = function() {
     this.perception = 90;
-    this.align = 1;
-    this.cohesion = 1;
-    this.separation = 1;
+    this.align = 2;
+    this.cohesion = 2;
+    this.separation = 4;
     
 };
 
@@ -96,7 +96,7 @@ function draw() {
     pointLight(100, 0, 100, 90, -50, 50);
     
     
-    // Make the quad tree
+    /*// Make the quad tree
     let boundary = new Cube(0, 0, 0, 700, 700, 700);
     quadTree = new QuadTree(boundary, 4);
     for (let boid of flock) {
@@ -111,16 +111,16 @@ function draw() {
     for (let boid of flock) {
         boid.update(gap);
         boid.show();
-    }
+    }*/
     
-    /*
+    
     for (let boid of flock) {
         boid.edges();
         boid.flock(flock);
         boid.update();
         boid.show();
     }
-     */
+    
     stroke(80)
     strokeWeight(2);
     /*
@@ -172,6 +172,6 @@ function pushRandomBoid() {
     //let pos = createVector(random(width), random(height), random(-depth/2, depth/2)); // Uncomment and comment next line to create boids at random position
     let pos = createVector(0, 0, 0); // Create a boid at the center of space
     let vel = p5.Vector.random3D().mult(random(0.5, 3)); // Give a random velocity
-    let boid = new Boid(pos, vel); // Create a new boid
+    let boid = new Boid(); // Create a new boid
     flock.push(boid); // Add the new boid to the flock
 }
