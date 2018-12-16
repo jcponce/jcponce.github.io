@@ -18,8 +18,8 @@ class Boid {
         this.acceleration = createVector();
         this.maxForce = 0.2;
         this.maxSpeed = 4;
-        this.sz = 7;
-        this.n = Math.round(random(3, 9));
+        this.sz = 6;
+        this.n = Math.round(random(3, 8));
         this.h = random(360);
     }
     
@@ -37,7 +37,7 @@ class Boid {
     }
     
     align(boids) {
-        let perceptionRadius = 50;
+        let perceptionRadius = 30;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -55,7 +55,7 @@ class Boid {
     }
     
     separation(boids) {
-        let perceptionRadius = 50;
+        let perceptionRadius = 30;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -77,7 +77,7 @@ class Boid {
     }
     
     cohesion(boids) {
-        let perceptionRadius = 100;
+        let perceptionRadius = 50;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
