@@ -16,7 +16,7 @@ let Controls = function() {
     this.align = 1.5;
     this.cohesion = 1;
     this.separation = 2;
-    //this.quad3 = false;
+    this.trace = false;
     this.numPoly = 150;
 };
 
@@ -37,7 +37,7 @@ function setup() {
     gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
     gui.add(controls, 'numPoly', 0, 300).name("Num Polygons").step(1);
-    //gui.add(controls, 'quad3').name("Quadtree").listen();
+    gui.add(controls, 'trace').name("Trace").listen();
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
@@ -45,6 +45,7 @@ function setup() {
         pushRandomBoid();//flock.push(new Boid());
     }
     
+    background(0);
 }
 
 function sourceCode() {
@@ -57,7 +58,18 @@ function backHome() {
 
 function draw() {
     
-    background(0);
+    //background(0);
+    
+    //This is for drawing the trace of particles
+    if(controls.trace==true){
+        fill(0, 55);
+    } else{
+        background(0);
+        fill(0,0);
+    }
+    noStroke();
+    rect(0,0,width,height);
+    
     
     
     quadTree.clear();
