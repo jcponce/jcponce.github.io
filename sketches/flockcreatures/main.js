@@ -17,7 +17,7 @@ let Controls = function() {
     this.cohesion = 1;
     this.separation = 2;
     //this.trace = false;
-    this.numPoly = 60;
+    this.numPoly = 50;
 };
 
 let controls = new Controls();
@@ -36,7 +36,7 @@ function setup() {
     gui.add(controls, 'align', 0, 3).name("Alignment").step(0.1);
     gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-    gui.add(controls, 'numPoly', 0, 120).name("Num Creatures").step(1);
+    gui.add(controls, 'numPoly', 0, 100).name("Num Creatures").step(1);
     //gui.add(controls, 'trace').name("Trace").listen();
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
