@@ -16,8 +16,8 @@ let Controls = function() {
     this.align = 1.5;
     this.cohesion = 1;
     this.separation = 2;
-    this.quad3 = false;
-    
+    //this.quad3 = false;
+    this.numPoly = 200;
 };
 
 let controls = new Controls();
@@ -36,12 +36,13 @@ function setup() {
     gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
     gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
+    gui.add(controls, 'numPoly', 0, 300).name("Num Polygons").step(1);
     //gui.add(controls, 'quad3').name("Quadtree").listen();
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
-    for (let i = 0; i < 200; i++) {
-        flock.push(new Boid());
+    for (let i = 0; i < controls.numPoly; i++) {
+        pushRandomBoid();//flock.push(new Boid());
     }
     
 }
@@ -74,4 +75,26 @@ function draw() {
         boid.update();
         boid.show();
     }
+    
+    // Adjust the amount of boids on screen according to the slider value
+    let maxBoids = controls.numPoly;
+    let difference = flock.length - maxBoids;
+    if (difference < 0) {
+        for (let i = 0; i < -difference; i++) {
+            pushRandomBoid(); // Add boids if there are less boids than the slider value
+        }
+    } else if (difference > 0) {
+        for (let i = 0; i < difference; i++) {
+            flock.pop(); // Remove boids if there are more boids than the slider value
+        }
+    }
+}
+
+// Make a new boid
+function pushRandomBoid() {
+    //let pos = createVector(random(width), random(height), random(-depth/2, depth/2)); // Uncomment and comment next line to create boids at random position
+    let pos = createVector(0, 0, 0); // Create a boid at the center of space
+    let vel = p5.Vector.random3D().mult(random(0.5, 3)); // Give a random velocity
+    let boid = new Boid(pos, vel); // Create a new boid
+    flock.push(boid); // Add the new boid to the flock
 }
