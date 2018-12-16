@@ -40,13 +40,6 @@ var Controls = function() {
 
 var controls = new Controls();
 
-//var rotating = 0;
-
-//var points = [];
-
-//var polygons = [];
-
-
 let stepTheta;
 let maxTheta;
 
@@ -147,9 +140,9 @@ function draw() {
     noFill();
     var setCircle;
     if (controls.type != 0) {
-        setCircle = abs(r + R);
+        setCircle = r + R;
     } else {
-        setCircle = abs(r - R);
+        setCircle = R - r;
     }
     var xP = s * setCircle * cos(radians(maxTheta));
     var yP = s * setCircle * sin(radians(maxTheta));
@@ -164,31 +157,6 @@ function draw() {
     
     fill(255, 209, 26);
     stroke(255, 209, 26)
-    ellipse(mP.x * s, mP.y * s, 10);//Pont tracing curve
-    
-}
-
-//Maybe I don't need the following class
-class regularPolygon {
-    
-    constructor(_x, _y, _r, _n) {
-        this.x = _x;
-        this.y = _y;
-        this.r = _r;
-        this.n = _n;
-    }
-    
-    display() {
-        push();
-        beginShape();
-        for (let i = 0; i <= this.n; i++) {
-            let nextx, nexty;
-            nextx = this.x + this.r * cos(i * 2 * PI / this.n);
-            nexty = this.y + this.r * sin(i * 2 * PI / this.n);
-            vertex(nextx, nexty);
-        }
-        endShape(CLOSE);
-        pop();
-    }
+    ellipse(mP.x * s, mP.y * s, 10);//Point tracing curve
     
 }
