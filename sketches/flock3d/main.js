@@ -33,7 +33,7 @@ function setup() {
     
     console.log(Dw.EasyCam.INFO);
     
-    easycam = new Dw.EasyCam(this._renderer, {distance : 1000});
+    easycam = new Dw.EasyCam(this._renderer, {distance : 1200});
     
     colorMode(HSB, 360, 100, 100, 300);
     // create gui (dat.gui)
@@ -42,7 +42,7 @@ function setup() {
     gui.add(controls, 'align', 0, 2).name("Align").step(0.1);
     gui.add(controls, 'cohesion', 0, 2).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 2).name("Separation").step(0.1);
-    gui.add(this, 'backHome').name("Source Code");
+    gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
     for (let i = 0; i < 200; i++) {
@@ -71,9 +71,11 @@ function draw() {
     
     background(0);
     
-    rotateX(0.9)
+    rotateX(1.5)
     rotateY(0.0);
     rotateZ(0.3);
+    
+    
     
     ambientLight(80);
     pointLight(100, 0, 100, 90, -50, 50);
@@ -85,12 +87,48 @@ function draw() {
         boid.update();
         boid.show();
     }
-    //noFill();
-    //stroke(255);
-    //box(700);
+    stroke(80)
+    strokeWeight(2);
+    /*
+     (1, 1, 1)
+     (-1, -1, 1)
+     (1, -1, 1)
+     (-1, 1, 1)
+     (1, 1, -1)
+     (-1, -1, -1)
+     (1, -1, -1)
+     (-1, 1, -1)
+     
+     */
+    //side faces
+    line(700, 700, 700, 700,700, -700);
+    line(-700, -700, 700, -700, -700, -700);
+    line(700, -700, 700, 700, -700, -700);
+    line(-700, 700, 700, -700, 700, -700);
     
+    //up face
+    line(700, 700, 700, 700, -700, 700);
+    line(700, -700, 700, -700, -700, 700);
+    line(-700, -700, 700, -700, 700, 700);
+    line(-700, 700, 700, 700, 700, 700);
+    
+    //down face
+    line(700, 700, -700, 700, -700, -700);
+    line(700, -700, -700, -700, -700, -700);
+    line(-700, -700, -700, -700, 700, -700);
+    line(-700, 700, -700, 700, 700, -700);
+    
+    /*
     strokeWeight(0.01);
     stroke( 0, 100,  100); line(0,0,0,1,0,0);
     stroke( 30, 100,  100); line(0,0,0,0,1,0);
     stroke( 70, 100,  100); line(0,0,0,0,0,1);
+    // Draw the corners of a box showing the space where boids can fly
+    stroke(80);
+    strokeWeight(1);
+    noFill();
+    box(700, 700, 700);
+     */
+    
+    
 }
