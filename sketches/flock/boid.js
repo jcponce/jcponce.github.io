@@ -14,11 +14,11 @@ class Boid {
     constructor() {
         this.position = createVector(random(2*width/5, 3*width/5), random(2*height/5, 3*height/5));
         this.velocity = p5.Vector.random2D();
-        this.velocity.setMag(random(2, 3.8));
+        this.velocity.setMag(random(1.2, 3.8));
         this.acceleration = createVector();
         this.maxForce = 0.2;
         this.maxSpeed = 3.8;
-        this.sz = 6;
+        this.sz = 7;
         this.n = Math.round(random(3, 8));
         this.h = random(360);
     }
