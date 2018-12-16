@@ -14,10 +14,10 @@ class Boid {
     constructor() {
         this.position = createVector(random(2*width/5, 3*width/5), random(2*height/5, 3*height/5));
         this.velocity = p5.Vector.random2D();
-        this.velocity.setMag(random(2, 4));
+        this.velocity.setMag(random(2, 3.8));
         this.acceleration = createVector();
         this.maxForce = 0.2;
-        this.maxSpeed = 4;
+        this.maxSpeed = 3.8;
         this.sz = 6;
         this.n = Math.round(random(3, 8));
         this.h = random(360);
@@ -117,19 +117,21 @@ class Boid {
     }
     
     show() {
-        //strokeWeight(6);
-        //stroke(255);
-        //point(this.position.x, this.position.y);
+        let theta = this.velocity.heading() + PI / 2;
         stroke(this.h, 98, 98);
         strokeWeight(1);
         fill(this.h, 98, 58);
+        push();
+        translate(this.position.x, this.position.y)
+        rotate(theta);
         beginShape();
-        for(let i=0; i<=this.n; i++){
+        for (let i = 0; i <= this.n; i++) {
             let nextx, nexty;
-            nextx = this.position.x + this.sz * cos(i*2*PI/this.n);
-            nexty = this.position.y + this.sz * sin(i*2*PI/this.n);
+            nextx = this.sz * cos(i * 2 * PI / this.n);
+            nexty = this.sz * sin(i * 2 * PI / this.n);
             vertex(nextx, nexty);
         }
         endShape(CLOSE);
+        pop();
     }
 }

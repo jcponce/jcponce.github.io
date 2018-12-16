@@ -17,7 +17,7 @@ let Controls = function() {
     this.cohesion = 1;
     this.separation = 2;
     //this.quad3 = false;
-    this.numPoly = 200;
+    this.numPoly = 150;
 };
 
 let controls = new Controls();
@@ -92,9 +92,6 @@ function draw() {
 
 // Make a new boid
 function pushRandomBoid() {
-    //let pos = createVector(random(width), random(height), random(-depth/2, depth/2)); // Uncomment and comment next line to create boids at random position
-    let pos = createVector(0, 0, 0); // Create a boid at the center of space
-    let vel = p5.Vector.random3D().mult(random(0.5, 3)); // Give a random velocity
-    let boid = new Boid(pos, vel); // Create a new boid
+    let boid = new Boid(); // Create a new boid
     flock.push(boid); // Add the new boid to the flock
 }
