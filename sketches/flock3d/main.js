@@ -12,12 +12,26 @@
 
 let easycam;
 
+let depth = 350; // The Z location of the boid tend to stay between +depth/2 and -depth/2
+let gap = 100; // Boids can go further than the edges, this further distance is the gap
+
+
+let quadTree; // A quad tree to minimize the cost of distance calculation
+let unitX, unitY, unitZ; // Unit vectors pointing in the X, Y, and Z directions
+
+let useQuadTree = true; // Toogle the use of a quad tree
+let showPerceptionRadius = false; // Toogle vizualization of perception radius
+let goMiddle = false; // Pressing "a" toogle it, making all boids go to the center
+
+let t = 0; // Counts the frame from the time boids go out of the middle of space
+
 const flock = [];
 
 let Controls = function() {
-    this.align = 1.5;
+    this.perception = 90;
+    this.align = 1;
     this.cohesion = 1;
-    this.separation = 2;
+    this.separation = 1;
     
 };
 
@@ -33,20 +47,21 @@ function setup() {
     
     console.log(Dw.EasyCam.INFO);
     
-    easycam = new Dw.EasyCam(this._renderer, {distance : 1200});
+    easycam = new Dw.EasyCam(this._renderer, {distance : 1300});
     
     colorMode(HSB, 360, 100, 100, 300);
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
     gui.close();
-    gui.add(controls, 'align', 0, 2).name("Align").step(0.1);
-    gui.add(controls, 'cohesion', 0, 2).name("Cohesion").step(0.1);
-    gui.add(controls, 'separation', 0, 2).name("Separation").step(0.1);
+    gui.add(controls, 'perception', 0, 900).name("Perception").step(1);
+    gui.add(controls, 'align', 0, 5).name("Align").step(0.1);
+    gui.add(controls, 'cohesion', 0, 5).name("Cohesion").step(0.1);
+    gui.add(controls, 'separation', 0, 5).name("Separation").step(0.1);
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
     for (let i = 0; i < 200; i++) {
-        flock.push(new Boid());
+         pushRandomBoid();//flock.push(new Boid());
     }
     
 }
@@ -81,12 +96,31 @@ function draw() {
     pointLight(100, 0, 100, 90, -50, 50);
     
     
+    // Make the quad tree
+    let boundary = new Cube(0, 0, 0, 700, 700, 700);
+    quadTree = new QuadTree(boundary, 4);
+    for (let boid of flock) {
+        quadTree.insert(boid);
+    }
+    
+    // Each boid determines its acceleration for the next frame
+    for (let boid of flock) {
+        boid.flock(flock, quadTree);
+    }
+    // Each boid updates its position and velocity, and is displayed on screen
+    for (let boid of flock) {
+        boid.update(gap);
+        boid.show();
+    }
+    
+    /*
     for (let boid of flock) {
         boid.edges();
         boid.flock(flock);
         boid.update();
         boid.show();
     }
+     */
     stroke(80)
     strokeWeight(2);
     /*
@@ -129,6 +163,15 @@ function draw() {
     noFill();
     box(700, 700, 700);
      */
+    t++; // t counts the number of frames, it is used to not have cohesion in the first 40 frames
     
-    
+}
+
+// Make a new boid
+function pushRandomBoid() {
+    //let pos = createVector(random(width), random(height), random(-depth/2, depth/2)); // Uncomment and comment next line to create boids at random position
+    let pos = createVector(0, 0, 0); // Create a boid at the center of space
+    let vel = p5.Vector.random3D().mult(random(0.5, 3)); // Give a random velocity
+    let boid = new Boid(pos, vel); // Create a new boid
+    flock.push(boid); // Add the new boid to the flock
 }
