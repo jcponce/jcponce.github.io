@@ -16,6 +16,7 @@ let Controls = function() {
     this.align = 1.5;
     this.cohesion = 1;
     this.separation = 2;
+    this.quad3 = false;
     
 };
 
@@ -35,7 +36,8 @@ function setup() {
     gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
     gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-    gui.add(this, 'backHome').name("Source Code");
+    //gui.add(controls, 'quad3').name("Quadtree").listen();
+    gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
     for (let i = 0; i < 200; i++) {
@@ -54,14 +56,16 @@ function backHome() {
 
 function draw() {
     
+    background(0);
+    
+    
     quadTree.clear();
     for (const boid of flock) {
         quadTree.addItem(boid.position.x, boid.position.y, boid);
     }
-    
-    background(0);
-    
-    quadTree.debugRender();
+    //if(controls.quad3 == true){
+        quadTree.debugRender();
+    //}
     
     
     for (let boid of flock) {

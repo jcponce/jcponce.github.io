@@ -29,12 +29,6 @@ class QuadTreeItem {
     
 }
 
-
-
-/*
- * Private class.
- * A spatial region of a QuadTree containing 0 or more `QuadTreeItem` instances and 0 or more other `QuadTreeBin` instances.
- */
 class QuadTreeBin {
     
     /*
@@ -82,7 +76,7 @@ class QuadTreeBin {
      * Returns a list of items from the bin within the specified radius of the coordinates provided.
      */
     getItemsInRadius(x, y, radius, maxItems) {
-        const radiusSqrd = radius * 2;
+        const radiusSqrd = radius ** 2;
         let items = [];
         
         if (this.bins) {
@@ -91,7 +85,7 @@ class QuadTreeBin {
                     items.push(...b.getItemsInRadius(x, y, radius, maxItems));
         } else {
             for (let item of this.items) {
-                const distSqrd = (item.x - x) * 2 + (item.y - y) * 2;
+                const distSqrd = (item.x - x) ** 2 + (item.y - y) ** 2;
                 if (distSqrd <= radiusSqrd)
                     items.push({ distSqrd: distSqrd, data: item.data });
             }
@@ -126,9 +120,9 @@ class QuadTreeBin {
      */
     debugRender(renderingContext) {
         noFill();
-        noStroke();
         //stroke('#aaa');
         //strokeWeight(1);
+        noStroke();
         rect(this.rect.x, this.rect.y, this.rect.width, this.rect.height);
         if (this.bins)
             for (let b of this.bins)

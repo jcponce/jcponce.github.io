@@ -12,14 +12,14 @@
 
 class Boid {
     constructor() {
-        this.position = createVector(random(width), random(height));
+        this.position = createVector(random(2*width/5, 3*width/5), random(2*height/5, 3*height/5));
         this.velocity = p5.Vector.random2D();
         this.velocity.setMag(random(2, 4));
         this.acceleration = createVector();
         this.maxForce = 0.2;
-        this.maxSpeed = 5;
+        this.maxSpeed = 4;
         this.sz = 7;
-        this.n = Math.round(random(3, 10));
+        this.n = Math.round(random(3, 9));
         this.h = random(360);
     }
     
@@ -37,15 +37,13 @@ class Boid {
     }
     
     align(boids) {
-        let perceptionRadius = 34;
+        let perceptionRadius = 50;
+        let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
-        for (let other of boids) {
-            let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
-            if (other != this && d < perceptionRadius) {
-                steering.add(other.velocity);
-                total++;
-            }
+        for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
+            steering.add(other.velocity);
+            total++;
         }
         if (total > 0) {
             steering.div(total);
@@ -57,17 +55,17 @@ class Boid {
     }
     
     separation(boids) {
-        let perceptionRadius = 34;
+        let perceptionRadius = 50;
+        let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
-        for (let other of boids) {
-            let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
-            if (other != this && d < perceptionRadius) {
-                let diff = p5.Vector.sub(this.position, other.position);
-                diff.div(d * d);
-                steering.add(diff);
-                total++;
-            }
+        for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
+            const diff = p5.Vector.sub(this.position, other.position);
+            const d = diff.mag();
+            if (d === 0) continue;
+            diff.div(d * d);
+            steering.add(diff);
+            total++;
         }
         if (total > 0) {
             steering.div(total);
@@ -79,15 +77,13 @@ class Boid {
     }
     
     cohesion(boids) {
-        let perceptionRadius = 50;
+        let perceptionRadius = 100;
+        let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
-        for (let other of boids) {
-            let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
-            if (other != this && d < perceptionRadius) {
-                steering.add(other.position);
-                total++;
-            }
+        for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
+            steering.add(other.position);
+            total++;
         }
         if (total > 0) {
             steering.div(total);
