@@ -33,9 +33,9 @@ function setup() {
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
     gui.close();
-    gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
-    gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
-    gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
+    gui.add(controls, 'align', 0, 2.5).name("Align").step(0.1);
+    gui.add(controls, 'cohesion', 0, 2.5).name("Cohesion").step(0.1);
+    gui.add(controls, 'separation', 0, 2.5).name("Separation").step(0.1);
     gui.add(controls, 'numPoly', 0, 300).name("Num Polygons").step(1);
     gui.add(controls, 'trace').name("Trace").listen();
     gui.add(this, 'sourceCode').name("Source Code");

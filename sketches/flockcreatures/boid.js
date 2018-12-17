@@ -18,11 +18,12 @@ class Boid {
         this.acceleration = createVector();
         this.maxForce = 0.2;
         this.maxSpeed = 2;
-        this.sz = random(8, 12);
-        this.a = Math.round(random(4, 9));
-        this.b = Math.round(random(4, 9));
-        this.g = random(100, 255);
-        this.blue = random(180,255);
+        this.sz = random(8, 13);
+        this.a = Math.round(random(3, 11));
+        this.b = Math.round(random(3, 11));
+        this.green = random(110, 255);
+        this.blue = random(190,255);
+        this.alpha = random(220,255);
     }
     
     edges() {
@@ -39,7 +40,7 @@ class Boid {
     }
     
     align(boids) {
-        let perceptionRadius = 40;
+        let perceptionRadius = 50;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -57,7 +58,7 @@ class Boid {
     }
     
     separation(boids) {
-        let perceptionRadius = 40;
+        let perceptionRadius = 50;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -79,7 +80,7 @@ class Boid {
     }
     
     cohesion(boids) {
-        let perceptionRadius = 60;
+        let perceptionRadius = 80;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -120,7 +121,7 @@ class Boid {
     
     show() {
         let theta = this.velocity.heading() + PI / 2;
-        stroke(70, this.g, this.blue);
+        stroke(70, this.green, this.blue, this.alpha);
         strokeWeight(0.13);
         noFill();
         push();

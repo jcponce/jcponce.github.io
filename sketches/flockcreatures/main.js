@@ -25,18 +25,16 @@ let quadTree;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    //colorMode(HSB, 360, 100, 100, 300);
     
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
     
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
     gui.close();
-    gui.add(controls, 'align', 0, 4).name("Alignment").step(0.1);
-    gui.add(controls, 'cohesion', 0, 4).name("Cohesion").step(0.1);
-    gui.add(controls, 'separation', 0, 4).name("Separation").step(0.1);
-    gui.add(controls, 'numPoly', 0, 100).name("Num Creatures").step(1);
-    //gui.add(controls, 'trace').name("Trace").listen();
+    gui.add(controls, 'align', 0, 2.5).name("Alignment").step(0.1);
+    gui.add(controls, 'cohesion', 0, 2.5).name("Cohesion").step(0.1);
+    gui.add(controls, 'separation', 0, 2.5).name("Separation").step(0.1);
+    gui.add(controls, 'numPoly', 0, 110).name("Num Creatures").step(1);
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
