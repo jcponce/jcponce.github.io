@@ -1,7 +1,7 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 12-Dec-2018
+ * Written by Juan Carlos Ponce Campuzano, 15-Dec-2018
  */
 
 // Original code:
@@ -16,8 +16,7 @@ let Controls = function() {
     this.align = 1.5;
     this.cohesion = 1;
     this.separation = 2;
-    //this.trace = false;
-    this.numPoly = 50;
+    this.numPoly = 60;
 };
 
 let controls = new Controls();
@@ -26,16 +25,16 @@ let quadTree;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    colorMode(HSB, 360, 100, 100, 300);
+    //colorMode(HSB, 360, 100, 100, 300);
     
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
     
     // create gui (dat.gui)
     let gui = new dat.GUI({width: 295});
     gui.close();
-    gui.add(controls, 'align', 0, 3).name("Alignment").step(0.1);
-    gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
-    gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
+    gui.add(controls, 'align', 0, 4).name("Alignment").step(0.1);
+    gui.add(controls, 'cohesion', 0, 4).name("Cohesion").step(0.1);
+    gui.add(controls, 'separation', 0, 4).name("Separation").step(0.1);
     gui.add(controls, 'numPoly', 0, 100).name("Num Creatures").step(1);
     //gui.add(controls, 'trace').name("Trace").listen();
     gui.add(this, 'sourceCode').name("Source Code");

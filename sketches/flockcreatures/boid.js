@@ -1,7 +1,7 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 12-Dec-2018
+ * Written by Juan Carlos Ponce Campuzano, 15-Dec-2018
  */
 
 // Original code:
@@ -14,15 +14,15 @@ class Boid {
     constructor() {
         this.position = createVector(random(2*width/5, 3*width/5), random(2*height/5, 3*height/5));
         this.velocity = p5.Vector.random2D();
-        this.velocity.setMag(random(1, 3));
+        this.velocity.setMag(random(1, 2.5));
         this.acceleration = createVector();
         this.maxForce = 0.2;
         this.maxSpeed = 2;
         this.sz = random(8, 12);
-        this.n = Math.round(random(4, 9));
         this.a = Math.round(random(4, 9));
         this.b = Math.round(random(4, 9));
-        this.h = random(360);
+        this.g = random(100, 255);
+        this.blue = random(180,255);
     }
     
     edges() {
@@ -39,7 +39,7 @@ class Boid {
     }
     
     align(boids) {
-        let perceptionRadius = 30;
+        let perceptionRadius = 40;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -57,7 +57,7 @@ class Boid {
     }
     
     separation(boids) {
-        let perceptionRadius = 30;
+        let perceptionRadius = 40;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -79,7 +79,7 @@ class Boid {
     }
     
     cohesion(boids) {
-        let perceptionRadius = 50;
+        let perceptionRadius = 60;
         let perceptionCount = 5;
         let steering = createVector();
         let total = 0;
@@ -120,7 +120,7 @@ class Boid {
     
     show() {
         let theta = this.velocity.heading() + PI / 2;
-        stroke(this.h, 98, 98);
+        stroke(70, this.g, this.blue);
         strokeWeight(0.13);
         noFill();
         push();
