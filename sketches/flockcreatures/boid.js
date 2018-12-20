@@ -122,7 +122,7 @@ class Boid {
     show() {
         let theta = this.velocity.heading() + PI / 2;
         stroke(70, this.green, this.blue, this.alpha);
-        strokeWeight(0.13);
+        strokeWeight(0.16);
         noFill();
         push();
         translate(this.position.x, this.position.y)
