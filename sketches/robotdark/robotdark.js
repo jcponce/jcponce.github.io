@@ -36,7 +36,7 @@ function setup() {
     gui.add(clts, 'title').name("Polygons:");
     gui.add(clts, 'inst').name("Instructions:");
     gui.add(clts, 'Up').name("Gravity").onChange(applyGravity);
-    gui.add(this, 'backHome').name("Source Code");
+    gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
 }
 
