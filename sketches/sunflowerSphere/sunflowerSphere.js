@@ -84,7 +84,7 @@ function windowResized() {
 }
 
 function draw(){
-    
+    cursor(HAND);
     // projection
     perspective(60 * PI/180, width/height, 1, 5000);
     
