@@ -1,7 +1,6 @@
 /*Original version: http://natureofcode.com/book/chapter-4-particle-systems/
  by Daniel Shiffman http://shiffman.net/
  I just wrote the P5 version and added some colors and the attraction option by clicking.
- Later I will write the ES6 version
  */
 
 let system;
@@ -40,6 +39,7 @@ function draw() {
     repeller.display();
 }
 
+//Change the colors
 function mousePressed() {
     if (strength == -500) {
         strength = 400;
@@ -82,7 +82,7 @@ class Particle {
     }
     
     applyForce(force) {
-        //this.force = force.copy();
+        this.force = force.copy();
         force.div(this.mass);
         this.acceleration.add(force);
         this.display();
@@ -163,7 +163,7 @@ class Repeller {
     }
 
     repel(p) {
-    //[full] This is the same repel algorithm we used in Chapter 2: forces based on gravitational attraction.
+    //[full] This is the same repel algorithm used in Chapter 2: forces based on gravitational attraction: https://natureofcode.com/book/chapter-2-forces/
         this.dir = new p5.Vector.sub(this.position, p.position);
         this.d = this.dir.mag();
         this.dir.normalize();
