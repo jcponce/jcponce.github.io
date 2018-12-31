@@ -1,6 +1,9 @@
-/*Original version: http://natureofcode.com/book/chapter-4-particle-systems/
+/*
+ Original version can be found here:
+ http://natureofcode.com/book/chapter-4-particle-systems/
  by Daniel Shiffman http://shiffman.net/
- I just wrote the P5 version and added some colors and the attraction option by clicking.
+ I just wrote the P5 version and added some colors and
+ the attraction option by clicking.
  */
 
 let system;
@@ -163,7 +166,9 @@ class Repeller {
     }
 
     repel(p) {
-    //[full] This is the same repel algorithm used in Chapter 2: forces based on gravitational attraction: https://natureofcode.com/book/chapter-2-forces/
+    // [full] This is the same repel algorithm used in Chapter 2:
+    // forces based on gravitational attraction:
+    // https://natureofcode.com/book/chapter-2-forces/
         this.dir = new p5.Vector.sub(this.position, p.position);
         this.d = this.dir.mag();
         this.dir.normalize();
