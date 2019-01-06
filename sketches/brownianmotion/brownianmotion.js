@@ -16,7 +16,7 @@ let setcolor = false;
 let clts = {
     
 title: 'Brownian-Motion-Collision',
-inst: 'Click mouse',
+//inst: 'Click mouse',
 grav: 0.0,
 fric: 0.001,
 spr: 0.02,
@@ -35,7 +35,6 @@ function setup() {
     let gui = new dat.GUI({width: 330});
     gui.close();
     gui.add(clts, 'title').name("Title:");
-    gui.add(clts, 'inst').name("Instructions:");
     gui.add(clts, 'grav', -0.06, 0.06).name("Gravity").step(0.0001).listen();
     //gui.add(clts, 'fric', 0, 0.002).name("Friction").step(0.0001).listen();
     //gui.add(clts, 'spr',0, 0.03).name("Spring").step(0.00001).listen();
