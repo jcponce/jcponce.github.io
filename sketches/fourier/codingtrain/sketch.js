@@ -67,7 +67,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(400, 400);
   colorMode(HSB, 1, 1, 1);
 
   //count the columns CodingTrain
@@ -93,12 +93,13 @@ function setup() {
   arrayCy = make2Darray(size, 2 * n + 1);
   for (var i = 0; i < size; i++) {
     for (var j = 0; j < 2 * n + 1; j++) {
-      let COSX = cos((j - n) * T[i]) * dataCodingTrain.getNum(i, 'x');
-      let SINX = sin((j - n) * T[i]) * dataCodingTrain.getNum(i, 'y');
+      let scale = 0.5;
+      let COSX = cos((j - n) * T[i]) * scale * dataCodingTrain.getNum(i, 'x');
+      let SINX = sin((j - n) * T[i]) * scale * dataCodingTrain.getNum(i, 'y');
       let valX = 1 / size * ( COSX + SINX );
       arrayCx[i][j] = valX;
-      let COSY = cos((j - n) * T[i]) * dataCodingTrain.getNum(i, 'y');
-      let SINY = sin((j - n) * T[i]) * dataCodingTrain.getNum(i, 'x');
+      let COSY = cos((j - n) * T[i]) * scale * dataCodingTrain.getNum(i, 'y');
+      let SINY = sin((j - n) * T[i]) * scale * dataCodingTrain.getNum(i, 'x');
       let valY = 1 / size * ( COSY - SINY);
       arrayCy[i][j] = valY;
     }
@@ -226,7 +227,7 @@ function draw() {
 
   background(0.7);
   translate(width / 2, height / 2);
-  scale(0.7);
+  //scale(0.7);
 
   // CodingTrain polygonal curve: 
   // Uncomment if you want to see it.
@@ -279,7 +280,6 @@ function draw() {
   // The rest of the epicycles.
   for (let i = 1; i < centerX.length; i++) {
     stroke(4 * i / (centerX.length), 1, 1);
-    strokeWeight(2);
     ellipse(centerX[i], -centerY[i], 2 * Rho[sortedNumbers[i] - 1]);
   }
   
