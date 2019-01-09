@@ -117,30 +117,37 @@ let arrayX = [];
 let arrayY = [];
 
 function draw() {
+     background(0.1);
+    translate(width / 2, height / 2);
+    if(points.length === 0){
+        size = 0;
+    }if(points.length % 2 === 0 && points.length > 0){
+        size = points.length - 1;
+    }else{
+        size = points.length;
+    }
     
     if(mouseIsPressed){
-        points.push({x: mouseX, y: mouseY});
+        let xnew = map(mouseX, 0, width, -300, 300);
+        let ynew = map(mouseY, height, 0, -300, 300);
+        points.push({x: xnew, y: ynew});
     }
     for(let i=1; i<points.length; i++){
         let ppos = points[i-1];
         let pos = points[i];
         //ppos = cmap(ppos);
         //pos = cmap(pos);
-        stroke(0);
-        line(ppos.x, ppos.y, pos.x, pos.y);
+        stroke(1);
+        strokeWeight(3);
+        line(ppos.x, -ppos.y, pos.x, -pos.y);
     }
     
-    if(points.length%2 === 0){
-        size = points.length - 1;
-    }else{
-        size = points.length;
-    }
 
   initialize();
-  background(0.1);
+ 
     
     
-  translate(width / 2, height / 2);
+  
   //scale(0.7);
 
   // Polygonal curve: 
@@ -158,7 +165,8 @@ function draw() {
   }
   endShape(CLOSE);
   */
-
+if(size>1){
+     
   if (show == true) {//If 'show' is true, then draw epicycles.
     //The initial circle
     centerX[0] = Cx[(size + 1) / 2 - 1];
@@ -254,6 +262,8 @@ function draw() {
   if (max > n) {
     max = 1;
   }
+    
+}
 
 }
 
@@ -273,7 +283,7 @@ function initialize(){
     arrayCy = make2Darray(size, 2 * n + 1);
     for (var i = 0; i < size; i++) {
         for (var j = 0; j < 2 * n + 1; j++) {
-            let scale = 1.8;
+            let scale = 1;
             let posP = points[i];
             let COSX = cos((j - n) * T[i]) * scale * posP.x;
             let SINX = sin((j - n) * T[i]) * scale * posP.y;
@@ -297,9 +307,10 @@ function initialize(){
     }
     
     //print(tempCx)
-    
+    if(size>0){
     Cx = arrayColumnsSum(tempCx);
     Cy = arrayColumnsSum(tempCy);
+    }
     
     //print(Cx);
     
@@ -340,7 +351,7 @@ function initialize(){
     //print(CCordY.length);
     //print(CCordX);
     //print(CCordY);
-    
+    if(size>1){
     for (i = 0; i < size - 1; i++) {
         Rho[i] = dist(0, 0, CCordX[i], CCordY[i]);
         if (atan2(CCordY[i], CCordX[i]) < 0) {
@@ -367,6 +378,7 @@ function initialize(){
     
     for (let k = 0; k < size - 1; k++) {
         sortedNumbers[k] = indexRho.sort(sortFunction)[k][1];
+    }
     }
     
     reverse(sortedNumbers);
