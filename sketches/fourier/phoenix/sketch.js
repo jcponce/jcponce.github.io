@@ -31,6 +31,7 @@ let n; // = (size - 1)/2
 let T = [];
 
 let kMax; // Number of orbits = 2*kMax
+let slider;
 
 let arrayCx = [];
 let arrayC0x = [];
@@ -91,6 +92,11 @@ function setup() {
   size = data.getRowCount();
   n = (size - 1) / 2;
   kMax = n;
+    
+  slider = createSlider(0, n, n, 1);
+  slider.position(100, 567);
+  slider.style('width', '400px');
+  slider.changed(emptyArray);
 
   for (let i = 0; i <= 2 * n; i++) {
     T[i] = 2 * PI * i / (2 * n + 1);
@@ -218,15 +224,18 @@ function setup() {
 }
 
 function mySelectEvent() {
-  var item = sel.value();
-  if (item == 'Epicycles') {
-    show = true;
-    angle = -PI;
-    path =[];
-  } else {
-    show = false;
-    max = 0;
-  }
+    var item = sel.value();
+    if (item == 'Epicycles') {
+        show = true;
+        angle = -PI;
+        path = [];
+    } else {
+        show = false;
+    }
+}
+
+function emptyArray() {
+    path = [];
 }
 
 //Draw function
@@ -238,6 +247,7 @@ let sumaX;
 let sumaY;
 let arrayX = [];
 let arrayY = [];
+let cond;
 
 function draw() {
 
@@ -260,13 +270,15 @@ function draw() {
   }
   endShape(CLOSE);
   */
+  cond = 2 * slider.value() + 1;
 
-  if (show == true) {//If 'show' is true, then draw epicycles.
+  if (show === true) {//If 'show' is true, then draw epicycles.
     //The initial circle
     centerX[0] = Cx[(size + 1) / 2 - 1];
     centerY[0] = Cy[(size + 1) / 2 - 1];
-    stroke(1 / centerX.length, 1, 1);
-    strokeWeight(2);
+    stroke(1 / size, 1, 1);
+    strokeWeight(1.5);
+    noFill();
     ellipse(centerX[0], -centerY[0], 2 * Rho[sortedNumbers[0] - 1]);
 
     // I need the centers for the rest of the epicycles.
@@ -289,28 +301,30 @@ function draw() {
     //console.log(arrayX.length);
     //console.log(array);
 
-    for (let i = 1; i < 2 * kMax; i++) {
+    for (let i = 1; i < 2 * kMax + 1; i++) {
       centerX[i] = arrayX[i - 1];
       centerY[i] = arrayY[i - 1];
     }
 
     // The rest of the epicycles.
-    for (let i = 1; i < centerX.length; i++) {
-      stroke(4 * i / (centerX.length), 1, 1);
-      strokeWeight(2);
+    for (let i = 1; i < 2 * slider.value() + 1; i++) {
+      stroke(4 * i / size, 1, 1);
       ellipse(centerX[i], -centerY[i], 2 * Rho[sortedNumbers[i] - 1]);
     }
 
     // The radii connecting the epicycles.
-    strokeWeight(2);
     stroke(0.8);
-    for (let k = 0; k < 2 * kMax; k++) {
+    for (let k = 0; k < 2 * slider.value() + 1; k++) {
       //stroke((4*k ) / (2 * kMax), 1, 1);
       line(centerX[k], -centerY[k], centerX[k + 1], -centerY[k + 1]);
     }
 
     //The path traced by the epicycles.
-    path.push(createVector(centerX[2 * kMax - 1], centerY[2 * kMax - 1]));
+      //let cond = 2 * slider.value() + 1;
+      if(slider.value() === n){
+          cond =  2 * slider.value();
+      }
+    path.push(createVector(centerX[cond], centerY[cond]));
 
     strokeJoin(ROUND);
     stroke(1);
@@ -321,10 +335,16 @@ function draw() {
       vertex(pos.x, -pos.y);
     }
     endShape();
+      textSize(17);
+      strokeWeight(1);
+      stroke(0);
+      fill(1);
+      text('' + round(2*slider.value()+1) + ' epicyles', -50, -270);
+      
   } else {	// If 'show' is false, then show the curve 
     				// approximated by adding terms in the 
     				// Fourier series.
-    
+    cond =  slider.value();
     //The approximation curve
     let func = seriesF;
     strokeWeight(3);
@@ -333,29 +353,29 @@ function draw() {
     noFill();
     beginShape();
     for (let k = -180; k < 180; k++) {
-      let vs = func(CPosX, CPosY, CNegX, CNegY, radians(k), max);
+        
+        if(slider.value()===0){
+            cond = 1;
+        }
+      let vs = func(CPosX, CPosY, CNegX, CNegY, radians(k), cond);
       //centerX[0], centerX[0], 
       vertex(centerX[0] + vs.x, -(centerY[0] + vs.y));
     }
     endShape(CLOSE);
-    textSize(17);
-    strokeWeight(0.8);
-    stroke(0);
-    fill(1);
-    text('n=' + round(max), 0, -270);
+      textSize(17);
+      strokeWeight(1);
+      stroke(0);
+      fill(1);
+      text('Parametric curve with n=' + round(2*slider.value()+1)+ ' terms', -100, -270);
+      
   }
 
-  angle += 0.007;
-  max+=0.2;
-
-  if (angle > 2.5 * PI) {
-    path = [];
-    angle = -PI;
-  }
-  
-  if (max > n) {
-    max = 1;
-  }
+    angle += 0.0099;
+    
+    if (angle > 3 * PI) {
+        path = [];
+        angle = -PI;
+    }
 
 }
 
