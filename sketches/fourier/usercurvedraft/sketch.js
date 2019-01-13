@@ -106,6 +106,20 @@ function mySelectEvent() {
   }
 }
 
+function mouseReleased() {
+    if (strkColor == 0.5) {
+        strkColor = 0;
+    } else {
+        strkColor = 0.5;
+    }
+    if (makeCurve == false) {
+        makeCurve = true;
+    } else {
+        makeCurve = false;
+    }
+    angle = -PI;
+}
+
 //Draw function
 
 //I need more arrays.
@@ -115,6 +129,9 @@ let sumaX;
 let sumaY;
 let arrayX = [];
 let arrayY = [];
+let cond;
+let strkColor = 0.5;
+let makeCurve = false;
 
 function draw() {
      background(0.1);
@@ -128,19 +145,25 @@ function draw() {
     }
     
     if(mouseIsPressed){
+        
         let xnew = map(mouseX, 0, width, -300, 300);
         let ynew = map(mouseY, height, 0, -300, 300);
         points.push({x: xnew, y: ynew});
+        path = [];
     }
-    for(let i=1; i<points.length; i++){
-        let ppos = points[i-1];
+    beginShape();
+    for(let i=0; i<points.length; i++){
+        //let ppos = points[i-1];
         let pos = points[i];
         //ppos = cmap(ppos);
         //pos = cmap(pos);
-        stroke(1);
+        stroke(strkColor);
         strokeWeight(3);
-        line(ppos.x, -ppos.y, pos.x, -pos.y);
+        noFill();
+        //line(ppos.x, -ppos.y, pos.x, -pos.y);
+        vertex(pos.x, -pos.y);
     }
+    endShape(CLOSE);
     
 
   initialize();
@@ -166,8 +189,8 @@ function draw() {
   endShape(CLOSE);
   */
 if(size>1){
-     
-  if (show == true) {//If 'show' is true, then draw epicycles.
+    cond = 2 * kMax + 1;
+  if (show == true && makeCurve == true) {//If 'show' is true, then draw epicycles.
     //The initial circle
     centerX[0] = Cx[(size + 1) / 2 - 1];
     centerY[0] = Cy[(size + 1) / 2 - 1];
@@ -195,14 +218,14 @@ if(size>1){
     //console.log(arrayX.length);
     //console.log(array);
 
-    for (let i = 1; i < 2 * kMax; i++) {
+    for (let i = 1; i < cond; i++) {
       centerX[i] = arrayX[i - 1];
       centerY[i] = arrayY[i - 1];
     }
 
     // The rest of the epicycles.
-    for (let i = 1; i < centerX.length; i++) {
-      stroke(4 * i / (centerX.length), 1, 1);
+    for (let i = 1; i < size; i++) {
+      stroke(4 * i / (size), 1, 1);
       strokeWeight(2);
       ellipse(centerX[i], -centerY[i], 2 * Rho[sortedNumbers[i] - 1]);
     }
@@ -210,13 +233,15 @@ if(size>1){
     // The radii connecting the epicycles.
     strokeWeight(2);
     stroke(0.8);
-    for (let k = 0; k < 2 * kMax; k++) {
+    for (let k = 0; k < cond; k++) {
       //stroke((4*k ) / (2 * kMax), 1, 1);
       line(centerX[k], -centerY[k], centerX[k + 1], -centerY[k + 1]);
     }
-
+      if(kMax === n){
+          cond =  2 * kMax;
+      }
     //The path traced by the epicycles.
-    path.push(createVector(centerX[2 * kMax - 1], centerY[2 * kMax - 1]));
+    path.push(createVector(centerX[cond], centerY[cond ]));
 
     strokeJoin(ROUND);
     stroke(1);
@@ -251,10 +276,10 @@ if(size>1){
     text('n=' + round(max), 0, -270);
   }
 
-  angle += 0.007;
+  angle += 0.05;
   max+=0.2;
 
-  if (angle > 2.5 * PI) {
+  if (angle > PI) {
     path = [];
     angle = -PI;
   }
