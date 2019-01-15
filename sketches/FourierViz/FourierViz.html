@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <style> body {padding: 0; margin: 0;} </style>
+    <!-- <script src="./addons/CCapture.all.min.js"></script> -->
+    <script src="./addons/p5.min.js"></script>
+    <script src="./addons/p5.dom.min.js"></script>
+    <style>
+      .parent{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      .controls{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 1fr 2fr;
+        grid-auto-rows: 1fr;
+        grid-gap: 20px 5px;
+        margin: 10px;
+      }
+      .color_options{
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        justify-self: center;
+      }
+      .terms{
+        align-self: center;
+      }
+      .number_of_terms{
+        text-align: center;
+        font: 1.2rem 'Roboto', sans-serif;
+      }
+      .choices{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #presets{
+        width: 80%;
+      }
+      #Series{
+        grid-column: 1/4;
+        display: flex;
+        flex-direction: column;
+      }
+      #Series > .entry > input{
+        font: 1rem 'Roboto', sans-serif;
+      }
+      #Series > .entry{
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .form{
+        width: 80%;
+      }
+      label {
+        font: 1.2rem 'Roboto', sans-serif;
+      }
+      h1{
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <h1>Fourier Series Visualizer</h1>
+      <div id="sketch-holder"></div>
+      <div class="controls">
+
+        <!-- All color controls -->
+        <div class="color_options">
+          <div class="color_box">
+            <input type="color" name="background" id="canvas_background" value="#dadada">
+            <label for="background">Background</label>
+          </div>
+          <div class="color_box">
+            <input type="color" name="lines" id="canvas_lines" value="#ff4047">
+            <label for="lines">Line</label>
+          </div>
+          <div class="color_box">
+              <input type="color" name="small_circles" id="canvas_circles"  value="#4200ff">
+              <label for="small_circles">Circle</label>
+          </div>
+        </div>
+
+        <!-- Number of terms slider -->
+        <div class="terms">
+          <p class="number_of_terms"></p>
+          <div id="slider"></div>
+        </div>
+
+        <div class="choices">
+          <p>Waves</p>
+          <select id="presets">
+              <option value="square">Square</option>
+              <option value="sawtooth">Sawtooth</option>
+              <option value="triangle">Triangle</option>
+              <option value="clausen">Clausen</option>
+              <option value="custom">Custom</option>
+          </select>
+        </div>
+
+        <!-- Custom Equation Section -->
+        <form id="Series">
+          <div class="entry">
+            <label for="numerator">Numerator:</label>
+            <input type="text" name="numerator" id="numerator" class="form" value="4">
+          </div>
+          <div class="entry">
+            <label for="denomenator">Denomenator</label>
+            <input type="text" name="denomenator" id="denomenator" class="form" value="PI * ((2*n) + 1)">
+          </div>
+          <div class="entry">
+            <label for="coefficient">Coefficient</label>
+            <input type="text" name="coefficient" id="coefficient" class="form" value="((2*n) + 1)">
+          </div>
+          <div class="entry2">
+            <label for="series_1">Initial term 1 (0 if unchecked)</label>
+            <input type="checkbox" name="series_1" id="series_1" >
+          </div>
+          <input id="submit" type="button" value="Submit">
+        </form>
+
+        
+      </div>
+    </div>
+  </body>
+  <script src="sketch.js"></script>
+</html>
