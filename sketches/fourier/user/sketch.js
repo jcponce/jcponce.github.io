@@ -1,4 +1,5 @@
-// Adapted From the Coding Challenge 130.3: 
+// Adapted by Juan Carlos Ponce Campuznao
+// From the Coding Challenge 130.3: 
 // Drawing with Fourier Transform and Epicycles
 // by Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/130.1-fourier-transform-drawing.html
@@ -36,7 +37,6 @@ function setup() {
 
 }
 
-
 function draw() {
   background(0, 0, 1);
 
@@ -50,21 +50,6 @@ function draw() {
   }
 
   cursor(HAND);
-
-  if (canDraw) {
-    if (mouseIsPressed) {
-      if (
-        mouseX < width - 5 &&
-        mouseY < height - 5 &&
-        mouseX > 5 &&
-        mouseY > 5
-      ) {
-        let point = createVector(mouseX - width / 2, mouseY - height / 2);
-        drawing.push(point);
-      }
-    }
-
-  }
 
   stroke(0, 0, 0.6);
   strokeWeight(1.2);
@@ -110,7 +95,22 @@ function draw() {
 
 }
 
-// Other function
+// Other functions
+
+function mouseDragged() {
+  if (canDraw) {
+    if (
+      mouseX < width - 5 &&
+      mouseY < height - 5 &&
+      mouseX > 5 &&
+      mouseY > 5
+    ) {
+      let point = createVector(mouseX - width / 2, mouseY - height / 2);
+      drawing.push(point);
+    }
+  }
+}
+
 
 function epicycles(x, y, rotation, fourier, size_f) {
   for (let i = 0; i < size_f; i++) {
@@ -138,8 +138,8 @@ function mousePressed() {
 
 function resetSize() {
   orbits = createSlider(1, size, size, 1);
-  orbits.position(50, 510);
-  orbits.style('width', '400px');
+  orbits.position(30, 510);
+  orbits.style('width', '350px');
   orbits.changed(emptyFourier);
 }
 
@@ -162,10 +162,10 @@ function mouseReleased() {
     resetSize();
   }
   if (
-    mouseX < width - 5 &&
-    mouseY < height - 5 &&
-    mouseX > 5 &&
-    mouseY > 5
+    mouseX < width - 10 &&
+    mouseY < height - 10 &&
+    mouseX > 10 &&
+    mouseY > 10
   ) {
     canDraw = false;
     state = FOURIER;
