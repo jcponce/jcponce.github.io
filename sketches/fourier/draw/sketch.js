@@ -167,10 +167,10 @@ function mouseReleased() {
     resetSize();
   }
   if (
-    mouseX < width - 10 &&
-    mouseY < height - 10 &&
-    mouseX > 10 &&
-    mouseY > 10
+    mouseX < width - 5 &&
+    mouseY < height - 5 &&
+    mouseX > 5 &&
+    mouseY > 5
   ) {
     canDraw = false;
     state = FOURIER;
