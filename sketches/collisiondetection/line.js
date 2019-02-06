@@ -16,6 +16,7 @@ class Line {
         this.R = 120;//150,255
         this.G = 150;
         this.B = 10;
+        this.ran = floor(random(0,6));
     }
     
     update() {
@@ -40,5 +41,10 @@ class Line {
         else stroke(255, 0, 0, 200);
         strokeWeight(5);
         line(this.x1, this.y1, this.x2, this.y2);
+        
+        if (this.hit) {
+            playNote(notes[this.ran]);
+            osc.fade(0,25);
+        }
     }
 }

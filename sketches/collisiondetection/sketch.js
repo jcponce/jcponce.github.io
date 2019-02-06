@@ -13,7 +13,8 @@
  */
 
 // The midi notes of a scale
-let notes = [ 60, 62, 64];
+let notes = [60, 62, 64, 65, 67, 69, 71];
+//let notesR = [ 72, 73, 75, 77, 79, 80, 82 ];
 let index = 0;
 
 let trigger = 0;
@@ -51,14 +52,15 @@ function setup() {
         
     }
     
+    /*
     // lines
-    for (let i=0; i<numEach; i++) {
+    for (let i=0; i<numEach-10; i++) {
         let x = random(width);
         let y = random(-height,height);
         //let l = new Line(x,y, x+random(-20,20), y+random(-20,20));
-        lines[i] = new Line(x,y, x+random(-30,30), y+random(-30,30));
+        lines[i] = new Line(x,y, x+random(-40,40), y+random(-40,40));
         
-    }
+    }*/
     //print(lines);
     // and polygons
     //  for (int i=0; i<30; i++) {
@@ -108,14 +110,14 @@ function draw() {
 
 // A function to play a note
 function playNote(note, duration) {
-  osc.freq(midiToFreq(note));
-  // Fade it in
-  osc.fade(0.5,0.1);
-
-  // If we sest a duration, fade it out
-  if (duration) {
-    setTimeout(function() {
-      osc.fade(0,0.1);
-    }, duration-50);
-  }
+    osc.freq(midiToFreq(note));
+    // Fade it in
+    osc.fade(0.4,0.1);
+    
+    // If we set a duration, fade it out
+    if (duration) {
+        setTimeout(function() {
+                   osc.fade(0,0.1);
+                   }, duration-50);
+    }
 }

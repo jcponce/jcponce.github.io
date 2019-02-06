@@ -15,6 +15,7 @@ class Circle {
         this.R = 120;//0,150,255,150
         this.G = 155;
         this.B = 200;
+        this.ran = floor(random(0,6));
     }
     
     update() {
@@ -28,13 +29,13 @@ class Circle {
     
     display() {
         if (!this.hit) fill(this.R, this.G, this.B, 190);
-        else fill(255, 0, 0, 200);
+        else fill(0, 250, 20, 200);
         noStroke();
         ellipse(this.x, this.y, this.r*2, this.r*2);
         
         if (this.hit) {
-            playNote(notes[1], 788);
-            
-        }else osc.fade(0,0.5);
+           playNote(notes[this.ran]);
+            osc.fade(0,30);
+        }
     }
 }

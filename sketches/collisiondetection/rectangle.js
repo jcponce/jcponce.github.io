@@ -29,7 +29,7 @@ class Rectangle {
     
     display() {
         if (!this.hit) fill(this.R, this.G, this.B, 190);
-        else fill(255, 0, 0, 200);
+        else fill(255, 200, 0, 200);
         noStroke();
         rect(this.x, this.y, this.w, this.h);
     }
