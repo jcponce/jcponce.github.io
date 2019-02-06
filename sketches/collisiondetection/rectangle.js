@@ -16,6 +16,7 @@ class Rectangle {
         this.R = 130;//150,255
         this.G = 104;
         this.B = 180;
+        this.ran = floor(random(0,6));
     }
     
     update() {
@@ -32,5 +33,10 @@ class Rectangle {
         else fill(255, 200, 0, 200);
         noStroke();
         rect(this.x, this.y, this.w, this.h);
+        
+        if (this.hit) {
+            playNote(notesR[this.ran]);
+            osc.fade(0,30);
+        }
     }
 }

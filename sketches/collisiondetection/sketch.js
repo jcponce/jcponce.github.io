@@ -14,14 +14,14 @@
 
 // The midi notes of a scale
 let notes = [60, 62, 64, 65, 67, 69, 71];
-//let notesR = [ 72, 73, 75, 77, 79, 80, 82 ];
+let notesR = [ 51, 52, 55, 57, 58, 59, 61 ];
 let index = 0;
 
 let trigger = 0;
 let autoplay = false;
 let osc;
 
-let numEach = 50;
+let numEach = 40;
 
 // circle, controlled by the mouse
 let cx = 0;
@@ -46,7 +46,7 @@ function setup() {
     }
     
     // rectangles
-    for (let i=0; i<numEach; i++) {
+    for (let i=0; i<numEach-20; i++) {
         //let r = new Rectangle(random(width), random(-height,height));
         rectangles[i] =  new Rectangle(random(width), random(-height,height));
         
