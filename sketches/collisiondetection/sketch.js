@@ -77,7 +77,7 @@ function setup() {
 
 function draw() {
     background(255);
-    
+    cursor(HAND);
     // update main circle to mouse coordinates
     cx = mouseX;
     cy = mouseY;
