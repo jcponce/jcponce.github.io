@@ -23,6 +23,8 @@ let starting = false;
 let canDraw = true;
 let size = 1;
 
+let rate = 60; //control the speed of animation
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   // Move the canvas so it’s inside our <div id="sketch-holder">.
@@ -39,6 +41,7 @@ function setup() {
 
 function draw() {
   background(0, 0, 1);
+  frameRate(rate);
 
   //Initial message
   if (starting == false) {
@@ -59,7 +62,7 @@ function draw() {
   for (let v of drawing) {
     vertex(v.x + width / 2, v.y + height / 2);
   }
-  endShape();
+  endShape(CLOSE);
 
   if (state == FOURIER && !canDraw) {
     let v = epicycles(width / 2, height / 2, 0, fourierX, orbits.value());
@@ -76,16 +79,23 @@ function draw() {
       vertex(path[i].x, path[i].y);
     }
     endShape();
+    
+    let lng = fourierX.length;
+    if(lng < 50){
+        rate = 10;
+    }else if(50 <= lng < 100){
+        rate = 25;
+    }
 
-    const dt = TWO_PI / fourierX.length;
+    const dt = TWO_PI / lng;
     time += dt;
 
     fill(0);
     stroke(0);
     strokeWeight(0.5);
-    textAlign(CENTER);
+    //textAlign(CENTER);
     textSize(16);
-    text("Num. Orbits = " + orbits.value(), width / 2, 20);
+    text("Orbits = " + orbits.value(), 55, 25);
 
     if (time > TWO_PI) {
       time = 0;
@@ -127,11 +137,11 @@ function epicycles(x, y, rotation, fourier, size_f) {
     x += radius * cos(freq * time + phase + rotation);
     y += radius * sin(freq * time + phase + rotation);
 
-    stroke(0.6, 1, 1, 0.9);
+    stroke(0.6, 1, 1, 0.7);
     strokeWeight(1);
     noFill();
     ellipse(prevx, prevy, radius * 2);
-    stroke(0, 0, 0.6);
+    //stroke(0, 0, 0.6);
     line(prevx, prevy, x, y);
   }
   return createVector(x, y);
@@ -143,8 +153,8 @@ function mousePressed() {
 
 function resetSize() {
   orbits = createSlider(1, size, size, 1);
-  orbits.position(30, windowHeight-40);
-  orbits.style('width', '330px');
+  orbits.position(120, 10);
+  orbits.style('width', '120px');
   orbits.changed(emptyFourier);
 }
 

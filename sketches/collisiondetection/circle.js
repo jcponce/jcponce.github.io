@@ -29,13 +29,13 @@ class Circle {
     
     display() {
         if (!this.hit) fill(this.R, this.G, this.B, 190);
-        else fill(0, 250, 20, 200);
+        else fill(this.ran, 250, 20, 200);
         noStroke();
         ellipse(this.x, this.y, this.r*2, this.r*2);
         
         if (this.hit) {
            playNote(notes[this.ran]);
-            osc.fade(0,30);
+            osc.fade(0,20);
         }
     }
 }

@@ -21,12 +21,12 @@ let trigger = 0;
 let autoplay = false;
 let osc;
 
-let numEach = 40;
+let numEach = 20;
 
 // circle, controlled by the mouse
 let cx = 0;
 let cy = 0;
-let cr = 50;
+let cr = 30;
 
 // lots of other objects!
 let circles = [];
@@ -46,7 +46,7 @@ function setup() {
     }
     
     // rectangles
-    for (let i=0; i<numEach-20; i++) {
+    for (let i=0; i<numEach; i++) {
         //let r = new Rectangle(random(width), random(-height,height));
         rectangles[i] =  new Rectangle(random(width), random(-height,height));
         
