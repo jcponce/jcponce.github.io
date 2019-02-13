@@ -84,7 +84,11 @@ function draw() {
     if(lng < 50){
         rate = 10;
     }else if(50 <= lng < 100){
-        rate = 25;
+        rate = 35;
+    }else if(100 <= lng < 800){
+        rate = 80;
+    }else if(800 <= lng < 1200){
+        rate = 150;
     }
 
     const dt = TWO_PI / lng;
