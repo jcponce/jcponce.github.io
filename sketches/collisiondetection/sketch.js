@@ -45,12 +45,14 @@ function setup() {
         
     }
     
+    /*
     // rectangles
     for (let i=0; i<numEach; i++) {
         //let r = new Rectangle(random(width), random(-height,height));
         rectangles[i] =  new Rectangle(random(width), random(-height,height));
         
     }
+     */
     
     /*
     // lines
@@ -72,6 +74,9 @@ function setup() {
     osc = new p5.TriOsc();
     // Start silent
     osc.start();
+    osc.setType('triangle');
+    osc.freq(140);
+    //osc.amp(0);
     osc.amp(0);
 }
 

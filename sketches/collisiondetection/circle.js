@@ -24,18 +24,18 @@ class Circle {
             this.x = random(width);
             this.y = random(-height,-50);
         }
-        this.hit = circleCircle(this.x, this.y, this.r, cx, cy, cr);
+        this.hit = circleCircle(this.x, this.y, notes[this.ran], cx, cy, cr);
     }
     
     display() {
         if (!this.hit) fill(this.R, this.G, this.B, 190);
-        else fill(this.ran, 250, 20, 200);
+        else fill(this.ran, 100, 200, 200);
         noStroke();
-        ellipse(this.x, this.y, this.r*2, this.r*2);
+        ellipse(this.x, this.y, notes[this.ran]*2, notes[this.ran]*2);
         
         if (this.hit) {
            playNote(notes[this.ran]);
-            osc.fade(0,20);
+            osc.fade(0,30);
         }
     }
 }
