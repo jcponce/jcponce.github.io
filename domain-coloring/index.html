@@ -259,12 +259,12 @@
 <h2>Notes about the basic tools </h2>
     
     <p>
-    The basic tools for visualizing complex functions use the enhanced phase portrait based on the work of E. Wegert [see 12]. The Hue-Saturation-Brightness (HSB) color scheme is used.  For plotting the level curves of the modulus I used the following equations:
+    For these tools I used the enhanced phase portrait based on the work of E. Wegert [see 12]. The Hue-Saturation-Brightness (HSB) color scheme is used. For plotting the level curves of the modulus I used the following equations:
     <div class="w3-responsive">
         \begin{eqnarray*}
         \text{H}&amp;=&amp;\frac{\pi - \text{atan2}(y, -x)}{2\pi},\\
         \text{S}&amp;=&amp;1,\\
-        \text{B}&amp;=&amp;\frac15\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)-\text{floor}\left(\log_{1.3}\left(5 \sqrt{x^2+y^2}\right)\right)\right)+0.75
+        \text{B}&amp;=&amp;\frac13\left(\log_{1.6}\left(\sqrt{x^2+y^2}\right)-\text{floor}\left(\log_{1.6}\left(\sqrt{x^2+y^2}\right)\right)\right)+0.7
         \end{eqnarray*}
     </div>
     where $x,y$ are the real and imaginary components, respectively. The p5.js function <a href="https://p5js.org/reference/#/p5/colorMode" class="w3-hover-text-indigo">colorMode()</a> is used for all tools.
