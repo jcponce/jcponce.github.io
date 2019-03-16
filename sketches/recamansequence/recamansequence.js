@@ -5,6 +5,8 @@
 // Recaman Sequence Music
 // https://youtu.be/pYnaBQgnARQ
 
+// Check also Alex Bellos and Edmund Harriss' work:
+// https://www.amazon.com/dp/1615193677/ref=cm_sw_em_r_mt_dp_U_GlwJCbG1ZXYQ8
 
 
 // settings and presets
