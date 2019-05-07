@@ -18,7 +18,7 @@
  */
  
 /*
- *Base upon Black Hole by Jase Daggetti https://github.com/MrMusAddict
+ *Base upon Black Hole by Jase Daggett https://github.com/MrMusAddict
  */
 
 let easycam;
