@@ -86,11 +86,11 @@ function draw() {
     }else if(50 <= lng < 800){
         rate = 30;
     }else if(800 <= lng < 1200){
-        rate = 60;
+        rate = 80;
     }
 
     const dt = TWO_PI / lng;
-    time += dt;
+    time += dt*2;
 
     fill(0);
     stroke(0);
