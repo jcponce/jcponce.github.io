@@ -1,10 +1,11 @@
 class BH {
 
   constructor(x, y, z, m) {
-    
+
     this.pos = new createVector(x, y, z);
     this.mass = m;
     this.rs = (2*G*this.mass) / (c*c);
+      
   }
 
   show() {

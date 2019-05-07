@@ -22,7 +22,6 @@ class Photon {
       let deltaV = this.vel.copy();
       deltaV.mult(dt);
       this.pos.add(deltaV);
-      
       //Set Color of Particle
       deltaV.normalize().setMag(255);
       this.col = color( round(255 - deltaV.x), round(255 - deltaV.y),  round(255 - deltaV.z));
