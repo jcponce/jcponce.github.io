@@ -44,7 +44,7 @@ let c = 30;
 let G = 6;
 let dt = 0.2;
 
-let pCount = 3500;
+let pCount = 3000;
 
 let m87;
 
@@ -65,6 +65,7 @@ function setup() {
     let gui = new dat.GUI({
                           width: 200
                           });
+    gui.close();
     gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type");
     gui.add(controls, 'Reset');
     //gui.add(controls, 'c', 1, 60).step(1);
