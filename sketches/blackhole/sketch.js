@@ -42,7 +42,7 @@ Reset: function(){
 
 let c = 30;
 let G = 6;
-let dt = 0.2;
+let dt = 0.09;
 
 let pCount = 3000;
 
