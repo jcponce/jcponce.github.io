@@ -41,8 +41,8 @@ Reset: function(){
 
 
 let c = 30;
-let G = 6;
-let dt = 0.09;
+let G = 2;
+let dt = 0.1;
 
 let pCount = 3000;
 
@@ -80,7 +80,7 @@ function initSketch(){
     
     for( let i = 0; i < pCount; i++) {
         let a = random(TWO_PI);
-        let r = 300.0 * sqrt(random(1.0));
+        let r = 900.0 * sqrt(random(1.0));
         
         if(controls.type == 'Disk'){
             // Disco Ball
@@ -103,7 +103,7 @@ function initSketch(){
         }
     }
     
-    m87 = new BH(0, 0, 0, 3000);
+    m87 = new BH(0, 0, 0, 10000);
     
 }
 
