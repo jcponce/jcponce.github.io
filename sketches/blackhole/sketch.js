@@ -29,13 +29,14 @@ let controls = {
 type: 'Cylinder',
 c:  30,
 G:  6,
+m: 5000,
 Reset: function(){
     //removeElements();
     for (let i=particles.length-1; i>=0; i-=1){
         particles.splice(i,1);
     }
     initSketch();
-    redraw();
+    //redraw();
 },
 };
 
@@ -63,14 +64,15 @@ function setup() {
     easycam = new Dw.EasyCam(this._renderer, {distance : 1000});
     
     let gui = new dat.GUI({
-                          width: 230
+                          width: 320
                           });
     gui.close();
     gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
+    gui.add(controls, 'c', 15, 60).step(0.1);
+    gui.add(controls, 'G', 10, 30).step(0.1);
+    gui.add(controls, 'm', 1, 10000).step(0.1);
     gui.add(controls, 'Reset');
-    //gui.add(controls, 'c', 1, 60).step(1);
-    //gui.add(controls, 'G', 1, 20).step(1);
-    //gui.add(this, 'sourceCode').name("Source Code");
+    gui.add(this, 'info').name("Info");
     //gui.add(this, 'backHome').name("Back Home");
     
     initSketch();
@@ -103,8 +105,6 @@ function initSketch(){
         }
     }
     
-    m87 = new BH(0, 0, 0, 5000);
-    
 }
 
 function windowResized() {
@@ -122,7 +122,9 @@ function draw(){
     // BG
     background(0);
     
-   m87.show();
+    m87 = new Blackhole(0, 0, 0, controls.m);
+    
+    m87.show();
 
   for (let  p of particles) {
     m87.pull(p); 
@@ -132,8 +134,8 @@ function draw(){
     
 }
 
-function sourceCode() {
-    window.location.href = "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/blackhole";
+function info() {
+    window.location.href = "https://www.asc.ohio-state.edu/orban.14/stemcoding/blackhole.html";
 }
 
 function backHome() {

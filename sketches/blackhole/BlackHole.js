@@ -1,10 +1,10 @@
-class BH {
+class Blackhole {
 
   constructor(x, y, z, m) {
 
     this.pos = new createVector(x, y, z);
     this.mass = m;
-    this.rs = (2 * G * this.mass) / (c * c);
+    this.rs = (2 * controls.G * this.mass) / (controls.c * controls.c);
       
   }
 
@@ -30,14 +30,14 @@ class BH {
   pull(p) {
     const force = createVector(this.pos.x - p.pos.x, this.pos.y - p.pos.y, this.pos.z - p.pos.z);
     const r = force.mag();
-    const fg = G * this.mass / (r * r);
+    const fg = controls.G * this.mass / (r * r);
     //force.setMag(fg);
       //p.vel.add(force);
       //p.vel.setMag(c);
 
-    force.setMag(c).mult(fg * (dt / c)).mult(1/abs(1.0 - 2.0 * G * this.mass / (r * c * c)));
+    force.setMag(c).mult(fg * (dt / c)).mult(1/abs(1.0 - 2.0 * controls.G * this.mass / (r * controls.c * controls.c)));
 
-    p.vel.add(force).setMag(c);
+    p.vel.add(force).setMag(controls.c);
 
     if (r <= this.rs+ 0.5) {
       p.stopped = true;
