@@ -80,14 +80,14 @@ function initSketch(){
     
     for( let i = 0; i < pCount; i++) {
         let a = random(TWO_PI);
-        let r = 300.0 * sqrt(random(1.0));
+        let r = 400.0 * sqrt(random(1.0));
         
         if(controls.type == 'Disk'){
             // Disco Ball
             particles.push(new Photon(createVector(500, 300.0*i/pCount*cos(TWO_PI*100.0*i/pCount), 300.0*i/pCount*sin(TWO_PI*100.0*i/pCount)) ) );
         }if(controls.type == 'Cylinder'){
             // Cylinder
-            particles.push(new Photon(createVector(random(1000)+500, r*cos(a), r*sin(a)) ) );
+            particles.push(new Photon(createVector(random(800)+500, r*cos(a), r*sin(a)) ) );
         }if(controls.type == 'Spiral'){
             // Spiral
             particles.push(new Photon(createVector( 500, 300.0*i/pCount*cos(TWO_PI*8.0*i/pCount), 300.0*i/pCount*sin(TWO_PI*8.0*i/pCount))));
