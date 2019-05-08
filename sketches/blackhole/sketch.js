@@ -62,9 +62,9 @@ function setup() {
                           });
     gui.close();
     gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
-    gui.add(controls, 'c', 15, 60).step(0.1);
-    gui.add(controls, 'G', 6, 30).step(0.1);
-    gui.add(controls, 'm', 1, 10000).step(0.1);
+    gui.add(controls, 'c', 30, 60).step(0.1);
+    gui.add(controls, 'G', 6, 20).step(0.1);
+    gui.add(controls, 'm', 1, 6000).step(0.1);
     gui.add(controls, 'Reset');
     gui.add(this, 'info').name("Info");
     //gui.add(this, 'backHome').name("Back Home");
