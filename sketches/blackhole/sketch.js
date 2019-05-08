@@ -44,7 +44,7 @@ let c = 30;
 let G = 6;
 let dt = 0.09;
 
-let pCount = 3000;
+let pCount = 3200;
 
 let m87;
 
@@ -60,13 +60,13 @@ function setup() {
     
     console.log(Dw.EasyCam.INFO);
     
-    easycam = new Dw.EasyCam(this._renderer, {distance : 600});
+    easycam = new Dw.EasyCam(this._renderer, {distance : 1000});
     
     let gui = new dat.GUI({
                           width: 200
                           });
     gui.close();
-    gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type");
+    gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
     gui.add(controls, 'Reset');
     //gui.add(controls, 'c', 1, 60).step(1);
     //gui.add(controls, 'G', 1, 20).step(1);
@@ -103,7 +103,7 @@ function initSketch(){
         }
     }
     
-    m87 = new BH(0, 0, 0, 3000);
+    m87 = new BH(0, 0, 0, 5000);
     
 }
 
@@ -113,6 +113,8 @@ function windowResized() {
 }
 
 function draw(){
+    
+    cursor(HAND);
     
     // projection
     perspective(60 * PI/180, width/height, 1, 5000);
