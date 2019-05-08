@@ -18,7 +18,11 @@
  */
  
 /*
- *Base upon Black Hole by Jase Daggett https://github.com/MrMusAddict
+ *  From the Coding Challenge #144:
+ *  https://thecodingtrain.com/CodingChallenges/144-black-hole-visualization.html
+ *
+ *  Base upon Black Hole by Jase Daggett:
+ *  https://github.com/MrMusAddict
  */
 
 let easycam;
@@ -41,8 +45,8 @@ Reset: function(){
 };
 
 
-let c = 30;
-let G = 6;
+//let c = 30;
+//let G = 6;
 let dt = 0.09;
 
 let pCount = 3200;
@@ -53,6 +57,18 @@ let m87;
 
 function setup() {
     
+    let gui = new dat.GUI({
+                          width: 320
+                          });
+    gui.close();
+    gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
+    gui.add(controls, 'c', 15, 60).step(0.1);
+    gui.add(controls, 'G', 6, 30).step(0.1);
+    gui.add(controls, 'm', 1, 10000).step(0.1);
+    gui.add(controls, 'Reset');
+    gui.add(this, 'info').name("Info");
+    //gui.add(this, 'backHome').name("Back Home");
+    
     pixelDensity(1);
     
     let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
@@ -62,18 +78,6 @@ function setup() {
     console.log(Dw.EasyCam.INFO);
     
     easycam = new Dw.EasyCam(this._renderer, {distance : 1000});
-    
-    let gui = new dat.GUI({
-                          width: 320
-                          });
-    gui.close();
-    gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
-    gui.add(controls, 'c', 15, 60).step(0.1);
-    gui.add(controls, 'G', 10, 30).step(0.1);
-    gui.add(controls, 'm', 1, 10000).step(0.1);
-    gui.add(controls, 'Reset');
-    gui.add(this, 'info').name("Info");
-    //gui.add(this, 'backHome').name("Back Home");
     
     initSketch();
 }
@@ -122,7 +126,7 @@ function draw(){
     // BG
     background(0);
     
-    m87 = new Blackhole(0, 0, 0, controls.m);
+    m87 = new BlackHole(0, 0, 0, controls.m);
     
     m87.show();
 

@@ -1,4 +1,4 @@
-class Blackhole {
+class BlackHole {
 
   constructor(x, y, z, m) {
 
@@ -35,7 +35,7 @@ class Blackhole {
       //p.vel.add(force);
       //p.vel.setMag(c);
 
-    force.setMag(c).mult(fg * (dt / c)).mult(1/abs(1.0 - 2.0 * controls.G * this.mass / (r * controls.c * controls.c)));
+    force.setMag(controls.c).mult(fg * (dt / controls.c)).mult(1/abs(1.0 - 2.0 * controls.G * this.mass / (r * controls.c * controls.c)));
 
     p.vel.add(force).setMag(controls.c);
 
