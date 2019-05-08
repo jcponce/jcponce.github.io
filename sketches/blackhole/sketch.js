@@ -63,15 +63,15 @@ function setup() {
     easycam = new Dw.EasyCam(this._renderer, {distance : 1000});
     
     let gui = new dat.GUI({
-                          width: 200
+                          width: 230
                           });
     gui.close();
     gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
     gui.add(controls, 'Reset');
     //gui.add(controls, 'c', 1, 60).step(1);
     //gui.add(controls, 'G', 1, 20).step(1);
-    gui.add(this, 'sourceCode').name("Source Code");
-    gui.add(this, 'backHome').name("Back Home");
+    //gui.add(this, 'sourceCode').name("Source Code");
+    //gui.add(this, 'backHome').name("Back Home");
     
     initSketch();
 }
