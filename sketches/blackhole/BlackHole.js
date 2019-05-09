@@ -16,6 +16,8 @@ class BlackHole {
     noStroke();
     sphere(this.rs);
     
+    //torus(this.rs, this.rs);
+    
     //Photon Sphere (radius at which light orbits)
     fill(0, 0, 255, 10);
     sphere(this.rs*1.5);
@@ -31,11 +33,14 @@ class BlackHole {
     const force = createVector(this.pos.x - p.pos.x, this.pos.y - p.pos.y, this.pos.z - p.pos.z);
     const r = force.mag();
     const fg = controls.G * this.mass / (r * r);
-    //force.setMag(fg);
+      
+      //if(controls.bh == 'Newtonian'){
+      //force.setMag(fg);
       //p.vel.add(force);
-      //p.vel.setMag(c);
-
+      //p.vel.setMag(controls.c);
+      //}else{
     force.setMag(controls.c).mult(fg * (dt / controls.c)).mult(1/abs(1.0 - 2.0 * controls.G * this.mass / (r * controls.c * controls.c)));
+      //}
 
     p.vel.add(force).setMag(controls.c);
 

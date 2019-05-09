@@ -31,25 +31,21 @@ particles = [];
 
 let controls = {
 type: 'Cylinder',
+bh: 'Relativistic',
 c:  30,
 G:  6,
 m: 5000,
 Reset: function(){
-    //removeElements();
     for (let i=particles.length-1; i>=0; i-=1){
         particles.splice(i,1);
     }
     initSketch();
-    //redraw();
 },
 };
 
-
-//let c = 30;
-//let G = 6;
 let dt = 0.09;
 
-let pCount = 3200;
+let pCount = 4000;
 
 let m87;
 
@@ -58,12 +54,13 @@ let m87;
 function setup() {
     
     let gui = new dat.GUI({
-                          width: 320
+                          width: 300
                           });
     gui.close();
     gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
-    gui.add(controls, 'c', 30, 60).step(0.1);
-    gui.add(controls, 'G', 6, 20).step(0.1);
+    //gui.add(controls, 'bh', ['Relativistic', 'Newtonian']).name("Model:").onChange(controls.Reset);
+    gui.add(controls, 'c', 20, 60).step(0.1);
+    gui.add(controls, 'G', 3, 20).step(0.1);
     gui.add(controls, 'm', 1, 6000).step(0.1);
     gui.add(controls, 'Reset');
     gui.add(this, 'info').name("Info");
