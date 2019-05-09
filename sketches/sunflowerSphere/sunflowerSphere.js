@@ -138,7 +138,7 @@ function draw(){
     
     if(parDef.Play == true){
         if(parDef.Angle < 2 * PI){
-            parDef.Angle = parDef.Angle + PI/400000;
+            parDef.Angle = parDef.Angle + PI/600000;
         }else{
             parDef.Angle = 0;
         }
