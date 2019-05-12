@@ -1,10 +1,10 @@
-class BH {
+class BlackHole {
 
   constructor(x, y, z, m) {
 
     this.pos = new createVector(x, y, z);
     this.mass = m;
-    this.rs = (2 * G * this.mass) / (c * c);
+    this.rs = (2 * controls.G * this.mass) / (controls.c * controls.c);
       
   }
 
@@ -15,6 +15,8 @@ class BH {
     fill(0, 0, 0);
     noStroke();
     sphere(this.rs);
+    
+    //torus(this.rs, this.rs);
     
     //Photon Sphere (radius at which light orbits)
     fill(0, 0, 255, 10);
@@ -30,14 +32,17 @@ class BH {
   pull(p) {
     const force = createVector(this.pos.x - p.pos.x, this.pos.y - p.pos.y, this.pos.z - p.pos.z);
     const r = force.mag();
-    const fg = G * this.mass / (r * r);
-    //force.setMag(fg);
+    const fg = controls.G * this.mass / (r * r);
+      
+      //if(controls.bh == 'Newtonian'){
+      //force.setMag(fg);
       //p.vel.add(force);
-      //p.vel.setMag(c);
+      //p.vel.setMag(controls.c);
+      //}else{
+    force.setMag(controls.c).mult(fg * (dt / controls.c)).mult(1/abs(1.0 - 2.0 * controls.G * this.mass / (r * controls.c * controls.c)));
+      //}
 
-    force.setMag(c).mult(fg * (dt / c)).mult(1/abs(1.0 - 2.0 * G * this.mass / (r * c * c)));
-
-    p.vel.add(force).setMag(c);
+    p.vel.add(force).setMag(controls.c);
 
     if (r <= this.rs+ 0.5) {
       p.stopped = true;

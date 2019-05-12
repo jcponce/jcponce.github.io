@@ -2,7 +2,7 @@ class Photon {
 
   constructor(_pos) {
     this.pos = _pos.copy();
-    this.vel = createVector(-c, 0, 0);
+    this.vel = createVector(-controls.c, 0, 0);
    // this.col = color(255, 255, 255);
     this.stopped = false;
   }

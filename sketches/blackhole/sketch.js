@@ -18,7 +18,11 @@
  */
  
 /*
- *Base upon Black Hole by Jase Daggett https://github.com/MrMusAddict
+ *  From the Coding Challenge #144:
+ *  https://thecodingtrain.com/CodingChallenges/144-black-hole-visualization.html
+ *
+ *  Base upon Black Hole by Jase Daggett:
+ *  https://github.com/MrMusAddict
  */
 
 let easycam;
@@ -27,30 +31,40 @@ particles = [];
 
 let controls = {
 type: 'Cylinder',
+bh: 'Relativistic',
 c:  30,
 G:  6,
+m: 5000,
 Reset: function(){
-    //removeElements();
     for (let i=particles.length-1; i>=0; i-=1){
         particles.splice(i,1);
     }
     initSketch();
-    redraw();
 },
 };
 
-
-let c = 30;
-let G = 6;
 let dt = 0.09;
 
-let pCount = 3000;
+let pCount = 4000;
 
 let m87;
 
 
 
 function setup() {
+    
+    let gui = new dat.GUI({
+                          width: 300
+                          });
+    gui.close();
+    gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
+    //gui.add(controls, 'bh', ['Relativistic', 'Newtonian']).name("Model:").onChange(controls.Reset);
+    gui.add(controls, 'c', 20, 60).step(0.1);
+    gui.add(controls, 'G', 3, 20).step(0.1);
+    gui.add(controls, 'm', 1, 6000).step(0.1);
+    gui.add(controls, 'Reset');
+    gui.add(this, 'info').name("Info");
+    //gui.add(this, 'backHome').name("Back Home");
     
     pixelDensity(1);
     
@@ -60,18 +74,7 @@ function setup() {
     
     console.log(Dw.EasyCam.INFO);
     
-    easycam = new Dw.EasyCam(this._renderer, {distance : 600});
-    
-    let gui = new dat.GUI({
-                          width: 200
-                          });
-    gui.close();
-    gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type");
-    gui.add(controls, 'Reset');
-    //gui.add(controls, 'c', 1, 60).step(1);
-    //gui.add(controls, 'G', 1, 20).step(1);
-    gui.add(this, 'sourceCode').name("Source Code");
-    gui.add(this, 'backHome').name("Back Home");
+    easycam = new Dw.EasyCam(this._renderer, {distance : 1000});
     
     initSketch();
 }
@@ -80,14 +83,14 @@ function initSketch(){
     
     for( let i = 0; i < pCount; i++) {
         let a = random(TWO_PI);
-        let r = 300.0 * sqrt(random(1.0));
+        let r = 400.0 * sqrt(random(1.0));
         
         if(controls.type == 'Disk'){
             // Disco Ball
             particles.push(new Photon(createVector(500, 300.0*i/pCount*cos(TWO_PI*100.0*i/pCount), 300.0*i/pCount*sin(TWO_PI*100.0*i/pCount)) ) );
         }if(controls.type == 'Cylinder'){
             // Cylinder
-            particles.push(new Photon(createVector(random(1000)+500, r*cos(a), r*sin(a)) ) );
+            particles.push(new Photon(createVector(random(800)+500, r*cos(a), r*sin(a)) ) );
         }if(controls.type == 'Spiral'){
             // Spiral
             particles.push(new Photon(createVector( 500, 300.0*i/pCount*cos(TWO_PI*8.0*i/pCount), 300.0*i/pCount*sin(TWO_PI*8.0*i/pCount))));
@@ -103,8 +106,6 @@ function initSketch(){
         }
     }
     
-    m87 = new BH(0, 0, 0, 3000);
-    
 }
 
 function windowResized() {
@@ -114,13 +115,17 @@ function windowResized() {
 
 function draw(){
     
+    cursor(HAND);
+    
     // projection
     perspective(60 * PI/180, width/height, 1, 5000);
     
     // BG
     background(0);
     
-   m87.show();
+    m87 = new BlackHole(0, 0, 0, controls.m);
+    
+    m87.show();
 
   for (let  p of particles) {
     m87.pull(p); 
@@ -130,8 +135,8 @@ function draw(){
     
 }
 
-function sourceCode() {
-    window.location.href = "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/blackhole";
+function info() {
+    window.location.href = "https://www.asc.ohio-state.edu/orban.14/stemcoding/blackhole.html";
 }
 
 function backHome() {
