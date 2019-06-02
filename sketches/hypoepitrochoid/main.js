@@ -16,12 +16,17 @@ let Controls = function() {
     this.d = 3;
     this.rotation = 0;
     this.scale = 0.6;
+    this.Play = true;
 };
 
 let controls = new Controls();
 
 let stepTheta;
 let maxTheta;
+
+function saveImage() {
+    save('curve.png');
+}
 
 function setup() {
     
@@ -39,7 +44,9 @@ function setup() {
     gui.add(controls, 'r', 1, 30).step(1);
     gui.add(controls, 'd', 0, 30).step(0.1);
     gui.add(controls, 'rotation', 0, 360).step(1);
-    gui.add(controls, 'scale', 0.1, 0.8).step(0.1);
+    gui.add(controls, 'scale', 0.1, 0.8).step(0.1).name("Scale");
+    gui.add(controls, 'Play');
+    gui.add(this, 'saveImage').name("Save png");;
     
     
     maxTheta = 0;
@@ -72,7 +79,9 @@ function draw() {
     rotate(radians(270 + controls.rotation));
     background(0);
     
-    maxTheta += stepTheta;
+    if(controls.Play){
+     maxTheta += stepTheta;
+    } else maxTheta += 0;
     
     noFill();
     
