@@ -40,9 +40,9 @@ function setup() {
             Hypotrochoid: 0,
             Epitrochoid: 1
             }).name("Type");
-    gui.add(controls, 'R', 1, 30).step(1);
-    gui.add(controls, 'r', 1, 30).step(1);
-    gui.add(controls, 'd', 0, 30).step(0.1);
+    gui.add(controls, 'R', 1, 15).step(1);
+    gui.add(controls, 'r', 1, 15).step(1);
+    gui.add(controls, 'd', 0, 15).step(0.1);
     gui.add(controls, 'rotation', 0, 360).step(1).name("Rotate");
     gui.add(controls, 'scale', 0.1, 0.8).step(0.1).name("Scale");
     gui.add(controls, 'Play');
