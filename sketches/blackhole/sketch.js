@@ -60,7 +60,7 @@ function setup() {
     gui.add(controls, 'type', ['Cylinder', 'Disk', 'Spiral', 'Flat-Square', 'Flat-Disk', 'Straight-Line']).name("Type").onChange(controls.Reset);
     //gui.add(controls, 'bh', ['Relativistic', 'Newtonian']).name("Model:").onChange(controls.Reset);
     gui.add(controls, 'c', 20, 60).step(0.1);
-    gui.add(controls, 'G', 3, 20).step(0.1);
+    gui.add(controls, 'G', 3, 30).step(0.1);
     gui.add(controls, 'm', 1, 6000).step(0.1);
     gui.add(controls, 'Reset');
     gui.add(this, 'info').name("Info");
