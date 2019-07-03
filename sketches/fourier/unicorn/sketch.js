@@ -100,7 +100,7 @@ function domElements() {
   select.changed(mySelectEvent);
 
   slider = createSlider(1, n, n / 2, 1);
-  slider.position(100, 564);
+  slider.position(100, 558);
   slider.style('width', '400px');
   slider.changed(emptyArray);
 }

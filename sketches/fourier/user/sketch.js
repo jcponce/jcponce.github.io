@@ -1,4 +1,5 @@
 // Adapted by Juan Carlos Ponce Campuznao
+// 03 Jul 2019
 // From the Coding Challenge 130.3: 
 // Drawing with Fourier Transform and Epicycles
 // by Daniel Shiffman
@@ -139,7 +140,7 @@ function mousePressed() {
 function resetSize() {
   orbits = createSlider(1, size, size, 1);
   orbits.position(30, 510);
-  orbits.style('width', '350px');
+  orbits.style('width', '430px');
   orbits.changed(emptyFourier);
 }
 
