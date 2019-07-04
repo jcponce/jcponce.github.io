@@ -139,8 +139,8 @@ function mousePressed() {
 
 function resetSize() {
   orbits = createSlider(1, size, size, 1);
-  orbits.position(30, 510);
-  orbits.style('width', '430px');
+  orbits.position(30, 610);
+  orbits.style('width', '530px');
   orbits.changed(emptyFourier);
 }
 
