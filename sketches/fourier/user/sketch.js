@@ -26,7 +26,7 @@ let canDraw = true;
 let size = 1;
 
 function setup() {
-  let canvas = createCanvas(500, 500);
+  let canvas = createCanvas(600, 600);
   // Move the canvas so it’s inside our <div id="sketch-holder">.
   canvas.parent('sketch-holder');
 
