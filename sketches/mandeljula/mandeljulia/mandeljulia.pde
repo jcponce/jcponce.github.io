@@ -5,7 +5,7 @@ boolean drawO, drawJ;
 PGraphics mandelbrotImage;
 
 void setup() {
-size(500, 500);
+size(800, 400);
 colorMode(HSB, 255);
 windowCenter = new PVector(-0.5, 0);
 windowWidth = 1.5;
@@ -36,14 +36,14 @@ PVector jwindowCenter = new PVector(0, 0);
 float jwindowWidth = 2;
 
 actualPos = new PVector(mouseX, mouseY);
-xt = map(actualPos.x, 0, width, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
+xt = map(actualPos.x, 0, width-400, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
 yt = map(actualPos.y, height, 0, windowCenter.y - windowWidth, windowCenter.y + windowWidth);
 
 CfromMandelbrot = new PVector(xt, yt);
-for (int x = 0; x < width/3; x++) {
-for (int y = 0; y < width/3; y++) {
-xt = map(x, 0, width/3, jwindowCenter.x - jwindowWidth, jwindowCenter.x + jwindowWidth);
-yt = map(y, height/3, 0, jwindowCenter.y - jwindowWidth, jwindowCenter.y + jwindowWidth);
+for (int x = 400; x < width; x++) {
+for (int y = 0; y < width; y++) {
+xt = map(x, 400, width, jwindowCenter.x - jwindowWidth, jwindowCenter.x + jwindowWidth);
+yt = map(y, height, 0, jwindowCenter.y - jwindowWidth, jwindowCenter.y + jwindowWidth);
 virtualPos = new PVector(xt, yt);
 
 PVector z, zn;
@@ -74,7 +74,7 @@ float xt, yt;
 
 actualPos = new PVector(mouseX, mouseY);
 orbit.add(actualPos);
-xt = map(actualPos.x, 0, width, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
+xt = map(actualPos.x, 0, width-400, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
 yt = map(actualPos.y, height, 0, windowCenter.y - windowWidth, windowCenter.y + windowWidth);
 virtualPos = new PVector(0, 0);
 mouseC = new PVector(xt, yt);
@@ -82,7 +82,7 @@ mouseC = new PVector(xt, yt);
 int count = 0;
 while (count < mandelbrotResolution && dist(virtualPos.x, virtualPos.y, 0, 0) < 10) {
 PVector next = mandelbrotCalculation(virtualPos, mouseC);
-xt = map(next.x, windowCenter.x - windowWidth, windowCenter.x + windowWidth, 0, width);
+xt = map(next.x, windowCenter.x - windowWidth, windowCenter.x + windowWidth, 0, width-400);
 yt = map(next.y, windowCenter.y - windowWidth, windowCenter.y + windowWidth, height, 0);
 actualPos = new PVector(xt, yt);
 orbit.add(actualPos);
@@ -102,6 +102,7 @@ for (PVector P : orbit) {
 vertex(P.x, P.y);
 }
 endShape();
+
 }
 
 
@@ -110,7 +111,7 @@ endShape();
 void mousePressed() {
 float xp, yp;
 
-xp = map(mouseX, 0, width, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
+xp = map(mouseX, 0, width-400, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
 yp = map(mouseY, height, 0, windowCenter.y - windowWidth, windowCenter.y + windowWidth);
 windowCenter = new PVector(xp, yp);
 
@@ -165,7 +166,7 @@ mandelbrotImage.loadPixels();
 for (int xp = 0; xp < width; xp++) {
 for (int yp = 0; yp < height; yp++) {
 float x, y;
-x = map(xp, 0, width, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
+x = map(xp, 0, 400, windowCenter.x - windowWidth, windowCenter.x + windowWidth);
 y = map(yp, height, 0, windowCenter.y - windowWidth, windowCenter.y + windowWidth);
 
 PVector c = new PVector(x, y);
