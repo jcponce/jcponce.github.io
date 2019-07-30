@@ -1,14 +1,18 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 15-Dec-2018
+ * Written by Juan Carlos Ponce Campuzano, 30-Jul-2018
+ *
+ * Adapted from the original code:
+ * Flocking by
+ * Daniel Shiffman
+ * https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
+ * https://youtu.be/mhjuuHl6qHM
+ *
+ * The knot creatures are inspired by skizzm: https://www.openprocessing.org/user/105743
+ * from this beautiful sketch: https://www.openprocessing.org/user/105743
+ *
  */
-
-// Original code:
-// Flocking by
-// Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
-// https://youtu.be/mhjuuHl6qHM
 
 class Boid {
     constructor() {
@@ -129,17 +133,17 @@ class Boid {
         translate(this.position.x, this.position.y)
         rotate(theta);
         strokeWeight(1.5);
-        var size = width * 0.9 / 8 * 0.4 * 0.4;
-        var a, x, y;
+        let size = width * 0.9 / 8 * 0.4 * 0.4;
+        let a, x, y;
         
-        var ts = 0.005;
-        var cs = 0.001;
+        let ts = 0.005;
+        let cs = 0.001;
         
-        var ns = map(simplex.noise2D(frameCount*ts,this.ri), -1,1,0.2,1);
+        let ns = map(simplex.noise2D(frameCount*ts,this.ri), -1,1,0.2,1);
         
-        var verts = []
+        let verts = []
         
-        for(var r = 0; r < 60; r++){
+        for(let r = 0; r < 60; r++){
             a = r / 60 * TWO_PI;
             x = simplex.noise3D(cos(a) * ns, sin(a) * ns, this.ri + 10 + frameCount*ts) * size;
             y = simplex.noise3D(cos(a) * ns, sin(a) * ns, this.ri + 20 + frameCount*ts) * size;
@@ -147,13 +151,13 @@ class Boid {
         }
         
         beginShape();
-        for(var r = 0; r < verts.length; r++){
+        for(let r = 0; r < verts.length; r++){
             vertex(verts[r].x,verts[r].y);
         }
         endShape(CLOSE);
         
         beginShape();
-        for(var r = 0; r < verts.length; r++){
+        for(let r = 0; r < verts.length; r++){
             vertex(-verts[r].x,verts[r].y);
         }
         endShape(CLOSE);

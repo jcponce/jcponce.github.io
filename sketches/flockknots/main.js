@@ -1,14 +1,18 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 15-Dec-2018
+ * Written by Juan Carlos Ponce Campuzano, 30-Jul-2019
+ *
+ * Adapted from the original code:
+ * Flocking by
+ * Daniel Shiffman
+ * https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
+ * https://youtu.be/mhjuuHl6qHM
+ *
+ * The knot creatures are inspired by skizzm: https://www.openprocessing.org/user/105743
+ * from this beautiful sketch: https://www.openprocessing.org/user/105743
+ *
  */
-
-// Original code:
-// Flocking by
-// Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
-// https://youtu.be/mhjuuHl6qHM
 
 const flock = [];
 var simplex;
