@@ -56,7 +56,7 @@ function setup() {
 }
 
 function sourceCode() {
-    window.location.href = "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/flockcreatures";
+    window.location.href = "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/flockknots";
 }
 
 function backHome() {
