@@ -16,6 +16,10 @@ function setup() {
     background(255);
     colorMode(HSB);
     rectMode(CENTER);
+    
+    document.getElementById("save").onclick = () => {
+        saveRobot();
+    }
 }
 
 
@@ -59,6 +63,10 @@ function mouseReleased() {
     if(paint==true){
         paint = false;
     }
+}
+
+function saveRobot(){
+    save('robot.jpg');
 }
 
 class regularPolygon {
