@@ -35,6 +35,7 @@ function setup() {
     gui.add(controls, 'cohesion', 0, 2.5).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 2.5).name("Separation").step(0.1);
     gui.add(controls, 'numPoly', 0, 110).name("Num Creatures").step(1);
+    gui.add(this, 'infoBoids').name("Boids Info");
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
@@ -42,7 +43,10 @@ function setup() {
         pushRandomBoid();//flock.push(new Boid());
     }
     
-    
+}
+
+function infoBoids() {
+    window.location.href = "https://www.red3d.com/cwr/boids/";
 }
 
 function sourceCode() {

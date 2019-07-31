@@ -48,6 +48,8 @@ function setup() {
     gui.add(controls, 'cohesion', 0, 2.5).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 2.5).name("Separation").step(0.1);
     gui.add(controls, 'numPoly', 0, 100).name("Num Creatures").step(1);
+    gui.add(this, 'infoBoids').name("Boids Info");
+    gui.add(this, 'infoSimplexNoise').name("Simplex-N Info");
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
@@ -57,6 +59,14 @@ function setup() {
     blendMode(BLEND);
     
     
+}
+
+function infoSimplexNoise() {
+    window.location.href = "https://github.com/jwagner/simplex-noise.js";
+}
+
+function infoBoids() {
+    window.location.href = "https://www.red3d.com/cwr/boids/";
 }
 
 function sourceCode() {
