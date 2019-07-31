@@ -38,6 +38,7 @@ function setup() {
     gui.add(controls, 'separation', 0, 2.5).name("Separation").step(0.1);
     gui.add(controls, 'numPoly', 0, 300).name("Num Polygons").step(1);
     gui.add(controls, 'trace').name("Trace").listen();
+    gui.add(this, 'infoBoids').name("Boids Info");
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
     
@@ -46,6 +47,10 @@ function setup() {
     }
     
     background(0);
+}
+
+function infoBoids() {
+    window.location.href = "https://www.red3d.com/cwr/boids/";
 }
 
 function sourceCode() {
