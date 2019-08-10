@@ -23,11 +23,11 @@ function setup() {
     cursor(HAND);
     pw = width*0.35;
     
-    //slider = createSlider(-0.7853, 0.7853, 0, 0.0001);
-    //slider.style('width:'+2*pw+'px')
+    slider = createSlider(-0.7853, 0.7853, 0, 0.0001);
+    slider.style('width:200px')
+    slider.parent('slider');
     //slider.position(width/2-pw, height-50);
     
-    rad = 0.17;
     
     ar1 = new ArcBenham(0, 0, pw*0.20, 0, 1 * PI / 4);
     ar2 = new ArcBenham(0, 0, pw*0.38, 1 * PI / 4, 2 * PI / 4);
@@ -47,15 +47,15 @@ function draw() {
     //ellipse(0, 0, 10);
     //ellipse(pw, 0, 10);
     //ellipse(0, -pw, 10);
-    
+    scale(1.2)
     //circle
     push();
     noFill();
     strokeWeight(1);
     beginShape();
     for (let k = 0; k < 2 * PI; k += 0.01) {
-        let x = pw*(cos(k) * cos(t) - sin(k) * sin(t));
-        let y = pw*(cos(k) * sin(t) + sin(k) * cos(t));
+        let x = pw*0.95*(cos(k) * cos(t) - sin(k) * sin(t));
+        let y = pw*0.95*(cos(k) * sin(t) + sin(k) * cos(t));
         vertex(x, y);
     }
     endShape(CLOSE);
@@ -68,8 +68,8 @@ function draw() {
     strokeWeight(1);
     beginShape();
     for (let k = 0; k < PI; k += 0.01) {
-        let x =pw*(cos(k) * cos(t) - sin(k) * sin(t));
-        let y = pw*(cos(k) * sin(t) + sin(k) * cos(t));
+        let x =pw*0.95*(cos(k) * cos(t) - sin(k) * sin(t));
+        let y = pw*0.95*(cos(k) * sin(t) + sin(k) * cos(t));
         vertex(x, y);
     }
     endShape(CLOSE);
@@ -82,7 +82,7 @@ function draw() {
     ar3.show();
     ar4.show();
     
-    let s = map(constrain(mouseX, 0, width), 0, width, -0.7853, 0.7853);
+    let s = slider.value();//map(constrain(mouseX, 0, width), 0, width, -0.7853, 0.7853);
     
     ar1.update(s);
     ar2.update(s);
