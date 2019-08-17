@@ -117,53 +117,36 @@ function draw() {
 let textIni = true;
 
 function mousePressed() {
-    let closestIndex = 0;
-    let closestDistance = 9999;
-    hexagons.forEach((hexagon, index) => {
-                     let d = dist(mouseX, mouseY, hexagon.x + radius, hexagon.y + radius);
-                     if (d < closestDistance) {
-                     closestDistance = d;
-                     closestIndex = index;
-                     }
-                     });
-    rotations[closestIndex] += TWO_PI / 6;
-    
-    textIni = false;
-    
-    osc.start();
-    let midiValue = scaleArray[int(random(0, 9))];
-    let freqValue = midiToFreq(midiValue);
-    osc.freq(freqValue);
-    envelope.play(osc, 0, 0.1);
-    
+    interactRotateMusic();
 }
 
 function touchStarted() {
-    let closestIndex = 0;
-    let closestDistance = 9999;
-    hexagons.forEach((hexagon, index) => {
-                     let d = dist(mouseX, mouseY, hexagon.x + radius, hexagon.y + radius);
-                     if (d < closestDistance) {
-                     closestDistance = d;
-                     closestIndex = index;
-                     }
-                     });
-    rotations[closestIndex] += TWO_PI / 6;
-    
-    textIni = false;
-    
-    osc.start();
-    let midiValue = scaleArray[int(random(0, 9))];
-    let freqValue = midiToFreq(midiValue);
-    osc.freq(freqValue);
-    envelope.play(osc, 0, 0.1);
-    
+    interactRotateMusic();
 }
-
-
 
 function keyPressed() {
     if (keyCode === 83) {
         save('tantrix-pattern.jpg');
     }
+}
+
+function interactRotateMusic(){
+    let closestIndex = 0;
+    let closestDistance = 9999;
+    hexagons.forEach((hexagon, index) => {
+                     let d = dist(mouseX, mouseY, hexagon.x + radius, hexagon.y + radius);
+                     if (d < closestDistance) {
+                     closestDistance = d;
+                     closestIndex = index;
+                     }
+                     });
+    rotations[closestIndex] += TWO_PI / 6;
+    
+    textIni = false;
+    
+    osc.start();
+    let midiValue = scaleArray[int(random(0, 9))];
+    let freqValue = midiToFreq(midiValue);
+    osc.freq(freqValue);
+    envelope.play(osc, 0, 0.1);
 }
