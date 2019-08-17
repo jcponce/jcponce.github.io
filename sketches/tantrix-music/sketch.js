@@ -1,4 +1,7 @@
-/* Tantrix pattern Written by Vamos https://www.openprocessing.org/user/65884
+/* * p5.js (https://p5js.org/)
+ * Under Creative Commons License
+ * https://creativecommons.org/licenses/by-sa/4.0/
+ * Tantrix pattern Written by Vamos https://www.openprocessing.org/user/65884
  * Original sketch: https://www.openprocessing.org/sketch/744884
  * This version with added sound by Juan Carlos Ponce Campuzano
  * https://jcponce.github.io/
