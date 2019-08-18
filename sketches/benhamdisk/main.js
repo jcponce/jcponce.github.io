@@ -1,7 +1,7 @@
 /* Written in p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 28-Nov-2018
+ * Written by Juan Carlos Ponce Campuzano, 10-Aug-2019
  */
 
 // Last update ??
@@ -13,7 +13,7 @@ let pw;
 let ar1, ar2, ar3, ar4;
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(550, 550);
     cursor(HAND);
     pw = width*0.35;
     
