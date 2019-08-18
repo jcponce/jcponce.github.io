@@ -106,7 +106,12 @@ function controlsGUI() {
     gui.addColor(controls, 'color2').name("Arc 2").onChange(resetArcs);
     gui.addColor(controls, 'color3').name("Background").onChange(resetArcs);
     gui.add(controls, 'save').name("JPG");
+    gui.add(this, 'backHome').name("Go back Home");
     gui.close();
+}
+
+function backHome () {
+    window.location.href = "https://jcponce.github.io/#sketches";
 }
 
 function saveImage() {
