@@ -7,11 +7,24 @@
  * https://jcponce.github.io/
  */
 
-let osc, envelope, fft;
+let osc, envelope, time;
+
+let val = 0;
+let textIni = true;
+
+let Controls = function() {
+    this.oscMode = 'Sin';
+    this.color1 = '#0099cc';
+    this.color2 = '#75ba84';
+    this.color3 = '#ffffff';
+    this.save = 'Press S to save'
+};
+
+let controls = new Controls();
 
 let scaleArray = [58, 60, 62, 64, 65, 67, 69, 71, 72, 74];
-let note = 0;
-let time;
+
+let hexagonLines;
 
 const radius = 80;
 const altitude = Math.sqrt(3) / 2 * radius;
@@ -20,33 +33,14 @@ let hexagons, hexagonPattern, rotations;
 function setup() {
     createCanvas(windowWidth, windowHeight);
     cursor(HAND);
-    blendMode(BLEND);
-    let hexagonMask = createGraphics(radius * 2, radius * 2);
-    hexagonMask.beginShape();
-    for (let a = 0; a < TWO_PI; a += TWO_PI / 6) {
-        let x = sin(a) * radius + radius;
-        let y = cos(a) * radius + radius;
-        hexagonMask.vertex(x, y);
-    }
-    hexagonMask.endShape();
+    //blendMode(BLEND);
+    //pixelDensity(1);
     
-    let hexagonLines = createGraphics(radius * 2, radius * 2);
-    hexagonLines.noFill();
-    hexagonLines.strokeWeight(30);
-    hexagonLines.stroke(10, 120, 203);
-    hexagonLines.ellipse(radius - altitude, radius - radius / 2, radius, radius);
-    hexagonLines.ellipse(radius + altitude * 2, radius, radius * 3, radius * 3);
-    hexagonLines.ellipse(radius + altitude, radius + radius * 1.5, radius * 3, radius * 3);
-    hexagonLines.strokeWeight(7);
-    hexagonLines.stroke(180, 190, 23);
-    hexagonLines.ellipse(radius - altitude, radius - radius / 2, radius, radius);
-    hexagonLines.ellipse(radius + altitude * 2, radius, radius * 3, radius * 3);
-    hexagonLines.ellipse(radius + altitude, radius + radius * 1.5, radius * 3, radius * 3);
+    //UI conrtrols
+    controlsGUI();
     
-    hexagonPattern = createGraphics(radius * 2, radius * 2);
-    hexagonPattern.image(hexagonMask, 0, 0);
-    hexagonPattern.drawingContext.globalCompositeOperation = "source-in";
-    hexagonPattern.image(hexagonLines, 0, 0);
+    //Hexagon, arcs and rotations of tilling
+    resetArcs();
     
     rotations = [];
     hexagons = [];
@@ -63,32 +57,14 @@ function setup() {
         }
     }
     
-    /*
-     Sound effects
-     */
-    
-    let sinO = new p5.SinOsc();
-    let triO = new p5.TriOsc();
-    let sqrO = new p5.SqrOsc();
-    let sawO = new p5.SawOsc();
-    let oscList = [sinO, triO, sqrO, sawO];
-    //p5.SinOsc, p5.TriOsc, p5.SqrOsc, or p5.SawOsc
-    osc = oscList[int(random(0, 3))];
-    
-    // Instantiate the envelope
-    envelope = new p5.Envelope();
-    
-    // set attackTime, decayTime, sustainRatio, releaseTime
-    envelope.setADSR(0.001, 0.5, 0.7, 0.5);
-    
-    // set attackLevel, releaseLevel
-    envelope.setRange(1, 0);
-    
+    //Sound effects
+    resetOscilator();
     
 }
 
 function draw() {
-    background(255);
+    background(controls.color3);
+    
     hexagons.forEach((hexagon, index) => {
                      hexagon.rotation += (rotations[index] - hexagon.rotation) * 0.09;
                      push();
@@ -100,24 +76,106 @@ function draw() {
                      });
     
     time = millis() / 1000;
+    
     //initial message
     if (textIni === true && time < 25) {
         stroke(10)
         fill(230);
         rectMode(CENTER);
-        rect(width / 2, height / 2, 250, 200, 20);
+        rect(width / 2, height / 2, 300, 140, 20);
         strokeWeight(1);
         fill(50);
         textAlign(CENTER);
         textSize(26);
-        text("Click to rotate.", width / 2, height / 2 - 50);
-        text("Refresh page to", width / 2, height / 2 - 10);
-        text("change oscillator.", width / 2, height / 2 + 20);
-        text("Press 'S' to save.", width / 2, height / 2 + 60);
+        text("Click to rotate.", width / 2, height / 2 - 30);
+        text("Use controls to change", width / 2, height / 2 + 10);
+        text("oscillator and colors.", width / 2, height / 2 + 40);
     }
+    
+    //console.log(val);
 }
 
-let textIni = true;
+// Auxiliary functions
+
+function controlsGUI() {
+    let gui = new dat.GUI({
+                          width: 270
+                          });
+    gui.add(controls, 'oscMode', ['Sin', 'Tri', 'Sqrt', 'Saw']).name("Oscilator").onChange(mySelectOption);
+    gui.addColor(controls, 'color1').name("Arc 1").onChange(resetArcs);
+    gui.addColor(controls, 'color2').name("Arc 2").onChange(resetArcs);
+    gui.addColor(controls, 'color3').name("Background").onChange(resetArcs);
+    gui.add(controls, 'save').name("JPG");
+    gui.close();
+}
+
+function saveImage() {
+    //save('tantrix-pattern.jpg');
+}
+
+function resetArcs() {
+    let hexagonMask = createGraphics(radius * 2, radius * 2);
+    hexagonMask.beginShape();
+    for (let a = 0; a < TWO_PI; a += TWO_PI / 6) {
+        let x = sin(a) * radius + radius;
+        let y = cos(a) * radius + radius;
+        hexagonMask.vertex(x, y);
+    }
+    hexagonMask.endShape();
+    
+    hexagonLines = createGraphics(radius * 2, radius * 2);
+    hexagonLines.noFill();
+    hexagonLines.strokeWeight(30);
+    hexagonLines.stroke(controls.color1);
+    hexagonLines.ellipse(radius - altitude, radius - radius / 2, radius, radius);
+    hexagonLines.ellipse(radius + altitude * 2, radius, radius * 3, radius * 3);
+    hexagonLines.ellipse(radius + altitude, radius + radius * 1.5, radius * 3, radius * 3);
+    hexagonLines.strokeWeight(10);
+    hexagonLines.stroke(controls.color2);
+    hexagonLines.ellipse(radius - altitude, radius - radius / 2, radius, radius);
+    hexagonLines.ellipse(radius + altitude * 2, radius, radius * 3, radius * 3);
+    hexagonLines.ellipse(radius + altitude, radius + radius * 1.5, radius * 3, radius * 3);
+    
+    hexagonPattern = createGraphics(radius * 2, radius * 2);
+    hexagonPattern.image(hexagonMask, 0, 0);
+    hexagonPattern.drawingContext.globalCompositeOperation = "source-in";
+    hexagonPattern.image(hexagonLines, 0, 0);
+    
+}
+
+function resetOscilator() {
+    let sinO = new p5.SinOsc();
+    let triO = new p5.TriOsc();
+    let sqrO = new p5.SqrOsc();
+    let sawO = new p5.SawOsc();
+    
+    let oscList = [sinO, triO, sqrO, sawO];
+    
+    osc = oscList[val];
+    //p5.SinOsc, p5.TriOsc, p5.SqrOsc, or p5.SawOsc
+    
+    // Instantiate the envelope
+    envelope = new p5.Envelope();
+    
+    // set attackTime, decayTime, sustainRatio, releaseTime
+    envelope.setADSR(0.001, 0.5, 0.7, 0.5);
+    
+    // set attackLevel, releaseLevel
+    envelope.setRange(1, 0);
+}
+
+function mySelectOption() {
+    if (controls.oscMode == 'Sin') {
+        val = 0;
+    } else if (controls.oscMode == 'Tri') {
+        val = 1;
+    } else if (controls.oscMode == 'Sqrt') {
+        val = 2;
+    } else if (controls.oscMode == 'Saw') {
+        val = 3;
+    }
+    resetOscilator();
+}
 
 function mousePressed() {
     interactRotateMusic();
@@ -133,7 +191,7 @@ function keyPressed() {
     }
 }
 
-function interactRotateMusic(){
+function interactRotateMusic() {
     let closestIndex = 0;
     let closestDistance = 9999;
     hexagons.forEach((hexagon, index) => {
