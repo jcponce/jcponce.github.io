@@ -22,7 +22,7 @@ let Controls = function() {
 
 let controls = new Controls();
 
-let scaleArray = [58, 60, 62, 64, 65, 67, 69, 71, 72, 74];
+let scaleArray = [60, 62, 64, 65, 67, 69, 71, 72];
 
 let hexagonLines;
 
@@ -211,7 +211,7 @@ function interactRotateMusic() {
     textIni = false;
     
     osc.start();
-    let midiValue = scaleArray[int(random(0, 9))];
+    let midiValue = scaleArray[int(random(0, 7))];
     let freqValue = midiToFreq(midiValue);
     osc.freq(freqValue);
     envelope.play(osc, 0, 0.1);
