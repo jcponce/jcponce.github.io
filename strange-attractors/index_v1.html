@@ -1,28 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Strange Attractor in 3D</title>
+<title>Strange attractors</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Strange Attractor in 3D">
-<meta name="keywords" content="Strange, Attractor, 3D">
-<meta name="author" content="Juan Carlos Ponce Campuzano">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- dublin core -->
+<meta name="dc.title" CONTENT="Strange attractors">
+<meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+<meta name="dc.date" CONTENT="01-January-2018">
+<meta name="dc.type" CONTENT="Interactive Resource">
+<meta name="dc.format" CONTENT="HTML">
+<meta name="dc.language" CONTENT="en-US">
+<meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+<!-- social media cards -->
+<meta property="og:title" content="Strange attractors">
+<meta property="og:description" content="3D interactive simulations about strange attractors.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+<meta property="og:url" content="https://jcponce.github.io/">
+<meta name="twitter:card" content="3D interactive simulations about strange attractors.">
+<meta property="og:site_name" content="Dynamic Mathematics">
+    
 <link rel="icon" type="image/png" href="../assets/img/png/icon/infinity32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="../assets/img/png/icon/infinity16.png" sizes="16x16">
-<link rel="stylesheet" href="../assets/style/w3.css">
-<link rel="stylesheet" href="lightbox.css">
+                        
+<!--Style Stars-->
 
-<link rel="stylesheet" href="../assets/style/loadingrainbow.css"><!--this adds a loading spinner-->
-<script rel="stylesheet" src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
-<link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style/w3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: 'Martel Sans', sans-serif;}
-    .w3-third img{margin-bottom: 0px; opacity: 1; cursor: pointer}
-    .w3-half img{margin-bottom: 0px; opacity: 1; cursor: pointer}
-    .w3-third img:hover{opacity: 0.8}
-    .w3-half img:hover{opacity: 0.8}
-</style>
+<link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
+    
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: 'Martel Sans', sans-serif;}
+        .center {
+            margin-left:auto;
+            margin-right:auto;
+            max-width:930px;
+        }
+    #myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.4s;
+    }
+    
+    #myImg:hover {opacity: 0.7;}
+    </style>
+    
+<!--Style ends-->
+                                    
+<!--MathJax starts-->
+      <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+            });
+       </script>
+       <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+       </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+         MathJax.Hub.Config({
+               displayAlign: "left",
+               displayIndent: "5em"
+               });
+</script>--->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<!--MathJax Ends-->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
@@ -32,81 +76,53 @@
     gtag('js', new Date());
     
     gtag('config', 'UA-121691678-1');
-</script>
-
-<!--MathJax starts-->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-                       TeX: { equationNumbers: { autoNumber: "AMS" } }
-                       });
     </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-    </script>
-<!---<script type="text/x-mathjax-config">//left-side eq
- MathJax.Hub.Config({
- displayAlign: "left",
- displayIndent: "5em"
- });
- </script>--->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
-    </script>
-<!--MathJax Ends-->
 
+    </head>
+    <body>
+        
+        <!-- Navbar Stars-->
+        <div class="w3-top">
+            <div class="w3-bar w3-black w3-top">
+                <a href="../#sketches" class="w3-left-align w3-bar-item w3-button w3-hover-indigo"> <i class="fa fa-arrow-left"></i> <i class="fa fa-home"></i></a>
+                
+                <a href="#thomas" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small"> <b>Thomas</b></a>
+                <a href="#aizawa" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small"> <b>Aizawa</b></a>
+                <a href="#lorenz" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small"> <b>Lorenz</b></a>
+                <a href="#dadras" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small"> <b>Dadras</b></a>
+                <a href="#chen" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small"> <b>Chen</b></a>
+                <a href="#lorenz84" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small"> <b>Lorenz84</b></a>
+                <a href="#rossler" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small w3-hide-medium"> <b>Rössler</b></a>
+                <a href="#halvorsen" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small w3-hide-medium"> <b>Halvorsen</b></a>
+                <a href="#rabinovich" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small w3-hide-medium"> <b>Rabinovich-Fabrikant</b></a>
+                <a href="#threescroll" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small w3-hide-medium"> <b>Three-Scroll Unified</b></a>
+                <a href="#sprott" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small w3-hide-medium"> <b>Sprott</b></a>
+                <a href="#wangsu" class="w3-small w3-left-align w3-bar-item w3-button w3-hover-indigo w3-hide-small w3-hide-medium"> <b>Four-Wing</b></a>
+                
+                <!--<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-indigo serif">Strange attractors</a>-->
+            </div>
+           
+        </div>
+        <!-- Navbar Ends-->
 
-</head>
-
-<body class="w3-content" style="max-width:1600px">
-
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-light-grey w3-animate-left" style="z-index:3;width:150px;" id="mySidebar"><br>
-  <div class="w3-container">
-    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-xxlarge w3-padding w3-hover-grey" title="close menu">
-      <i class="fas fa-times"></i>
-    </a>
-    <a href="../" class="w3-circle w3-button w3-hover-light-grey w3-xlarge">  <i class="fa fa-home"></i></a>
+<!-- Main content Stars-->
+<div class="w3-main center" style="margin-top:45px">
     
-    
-    <p class="w3-text-black"><b>CONTENT</b></p>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#thomas" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-indigo">Thomas</a>
-    <a href="#aizawa" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Aizawa</a>
-    <a href="#lorenz" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Lorenz</a>
-    <a href="#dadras" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Dadras</a>
-    <a href="#chen" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Chen</a>
-    <a href="#lorenz64" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Lorenz64</a>
-    <a href="#rossler" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Rössler</a>
-    <a href="#ravinovich" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Ravinovich</a>
-    <a href="#threescroll" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Three-Scroll</a>
-    <a href="#sprott" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Sprott</a>
-    <a href="#wangsu" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Four-Wing</a>
-  </div>
-  
-</nav>
+    <div class="w3-container">
+     <h1>Strange attractors in 3D</h1>
+     <hr>
+    <!--<div class="w3-container w3-center">
+        <div class="w3-half">
+           <p><i class="fas fa-info"></i> Click on picture to open attractor.</p>
+        </div>
+        <div class="w3-half">
+            <p><a class="w3-hover-text-blue" href="https://github.com/jcponce/calculus/tree/gh-pages/velfields/Thomas"><i class="fas fa-code"></i> Code</a></p>
+        </div>
+     </div>
+     <hr>-->
+</div>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:200px; margin-right:60px">
-
-  <!-- Header -->
-  <header  class="w3-container w3-top w3-white">
-    <a href="#" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"> <i class="fas fa-chevron-up"></i> </a>
-    <span class="w3-button w3-hide-large w3-xlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-  </header>
-  
-  <div class="w3-container" style="text-align:center">
-      <br>
-      <h1 class="w3-text-light-grey w3-hide-large w3-xxlarge" ><b>Attractors</b></h1>
-      <h1 id="titled" ><b>Strange Attractors in 3D</b></h1>
-      <div class="w3-section w3-bottombar">
-          <p></p>
-      </div>
-  </div>
-  <br>
-  <div class="w3-container">
+<div class="w3-container">
     <!-- First Photo Grid-->
     <div class="w3-row-padding">
         <div id="thomas" class="w3-half w3-container w3-margin-bottom">
@@ -185,7 +201,7 @@
         </div>
         
         </div>
-    
+        
         <!-- Third Photo Grid-->
         <div class="w3-row-padding">
             <div id="chen" class="w3-half w3-container w3-margin-bottom">
@@ -344,13 +360,11 @@
         </div>
         
         
+        <hr>
     </div>
-  
-  <div class="w3-section w3-bottombar">
-      <p></p><br>
-  </div>
-  
-  <div class="w3-container center">
+
+
+<div class="w3-container center">
     <h2>References</h2>
     <ol>
     <li>Dadras, S., Momeni, H.R. (2009). A novel three-dimensional autonomous chaotic system generating two, three and four-scroll attractors. <i>Physics Letters A.</i> Volume 373, Issue 40. pp. 3637-3642. <a href="https://doi.org/10.1016/j.physleta.2009.07.088" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
@@ -364,15 +378,13 @@
     <li>Tam L., Chen J., Chen H., Tou W. (2008). Generation of hyperchaos from the Chen–Lee system via sinusoidal perturbation.<i> Chaos, Solitons and Fractals.</i> Vol. 38, 826-839. <a href="https://doi.org/10.1016/j.chaos.2007.01.039" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
     <li>Wang, Z., Sun, Y., van Wyk, J. B, Qi, G, van Wyk, M. A. (2009). A 3-D four-wing attractor and its analysis. <i>Brazilian Journal of Physics,</i> vol. 39, no. 3. pp.547-553. <a href="http://dx.doi.org/10.1590/S0103-97332009000500007" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
         </ol>
-    
+    <hr>
 </div>
-  
-  <div class="w3-section w3-bottombar">
-      <p></p><br>
-  </div>
 
 <div class="w3-container">
-    <h2>Notes</h2>
+    <details>
+        <summary class="w3-hover-indigo" style="background-color:#f2f2f2; cursor:pointer" ><b style="font-size:20px" >Notes</b></summary>
+        
         <p>
         The code can be found <a class="w3-hover-text-blue" href="https://github.com/jcponce/calculus/tree/gh-pages/velfields/Thomas"><i class="fas fa-code"></i> here</a></p>
         
@@ -381,46 +393,32 @@
         <p>
         Finally, the position of a particle is computed with a 4th order <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta method</a>.
         </p>
+        
+        
+        
+    </details>
     <br/>
 </div>
-  
-  
-  
-<!-- End page content -->
+
 </div>
+<!-- END MAIN -->
 
 <!--Footer-->
 
-<div class="w3-container w3-dark-grey w3-center">
-    <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a></p>
-</div>
+    <div class="w3-container w3-dark-grey w3-center">
+        <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a></p>
+    </div>
 
 <!--Footer-->
 
-<script>
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-</script>
 
 
-<script language="javascript" type="text/javascript">
-    $('body').append('<div style="" id="loadingDiv"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div>');
-    $(window).on('load', function(){
-                 setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
-                 });
-    function removeLoader(){$( "#loadingDiv" ).fadeOut(500, function() {// fadeOut complete. Remove the loading div
-        $( "#loadingDiv" ).remove(); //makes page more lightweight
-         });
-       }
-</script>
+
+
 
 </body>
 </html>
+
+
+
+
