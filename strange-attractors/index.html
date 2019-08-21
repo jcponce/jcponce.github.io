@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Strange Attractor in 3D</title>
+<title>Strange Attractors</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Strange Attractor in 3D">
@@ -70,7 +70,7 @@
     <p class="w3-text-black"><b>CONTENT</b></p>
   </div>
   <div class="w3-bar-block">
-    <a href="#thomas" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-indigo">Thomas</a>
+    <a href="#thomas" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Thomas</a>
     <a href="#aizawa" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Aizawa</a>
     <a href="#lorenz" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Lorenz</a>
     <a href="#dadras" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Dadras</a>
@@ -100,13 +100,81 @@
   <div class="w3-container" style="text-align:center">
       <br>
       <h1 class="w3-text-light-grey w3-hide-large w3-xxlarge" ><b>Attractors</b></h1>
-      <h1 id="titled" ><b>Strange Attractors in 3D</b></h1>
+      <h1 id="titled" ><b>Strange Attractors</b></h1>
       <div class="w3-section w3-bottombar">
           <p></p>
       </div>
   </div>
   <br>
   <div class="w3-container">
+  <p>The term <strong>strange attractor</strong> is used to
+  describe an attractor (a region or shape to which points
+  are 'pulled' as the result of a certain process) that displays
+  sensitive dependence on initial conditions (that is, points
+  which are initially close on the attractor become
+  exponentially separated with time).
+  The most famous strange attractor is undoubtedly
+  the Lorenz attractor - a three dimensional object whose
+  body plan resembles a butterfly or a mask. The Lorenz
+  attractor, named for its discoverer Edward N. Lorenz,
+  arose from a mathematical model of the atmosphere [<a href="#lorenz1963" class="w3-hover-text-blue">2</a>].</p>
+  
+  <p>Imagine a rectangular slice of air heated from below and
+  cooled from above by edges kept at constant
+  temperatures. This is our atmosphere in its simplest
+  description. The bottom is heated by the earth and the top
+  is cooled by the void of outer space. Within this slice,
+  warm air rises and cool air sinks.
+  The state of the atmosphere in this model can be
+  described by three time-evolving variables
+  <ul>
+      <li>x = the convective flow</li>
+      <li>y = the horizontal temperature distribution</li>
+      <li>z = the vertical temperature distribution</li>
+  </ul>
+  with three parameters describing the character of the
+  model itself
+  <ul>
+      <li>$\sigma$ [sigma] = the ratio of viscosity to thermal conductivity</li>
+      <li>$\rho$ [rho] = the temperature difference between the top and
+          bottom of the slice</li>
+      <li>$\beta$ [beta] = the width to height ratio of the slice</li>
+  </ul>
+  and a system of three ordinary differential equations
+  describing the appropriate laws of fluid dynamics
+  $$\left\{ \begin{eqnarray*}
+  \frac{dx}{dt}&amp;=&amp;\sigma  (-x + y)\\
+  \frac{dy}{dt}&amp;=&amp;  -x  z + \rho  x - y \\
+  \frac{dz}{dt}&amp;=&amp; x  y - \beta  z
+  \end{eqnarray*}\right.
+  $$
+  When $\rho$ = 28, $\sigma$ = 10, and $\beta$ = 8/3, a solution curve of this
+  system has the shape of the iconic butterfly and the
+  position of particles will follow a similar path.</p>
+  
+  <div class="w3-center">
+  <iframe src="lorenz/index.html" scrolling="no" width="320" height="320" style="border:0px;"></iframe>
+  </div>
+  
+  <p>The Lorenz attractor was the first strange attractor, but
+  there are many systems of equations that give rise to
+  strange attractors. In the next section you will find simulations
+  of strange attractors with particles moving based on
+  a given system of ordinary differential equations,
+  including one (or two) solution curve(s). Change the parameters
+  to observe the behaviour of the particles and the solution curve(s).
+  Click on the image to access the simulation.</p>
+  
+  <br>
+  
+  <div class="w3-section w3-bottombar">
+      <p></p>
+  </div>
+  
+  <div class="w3-container">
+     <div class="w3-container" style="text-align:center">
+     <h1 id="titled" ><b>Simulations</b></h1>
+     </div>
     <!-- First Photo Grid-->
     <div class="w3-row-padding">
         <div id="thomas" class="w3-half w3-container w3-margin-bottom">
@@ -147,6 +215,8 @@
         
     </div>
     
+    
+    
     <!--Second Photo Grid-->
     <div class="w3-row-padding">
         <div id="lorenz" class="w3-half w3-container w3-margin-bottom">
@@ -155,13 +225,13 @@
                 <p><b>Lorenz attractor</b></p>
                 <p>Parameters:</p>
                 <div class="w3-center">
-                <p>$p = 10,$ $r = 28,$ $b = 8/3$</p>
+                <p>$\sigma = 10,$ $rho = 28,$ $beta = 8/3$</p>
                 </div>
                 <p>System:</p>
-                <p> $$\left\{ \begin{eqnarray*}
-                \frac{dx}{dt}&amp;=&amp;p  (-x + y)\\
-                \frac{dy}{dt}&amp;=&amp;  -x  z + r  x - y \\
-                \frac{dz}{dt}&amp;=&amp; x  y - b  z
+                <p>$$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp;\sigma  (-x + y)\\
+                \frac{dy}{dt}&amp;=&amp;  -x  z + \rho  x - y \\
+                \frac{dz}{dt}&amp;=&amp; x  y - \beta  z
                 \end{eqnarray*}\right.
                 $$</p>
             </div>
@@ -354,7 +424,7 @@
     <h2>References</h2>
     <ol>
     <li>Dadras, S., Momeni, H.R. (2009). A novel three-dimensional autonomous chaotic system generating two, three and four-scroll attractors. <i>Physics Letters A.</i> Volume 373, Issue 40. pp. 3637-3642. <a href="https://doi.org/10.1016/j.physleta.2009.07.088" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
-    <li>Lorenz E. N. (1963). Deterministic Nonperiodic Flow. <i>Journal of the Atmospheric Sciences.</i> <b>20</b>(2): 130–141. <a href="http://journals.ametsoc.org/doi/abs/10.1175/1520-0469%281963%29020%3C0130%3ADNF%3E2.0.CO%3B2" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li id="lorenz1963">Lorenz E. N. (1963). Deterministic Nonperiodic Flow. <i>Journal of the Atmospheric Sciences.</i> <b>20</b>(2): 130–141. <a href="http://journals.ametsoc.org/doi/abs/10.1175/1520-0469%281963%29020%3C0130%3ADNF%3E2.0.CO%3B2" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
     <li>Pan, L., Zhou, W., Fang,J., Li, D. (2010). A new three-scroll unified chaotic system coined. <i>International Journal of Nonlinear Science.</i> vol. 10, 462-474. <a href="http://www.internonlinearscience.org/upload/papers/20110618025420887.pdf" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
     <li>Rössler, O. E. (1976). An Equation for Continuous Chaos. <i>Physics Letters,</i> 57<b>A</b> (5): 397–398. <a href="https://doi.org/10.1016/0375-9601(76)90101-8" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
     <li>Solís Pérez, J. E., Gómez-Aguilar, J. F., Baleanu, D., Tchier, F. (2018). Chaotic Attractors with Fractional Conformable Derivatives in the Liouville–Caputo Sense and Its Dynamical Behaviors.<i> Entropy.</i> 2018, 20(5), 384. <a href="https://doi.org/10.3390/e20050384" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
@@ -374,7 +444,7 @@
 <div class="w3-container">
     <h2>Notes</h2>
         <p>
-        The code can be found <a class="w3-hover-text-blue" href="https://github.com/jcponce/calculus/tree/gh-pages/velfields/Thomas"><i class="fas fa-code"></i> here</a></p>
+        The souce code can be found <a class="w3-hover-text-blue" href="https://github.com/jcponce/calculus/tree/gh-pages/velfields/Thomas"><i class="fas fa-code"></i> here</a></p>
         
         <p>For the 3d enviroment I used the <a href="https://diwi.github.io/p5.EasyCam/">p5.EasyCam</a> library developed by <a href="http://thomasdiewald.com">Thomas Diewald</a>. I used the  <a href="https://github.com/dataarts/dat.gui">dat.GUI</a> library for the controls</p>
         
