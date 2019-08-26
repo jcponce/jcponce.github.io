@@ -47,15 +47,15 @@
     Things to try:
     <ul>
         <li>Change the initial conditions $x_0$, $y_0$.</li>
-        <li>Drag sliders and then click the <b>Update parameters</b> button to make changes.</li>
-        <li>Explore the populations of each specie, at a particular time, by dragging the slider  <b>Time</b></li>
+        <li>Change the parameters.</li>
+        <li>Explore the populations of each specie, at a particular time, by dragging the slider <b>Time</b>.</li>
     </ul>
     </p>
 
 <table class="w3-table w3-centered">
     <tr>
         <td><div style="width:395px;height:380px;display:block" id="ggbApplet"></div></td>
-        <td><p>Physical Space</p><div id="ggbApplet2"></div></td>
+        <td><p style="text-align:center;">Physical Space</p><div id="ggbApplet2"></div></td>
     </tr>
 </table>
 
@@ -85,12 +85,16 @@
  function ggbOnInit(param) {
      if (param == "ggbApplet") {
          // init update listeners for ggbApplet1
-         ggbApplet.registerObjectUpdateListener("totalPred", "abcListener");
-         ggbApplet.registerObjectUpdateListener("totalPrey", "abcListener");
+         ggbApplet.registerObjectUpdateListener("totalPred", "valuesListener");
+         ggbApplet.registerObjectUpdateListener("totalPrey", "valuesListener");
      }
+     ggbApplet.evalCommand("SetActiveView(2)");
+     ggbApplet.evalCommand("ZoomIn(1)");
+     ggbApplet.evalCommand("SetValue(ct, 0)");
+     ggbApplet.evalCommand("StartAnimation(ct, true)");
  }
 
-function abcListener() {
+function valuesListener() {
       // get value from applet1 and set value in applet2
 	var changedValue1 = ggbApplet.getValue("totalPred");
     var changedValue2 = ggbApplet.getValue("totalPrey");
@@ -119,7 +123,7 @@ var parameters = {
 "preventFocus":false,
 "language":"en",
 // use this instead of ggbBase64 to load a material from GeoGebra Materials Platform
-"filename":"lotkav.ggb",//"h5neatd5",
+"material_id":"h5neatd5",
 };
 
 
@@ -164,32 +168,3 @@ window.onload = function() {
 
 </script>
 
-
-
-
-<!--
-<script>
-
-    
-    var applet1 = new GGBApplet({material_id: "mmvufawx",
-                                borderColor:"888888",
-                                playButton: "false",
-                                showFullscreenButton: "false",
-                                showResetIcon: "false",
-                                enableShiftDragZoom: "false"
-                                }, true);
-    var applet2 = new GGBApplet({material_id: "kqzdjbsc",
-                                borderColor:"888888",
-                                playButton: "false",
-                                showFullscreenButton: "false",
-                                showResetIcon: "false",
-                                enableShiftDragZoom: "false"}, true);
-    window.addEventListener("load", function() {
-          applet1.inject('applet_container1');
-          applet2.inject('applet_container2');
-      });
-      
-      var i = ggbApplet.getValue("totalPred");
-      applet_container2.setValue("n1",i);
-</script>
-GeoGebra embeding ends-->
