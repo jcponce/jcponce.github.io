@@ -52,11 +52,20 @@
     </ul>
     </p>
 
-<table class="w3-table w3-centered">
+<table>
+    <thead>
     <tr>
-        <td><div style="width:395px;height:380px;display:block" id="ggbApplet"></div></td>
-        <td><p style="text-align:center;">Physical Space</p><div id="ggbApplet2"></div></td>
+        <th><p style="text-align:center;">Phase Space</p></th>
+        <th><p style="text-align:center;">Time History</p></th>
+        <th><p style="text-align:center;">Physical Space</p></th>
     </tr>
+    </thead>
+    <tbody>
+    <tr style="vertical-align:top">
+        <td colspan="2"><div id="ggbApplet"></div></td>
+        <td colspan="2"><div id="ggbApplet2"></div></td>
+    </tr>
+    </tbody>
 </table>
 
 </div>
@@ -91,7 +100,7 @@
      ggbApplet.evalCommand("SetActiveView(2)");
      ggbApplet.evalCommand("ZoomIn(1)");
      ggbApplet.evalCommand("SetValue(ct, 0)");
-     ggbApplet.evalCommand("StartAnimation(ct, true)");
+     //ggbApplet.evalCommand("StartAnimation(ct, true)");
  }
 
 function valuesListener() {
@@ -114,7 +123,7 @@ var parameters = {
 "showToolBar":false,
 "showToolBarHelp":false,
 "showResetIcon":false,
-"playButton":true,
+"playButton":false,
 "enableLabelDrags":false,
 "enableShiftDragZoom":true,
 "enableRightClick":false,
