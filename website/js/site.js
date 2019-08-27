@@ -134,7 +134,7 @@ function loadLecture(state) {
   });
 
   // Check if ethics is approved
-  checkEthics();
+  //checkEthics();
 }
 
 $(function () {
