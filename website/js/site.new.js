@@ -1,4 +1,4 @@
-﻿// JS file for running the links (ajax?) on the SciMS site
+// JS file for running the links (ajax?) on the SciMS site
 // Copyright (C) 2017 The University of Queensland
 // Written by Isaac Lenton, 2017
 // Based on bbq code by unknown author.
@@ -114,9 +114,9 @@ function loadLecture(state) {
   }
 
   // Send the page url for google analytics
-  var url = state.course + "/" + state.lecture + ".html";
-  ga('set', 'page', '/' + url);
-  ga('send', 'pageview');
+  //var url = state.course + "/" + state.lecture + ".html";
+  //ga('set', 'page', '/' + url);
+  //ga('send', 'pageview');
 
   // Load the lecture content
   main.addClass("loading").load(
