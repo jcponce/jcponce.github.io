@@ -13,6 +13,7 @@
 let particles = [];
 let pushed = false;
 let color = 360;
+let time;
 
 //let beating = 0;
 //let speed;
@@ -20,7 +21,6 @@ let color = 360;
 let clts = {
     
 title: 'Particle system',
-inst: 'Click mouse',
 Up: false,
     
 };
@@ -34,10 +34,11 @@ function setup() {
     let gui = new dat.GUI({width: 295});
     gui.close();
     gui.add(clts, 'title').name("Polygons:");
-    gui.add(clts, 'inst').name("Instructions:");
     gui.add(clts, 'Up').name("Gravity").onChange(applyGravity);
     gui.add(this, 'sourceCode').name("Source Code");
     gui.add(this, 'backHome').name("Back Home");
+    
+   
 }
 
 function applyGravity() {
@@ -60,13 +61,15 @@ function draw() {
     background('black');
     cursor(HAND);
     
+     time = millis()/600;
     
-    
-    if (pushed) {
+    if (mouseIsPressed) {
         particles.push(new Particle(createVector(mouseX, mouseY)));
-    } else {
-        particles.push(new Particle(createVector(width / 2, height/2+70))); //chu shi zhi
-    }
+        paint = true;
+    } else { paint = false; }
+    //else {
+      //  particles.push(new Particle(createVector(width / 2, height/2+70))); //chu shi zhi
+    //}
     for (var i = particles.length - 1; i >= 0; i--) {
         particles[i].update();
         particles[i].paint();
@@ -74,9 +77,17 @@ function draw() {
             particles.splice(i, 1);
         }
     }
-    console.log(paint);
-    
+    //console.log(time);
     robot();
+    
+    if(time<10 && showText){
+    fill(200);
+    textAlign(CENTER);
+    textSize(22);
+    text('Press mouse to create polygons', width/2, height/2);
+    }
+    
+    
     
 }
 
@@ -123,14 +134,16 @@ function Particle(_loc) {
     }
 }
 
-function mouseReleased() {
-    pushed = !pushed;
-    paint = !paint;
+let showText = true;
+
+function mousePressed() {
+    //pushed = !pushed;
+    showText = false;
 }
 
-//function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight - 4);
-//}
+function windowResized() {
+   resizeCanvas(windowWidth, windowHeight);
+}
 
 function hearts(x, y, w, h) {
     w /= 2
@@ -154,35 +167,26 @@ let paint = false;
 function robot(){
     rectMode(CENTER);
     //Body
-    if (pushed) {
-        fill(0, 0, 20);
-    }else {
-        fill(0);
-    }
-    rect(width/2,2*height/8+75,15,20);//neck
+    fill(360, 0, 0);
+    stroke(60);
     
-    if (pushed) {
-        stroke(0, 0, 70);
-    }else {
-        stroke(20);
-    }
+    rect(width/2,2*height/8+75,15,20, 0);//neck
     
+    rect(width/2,2*height/8+40,100,70, 4);//head
     
-    rect(width/2,2*height/8+40,100,70);//head
+    rect(width/2,2*height/8+125,80,80, 10);//chest
     
-    rect(width/2,2*height/8+125,80,80);//chest
+    rect(width/2-58,2*height/8+40,10,30, 1);//right ear
+    rect(width/2+58,2*height/8+40,10,30, 1);//left ear
     
-    rect(width/2-58,2*height/8+40,10,30);//right ear
-    rect(width/2+58,2*height/8+40,10,30);//left ear
+    rect(width/2-50,2*height/8+130,15,60, 3);//right arm
+    rect(width/2+50,2*height/8+130,15,60, 3);//left arm
     
-    rect(width/2-50,2*height/8+130,15,60);//right arm
-    rect(width/2+50,2*height/8+130,15,60);//left arm
+    rect(width/2-15,2*height/8+195,15,55, 3);//right leg
+    rect(width/2+15,2*height/8+195,15,55, 3);//left leg
     
-    rect(width/2-15,2*height/8+195,15,55);//right leg
-    rect(width/2+15,2*height/8+195,15,55);//left leg
-    
-    rect(width/2-25,2*height/8-3,10,10);//right antena
-    rect(width/2+25,2*height/8-3,10,10);//left antena
+    rect(width/2-25,2*height/8-3,10,10,3);//right antena
+    rect(width/2+25,2*height/8-3,10,10,3);//left antena
     
     //Eyes
     eye("LeftEye",width/2-20,2*height/8+30,20,0.8);
@@ -195,7 +199,7 @@ function robot(){
         fill(0);
     }
     arc(width/2-4, 2*height/8+55, 20, 20, 0, PI + QUARTER_PI, CHORD);
-    stroke(70);
+    stroke(200);
     noFill();
     arc(width/2-4, 2*height/8+55, 20, 20, 0, PI + QUARTER_PI, OPEN);
 }
