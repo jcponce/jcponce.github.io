@@ -106,6 +106,8 @@ function mySelectEvent() {
   }
 }
 
+let stopDrawing = false;
+
 function mouseReleased() {
     if (strkColor == 0.5) {
         strkColor = 0;
@@ -118,6 +120,7 @@ function mouseReleased() {
         makeCurve = false;
     }
     angle = -PI;
+    stopDrawing = true;
 }
 
 //Draw function
@@ -144,7 +147,7 @@ function draw() {
         size = points.length;
     }
     
-    if(mouseIsPressed){
+    if(mouseIsPressed && stopDrawing===false){
         
         let xnew = map(mouseX, 0, width, -300, 300);
         let ynew = map(mouseY, height, 0, -300, 300);
@@ -284,7 +287,7 @@ if(size>1){
     angle = -PI;
   }
   
-  if (max > n) {
+  if (max > n-10) {
     max = 1;
   }
     
