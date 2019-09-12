@@ -5,14 +5,14 @@
  *
  */
 
-let gridsize = 13;
+let gridsize = 10;
 let slider;
 
 function setup() {
     let canvas = createCanvas(600, 600);
     colorMode(HSB);
     slider = createSlider(4, 10, 1);
-    slider.position(200, height-40);
+    slider.position(200, height - 38);
     slider.style('width', '200px');
 }
 
@@ -21,82 +21,16 @@ let phase = 1.57;
 function draw() {
     background(0);
     let val = slider.value();
-    gridsize = val;//int(map(mouseX, 0, width, 4, 13));
+    gridsize = val;
     textAlign(LEFT, CENTER);
     stroke(0, 0, 80);
     fill(0, 0, 80);
-    //text("r=asin(cos(a/b * t))", 6, 0 + width / (2 * gridsize));
+    
     textAlign(CENTER, CENTER);
-    //text("a", width / 2, height / (6 * gridsize));
-    //text("b", width / (6 * gridsize), height / 2);
+   
+    circlesColRow(true);
     
-    for (let a = 1; a <= gridsize; a++) {
-        let cxh, cyh, rh;
-        
-        cxh = map(a, 1, gridsize, 10 + width / gridsize, width - width / gridsize);
-        cyh = map(0, gridsize, 1, height - height / gridsize, 10 + height / gridsize);
-        rh = 0.25 * width / (gridsize + 1);
-        
-        
-        beginShape();
-        noFill();
-        
-        let xh, yh, oxh, oyh;
-        
-        let th = 0;
-        oxh = cxh + rh * (sin(th ));
-        oyh = cyh + rh * (cos(th));
-        
-        let doneh = false;
-        while (th < 4 * gridsize * TWO_PI && !doneh) {
-            
-            xh = cxh + rh * (sin( th ));
-            yh = (cyh + rh * (cos(th)));
-            
-            stroke((cxh + cyh) % 360, 80, 100);
-            vertex(xh, yh);
-            
-            if ((abs(xh - oxh) + abs(yh - oyh) < 0.0001) && (th > TWO_PI )) {
-                doneh = true;
-            }
-            th += TWO_PI / 360;
-        }
-        endShape(OPEN);
-    }
-    
-    for (let b = 1; b <= gridsize; b++) {
-        let cxv, cyv, rv;
-        
-        cxv = map(0, 1, gridsize, 10 + width / gridsize, width - width / gridsize);
-        cyv = map(b, gridsize, 1, height - height / gridsize, 10 + height / gridsize);
-        rv = 0.25 * width / (gridsize + 1);
-        
-        
-        beginShape();
-        noFill();
-        
-        let xv, yv, oxv, oyv;
-        
-        let tv = 0;
-        oxv = cxv + rv * (sin(tv ));
-        oyv = cyv + rv * (cos(tv));
-        
-        let donev = false;
-        while (tv < 4 * gridsize * TWO_PI && !donev) {
-            
-            xv = cxv + rv * (sin( tv ));
-            yv = (cyv + rv * (cos(tv)));
-            
-            stroke((cxv + cyv) % 360, 80, 100);
-            vertex(xv, yv);
-            
-            if ((abs(xv - oxv) + abs(yv - oyv) < 0.0001) && (tv > TWO_PI )) {
-                donev = true;
-            }
-            tv += TWO_PI / 360;
-        }
-        endShape(OPEN);
-    }
+    circlesColRow(false);
     
     for (let a = 1; a <= gridsize; a++) {
         for (let b = 1; b <= gridsize; b++) {
@@ -107,53 +41,62 @@ function draw() {
             
             if (a == 1) {
                 let change = map(slider.value(), 4, 10, 1.55, 1.2)
-                text(str(b), cx - width / ( change * gridsize), cy);
-                text(str(b), cy, cx - height / ( change * gridsize));
+                text(str(b), cx - width / (change * gridsize), cy);
+                text(str(b), cy, cx - height / (change * gridsize));
             }
             
             
             r = 0.25 * width / (gridsize + 1);
             
-        
+            
             beginShape();
             noFill();
             
             let x, y, ox, oy;
             
             let t = 0;
-            ox = cx + r * (sin(b * t +phase));
+            ox = cx + r * (sin(b * t + phase));
             oy = cy + r * (sin(a * t));
             
             let done = false;
             while (t < 4 * gridsize * TWO_PI && !done) {
                 
-                    x = cx + r * (sin(b * t +phase));
-                    y = (cy + r * (sin(a * t)));
+                x = cx + r * (sin(b * t + phase));
+                y = (cy + r * (sin(a * t)));
                 
                 stroke((cx + cy) % 360, 80, 100);
                 vertex(x, y);
                 
-                if ((abs(x - ox) + abs(y - oy) < 0.0001) && (t > TWO_PI )) {
+                if ((abs(x - ox) + abs(y - oy) < 0.0001) && (t > TWO_PI)) {
                     done = true;
                 }
                 t += TWO_PI / 360;
             }
-            endShape(OPEN);
+            endShape(CLOSE);
         }
     }
     
     let stepChange = map(slider.value(), 4, 10, 0.01, 0.08)
-    phase+=stepChange;
-    if(phase> 1.57 + 2*PI ){phase = 1.57}
+    phase += stepChange;
+    if (phase > 1.57 + 2 * PI) {
+        phase = 1.57
+    }
 }
 
-function circlesColRow(a, b){
-    for (let a = 1; a <= gridsize; a++) {
-        let cx, cy, r;
+function circlesColRow(h) {
+    for (let i = 1; i <= gridsize; i++) {
+        let Cx, Cy, R;
         
-        cx = map(a, 1, gridsize, 0 + width / gridsize, width - width / gridsize);
-        cy = map(b, gridsize, 1, height - height / gridsize, 0 + height / gridsize);
-        r = 0.25 * width / (gridsize + 1);
+        if (h == true) {
+            
+            Cx = map(0, 1, gridsize, 10 + width / gridsize, width - width / gridsize);
+            Cy = map(i, gridsize, 1, height - height / gridsize, 10 + height / gridsize);
+        } else {
+            Cx = map(i, 1, gridsize, 10 + width / gridsize, width - width / gridsize);
+            Cy = map(0, gridsize, 1, height - height / gridsize, 10 + height / gridsize);
+            
+        }
+        R = 0.25 * width / (gridsize + 1);
         
         
         beginShape();
@@ -162,24 +105,23 @@ function circlesColRow(a, b){
         let x, y, ox, oy;
         
         let t = 0;
-        ox = cxv + r * (sin(t ));
-        oy = cyv + r * (cos(t));
+        ox = Cx + R * (sin(t));
+        oy = Cy + R * (cos(t));
         
-        let done = false;
-        while (t < 4 * gridsize * TWO_PI && !done) {
+        let Done = false;
+        while (t < 4 * gridsize * TWO_PI && !Done) {
             
-            x = cx + r * (sin( t ));
-            y = (cy + r * (cos(t)));
+            x = Cx + R * (sin(t));
+            y = (Cy + R * (cos(t)));
             
-            stroke((cx + cy) % 360, 80, 100);
+            stroke((Cx + Cy) % 360, 80, 100);
             vertex(x, y);
             
-            if ((abs(x - ox) + abs(y - oy) < 0.0001) && (t > TWO_PI )) {
-                donev = true;
+            if ((abs(x - ox) + abs(y - oy) < 0.0001) && (t > TWO_PI)) {
+                Done = true;
             }
-            tv += TWO_PI / 360;
+            t += TWO_PI / 360;
         }
-        endShape(OPEN);
+        endShape(CLOSE);
     }
 }
-
