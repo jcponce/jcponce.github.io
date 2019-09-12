@@ -102,7 +102,7 @@ function circlesColRow(h) {
         beginShape();
         noFill();
         
-        let x, y, ox, oy;
+        let  x, y, ox, oy;
         
         let t = 0;
         ox = Cx + R * (sin(t));
