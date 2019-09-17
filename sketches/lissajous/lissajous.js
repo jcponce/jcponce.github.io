@@ -9,7 +9,7 @@ let gridsize = 10;
 let slider;
 
 function setup() {
-    let canvas = createCanvas(600, 600);
+    let canvas = createCanvas(windowHeight, windowHeight);
     colorMode(HSB);
     slider = createSlider(4, 10, 1);
     slider.position(200, height - 38);
