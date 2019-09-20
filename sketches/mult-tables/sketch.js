@@ -16,7 +16,7 @@ let w, h, size;
 // --Control variables--
 let clts = {
     
-size: 25,
+size: 10,
 
 label: true,
     
@@ -64,6 +64,7 @@ function setup() {
     
     
     let gui2 = gui.addFolder('Option-2');
+    gui2.open();
     gui2.add(clts, 'bool2').name("Activate");
     gui2.add(clts, 'mult2', 2, 50, 1).name("m2 = ");
     gui2.addColor(clts, 'color2').name("Color 2");
@@ -81,7 +82,7 @@ function setup() {
     
     gui.add(clts, 'Save').name("Save (jpeg)");
     
-    //gui.close();
+    gui.close();
     
 }
 
