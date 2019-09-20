@@ -80,7 +80,7 @@ function setup() {
     gui4.addColor(clts, 'color4').name("Color 4");
      */
     
-    gui.add(clts, 'Save').name("Save (jpeg)");
+    gui.add(clts, 'Save').name("Save (jpg)");
     
     gui.close();
     
