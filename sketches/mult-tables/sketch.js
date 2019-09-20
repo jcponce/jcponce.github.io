@@ -52,9 +52,9 @@ function setup() {
     let gui = new dat.GUI({
                           width: 360
                           });
-    gui.add(clts, 'size', 4, 100, 1).name("Size");
+    gui.add(clts, 'size', 4, 100, 1).name("Size Grid");
     //gui.add(clts, 'label').name("Show numbers");
-    gui.add(clts, 'canvasSize', ['Small', 'Bigger'] ).name("Size: ").onChange(screenSize);
+    gui.add(clts, 'canvasSize', ['Small', 'Bigger'] ).name("Size window: ").onChange(screenSize);
     gui.addColor(clts, 'othercolor').name("Background");
     
     let gui1 = gui.addFolder('Option-1');
