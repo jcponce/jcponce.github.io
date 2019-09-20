@@ -15,12 +15,12 @@ let size;
 // --Control variables--
 let clts = {
     
-size: 10,
+size: 13,
 
 label: true,
     
 othercolor: '#afbadb',
-mult1: 2,
+mult1: 12,
 color1: '#0099cc',
 
 mult2: 3,
@@ -52,7 +52,7 @@ function setup() {
                           width: 360
                           });
     gui.add(clts, 'size', 4, 100, 1).name("Size");
-    gui.add(clts, 'label').name("Show numbers");
+    //gui.add(clts, 'label').name("Show numbers");
     gui.add(clts, 'canvasSize', ['Small', 'Bigger'] ).name("Size: ").onChange(screenSize);
     gui.addColor(clts, 'othercolor').name("Background");
     
@@ -84,28 +84,35 @@ function setup() {
 
 function draw() {
     
-    //background(0);
+    background('#333333');
     //clear();
     size = clts.size;
-    w = width/ size;
+    w = width / size;
     h = w;
     
     multTable = make2Darray(size, size);
     
     for (var i = 0; i < size; i++) {
         for (var j = 0; j < size; j++) {
-            
             multTable[i][j] = i * j;
             
+            if(clts.label){
+                fill(0);
+                textSize(w / 2);
+                textAlign(CENTER, CENTER);
+                text('' + multTable[i][j], i, j);
+            }
         }
     }
     
     
     for (let y = 0; y < height; y += h) {
         for (let x = 0; x < width; x += w) {
+            //round(setPX * 10) / 10.0
             
-            let ti = floor(map(x, 0, width, 0, size));
-            let tj = floor(map(y, 0, width, 0, size));
+            let tj = round(map(y, 0, height, 0, size));
+            let ti = round(map(x, 0, width, 0, size));
+            //let val = multTable[ti][tj];
             
             let test = ti * tj;
             
@@ -135,14 +142,17 @@ function draw() {
               fill(0);
               textSize(w / 2);
               textAlign(CENTER, CENTER);
-              text("" + multTable[ti][tj], x + w / 2, y + h / 2);
+              //text('' + multTable[ti][tj], x + w / 2, y + h / 2);
             }
-            //console.log(ti);
+            //console.log(tj);
         }
     }
     
-    //console.log(3 % 2);
-
+  
+    
+    //console.log(w);
+    //console.log(multTable);
+    //noLoop();
 
 }
 
