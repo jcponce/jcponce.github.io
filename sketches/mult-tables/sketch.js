@@ -18,7 +18,7 @@ let clts = {
     
 size: 13,
 
-label: true,
+label: false,
     
 othercolor: '#afbadb',
 mult1: 12,
@@ -53,15 +53,16 @@ function setup() {
                           width: 360
                           });
     gui.add(clts, 'size', 4, 100, 1).name("Size Grid");
-    //gui.add(clts, 'label').name("Show numbers");
+    gui.add(clts, 'label').name("Show numbers");
     gui.add(clts, 'canvasSize', ['Small', 'Bigger'] ).name("Size window: ").onChange(screenSize);
     gui.addColor(clts, 'othercolor').name("Background");
     
-    let gui1 = gui.addFolder('Option-1');
+    let gui1 = gui.addFolder('Option');
     gui1.open();
     gui1.add(clts, 'mult1', 2, 50, 1).name("m1 =");
     gui1.addColor(clts, 'color1').name("Color 1");
     
+    /*
     let gui2 = gui.addFolder('Option-2');
     gui2.add(clts, 'bool2').name("Activate");
     gui2.add(clts, 'mult2', 2, 50, 1).name("m2 = ");
@@ -76,6 +77,7 @@ function setup() {
     gui4.add(clts, 'bool4').name("Activate");
     gui4.add(clts, 'mult4', 2, 50, 1).name("m4 = ");
     gui4.addColor(clts, 'color4').name("Color 4");
+     */
     
     gui.add(clts, 'Save').name("Save (jpeg)");
     
@@ -85,7 +87,7 @@ function setup() {
 
 function draw() {
     
-    background('#333333');
+    //background('#333333');
     //clear();
     size = clts.size;
     w = width / size;
@@ -101,7 +103,9 @@ function draw() {
                 fill(0);
                 textSize(w / 2);
                 textAlign(CENTER, CENTER);
-                text('' + multTable[i][j], i, j);
+                let px = map(i, 0, size, 0, width);
+                let py = map(j, 0, size, 0, width);
+                text('' + multTable[i][j], px, px);
             }
         }
     }
@@ -122,18 +126,20 @@ function draw() {
             var remainder3 = (test % clts.mult3) / 100;
             var remainder4 = (test % clts.mult4) / 100;
             
+            var factor1 = (test % clts.mult1 * clts.mult2) / 100;
+            
             let col;
             
             if (remainder === 0) {
-                col = clts.othercolor;
-            } else if(clts.bool2 && remainder2) {
+                col = clts.color1;
+            } else if(clts.bool2 && remainder2 === 0 ) {
                 col = clts.color2;
-            } else if(clts.bool3 && remainder3) {
+            } else if(clts.bool3 && remainder3 === 0) {
                 col = clts.color3;
-            } else if(clts.bool4 && remainder4) {
+            } else if(clts.bool4 && remainder4 === 0) {
                 col = clts.color4;
             } else {
-                col = clts.color1;
+                col = clts.othercolor;
             }
             fill(col);
             
@@ -148,6 +154,21 @@ function draw() {
               text('' + multTable[ti][tj], x + w / 2, y + h / 2);
             }*/
            //console.log();
+        }
+    }
+    
+    for (var i = 0; i < size; i++) {
+        for (var j = 0; j < size; j++) {
+            let val = multTable[i][j];
+            
+            if(clts.label){
+                fill(0);
+                textSize(w / 2);
+                textAlign(CENTER, CENTER);
+                let px = map(i, 0, size, 0, width);
+                let py = map(j, 0, size, 0, height);
+                text('' + multTable[i][j], px+ w/2, py+h/2);
+            }
         }
     }
     
