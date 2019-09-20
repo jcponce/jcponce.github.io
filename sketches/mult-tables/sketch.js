@@ -3,14 +3,15 @@
  * https://creativecommons.org/licenses/by-sa/4.0/
  * Written by Juan Carlos Ponce Campuzano, 20-Sep-2019
  * https://jcponce.github.io/
+ * A brief explanation can be found here:
+ * https://culturacientifica.com/2019/08/21/las-simetrias-ocultas-de-la-tabla-de-multiplicar/
  */
+
+// I just need to add the numbers. I will do it later. :)
 
 let multTable = [];
 
-let w;// = 20;
-let h;// = 20;
-
-let size;
+let w, h, size;
 
 // --Control variables--
 let clts = {
@@ -138,21 +139,18 @@ function draw() {
             
             rect(x, y, w, h);
             
+            //Need to fix this part :(
+            /*
             if(clts.label){
               fill(0);
               textSize(w / 2);
               textAlign(CENTER, CENTER);
-              //text('' + multTable[ti][tj], x + w / 2, y + h / 2);
-            }
-            //console.log(tj);
+              text('' + multTable[ti][tj], x + w / 2, y + h / 2);
+            }*/
+           
         }
     }
     
-  
-    
-    //console.log(w);
-    //console.log(multTable);
-    //noLoop();
 
 }
 
