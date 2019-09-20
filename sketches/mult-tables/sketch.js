@@ -16,12 +16,12 @@ let w, h, size;
 // --Control variables--
 let clts = {
     
-size: 13,
+size: 25,
 
-label: false,
+label: true,
     
 othercolor: '#afbadb',
-mult1: 12,
+mult1: 2,
 color1: '#0099cc',
 
 mult2: 3,
@@ -62,12 +62,12 @@ function setup() {
     gui1.add(clts, 'mult1', 2, 50, 1).name("m1 =");
     gui1.addColor(clts, 'color1').name("Color 1");
     
-    /*
+    
     let gui2 = gui.addFolder('Option-2');
     gui2.add(clts, 'bool2').name("Activate");
     gui2.add(clts, 'mult2', 2, 50, 1).name("m2 = ");
     gui2.addColor(clts, 'color2').name("Color 2");
-    
+    /*
     let gui3 = gui.addFolder('Option-3');
     gui3.add(clts, 'bool3').name("Activate");
     gui3.add(clts, 'mult3', 2, 50, 1).name("m3 = ");
@@ -81,7 +81,7 @@ function setup() {
     
     gui.add(clts, 'Save').name("Save (jpeg)");
     
-    gui.close();
+    //gui.close();
     
 }
 
@@ -111,6 +111,8 @@ function draw() {
     }
     
     
+    
+    
     for (let y = 0; y < height; y += h) {
         for (let x = 0; x < width; x += w) {
             
@@ -126,21 +128,25 @@ function draw() {
             var remainder3 = (test % clts.mult3) / 100;
             var remainder4 = (test % clts.mult4) / 100;
             
-            var factor1 = (test % clts.mult1 * clts.mult2) / 100;
+            let temp;
+            if(clts.bool2 === false){
+                temp = clts.mult1;
+            } else {
+                temp = clts.mult1 * clts.mult2;
+            }
+            
+            var factor1 = (test % (clts.mult1 * clts.mult2)) / 100;
             
             let col;
             
-            if (remainder === 0) {
+            if (remainder === 0 ) {
                 col = clts.color1;
-            } else if(clts.bool2 && remainder2 === 0 ) {
+            } else if( clts.bool2 && (remainder2 === 0 || factor1 === 0)){
                 col = clts.color2;
-            } else if(clts.bool3 && remainder3 === 0) {
-                col = clts.color3;
-            } else if(clts.bool4 && remainder4 === 0) {
-                col = clts.color4;
-            } else {
+            } else  {
                 col = clts.othercolor;
             }
+            
             fill(col);
             
             rect(x, y, w, h);
