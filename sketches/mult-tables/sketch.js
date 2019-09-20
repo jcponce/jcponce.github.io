@@ -109,7 +109,7 @@ function draw() {
     
     for (let y = 0; y < height; y += h) {
         for (let x = 0; x < width; x += w) {
-            //round(setPX * 10) / 10.0
+            
             
             let tj = round(map(y, 0, height, 0, size));
             let ti = round(map(x, 0, width, 0, size));
@@ -147,9 +147,12 @@ function draw() {
               textAlign(CENTER, CENTER);
               text('' + multTable[ti][tj], x + w / 2, y + h / 2);
             }*/
-           
+           //console.log();
         }
     }
+    
+    //console.log();
+    //noLoop();
     
 
 }
