@@ -1,0 +1,164 @@
+/* Written in p5.js (https://p5js.org/)
+ * Under Creative Commons License
+ * https://creativecommons.org/licenses/by-sa/4.0/
+ * Written by Juan Carlos Ponce Campuzano, 20-Sep-2019
+ * https://jcponce.github.io/
+ */
+
+let multTable = [];
+
+let w;// = 20;
+let h;// = 20;
+
+let size;
+
+// --Control variables--
+let clts = {
+    
+size: 10,
+
+label: true,
+    
+othercolor: '#afbadb',
+mult1: 2,
+color1: '#0099cc',
+
+mult2: 3,
+bool2: false,
+color2: '#4bb575',
+mult3: 5,
+bool3: false,
+color3: '#cc003d',
+mult4: 11,
+bool4: false,
+color4: '#4d0099',
+    
+Save: function () {
+    save('pattern.jpg');
+},
+    
+canvasSize: 'Small'
+    
+};
+
+function setup() {
+    
+    //WIDTH = size * w;
+    
+    createCanvas(500, 500);
+    
+    // create gui (dat.gui)
+    let gui = new dat.GUI({
+                          width: 360
+                          });
+    gui.add(clts, 'size', 4, 100, 1).name("Size");
+    gui.add(clts, 'label').name("Show numbers");
+    gui.add(clts, 'canvasSize', ['Small', 'Bigger'] ).name("Size: ").onChange(screenSize);
+    gui.addColor(clts, 'othercolor').name("Background");
+    
+    let gui1 = gui.addFolder('Option-1');
+    gui1.open();
+    gui1.add(clts, 'mult1', 2, 50, 1).name("m1 =");
+    gui1.addColor(clts, 'color1').name("Color 1");
+    
+    let gui2 = gui.addFolder('Option-2');
+    gui2.add(clts, 'bool2').name("Activate");
+    gui2.add(clts, 'mult2', 2, 50, 1).name("m2 = ");
+    gui2.addColor(clts, 'color2').name("Color 2");
+    
+    let gui3 = gui.addFolder('Option-3');
+    gui3.add(clts, 'bool3').name("Activate");
+    gui3.add(clts, 'mult3', 2, 50, 1).name("m3 = ");
+    gui3.addColor(clts, 'color3').name("Color 3");
+    
+    let gui4 = gui.addFolder('Option-4');
+    gui4.add(clts, 'bool4').name("Activate");
+    gui4.add(clts, 'mult4', 2, 50, 1).name("m4 = ");
+    gui4.addColor(clts, 'color4').name("Color 4");
+    
+    gui.add(clts, 'Save').name("Save (jpeg)");
+    
+    gui.close();
+    
+}
+
+function draw() {
+    
+    //background(0);
+    //clear();
+    size = clts.size;
+    w = width/ size;
+    h = w;
+    
+    multTable = make2Darray(size, size);
+    
+    for (var i = 0; i < size; i++) {
+        for (var j = 0; j < size; j++) {
+            
+            multTable[i][j] = i * j;
+            
+        }
+    }
+    
+    
+    for (let y = 0; y < height; y += h) {
+        for (let x = 0; x < width; x += w) {
+            
+            let ti = floor(map(x, 0, width, 0, size));
+            let tj = floor(map(y, 0, width, 0, size));
+            
+            let test = ti * tj;
+            
+            var remainder = (test % clts.mult1) / 100;
+            var remainder2 = (test % clts.mult2) / 100;
+            var remainder3 = (test % clts.mult3) / 100;
+            var remainder4 = (test % clts.mult4) / 100;
+            
+            let col;
+            
+            if (remainder === 0) {
+                col = clts.othercolor;
+            } else if(clts.bool2 && remainder2) {
+                col = clts.color2;
+            } else if(clts.bool3 && remainder3) {
+                col = clts.color3;
+            } else if(clts.bool4 && remainder4) {
+                col = clts.color4;
+            } else {
+                col = clts.color1;
+            }
+            fill(col);
+            
+            rect(x, y, w, h);
+            
+            if(clts.label){
+              fill(0);
+              textSize(w / 2);
+              textAlign(CENTER, CENTER);
+              text("" + multTable[ti][tj], x + w / 2, y + h / 2);
+            }
+            //console.log(ti);
+        }
+    }
+    
+    //console.log(3 % 2);
+
+
+}
+
+function make2Darray(cols, rows) {
+    var arr = new Array(cols);
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = new Array(rows);
+    }
+    return arr;
+}
+
+
+function screenSize() {
+    if (clts.canvasSize == 'Small') {
+        resizeCanvas(500, 500);
+    } else if (clts.canvasSize == 'Bigger') {
+        resizeCanvas(800, 800);
+    }
+}
