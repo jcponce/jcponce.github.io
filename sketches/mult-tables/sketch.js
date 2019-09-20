@@ -140,13 +140,34 @@ function draw() {
             
             let col;
             
-            if (remainder === 0 ) {
+            if(clts.bool2===false){
+                if (remainder === 0 ) {
+                    col = clts.color1;
+                } else  {
+                    col = clts.othercolor;
+                }
+            } else {
+                if (remainder === 0  && factor1 != 0) {
+                    col = clts.color1;
+                } else if( clts.bool2 && (remainder2 === 0 && factor1 != 0 )){
+                    col = clts.color2;
+                } else if( clts.bool2 && ( remainder2 === 0 || factor1 === 0)){
+                    col = clts.color3;
+                } else  {
+                    col = clts.othercolor;
+                }
+            }
+            
+            /*
+            if (remainder === 0  && factor1 != 0) {
                 col = clts.color1;
-            } else if( clts.bool2 && (remainder2 === 0 || factor1 === 0)){
+            } else if( clts.bool2 && (remainder2 === 0 && factor1 != 0 )){
                 col = clts.color2;
+            } else if( clts.bool2 && ( remainder2 === 0 || factor1 === 0)){
+                col = clts.color3;
             } else  {
                 col = clts.othercolor;
-            }
+            }*/
             
             fill(col);
             
