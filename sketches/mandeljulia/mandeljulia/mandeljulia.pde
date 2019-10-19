@@ -179,7 +179,7 @@ z = zn;
 count++;
 }
 float h;
-floart v;
+float v;
 if (count < mandelbrotResolution) {
 h = map(count, 0, mandelbrotResolution/10, 0, 125)%125;
 v = 255;
