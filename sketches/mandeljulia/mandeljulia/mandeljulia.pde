@@ -106,8 +106,6 @@ endShape();
 }
 
 
-
-
 void mousePressed() {
 float xp, yp;
 
@@ -181,12 +179,15 @@ z = zn;
 count++;
 }
 float h;
+floart v;
 if (count < mandelbrotResolution) {
 h = map(count, 0, mandelbrotResolution/10, 0, 125)%125;
+v = 255;
 } else {
 h = map(dist(z.x, z.y, 0, 0), 0, 2, 125, 255);
+v = 0;
 }
-mandelbrotImage.pixels[xp + yp*width] = color(h, 255, 255);
+mandelbrotImage.pixels[xp + yp*width] = color(h, 255, v);
 }
 }
 
