@@ -121,7 +121,17 @@ function mousePressed() {
     //colBlue = random(0, 1);
     colGreen = random(0, 1);
     sequence.length = 0;
-                }
+  }
+}
+                
+function touchStarted() {
+    message = false;
+    angle = random(-0.25, 0.25);
+    colRed = random(0, 1);
+    //colBlue = random(0, 1);
+    colGreen = random(0, 1);
+    sequence.length = 0;
+
 }
                 
 function saveTree(){
