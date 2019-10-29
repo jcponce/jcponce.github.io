@@ -41,9 +41,9 @@ function setup() {
   
   cursor(HAND);
     
-    //document.getElementById("save").onclick = () => {
-    //    saveTree();
-    //}
+    document.getElementById("save").onclick = () => {
+        saveTree();
+    }
 
 }
 
@@ -106,7 +106,7 @@ function drawMyplant() {
     start = reset
   }
 
-  if (mouseIsPressed) {
+  if (mouseIsPressed && mouseY > 45) {
     if(mouseButton == LEFT){
       background(0);
     }
@@ -114,7 +114,7 @@ function drawMyplant() {
 }
 
 function mousePressed() {
-  if(mouseButton == LEFT){
+  if(mouseButton == LEFT && mouseY > 45){
     message = false;
     angle = random(-0.25, 0.25);
     colRed = random(0, 1);
@@ -124,16 +124,7 @@ function mousePressed() {
   }
 }
                 
-function touchStarted() {
-    message = false;
-    angle = random(-0.25, 0.25);
-    colRed = random(0, 1);
-    //colBlue = random(0, 1);
-    colGreen = random(0, 1);
-    sequence.length = 0;
-
-}
-                
+            
 function saveTree(){
     save('collatz.png');
 }
