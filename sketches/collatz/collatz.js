@@ -107,18 +107,20 @@ function drawMyplant() {
   }
 
   if (mouseIsPressed) {
-    background(0);
+    if(mouseButton == LEFT){
+      background(0);
+    }
   }
 }
 
 function mousePressed() {
-  if( mouseY > 45 ){
-  message = false;
-  angle = random(-0.25, 0.25);
-  colRed = random(0, 1);
-  //colBlue = random(0, 1);
-  colGreen = random(0, 1);
-  sequence.length = 0;
+  if(mouseButton == LEFT){
+    message = false;
+    angle = random(-0.25, 0.25);
+    colRed = random(0, 1);
+    //colBlue = random(0, 1);
+    colGreen = random(0, 1);
+    sequence.length = 0;
                 }
 }
                 
