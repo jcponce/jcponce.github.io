@@ -92,8 +92,8 @@ function drawMyplant() {
     } else {
       rotate(-angle);
     }
-    stroke(colRed, j / sequence.length, colGreen, 0.06);
-    let w = map(j / sequence.length, 0, 1.5, 9, 0.5)
+    stroke(colRed, j / sequence.length, colGreen, 0.07);
+    let w = map(j / sequence.length, 0, 1, 15, 0.5)
     strokeWeight(w);
     line(0, 0, 0, -len);
     translate(0, -len);
@@ -110,6 +110,17 @@ function drawMyplant() {
     if(mouseButton == LEFT){
       background(0);
     }
+  }
+}
+                
+function touchStarted() {
+  if(mouseButton == LEFT && mouseY > 45){
+    message = false;
+    angle = random(-0.25, 0.25);
+    colRed = random(0, 1);
+    //colBlue = random(0, 1);
+    colGreen = random(0, 1);
+    sequence.length = 0;
   }
 }
 
