@@ -18,7 +18,7 @@ class Boid {
         this.acceleration = createVector();
         this.maxForce = 0.2;
         this.maxSpeed = 3.8;
-        this.sz = 7;
+        this.sz = 10;
         this.n = Math.round(random(3, 8));
         this.h = random(360);
     }
