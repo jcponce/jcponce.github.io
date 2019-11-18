@@ -316,9 +316,62 @@
           <div class="wrap">
             <h1>\(f(z)= z\)</h1>
             <h1>\(f(z)= 1/z\)</h1>
+            <h1>\([-1.5,1.5]\times [-1.5,1.5]\)</h1>
             <h1>Phase =\(\frac{f}{|f|}\)</h1>
             <h1>Phase</h1>
             <h1>Modulus</h1>
+            <h1>Combined</h1>
+          </div>
+        </section>
+        
+        <section>
+          <div class="wrap">
+              <h1>\( f(z) = \frac{3}{2}z \left(1-iz\right)\)</h1>
+              <h1>\( g(z) = \frac{3}{2}z\left(1-i \overline{z} \right)\)</h1>
+              <h1>\( f(z) = \dfrac{(z+1)z^2}{(z-1)^3} \)</h1>
+          </div>
+        </section>
+        
+        <section>
+          <div class="wrap">
+              <h5>\[ f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n+\sum_{n=1}^{\infty}\frac{b_n}{(z-z_0)^n}, (R_1 &lt;|z-z_0|&lt; R_2) \]</h5>
+            
+          </div>
+        </section>
+        
+        <section>
+          <div class="wrap">
+              <h5>\[ a_n=\frac{1}{2\pi i}\oint_C \frac{f(z)dz}{(z-z_0)^{n+1}}\quad (n=0,1,2,\ldots) \]</h5>
+              
+            
+          </div>
+        </section>
+        
+        <section>
+          <div class="wrap">
+              <h1>\( \dfrac{1-\cosh z}{z^3} \)</h1>
+              <h1>\( \dfrac{\exp(2z)}{(z-1)^2} \)</h1>
+              <h1>\( \dfrac{\sinh z}{z^4} \)</h1>
+              <h1>\( \dfrac{\sin z}{z} \)</h1>
+              <h1>\( \dfrac{z}{e^z-1} \)</h1>
+              <h3>\( \exists \;\;m>1,\;\; b_m\neq 0 \,\text{  and  }\, b_{k}=0\,\text{  for  } \, k>m \)</h3>
+              <h1>\( b_n = 0, \forall n \)</h1>
+          </div>
+        </section>
+        
+        <section>
+          <div class="wrap">
+              <h1>\( z \sin \left( \dfrac{1}{iz}\right) \)</h1>
+              <h1>\(\sin \left( \dfrac{1}{z^2}\right) \)</h1>
+            <h1>\(z^n+1, \quad n = 2, 3, 4,\ldots \)</h1>
+          </div>
+        </section>
+        
+        <section>
+          <div class="wrap">
+              <h5>\[ b_n=\frac{1}{2\pi i}\oint_C \frac{f(z)dz}{(z-z_0)^{-n+1}}\quad (n=1,2,\ldots)
+ \]</h5>
+            
           </div>
         </section>
         
@@ -326,6 +379,29 @@
           <div class="wrap">
               <h1>\(f(z)= \dfrac{z-1}{z^2+z+1}\)</h1>
             
+          </div>
+        </section>
+        
+        <section>
+          <div class="wrap">
+              
+              <div class="grid vertical-align">
+              <div class="column">
+                <h3><strong>Code</strong></h3>
+                
+              </div>
+              <!-- .end .column -->
+              <div class="column">
+              <pre>f(z) := (z - 1)/(z^2 + z + 1); <span class="code-comment">//a complex function</span>
+colorplot(
+    z = complex(#); <span class="code-comment">//define pixels as complex numbers</span>
+    fz = f(z); <span class="code-comment">//evaluate function</span>
+    hue(arctan2(fz)/(2*pi)) <span class="code-comment">//colour scheme</span>
+);</pre>
+            </div>
+              <!-- .end .column -->
+            </div>
+            <!-- .end .grid -->
           </div>
         </section>
         
