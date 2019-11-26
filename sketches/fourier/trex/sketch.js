@@ -251,7 +251,7 @@ let cond;
 
 function draw() {
     
-    background(0.1);
+    background(0);
     translate(width / 2-20, height / 2);
     //scale(0.7);
     
