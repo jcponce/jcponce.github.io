@@ -71,7 +71,7 @@ function preload() {
 function setup() {
     createCanvas(600, 600);
     colorMode(HSB, 1, 1, 1);
-    background(0.1);
+    background(0);
     
     sel = createSelect();
     sel.position(10, 10);
