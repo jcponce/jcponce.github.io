@@ -60,15 +60,14 @@ class polarC {
     for (let j = 0; j < 64; j++) {
       let v = [];
       v[j] = j / 64 * (PI / 2 - PI / 56);
-      
+      let c = this.changeColor((j + 1) / 64 - this.angle);
       if (ctls.v < 0.3) {
-        stroke(this.changeColor((j + 1) / 64 - this.angle), ctls.g, ctls.blue);
+        stroke(c, ctls.g, ctls.blue, c+0.5);
       } else if (0.3 <= ctls.v && ctls.v < 0.6) {
-        stroke(ctls.r, this.changeColor((j + 1) / 64 - this.angle), ctls.b);
+        stroke(ctls.r, c, ctls.b, c+0.5);
       } else if (0.6 <= ctls.v) {
-        stroke(ctls.r, ctls.g, this.changeColor((j + 1) / 64 - this.angle));
+        stroke(ctls.r, ctls.g, c, c+0.5);
       }
-      //strokeWeight(1.5);
 
       noFill();
       beginShape();
