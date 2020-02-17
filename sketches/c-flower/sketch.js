@@ -1,8 +1,9 @@
 /*
-Under Creative Commons License
-https://creativecommons.org/licenses/by-sa/4.0/
 Written by Juan Carlos Ponce Campuzano, 17-Feb-2020
 https://jcponce.github.io/
+
+Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+https://creativecommons.org/licenses/by-sa/4.0/
 */
 
 let c;
