@@ -95,7 +95,7 @@ function draw() {
   } else {
 
     //The approximation curve
-    strokeWeight(4);
+    strokeWeight(3);
     stroke(255);
     strokeJoin(ROUND);
     noFill();
