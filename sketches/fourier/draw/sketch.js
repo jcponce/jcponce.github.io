@@ -38,8 +38,15 @@ function setup() {
 
   frameRate(40);
 
+  document.getElementById("save").onclick = () => {
+    saveImage();
+  }
+
 }
 
+function saveImage(){
+  save('epicycles.jpg');
+}
 
 function draw() {
   background(0, 0, 1);
@@ -197,19 +204,21 @@ function mouseReleased() {
 
 }
 
+
+/*
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  scl = 0.003 * width;
 }
 
-/*function remakeDrawing() {
+function remakeDrawing() {
   state = -1;
   drawing = [];
   x = [];
   time = 0;
   path = [];
-
+  FOURIER = 1;
   canDraw = true;
   size = 1;
   resetSize();
-}*/
+}
+*/
