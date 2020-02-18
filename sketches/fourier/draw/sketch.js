@@ -36,6 +36,8 @@ function setup() {
     resetSize();
   }
 
+  frameRate(40);
+
 }
 
 
@@ -70,7 +72,7 @@ function draw() {
     path.unshift(v);
 
     stroke(0, 1, 0);
-    strokeWeight(2.8);
+    strokeWeight(4);
     strokeJoin(ROUND);
     noFill();
     beginShape();
@@ -79,14 +81,14 @@ function draw() {
       vertex(path[i].x, path[i].y);
     }
     endShape();
-    
     let lng = fourierX.length;
-    if(lng < 50){
-        rate = 10;
-    }else if(50 <= lng < 800){
-        rate = 30;
-    }else if(800 <= lng < 1200){
-        rate = 100;
+
+    if (lng < 50) {
+      rate = 10;
+    } else if (50 <= lng < 800) {
+      rate = 30;
+    } else if (800 <= lng < 1200) {
+      rate = 60;
     }
 
     const dt = TWO_PI / lng;
@@ -95,9 +97,9 @@ function draw() {
     fill(0);
     stroke(0);
     strokeWeight(0.5);
-    //textAlign(CENTER);
+    textAlign(CENTER);
     textSize(16);
-    text("Orbits = " + orbits.value(), 55, 25);
+    text("Epicycles = " + orbits.value(), windowWidth/2, 30);
 
     if (time > TWO_PI) {
       time = 0;
@@ -155,8 +157,8 @@ function mousePressed() {
 
 function resetSize() {
   orbits = createSlider(1, size, size, 1);
-  orbits.position(120, 10);
-  orbits.style('width', '120px');
+  orbits.position(windowWidth/2-100, windowHeight-50);
+  orbits.style('width', '200px');
   orbits.changed(emptyFourier);
 }
 
@@ -172,7 +174,12 @@ function mouseReleased() {
     for (let i = 0; i < drawing.length; i += skip) {
       x.push(new Complex(drawing[i].x, drawing[i].y));
     }
-    fourierX = dft(x);
+    //fourierX = dft(x);
+    if (drawing.length % 2 === 0) {
+      fourierX = dftEven(x);
+    } else {
+      fourierX = dftOdd(x);
+    }
 
     fourierX.sort((a, b) => b.amp - a.amp);
     size = fourierX.length;
@@ -188,6 +195,11 @@ function mouseReleased() {
     state = FOURIER;
   }
 
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  scl = 0.003 * width;
 }
 
 /*function remakeDrawing() {
