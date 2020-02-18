@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
-  <script src="p5.js"></script>
-  <script src="p5.sound.min.js"></script>
+  <title>Colorful parametric flower</title>
+  <script src="p5.min.js"></script>
   <script src="dat.gui.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="dat-gui-theme.css">
@@ -80,19 +80,26 @@
     <div class="modal-content w3-large">
       <span class="close close_multi">×</span>
       <div style="text-align:center">
-        <!--<p class="w3-large"><b class="w3-xlarge">Chladni Patterns</b>-->
+        
         <h1>Colorful roses with parametric equations</h1>
         <hr>
-
-
       </div>
 
-
-      <p>Parametric equations are a set of equations that express a set of quantities as explicit functions of a number of independent variables, known as "parameters." For example, while the equation of a circle in Cartesian coordinates can be given by $r^2=x^2+y^2$, one set of parametric equations for the circle are given by
-        \begin{eqnarray*}
-        x &amp; = r \cos t \\
-        y &amp; = r \sin t.
-        \end{eqnarray*}
+      <p>A curve in the plane is said to be parameterized if the set of coordinates on the curve, $(x,y)$,
+         are represented as functions of a variable $t$. Namely,
+         \begin{eqnarray*}
+         x  = f(t), \quad
+         y  = g(t) \quad  
+         \end{eqnarray*}
+         where $D$ is a set of real numbers. The variable $t$ is called a parameter and the 
+         relations between $x$, $y$ and $t$ are called <strong>parametric equations</strong>. 
+         The set $D$ is called the domain of $f$ and $g$ and it is the set of values $t$ takes.
+         For example, while the equation of a circle in Cartesian coordinates can be given by 
+         $r^2=x^2+y^2$, one set of parametric equations for the circle are given by
+         \begin{eqnarray*}
+         x  = r \cos t, \quad
+         y  = r \sin t \quad \text{with}\quad t\in[0, 2\pi).
+         \end{eqnarray*}
       </p>
 
       <p>The flower in this animation is defined with the following set of parametric equations:
