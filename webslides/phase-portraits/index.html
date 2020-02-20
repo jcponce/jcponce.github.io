@@ -67,9 +67,24 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#333333">
 
-  <!--Mathjax-->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!--MathJax starts-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+          });
+     </script>
+     <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\$','\$']]}});
+     </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+       MathJax.Hub.Config({
+             displayAlign: "left",
+             displayIndent: "5em"
+             });
+</script>--->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<!--MathJax Ends-->
 
 </head>
 
@@ -123,7 +138,7 @@
         <!--.wrap = container (width: 90%) -->
         <span class="background light" style="background-image:url('img-ppt/cover.jpg')"></span>
         <div class="wrap content-center">
-          <!--<p>\(f(z)=\log\left(\dfrac{(z-1)}{z+1} \right)\)</p>-->
+          <!--<p>$f(z)=\log\left(\dfrac{(z-1)}{z+1} \right)$</p>-->
         </div>
         <!-- .end .wrap -->
       </section>
@@ -142,7 +157,7 @@
         <!--.wrap = container (width: 90%) -->
         <div class="wrap">
           <h2>Complex functions</h2>
-          <h2>\(f: \mathbb C \rightarrow \mathbb C\)</h2>
+          <h2>$f: \mathbb C \rightarrow \mathbb C$</h2>
           <h2>live in a 4-dimensional space</h2>
 
         </div>
@@ -184,7 +199,7 @@
         <div class="wrap">
           <h1><strong>Real and Imaginary components</strong></h1>
           <br><br>
-          <h3>\(f(z)= \text{Re}(x,y) + i\, \text{Im}(x,y)\)</h3>
+          <h3>$f(z)= \text{Re}(x,y) + i\, \text{Im}(x,y)$</h3>
 
         </div>
         <!-- .end .wrap -->
@@ -202,7 +217,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/square.png">
                   <figcaption>
-                    <p>\(\LARGE f(z)=z^2\)</p>
+                    <p>$\LARGE f(z)=z^2$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -213,7 +228,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail " src="img-ppt/re.png">
                   <figcaption>
-                    <p>\(\LARGE \text{Re}(z^2)\)</p>
+                    <p>$\LARGE \text{Re}(z^2)$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -224,7 +239,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/im.png">
                   <figcaption>
-                    <p>\(\LARGE \text{Im}(z^2)\)</p>
+                    <p>$\LARGE \text{Im}(z^2)$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -246,7 +261,7 @@
 
           <div class="flex-content">
             <h2><strong>Analytic landscapes</strong></h2>
-            <h3>\(|f(z)|\)</h3>
+            <h3>$|f(z)|$</h3>
 
           </div>
 
@@ -264,7 +279,7 @@
           <img class="alignright size-50" src="img-ppt/Jahnke_gamma_function.png" alt="image"></figure>
           <div class="flex-content">
 
-            <h3><strong>A historical analytic landscape of \(|\Gamma (z)|\) from 1909</strong> </h3>
+            <h3><strong>A historical analytic landscape of $|\Gamma (z)|$ from 1909</strong> </h3>
 
             <p class="text-intro">Funktionentafeln mit Formeln und Kurven
               by Eugene Jahnke & Fritz Emde
@@ -329,8 +344,8 @@
           <h3>
             <ol>
               <li>Assign a color to every point in the complex plane.</li><br>
-              <li>Color the domain of the function \(f\) by painting the location \(z\), in the 
-                plane, with the color determined by the value \(w=f(z)\).</li>
+              <li>Color the domain of the function $f$ by painting the location $z$, in the 
+                plane, with the color determined by the value $w=f(z)$.</li>
             </ol>
           </h3>
 
@@ -358,7 +373,7 @@
             <h3>Hue, Saturation, Value (HSV)</h3>
             <br><br>
 
-            <h3>Hue \(\leftrightarrow\) Phase</h3>
+            <h3>Hue $\leftrightarrow$ Phase</h3>
 
           </div>
 
@@ -447,9 +462,9 @@
 
           <div class="flex-content">
             <h3><strong>Phase portrait</strong></h3>
-            <h3>\(f(z)=z\)</h3>
+            <h3>$f(z)=z$</h3>
             <p></p>
-            <h4>\([-2,2]\times [-2,2]\)</h4>
+            <h4>$[-2,2]\times [-2,2]$</h4>
           </div>
 
 
@@ -467,9 +482,9 @@
 
           <div class="flex-content">
             <h3><strong>Phase portrait</strong></h3>
-            <h3>\(f(z)=\dfrac{1}{z}\)</h3>
+            <h3>$f(z)=\dfrac{1}{z}$</h3>
             <p></p>
-            <h4>\([-2,2]\times [-2,2]\)</h4>
+            <h4>$[-2,2]\times [-2,2]$</h4>
           </div>
 
 
@@ -488,9 +503,9 @@
 
           <div class="flex-content">
             <h3><strong>Phase portrait</strong></h3>
-            <h3>\(f(z)=\dfrac{z-1}{z^2+z+1}\)</h3>
+            <h3>$f(z)=\dfrac{z-1}{z^2+z+1}$</h3>
             <p></p>
-            <h4>\([-2,2]\times [-2,2]\)</h4>
+            <h4>$[-2,2]\times [-2,2]$</h4>
           </div>
 
 
@@ -509,7 +524,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/z.png">
                   <figcaption>
-                    <p>\(\LARGE f(z)=z\)</p>
+                    <p>$\LARGE f(z)=z$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -593,7 +608,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/plotfz-mod.png">
                   <figcaption>
-                    <p>\(\LARGE f(z)=z\)</p>
+                    <p>$\LARGE f(z)=z$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -604,7 +619,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail " src="img-ppt/plotfz-inv.png">
                   <figcaption>
-                    <p>\(\LARGE f(z)=1/z\)</p>
+                    <p>$\LARGE f(z)=1/z$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -619,7 +634,7 @@
 
       <section class="bg-white">
         <div class="wrap">
-          <h3><strong>Enhanced phase portrait of \(\small f(z) =\dfrac{z-1}{z^2+z+1}\)</strong></h3>
+          <h3><strong>Enhanced phase portrait of $\small f(z) =\dfrac{z-1}{z^2+z+1}$</strong></h3>
           <ul class="flexblock gallery">
             <li>
               <a>
@@ -667,7 +682,7 @@
         <div class="wrap">
 
           <div class="flex-content">
-            <h3><strong>Roots of unity: \(z^n-1\), \(n= 2, 3, \ldots , 10\) </strong></h3>
+            <h3><strong>Roots of unity: $z^n-1$, $n= 2, 3, \ldots , 10$ </strong></h3>
           </div>
 
           <figure><img class="aligncenter size-50" src="img-ppt/nroots.gif" alt="image"></figure>
@@ -686,7 +701,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/mult.png">
                   <figcaption>
-                    <p>\(\LARGE f(z)= (z+1)z^2(z-1)^3\)</p>
+                    <p>$\LARGE f(z)= (z+1)z^2(z-1)^3$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -697,7 +712,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail " src="img-ppt/order.png">
                   <figcaption>
-                    <p>\(\LARGE g(z)=1/f(z)\)</p>
+                    <p>$\LARGE g(z)=1/f(z)$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -719,7 +734,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/plotfz-27.png">
                   <figcaption>
-                    <p>\(\LARGE f(z)=\frac{3}{2}z(1-iz)\)</p>
+                    <p>$\LARGE f(z)=\frac{3}{2}z(1-iz)$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -730,7 +745,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail " src="img-ppt/plotfz-28.png">
                   <figcaption>
-                    <p>\(\LARGE g(z)=\frac{3}{2}z(1-i\overline{z})\)</p>
+                    <p>$\LARGE g(z)=\frac{3}{2}z(1-i\overline{z})$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -748,9 +763,9 @@
           <div class="grid vertical-align">
             <div class="column">
               <h3><strong>Laurent series</strong></h3>
-              <p class="text-intro">\( f(z)=\displaystyle\sum_{n=0}^{\infty}
-                a_n(z-z_0)^n+\displaystyle\sum_{n=1}^{\infty}\frac{b_n}{(z-z_0)^n},\) </p>
-              <p class="text-intro">\(R_1 &lt;|z-z_0|&lt; R_2. \)</p>
+              <p class="text-intro">$ f(z)=\displaystyle\sum_{n=0}^{\infty}
+                a_n(z-z_0)^n+\displaystyle\sum_{n=1}^{\infty}\frac{b_n}{(z-z_0)^n},$ </p>
+              <p class="text-intro">$R_1 &lt;|z-z_0|&lt; R_2. $</p>
               <p class="text-intro">\[ a_n=\frac{1}{2\pi i}\oint_C \frac{f(z)dz}{(z-z_0)^{n+1}}\quad (n=0,1,2,\ldots)
                 \]\[ b_n=\frac{1}{2\pi i}\oint_C \frac{f(z)dz}{(z-z_0)^{-n+1}}\quad (n=1,2,\ldots)
                 \]</p>
@@ -772,15 +787,15 @@
 
       <section class="bg-white">
         <div class="wrap">
-          <h3><strong>Poles of order \(m\):</strong> Exists \(  m \geq 1, \, b_m\neq 0\) and \(b_k=0\) for \(
-            k>m\)</h3>
+          <h3><strong>Poles of order $m$:</strong> Exists $  m \geq 1, \, b_m\neq 0$ and $b_k=0$ for $
+            k>m$</h3>
           <ul class="flexblock gallery">
             <li>
               <a>
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/order-1.png">
                   <figcaption>
-                    <!--<p>\(\LARGE \dfrac{1-\text{cosh } z }{z^3}\)</p>-->
+                    <!--<p>$\LARGE \dfrac{1-\text{cosh } z }{z^3}$</p>-->
                     <p></p>
                   </figcaption>
                 </figure>
@@ -791,7 +806,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail " src="img-ppt/order-2.png">
                   <figcaption>
-                    <p>\(\LARGE \dfrac{\exp(2z)}{(z-1)^2}\)</p>
+                    <p>$\LARGE \dfrac{\exp(2z)}{(z-1)^2}$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -802,7 +817,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/order-3.png">
                   <figcaption>
-                    <!--<p>\(\LARGE \dfrac{\sinh z }{z^4}\)</p>-->
+                    <!--<p>$\LARGE \dfrac{\sinh z }{z^4}$</p>-->
                     <p></p>
                   </figcaption>
                 </figure>
@@ -817,14 +832,14 @@
 
       <section class="bg-white">
         <div class="wrap">
-          <h3><strong>Removable singularities: \(b_n=0, \forall n\)</strong></h3>
+          <h3><strong>Removable singularities: $b_n=0, \forall n$</strong></h3>
           <ul class="flexblock gallery">
             <li>
               <a>
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/remov-1.png">
                   <figcaption>
-                    <p>\(\LARGE \dfrac{\sin z}{z}\)</p>
+                    <p>$\LARGE \dfrac{\sin z}{z}$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -835,7 +850,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail " src="img-ppt/remov-2.png">
                   <figcaption>
-                    <p>\(\LARGE \dfrac{z}{e^z-1}\)</p>
+                    <p>$\LARGE \dfrac{z}{e^z-1}$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -857,7 +872,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail" src="img-ppt/ess-1.png">
                   <figcaption>
-                    <p>\(\LARGE \sin\left(\dfrac{1}{z}\right)\)</p>
+                    <p>$\LARGE \sin\left(\dfrac{1}{z}\right)$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -868,7 +883,7 @@
                 <figure class="bg-white">
                   <img alt="Thumbnail " src="img-ppt/ess-2.png">
                   <figcaption>
-                    <p>\(\LARGE \exp\left(\dfrac{1}{z}\right)\)</p>
+                    <p>$\LARGE \exp\left(\dfrac{1}{z}\right)$</p>
                     <p></p>
                   </figcaption>
                 </figure>
@@ -893,7 +908,7 @@
             <p></p>
             <h2><strong>Zooming in</strong></h2>
             <br>
-            <h3>\( f(z)=\exp\left(\dfrac{1}{z}\right)\) </h3>
+            <h3>$ f(z)=\exp\left(\dfrac{1}{z}\right)$ </h3>
             <p></p>
 
           </div>
@@ -919,8 +934,8 @@
 
       <section class="bg-white aligncenter">
         <div class="wrap">
-          <h3><strong>\(f(z)=0.926(z+0.073857 z^5
-              +0.0045458 z^9)\)</strong></h3>
+          <h3><strong>$f(z)=0.926(z+0.073857 z^5
+              +0.0045458 z^9)$</strong></h3>
           <ul class="flexblock gallery">
             <li>
               <a>
@@ -959,8 +974,8 @@
             <img src="img-ppt/inner.png" alt="Inner function">
             <figcaption>
 
-              Atomic Singular Inner Function \({\small f(z)=\displaystyle
-              \prod_{k=1}^5\exp\left(\dfrac{z+w^k}{z-w^k}\right), w=\exp(2\pi i/5).}\)
+              Atomic Singular Inner Function ${\small f(z)=\displaystyle
+              \prod_{k=1}^5\exp\left(\dfrac{z+w^k}{z-w^k}\right), w=\exp(2\pi i/5).}$
 
             </figcaption>
           </figure>
