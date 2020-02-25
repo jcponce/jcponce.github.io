@@ -67,10 +67,43 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#333333">
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121691678-1');
+  </script>
+
   <!--Mathjax-->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+  <script>
+  window.onkeypress = function(event) {
+    if (event.keyCode == 70) {
+      openFullscreen();
+    }
+ }</script>
+
+ <script>
+ var elem = document.documentElement;
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }</script>
 </head>
 
 <body>
@@ -329,7 +362,7 @@
           <h3>
             <ol>
               <li>Assign a color to every point in the complex plane.</li><br>
-              <li>Color the domain of the function \(f\) by painting the location \(z\), in the 
+              <li>Color the domain of the function \(f\) by painting the location \(z\), in the
                 plane, with the color determined by the value \(w=f(z)\).</li>
             </ol>
           </h3>
@@ -506,11 +539,11 @@
             <h3>Elias Wegert’s work from 2012</h3>
             <p></p>
             <h3>Hue \(\leftrightarrow\) Phase</h3>
-            
-            <h3>Sat \(\leftrightarrow\) Phase - \(\lfloor\)  Phase \(\rfloor\)</h3>
-            
+
+            <h3>Sat \(\leftrightarrow\) Phase - \(\lfloor\) Phase \(\rfloor\)</h3>
+
             <h3>Val \(\leftrightarrow\) \(\log |f|\) - \(\lfloor \log |f| \rfloor\)</h3>
-           
+
           </div>
           <!-- .end .content-left -->
           <div class="content-left">
@@ -525,7 +558,7 @@
 
       <section class="bg-white">
         <div class="wrap">
-          <h3><strong>Enhanced phase portrait:</strong>  Level curves</h3>
+          <h3><strong>Enhanced phase portrait:</strong> Level curves</h3>
           <ul class="flexblock gallery">
             <li>
               <a>
@@ -795,7 +828,7 @@
 
       <section class="bg-white">
         <div class="wrap">
-          <h3><strong>Poles of order \(m\):</strong> \(\exists  m \geq 1, \, b_m\neq 0\) and \(b_k=0\) for \(
+          <h3><strong>Poles of order \(m\):</strong> \(\exists m \geq 1, \, b_m\neq 0\) and \(b_k=0\) for \(
             k>m\)</h3>
           <ul class="flexblock gallery">
             <li>
