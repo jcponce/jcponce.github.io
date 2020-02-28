@@ -80,15 +80,17 @@
     <div class="w3-center">
         <h1>Domain coloring</h1>
         <h3>Visualizing complex functions</h3>
-        <p></p>
+        
         <br>
     </div>
     
     
     
      <div class="w3-bar w3-center">
-     <span><a href="#gallery" class="w3-button w3-small">Gallery</a>&nbsp; <a href="#basic" class="w3-button w3-small">Basic tools</a>&nbsp; <a href="#adv" class="w3-button w3-small">Advanced tools</a></span>
+     <span><a href="#intro" class="w3-button w3-small">Intro</a>&nbsp; <a href="#gallery" class="w3-button w3-small">Gallery</a>&nbsp; <a href="#basic" class="w3-button w3-small">Basic tools</a>&nbsp; <a href="#adv" class="w3-button w3-small">Advanced tools</a></span>
      </div>
+     <hr>
+     <br>
      <br>
      <br>
      
@@ -97,12 +99,52 @@
          <iframe src="../../complex/dctools/flowerintro/index.html" scrolling="no" width="320" height="320" style="border:0px;"></iframe>
          <p>Blaschke product associated to 50 randomly chosen points in the unit disk.</p>
          <br>
-         <a href="#gallery" class="w3-xlarge w3-button w3-hover-light-grey w3-round-xxlarge "> <i class="fas fa-chevron-down"></i></a>
+         
      </div>
      
-     
-     <br><br><br>
+     <br>
+     <br>
      <hr>
+</div>
+
+<div id="intro" class="w3-container">
+    <br>
+    <br>
+    <h2 >Introduction</h2>
+
+    <p>Domain coloring is a method that allows us to represent complex functions by assigning a color 
+        to each point of the complex plane. The method involves basically two steps:
+        <ol>
+            <li>Assign a color to every point in the complex plane.</li>
+            <li>Color the domain of $f$ by painting the location $z$
+               with the color determined by the value $f(z)$.</li>
+          </ol>
+    </p>
+
+    <p>If we use the color wheel, the HUE can be associated with the phase of $f$, that is, with $\textbf{arg }(f)$.</p>
+    <br>
+    <div class="w3-center">
+    <figure>
+        <img  class="w3-border w3-round-small" src="img/color-wheel.png" alt="Gallery" style="width:40%">
+        <figcaption>Color wheel associated with the values from $0$ to $2\pi$.</figcaption>
+    </figure>
+    </div>
+    <br>
+    <p>Now consider a region of pixels in the screen. This will be a discretized domain
+        $D_h$ for the function. Every pixel $i$ is identified with a complex number $z_i$ where 
+    the function is evaluated. Then we calculate the phase of the value $f(z)$ and finally we assign the 
+    resulting color to that pixel. This procedure is shown in the animation below.</p>
+<br>
+    <div class="w3-center">
+        <img  class="w3-border w3-round-small" src="img/diagram.gif" alt="Gallery" style="width:100%">
+    </div>
+    <br>
+    <p>In this page you will find  tools to plot complex functions using different color schemes  
+        and also a gallery containing a wide range of examples.
+    </p>
+
+    <br><br> <br>
+    <hr>
 </div>
 
 <div class="w3-container" id="gallery">
@@ -123,6 +165,10 @@
     <br><br><br>
     <hr>
 </div>
+
+
+
+
     
     <div class="w3-container" id="basic">
     <br><br><br>
