@@ -111,6 +111,7 @@
     <br>
     <br>
     <h2 >Introduction</h2>
+    <p class="w3-small">15-July-2018</p>
 
     <p>Domain coloring is a method that allows us to represent complex functions by assigning a color 
         to each point of the complex plane. The method involves basically two steps:
@@ -121,28 +122,35 @@
           </ol>
     </p>
 
-    <p>If we use the color wheel, the HUE can be associated with the phase of $f(z)$, that is, with $\textbf{arg }(f)$.</p>
+    <p>It is common to use the color wheel because we it is easy to 
+        find a corresponced between the HUE and the phase of a complex number, that is,
+        the argument of $z$ usually defined in the interval $[0,2\pi)$, or $(-\pi, \pi]$.</p>
     <br>
     <div class="w3-center">
     <figure>
-        <img  class="w3-border w3-round-small" src="img/color-wheel.png" alt="Gallery" style="width:40%">
-        <figcaption>Color wheel associated with the values $f(z)$ from $0$ to $2\pi$.</figcaption>
+        <img  class="w3-border w3-round-small" src="img/wheel.svg" alt="Gallery" style="width:380px">
+        <figcaption>Color wheel correspondence with values from $0$ to $2\pi$.</figcaption>
     </figure>
     </div>
     <br>
-    <p>Now consider a region of pixels in the screen. This will be a discretized domain
-        $D_h$ for the function. Every pixel $i$ is identified with a complex number $z_i$ where 
-    the function is evaluated. Then we calculate the phase of the value $f(z)$ and finally we assign the 
-    resulting color to that pixel. This procedure is shown in the animation below.</p>
+    <p>To implement this method in the computer we need to consider a rectangular region of pixels in 
+        the screen. This will be a discretized domain $D_h$ for the function $f$. Every pixel $i$ is 
+        identified with a complex number $z_i$ where the $f$ is evaluated. Then we calculate 
+        the phase of the value $f(z)$ and finally we assign the resulting color to that pixel. 
+        This procedure is shown in the animation below.</p>
 <br>
     <div class="w3-center">
         <img  class="w3-border w3-round-small" src="img/diagram.gif" alt="Gallery" style="width:100%">
     </div>
     <br>
-    <p>In this page you will find  tools to plot complex functions using different color schemes  
-        and also a gallery containing a wide range of examples.
-    </p>
-
+    <p>Here you will find a set of tools to visualize and explore complex functions using 
+        different color schemes and also a gallery containing a wide range of examples. Enjoy!</p>
+    
+    <!--
+    <p>The source code is available at 
+        <a class="w3-hover-text-blue" href="https://github.com/jcponce/complex/tree/gh-pages/dctools">GitHub</a>. 
+        I learned a lot building this project. Please <a href="mailto:j.ponce@uq.edu.au">let me</a> know what you 
+            think. </p>-->
     <br><br> <br>
     <hr>
 </div>
@@ -341,10 +349,11 @@
     
 <div class="w3-container w3-padding-16" id="notes">
 <br><br><br>
-<h2>Notes about the basic tools </h2>
-    <p class="w3-small">15-July-2018</p>
+<h2>Extra details about the basic tools</h2>
+    
     <p>
-    For these tools I used the enhanced phase portrait based on the work of E. Wegert [see <a href="#wegert">11-13</a>]. The Hue-Saturation-Brightness (HSB) color scheme is used. For plotting the level curves of the modulus I used the following equations:
+    I used the enhanced phase portrait based on the work of E. Wegert [see <a href="#wegert">11-13</a>]. The Hue-Saturation-Brightness (HSB) color scheme is used. For plotting the level curves 
+    of the modulus I used the following equations:
     <div class="w3-responsive">
         \begin{eqnarray*}
         \text{H}&amp;=&amp;\frac{\pi - \text{atan2}(y, -x)}{2\pi},\\
@@ -371,15 +380,11 @@
             <b>Re:</b> sin(x)*( ( exp(y) + exp(-y) ) / 2 )<br/>
             <b>Im:</b> cos(x)*( ( exp(y) - exp(-y) ) / 2 )<br/>
             <br/>
-        List of available built-in functions is available <a class="w3-hover-text-blue  " href="https://p5js.org/reference/#group-Math"> here</a>.</li>
+        List of available built-in functions is available <a class="w3-hover-text-blue" href="https://p5js.org/reference/#group-Math"> here</a>.</li>
     </ul>
     </p>
     
-    <div >
-    <p>The source code is available at <a class="w3-hover-text-blue" href="https://github.com/jcponce/complex/tree/gh-pages/dctools">GitHub</a> </p>
-    </div>
     
-    <p>If you find issues send me an email: <a href="mailto:j.ponce@uq.edu.au">j.ponce@uq.edu.au</a> </p>
    
    <br><br>
    
