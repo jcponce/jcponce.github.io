@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Enhanced Phase portraits</title>
+<!-- Load jQuery -->
+<script
+	src='https://code.jquery.com/jquery-3.2.1.min.js'
+	integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
+	crossorigin='anonymous'></script>
+
+<!-- Load KaTeX -->
+<link
+	rel='stylesheet'
+	href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css'
+	integrity='sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx'
+	crossorigin='anonymous'>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js'
+	integrity='sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ'
+	crossorigin='anonymous'></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta/contrib/auto-render.min.js'
+	integrity='sha384-EkJr57fExjeMKAZnlVBuoBoX0EJ4BiDPiAd/JyTzIA65ORu4hna7V6aaq4zsUvJ2'
+	crossorigin='anonymous'></script>
+
+<!-- Load Reveal.js -->
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js'
+	integrity='sha256-ixSKHrWAL2k0mqVSRju9+to2/uZSEK9+kJRfdNBolG8='
+	crossorigin='anonymous'></script>
+<link
+	rel='stylesheet'
+	href='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css'
+	integrity='sha256-ol2N5Xr80jdDqxK0lte3orKGb9Ja3sOnpAUV7TTADmg='
+	crossorigin='anonymous'>
+
+<!-- Load Paper.js -->
+<script	src='js/paper-full.min.js'></script>
+
+<!-- Custom scripts -->
+<link rel='stylesheet' href='css/presentation.css'>
+<script type='text/paperscript' src='paperscript/venn-diagram.js' canvas='venn-diagram'></script>
+<script type='text/paperscript' src='paperscript/set-builder-table.js' canvas='set-builder-table'></script>
+
+<!-- FAVICONS -->
+<link rel="shortcut icon" sizes="16x16" href="img/infinity16.png">
+<link rel="shortcut icon" sizes="32x32" href="img/infinity32.png">
+</head>
+
+<body>
+<div class='reveal'>
+<div class='slides'>
+
+	<section>
+		<h2>Visualizing Complex Functions</h2>
+		<p>Enhanced phase portraits</p>
+	</section>
+
+	<section data-background-iframe="https://jcponce.github.io/complex/function-plotter/pres.htm" data-background-interactive>
+		<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+			<h2>What is this?</h2>
+			<p>Phase portraits</p>
+		</div>
+	</section>
+
+	<section>
+		<p>Complex functions</p>
+
+		\[\begin{aligned}
+		f: \mathbb C \rightarrow \mathbb C
+		\end{aligned} \]
+		<p>live in a 4-dimensional space</p>
+	</section>
+
+	<section>
+		<h3>Methods to visualize complex functions</h3>
+
+		<ul>
+			<li class="fragment">Real and Imaginary components</li>
+			<li class="fragment">Analytic landscapes</li>
+			<li class="fragment">Mappings</li>
+			<li class="fragment">Domain coloring</li>
+		</ul>
+
+		
+		<!--
+		<script type="math/tex; mode=display">
+			\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+		</script>-->
+	</section>
+
+	<section>
+		<section>
+			<h3>Real and Imaginary components</h3>
+
+			\[f(z)= \text{Re}(x,y) + i\, \text{Im}(x,y)\]
+
+			<div class="fragment">
+				\[\begin{aligned}
+				f(z)  &amp; = z^2
+				\end{aligned} \]
+			</div>
+
+			<!--<a href="#" class="navigate-down">
+				
+			</a>-->
+		</section>
+		
+
+		<section>
+			
+				\[\begin{aligned}
+				f(z)  &amp; = x^2-y^2 + 2xy \,i  
+				\end{aligned} \]
+			
+
+			<img class="fragment" alt="Thumbnail" width="40%" height="40%" src="img/square.png">&nbsp;
+		
+		</section>
+
+		<section data-transition="none fade-out">
+			
+			\[\begin{aligned}
+			f(z)  &amp; = x^2-y^2 + 2xy \,i  
+			\end{aligned} \]
+		
+		<img alt="Thumbnail" width="40.5%" height="40.5%" src="img/re.png">&nbsp;
+		<img alt="Thumbnail" width="40.5%" height="40.5%" src="img/im.png">
+	
+	</section>
+		
+		
+	</section>
+
+	<section>
+	<section>
+		<h3>Analytic landscapes</h3>
+
+		\[\big|f\left(z\right)\big|\]
+
+		<img class="fragment" width="60%" height="60%"  src="img/landscape.png" alt="image">
+	</section>
+
+	<section  data-transition="zoom-in fade-out">
+		<h3>A historical analytic landscape of \(\big|\Gamma (z)\big|\) from 1909</h3>
+
+		<img   width="40%" height="40%" src="img/Jahnke_gamma_function.png" alt="image">
+		  <p>Funktionentafeln mit Formeln und Kurven
+			by Eugene Jahnke & Fritz Emde
+		  </p>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Set Theory</h1>
+	</section>
+
+	<section>
+		<h2>What is a Set?</h2>
+		<blockquote class='fragment'>&ldquo;A set is an <span class='fragment highlight-blue'>unordered</span> collection of <span class='fragment highlight-blue'>distinct</span> objects.&rdquo; &ndash;Wikipedia</blockquote>
+		<p class='fragment'><b>Why</b> unordered?</p>
+		<p class='fragment'><b>Why</b> distinct?</p>
+	</section>
+
+	<section>
+		<h2>Outline</h2>
+		<ol>
+			<li>Notation</li>
+			<li>Set Operations</li>
+			<li>Proofs</li>
+			<li>Advanced Properties</li>
+			<li>Philosophy (Outside Syllabus)</li>
+			<li>Cardinality (Outside Syllabus)</li>
+		</ol>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Notation</h1>
+	</section>
+	<section>
+		<h2>Basic Notation</h2>
+		\[A = \{1, 2, 3\}\]
+		\[\{1, 2, 3\} \subset \{1, 2, 3, 4\}\]
+		\[\{1, 2, 3\} \subseteq \{1, 2, 3\}\]
+		\[2 \in \{1, 2, 3\}\]
+		\[4 \notin \{1, 2, 3\}\]
+	</section>
+
+	<section>
+		<h2>Special Sets</h2>
+		\[\begin{aligned}
+		\emptyset &= \{\} \\
+		\mathbb{N} &= \{0, 1, 2, 3, 4, \dots\} \\
+		\mathbb{Z} &= \{\dots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \dots\} \\
+		\mathbb{Q} &= \text{Fractions} \\
+		\mathbb{R} &= \text{Real Numbers} \\
+		\mathbb{C} &= \text{Complex Numbers} \\
+		\end{aligned}\]
+	</section>
+	<section>
+		<h2>Set-Builder Notation</h2>
+		\[S := \{x^2 : x \in \mathbb{N}\}\]
+		<canvas id='set-builder-table' width=700 height=200></canvas>
+	</section>
+
+	<section>
+		<h2>Exercises</h2>
+		Compute each of the following sets.
+		<br>
+		Note that \(\land\) denotes “and” and \(\lor\) denotes “or.”
+		<br>
+		<ol>
+			<li>\(\{x : \frac{x}{2} \in \mathbb{Z}\}\) <span class='fragment'>= \(\{\dotsc, -4, -2, 0, 2, 4, \dotsc\}\)</span></li>
+			<li>\(\{\sqrt{x} : x \in \mathbb{N} \land x < 5\}\) <span class='fragment'>= \(\{0, 1, \sqrt{2}, \sqrt{3}, 2\}\)</span></li>
+			<li>\(\{x^3 : x \in [1, 3]\}\) <span class='fragment'>= \([1, 27]\)</span></li>
+		</ol>
+		<hr>
+		Determine whether each statement is true or false.
+		<ol>
+			<li>\(2018 \in \{x + y\sqrt{2} : x, y \in \mathbb{Z}\}\) <span class='fragment'> — True</span></li>
+			<li>\(\mathbb{Q} = \{\frac{x}{y} : x, y \in \mathbb{N}\}\) <span class='fragment'> — False</span></li>
+		</ol>
+
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Set Operations</h1>
+	</section>
+
+	<section>
+		<canvas id='venn-diagram' width=600 height=480 style='max-width: 90%'></canvas>
+		<p id='venn-label'></p>
+	</section>
+
+	<section>
+		<h2>Notation</h2>
+		\[A^\complement = \bar{A} = A'\]
+		\[U = \mathbb{U}\]
+		\[A \vartriangle B = A \ominus B = A \oplus B\]
+	</section>
+
+	<section>
+		<h2>Review</h2>
+		Label each statement as true or false.
+		<br>
+		A statement is true if it holds for <u>every</u> set \(A\) and \(B\).
+		<br>
+		<ol>
+			<li>\(A \cup B = B \cup A\) <span class='fragment'> — True</span></li>
+			<li>\(A = (A^\complement)^\complement\) <span class='fragment'> — True</span></li>
+			<li>\(A \cup B = \{x : x \in A \lor x \in B\}\) <span class='fragment'> — True</span></li>
+			<li>\(A \cup A^\complement = U\) <span class='fragment'> — True</span></li>
+			<li>\(A \subset A \cup B\) <span class='fragment'> — False</span></li>
+			<li>\((A \cup B)^\complement = A^\complement \cap B^\complement\) <span class='fragment'> — True</span></li>
+		</ol>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Proofs</h1>
+	</section>
+	<section>
+		<h2>Subset Proofs</h2>
+		To prove \(A \subseteq B\):
+		<ol>
+			<li>If \(A = \emptyset\), we are done. Otherwise, state that \(A \neq \emptyset\).</li>
+			<li>Take an arbitrary \(x \in A\).</li>
+			<li>Prove that \(x \in B\).</li>
+			<li>Since \(x\) is arbitrary, we know that <u>every</u> element in \(A\) is also in \(B\).</li>
+		</ol>
+	</section>
+
+	<section>
+		<h2>Example</h2>
+		For any sets \(A\) and \(B\), prove that \(A \subseteq \{x : x \in A \lor x \in B\}\).
+		<ol>
+			<li>Note that \(A\) is nonempty.</li>
+			<li>Therefore, we can take an arbitrary \(a \in A\).</li>
+			<li>Since \(a \in A\), we know \(a\) satisfies the contition \(x \in A \lor x \in B\).</li>
+			<li>Therefore, we have \(a \in \{x : x \in A \lor x \in B\}\).</li>
+			<li>Since \(a\) was arbitrary, we know that \(A \subseteq \{x : x \in A \lor x \in B\}\).</li>
+		</ol>
+	</section>
+
+	<section>
+		<h2>Equality Proofs</h2>
+		We say that \(A = B\) iff \(A \subseteq B\) and \(B \subseteq A\).
+
+		<div class='fragment'>
+			<hr>
+			Therefore, to prove \(A = B\):
+			<br>
+			<ol>
+				<li>Prove \(A \subseteq B\).</li>
+				<li>Prove \(B \subseteq A\).</li>
+			</ol>
+		</div>
+	</section>
+
+	<section>
+		<h2>Exercises</h2>
+		<ol>
+			<li>Prove that \(\mathbb{Z} \subseteq \mathbb{Q}\).</li>
+			<li>Prove that \(\{x : x \equiv 3\,\text{(mod 15)}\} \subseteq \{x : x \equiv 3\,\text{(mod 5)}\}\).</li>
+			<li>Prove that \(\{x^2 : x \in [1, 2]\} = [1, 4]\).</li>
+			<li>Prove that \(\{\sqrt{x} : x \in \mathbb{R}^+\} = \mathbb{R}^+\).</li>
+			<li>Prove that \(A \cup A^\complement = U\).</li>
+		</ol>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Advanced Properties</h1>
+	</section>
+
+	<section>
+		<h2>De Morgan's Laws</h2>
+		\[(A \cup B)^\complement = A^\complement \cap B^\complement\]
+		<p class='fragment'>\[(A \cap B)^\complement = A^\complement \cup B^\complement\]</p>
+		<div class='fragment'>
+		<hr>
+		\[(A \cup B)^\complement = \{x : \neg(x \in A \lor x \in B)\}\]
+		\[A^\complement \cap B^\complement = \{x : \neg (x \in A) \land \neg (x \in B)\}\]
+		</div>
+	</section>
+
+	<section>
+		<h2>Exercise</h2>
+		Prove that \((A \cap B)^\complement \subseteq A^\complement \cup B^\complement\).
+		<hr>
+		<h4>Hints</h4>
+		To prove \(x \in E \cup F\), prove that at least one of \(x \in E\) or \(x \in F\) is true.
+		<br>
+		If \(x \notin E \cap F\), then either \(x \notin E\) or \(x \notin F\).
+	</section>
+
+	<section>
+		<h2>Solution</h2>
+		<ol>
+			<li>Assume \((A \cap B)^\complement \neq \emptyset\).</li>
+			<li>Therefore, take an arbitrary \(x \in (A \cap B)^\complement\).</li>
+			<li>We know that \(x \notin A \cap B\).</li>
+			<li>Therefore, either \(x \notin A\) or  \(x \notin B\).</li>
+			<li>Thus, we have \(x \in A^\complement\) or  \(x \in B^\complement\).</li>
+			<li>Finally, we know \(x \in A^\complement \cup B^\complement\).</li>
+		</ol>
+	</section>
+
+	<section>
+		<h2>Distributive Laws</h2>
+		\[A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\]
+		\[A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\]
+	</section>
+
+	<section>
+		<h2>Exercise</h2>
+		Prove that \(A \cup (B \cap C) \subseteq (A \cup B) \cap (A \cup C)\).
+		<hr>
+		<h4>Hints</h4>
+		To prove \(x \in E \cap F\), you must prove \(x \in E\) and \(x \in F\).
+		<br>
+		You will need to consider two cases in the proof.
+	</section>
+
+	<section>
+		<h2>Solution</h2>
+		<ol>
+			<li>Assume \(A \cup (B \cap C) \neq \emptyset\).</li>
+			<li>Therefore, take an arbitrary \(x \in A \cup (B \cap C)\).</li>
+			<li>We know that either \(x \in A\) or \(x \in B \cap C\).</li>
+			<li>From here, we will need to consider two cases.</li>
+		</ol>
+	</section>
+
+	<section>
+		<h4>Case 1</h4>
+		In the first case, we know \(x \in A\).
+		<ol>
+			<li>It follows that \(x \in A \cup B\) and \(x \in A \cup C\).</li>
+			<li>Therefore, we have \(x \in (A \cup B) \cap (A \cup C)\) and we are done.</li>
+		</ol>
+
+		<hr>
+
+		<h4>Case 2</h4>
+		In the second case, we know \(x \in B \cap C\).
+		<ol>
+			<li>Therefore, we know \(x \in B\) and \(x \in C\).</li>
+			<li>It follows that \(x \in (A \cup B)\) and \(x \in (A \cup C)\).</li>
+			<li>Therefore, we have \(x \in (A \cup B) \cap (A \cup C)\) and we are done.</li>
+		</ol>
+	</section>
+</section>
+
+
+
+<section>
+	<section>
+		<h1>Philosophy</h1>
+	</section>
+
+	<section>
+		<h3>Explicit Perspective</h3>
+		\[A = \{1, 2, 3\}\]
+
+		<div class='fragment'/>
+		<hr>
+		<h3>Implicit Perspective</h3>
+		\[1 \in A\]
+		\[2 \in A\]
+		\[3 \in A\]
+		\[4 \notin A\]
+		\[5 \notin A\]
+		\[\vdots\]
+		</div>
+	</section>
+
+	<section>
+	<h2>Unordered</h3>
+	\[A = \{1, 2, 3\} \qquad B = \{1, 3, 2\}\]
+
+	\[A \stackrel{?}{=} B\]
+
+	<div class='fragment'/>
+	<hr>
+	<table>
+		<tr>
+			<td>
+				\[1 \in A\]
+				\[2 \in A\]
+				\[3 \in A\]
+				\[4 \notin A\]
+				\[5 \notin A\]
+				\[\vdots\]
+			</td>
+			<td>
+				\[1 \in B\]
+				\[2 \in B\]
+				\[3 \in B\]
+				\[4 \notin B\]
+				\[5 \notin B\]
+				\[\vdots\]
+			</td>
+		</tr>
+	</table>
+	</section>
+
+	<section>
+	<h2>Distinct</h3>
+	\[A = \{1, 2, 3\} \qquad B = \{1, 2, 2, 3\}\]
+
+	\[A \stackrel{?}{=} B\]
+
+	<div class='fragment'/>
+	<hr>
+	<table>
+		<tr>
+			<td>
+				\[1 \in A\]
+				\[2 \in A\]
+				\[3 \in A\]
+				\[4 \notin A\]
+				\[5 \notin A\]
+				\[\vdots\]
+			</td>
+			<td>
+				\[1 \in B\]
+				\[2 \in B\]
+				\[3 \in B\]
+				\[4 \notin B\]
+				\[5 \notin B\]
+				\[\vdots\]
+			</td>
+		</tr>
+	</table>
+	</section>
+
+	<section>
+		<h2>Set Equality</h2>
+		\[\{1, 2, 3\} = \{1, 2, 2, 3\}\]
+		These sets contain the “same elements.”<br>
+		What do we mean?
+		<div class='fragment'>
+		<hr>
+		Suppose we had a set of everything; call it \(U\).
+		We would then go through every element \(x \in U\) and check to see that \(x\) is either in both sets or neither.
+		</div>
+	</section>
+	<section>
+		<h2>Definition of Set Equality</h2>
+		The problem is that for \(U\) to contain everything, we need \(U \in U\).
+		<div class='fragment'>
+		<hr>
+		To avoid this problem, we only need to check whether every element \(x \in A\) is also in \(B\), and vice-versa.
+		\[\boxed{A = B \iff A \subseteq B \land B \subseteq A}\]
+		</div>
+	</section>
+</section>
+<section>
+	<section>
+		<h1>Cardinality</h1>
+	</section>
+
+	<section>
+		What is the cardinality of a set?
+		\[\lvert\{1, 2, 3\}\rvert = 3\]
+		<p class='fragment'>\[\{1, 2, 3\} = \{1, 2, 2, 3\}\]</p>
+		<p class='fragment'>\[\lvert\{1, 2, 2, 3\}\rvert = 3?\]</p>
+	</section>
+</section>
+
+</div>
+</div>
+<script>
+Reveal.initialize({
+	mouseWheel: true,
+	controlsTutorial: false,
+	history: true,
+	width: '100%',
+	height: '100%',
+	margin: 0,
+	minScale: 1,
+	maxScale: 1,
+	touch: true
+});
+renderMathInElement(document.body);
+</script>
+</body>
+</html>
