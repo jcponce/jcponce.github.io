@@ -58,7 +58,7 @@ function draw() {
     stroke(0);
     textAlign(CENTER);
     textSize(32);
-    //text("Draw Something!", width / 2, height / 2);
+    text("Draw Something!", width / 2, height / 2);
   }
 
   cursor(HAND);
@@ -158,7 +158,7 @@ function epicycles(x, y, rotation, fourier, size_f) {
   return createVector(x, y);
 }
 
-function mousePressed() {
+function touchStarted() {
   starting = true;
 }
 
