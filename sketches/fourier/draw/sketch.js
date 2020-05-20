@@ -58,7 +58,7 @@ function draw() {
     stroke(0);
     textAlign(CENTER);
     textSize(32);
-    text("Draw Something!", width / 2, height / 2);
+    //text("Draw Something!", width / 2, height / 2);
   }
 
   cursor(HAND);
