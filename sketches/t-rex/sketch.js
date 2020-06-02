@@ -69,7 +69,7 @@ function draw() {
 
     //The epicycles
     strokeJoin(ROUND);
-    strokeWeight(1);
+    strokeWeight(1.5);
     let v = epicycles(0, 0, 0, fourierX, sliderTerms.value(), time);
     //I want to draw it just once
     if (-PI <= time && time <= PI + PI / 10) {
@@ -77,7 +77,7 @@ function draw() {
     }
     beginShape();
     noFill();
-    strokeWeight(3);
+    strokeWeight(4);
     for (let i = 0; i < path.length; i++) {
       vertex(path[i].x, path[i].y);
     }
@@ -95,7 +95,7 @@ function draw() {
   } else {
 
     //The approximation curve
-    strokeWeight(3);
+    strokeWeight(4);
     stroke(255);
     strokeJoin(ROUND);
     noFill();
