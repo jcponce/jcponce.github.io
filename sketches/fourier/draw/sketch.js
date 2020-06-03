@@ -29,7 +29,6 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   // Move the canvas so it’s inside our <div id="sketch-holder">.
   //canvas.parent('sketch-holder');
-
   colorMode(HSB, 1, 1, 1, 1);
 
   if (state == FOURIER) {
@@ -181,12 +180,16 @@ function mouseReleased() {
     for (let i = 0; i < drawing.length; i += skip) {
       x.push(new Complex(drawing[i].x, drawing[i].y));
     }
-    //fourierX = dft(x);
-    if (drawing.length % 2 === 0) {
-      fourierX = dftEven(x);
-    } else {
-      fourierX = dftOdd(x);
-    }
+
+    fourierX = testFft(drawing.length);//FFT
+
+    //fourierX = dft(x);//DFT naive
+
+    //if (drawing.length % 2 === 0) {
+    //  fourierX = dftEven(x);//DFT low frequencies even
+    //} else {
+    //  fourierX = dftOdd(x);//DFT low frequencies odd
+    //}
 
     fourierX.sort((a, b) => b.amp - a.amp);
     size = fourierX.length;
@@ -204,12 +207,11 @@ function mouseReleased() {
 
 }
 
-
-/*
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  orbits.position(windowWidth/2-100, windowHeight-50);
 }
-
+/*
 function remakeDrawing() {
   state = -1;
   drawing = [];
