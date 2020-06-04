@@ -1,3 +1,4 @@
+//Naive DFT
 function dft(x) {
   const X = [];
   const N = x.length;
@@ -81,18 +82,20 @@ function dftEven(x) {
   return X;
 }
 
-function testFft(size) {
+//FFT from Copyright (c) 2020 Project Nayuki.
+//https://www.nayuki.io/page/free-small-fft-in-multiple-languages
+function applyFft(size) {
   let X = [];
   let N = size;
-  var inputreal = setValuesX(size);
-  var inputimag = setValuesY(size);
+  let inputreal = setValuesX(size);
+  let inputimag = setValuesY(size);
 
-  var expectreal = new Array(size);
-  var expectimag = new Array(size);
+  //let expectreal = new Array(size);
+  //let expectimag = new Array(size);
   //naiveDft(inputreal, inputimag, expectreal, expectimag, false);
 
-  var actualreal = inputreal.slice();
-  var actualimag = inputimag.slice();
+  let actualreal = inputreal.slice();
+  let actualimag = inputimag.slice();
   transform(actualreal, actualimag);
   
   //expectreal.map(x => x * 1/sizeDrawing);

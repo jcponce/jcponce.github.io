@@ -181,7 +181,7 @@ function mouseReleased() {
       x.push(new Complex(drawing[i].x, drawing[i].y));
     }
 
-    fourierX = testFft(drawing.length);//FFT
+    fourierX = applyFft(drawing.length);//FFT
 
     //fourierX = dft(x);//DFT naive
 
