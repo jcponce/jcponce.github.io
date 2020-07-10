@@ -4,18 +4,20 @@
  * Written by Juan Carlos Ponce Campuzano, 28-Nov-2018
  */
 
-// Last update ??
+// Last update July 2020
 
-//The following code is an adaptation found here https://gist.github.com/fogleman/c11a5cbcd845946b851518adedbf6a32
-// written by Fogleman
+/* The following code is an adaptation found here 
+ * https://gist.github.com/fogleman/c11a5cbcd845946b851518adedbf6a32
+ * written by Fogleman
+ */ 
 
-let Controls = function() {
+let Controls = function () {
     this.type = 0;
     this.R = 7;
     this.r = 3;
     this.d = 3;
     this.rotation = 0;
-    this.scale = 0.6;
+    this.scale = 0.4;
     this.Play = true;
 };
 
@@ -29,67 +31,68 @@ function saveImage() {
 }
 
 function setup() {
-    
-    createCanvas(520, 520);
+
+    createCanvas(windowWidth, windowHeight);
+
     pixelDensity(1);
-    
+
     let gui = new dat.GUI({
-                          width: 260
-                          });
+        width: 260
+    });
     gui.add(controls, 'type', {
-            Hypotrochoid: 0,
-            Epitrochoid: 1
-            }).name("Type");
+        Hypotrochoid: 0,
+        Epitrochoid: 1
+    }).name("Type");
     gui.add(controls, 'R', 1, 15).step(1);
     gui.add(controls, 'r', 1, 15).step(1);
     gui.add(controls, 'd', 0, 15).step(0.1);
     gui.add(controls, 'rotation', 0, 360).step(1).name("Rotate");
-    gui.add(controls, 'scale', 0.1, 0.8).step(0.1).name("Scale");
+    gui.add(controls, 'scale', 0.1, 1).step(0.1).name("Scale");
     gui.add(controls, 'Play');
     gui.add(this, 'saveImage').name("Save png");;
-    
-    
+
+
     maxTheta = 0;
     stepTheta = 0.9;
 }
 
 function windowResized() {
-    resizeCanvas(520, 520);
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 
 function draw() {
-    
+
     // It all starts with the width, try higher or lower values
     let w = 17;
     let h = (w * height) / width;
-    
+
     // Start at negative half the width and height
-    let xmin = -w / 2;
-    let ymin = -h / 2;
-    
-    
+    //let xmin = -w / 2;
+    //let ymin = -h / 2;
+
+
     let R = controls.R;
     let r = controls.r;
     let d = controls.d;
     let N = reduceFraction(R, r)[1];
     let rS = controls.scale;
-    
+
     translate(width / 2, height / 2);
     rotate(radians(270 + controls.rotation));
     background(0);
-    
-    if(controls.Play){
-     maxTheta += stepTheta;
+
+    if (controls.Play) {
+        maxTheta += stepTheta;
     } else maxTheta += 0;
-    
+
     noFill();
-    
+
     let func = hypotrochoid;
     if (controls.type != 0) {
         func = epitrochoid;
     }
-    
+
     let lo = createVector(0, 0);
     let hi = createVector(0, 0);
     for (let i = 0; i < 360 * N; i++) {
@@ -104,11 +107,11 @@ function draw() {
     let sx = (width * rS) / w;
     let sy = (height * rS) / h;
     let s = min(sx, sy);
-    
+
     if (controls.type != 0) {
-        stroke(224, 102, 255);
+        stroke(213, 128, 255);
     } else {
-        stroke(0, 230, 77);
+        stroke(153, 204, 255);
     }
     strokeWeight(4);
     strokeJoin(ROUND);
@@ -118,13 +121,13 @@ function draw() {
         vertex(vs.x * s, vs.y * s);
     }
     endShape(CLOSE);
-    
+
     //Drawing Extra circles and points
     let mP = func(R, r, d, radians(maxTheta));
-    
+
     stroke(255);
     ellipse(0, 0, R * 2 * s); //R circle
-    
+
     noFill();
     let setCircle;
     if (controls.type != 0) {
@@ -137,14 +140,14 @@ function draw() {
     stroke(255, 12, 12);
     ellipse(xP, yP, 2 * (r) * s); //r Circle tracing curve
     stroke(26, 255, 255);
-    line(xP, yP, mP.x * s, mP.y * s);//Segment d
+    line(xP, yP, mP.x * s, mP.y * s); //Segment d
     stroke(120, 22, 220);
-    ellipse(xP, yP, 4);//Centre r Circle
-    
+    ellipse(xP, yP, 4); //Centre r Circle
+
     fill(255, 209, 26);
     stroke(255, 209, 26)
-    ellipse(mP.x * s, mP.y * s, 10);//Point tracing curve
-    
+    ellipse(mP.x * s, mP.y * s, 10); //Point tracing curve
+
 }
 
 function hypotrochoid(R, r, d, theta) {
@@ -166,5 +169,3 @@ function reduceFraction(n, d) {
     gcd = gcd(n, d);
     return [n / gcd, d / gcd];
 }
-
-
