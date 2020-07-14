@@ -1,201 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-	<head>
-		<meta charset="utf-8">
+    <title>MATH3401 - Lecture 1</title>
 
-		<title>MATH3401</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/white.css" id="theme" />
+    <link rel="stylesheet" href="css/mylayout.css" />
+  </head>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/white.css" id="theme">
-	</head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>MATH3401</h1>
+          <h3>Complex Analysis</h3>
+          <p>Lecture 1</p>
+        </section>
 
-	<body>
+        <section>
+          <h2>Complex Analysis</h2>
 
-		<div class="reveal">
+          <ul>
+            <li class="fragment" data-fragment-index="0">\(e^{i\pi}\)</li>
+            <li class="fragment" data-fragment-index="1">
+              \(\displaystyle \int_0^{\infty}\dfrac{\sin x}{x}=\dfrac{\pi}{2}\)
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              Recall that \(\displaystyle \int_0^1\dfrac{dx}{x}= \displaystyle
+              \lim_{\epsilon \rightarrow 0^+}\int_{\epsilon}^1\dfrac{dx}{x}\) diverges
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              And \(\displaystyle \int_1^{\infty}\dfrac{dx}{x}= \displaystyle
+              \lim_{M \rightarrow \infty}\int_{1}^{M}\dfrac{dx}{x}\) also
+              diverges
+            </li>
+          </ul>
+        </section>
 
-			<div class="slides">
+        <section>
+          <h2>Complex Analysis</h2>
+          <p>Methods for contour integrals</p>
+          <img
+            style="width: 509.616px; height: 383.113px; left: 225.192px; top: 176.887px; min-width: 1px; min-height: 1px;"
+            data-src="img/lecture-01/contour.png"
+          />
+        </section>
 
-				<section>
-					<h2>reveal.js Math Plugin</h2>
-					<p>A thin wrapper for MathJax</p>
-				</section>
+        <section>
+          <h2>Complex Analysis</h2>
+          <p>Fluid flow</p>
+          <img
+            style="width: 800px; height: 598px;"
+            class="r-stretch"
+            data-src="img/lecture-01/stream.png"
+          />
+        </section>
 
-				<section>
-					<h3>The Lorenz Equations</h3>
+        <section>
+          <h2>Complex Analysis</h2>
+          <p>Air flow</p>
+          <!--
+          <img
+            style="width: 800px; height: 450px;"
+            class="r-stretch"
+            data-src="img/lecture-01/airfoil.png"
+          />-->
+          <span class="centerframe">
+          <iframe 
+          style="width: 800px; height: 400px; border: 0px;" 
+          data-src="https://complex-analysis.github.io/applets/p5js/joukowsky/intro.html" 
+          data-preload
+          ></iframe></span>
+        </section>
 
-					\[\begin{aligned}
-					\dot{x} &amp; = \sigma(y-x) \\
-					\dot{y} &amp; = \rho x - y - xz \\
-					\dot{z} &amp; = -\beta z + xy
-					\end{aligned} \]
-				</section>
+        <section data-transition="fade-out">
+          <h2>Complex Analysis</h2>
+          <p>Series</p>
 
-				<section>
-					<h3>The Cauchy-Schwarz Inequality</h3>
+          <div style="text-align: left; margin-left: 1.6em">
+            <p class="fragment" data-fragment-index="0">
+              \(\text{I.} \;\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\cdots
+              =\frac{\pi}{6}\)
+            </p>
 
-					<script type="math/tex; mode=display">
-						\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-					</script>
-				</section>
+            <p class="fragment" data-fragment-index="1">
+              \(\text{II.} \;\frac{1}{1^2}-\frac{1}{2^2}+\frac{1}{3^2}-\cdots
+              =\frac{\pi^2}{12}\)
+            </p>
+            <p class="fragment" data-fragment-index="2">
+              \(\text{III.} \;{\small \displaystyle \sum_{k=1}^{\infty}
+              \frac{1}{1+4k^2\pi^2}=\frac{1}{2}\left(
+              \frac{1}{e-1}-\frac{1}{2}\right)}\)
+            </p>
+          </div>
 
-				<section>
-					<h3>A Cross Product Formula</h3>
+         
+        </section>
 
-					\[\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-					\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
-					\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
-					\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0
-					\end{vmatrix}  \]
-				</section>
+        <section data-transition="fade-in">
+          <h2>Complex Analysis</h2>
+          <p>Series</p>
 
-				<section>
-					<h3>The probability of getting \(k\) heads when flipping \(n\) coins is</h3>
+          <div style="text-align: left; margin-left: 1.6em">
+            <p>
+              \(\text{I.} \;\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\cdots
+              =\frac{\pi}{6}\)
+            </p>
 
-					\[P(E)   = {n \choose k} p^k (1-p)^{ n-k} \]
-				</section>
+            <p class="fragment" data-fragment-index="0">
+              \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+              \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+            </p>
+            <p class="fragment" data-fragment-index="1">
+              \(\zeta\) is the Riemann zeta function.
+            </p>
+          </div>
+        </section>
 
-				<section>
-					<h3>An Identity of Ramanujan</h3>
+        <section data-transition="fade-in">
+          <h2>Complex Analysis</h2>
+          <p>Riemann hypothesis</p>
 
-					\[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =
-					1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
-					{1+\frac{e^{-8\pi}} {1+\ldots} } } } \]
-				</section>
+          <div style="text-align: left; margin-left: 1.6em">
+            <p>
+              \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+              \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+            </p>
+            <p class="fragment" data-fragment-index="0">
+              \(\zeta\) has only many non-trivial zeros and they all lie on the
+              line \(\text{Re}(s)=\dfrac{1}{2}\)
+            </p>
+          </div>
+        </section>
 
-				<section>
-					<h3>A Rogers-Ramanujan Identity</h3>
+        <section data-transition="fade-in">
+          <h2>Complex Analysis</h2>
+          <p>Riemann hypothesis</p>
 
-					\[  1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots =
-					\prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}\]
-				</section>
+          <div style="text-align: left; margin-left: 1.6em">
+            <p>
+              \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+              \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+            </p>
+            <p class="fragment" data-fragment-index="0">
+              Only makes sense for \(\text{Re}(s)&gt;1\):
+            </p>
+            <p class="fragment" data-fragment-index="1">
+              Need to extend \(\zeta\) to \(\mathbb C\) via analytic
+              continuation.
+            </p>
+          </div>
+        </section>
 
-				<section>
-					<h3>Maxwell&#8217;s Equations</h3>
+        <section data-transition="fade-in">
+          <h2>Complex Analysis</h2>
+          <p>Riemann hypothesis</p>
 
-					\[  \begin{aligned}
-					\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} &amp; = 4 \pi \rho \\
-					\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp; = \vec{\mathbf{0}} \\
-					\nabla \cdot \vec{\mathbf{B}} &amp; = 0 \end{aligned}
-					\]
-				</section>
+          <div style="text-align: left; margin-left: 1.6em">
+            <p>
+              \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+              \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+            </p>
+            <p class="fragment" data-fragment-index="0">
+              Trivial zetos are \(-2, -4, -6, \cdots\)
+            </p>
+            <p class="fragment" data-fragment-index="1">
+              Millenium problem!
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
 
-				<section>
-					<h3>TeX Macros</h3>
+    <script src="js/reveal.js"></script>
+    <script src="js/math.js"></script>
+    <script>
+      Reveal.initialize({
+        slideNumber: "c/t",
+        
+        history: true,
+        center: true,
+        transition: "linear",
 
-					Here is a common vector space:
-					\[L^2(\R) = \set{u : \R \to \R}{\int_\R |u|^2 &lt; +\infty}\]
-					used in functional analysis.
-				</section>
+        math: {
+          // mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: "TeX-AMS_HTML-full",
+          TeX: {
+            Macros: {
+              R: "\\mathbb{R}",
+              C: "\\mathbb{C}",
+              set: ["\\left\\{#1 \\; ; \\; #2\\right\\}", 2]
+            }
+          }
+        },
 
-				<section>
-					<section>
-						<h3>The Lorenz Equations</h3>
-
-						<div class="fragment">
-							\[\begin{aligned}
-							\dot{x} &amp; = \sigma(y-x) \\
-							\dot{y} &amp; = \rho x - y - xz \\
-							\dot{z} &amp; = -\beta z + xy
-							\end{aligned} \]
-						</div>
-					</section>
-
-					<section>
-						<h3>The Cauchy-Schwarz Inequality</h3>
-
-						<div class="fragment">
-							\[ \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right) \]
-						</div>
-					</section>
-
-					<section>
-						<h3>A Cross Product Formula</h3>
-
-						<div class="fragment">
-							\[\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-							\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
-							\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
-							\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0
-							\end{vmatrix}  \]
-						</div>
-					</section>
-
-					<section>
-						<h3>The probability of getting \(k\) heads when flipping \(n\) coins is</h3>
-
-						<div class="fragment">
-							\[P(E)   = {n \choose k} p^k (1-p)^{ n-k} \]
-						</div>
-					</section>
-
-					<section>
-						<h3>An Identity of Ramanujan</h3>
-
-						<div class="fragment">
-							\[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =
-							1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
-							{1+\frac{e^{-8\pi}} {1+\ldots} } } } \]
-						</div>
-					</section>
-
-					<section>
-						<h3>A Rogers-Ramanujan Identity</h3>
-
-						<div class="fragment">
-							\[  1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots =
-							\prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}\]
-						</div>
-					</section>
-
-					<section>
-						<h3>Maxwell&#8217;s Equations</h3>
-
-						<div class="fragment">
-							\[  \begin{aligned}
-							\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} &amp; = 4 \pi \rho \\
-							\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp; = \vec{\mathbf{0}} \\
-							\nabla \cdot \vec{\mathbf{B}} &amp; = 0 \end{aligned}
-							\]
-						</div>
-					</section>
-
-					<section>
-						<h3>TeX Macros</h3>
-
-						Here is a common vector space:
-						\[L^2(\R) = \set{u : \R \to \R}{\int_\R |u|^2 &lt; +\infty}\]
-						used in functional analysis.
-					</section>
-				</section>
-
-			</div>
-
-		</div>
-
-		<script src="js/reveal.js"></script>
-		<script src="js/math.js"></script>
-		<script>
-			Reveal.initialize({
-				history: true,
-				transition: 'linear',
-
-				math: {
-					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-					config: 'TeX-AMS_HTML-full',
-					TeX: {
-						Macros: {
-							R: '\\mathbb{R}',
-							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
-						}
-					}
-				},
-
-				plugins: [ RevealMath ]
-			});
-		</script>
-
-	</body>
+        plugins: [RevealMath]
+      });
+    </script>
+  </body>
 </html>
