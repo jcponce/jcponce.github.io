@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>MATH3401 - Lecture 2</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <link rel="stylesheet" href="css/reveal.css" />
+  <link rel="stylesheet" href="css/white.css" id="theme" />
+  <link rel="stylesheet" href="css/mylayout.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>MATH3401</h1>
+        <h3>Complex Analysis</h3>
+        <p>Lecture 2</p>
+      </section>
+
+      <section>
+        <h2>Complex Numbers</h2>
+        <ul>
+          <li class="fragment" data-fragment-index="0">1545:
+            Cardano, roots of \(x^3+ax+b\)<br/> 
+            <span class="fragment" data-fragment-index="1">
+              \(5+\sqrt{-15} \rightarrow \) "mental torture"
+            </span> 
+          </li>
+          <li class="fragment" data-fragment-index="2">1575:
+            \(i\), rules for operations in \(\mathbb C\)
+          </li>
+          <li class="fragment" data-fragment-index="3">1629:
+            \(a+\sqrt{-b}\) Girard "Solutions impossibles"
+          </li>
+          <li class="fragment" data-fragment-index="4">1637:
+            Descartes imaginary numbers
+          </li>
+          <li class="fragment" data-fragment-index="5">1831:
+            Complex numbers
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Introduction</h2>
+        <ul>
+          <li class="fragment" data-fragment-index="0">\(\mathbb N\):
+            \(\{1, 2, 3, \ldots \}\) natural numbers
+          </li>
+          <li class="fragment" data-fragment-index="1">\(\mathbb N_0\):
+            \(\{0, 1, 2, 3, \ldots \}\) 
+          </li>
+          <li class="fragment" data-fragment-index="2">\(\mathbb Z\):
+            \(\{0, \pm 1, \pm  2, \ldots \}\) integers
+          </li>
+          <li class="fragment" data-fragment-index="3">\(\mathbb Q\):
+            \(\{p/q \; | \; p, q \in \mathbb Z, q\neq 0 \}\) rational numbers
+          </li>
+          <li class="fragment" data-fragment-index="4">\(\mathbb R\):
+            real numbers
+          </li>
+          <li class="fragment" data-fragment-index="5">\(\mathbb C\):
+            complex numbers
+          </li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h3>Equivalent representations of \(\mathbb C\)</h3>
+        <ul style="list-style-type:none;">
+          <li class="fragment" data-fragment-index="0"> \(z = (x,y)\) belongs to the
+            complex plane with \(x,y\in \mathbb R\).
+          </li>
+          <li class="fragment" data-fragment-index="1">So \(z=x\left(1,0\right)+y\left(0,1\right)\),  
+            <span class="fragment" data-fragment-index="2"> i. e.</span>
+            <span class="fragment" data-fragment-index="2">\[z = x+i\, y\]</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">where \(x\) and \(y\) are the real 
+            and imaginary parts, respectively.
+          </li>
+        </ul>
+      </section>
+
+     
+
+      
+
+      <section data-transition="fade-out">
+        <h2>Complex Analysis</h2>
+        <p>Series</p>
+
+        <div style="text-align: left; margin-left: 1.6em">
+          <p class="fragment" data-fragment-index="0">
+            \(\text{I.} \;\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\cdots
+            =\frac{\pi}{6}\)
+          </p>
+
+          <p class="fragment" data-fragment-index="1">
+            \(\text{II.} \;\frac{1}{1^2}-\frac{1}{2^2}+\frac{1}{3^2}-\cdots
+            =\frac{\pi^2}{12}\)
+          </p>
+          <p class="fragment" data-fragment-index="2">
+            \(\text{III.} \;{\small \displaystyle \sum_{k=1}^{\infty}
+            \frac{1}{1+4k^2\pi^2}=\frac{1}{2}\left(
+            \frac{1}{e-1}-\frac{1}{2}\right)}\)
+          </p>
+        </div>
+
+
+      </section>
+
+      <section data-transition="fade-in">
+        <h2>Complex Analysis</h2>
+        <p>Series</p>
+
+        <div style="text-align: left; margin-left: 1.6em">
+          <p>
+            \(\text{I.} \;\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\cdots
+            =\frac{\pi}{6}\)
+          </p>
+
+          <p class="fragment" data-fragment-index="0">
+            \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+            \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+          </p>
+          <p class="fragment" data-fragment-index="1">
+            \(\zeta\) is the Riemann zeta function.
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-in">
+        <h2>Complex Analysis</h2>
+        <p>Riemann hypothesis</p>
+
+        <div style="text-align: left; margin-left: 1.6em">
+          <p>
+            \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+            \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+          </p>
+          <p class="fragment" data-fragment-index="0">
+            \(\zeta\) has only many non-trivial zeros and they all lie on the
+            line \(\text{Re}(s)=\dfrac{1}{2}\)
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-in">
+        <h2>Complex Analysis</h2>
+        <p>Riemann hypothesis</p>
+
+        <div style="text-align: left; margin-left: 1.6em">
+          <p>
+            \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+            \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+          </p>
+          <p class="fragment" data-fragment-index="0">
+            Only makes sense for \(\text{Re}(s)&gt;1\):
+          </p>
+          <p class="fragment" data-fragment-index="1">
+            Need to extend \(\zeta\) to \(\mathbb C\) via analytic
+            continuation.
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-in">
+        <h2>Complex Analysis</h2>
+        <p>Riemann hypothesis</p>
+
+        <div style="text-align: left; margin-left: 1.6em">
+          <p>
+            \(\zeta(s) = \displaystyle \sum_{n=1}^{\infty}\frac{1}{n^s}=
+            \displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\)
+          </p>
+          <p class="fragment" data-fragment-index="0">
+            Trivial zetos are \(-2, -4, -6, \cdots\)
+          </p>
+          <p class="fragment" data-fragment-index="1">
+            Millenium problem!
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+  <script src="js/math.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: "c/t",
+
+      history: true,
+      center: true,
+      transition: "linear",
+
+      math: {
+        // mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+        config: "TeX-AMS_HTML-full",
+        TeX: {
+          Macros: {
+            R: "\\mathbb{R}",
+            C: "\\mathbb{C}",
+            set: ["\\left\\{#1 \\; ; \\; #2\\right\\}", 2]
+          }
+        }
+      },
+
+      plugins: [RevealMath]
+    });
+  </script>
+</body>
+
+</html>
