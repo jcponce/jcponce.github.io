@@ -32,7 +32,7 @@
                   \(x+i\,y \mapsto x-i\,y\).
                 </p>
                 <p class="fragment" data-fragment-index="1">If \(z=x+i\,y \), then
-                  \(\overline{z} = x+i\,y\).
+                  \(\overline{z} = x-i\,y\).
                 </p>
               </div>
             </th>
@@ -83,40 +83,68 @@
         <p class="fragment fade-up" data-fragment-index="0">\(|z+w|\leq |z| + |w|\)</p>
         <table style="width:100%;">
           <tr>
-            <th style="width:40%">
+            <th style="width:45%">
               <div style="text-align: left; margin-left: 0.1em; font-weight:normal; font-size:65%">
                 <p class="fragment" data-fragment-index="1">Proof:
                 </p>
                 <p class="fragment" data-fragment-index="2">\(|z+w|^2=|z|^2+|w|^2-2|z||w|\cos A\)
                 </p>
-                <p class="fragment" data-fragment-index="3">\(|z+w|^2\leq |z|^2+|w|^2-2|z||w|\), <br/>
+                <p class="fragment" data-fragment-index="3">\(|z+w|^2\leq |z|^2+|w|^2-2|z||w|\), <br />
                   since \(\cos A \geq -1\).
                 </p>
-                <p class="fragment" data-fragment-index="4">Then \(|z+w|^2 \leq \left(|z|^2+|w|^2\right)^2\). 
+                <p class="fragment" data-fragment-index="4">Then \(|z+w|^2 \leq \left(|z|^2+|w|^2\right)^2\).
                 </p>
-                <p class="fragment" data-fragment-index="5">Take \(\sqrt{}\) in both sides and we are done \(\blacksquare\). 
+                <p class="fragment" data-fragment-index="5">Take \(\sqrt{}\) in both sides and we are done
+                  \(\blacksquare\).
                 </p>
               </div>
             </th>
-            <th style="width:60%;"><img style="width: 100%; 
+            <th style="width:55%;"><img style="width: 100%; 
               display: block;
               margin-left: auto;
-              margin-right: auto;" 
-              class="fragment" data-fragment-index="2" 
-              class="r-stretch"
-              data-src="img/lect-03/trian-ineq.svg" />
+              margin-right: auto;" class="fragment" data-fragment-index="2" class="r-stretch"
+                data-src="img/lect-03/trian-ineq.svg" />
             </th>
           </tr>
         </table>
       </section>
 
       <section class="left">
-        <h3>Equivalent representations of \(\C\)</h3>
-        <ol style="list-style-type: lower-roman;">
-          <li>Coffee</li>
-          <li>Tea</li>
-          <li>Milk</li>
-        </ol>
+        <h3>Polar coordinates</h3>
+        <table style="width:100%;">
+          <tr>
+            <th style="width:55%;"><img style="width: 100%; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;"
+              class="fragment" data-fragment-index="0" 
+              class="r-stretch" 
+              data-src="img/lect-03/polar-coord.svg" />
+            </th>
+            <th style="width:45%">
+              <div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+                <p class="fragment" data-fragment-index="1">
+                  \[
+                  \left\{
+                  \begin{array}{r}
+                  x = r\cos \theta \\
+                  y = r\cos \theta
+                  \end{array}
+                  \right.
+                  \]
+                </p>
+                <p class="fragment" data-fragment-index="2">\[
+                  \begin{align*}
+                  z &= r e^{r \theta} \\
+                    &= r \left(\cos \theta + i \, \sin \theta \right)\\
+                    &= r \text{cis}\theta
+                  \end{align*}
+                  \]
+                </p>
+              </div>
+            </th>
+          </tr>
+        </table>
       </section>
 
       <section>
@@ -141,54 +169,6 @@
           </tr>
         </table>
       </section>
-
-      <section>
-        <h3>Addition in \(\mathbb C\)</h3>
-        <div class="mylftText">
-          <p class="fragment" data-fragment-index="0"> Set
-            \[\left(x_1,y_1\right)+\left(x_2,y_2\right) = \left(x_1+x_2,y_1+y_2\right)\]
-          </p>
-          <!--<p class="fragment" data-fragment-index="1">That is
-            \[\left(x_1 + i\, y_1\right)+\left(x_2 + i \,y_2\right) = \left(x_1+x_2\right)+i\left(y_1+y_2\right)\]
-          </p>-->
-          <p class="fragment" data-fragment-index="1">That is <br />
-            <p></p>
-            <span class="fragment" data-fragment-index="1">
-              \(
-              \left(x_1 + i\, y_1\right)+\left(x_2 + i \,y_2\right) =
-              \left(x_1+x_2\right)+i\left(y_1+y_2\right)
-              \)
-            </span>
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h3>Multiplication in \(\C\)</h3>
-        <div class="mylftText">
-          <p class="fragment" data-fragment-index="0"> We can use \(\times\) or \(\cdot\) or juxtaposition.
-          </p>
-          <p class="fragment" data-fragment-index="1">
-            \[{\small \left(x_1, y_1\right) \cdot \left(x_2, y_2\right) = \left(x_1 x_2 - y_1 y_2, y_1 x_2 + x_1
-            y_2\right)}\]
-          </p>
-          <!--<p class="fragment" data-fragment-index="2">That is
-            \[{\small \left(x_1 + i\, y_1\right)  \left(x_2 + i \,y_2\right) = \left(x_1 x_2 - y_1 y_2\right)+i\left(y_1 x_2 + x_1 y_2\right)}\]
-          </p>-->
-          <p class="fragment" data-fragment-index="2">That is<br />
-            <p></p>
-            <span class="fragment" data-fragment-index="2">
-              \(
-              \left(x_1 + i\, y_1\right) \left(x_2 + i \,y_2\right) =
-              \left(x_1 x_2 - y_1 y_2\right)+i\left(y_1 x_2 + x_1 y_2\right)
-              \)
-            </span>
-          </p>
-
-        </div>
-      </section>
-
-
 
       <section data-transition="fade-in" id="lec-note-2-1">
         <h2>Note 2.1</h2>
