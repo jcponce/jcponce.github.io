@@ -116,10 +116,8 @@
             <th style="width:55%;"><img style="width: 100%; 
               display: block;
               margin-left: auto;
-              margin-right: auto;"
-              class="fragment" data-fragment-index="0" 
-              class="r-stretch" 
-              data-src="img/lect-03/polar-coord.svg" />
+              margin-right: auto;" class="fragment" data-fragment-index="0" class="r-stretch"
+                data-src="img/lect-03/polar-coord.svg" />
             </th>
             <th style="width:45%">
               <div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
@@ -136,8 +134,8 @@
                 <p class="fragment" data-fragment-index="2">\[
                   \begin{align*}
                   z &= r e^{i \theta} \\
-                    &= r \left(\cos \theta + i \, \sin \theta \right)\\
-                    &= r \text{cis}\theta
+                  &= r \left(\cos \theta + i \, \sin \theta \right)\\
+                  &= r \text{cis}\theta
                   \end{align*}
                   \]
                 </p>
@@ -150,40 +148,37 @@
       <section>
         <h3>Argument</h3>
         <div class="mylftText">
-          <p class="fragment" data-fragment-index="0">\(r e^{i \theta}\) formally follows from Taylor 
+          <p class="fragment" data-fragment-index="0">\(r e^{i \theta}\) formally follows from Taylor
             series of \(e^{i\theta}\).
           </p>
-          <p class="fragment" data-fragment-index="1">Here \(\theta\) is <span class="fragment highlight-red" data-fragment-index="2">an argument</span> of \(z\) 
+          <p class="fragment" data-fragment-index="1">Here \(\theta\) is <span class="fragment highlight-red"
+              data-fragment-index="2">an argument</span> of \(z\)
             and we write \(\theta = \arg(z)\).
           </p>
           <p class="fragment" data-fragment-index="3">The \(\arg \) is not a (single-valued) function.
           </p>
-          <p class="fragment" data-fragment-index="4">If \(\theta\) is an argument of \(z\), 
-            \(\Arg(z)\) is defined to be the unique value of \(\theta\) with 
-            \[-\pi < \arg (z) \leq \pi\]
-          </p>
-        </div>
+          <p class="fragment" data-fragment-index="4">If \(\theta\) is an argument of \(z\),
+            \(\Arg(z)\) is defined to be the unique value of \(\theta\) with
+            \[-\pi < \arg (z) \leq \pi\] </p> </div> </section> <section data-transition="fade-out">
+              <h3>Argument</h3>
+              <div class="mylftText">
+                <p class="fragment" data-fragment-index="0">\(\Arg(1+i)=\frac{\pi}{4}\), <span class="fragment"
+                    data-fragment-index="1">but
+                    \[\arg(1+i) = \ldots\, -\frac{7\pi}{4}, \frac{\pi}{4}, \frac{9\pi}{4}, \ldots.\]</span>
+                </p>
+                <p class="fragment" data-fragment-index="2">\(\Arg(-6)=\pi\).
+                </p>
+                <p class="fragment" data-fragment-index="3">\(\Arg(0)\) is undefined.
+                </p>
+                <p class="fragment" data-fragment-index="4">\(\arg(0)=\R\).
+                </p>
+              </div>
       </section>
 
-      <section>
+      <section data-transition="fade-out">
         <h3>Argument</h3>
         <div class="mylftText">
-          <p class="fragment" data-fragment-index="0">\(\Arg(1+i)=\frac{\pi}{4}\), <span class="fragment" data-fragment-index="1">but
-            \[\arg(1+i) = \ldots\, -\frac{7\pi}{4}, \frac{\pi}{4}, \frac{9\pi}{4}, \ldots.\]</span>
-          </p>
-          <p class="fragment" data-fragment-index="2">\(\Arg(-6)=\pi\).
-          </p>
-          <p class="fragment" data-fragment-index="3">\(\Arg(0)\) is undefined.
-          </p>
-          <p class="fragment" data-fragment-index="4">\(\arg(0)=\R\).
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h3>Argument</h3>
-        <div class="mylftText">
-          <p >So \(\Arg\) is a function:
+          <p>So \(\Arg\) is a function:
             \[\C\setminus \{0\} \rightarrow \R \]
           </p>
           <p class="fragment" data-fragment-index="0">\(\C\setminus \{0\} = \C^* = \C_*\).
@@ -191,117 +186,77 @@
         </div>
       </section>
 
-    
-
-      <section data-transition="fade-in">
-        <h2>Note 2.1</h2>
+      <section data-transition="fade-out">
+        <h3>Argument</h3>
         <div class="mylftText">
-          <p>
-            (F2)(i) Existence of additive identity:
-            \(0 = 0+i\,0\)
+          <p class="fragment" data-fragment-index="0">Notice also that \(|e^{i\theta}|=1\).
           </p>
-          <p class="fragment" data-fragment-index="0">
-            (F2)(ii) Existence of additive inverse:
-            \[-z = -(x+i\,y) = (-x)+i\,(-y)\]
+          <p class="fragment" data-fragment-index="1">\(\left(e^{i\theta} \right)^{-1} = e^{-i\theta}=
+            \conj{e^{i\theta}}\).
+          </p>
+          <p class="fragment" data-fragment-index="2">\(\left( r e^{i\theta} \right) \left( \rho e^{i\phi} \right) = r
+            \rho e^{i\left(\theta + \phi\right)} \).
+          </p>
+          <p class="fragment" data-fragment-index="3">So \( |z\, w| = |z|\,|w|\) and
+            \[\arg(z\, w) = \arg(z) + \arg(w).\]
           </p>
         </div>
       </section>
 
+
       <section data-transition="fade-in">
-        <h2>Note 2.1</h2>
+        <h3>Argument</h3>
         <div class="mylftText">
-          <p>
-            (F5)(i) Existence of multiplicative identity:
-            \(1 = 1+i\,0\)
+          <p class="fragment" data-fragment-index="0">But \( \Arg(z\, w)\) may fail to be equal to \[\Arg(z)+\Arg(w).\]
           </p>
+          <p class="fragment" data-fragment-index="1">E. g. \( z = w = \frac{-1+i}{2}\).
+          </p>
+          <p class="fragment" data-fragment-index="2">\( \Arg(z) = \Arg(w) = \frac{3\pi}{4}\).
+          </p>
+          <p class="fragment" data-fragment-index="3">\( z\,w = -i \implies \Arg(z \, w) = -\frac{\pi}{2}\).
+          </p>
+          <p class="fragment" data-fragment-index="4">but \( \Arg(z)+\Arg(w) = \frac{3\pi}{2}\).
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h3>de Moivre's formula</h3>
+        <div class="mylftText"style="font-size:80%">
           <p class="fragment" data-fragment-index="0">
-            (F5)(ii) Existence of multiplicative inverse: \(z = x+i\,y \neq 0\),
+            Let \(z = r e^{i\theta}\), <span class="fragment" data-fragment-index="1">then \(z^n = r^n e^{i n \theta}\),
+              \(n\in \N\).</span> 
+          </p>
+          <p class="fragment" data-fragment-index="2">For \(r=1\),
             \[
             \begin{align*}
-            z &= \dfrac{1}{x+i\,y}\cdot \dfrac{x-i\,y}{x+i\,y} \\
-            &= \dfrac{x}{x^2+y^2} - i \dfrac{y}{x^2 + y^2}
+            e^{i n \theta} &= \left(\cos \theta + \sin \theta \right)^n \\
+            &= \cos \left(n\theta\right) + i\,\sin \left(n\theta\right) 
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="3">Example:
+            \[
+            \begin{align*}
+            \left(1+i\right)^7 &= \left( \sqrt{2} e^{i\pi/4} \right)^7 \\
+            &= \left(\sqrt{2}\right)^7 e^{i7\pi/4} = 8-8i.
             \end{align*}
             \]
           </p>
         </div>
       </section>
 
-      <section data-transition="fade-in">
-        <h2>Note 2.1</h2>
-        <div class="mylftText">
-          <p>
-            Since \(\C\) is a field, there holds:
-            \[z_1 z_2 = 0 \implies \text{ either } z_1=0 \text{ or } z_2=0\]
-          </p>
-          <p>
-            (called null-factor or cancelation lar).
-          </p>
-        </div>
-      </section>
-
-      <section id="lec-note-2-2">
-        <h2>Note 2.2</h2>
-        <div class="mylftText">
-          <p>
-            \[
-            \begin{align*}
-            \left(z_1 z_2\right)^{-1} &= z_1^{-1}z_2^{-1} \\
-            &= \dfrac{1}{z_1}\cdot \dfrac{1}{z_2}=\dfrac{1}{z_1 z_2}, \text{ with } z_1,z_2\neq 0
-            \end{align*}
-            \]
-          </p>
-        </div>
-      </section>
-
-      <section id="lec-note-2-3">
-        <h2>Note 2.3</h2>
-        <div class="mylftText">
-          <p>
-            \(i^2=-1\), \(\left(-i\right)^2=-1\).
-          </p>
-          <p>
-            These are the only two solutions of \(z^2=-1\) in \(\C\).
-          </p>
-        </div>
-      </section>
-
       <section>
-        <h2>Other functions</h2>
-        <ul>
-          <li class="fragment" data-fragment-index="0">Modulus:
-            \(|z|=\sqrt{x^2+y^2}\)<br />
-            <span class="fragment" data-fragment-index="1">
-              \[\text{e. g. } |7+i\,3| = \sqrt{49+9} = \sqrt{58}\]
-            </span>
-            <span class="fragment" data-fragment-index="2">The modulus
-              is a one-to-one function from \(\C\) to \(\R\).
-              Indeed \(|z|:\mathbb C \rightarrow \left[0,\infty\right) \).
-            </span>
-          </li>
-        </ul>
+        <h5>Credits</h5>
+        <div style="font-size:24px">
+          <p>Lecture notes<br /><a href="https://people.smp.uq.edu.au/JosephGrotowski/">Joseph Grotowski</a></p>
+          <p>Design<br /><a href="https://smp.uq.edu.au/profile/2155/juan-ponce-campuzano">Juan Carlos Ponce
+              Campuzano</a></p>
+          <br />
+          <p>Go to next <a href="#">Lecture</a></p>
+        </div>
+
       </section>
-
-      <section>
-        <h2>Other functions</h2>
-        <ul>
-          <li>\(\Re(z) =\) real part of \(z\).
-          </li>
-          <li class="fragment" data-fragment-index="0">\(\Im(z) =\) imaginary part of \(z\).
-          </li>
-          <li class="fragment" data-fragment-index="1">
-            \( \Re : \C \rightarrow \R \)
-            and
-            \( \Im : \C \rightarrow \R \)
-          </li>
-          <li class="fragment" data-fragment-index="2">Examples:
-            \[
-            \Re(7+3i) = 7, \quad \Im(7+3i)= 3.
-            \]
-          </li>
-        </ul>
-      </section>
-
-
 
     </div>
   </div>
