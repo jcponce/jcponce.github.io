@@ -17,6 +17,25 @@ let noiseval = 0.01;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   pointInit();
+
+  // create the eelment  
+  title = createElement('h1', ["MATH3401"]);  
+    
+  // position the element 
+  title.position(width/2, height/2);
+
+  // create the eelment  
+  course = createElement('h2', ["Complex Analysis"]);  
+    
+  // position the element 
+  course.position(width/2, height/2+60);
+
+  // create the eelment  
+  link = createA('https://courses.smp.uq.edu.au/MATH3401/', 'this is a link');
+    
+  // position the element 
+  link.position(width/2, height/2+120);
+  
 }
 
 function draw() {
@@ -25,6 +44,8 @@ function draw() {
     dots[i].drawMe();
     dots[i].updateMe();
   }
+
+  
 }
 
 function pointInit() {
