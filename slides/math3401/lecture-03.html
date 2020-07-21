@@ -135,7 +135,7 @@
                 </p>
                 <p class="fragment" data-fragment-index="2">\[
                   \begin{align*}
-                  z &= r e^{r \theta} \\
+                  z &= r e^{i \theta} \\
                     &= r \left(\cos \theta + i \, \sin \theta \right)\\
                     &= r \text{cis}\theta
                   \end{align*}
@@ -148,43 +148,50 @@
       </section>
 
       <section>
-        <h3>Equivalent representations of \(\C\)</h3>
-        <table style="width:100%;">
-          <tr>
-            <th style="width:45%;"><img style="width: 100%; 
-              display: block;
-              margin-left: auto;
-              margin-right: auto;" class="r-stretch" data-src="img/lect-03/complex-conj.svg" />
-            </th>
-            <th style="width:55%">
-              <div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-                <p class="fragment" data-fragment-index="0">\(i\) is the complex number
-                  represented by \(\left(0,1\right)\).
-                </p>
-                <p class="fragment" data-fragment-index="1">We say \(\R \subset \C\)
-                  by identifying the complex number \(x+i\cdot 0\) with the real number \(x\).
-                </p>
-              </div>
-            </th>
-          </tr>
-        </table>
-      </section>
-
-      <section data-transition="fade-in" id="lec-note-2-1">
-        <h2>Note 2.1</h2>
+        <h3>Argument</h3>
         <div class="mylftText">
-          <p>
-            The definition of \(\times\) formally applies if we use the
-            usual rules for algebra in \(\R\) and set \(i=\sqrt{-1}\).
+          <p class="fragment" data-fragment-index="0">\(r e^{i \theta}\) formally follows from Taylor 
+            series of \(e^{i\theta}\).
           </p>
-          <p>
-            With the operations \(+\) and \(\times\), \(\C\) is a field.
+          <p class="fragment" data-fragment-index="1">Here \(\theta\) is <span class="fragment highlight-red" data-fragment-index="2">an argument</span> of \(z\) 
+            and we write \(\theta = \arg(z)\).
           </p>
-          <p>
-            <em>Exercise:</em> Check that \(\C\) is closed under \(+\) and \(\times\).
+          <p class="fragment" data-fragment-index="3">The \(\arg \) is not a (single-valued) function.
+          </p>
+          <p class="fragment" data-fragment-index="4">If \(\theta\) is an argument of \(z\), 
+            \(\Arg(z)\) is defined to be the unique value of \(\theta\) with 
+            \[-\pi < \arg (z) \leq \pi\]
           </p>
         </div>
       </section>
+
+      <section>
+        <h3>Argument</h3>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">\(\Arg(1+i)=\frac{\pi}{4}\), <span class="fragment" data-fragment-index="1">but
+            \[\arg(1+i) = \ldots\, -\frac{7\pi}{4}, \frac{\pi}{4}, \frac{9\pi}{4}, \ldots.\]</span>
+          </p>
+          <p class="fragment" data-fragment-index="2">\(\Arg(-6)=\pi\).
+          </p>
+          <p class="fragment" data-fragment-index="3">\(\Arg(0)\) is undefined.
+          </p>
+          <p class="fragment" data-fragment-index="4">\(\arg(0)=\R\).
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Argument</h3>
+        <div class="mylftText">
+          <p >So \(\Arg\) is a function:
+            \[\C\setminus \{0\} \rightarrow \R \]
+          </p>
+          <p class="fragment" data-fragment-index="0">\(\C\setminus \{0\} = \C^* = \C_*\).
+          </p>
+        </div>
+      </section>
+
+    
 
       <section data-transition="fade-in">
         <h2>Note 2.1</h2>
@@ -321,6 +328,7 @@
             Q: "\\mathbb{Q}",
             Re: "{\\mbox{Re}}",
             Im: "{\\mbox{Im}}",
+            arg: "{\\mbox{arg}}",
             Arg: "{\\mbox{Arg}}",
             conj: ["{\\overline{#1}}", 1],
             set: ["\\left\\{#1 \\; ; \\; #2\\right\\}", 2]
