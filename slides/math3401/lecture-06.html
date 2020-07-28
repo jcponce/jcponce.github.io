@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
 
-  <title>MATH3401 - Lecture 5</title>
+  <title>MATH3401 - Lecture 6</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
@@ -19,35 +19,50 @@
       <section>
         <h1>MATH3401</h1>
         <h3>Complex Analysis</h3>
-        <p>Lecture 5</p>
+        <p>Lecture 6</p>
       </section>
 
-      <section id="inversion">
-        <h4>Basic idea with new mappings</h4>
+      <section id="implicit-form">
+        <h4>Implicit form of M&ouml;bius transformations (MT)</h4>
         <div class="mylftText" style="font-size:90%">
-          <p><strong>Example 2:</strong> \(z\mapsto \dfrac{1}{z}\) on \(\C_*\).
-          </p>
-          <p class="fragment" data-fragment-index="0">Define \(\xi (z) = \dfrac{z}{|z|^2}\) on \(\C_*\); <span
-              class="fragment" data-fragment-index="1">\(\;\;\eta(\xi)=\conj{\xi}\) on \(\C\).</span>
-          </p>
-          <p class="fragment" data-fragment-index="2">\(\eta \circ \xi (z) = \eta \left( \xi \left( z \right) \right) =
-            \conj{\left( \dfrac{z}{|z|^2} \right)} = \dfrac{\conj z }{ |z|^2 } \)
-          </p>
-          <p class="fragment" data-fragment-index="3">\(\;\;\,\quad\quad = \dfrac{\conj z}{z \conj z} = \dfrac{1}{z}\).
-            \(\qquad z\in \C_*\)
+          <p>\(T(z) = w = \dfrac{az+b}{cz+d}\; (*)\), with \(ad-bc \neq 0\),
+            <span class="fragment" data-fragment-index="0">can be written as
+              \[
+              A z w + B z + C w + D = 0
+              \]
+            </span>
+            <span class="fragment" data-fragment-index="1">with \(A=c, B=-a, C=d\) and \(D=b\);</span>
+            <span class="fragment" data-fragment-index="2">called the <strong>implicit form</strong>.
+            </span>
           </p>
         </div>
       </section>
 
-      <section data-transition="fade-out" id="applet">
-        <h4>Basic idea with new mappings</h4>
-        <iframe width="100%" height="397px" style="border:0px" noscrolling 
-          data-src="https://www.geogebra.org/material/iframe/id/rrp8kffy/width/827/height/360/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-          data-preload></iframe>
-        <p style="font-size:65%" class="fragment" data-fragment-index="0">\(\xi\) is called <strong>inversion</strong>
-          (w.r.t the unit circle),</p>
-        <p style="font-size:65%" class="fragment" data-fragment-index="1">\(\eta\) is <strong>reflexion</strong> in the
-          real axis.</p>
+      <section data-transition="fade-out">
+        <h4>Implicit form of MT</h4>
+        <div class="mylftText" style="font-size:75%">
+          <p class="fragment" data-fragment-index="0"><strong>Case I:</strong> \(c=0\).
+            <span class="fragment" data-fragment-index="1">
+              \(T\) is a bijection (1-1 and onto): \(\C\rightarrow \C\).
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="2"><strong>Case II:</strong> <a href="#implicit-form">\((*)\)</a> \(\implies z=\dfrac{-dw+b}{cw-a}\). 
+            <span class="fragment" data-fragment-index="3"> Thus
+              \[
+              T^{-1}(w)= \dfrac{-dw+b}{cw-a}.
+              \]
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="4">Then in Case II, \(T\) is 1-1 and onto 
+            \(\C \setminus \left\{-d/c\right\} \rightarrow \C \setminus \left\{a/c\right\}\).
+          </p>
+          <p class="fragment" data-fragment-index="5"><strong>Question:</strong> Can we extend \(T\) to a function
+            \(\C\rightarrow \C\) in Case II? In particular, so extension is 1-1 and onto.
+          </p>
+          <p class="fragment" data-fragment-index="6"><strong>Ans:</strong> Yes! Take 
+            \(T\left(-d/c\right)=a/c\)
+          </p>
+        </div>
       </section>
 
       <section data-transition="fade-out" id="components">
@@ -143,7 +158,7 @@
       </section>
 
       <section>
-        <h3>M&ouml;bius transformation</h3>
+        <h3>M&ouml;bius transformations</h3>
         <p style="font-size:80%">Goal: Understand \(T\) geometrically</p>
         <div class="mylftText" style="font-size:80%">
           <p class="fragment" data-fragment-index="0"><strong>Case I:</strong> \(c=0\).
@@ -173,9 +188,11 @@
         <div class="mylftText" style="font-size:70%">
           <p><strong>Case II:</strong> \(c\neq 0\).
           </p>
-          <p class="fragment" data-fragment-index="0">\(w = \dfrac{az+b}{cz+d} =\) 
-            <span class="fragment" data-fragment-index="1">\( \dfrac{a\left(z+\dfrac{d}{c}\right)- \dfrac{ad}{c}+b}{c\left(z+\dfrac{d}{c}\right)}\)</span>
-            <span class="fragment" data-fragment-index="2">\(=\dfrac{a}{c}+\left(\dfrac{bc-ad}{c}\right)\cdot \dfrac{1}{cz+d}\)</span>
+          <p class="fragment" data-fragment-index="0">\(w = \dfrac{az+b}{cz+d} =\)
+            <span class="fragment" data-fragment-index="1">\( \dfrac{a\left(z+\dfrac{d}{c}\right)-
+              \dfrac{ad}{c}+b}{c\left(z+\dfrac{d}{c}\right)}\)</span>
+            <span class="fragment" data-fragment-index="2">\(=\dfrac{a}{c}+\left(\dfrac{bc-ad}{c}\right)\cdot
+              \dfrac{1}{cz+d}\)</span>
           </p>
           <p class="fragment" data-fragment-index="3">In this case, \(T\) is the composition of the mappings
             <span>
@@ -184,7 +201,7 @@
               \]
             </span>
           </p>
-          <p class="fragment" data-fragment-index="4">So in both cases I &amp; II, \(T\) is a composition of maps 
+          <p class="fragment" data-fragment-index="4">So in both cases I &amp; II, \(T\) is a composition of maps
             previously studied.
           </p>
         </div>
@@ -197,7 +214,7 @@
           <p>Design<br /><a href="https://smp.uq.edu.au/profile/2155/juan-ponce-campuzano">Juan Carlos Ponce
               Campuzano</a></p>
           <br />
-          <p>Go to next <a href="lecture-06.html">Lecture</a></p>
+          <p>Go to next <a href="#">Lecture</a></p>
         </div>
 
       </section>
