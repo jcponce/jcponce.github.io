@@ -39,73 +39,96 @@
         </div>
       </section>
 
-      <section>
+      <section data-transition="fade-out" id="applet">
         <h4>Basic idea with new mappings</h4>
         <iframe width="100%" height="397px" style="border:0px" noscrolling allowfullscreen
           data-src="https://www.geogebra.org/material/iframe/id/rrp8kffy/width/827/height/360/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
           data-preload></iframe>
-          <p style="font-size:65%" class="fragment" data-fragment-index="0">\(\xi\) is called inversion (w.r.t the unit circle),</p>
-          <p style="font-size:65%" class="fragment" data-fragment-index="1">\(\eta\) is reflexion in the real axis.</p>
+          <p style="font-size:65%" class="fragment" data-fragment-index="0">\(\xi\) is called <strong>inversion</strong> (w.r.t the unit circle),</p>
+          <p style="font-size:65%" class="fragment" data-fragment-index="1">\(\eta\) is <strong>reflexion</strong> in the real axis.</p>
       </section>
 
-      <section id="functions">
-        <h2>Functions and mappings</h2>
-        <div class="mylftText">
-          <p class="fragment" data-fragment-index="0">\(\Omega \subseteq \C\): A function \(f:\Omega \rightarrow \C\)
-            can be viewed as a mapping on \(\Omega\), the <span class="fragment highlight-red"
-              data-fragment-index="1">domain</span> of \(f\).
+      <section data-transition="fade-out" id="components">
+        <h4>Basic idea with new mappings</h4>
+        <div class="mylftText" style="font-size:90%">
+          <p>For \(w=1/z = \conj z /|z|^2\), we have</p>
+          <p class="fragment" data-fragment-index="0">\(x+i\,y \mapsto u+i\,v\) and \( w = \dfrac{x-i\,y}{x^2+y^2} \), so
+            <span class="fragment" data-fragment-index="1">
+              \[ 
+              u = \dfrac{x}{x^2+y^2} \; (1)\quad \text{ & } \quad v = \dfrac{-y}{x^2+y^2} \; (2)
+              \]
+            </span>
           </p>
-          <p class="fragment" data-fragment-index="2">If \(\Omega \) is not speficified, take \(\Omega \) as large
-            as possible.
+          <p class="fragment" data-fragment-index="2">We can use this to show that \(1/z\) maps circles and
+            lines in the \(z\)-plane to circles and lines in the \(w\)-plane.
           </p>
-          <p class="fragment" data-fragment-index="3">For example for \(f(z)=\frac{1}{z}\), the domain is \(\C_*\)
-            and \(f:\C_*\rightarrow \C\).
+        </div>
+      </section>
+
+      <section>
+        <h4>A note on mapping circles and lines</h4>
+        <div class="mylftText" style="font-size:90%">
+          <p>Circles and lines in the \(z\)-plane can be represented as
+            <span class="fragment" data-fragment-index="0">
+              \[ 
+              A(x^2+y^2)+Bx+Cy +D = 0 \;\;(*)
+              \]
+            </span>
           </p>
-          <p class="fragment" data-fragment-index="4">We can write: \(f:z \mapsto \frac{1}{z}\); or \(w=\frac{1}{z}\);
-            or just \(1/z\).
+          <p class="fragment" data-fragment-index="1">with \(A,B, C, D\in R\), and \(B^2+C^2>4AD\).
+          </p>
+          <p class="fragment" data-fragment-index="2">If \(A = 0\) then we have a line. 
+            <span class="fragment" data-fragment-index="3">If \(A \neq 0\) then we have a circle.</span>
           </p>
         </div>
       </section>
 
       <section data-transition="fade-out">
-        <h2>Functions and mappings</h2>
-        <div class="mylftText">
-          <p>Usual notation: \(w: (x,y) \mapsto (u,v)\) i. e.,
-            <span class="fragment" data-fragment-index="0">
+        <h4>A note on mapping circles and lines</h4>
+        <div class="mylftText" style="font-size:90%">
+          <p class="fragment" data-fragment-index="0">From \((*)\) we have 
+            <span class="fragment" data-fragment-index="1">
               \[
-              \begin{align*}
-              w(x+iy) &= u(x+iy)+iv(x+iy)\\
-              & \text{ or} & \\
-              w(x, y) &= u(x,y)+iv(x, y)
-              \end{align*}
+              \left( x+\frac{B}{2A} \right)^2 + \left( y+\frac{C}{2A} \right)^2 = \left( \frac{\sqrt{B^2+C^2-4AD}}{2A} \right)^2 .
+              \]
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="2">Note that for \(w=1/z\), expressions <a href="#components">(1) &amp; (2)</a> imply
+            <span class="fragment" data-fragment-index="3">
+              \[
+              D(u^2+v^2)+Bu-Cv+A=0.
               \]
             </span>
           </p>
         </div>
       </section>
 
-      <section data-transition="fade-out">
-        <h3>Functions and mappings</h3>
-        <p><img style="width: 100%; 
-          display: block;
-          margin-left: auto;
-          margin-right: auto;" class="r-stretch" data-src="img/lect-04/map-diag.svg" /></p>
+      <section>
+        <h3>Terminology reminder</h3>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">\(*\; f: \Omega \rightarrow \C\) is <strong>1-1</strong> or <strong>injective</strong> say
+            \[f(z) = f(\xi)\implies z=\xi.\]
+          </p>
+          <p class="fragment" data-fragment-index="1">\(*\; f: \Omega \rightarrow \Lambda\subseteq \C\) is <strong>onto</strong>
+            or <strong>surjective</strong> says given \(\eta \in \Lambda\) exists (at least one) 
+            \(z\in \Omega: f(z)=\eta\).
+          </p>
+        </div>
       </section>
 
-      <section data-transition="fade-out">
-        <h3>Functions and mappings</h3>
+      <section id="mobius">
+        <h3>M&ouml;bius transformation</h3>
         <div class="mylftText">
-          <p class="fragment" data-fragment-index="0">\(*\, \Omega = \) domain of \( f = \) dom\(\left(\,f\right)\).
-          </p>
-          <p class="fragment" data-fragment-index="1">\(*\,\) Range\(\left(\,f\right)\):
+          <p class="fragment" data-fragment-index="0"><strong>Definition:</strong> Let \(a,b,c,d\in \C\)
+            with \(ad-bc\neq 0\). Then 
             \[
-            f\left(\Omega\right) = \left\{ w: w=f(z)\text{ for some }z\in\C\right\}.
+            w = T(z) = \frac{az+b}{bz+c}
             \]
+            is a M&ouml;bius (or linear fractional) transformation.
           </p>
-          <p class="fragment" data-fragment-index="2">\(*\, f^{-1}\left(\xi \right) = \left\{ z\in\C: f(z)=\xi
-            \right\}\)
-            inverse of \(f\) <br /> (not \(1/f\)). <span class="fragment" data-fragment-index="3">NOT necessarily a
-              function!</span>
+          <p class="fragment" data-fragment-index="1">Natural domain of definition:
+          </p>
+          <p class="fragment" data-fragment-index="2">
           </p>
         </div>
       </section>
