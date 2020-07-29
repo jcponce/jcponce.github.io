@@ -73,14 +73,14 @@
 
       <section data-transition="fade-out">
         <h3>Exponential map</h3>
-        <div class="mylftText" >
+        <div class="mylftText">
           <p>Write \(w=\rho e^{i\phi}\),
             <span class="fragment" data-fragment-index="0">
               where:
               \[
               \left\{
               \begin{array}{rl}
-              \rho &=  e^{x} \\
+              \rho &= e^{x} \\
               \phi &= y + 2 k \pi, \; k\in \Z
               \end{array}
               \right.
@@ -98,8 +98,7 @@
             <th style="width:50%;"><img style="width: 100%; 
               display: block;
               margin-left: auto;
-              margin-right: auto;" class="r-stretch"
-                data-src="img/lect-07/line-c1.svg" />
+              margin-right: auto;" class="r-stretch" data-src="img/lect-07/line-c1.svg" />
             </th>
             <th class="fragment" data-fragment-index="0">
               \(\tiny\exp\)<br>
@@ -123,8 +122,7 @@
             <th style="width:50%;"><img style="width: 100%; 
               display: block;
               margin-left: auto;
-              margin-right: auto;" class="r-stretch"
-                data-src="img/lect-07/line-c2.svg" />
+              margin-right: auto;" class="r-stretch" data-src="img/lect-07/line-c2.svg" />
             </th>
             <th class="fragment" data-fragment-index="0">
               \(\tiny\exp\)<br>
@@ -149,12 +147,11 @@
             <th style="width:50%;"><img style="width: 100%; 
               display: block;
               margin-left: auto;
-              margin-right: auto;" class="r-stretch"
-                data-src="img/lect-07/square.svg" />
+              margin-right: auto;" class="r-stretch" data-src="img/lect-07/square.svg" />
             </th>
             <th class="fragment" data-fragment-index="0">
               \(\tiny\exp\)<br>
-              \(\ra\)<br/>
+              \(\ra\)<br />
               \(\tiny h &lt; 2pi\)
             </th>
             <th style="width:50%;"><img style="width: 100%; 
@@ -175,25 +172,24 @@
             <th style="width:50%;"><img style="width: 100%; 
               display: block;
               margin-left: auto;
-              margin-right: auto;" class="r-stretch"
-                data-src="img/lect-07/square.svg" />
+              margin-right: auto;" class="r-stretch" data-src="img/lect-07/square.svg" />
             </th>
-            <th class="fragment" data-fragment-index="0">
+            <th>
               \(\tiny\exp\)<br>
-              \(\ra\)<br/>
+              \(\ra\)<br />
               \(\tiny h \geq 2pi\)
             </th>
             <th style="width:50%;"><img style="width: 100%; 
               display: block;
               margin-left: auto;
-              margin-right: auto;" class="fragment" data-fragment-index="0" class="r-stretch"
+              margin-right: auto;" class="fragment" data-fragment-index="1" class="r-stretch"
                 data-src="img/lect-07/map-square-b.svg" />
             </th>
           </tr>
         </table>
       </section>
 
-      <section>
+      <section id="properties-exp">
         <h4>Properties of \(\exp\)</h4>
         <div class="mylftText">
           <p>Many "laws" for \(\R-\exp\) extend to \(\C-\exp\):
@@ -209,6 +205,62 @@
       </section>
 
       <section>
+        <h4>Properties of \(\exp\)</h4>
+        <div class="mylftText" style="font-size:80%">
+          <p>Somethings do not extend:
+          </p>
+          <ol start="6">
+            <li class="fragment" data-fragment-index="0">\(e^x &gt; 0\) for all \(x\in \R\), but e.g. \(e^{i\pi}=-1\)
+              and \(e^{i\pi/4}\in\C\setminus \R\);</li>
+            <li class="fragment" data-fragment-index="1">\(x \mapsto e^x\) is monotone increasing on \(R\) but
+              \(z\mapsto e^z\) is periodic.
+              with period \(2\pi i\):
+              \[
+              \begin{array}{rl}
+              e^{z+2\pi i} &= e^{z}e^{2\pi i} \\
+              &= e^z\left( \cos 2\pi + i \sin 2 \pi \right)\\
+              &= e^z.
+              \end{array}
+              \]
+            </li>
+          </ol>
+          <p class="fragment" data-fragment-index="2"><strong>Note:</strong> as in \(\R\), \(e^z=0\) has
+            no solution in \(\C\). If exists \(z=x+iy\) such that \(e^z=0\), then
+            \(e^xe^{iy} = 0 \implies e^x=0\). <span class="fragment" data-fragment-index="3"
+              style="color:red">Contradiction!</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="inverses">
+        <h4>Inverses</h4>
+        <div style="font-size:90%">
+          <div class="mylftText">
+            <p>\(f:\Omega \ra \C\). <span class="fragment" data-fragment-index="0">Then
+                \(g : \text{Range}(f) \ra \Omega\) is an inverse of \(f\) says that </span>
+            </p>
+          </div>
+          <p class="fragment" data-fragment-index="0">
+            \(
+            f\circ g: \Omega \ra \Omega
+            \) is the identity,
+          </p>
+          <div class="mylftText">
+            <p class="fragment" data-fragment-index="1">i.e. \(\left(g \circ f \right)(z) = z\) for every \(z\in
+              \Omega\).
+            </p>
+            <p class="fragment" data-fragment-index="2">E.g. \(z\mapsto z+1\), \(z\mapsto z-1\) are inverses \(\C\ra
+              \C\);
+              <span class="fragment" data-fragment-index="3">\(z\mapsto 1/z\) is its own inverse, \(\C_*\ra
+                \C_*\)?</span>
+            </p>
+            <p class="fragment" data-fragment-index="4">Inverse of \(\exp\)?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
         <h4>Credits</h4>
         <div style="font-size:24px">
           <p>Lecture notes<br /><a href="https://people.smp.uq.edu.au/JosephGrotowski/">Joseph Grotowski</a></p>
@@ -218,7 +270,6 @@
           <br />
           <p>Go to next <a href="#">Lecture</a></p>
         </div>
-
       </section>
 
     </div>
