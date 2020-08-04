@@ -43,7 +43,7 @@
 
       <section id="branch-cut">
         <h4>Branch cut</h4>
-        <div class="mylftText">
+        <div class="mylftText" style="font-size:80%">
           <p class="fragment" data-fragment-index="0">\(\left\{ z: \arg(z) = \alpha \right\} \cup \left\{ 0 \right\}\)
             subset of \(\C\).
           </p>
@@ -64,8 +64,8 @@
       </section>
 
       <section>
-        <h4>Branch cut</h4>
-        <iframe width="100%" height="600px" style="border:0px" noscrolling 
+        <h5>Branch cut</h5>
+        <iframe width="100%" height="600px" style="border:0px" noscrolling
           data-src="https://www.geogebra.org/material/iframe/id/avp84vdz/width/827/height/420/border/888888/sfsb/false/smb/false/stb/true/stbh/false/ai/false/asb/true/sri/true/rc/true/ld/false/sdz/true/ctl/false"
           data-preload></iframe>
       </section>
@@ -73,72 +73,82 @@
 
       <section id="trig-functions">
         <h4>Trigonometric functions</h4>
-        <div class="mylftText">
-          <p class="fragment" data-fragment-index="0">This defines the <u>multi-valued function</u>
-            \(\log\) on \(\C_*\).
-          </p>
-          <p class="fragment" data-fragment-index="1">Note: \(\exp\left(\log z\right) = z\) and \(\log\left(\exp
-            z\right)= z+ 2 k \pi\)
-          </p>
-          <p class="fragment" data-fragment-index="2">Check:
+        <div class="mylftText" style="font-size:70%">
+          <p class="fragment" data-fragment-index="0">For \(x\in \R\)
             \[
-            \left\{
             \begin{align*}
-            \log \left( z \,\xi \right) &= \log z + \log \xi \\
-            \log \left( \frac{z }{\xi} \right) &= \frac{\log z}{\log \xi}
+            e^{ix} &= \cos x + i \sin x \quad (1)\\
+            e^{-ix} &= \cos x - i \sin x \quad (2)
             \end{align*}
-            \right.
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="1">\((1) + (2)\) implies
+            \[
+            \cos x = \frac{e^{ix}+ e^{-ix}}{2} \quad (3)'
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="2">\((1) - (2)\) implies
+            \[
+            \sin x = \frac{e^{ix} - e^{-ix}}{2i} \quad (4)'
             \]
           </p>
         </div>
       </section>
 
       <section data-transition="fade-out">
-        <h4>Inverse of \(\exp\)</h4>
-        <div class="mylftText" style="font-size:80%">
-          <p class="fragment" data-fragment-index="0">As with \(\Arg\)/\(\arg\), define \[\Log (z) = \ln |z| + i \Arg(z)
-            \text{ on } C_*.\]
-          </p>
-          <p class="fragment" data-fragment-index="1">\(\Log\) is a single value, but discontinuous on the negative real
-            axis, including \({0}\),
-            since \(\Arg\) is.
-          </p>
-          <p class="fragment" data-fragment-index="2">Indeed, \(\Arg\)/\(\Log\) are not even defined at \(0\).
-          </p>
-          <p class="fragment" data-fragment-index="3">\(\Log\) is called the <u>principal logarithm</u>.
-          </p>
-          <p class="fragment" data-fragment-index="4">As with \(\Arg\), there may hold:
-            \[
-            \Log\left(z_1 z_2\right)\neq \Log z_1 + \Log z_2.
-            \]
+        <h4>Trigonometric functions</h4>
+        <div class="mylftText" >
+          <p>Use (3)' and (4)' to define \(\cos\) and \(\sin\) on \(\C\), i. e.:
+            <span class="fragment" data-fragment-index="0">
+              \[
+              \begin{align*}
+              \cos z &= \frac{e^{iz}+ e^{-iz}}{2}\\
+              \sin z &= \frac{e^{iz}+ e^{-iz}}{2i}.
+              \end{align*}
+              \]
+            </span>
           </p>
         </div>
       </section>
 
-      <section id="complex-exponent">
-        <h3>Complex exponent</h3>
-        <div class="mylftText" style="font-size:80%">
-          <p>Take \(c\in \C\).
+      <section id="trig-func-identities" data-transition="fade-out">
+        <h4>Trigonometric functions</h4>
+        <div class="mylftText" style="font-size:60%">
+          <p>There hold:
             <span class="fragment" data-fragment-index="0">
-              Set
               \[
-              z^c \exp \left( c \log z\right), \quad z\neq 0.
+              \begin{align*}
+              \cos z &= \cos(-z) \quad (3)\\
+              \sin z &= -\sin(-z) \quad (4)
+              \end{align*}
               \]
             </span>
           </p>
-          <p class="fragment" data-fragment-index="1"><strong>Note:</strong> corresponds to usual index laws for
-            \(c=n\in \Z\)
-            and for \(c=1/n\), we recover what we did in <a href="lecture-04.html#/roots" target=_blank>Lecture 4</a>.
+          <p class="fragment" data-fragment-index="1">
+            \[
+            \begin{align*}
+            \cos (z + \xi) &= \cos z \cos \xi - \sin z \sin \xi \quad (5)\\
+            \sin (z + \xi) &= \sin z \cos \xi + \cos z \sin \xi \quad (6)
+            \end{align*}
+            \]
           </p>
-          <p class="fragment" data-fragment-index="2"><strong>Remark:</strong> Brown &amp; Churchill define \(z^{1/n}\)
-            as
-            a multi-valued function, and in particular defines the <span style="color:red">Principal Value</span>,
-            <span class="fragment" data-fragment-index="3">
-              that is
-              \[
-              \text{PV}\left(z^{1/n}\right) = |z|^{1/n}\exp \left(\frac{i \Arg(z)}{n}\right).
-              \]
-            </span>
+          <p class="fragment" data-fragment-index="2">
+            \[
+            \begin{align*}
+            \sin^2 z + \cos^2 z &= 1 \quad (7)
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="3">
+            \[
+            \begin{align*}
+            \sin \left(z+\frac{\pi}{2}\right) &= \cos z  \quad (8)\\
+            \sin \left(z-\frac{\pi}{2}\right) &= -\cos z  \quad (9)
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="4"><strong>Proof:</strong> Use properties of \(\exp\) 
+            <span title="Homework">📝</span>.
           </p>
         </div>
       </section>
