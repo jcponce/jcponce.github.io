@@ -97,7 +97,7 @@
 
       <section data-transition="fade-out">
         <h4>Trigonometric functions</h4>
-        <div class="mylftText" >
+        <div class="mylftText">
           <p>Use (3)' and (4)' to define \(\cos\) and \(\sin\) on \(\C\), i. e.:
             <span class="fragment" data-fragment-index="0">
               \[
@@ -142,12 +142,12 @@
           <p class="fragment" data-fragment-index="3">
             \[
             \begin{align*}
-            \sin \left(z+\frac{\pi}{2}\right) &= \cos z  \quad (8)\\
-            \sin \left(z-\frac{\pi}{2}\right) &= -\cos z  \quad (9)
+            \sin \left(z+\frac{\pi}{2}\right) &= \cos z \quad (8)\\
+            \sin \left(z-\frac{\pi}{2}\right) &= -\cos z \quad (9)
             \end{align*}
             \]
           </p>
-          <p class="fragment" data-fragment-index="4"><strong>Proof:</strong> Use properties of \(\exp\) 
+          <p class="fragment" data-fragment-index="4"><strong>Proof:</strong> Use properties of \(\exp\)
             <span title="Check it!">📝</span>.
           </p>
         </div>
@@ -156,44 +156,110 @@
       <section id="hyperbolic-functions">
         <h4>Hyperbolic functions</h4>
         <div class="mylftText" style="font-size:80%">
-          <p>Recall hyperbolic functions on \(\R\)
-            <span class="fragment" data-fragment-index="0">
-              \[
-              \begin{align*}
-              \text{PV}\left(z^{c}\right) &= \exp \big(c\,\Log (z)\big) \\
-              &= \exp\big(c \ln |z| + i \Arg (z)\big).
-              \end{align*}
-              \]
-            </span>
+          <p>Recall hyperbolic functions on \(\R\)</p>
+        </div>
+        <table style="width:100%;">
+          <tr class="fragment" data-fragment-index="0">
+            <th style="width:40%">
+              <div style="text-align:left;margin-left:0.1em;font-size:70%;font-weight:normal;">
+                <p>\(y = \sinh x = \dfrac{e^x-e^{-x}}{2}\)</p>
+              </div>
+            </th>
+            <th style="width:60%;"><img style="width: 40%; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;" class="r-stretch" data-src="img/lect-02/axis-rep.svg" />
+            </th>
+          </tr>
+          <tr class="fragment" data-fragment-index="1">
+            <td>
+              <div style="text-align:left;margin-left:0.1em;font-size:70%;font-weight:normal;">
+                <p>\(y = \cosh x = \dfrac{e^x+e^{-x}}{2}\)</p>
+              </div>
+            </td>
+            <td>
+              <img style="width: 40%; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;" class="r-stretch" data-src="img/lect-02/axis-rep.svg" />
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="hyper-func-properties" data-transition="fade-out">
+        <h4>Hyperbolic functions</h4>
+        <div class="mylftText" style="font-size:70%">
+          <p class="fragment" data-fragment-index="0">On \(\C\), define
+            \[
+            \sinh z = \frac{e^z-e^{-z}}{2}\quad \text{&amp;} \quad \cosh z = \frac{e^z+e^{-z}}{2}.
+            \]
           </p>
-          <p class="fragment" data-fragment-index="1">E. g. \(\text{PV}\left[(1+i)^{4i}\right]\):
+          <p class="fragment" data-fragment-index="1">So
+            \[
+            \begin{align*}
+            \sinh (iy) &= \frac{e^{-y}-e^{y}}{2i} = \frac{i(e^y - e^{-y})}{2} \\
+            &= i \sinh y. \qquad\qquad \quad (10)
+            \end{align*}
+            \]
           </p>
-          <p class="fragment" data-fragment-index="2">\(\qquad\qquad =\exp\big( 4i \left[ \ln |1-i| + i \Arg (1-i)
-            \right] \big)\)</p>
-          <p class="fragment" data-fragment-index="3">\(\qquad\qquad =\exp\big( 4i\ln\sqrt{2} -4(\pi/4) \big)\)</p>
-          <p class="fragment" data-fragment-index="4">\(\qquad\qquad =e^{\pi} \exp \left(4i\ln \sqrt{2}\right)\)</p>
-          <p class="fragment" data-fragment-index="5">\(\qquad\qquad =e^{\pi} \cos \left(2\ln 2\right) + i e^{\pi} \sin
-            \left(2\ln 2\right)\).</p>
+          <p class="fragment" data-fragment-index="2">
+            \[
+            \begin{align*}
+            \cosh (iy) &= \frac{e^{-y}+e^{y}}{2} =\\
+            &= \cosh y. \qquad\qquad \quad (11)
+            \end{align*}
+            \]
+          </p>
         </div>
       </section>
 
       <section data-transition="fade-out">
-        <h3>Remark</h3>
+        <h4>Hyperbolic functions</h4>
         <div class="mylftText" style="font-size:80%">
-          <p class="fragment" data-fragment-index="0">Sometimes need to use a different single-valued \(\log \) and
-            \(\arg\), e. g. may nee to
-            integrate around a contour.
+          <p><span class="fragment" data-fragment-index="0">Take \(z= x\) and \(\xi = iy\) in (5), (6)</span>
+            <span class="fragment" data-fragment-index="1">
+              \[
+              \sin (x+iy) \overset{{\tiny(6)}}{=} \sin x \cos (iy) + \cos x \sin (iy), \quad \quad (12)
+              \]
+            </span>
           </p>
-          <p class="fragment" data-fragment-index="1">In this case, choose/define \(\arg(z)\) such that
-            \[
-            \frac{\pi}{2}&lt; \arg (z) \leq \frac{3\pi}{2}
-            \]
-            where this \(\arg(z)\) is a particlar value of \(\arg(z)\), which leads to a new, single-valued \(\Log\),
-            etc.
+          <p class="fragment" data-fragment-index="2">\(\qquad \qquad \qquad \overset{{\tiny(12)(11)}}{=} \sin x \cosh y + i \cos x \sinh y\).</p>
+          <p><span class="fragment" data-fragment-index="3">Similarly <span title="Check it!">📝</span></span>
+            <span class="fragment" data-fragment-index="4">
+              \[
+              \cos (x+iy) = \cos x \cosh y - i \sin x \sinh y. \quad \quad (13)
+              \]
+            </span>
           </p>
         </div>
       </section>
 
+      <section data-transition="fade-out">
+        <h4>Hyperbolic functions</h4>
+        <div class="mylftText" style="font-size:70%">
+          <p><span class="fragment" data-fragment-index="0">(12) and (13) implies</span>
+            <span class="fragment" data-fragment-index="1">
+              \[
+              \begin{align*}
+              \sin (z + 2\pi) &= \sin z, \quad \quad (14)\\
+              \cos (x+2\pi )  &= \cos z. \quad \quad (15)
+              \end{align*}
+              \]
+            </span>
+          </p>
+          <p><span class="fragment" data-fragment-index="2">Note that \(\cosh^2 z = 1 + \sinh^2 z\) <span title="Check it!">📝</span>. </span>
+            <span class="fragment" data-fragment-index="3"> Then <br/><br/>
+              \( \qquad 
+              |\sinh z |^2  \overset{{\tiny(12)}}{=} \sin^2 z \cosh^2 y + \cos^2 z \sinh^2 y         
+              \)
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="4">\( \qquad \qquad \quad = \sin^2 x \left(1+\sinh^2 y\right) + \left(1-\sin^2 y\right) \sinh^2y \)</p>
+          <p class="fragment" data-fragment-index="5">\( \qquad \qquad \quad = \sin^2 x + \sinh^2 y. \)</p>
+          <p class="fragment" data-fragment-index="6">Similarly \( |\cosh z |^2  = \cos^2 x + \cosh^2 y. \)</p>
+        </div>
+      </section>
 
 
       <section>
