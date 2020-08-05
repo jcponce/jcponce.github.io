@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
 
-  <title>MATH3401 - Lecture 9</title>
+  <title>MATH3401 - Lecture 10</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
@@ -19,46 +19,60 @@
       <section>
         <h1>MATH3401</h1>
         <h3>Complex Analysis</h3>
-        <p>Lecture 9</p>
+        <p>Lecture 10</p>
       </section>
 
       <section id="branches">
-        <h3>Branches</h3>
-        <div class="mylftText">
-          <p class="fragment" data-fragment-index="0"><u>Branch:</u> interval of a function
-            \(
-            \alpha \leq \hat{\theta} &lt; \alpha + 2 \pi
-            \),
-            <span class="fragment" data-fragment-index="1">or
-              \(\alpha &lt; \hat{\theta} \leq \alpha + 2 \pi\),
-              for some \(\alpha \in \R.\)
+        <h4>Bounded &amp; unbounded functions</h4>
+        <div class="mylftText" style="font-size:80%">
+          <p class="fragment" data-fragment-index="0">\((*)\) \(\;f(z)=\pi\) is bounded on \(\C\). 
+          </p>
+          <p class="fragment" data-fragment-index="1">\((*)\) \(\;f(z)=1/z\) is unbounded on \(\C\),<br/>
+            <span class="fragment" data-fragment-index="2">
+              <span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span> 
+              is unbounded on \(\{z: 0< |z| \leq 1\}\),
+            </span><br/>
+            <span class="fragment" data-fragment-index="3">
+              <span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span> 
+              is bounded on \(\{z: |z| \geq 1\}\),
+            </span><br/>
+            <span class="fragment" data-fragment-index="4">
+              <span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span> 
+              is unbounded on \(\{z: |z| = 1\}\).
             </span>
           </p>
-          <p class="fragment" data-fragment-index="2">We can define a single-valued \(\arg\)
-            with values in that interval and hence a single valued \(\log\), and a single-valued
-            branch of, e. g., \(z^{1/2}\).
+          <p class="fragment" data-fragment-index="5">\((*)\) \(\;f(z)=z\) is unbounded on \(\C\), bounded 
+            on any bounded subset of \(\C\). 
+          </p>
+          <p class="fragment" data-fragment-index="6">\((*)\) \(\;f(z)=\dfrac{1}{1+|z|}\) is bounded on \(\C\). 
           </p>
         </div>
       </section>
 
       <section id="branch-cut">
-        <h4>Branch cut</h4>
-        <div class="mylftText" style="font-size:80%">
-          <p class="fragment" data-fragment-index="0">\(\left\{ z: \arg(z) = \alpha \right\} \cup \left\{ 0 \right\}\)
-            subset of \(\C\).
+        <h3>Zeros of functions</h3>
+        <div class="mylftText" style="font-size:70%">
+          <p class="fragment" data-fragment-index="0"><u>Definition:</u> A zero of a function \(f\) is a
+            value of \(z\) such that \(f(z)=0\).
           </p>
-          <p><span class="fragment" data-fragment-index="1">E. g. PV\(\left(z^{1/2}\right)\):</span>
-            <span class="fragment" data-fragment-index="2">
+          <p class="fragment" data-fragment-index="1">E. g. Zeros of \(\sin\):
               \[
-              \begin{align*}
-              & z\mapsto |z|^{1/2}\exp\left(\frac{i\Arg (z)}{2}\right) \\
-              &re^{i \theta} \mapsto \sqrt{r}\exp \left(\frac{i\theta}{2}\right), -\pi &lt; \theta \leq \pi.
-              \end{align*}
+              (12)\implies n\pi + 0 i, \quad n\in \Z.
               \]
-            </span>
           </p>
-          <p class="fragment" data-fragment-index="3">Branch is \(-\pi &lt; \theta \leq \pi\), and the branch cut
-            is the positive real axis union with \(\left\{ 0 \right\}\).
+          <p class="fragment" data-fragment-index="2">E. g. Zeros of \(\cos\):
+            \[
+            (13)\implies \text{ only } \left(n+\frac{1}{2}\right)\pi , \quad n\in \Z.
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="3">Similarly zeros of \(\):
+            \[
+            \begin{align*}
+            \sinh: & \text{ only } n\pi i, \quad n\in \Z.\\
+            \cosh: & \text{ only } \left(n+\frac{1}{2}\right)\pi i, \quad n\in \Z.
+            \end{align*}
+            
+            \]
           </p>
         </div>
       </section>
