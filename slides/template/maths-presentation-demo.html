@@ -55,16 +55,31 @@
         <h2>Title</h2>
         <p>Subtitle</p>
         <div class="mylftText">
-          <p class="fragment" data-fragment-index="0">Example of text with equations shown by fragments
-            \(\displaystyle \prod_{p\;\text{prime}}(1-p^{-s})^{-1}\).
+          <p class="fragment" data-fragment-index="0">MathJax is used to render equations. An equation
+            in line looks like this: \(f(x,y) = \cos(x-y)\).
           </p>
           <p class="fragment" data-fragment-index="1">
-            This is a second example with equations \(\sin^2 x + \cos^2 x =1\).
-          </p>
-          <p class="fragment" data-fragment-index="2">
-            This is a third example \(f(z)=\dfrac{1}{1-|z|^2}\).
+            Meanwhile the display mode looks like this
+            \[
+            \displaystyle \prod_{p\text{ prime}}(1-p^{-s})^{-1}.
+            \]
           </p>
         </div>
+      </section>
+
+      <section>
+        <p>Inline mode</p>
+        <pre data-prevent-swipe>
+          <code data-trim>
+            \(f(x,y) = \cos(x-y)\)
+        </code></pre>
+        <p>Display mode</p>
+        <pre data-prevent-swipe>
+          <code data-trim>
+            \[
+            \displaystyle \prod_{p\text{ prime}}(1-p^{-s})^{-1}
+            \]
+        </code></pre>
       </section>
 
       <section>
@@ -77,10 +92,6 @@
           <li class="fragment" data-fragment-index="2">
             \(\displaystyle \int_0^1\dfrac{dx}{x}= \displaystyle
             \lim_{\epsilon \ra 0^+}\int_{\epsilon}^1\dfrac{dx}{x}\)
-          </li>
-          <li class="fragment" data-fragment-index="3">
-            \(\displaystyle \int_1^{\infty}\dfrac{dx}{x}= \displaystyle
-            \lim_{M \ra \infty}\int_{1}^{M}\dfrac{dx}{x}\)
           </li>
         </ul>
       </section>
@@ -183,8 +194,7 @@
           or have a look at the source code & documentation.</p>
         <a aria-label="Download rajgoel/reveal.js-plugins on GitHub" data-style="mega"
           href="https://github.com/rajgoel/reveal.js-plugins/archive/master.zip" class="github-button">Download</a>
-        <a data-style="mega"
-          href="https://github.com/rajgoel/reveal.js-plugins" class="github-button">Star</a>
+        <a data-style="mega" href="https://github.com/rajgoel/reveal.js-plugins" class="github-button">Star</a>
       </section>
 
     </div>
