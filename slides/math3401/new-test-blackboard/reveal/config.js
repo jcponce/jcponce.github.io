@@ -38,7 +38,7 @@
 				hideMissingTitles: true,
 				custom: [
 					{
-						title: 'About',
+						title: 'Info',
 						icon: '<i class="fa fa-info"></i>',
 						src: 'about.html'
 					}
