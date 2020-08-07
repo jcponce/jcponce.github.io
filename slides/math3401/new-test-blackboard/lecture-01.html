@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH3401 - Lecture 1</title>
+
+	<meta name="description" content="MATH3401 - Lecture 1">
+	<meta name="author" content="">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/white.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="css/zenburn.css">
+	<!-- Font awesome -->
+	<!--
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	-->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script async defer src="js/buttons.js"></script>
+	<!--[if lt IE 9]>
+	<script src="../reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h1>MATH3401</h1>
+				<h3>Complex Analysis</h3>
+				<p>Lecture 1</p>
+			</section>
+
+			<section>
+				<h2>Complex Analysis</h2>
+
+				<ul>
+					<li class="fragment" data-fragment-index="0">\(e^{i\pi}\)</li>
+					<li class="fragment" data-fragment-index="1">
+						\(\displaystyle \int_0^{\infty}\dfrac{\sin x}{x}=\dfrac{\pi}{2}\)
+					</li>
+					<li class="fragment" data-fragment-index="2">
+						Recall that \(\displaystyle \int_0^1\dfrac{dx}{x}= \displaystyle
+						\lim_{\epsilon \ra 0^+}\int_{\epsilon}^1\dfrac{dx}{x}\) diverges
+					</li>
+					<li class="fragment" data-fragment-index="3">
+						And \(\displaystyle \int_1^{\infty}\dfrac{dx}{x}= \displaystyle
+						\lim_{M \ra \infty}\int_{1}^{M}\dfrac{dx}{x}\) also
+						diverges
+					</li>
+				</ul>
+			</section>
+
+		</div>
+	</div>
+
+
+	<script src="reveal/reveal.js"></script>
+
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			mouseWheel: true,
+
+			math: {
+				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+				config: "TeX-AMS_HTML-full",
+				TeX: {
+					Macros: {
+						R: "\\mathbb{R}",
+						C: "\\mathbb{C}",
+						N: "\\mathbb{N}",
+						Z: "\\mathbb{Z}",
+						Q: "\\mathbb{Q}",
+						Re: "{\\mbox{Re}}",
+						Im: "{\\mbox{Im}}",
+						arg: "{\\mbox{arg}}",
+						Arg: "{\\mbox{Arg}}",
+						Log: "\\mbox{Log}",
+						ra: "\\rightarrow",
+						conj: ["{\\overline{#1}}", 1],
+						set: ["\\left\\{#1 \\; ; \\; #2\\right\\}", 2]
+					}
+				}
+			},
+
+			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
+				themes: false,
+				transitions: false,
+				markers: true,
+				hideMissingTitles: true,
+				custom: [/*{
+						title: 'Plugins',
+						icon: '<i class="fa fa-external-link-alt"></i>',
+						src: 'toc.html'
+					},*/
+					{
+						title: 'About',
+						icon: '<i class="fa fa-info"></i>',
+						src: 'about.html'
+					}
+				]
+			},
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			//transition: Reveal.getQueryHash().transition || 'default', // none/fade/slide/convex/concave/zoom
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				//{ src: 'https://rajgoel.github.io/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				//{ src: 'https://rajgoel.github.io/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				//{ src: 'https://rajgoel.github.io/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				//{ src: 'https://rajgoel.github.io/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				//					{ src: 'reveal.js-plugins/audio-slideshow/slideshow-recorder.js'},				
+				//{ src: 'https://rajgoel.github.io/reveal.js-plugins/audio-slideshow/audio-slideshow.js'},
+				{
+					src: 'reveal/chalkboard/chalkboard.js'
+				},
+				{
+					src: 'reveal/menu/menu.js'
+				},
+				{
+					src: 'reveal/math/math.js'
+				},
+			],
+			audio: {
+				prefix: 'chalkboard/',
+				suffix: '.ogg',
+				defaultDuration: 5,
+				//					textToSpeechURL: "http://api.voicerss.org/?key=[YOUR_KEY]&hl=en-gb&c=ogg&src=",
+				advance: 500,
+				autoplay: false,
+				defaultText: true,
+				playerOpacity: 0.2,
+			},
+			chalkboard: { // font-awesome.min.css must be available
+				//src: "chalkboard/chalkboard.json",
+				toggleChalkboardButton: {
+					left: "80px"
+				},
+				toggleNotesButton: {
+					left: "130px"
+				},
+				// 					pen:  [ 'crosshair', 'pointer' ]
+				//					theme: "whiteboard",
+				//					background: [ 'rgba(127,127,127,.1)' , 'reveal.js-plugins/chalkboard/img/whiteboard.png' ],
+				// 					pen:  [ 'crosshair', 'pointer' ]
+				//					pen: [ url('reveal.js-plugins/chalkboard/img/boardmarker.png), auto' , 'url(reveal.js-plugins/chalkboard/img/boardmarker.png), auto' ],
+				//				        color: [ 'rgba(0,0,255,1)', 'rgba(0,0,255,0.5)' ],
+				//				        draw: [ (RevealChalkboard) ?  RevealChalkboard.drawWithPen : null , (RevealChalkboard) ? RevealChalkboard.drawWithPen : null ],
+			},
+			keyboard: {
+				67: function () {
+					RevealChalkboard.toggleNotesCanvas()
+				}, // toggle chalkboard when 'c' is pressed
+				66: function () {
+					RevealChalkboard.toggleChalkboard()
+				}, // toggle chalkboard when 'b' is pressed
+				46: function () {
+					RevealChalkboard.clear()
+				}, // clear chalkboard when 'DEL' is pressed
+				8: function () {
+					RevealChalkboard.reset()
+				}, // reset all chalkboard data when 'BACKSPACE' is pressed
+				68: function () {
+					RevealChalkboard.download()
+				}, // downlad chalkboard drawing when 'd' is pressed
+				88: function () {
+					RevealChalkboard.colorNext()
+				}, // cycle colors forward when 'x' is pressed
+				89: function () {
+					RevealChalkboard.colorPrev()
+				}, // cycle colors backward when 'y' is pressed
+				90: function () {
+					RevealChalkboard.download();
+				}, // press 'z' to download zip containing audio files
+				//				    84: function() { Recorder.fetchTTS(); } 	// press 't' to fetch TTS audio files
+			},
+
+
+			//plugins: [RevealMath]
+		});
+
+
+
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			RevealChalkboard.configure(config);
+			input.blur();
+		}
+	</script>
+	<!--<a href="https://github.com/rajgoel/reveal.js-plugins"><img style="position: absolute; top: 0; left: 0; border: 0;"
+			src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67"
+			alt="Fork me on GitHub"
+			data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>-->
+
+</body>
+
+</html>

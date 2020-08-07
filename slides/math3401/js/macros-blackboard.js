@@ -30,12 +30,14 @@ Reveal.initialize({
 
     
     dependencies: [
-      { src: 'js/chalkboard/chalkboard.js', async: true }
+      { src: 'js/chalkboard/chalkboard.js', async: true },
+      { src: 'https://rajgoel.github.io/reveal.js-plugins/chalkboard/chalkboard.js'},
+			{ src: 'https://rajgoel.github.io/reveal.js-plugins/menu/menu.js'}
     ],
 
 
     chalkboard: { // font-awesome.min.css must be available
-      src: "view-source:https://rajgoel.github.io/reveal.js-demos/chalkboard/chalkboard.json",
+      //src: "view-source:https://rajgoel.github.io/reveal.js-demos/chalkboard/chalkboard.json",
       toggleChalkboardButton: { left: "80px" },
       toggleNotesButton: { left: "130px" },
 // 					pen:  [ 'crosshair', 'pointer' ]
