@@ -1,5 +1,5 @@
 Reveal.initialize({
-    slideNumber: "c/t",
+    //slideNumber: "c/t",
 
     history: true,
     center: true,
@@ -35,13 +35,11 @@ Reveal.initialize({
 
 
     chalkboard: { // font-awesome.min.css must be available
-      
+      src: "view-source:https://rajgoel.github.io/reveal.js-demos/chalkboard/chalkboard.json",
       toggleChalkboardButton: { left: "80px" },
       toggleNotesButton: { left: "130px" },
-      
-      //toggleChalkboard: { true },
 // 					pen:  [ 'crosshair', 'pointer' ]
-				//	theme: "whiteboard",
+//					theme: "whiteboard",
 //					background: [ 'rgba(127,127,127,.1)' , 'reveal.js-plugins/chalkboard/img/whiteboard.png' ],
 // 					pen:  [ 'crosshair', 'pointer' ]
 //					pen: [ url('reveal.js-plugins/chalkboard/img/boardmarker.png), auto' , 'url(reveal.js-plugins/chalkboard/img/boardmarker.png), auto' ],
@@ -58,26 +56,7 @@ Reveal.initialize({
         89: function() { RevealChalkboard.colorPrev() },	// cycle colors backward when 'y' is pressed
         90: function() { RevealChalkboard.download();  }, 	// press 'z' to download zip containing audio files
 //				    84: function() { Recorder.fetchTTS(); } 	// press 't' to fetch TTS audio files
-    }
-
-    
-
-
-/*
-    keyboard: {
-      67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
-      66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
-      46: function() { RevealChalkboard.clear() },			// clear chalkboard when 'DEL' is pressed
-       8: function() { RevealChalkboard.reset() },			// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-      68: function() { RevealChalkboard.download() },		// downlad recorded chalkboard drawing when 'd' is pressed
-      88: function() { RevealChalkboard.colorNext() },		// cycle colors forward when 'x' is pressed
-      89: function() { RevealChalkboard.colorPrev() },		// cycle colors backward when 'y' is pressed
     },
-
-
-     // Optional reveal.js plugins
-   
-*/
 
   });
 
