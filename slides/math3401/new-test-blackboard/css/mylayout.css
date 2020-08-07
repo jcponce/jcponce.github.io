@@ -13,10 +13,18 @@
 ol.r {
   counter-reset: list;
 }
-ol.r > li {
+
+ol.r>li {
   list-style: none;
 }
-ol.r > li:before {
+
+ol.r>li:before {
   content: "("counter(list, lower-roman) ") ";
   counter-increment: list;
+}
+
+.reveal section img {
+  background: none;
+  border: none;
+  box-shadow: none;
 }
