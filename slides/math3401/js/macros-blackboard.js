@@ -38,6 +38,8 @@ Reveal.initialize({
       
       toggleChalkboardButton: { left: "80px" },
       toggleNotesButton: { left: "130px" },
+      
+      //toggleChalkboard: { true },
 // 					pen:  [ 'crosshair', 'pointer' ]
 				//	theme: "whiteboard",
 //					background: [ 'rgba(127,127,127,.1)' , 'reveal.js-plugins/chalkboard/img/whiteboard.png' ],
