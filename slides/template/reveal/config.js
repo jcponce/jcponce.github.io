@@ -36,11 +36,7 @@ Reveal.initialize({
 		transitions: false,
 		markers: true,
 		hideMissingTitles: true,
-		custom: [{
-				title: 'Plugins',
-				icon: '<i class="fa fa-external-link-alt"></i>',
-				src: 'toc.html'
-			},
+		custom: [
 			{
 				title: 'Info',
 				icon: '<i class="fa fa-info"></i>',
