@@ -1,13 +1,11 @@
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-	slideNumber: "c/t",
 
+	slideNumber: "c/t",
 	history: true,
 	center: true,
 	transition: "linear",
-	history: true,
-	center: true,
 
 	math: {
 		//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
