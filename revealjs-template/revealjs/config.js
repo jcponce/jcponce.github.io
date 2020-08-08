@@ -36,26 +36,31 @@ Reveal.initialize({
 		transitions: false,
 		markers: true,
 		hideMissingTitles: true,
-		custom: [
-			{
-				title: 'Info',
-				icon: '<i class="fa fa-info"></i>',
-				src: 'about.html'
-			}
-		]
+		custom: [{
+			title: 'Info',
+			icon: '<i class="fa fa-info"></i>',
+			src: 'about.html'
+		}]
 	},
 	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 	//transition: Reveal.getQueryHash().transition || 'default', // none/fade/slide/convex/concave/zoom
 
 	// Optional libraries used to extend on reveal.js
 	dependencies: [{
-			src: 'reveal/chalkboard/chalkboard.js'
+			src: 'revealjs/highlight/highlight.js',
+			async: true,
+			callback: function () {
+				hljs.initHighlightingOnLoad();
+			}
 		},
 		{
-			src: 'reveal/menu/menu.js'
+			src: 'revealjs/chalkboard/chalkboard.js'
 		},
 		{
-			src: 'reveal/math/math.js'
+			src: 'revealjs/menu/menu.js'
+		},
+		{
+			src: 'revealjs/math/math.js'
 		}
 	],
 
