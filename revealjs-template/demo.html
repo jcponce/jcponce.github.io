@@ -54,7 +54,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
-				<h1>HTML presentation </h1>
+				<h1>HTML presentation</h1>
 				<h4>Framework</h4>
 				<p><small>Mathematics &amp; Chalkboard</small></p>
 				<p><small>Built with <a href="https://revealjs.com/">reveal.js</a></small></p>
@@ -273,7 +273,7 @@
 			</section>
 
 			<section>
-				<h2>Hey there</h2>
+				<h2>How to use the Chalkboard?</h2>
 				<p>
 					Have you ever missed the traditional classroom experience where you can quickly sketch something on
 					a
@@ -401,7 +401,9 @@
 			plugins: [RevealMath, RevealHighlight],
 
 			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
-				themes: false,
+				// Uncomment the following two lines, if you don't want to show the menu to toggle themes
+				//themes: true,
+				//themesPath: 'dist/theme/',
 				transitions: false,
 				markers: true,
 				hideMissingTitles: true,
@@ -413,6 +415,7 @@
 			},
 
 			// ...
+
 			chalkboard: {
 				// optionally load pre-recorded chalkboard drawing from file
 				//src: "chalkboard.json",
@@ -423,6 +426,7 @@
 					left: "130px"
 				}
 			},
+
 			dependencies: [
 				// Here I need to add the third party plugins
 				{
@@ -458,7 +462,12 @@
 			// ...
 		});
 
-		Reveal.getPlugins();
+		toggleMenu = () => {
+			let menu = Reveal.getPlugin('menu');
+			if (menu) menu.toggle();
+		};
+
+		//Reveal.getPlugins();
 
 		/*
 		function changeTheme(input) {
