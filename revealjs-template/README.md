@@ -17,7 +17,7 @@ In this demo you will find some basic elements to use reveal.js for text, mathem
 
 * Made with <a href="https://revealjs.com/" target="_blank">reveal.js</a><br /><br />
 
-### Third party plugins for reveal.js v 4.0.2
+#### Third party plugins for reveal.js v 4.0.2
 
 * Chalkboard by [Asvin Goel](https://github.com/rajgoel/reveal.js-plugins)
 * Menu by [Greg Denehy](https://github.com/denehyg/reveal.js-menu)
