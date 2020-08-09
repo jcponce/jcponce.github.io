@@ -12,6 +12,11 @@ You can use this template for some basic elements such as text, mathematics and 
 
 ### [Demo](https://jcponce.github.io/revealjs-template/demo.html)
 
+* Download and unpack the zip
+* Acces the folder and open the file 'template.html'
+* Replace the text within the tag '<section></section>'
+* That's it!
+
 ## Advance features
 
 If you are already familiar with HTML, CSS and JavaScript; then I recommend you to follow the tutorial [https://revealjs.com](https://revealjs.com/) for advanced features.
