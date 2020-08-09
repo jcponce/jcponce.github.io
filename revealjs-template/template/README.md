@@ -11,7 +11,7 @@ If you want the benefits of reveal.js without having to write HTML or Markdown t
 You can use this template for some basic elements such as text, mathematics and the chalkboard plugin. It requires some basic knowledge of HTML.
 
 * Download and unpack the zip file
-* Acces the folder and open the file 'template.html'
+* Access the folder and open the file 'template.html'
 * Replace the text within the tag '&lt;section&gt;&lt;/section&gt;'
 * That's it! You can use this [Demo](https://jcponce.github.io/revealjs-template/demo.html) for reference
 
