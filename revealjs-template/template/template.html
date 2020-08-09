@@ -19,6 +19,16 @@
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/fontawesome.css">
 
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
 	<!-- This script is to display Github buttons -->
 	<script async defer src="js/buttons.js"></script>
 
@@ -26,18 +36,7 @@
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-121691678-1');
-	</script>
+	
 </head>
 
 <body>
