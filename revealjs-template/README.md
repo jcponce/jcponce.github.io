@@ -15,7 +15,7 @@ In this demo you will find some basic elements to use reveal.js for text, mathem
 
 ## Credits
 
-* Made with <a href="https://revealjs.com/" target="_blank">reveal.js</a><br /><br />
+* Made with [reveal.js](https://revealjs.com/)
 
 #### Third party plugins for reveal.js v 4.0.2
 
