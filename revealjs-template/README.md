@@ -13,11 +13,11 @@ In this demo you will find some basic elements to use reveal.js for text, mathem
 ### [Demo](https://jcponce.github.io/revealjs-template/demo.html)
 
 
-# Credits
+## Credits
 
 * Made with <a href="https://revealjs.com/" target="_blank">reveal.js</a><br /><br />
 
-## Plugins
+### Third party plugins
 
 * Chalkboard by [Asvin Goel](https://github.com/rajgoel/reveal.js-plugins)
 * Menu by [Greg Denehy](https://github.com/denehyg/reveal.js-menu)
