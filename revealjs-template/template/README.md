@@ -14,7 +14,7 @@ You can use this template for some basic elements such as text, mathematics and 
 
 * Download and unpack the zip
 * Acces the folder and open the file 'template.html'
-* Replace the text within the tag '<section></section>'
+* Replace the text within the tag '&lt;section&gt;&lt;/section&gt;'
 * That's it!
 
 ## Advance features
