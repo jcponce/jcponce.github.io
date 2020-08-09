@@ -12,7 +12,7 @@ You can use this template for some basic elements such as text, mathematics and 
 
 * Download and unpack the zip file
 * Access the folder and open the file 'template.html'
-* Replace the text within the tag '&lt;section&gt;&lt;/section&gt;'
+* Replace the text within the tag section
 * That's it! You can use this [Demo](https://jcponce.github.io/revealjs-template/demo.html) for reference
 
 ## Advance features
