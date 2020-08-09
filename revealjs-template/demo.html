@@ -369,6 +369,7 @@
 	<script src="dist/reveal.js"></script>
 	<script src="plugin/math/math.js"></script>
 	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu-4/menu.js"></script>
 	<script>
 		Reveal.initialize({
 			history: true,
@@ -398,7 +399,7 @@
 				}
 			},
 
-			plugins: [RevealMath, RevealHighlight],
+			plugins: [RevealMath, RevealHighlight, RevealMenu],
 
 			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
 				// Uncomment the following two lines, if you don't want to show the menu to toggle themes
@@ -429,9 +430,9 @@
 
 			dependencies: [
 				// Here I need to add the third party plugins
-				{
-					src: 'plugin/menu/menu.js'
-				},
+				//{
+				//	src: 'plugin/menu/menu.js'
+				//},
 				{
 					src: 'plugin/chalkboard/chalkboard.js'
 				},
