@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Math & Chalkboard Plugin Template - reveal.js</title>
+	<title>Math & Chalkboard Plugins Template - reveal.js</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -29,7 +29,10 @@
 			'export/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
+
+	<!-- This script is to display Github buttons -->
 	<script async defer src="js/buttons.js"></script>
+
 	<!--[if lt IE 9]>
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -49,10 +52,9 @@
 </head>
 
 <body>
-
 	<div class="reveal">
-
 		<div class="slides">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
@@ -261,7 +263,7 @@
 				&lt;/section&gt;
 			   </code></pre>
 				<p style="color:dimgray; font-size: 20px">
-					Notice also that you can add an ID to the slide so you can access it with hyperlinks. <br/>
+					Notice also that you can add an ID to the slide so you can access it with hyperlinks. <br />
 					For example, click <a href="#riemann-sphere">HERE</a> to go back to the Riemann sphere applet.
 				</p>
 			</section>
@@ -342,8 +344,8 @@
 				<h3>Credits</h3>
 				<p>The chalk effect is based on <a href="https://github.com/mmoustafa/Chalkboard">Chalkboard</a><br />
 					by Mohamed Moustafa.<p>
-				<p>The plugin <a href="https://github.com/denehyg/reveal.js-menu">Menu</a> was created <br />
-					by Greg Denehy.<p>
+						<p>The plugin <a href="https://github.com/denehyg/reveal.js-menu">Menu</a> was created <br />
+							by Greg Denehy.<p>
 			</section>
 
 			<section>
@@ -366,6 +368,8 @@
 				<a aria-label="Download this template" data-style="mega" href="" class="github-button">Download this
 					Template, coming soon!</a>
 			</section>
+
+			<!-- Ends sections -->
 
 		</div>
 	</div>
@@ -434,7 +438,7 @@
 
 			dependencies: [
 				// Here I need to add the third party plugins
-				// The Menu plugin now is available for reveal.js 4.02
+				// The plugin Menu is now available for reveal.js 4.0.2
 				//{
 				//	src: 'plugin/menu/menu.js'
 				//},
@@ -468,21 +472,13 @@
 			// ...
 		});
 
-		toggleMenu = () => {
-			let menu = Reveal.getPlugin('menu');
-			if (menu) menu.toggle();
-		};
+		// This function allows you to toggle themes
+		//toggleMenu = () => {
+		//	let menu = Reveal.getPlugin('menu');
+		//	if (menu) menu.toggle();
+		//};
 
 		//Reveal.getPlugins();
-
-		/*
-		function changeTheme(input) {
-			var config = {};
-			config.theme = input.value;
-			RevealChalkboard.configure(config);
-			input.blur();
-		}
-		*/
 	</script>
 
 </body>
