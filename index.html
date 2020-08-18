@@ -1,52 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Dynamic Mathematics</title>
+    <title>Dynamic Mathematics</title>
 
-<!-- dublin core -->
-<meta name="dc.title" CONTENT="Dynamic Mathematics">
-<meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
-<meta name="dc.date" CONTENT="01-Jul-2018">
-<meta name="dc.type" CONTENT="Interactive Resource">
-<meta name="dc.format" CONTENT="HTML">
-<meta name="dc.language" CONTENT="en-US">
-<meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-    
-<!-- social media cards -->
-<meta property="og:title" content="Dynamic Mathematics">
-<meta property="og:description" content="Online mathematical applets: Sketches made with Processing and p5.js.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
-<meta property="og:url" content="https://jcponce.github.io/">
-<meta name="twitter:card" content="Online mathematical applets: Sketches made with Processing and p5.js.">
-<meta property="og:site_name" content="Dynamic Mathematics">
-    
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="icon" type="image/png" href="assets/img/png/icon/infinity32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="assets/img/png/icon/infinity16.png" sizes="16x16">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" >
-<!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
-<!--<link rel="stylesheet" href="https://jcponce.github.io/css/fontawesome/font-awesome.min.css" >-->
-<!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
+    <!-- dublin core -->
+    <meta name="dc.title" CONTENT="Dynamic Mathematics">
+    <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+    <meta name="dc.date" CONTENT="01-Jul-2018">
+    <meta name="dc.type" CONTENT="Interactive Resource">
+    <meta name="dc.format" CONTENT="HTML">
+    <meta name="dc.language" CONTENT="en-US">
+    <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 
+    <!-- social media cards -->
+    <meta property="og:title" content="Dynamic Mathematics">
+    <meta property="og:description" content="Online mathematical applets: Sketches made with Processing and p5.js.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+    <meta property="og:url" content="https://jcponce.github.io/">
+    <meta name="twitter:card" content="Online mathematical applets: Sketches made with Processing and p5.js.">
+    <meta property="og:site_name" content="Dynamic Mathematics">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    gtag('config', 'UA-121691678-1');
-</script>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/img/png/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/png/icon/infinity16.png" sizes="16x16">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
+    <!--<link rel="stylesheet" href="https://jcponce.github.io/css/fontawesome/font-awesome.min.css" >-->
+    <!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
 
 
-<!--MathJax starts
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-121691678-1');
+    </script>
+
+
+    <!--MathJax starts
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
                        TeX: { equationNumbers: { autoNumber: "AMS" } }
@@ -55,484 +59,550 @@
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>-->
-<!---<script type="text/x-mathjax-config">//left-side eq
+    <!---<script type="text/x-mathjax-config">//left-side eq
  MathJax.Hub.Config({
  displayAlign: "left",
  displayIndent: "5em"
  });
  </script>--->
-<!---
+    <!---
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
     </script>
 MathJax Ends-->
 </head>
+
 <body>
 
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top w3-text-white">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="#home" class="w3-bar-item w3-button"><i class="fas fa-home"></i></a>
-    <a href="#sketches" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> SKETCHES</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-    
-    </a>
-  </div>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top w3-text-white">
+        <div class="w3-bar" id="myNavbar">
+            <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#home" class="w3-bar-item w3-button"><i class="fas fa-home"></i></a>
+            <a href="#projects" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PROJECTS</a>
+            <a href="#sketches" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> SKETCHES</a>
+            <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#sketches" class="w3-bar-item w3-button" onclick="toggleFunction()">SKETCHES</a>
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    
-  </div>
-</div>
-
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">DYNAMIC <span class="w3-hide-small"> MATHEMATICS </span>  <span class="w3-hide-large w3-hide-medium"> MATH </span></span>
-  </div>
-</div>
-
-
-<!-- Container (sketches Section) -->
-<div class="w3-content w3-container w3-padding-64" id="sketches">
-  <h3 class="w3-center">SKETCHES</h3><br>
-  <!--<p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>-->
-
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <!--First row -->
-    <div class="w3-row-padding w3-center">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="strange-attractors/"><img src="assets/img/png/thomas.png" alt="Strange attractors" class="image" style="width:100%">
-                    <div class="middle">
-                        <div class="text">Strange attractors</div>
-                    </div></a>
-            </div>
+            </a>
         </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/rainbowpolygons/"><img src="assets/img/png/rainbowpoly.png" alt="Rainbow polygons" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Rainbow polygons: <br>Draw regular polygons with the happy robot</div>
-                    </div></a>
-            </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+            <a href="#projects" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
+            <a href="#sketches" class="w3-bar-item w3-button" onclick="toggleFunction()">SKETCHES</a>
+            <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+            <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+
         </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-            <a href="complex-mapping/"><img src="assets/img/png/mapping.png" alt="Complex mapping" style="width:100%" class="image">
-                <div class="middle">
-                    <div class="text">Complex mapping</div>
-                </div>
+    </div>
+
+    <!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1 w3-display-container" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">DYNAMIC <span
+                    class="w3-hide-small"> MATHEMATICS </span> <span class="w3-hide-large w3-hide-medium"> MATH
+                </span></span>
+        </div>
+    </div>
+
+
+    <!-- Container (Projects and Sketches Section) -->
+    <div class="w3-content w3-container w3-padding-64">
+
+        <h3 class="w3-center" id="projects">PROJECTS</h3><br>
+
+        <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+        <!--First row -->
+        <div class="w3-row-padding w3-center">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="strange-attractors/"><img src="assets/img/png/thomas.png" alt="Strange attractors"
+                            class="image" style="width:100%">
+                        <div class="middle">
+                            <div class="text">Strange attractors</div>
+                        </div>
+                    </a>
                 </div>
             </div>
-        
-    </div>
-    
-    <!--Second row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="domain-coloring/"><img src="assets/img/png/domaincoloring.png" alt="Domain coloring" class="image" style="width:100%">
-                    <div class="middle">
-                        <div class="text">Domain coloring</div>
-                    </div></a>
-                    </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="velocity-fields/time-independent.html"><img src="assets/img/png/classicexamples.png" alt="Velocity fields" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Time independent velocity fields</div>
-                    </div></a>
-                    </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                 <a href="velocity-fields/time-dependent.html"><img src="assets/img/png/velfields.png" alt="Velocity fields" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Time dependent velocity fields</div>
-                    </div></a>
-                    </div>
-        </div>
-        
-    </div>
-    
-    <!--Third row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/repellerattractor/"><img src="assets/img/png/repellerattractor.png" alt="Repeller attractor" class="image" style="width:100%">
-                    <div class="middle">
-                        <div class="text">Repeller-Attractor</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="misc/voronoi.html"><img src="assets/img/png/voronoi.png" alt="Voronoi animation" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Voronoi animation</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="3dcurves/"><img src="assets/img/png/torusknot.png" style="width:100%" alt="Curves 3d" class="image">
-                    <div class="middle">
-                        <div class="text">3D parametric curves</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>
-    
-    <!--Forth row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/recamansequence/"><img src="assets/img/png/recamanseq.png" alt="Recaman's sequence" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Rainbow Recamán's sequence:<br>
-                        Animation with music</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/chaosgame/"><img src="assets/img/png/chaos.png" alt="Chaos game" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Chaos game:<br>
-                        Abstract art generated randomly</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                 <a href="sketches/fluidpolygons/"><img src="assets/img/png/fluidpoly.png" alt="Fluid Polygons" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Fluid Polygons:<br>
-                        Use mouse to add regular polygons</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>
-    
-    <!--Fifth row -->
-    <div class="w3-row-padding w3-center w3-section">
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="https://jcponce.github.io/complex/mandelbrotexplorer/"><img src="assets/img/png/mandelbrot.png" alt="Julia Set" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Mandelbrot Set Explorer</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="https://jcponce.github.io/complex/mandelbrotjulia/"><img src="assets/img/png/mandeljulia.png" alt="Mandelbrot-Julia" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Relationship between the Mandelbrot and Julia Sets</div>
-                    </div></a>
-            </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="https://jcponce.github.io/complex/juliaexplorer/"><img src="assets/img/png/juliaset.png" alt="Julia Set" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Julia Set Explorer</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>
-    
-    <!--Sixth row --->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="misc/lotusrosettes.html"><img src="assets/img/png/lotusrosettes.png" alt="Lotus Rosettes" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Lotus Rosettes</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            
-            <div class="container">
-                <a href="sketches/robotdark"><img src="assets/img/png/robotdark.png" alt="Robot dark" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Particle system: <br> Colorful regular polygons</div>
-                    </div></a>
-            </div>
-            
-            </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            
-            <div class="container">
-                <a href="sketches/hypoepitrochoid"><img src="assets/img/png/hypoepi.png" alt="Hypotrochoid Epitrochoid" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Hytrochoid &amp; Epitrochoid</div>
-                    </div></a>
-            </div>
-            
-        </div>
-    </div>
-    
-    <!--7th row 
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/flock"><img src="assets/img/png/flocking.png" alt="Flocking" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Regular Polygons Flocking</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/flockcreatures"><img src="assets/img/png/seacreatures.png" alt="Flocking sea creatures" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Sea Creatures Flocking</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/flockknots"><img src="assets/img/png/knotcreatures.png" alt="Flocking knot creatures" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Knots Creatures Flocking</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>-->
-    
-    <!--8th row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="https://jcponce.github.io/complex/flowaroundcircle/"><img src="assets/img/png/flowcircle.png" alt="Flow around circle" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Flow Around Circle</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="misc/draw-fourier.html"><img src="assets/img/png/fourierdraw.jpg" alt="Epicyles and Fourier transform" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Epicyles and Discrete Fourier Transform</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="https://jcponce.github.io/calculus/3d-curves/rainbownoise/"><img src="assets/img/png/rainbownoise.png" alt="Rainbow Noise" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Rainbow Perlin Noise <br>Loop in 3D</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>
-    
-    <!--9th row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/sunflowerSphere/"><img src="assets/img/png/pointsphere.png" alt="Phyllotaxis on the sphere" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Phyllotaxis:
-                        Sunflower  <br>points distributed on the sphere</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/blackhole"><img src="assets/img/png/blackhole.png" alt="Black Hole simulation" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Black Hole simulation</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/collisions"><img src="assets/img/png/brownian.png" alt="Collision" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Collisions</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>
-    
-    
-    <!--10th row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/benhamdisk/"><img src="assets/img/png/benham.png" alt="Benham' disk" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Benham's disk</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="../calculus/chladni-patterns/"><img src="assets/img/png/chladni.jpg" alt="Black Hole simulation" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Chladni patterns</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/tantrix-music"><img src="assets/img/png/tantrix.png" alt="Collision" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Tantrix patterns &amp; Music</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>
-    
-    <!--11th row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="../calculus/diff-equations/"><img src="assets/img/png/diff-eq.png" alt="Flow and streamlines" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Differential equations: Flow &amp; streamlines</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="misc/lissajous.html"><img src="assets/img/png/lissajous.png" alt="Lissajous curves with phase" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Lissajous curves table</div>
-                    </div></a>
-            </div>
-        </div>
-       
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/mult-tables"><img src="assets/img/png/mult.png" alt="Multiplication tables" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Patterns with Multiplication Tables</div>
-                    </div></a>
-            </div>
-        </div>
-        
-    </div>
-    
-    
-    <!--11th row -->
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/collatz"><img src="assets/img/png/collatz.png" alt="Collatz Sea Tree" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Collatz Sea Tree</div>
-                    </div></a>
-            </div>
-        </div>
-        
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="sketches/c-flower"><img src="assets/img/png/cflower.png" alt="Flowers" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Colorful flowers with parametric equations</div>
-                    </div></a>
-            </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="container">
-                <a href="flocking"><img src="assets/img/png/knotcreatures.png" alt="Flocking" style="width:100%" class="image">
-                    <div class="middle">
-                        <div class="text">Flocking</div>
-                    </div></a>
-            </div>
-        </div>
-    </div>
-    
-        
-    
-</div>
 
-<!-- Second Parallax Image with about Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxxlarge w3-text-black w3-wide" style="font-weight: bold;">ABOUT</span>
-  </div>
-</div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="domain-coloring/"><img src="assets/img/png/domaincoloring.png" alt="Domain coloring"
+                            class="image" style="width:100%">
+                        <div class="middle">
+                            <div class="text">Domain coloring</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="misc/draw-fourier.html"><img src="assets/img/png/fourierdraw.jpg"
+                            alt="Epicyles and Fourier transform" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Epicyles and Discrete Fourier Transform</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
 
 
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about" style="font-size: 18px;">
-  <h3 class="w3-center w3-text-black" >ABOUT</h3>
-  <p class="w3-center"><em>A mathematical formula should never be "owned" by anybody!</em><br> Donald Knuth, <em>Digital Typography, ch1, p. 8 (1999).</em></p>
-  
-  
-  <div class="w3-text-dark-grey">
-  <p>Hi there! I'm Juan Carlos. I am a mathematician working at <a href="http://researchers.uq.edu.au/researcher/24008" target="_blanck" class="w3-hover-text-indigo">UQ</a>, Brisbane. Here you can find my sketches made with <a href="https://p5js.org/" class="w3-hover-text-indigo" target="_blank">p5.js</a> and <a href="https://processing.org/" class="w3-hover-text-indigo" target="_blank">Processing</a>.</p>
-  <p>Although most of the sketches are optimized, some of them might not work across different devices and platforms.</p>
-  
-  <p>If you like or find useful the content of this site, you can support it by getting the interactive book: <a href="https://itunes.apple.com/au/book/isbn9781925764734" target="_blanck" class="w3-hover-text-indigo">ABC of Mathematics</a>.</p>
-  
-  <p class="w3-hide-medium w3-hide-large">For other projects visit <a href="https://www.jcponce.com/" class="w3-hover-text-indigo">www.jcponce.com</a></p>
-  <p class="w3-hide-medium w3-hide-large">Thanks for your visit!</p>
-  </div>
+        <!--Second row -->
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="https://jcponce.github.io/complex/flowaroundcircle/"><img
+                            src="assets/img/png/flowcircle.png" alt="Flow around circle" style="width:100%"
+                            class="image">
+                        <div class="middle">
+                            <div class="text">Flow Around Circle</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <!--<p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>-->
-      <a href="https://itunes.apple.com/au/book/isbn9781925764734" target="_blanck" class="w3-hover-text-indigo"><img src="assets/img/png/ibook.png" class="w3-round w3-image w3-hover-opacity" alt="ABC of Math" width="25%"></a>
-          <!--<img src="assets/img/png/inf.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="30%">-->
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="velocity-fields/time-independent.html"><img src="assets/img/png/classicexamples.png"
+                            alt="Velocity fields" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Time independent velocity fields</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="velocity-fields/time-dependent.html"><img src="assets/img/png/velfields.png"
+                            alt="Velocity fields" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Time dependent velocity fields</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!--11th row -->
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="../calculus/diff-equations/"><img src="assets/img/png/diff-eq.png"
+                            alt="Flow and streamlines" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Differential equations: Flow &amp; streamlines</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/c-flower"><img src="assets/img/png/cflower.png" alt="Flowers" style="width:100%"
+                            class="image">
+                        <div class="middle">
+                            <div class="text">Colorful flowers with parametric equations</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="flocking"><img src="assets/img/png/knotcreatures.png" alt="Flocking" style="width:100%"
+                            class="image">
+                        <div class="middle">
+                            <div class="text">Flocking</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+         <!--Third row -->
+         <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/sunflowerSphere/"><img src="assets/img/png/pointsphere.png"
+                            alt="Phyllotaxis on the sphere" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Phyllotaxis:
+                                Sunflower <br>points distributed on the sphere</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+
+                <div class="container">
+                    <a href="sketches/hypoepitrochoid"><img src="assets/img/png/hypoepi.png"
+                            alt="Hypotrochoid Epitrochoid" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Hytrochoid &amp; Epitrochoid</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="3dcurves/"><img src="assets/img/png/torusknot.png" style="width:100%" alt="Curves 3d"
+                            class="image">
+                        <div class="middle">
+                            <div class="text">3D parametric curves</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--Fifth row -->
+        <div class="w3-row-padding w3-center w3-section">
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="https://jcponce.github.io/complex/mandelbrotexplorer/"><img
+                            src="assets/img/png/mandelbrot.png" alt="Julia Set" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Mandelbrot Set Explorer</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="https://jcponce.github.io/complex/mandelbrotjulia/"><img
+                            src="assets/img/png/mandeljulia.png" alt="Mandelbrot-Julia" style="width:100%"
+                            class="image">
+                        <div class="middle">
+                            <div class="text">Relationship between the Mandelbrot and Julia Sets</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="https://jcponce.github.io/complex/juliaexplorer/"><img src="assets/img/png/juliaset.png"
+                            alt="Julia Set" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Julia Set Explorer</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <h3 class="w3-center" id="sketches">SKETCHES</h3><br>
+        <!--<p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>-->
+
+        <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+        <!--First row -->
+        <div class="w3-row-padding w3-center">
+
+            <div class="w3-third w3-container w3-margin-bottom">
+
+                <div class="container">
+                    <a href="sketches/robotdark"><img src="assets/img/png/robotdark.png" alt="Robot dark"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Particle system: <br> Colorful regular polygons</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="misc/voronoi.html"><img src="assets/img/png/voronoi.png" alt="Voronoi animation"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Voronoi animation</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/rainbowpolygons/"><img src="assets/img/png/rainbowpoly.png" alt="Rainbow polygons"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Rainbow polygons: <br>Draw regular polygons with the happy robot</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Forth row -->
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/recamansequence/"><img src="assets/img/png/recamanseq.png"
+                            alt="Recaman's sequence" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Rainbow Recamán's sequence:<br>
+                                Animation with music</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/chaosgame/"><img src="assets/img/png/chaos.png" alt="Chaos game"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Chaos game:<br>
+                                Abstract art generated randomly</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/fluidpolygons/"><img src="assets/img/png/fluidpoly.png" alt="Fluid Polygons"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Fluid Polygons:<br>
+                                Use mouse to add regular polygons</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!--Sixth row --->
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="misc/lotusrosettes.html"><img src="assets/img/png/lotusrosettes.png" alt="Lotus Rosettes"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Lotus Rosettes</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="misc/lissajous.html"><img src="assets/img/png/lissajous.png"
+                            alt="Lissajous curves with phase" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Lissajous curves table</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="https://jcponce.github.io/calculus/3d-curves/rainbownoise/"><img
+                            src="assets/img/png/rainbownoise.png" alt="Rainbow Noise" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Rainbow Perlin Noise <br>Loop in 3D</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!--9th row -->
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/collatz"><img src="assets/img/png/collatz.png" alt="Collatz Sea Tree"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Collatz Sea Tree</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/blackhole"><img src="assets/img/png/blackhole.png" alt="Black Hole simulation"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Black Hole simulation</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/collisions"><img src="assets/img/png/brownian.png" alt="Collision"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Collisions</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--10th row -->
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/benhamdisk/"><img src="assets/img/png/benham.png" alt="Benham' disk"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Benham's disk</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="../calculus/chladni-patterns/"><img src="assets/img/png/chladni.jpg"
+                            alt="Black Hole simulation" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Chladni patterns</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/tantrix-music"><img src="assets/img/png/tantrix.png" alt="Collision"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Tantrix patterns &amp; Music</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!--11th row -->
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/repellerattractor/"><img src="assets/img/png/repellerattractor.png"
+                            alt="Repeller attractor" class="image" style="width:100%">
+                        <div class="middle">
+                            <div class="text">Repeller-Attractor</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="complex-mapping"><img src="assets/img/png/mapping.png"
+                            alt="Complex mapping" style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Complex mapping</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="container">
+                    <a href="sketches/mult-tables"><img src="assets/img/png/mult.png" alt="Multiplication tables"
+                            style="width:100%" class="image">
+                        <div class="middle">
+                            <div class="text">Patterns with Multiplication Tables</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
 
-    <!-- Hide this text on small devices-->
-    <div class="w3-col m6 w3-hide-small w3-padding-large w3-text-dark-grey">
-      <p>For other projects visit <a href="https://www.jcponce.com/" class="w3-hover-text-indigo">www.jcponce.com</a></p>
-      <p>Thanks for your visit!</p>
+    <!-- Second Parallax Image with about Text -->
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxxlarge w3-text-black w3-wide" style="font-weight: bold;">ABOUT</span>
+        </div>
     </div>
-  </div>
-  
-  
-  
-</div>
 
 
-<!-- Modal for full size images on click
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about" style="font-size: 18px;">
+        <h3 class="w3-center w3-text-black">ABOUT</h3>
+        <p class="w3-center"><em>A mathematical formula should never be "owned" by anybody!</em><br> Donald Knuth,
+            <em>Digital Typography, ch1, p. 8 (1999).</em></p>
+
+
+        <div class="w3-text-dark-grey">
+            <p>Hi there! I'm Juan Carlos. I am a mathematician working at <a
+                    href="http://researchers.uq.edu.au/researcher/24008" target="_blanck"
+                    class="w3-hover-text-indigo">UQ</a>, Brisbane. Here you can find my sketches made with <a
+                    href="https://p5js.org/" class="w3-hover-text-indigo" target="_blank">p5.js</a> and <a
+                    href="https://processing.org/" class="w3-hover-text-indigo" target="_blank">Processing</a>.</p>
+            <p>Although most of the sketches are optimized, some of them might not work across different devices and
+                platforms.</p>
+
+            <p>If you like or find useful the content of this site, you can support it by getting the interactive book:
+                <a href="https://itunes.apple.com/au/book/isbn9781925764734" target="_blanck"
+                    class="w3-hover-text-indigo">ABC of Mathematics</a>.</p>
+
+            <p class="w3-hide-medium w3-hide-large">For other projects visit <a href="https://www.jcponce.com/"
+                    class="w3-hover-text-indigo">www.jcponce.com</a></p>
+            <p class="w3-hide-medium w3-hide-large">Thanks for your visit!</p>
+        </div>
+
+        <div class="w3-row">
+            <div class="w3-col m6 w3-center w3-padding-large">
+                <!--<p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>-->
+                <a href="https://itunes.apple.com/au/book/isbn9781925764734" target="_blanck"
+                    class="w3-hover-text-indigo"><img src="assets/img/png/ibook.png"
+                        class="w3-round w3-image w3-hover-opacity" alt="ABC of Math" width="25%"></a>
+                <!--<img src="assets/img/png/inf.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="30%">-->
+            </div>
+
+            <!-- Hide this text on small devices-->
+            <div class="w3-col m6 w3-hide-small w3-padding-large w3-text-dark-grey">
+                <p>For other projects visit <a href="https://www.jcponce.com/"
+                        class="w3-hover-text-indigo">www.jcponce.com</a></p>
+                <p>Thanks for your visit!</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Modal for full size images on click
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
   <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
   <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
@@ -541,34 +611,44 @@ MathJax Ends-->
   </div>
 </div>-->
 
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container ">
-  <div class="w3-display-middle">
-     <span class="w3-xxxlarge w3-text-white w3-wide" style="font-weight: bold;">CONTACT</span>
-  </div>
-</div>
+    <!-- Third Parallax Image with Portfolio Text -->
+    <div class="bgimg-3 w3-display-container ">
+        <div class="w3-display-middle">
+            <span class="w3-xxxlarge w3-text-white w3-wide" style="font-weight: bold;">CONTACT</span>
+        </div>
+    </div>
 
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-32 w3-center" id="contact" style="font-size: 18px;">
-  <h3 class="w3-text-black">Where am I?</h3>
-  <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Planet Earth, <a href="https://stars.chromeexperiments.com/" target="_blanck" class="w3-hover-text-indigo">Solar System</a><br><br>
-  
-  <h3>
-  <p><em>I'd love your feedback!</em></p>
-  <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: <a href="mailto:j.ponce@uq.edu.au">j.ponce@uq.edu.au</a><br><br><br>
-  
-  <hr style="border-width: 5px;">
-  
-  <br>
-  
-  
-<h3 class="w3-center w3-text-black" >LICENSE</h3>
-   
-  <div class="w3-text-dark-grey" style='font-size:16px' >
-      <p align="justify">The content of this site is released under a <a class="w3-hover-text-blue" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution, Non-Commercial, Share-Alike license.</a> You have permission to use these applets (for example in a classroom setting) or take screenshots as long as the applets are unmodified. Modification or redistribution for non-commercial purposes is allowed, as long as you credit me and provide a link to my page (the page you found the applet(s) on, or <a class="w3-hover-text-blue" href="#home">https://jcponce.github.io</a>). Contact me for any other uses. The source code for each applet is generally available on that applet's web page.</p>
-  </div>
-  
-  <!--<div class="w3-row w3-padding-32 w3-section">
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-32 w3-center" id="contact" style="font-size: 18px;">
+        <h3 class="w3-text-black">Where am I?</h3>
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Planet Earth, <a
+            href="https://stars.chromeexperiments.com/" target="_blanck" class="w3-hover-text-indigo">Solar
+            System</a><br><br>
+
+        <h3>
+            <p><em>I'd love your feedback!</em></p>
+            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: <a
+                href="mailto:j.ponce@uq.edu.au">j.ponce@uq.edu.au</a><br><br><br>
+
+            <hr style="border-width: 5px;">
+
+            <br>
+
+
+            <h3 class="w3-center w3-text-black">LICENSE</h3>
+
+            <div class="w3-text-dark-grey" style='font-size:16px'>
+                <p align="justify">The content of this site is released under a <a class="w3-hover-text-blue"
+                        href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution,
+                        Non-Commercial, Share-Alike license.</a> You have permission to use these applets (for example
+                    in a classroom setting) or take screenshots as long as the applets are unmodified. Modification or
+                    redistribution for non-commercial purposes is allowed, as long as you credit me and provide a link
+                    to my page (the page you found the applet(s) on, or <a class="w3-hover-text-blue"
+                        href="#home">https://jcponce.github.io</a>). Contact me for any other uses. The source code for
+                    each applet is generally available on that applet's web page.</p>
+            </div>
+
+            <!--<div class="w3-row w3-padding-32 w3-section">
     
     <div class="w3-col m4 w3-panel">
    <div class="w3-large w3-margin-bottom">
@@ -579,35 +659,41 @@ MathJax Ends-->
    <iframe src="https://editor.p5js.org/jcponce/embed/V9l9JOaNb" scrolling="no" width="600" height="400" style="border:0px;"></iframe>
    </div>
   </div>-->
- 
-  
-  <!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>-->
-  
-</div>
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-32">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    
-  </div>
-  <div class="w3-row-padding">
-      <div class="w3-third w3-container w3-margin-bottom w3-xlarge">
-          <a href="https://www.jcponce.com/" class="w3-hover-text-indigo"><i class="fab fa-blogger fa-lg"></i></a>&nbsp;
-          <a href="https://twitter.com/PonceCampuzano" class="w3-hover-text-indigo"><i class="fab fa-twitter"></i></a> &nbsp;
-          <a href="https://github.com/jcponce" class="w3-hover-text-indigo"><i class="fab fa-github fa-lg"></i></a>
-      </div>
-      <div class="w3-third w3-container w3-margin-bottom">
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
-      </div>
-      <div class="w3-third w3-container w3-margin-bottom">
-          <p> Hosted by <a href="https://pages.github.com/" title="GiHub Pages" target="_blank" class="w3-hover-opacity"> <i class="fab fa-github"></i> GitHub Pages</a></p>
-      </div>
-  </div>
-</footer>
 
 
-<script async src="js/index.js"></script>
+            <!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>-->
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-32">
+        <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+        <div class="w3-xlarge w3-section">
+
+        </div>
+        <div class="w3-row-padding">
+            <div class="w3-third w3-container w3-margin-bottom w3-xlarge">
+                <a href="https://www.jcponce.com/" class="w3-hover-text-indigo"><i
+                        class="fab fa-blogger fa-lg"></i></a>&nbsp;
+                <a href="https://twitter.com/PonceCampuzano" class="w3-hover-text-indigo"><i
+                        class="fab fa-twitter"></i></a> &nbsp;
+                <a href="https://github.com/jcponce" class="w3-hover-text-indigo"><i
+                        class="fab fa-github fa-lg"></i></a>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                        class="w3-hover-opacity">w3.css</a></p>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <p> Hosted by <a href="https://pages.github.com/" title="GiHub Pages" target="_blank"
+                        class="w3-hover-opacity"> <i class="fab fa-github"></i> GitHub Pages</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script async src="js/index.js"></script>
 
 </body>
+
 </html>
