@@ -51,7 +51,7 @@
 				<p>Lecture 11</p>
 			</section>
 			
-			<section>
+			<section id="boundary-point">
 				<h4>Topology</h4>
 				<div class="mylftText">
 					<p class="fragment" data-fragment-index="0">\(\partial \Omega = \) boundary of \(\Omega=\)
@@ -82,23 +82,76 @@
 
 			<section data-transition="fade-out">
 				<h4>Topology</h4>
-				<div class="mylftText" style="font-size:60%">
-					<p class="fragment" data-fragment-index="0">Take \( \Omega \subseteq \C\). 
+				<div class="mylftText">
+					<p class="fragment" data-fragment-index="0">\(\text{Int }\Omega=\) interior  of \(\Omega =\)
+						\[\{z\in \C : z \text{ is an interior point of } \Omega\}.\]
 					</p>
-					<p class="fragment" data-fragment-index="1">\(*\;\) \(z\in \C\) is an <u>interior 
-						point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\subset \Omega\)
+					<p class="fragment" data-fragment-index="1">\(\text{Ext }\Omega=\) exterior  of \(\Omega =\)
+						\[\{z\in \C : z \text{ is an exterior point of } \Omega\}.\]
 					</p>
-					<p class="fragment" data-fragment-index="2">(note \(\implies B_{\epsilon}(z_0)\subset \Omega\; \forall \epsilon^{\prime}\), \(0<\epsilon^{\prime}< \epsilon\)).
+					<p class="fragment" data-fragment-index="2">\(\Omega\) is open if \(\Omega = \text{Int }\Omega\).
 					</p>
-					<p class="fragment" data-fragment-index="3">\(*\;\) \(z\in \C\) is an <u>exterior 
-						point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\cap \Omega \neq \emptyset\).
+					<p class="fragment" data-fragment-index="3">\(\Omega\) is closed if \(\partial \Omega \subseteq \Omega\).
 					</p>
-					<p class="fragment" data-fragment-index="4">\(*\;\) \(z\in \C\) is a <u>boundary 
-						point</u> of \(\Omega\), \(z\in\partial \Omega \), if \(\forall \epsilon>0\):<br/>
-						\[
-						B_{\epsilon}(z_0)\cap \Omega \neq \emptyset \text{ and } 
-						B_{\epsilon}(z_0)\cap \Omega^c \neq \emptyset.
-						\]
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="example-open">
+				<h4>Topology</h4>
+				<div class="mylftText">
+					<p><strong>Example 1:</strong> 
+						\(\Omega_1=B_1(0)\)
+						<span class="fragment" data-fragment-index="1">\(=B_1=B\)</span>
+						<span class="fragment" data-fragment-index="2">\[=\{z : |z| < 1\}.\]</span>
+					</p>
+					<p class="fragment" data-fragment-index="3">\(\text{Int }\Omega_1=\Omega_1\);
+					</p>
+					<p class="fragment" data-fragment-index="4">\(\text{Ext }\Omega_1=\{z : |z| > 1\}\);
+					</p>
+					<p class="fragment" data-fragment-index="5">\(\partial \Omega_1 = \{z : |z| = 1\} = S^1\);
+					</p>
+					<p class="fragment" data-fragment-index="6">\(\Omega_1^c = \{z : |z| \geq 1\} \);
+					</p>
+					<p class="fragment" data-fragment-index="7">\(\Omega_1  \) is open.
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="example-closed">
+				<h4>Topology</h4>
+				<div class="mylftText">
+					<p><strong>Example 2:</strong> 
+						\(\Omega_2=\overline{B_1}(0)\)
+						<span class="fragment" data-fragment-index="1">\(=\overline{B_1}\)</span>
+						<span class="fragment" data-fragment-index="2">\[=\{z : |z| \leq 1\}.\]</span>
+					</p>
+					<p class="fragment" data-fragment-index="3">\(\text{Int }\Omega_2=\Omega_1\);
+					</p>
+					<p class="fragment" data-fragment-index="4">\(\text{Ext }\Omega_2=\text{Ext }\Omega_1\);
+					</p>
+					<p class="fragment" data-fragment-index="5">\(\partial \Omega_2 = \partial \Omega_1\);
+					</p>
+					<p class="fragment" data-fragment-index="6">\(\Omega_2^c =\text{Ext }\Omega_2 \);
+					</p>
+					<p class="fragment" data-fragment-index="7">\(\Omega_2  \) is closed.
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="example-neither-open-nor-closed">
+				<h4>Topology</h4>
+				<div class="mylftText">
+					<p><strong>Example 3:</strong> \(\{z : 0 \leq |z| \leq 1\}\).
+					</p>
+					<p class="fragment" data-fragment-index="3">\(\text{Int }\Omega_3=\{z : 0 < |z| < 1\}\);
+					</p>
+					<p class="fragment" data-fragment-index="4">\(\text{Ext }\Omega_3=\text{Ext }\Omega_1\);
+					</p>
+					<p class="fragment" data-fragment-index="5">\(\partial \Omega_3 =S^1 \cup \{0\}\);
+					</p>
+					<p class="fragment" data-fragment-index="6">\(\Omega_3^c =\text{Ext }\Omega_3 \cup \{0\} \);
+					</p>
+					<p class="fragment" data-fragment-index="7">\(\Omega_3  \) is neither open nor closed.
 					</p>
 				</div>
 			</section>
