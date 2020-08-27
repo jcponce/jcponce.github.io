@@ -151,10 +151,11 @@
 					</p>
 					<p><span class="fragment" data-fragment-index="0">\(\displaystyle \lim_{z\ra z_0}f(z)=w_0\)
 							says:</span>
-						<span class="fragment" data-fragment-index="1">Given \(\epsilon &gt; 0\) exists \(\delta &gt; 0\) such
+						<span class="fragment" data-fragment-index="1">Given \(\epsilon &gt; 0\) exists \(\delta &gt;
+							0\) such
 							that</span>
 						<span class="fragment" data-fragment-index="2">\[0&lt;|z-z_0|&lt;\delta \implies
-							|f(z)-w_0|&lt;\epsilon.\]</span>
+							\left|f(z)-w_0\right|&lt;\epsilon.\]</span>
 					</p>
 					<p class="fragment" data-fragment-index="3"><strong>Note:</strong> \(f\) does not have to be defined
 						at \(z_0\).</p>
@@ -164,7 +165,7 @@
 			<section data-transition="fade-out">
 				<h4>Limits</h4>
 				<p style="font-size:60%">Examples:</p>
-				<div style="font-size:90%">
+				<div style="font-size:80%">
 					<p>
 						<span class="fragment" data-fragment-index="0">
 							\(
@@ -180,6 +181,48 @@
 					</p>
 					<p class="fragment" data-fragment-index="2">\[\displaystyle \lim_{z\ra 0}\dfrac{\sin z}{z}=1.\]
 					</p>
+					<p class="fragment" data-fragment-index="3" style="text-align:left"><strong>Remark:</strong>If a
+						limit exists, it is unique.</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="limit-theorems">
+				<h4>Limit Theorems</h4>
+				<div class="mylftText" style="font-size:80%">
+					<p>Suppose \(f(z) = f(x+iy) = u(x,y) + i v(x,y) \),
+						<span class="fragment" data-fragment-index="0">\[z_0= x_0+iy_0 \text{ and } w_0
+							=u_0+iv_0.\]</span></p>
+					<p class="fragment" data-fragment-index="1"><strong>Theorem 1:</strong>
+						\[
+						\lim_{z \ra z_0} f(z)=w_0 \iff
+						\left\{
+						\begin{array}{rl}
+						\displaystyle\lim_{(x,y)\ra (x_0+iy_0)} u(x,y) & = u_0,\\
+						\displaystyle\lim_{(x,y)\ra (x_0+iy_0)} v(x,y) & = v_0.
+						\end{array}
+						\right.
+						\]
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Limit Theorems</h4>
+				<div class="mylftText" style="font-size:70%">
+					<p><strong>Theorem 2:</strong> Suppose \(\displaystyle \lim_{z \ra z_0}f(z) = w_0\)
+						and \(\displaystyle \lim_{z \ra z_0}g(z) = w_0\) and \(\lambda\in \C\). Then
+					</p>
+					<ol>
+						<li class="fragment" data-fragment-index="0">\(\displaystyle \lim_{z \ra z_0}\left(f \pm
+							g\right)(z) = w_0 \pm \xi_0\);</li>
+						<li class="fragment" data-fragment-index="1">\(\displaystyle \lim_{z \ra z_0}\left(\lambda \cdot f
+							\right)(z) = \lambda \cdot  w_0\);</li>
+						<li class="fragment" data-fragment-index="2">\(\displaystyle \lim_{z \ra z_0}\left(f \cdot
+							g\right)(z) = w_0 \cdot \xi_0\);</li>
+						<li class="fragment" data-fragment-index="3">\(\displaystyle \lim_{z \ra z_0}\dfrac{f(z)}{g(z)} 
+							= \dfrac{w_0}{\xi_0}\), as long as \(\xi_0\neq 0\).</li>
+					</ol>
+
 				</div>
 			</section>
 
