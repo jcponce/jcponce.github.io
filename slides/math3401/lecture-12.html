@@ -51,135 +51,134 @@
 				<p>Lecture 12</p>
 			</section>
 
-			<section id="accumulation-point">
+			<section id="piecewise-affinely-path-connected">
 				<h4>Topology</h4>
 				<div class="mylftText">
-					<p class="fragment" data-fragment-index="0">\(*\) A Point \(z\in \C\) is called an
-						<u>accumulation point</u> of a set \(\Omega \subseteq \C\) if every deleted neighbourood
-						of \(z\) intersects \(\Omega\).
+					<p class="fragment" data-fragment-index="0">\(*\) \(\Omega \subseteq \C\) is
+						<u>piecewise affinely path connected</u> if any two points in \(\Omega\) can be connected by a
+						finite number of line segments <u>in \(\Omega\)</u>, joined end to end.
 					</p>
-					<p class="fragment" data-fragment-index="1"><strong>Example 1:</strong> \(\Omega=\left\{\dfrac{i}{2^n}\right\}_{n\in \N}\).
-					</p>
-					<p class="fragment" data-fragment-index="4">The only accumulation point is 0.</p>
 				</div>
 			</section>
 
 			<section data-transition="fade-out">
 				<h4>Topology</h4>
 				<div class="mylftText">
-					<p>\(z_1\) interior point
+					<p class="fragment" data-fragment-index="0">For open sets in \(\C\), the two definitions are
+						equivalent
 					</p>
-					<p>\(z_2\) exterior point
-					</p>
-					<p>\(z_3\) boundary point, \(z_3\in \Omega\)
-					</p>
-					<p>\(z_4\) boundary point, \(z_4\notin \Omega\)
-					</p>
+					<p class="fragment" data-fragment-index="1">(not so in general: see for example the comb space, to
+						be confirmed/clean-up).</p>
 				</div>
 			</section>
 
-			<section data-transition="fade-out" id="interior-exterior">
+			<section data-transition="fade-out">
 				<h4>Topology</h4>
-				<div class="mylftText">
-					<p>\(\text{Int }\Omega=\) interior of \(\Omega \)
-						<span class="fragment" data-fragment-index="0">\[=\{z\in \C : z \text{ is an interior point of }
-							\Omega\}.\]</span>
+				<div class="mylftText" style="font-size:75%">
+					<p><strong>Show:</strong> If \(\Omega_1,\Omega_2 \subseteq \C\) are open, then so is \(\Omega_1\cap
+						\Omega_2\).
 					</p>
+					<p class="fragment" data-fragment-index="0"><strong>Proof:</strong> If \(\Omega_1\cap \Omega_2 \neq
+						\emptyset\) done
+						(\(\emptyset\) is open).
+					</p>
+					<p class="fragment" data-fragment-index="1">Otherwise, for any \(z\in \Omega_1\cap\Omega_2\) we have
+
+					</p>
+				</div>
+				<div style="font-size:75%">
+					<p class="fragment" data-fragment-index="2">\(z\in \Omega_1 \implies \exists\epsilon_1 \text{
+						such that } B_{\epsilon_1}(z)\subset \Omega_1\) ... ♣️</p>
+					<p class="fragment" data-fragment-index="3">\(z\in \Omega_1 \implies \exists\epsilon_2 \text{
+						such that } B_{\epsilon_2}(z)\subset \Omega_2\) ... 🙂</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out">
+				<h4>Topology</h4>
+				<div class="mylftText" style="font-size:75%">
+					<p>Since \(\Omega_1,\Omega_2\) are open, set \(\epsilon = \min \{\epsilon_1, \epsilon_2\}\) and note
+						that \(\epsilon>0\).
+					</p>
+					<p class="fragment" data-fragment-index="0">Thus</p>
+				</div>
+				<div style="font-size:75%">
+					<p class="fragment" data-fragment-index="1">\(B_{\epsilon}(z)\subset \Omega_1\) by ♣️,</p>
+					<p class="fragment" data-fragment-index="2">\(B_{\epsilon}(z)\subset \Omega_2\) by 🙂.</p>
+				</div>
+				<div class="mylftText" style="font-size:75%">
 					<p>
-						<span class="fragment" data-fragment-index="1">\(\text{Ext }\Omega=\) exterior of \(\Omega
-							\)</span>
-						<span class="fragment" data-fragment-index="2">\[=\{z\in \C : z \text{ is an exterior point of }
-							\Omega\}.\]</span>
+						<span class="fragment" data-fragment-index="3">So \(B_{\epsilon}(z)\subset
+							\Omega_1\cap\Omega_2\).</span>
+						<span class="fragment" data-fragment-index="4">Since \(z\) was arbitrary in
+							\(\Omega_1\cap\Omega_2\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="3">\(\Omega\) is open if \(\Omega = \text{Int }\Omega\).
+					<p class="fragment" data-fragment-index="5">This implies \(\text{Int } \Omega_1\cap\Omega_2=
+						\Omega_1\cap\Omega_2\)</p>
+					<p class="fragment" data-fragment-index="6">Hence \(\Omega_1\cap\Omega_2\) is open</p>
+				</div>
+			</section>
+
+			<section id="domain-region">
+				<h4>Topology</h4>
+				<div class="mylftText">
+					<p>\(*\) An open, connected subset of \(\C\) is called <u>domain</u>.
 					</p>
-					<p class="fragment" data-fragment-index="4">\(\Omega\) is closed if \(\partial \Omega \subseteq
-						\Omega\).
+					<p>\(*\) An set whose interior is a domain is called a <u>region</u>.
 					</p>
 				</div>
 			</section>
 
-			<section data-transition="fade-out" id="example-open">
+
+			<section id="accumulation-point">
 				<h4>Topology</h4>
 				<div class="mylftText">
-					<p><strong>Example 1:</strong>
-						\(\Omega_1=B_1(0)\)
-						<span class="fragment" data-fragment-index="1">\(=B_1=B\)</span>
-						<span class="fragment" data-fragment-index="2">\[=\{z : |z| < 1\}.\]</span> </p> <p
-								class="fragment" data-fragment-index="3">\(\text{Int }\Omega_1=\Omega_1\);
+					<p>\(*\) A Point \(z\in \C\) is called an
+						<u>accumulation point</u> of a set \(\Omega \subseteq \C\) if every deleted neighbourood
+						of \(z\) intersects \(\Omega\).
 					</p>
-					<p class="fragment" data-fragment-index="4">\(\text{Ext }\Omega_1=\{z : |z| > 1\}\);
+					<p class="fragment" data-fragment-index="1"><strong>Example 1:</strong>
+						\(\Omega=\left\{\dfrac{i}{2^n}\right\}_{n\in \N}\).
 					</p>
-					<p class="fragment" data-fragment-index="5">\(\partial \Omega_1 = \{z : |z| = 1\} = S^1\);
-					</p>
-					<p class="fragment" data-fragment-index="6">\(\Omega_1^c = \{z : |z| \geq 1\} \);
-					</p>
-					<p class="fragment" data-fragment-index="7">\(\Omega_1 \) is open.
-					</p>
+					<p class="fragment" data-fragment-index="4">The only accumulation point is 0.</p>
 				</div>
 			</section>
 
-			<section data-transition="fade-out" id="example-closed">
-				<h4>Topology</h4>
-				<div class="mylftText">
-					<p><strong>Example 2:</strong>
-						\(\Omega_2=\overline{B_1}(0)\)
-						<span class="fragment" data-fragment-index="1">\(=\overline{B_1}\)</span>
-						<span class="fragment" data-fragment-index="2">\[=\{z : |z| \leq 1\}.\]</span>
+			<section id="limits">
+				<h4>Limits</h4>
+				<div class="mylftText" style="font-size:80%">
+					<p>Let \(f\) be a \(\C\)-valued function defined on a deleted neighbourhood of \(z\in\C\).
 					</p>
-					<p class="fragment" data-fragment-index="3">\(\text{Int }\Omega_2=\Omega_1\);
+					<p><span class="fragment" data-fragment-index="0">\(\displaystyle \lim_{z\ra z_0}f(z)=w_0\)
+							says:</span>
+						<span class="fragment" data-fragment-index="1">Given \(\epsilon &gt; 0\) exists \(\delta &gt; 0\) such
+							that</span>
+						<span class="fragment" data-fragment-index="2">\[0&lt;|z-z_0|&lt;\delta \implies
+							|f(z)-w_0|&lt;\epsilon.\]</span>
 					</p>
-					<p class="fragment" data-fragment-index="4">\(\text{Ext }\Omega_2=\text{Ext }\Omega_1\);
-					</p>
-					<p class="fragment" data-fragment-index="5">\(\partial \Omega_2 = \partial \Omega_1\);
-					</p>
-					<p class="fragment" data-fragment-index="6">\(\Omega_2^c =\text{Ext }\Omega_2 \);
-					</p>
-					<p class="fragment" data-fragment-index="7">\(\Omega_2 \) is closed.
-					</p>
+					<p class="fragment" data-fragment-index="3"><strong>Note:</strong> \(f\) does not have to be defined
+						at \(z_0\).</p>
 				</div>
 			</section>
 
-			<section data-transition="fade-out" id="example-neither-open-nor-closed">
-				<h4>Topology</h4>
-				<div class="mylftText">
-					<p><strong>Example 3:</strong> \(\{z : 0 \leq |z| \leq 1\}\).
+			<section data-transition="fade-out">
+				<h4>Limits</h4>
+				<p style="font-size:60%">Examples:</p>
+				<div style="font-size:90%">
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							\(
+							f(z) = \left\{
+							\begin{array}{ll}
+							0 & z\neq 0,\\
+							1337 & z=0.
+							\end{array}
+							\right.
+							\)
+						</span> &nbsp;&nbsp;
+						<span class="fragment" data-fragment-index="1">\(\displaystyle\lim_{z\ra 0}f(z)=0\);</span>
 					</p>
-					<p class="fragment" data-fragment-index="3">\(\text{Int }\Omega_3=\{z : 0 < |z| < 1\}\); </p> <p
-							class="fragment" data-fragment-index="4">\(\text{Ext }\Omega_3=\text{Ext }\Omega_1\);
-					</p>
-					<p class="fragment" data-fragment-index="5">\(\partial \Omega_3 =S^1 \cup \{0\}\);
-					</p>
-					<p class="fragment" data-fragment-index="6">\(\Omega_3^c =\text{Ext }\Omega_3 \cup \{0\} \);
-					</p>
-					<p class="fragment" data-fragment-index="7">\(\Omega_3 \) is neither open nor closed.
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out" id="clopen">
-				<h4>Topology</h4>
-				<div class="mylftText">
-					<p><strong>Note:</strong> \(\Omega_1\) is open, \(\Omega_1^c\); \(\Omega_2\) closed, \(\Omega_2^c\);
-						\(\Omega_3\) and \(\Omega_3^c\) are neither open nor closed.
-					</p>
-					<p class="fragment" data-fragment-index="3">Only <u>clopen</u> sets (both open and closed)
-						in \(\C\) are \(\C\) and \(\emptyset\).
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out" id="connected">
-				<h4>Topology</h4>
-				<div class="mylftText">
-					<p>\(*\) \(\Omega \subseteq \C\) is <u>connected</u> if there do <u>not</u> exist nonempty, open,
-						disjoint sets \(\Omega^{\prime}\) and \(\Omega^{\prime}\) such that
-						\[
-						\begin{align*}
-						& \Omega  \subseteq  \Omega^{\prime} \cup \Omega^{\prime\prime }, \\
-						& \Omega^{\prime}  \cap  \Omega \neq \emptyset \text{ and } \Omega^{\prime \prime} \cap \Omega \neq \emptyset .
-						\end{align*}
-						\]
+					<p class="fragment" data-fragment-index="2">\[\displaystyle \lim_{z\ra 0}\dfrac{\sin z}{z}=1.\]
 					</p>
 				</div>
 			</section>
