@@ -48,6 +48,7 @@
 			chalkboard: {
 				// optionally load pre-recorded chalkboard drawing from file
 				//src: "chalkboard.json",
+				chalkWidth: 4,
 				toggleChalkboardButton: {
 					left: "80px"
 				},
