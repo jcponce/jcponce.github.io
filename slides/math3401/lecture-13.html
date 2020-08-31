@@ -74,7 +74,7 @@
 					  display: block;
 					  margin-left: auto;
 					  margin-right: auto;" class="fragment" data-fragment-index="0" class="r-stretch"
-								data-src="img/lect-13/ball-z0.svg" />
+						data-src="img/lect-13/ball-z0.svg" />
 				</div>
 			</section>
 
@@ -88,21 +88,22 @@
 					  display: block;
 					  margin-left: auto;
 					  margin-right: auto;" class="fragment" data-fragment-index="0" class="r-stretch"
-								data-src="img/lect-13/ball-infty.svg" />
-					
+						data-src="img/lect-13/ball-infty.svg" />
+
 				</div>
 			</section>
 
 			<section data-transition="fade-out">
 				<h3>Limits at \(\infty\)</h3>
 				<div class="mylftText">
-					<p>"Close to \(\infty\)" 
+					<p>"Close to \(\infty\)"
 						<span class="fragment" data-fragment-index="0">\(\iff\) \(|z|\) is large </span>
 						<span class="fragment" data-fragment-index="1">\(\iff\) \(1/|z|\) is small.</span>
 					</p>
 					<p class="fragment" data-fragment-index="2">Keeping that in mind:
 					</p>
-					<p class="fragment" data-fragment-index="3">\((*)\) \(\displaystyle \lim_{z\ra z_0}f(z) = \infty\) means \(\displaystyle \lim_{z\ra z_0}\frac{1}{f(z)} = 0.\)
+					<p class="fragment" data-fragment-index="3">\((*)\) \(\displaystyle \lim_{z\ra z_0}f(z) = \infty\)
+						means \(\displaystyle \lim_{z\ra z_0}\frac{1}{f(z)} = 0.\)
 					</p>
 				</div>
 			</section>
@@ -110,9 +111,11 @@
 			<section data-transition="fade-out">
 				<h3>Limits at \(\infty\)</h3>
 				<div class="mylftText">
-					<p >\((*)\) \(\displaystyle \lim_{z\ra \infty}f(z) = w_0 \) means \(\displaystyle \lim_{z\ra 0}f\left(\frac{1}{z}\right) = w_0.\)
+					<p>\((*)\) \(\displaystyle \lim_{z\ra \infty}f(z) = w_0 \) means \(\displaystyle \lim_{z\ra
+						0}f\left(\frac{1}{z}\right) = w_0.\)
 					</p>
-					<p class="fragment" data-fragment-index="0">\((*)\) \(\displaystyle \lim_{z\ra \infty}f(z) = \infty \) means \(\displaystyle \lim_{z\ra 0}\frac{1}{f\left(\frac{1}{z}\right)} = 0.\)
+					<p class="fragment" data-fragment-index="0">\((*)\) \(\displaystyle \lim_{z\ra \infty}f(z) = \infty
+						\) means \(\displaystyle \lim_{z\ra 0}\frac{1}{f\left(\frac{1}{z}\right)} = 0.\)
 					</p>
 				</div>
 			</section>
@@ -132,34 +135,47 @@
 				<div class="mylftText" style="font-size:80%">
 					<p><strong>Example 1:</strong> Show \(\displaystyle \lim_{z\ra -1}\frac{iz+3}{z+1}= \infty.\)
 					</p>
-					<p class="fragment" data-fragment-index="0">We want to show \(\displaystyle \lim_{z\ra -1}\frac{1}{f\left(\frac{1}{z}\right)}= 0.\)
+					<p><span class="fragment" data-fragment-index="0">Let \(f(z)=\displaystyle
+							\frac{iz+3}{z+1}\).</span>
+						<span class="fragment" data-fragment-index="1">We want to show \(\displaystyle \lim_{z\ra
+							-1}\frac{1}{f\left(\frac{1}{z}\right)}= 0.\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="1">LHS \( =\displaystyle \lim_{z\ra -1} \left(\frac{z+1}{iz+3}\right) \) 
-						<span class="fragment" data-fragment-index="2">\(= \frac{\displaystyle \lim_{z\ra -1} (z+1) }{\displaystyle \lim_{z\ra -1} (iz+3) } \)</span>
-						<span class="fragment" data-fragment-index="3">\(= \displaystyle \frac{0}{3-i} = 0 \)</span>
-						<span class="fragment" data-fragment-index="4">\(=\) RHS</span>
+					<p><span class="fragment" data-fragment-index="2">LHS \( =\displaystyle \lim_{z\ra -1}
+						\left(\frac{z+1}{iz+3}\right) \)</span>
+						<span class="fragment" data-fragment-index="3">\(= \frac{\displaystyle \lim_{z\ra -1} (z+1)
+							}{\displaystyle \lim_{z\ra -1} (iz+3) } \)</span>
+						<span class="fragment" data-fragment-index="4">\(= \displaystyle \frac{0}{3-i} = 0 \)</span>
+						<span class="fragment" data-fragment-index="5">\(=\) RHS.</span>
 					</p>
-					<p class="fragment" data-fragment-index="3">(via Lect 12, <a href="lecture-12#/limit-properties" target="_blank">Theorem 2, part 4</a>).
+					<p class="fragment" data-fragment-index="4">(via Lect 12, <a href="lecture-12#/limit-properties"
+							target="_blank">Theorem 2, part 4</a>)
 					</p>
 				</div>
 			</section>
 
-			<section id="accumulation-point">
-				<h4>Topology</h4>
-				<div class="mylftText">
-					<p>\(*\) A Point \(z\in \C\) is called an
-						<u>accumulation point</u> of a set \(\Omega \subseteq \C\) if every deleted neighbourood
-						of \(z\) intersects \(\Omega\).
+			<section data-transition="fade-out">
+				<h4>Limits at \(\infty\)</h4>
+				<div class="mylftText" style="font-size:80%">
+					<p><strong>Example 2:</strong> Calculate \(\displaystyle \lim_{z\ra \infty}\frac{2z^3-1}{z^2-1}.\)
+						<span class="fragment" data-fragment-index="0">Let \(g(z)=\displaystyle \frac{2z^3-1}{z^2-1}\).
+						</span>
 					</p>
-					<p class="fragment" data-fragment-index="1"><strong>Example 1:</strong>
-						\(\Omega=\left\{\dfrac{i}{2^n}\right\}_{n\in \N}\).
+					<p> 
+						<span class="fragment" data-fragment-index="1">Claim \(\displaystyle \lim_{z\ra \infty}g(z)=
+							\infty.\)</span>
+						<span class="fragment" data-fragment-index="2">So we want to show \(\displaystyle \lim_{z\ra 0}\frac{1}{g\left(\frac{1}{z}\right)} = 0.\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="4">The only accumulation point is 0.</p>
+					<p><span class="fragment" data-fragment-index="3">\(\displaystyle \frac{1}{g\left(\frac{1}{z}\right)} \)</span>
+						<span class="fragment" data-fragment-index="4">\(=\displaystyle \frac{1}{\frac{2\left(\frac{1}{z}\right)^3-1}{\left(\frac{1}{z}\right)^2-1}} \)</span>
+						<span class="fragment" data-fragment-index="5">\(= \displaystyle \frac{\frac{1}{z^2}-1}{\frac{2}{z^3}-1} \)</span>
+						<span class="fragment" data-fragment-index="6">\(= \displaystyle \frac{z-z^3}{2-z^3} \)</span>
+						<span class="fragment" data-fragment-index="7">\(\ra 0\) as \(z\ra \infty\).</span>
+					</p>
 				</div>
 			</section>
 
-			<section id="limits">
-				<h4>Limits</h4>
+			<section id="continuity">
+				<h4>Continuity &amp; Differentiability</h4>
 				<div class="mylftText" style="font-size:80%">
 					<p>Let \(f\) be a \(\C\)-valued function defined on a deleted neighbourhood of \(z\in\C\).
 					</p>
