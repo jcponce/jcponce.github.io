@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH3401 - Lecture 12</title>
+	<title>MATH3401 - Lecture 13</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -48,32 +48,36 @@
 			<section>
 				<h1>MATH3401</h1>
 				<h3>Complex Analysis</h3>
-				<p>Lecture 12</p>
+				<p>Lecture 13</p>
 			</section>
 
-			<section id="piecewise-affinely-path-connected">
-				<h3>Topology</h3>
+			<section id="limits-at-infinity">
+				<h3>Limits at \(\infty\)</h3>
 				<div class="mylftText">
-					<p class="fragment" data-fragment-index="0">\(*\) \(\Omega \subseteq \C\) is
-						<u>piecewise affinely path connected</u> if any two points in \(\Omega\) can be connected by a
-						finite number of line segments <u>in \(\Omega\)</u>, joined end to end.
+					<p>Recall that in \(\R\) \(\displaystyle \lim_{x\ra
+						x_0}f(x)=\infty\) means:
+					</p>
+					<p class="fragment" data-fragment-index="0">Given \(M>0\), exists \(\delta>0\) such that
+						\[
+						0 &lt; |x_0 - x_0| &lt; \delta \implies f(x) &gt; M.
+						\]
 					</p>
 				</div>
 			</section>
 
 			<section data-transition="fade-out">
-				<h3>Topology</h3>
+				<h3>Limits at \(\infty\)</h3>
 				<div class="mylftText">
-					<p class="fragment" data-fragment-index="0">For open sets in \(\C\), the two definitions are
-						equivalent
+					<p>In \(\C\) a neighbourhood of \(z_0\in \C\) is
 					</p>
-					<p class="fragment" data-fragment-index="1">(not so in general: see for example the comb space, to
-						be confirmed/clean-up).</p>
+					<p class="fragment" data-fragment-index="0">A neighbourhood of \(\infty\) in \(\C\) has the form
+						\[\{z: |z|&gt;M\}.\]
+					</p>
 				</div>
 			</section>
 
 			<section data-transition="fade-out">
-				<h3>Topology</h3>
+				<h4>Topology</h4>
 				<div class="mylftText" style="font-size:75%">
 					<p><strong>Show:</strong> If \(\Omega_1,\Omega_2 \subseteq \C\) are open, then so is \(\Omega_1\cap
 						\Omega_2\).
@@ -95,7 +99,7 @@
 			</section>
 
 			<section data-transition="fade-out">
-				<h3>Topology</h3>
+				<h4>Topology</h4>
 				<div class="mylftText" style="font-size:75%">
 					<p>Since \(\Omega_1,\Omega_2\) are open, set \(\epsilon = \min \{\epsilon_1, \epsilon_2\}\) and note
 						that \(\epsilon>0\).
@@ -120,7 +124,7 @@
 			</section>
 
 			<section id="domain-region">
-				<h3>Topology</h3>
+				<h4>Topology</h4>
 				<div class="mylftText">
 					<p>\(*\) An open, connected subset of \(\C\) is called <u>domain</u>.
 					</p>
@@ -131,7 +135,7 @@
 
 
 			<section id="accumulation-point">
-				<h3>Topology</h3>
+				<h4>Topology</h4>
 				<div class="mylftText">
 					<p>\(*\) A Point \(z\in \C\) is called an
 						<u>accumulation point</u> of a set \(\Omega \subseteq \C\) if every deleted neighbourood
@@ -145,7 +149,7 @@
 			</section>
 
 			<section id="limits">
-				<h3>Limits</h3>
+				<h4>Limits</h4>
 				<div class="mylftText" style="font-size:80%">
 					<p>Let \(f\) be a \(\C\)-valued function defined on a deleted neighbourhood of \(z\in\C\).
 					</p>
@@ -163,7 +167,7 @@
 			</section>
 
 			<section data-transition="fade-out">
-				<h3>Limits</h3>
+				<h4>Limits</h4>
 				<p style="font-size:60%">Examples:</p>
 				<div style="font-size:80%">
 					<p>
@@ -206,7 +210,7 @@
 				</div>
 			</section>
 
-			<section data-transition="fade-out" id="limit-properties">
+			<section>
 				<h4>Limit Theorems</h4>
 				<div class="mylftText" style="font-size:70%">
 					<p><strong>Theorem 2:</strong> Suppose \(\displaystyle \lim_{z \ra z_0}f(z) = w_0\)
@@ -215,11 +219,12 @@
 					<ol>
 						<li class="fragment" data-fragment-index="0">\(\displaystyle \lim_{z \ra z_0}\left(f \pm
 							g\right)(z) = w_0 \pm \xi_0\);</li>
-						<li class="fragment" data-fragment-index="1">\(\displaystyle \lim_{z \ra z_0}\left(\lambda \cdot f
-							\right)(z) = \lambda \cdot  w_0\);</li>
+						<li class="fragment" data-fragment-index="1">\(\displaystyle \lim_{z \ra z_0}\left(\lambda \cdot
+							f
+							\right)(z) = \lambda \cdot w_0\);</li>
 						<li class="fragment" data-fragment-index="2">\(\displaystyle \lim_{z \ra z_0}\left(f \cdot
 							g\right)(z) = w_0 \cdot \xi_0\);</li>
-						<li class="fragment" data-fragment-index="3">\(\displaystyle \lim_{z \ra z_0}\dfrac{f(z)}{g(z)} 
+						<li class="fragment" data-fragment-index="3">\(\displaystyle \lim_{z \ra z_0}\dfrac{f(z)}{g(z)}
 							= \dfrac{w_0}{\xi_0}\), as long as \(\xi_0\neq 0\).</li>
 					</ol>
 
