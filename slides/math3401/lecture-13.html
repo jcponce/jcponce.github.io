@@ -131,7 +131,7 @@
 							-1}\frac{1}{f\left(\frac{1}{z}\right)}= 0.\)</span>
 					</p>
 					<p><span class="fragment" data-fragment-index="2">LHS \( =\displaystyle \lim_{z\ra -1}
-						\left(\frac{z+1}{iz+3}\right) \)</span>
+							\left(\frac{z+1}{iz+3}\right) \)</span>
 						<span class="fragment" data-fragment-index="3">\(= \frac{\displaystyle \lim_{z\ra -1} (z+1)
 							}{\displaystyle \lim_{z\ra -1} (iz+3) } \)</span>
 						<span class="fragment" data-fragment-index="4">\(= \displaystyle \frac{0}{3-i} = 0 \)</span>
@@ -150,14 +150,18 @@
 						<span class="fragment" data-fragment-index="0">Let \(g(z)=\displaystyle \frac{2z^3-1}{z^2-1}\).
 						</span>
 					</p>
-					<p> 
+					<p>
 						<span class="fragment" data-fragment-index="1">Claim \(\displaystyle \lim_{z\ra \infty}g(z)=
 							\infty.\)</span>
-						<span class="fragment" data-fragment-index="2">So we want to show \(\displaystyle \lim_{z\ra 0}\frac{1}{g\left(\frac{1}{z}\right)} = 0.\)</span>
+						<span class="fragment" data-fragment-index="2">So we want to show \(\displaystyle \lim_{z\ra
+							0}\frac{1}{g\left(\frac{1}{z}\right)} = 0.\)</span>
 					</p>
-					<p><span class="fragment" data-fragment-index="3">\(\displaystyle \frac{1}{g\left(\frac{1}{z}\right)} \)</span>
-						<span class="fragment" data-fragment-index="4">\(=\displaystyle \frac{1}{\frac{2\left(\frac{1}{z}\right)^3-1}{\left(\frac{1}{z}\right)^2-1}} \)</span>
-						<span class="fragment" data-fragment-index="5">\(= \displaystyle \frac{\frac{1}{z^2}-1}{\frac{2}{z^3}-1} \)</span>
+					<p><span class="fragment" data-fragment-index="3">\(\displaystyle
+							\frac{1}{g\left(\frac{1}{z}\right)} \)</span>
+						<span class="fragment" data-fragment-index="4">\(=\displaystyle
+							\frac{1}{\frac{2\left(\frac{1}{z}\right)^3-1}{\left(\frac{1}{z}\right)^2-1}} \)</span>
+						<span class="fragment" data-fragment-index="5">\(= \displaystyle
+							\frac{\frac{1}{z^2}-1}{\frac{2}{z^3}-1} \)</span>
 						<span class="fragment" data-fragment-index="6">\(= \displaystyle \frac{z-z^3}{2-z^3} \)</span>
 						<span class="fragment" data-fragment-index="7">\(\ra 0\) as \(z\ra \infty\).</span>
 					</p>
@@ -165,76 +169,78 @@
 			</section>
 
 			<section id="continuity">
-				<h3>Continuity &amp; Differentiability</h3>
+				<h3>Continuity</h3>
 				<div class="mylftText" style="font-size:80%">
 					<p>Let \(f\) be a \(\C\)-valued function defined on a deleted neighbourhood of \(z_0\in\C\).
 					</p>
 					<p class="fragment" data-fragment-index="0">\(f\) is continuos at \(z_0\)means:
 						\(\displaystyle\lim_{z\ra z_0 } f(z) = f(z_0).\)
 					</p>
-					<p class="fragment" data-fragment-index="1">i. e. given \(\epsilon >0\) exists \(\delta >0\) such that
-						\[|z-z_0|<\delta \implies |f(z)-f(z_0)|<\epsilon.\]
-					</p>
-				</div>
+					<p class="fragment" data-fragment-index="1">i. e. given \(\epsilon >0\) exists \(\delta >0\) such
+						that
+						\[|z-z_0|<\delta \implies |f(z)-f(z_0)|<\epsilon.\] </p> </div> </section> <section>
+							<h4>Continuity</h4>
+							<h6>Basic examples</h6>
+							<div class="mylftText" style="font-size:70%">
+								<p><strong>1.</strong> If \(f: \Omega \ra U\) and \(g:U\ra W\) are continuous, so is \(g
+									\circ f : \Omega \ra W\)
+									<span class="fragment" data-fragment-index="0">(\(g\) compose with \(f\):
+										\(\left(g\circ f\right)(z) = g\left(f(z)\right)\))</span>
+								</p>
+								<p class="fragment" data-fragment-index="1"><strong>2.</strong> If \(f\) is continuous
+									and nonzero at \(z_0\)
+									then exists \(\epsilon>0\) such that \(f(z)\neq 0\) on \(B_{\epsilon}(z_)\). Proof
+									on tutes.
+								</p>
+								<p class="fragment" data-fragment-index="2"><strong>3.</strong> \(f: x+iy \mapsto u(x,y)
+									+ v(x,y)\) is continuous if and only if \(u\) and \(v\) are continuous.
+								</p>
+								<p class="fragment" data-fragment-index="3"><strong>4.</strong> Obvious analogues of
+									Theorems
+									<a href="lecture-12.html#/limit-theorems-1/1" target="_blank">1</a> &amp; <a
+										href="lecture-12.html#/limit-theorem-2" target="_blank">2</a> from Lecture 12.
+								</p>
+							</div>
 			</section>
 
-			<section>
-				<h4>Continuity &amp; Differentiability</h4>
-				<h6>Basic examples</h6>
-				<div class="mylftText" style="font-size:70%">
-					<p><strong>1.</strong> If \(f: \Omega \ra U\) and \(g:U\ra W\) are continuous, so is \(g \circ f : \Omega \ra W\) 
-						<span class="fragment" data-fragment-index="0">(\(g\) compose with \(f\): \(\left(g\circ f\right)(z) = g\left(f(z)\right)\))</span>
-					</p>
-					<p class="fragment" data-fragment-index="1"><strong>2.</strong>  If \(f\) is continuous and nonzero at \(z_0\)
-						then exists \(\epsilon>0\) such that \(f(z)\neq 0\) on \(B_{\epsilon}(z_)\). Proof on tutes.
-					</p>
-					<p class="fragment" data-fragment-index="2"><strong>3.</strong>  \(f: x+iy \mapsto u(x,y) + v(x,y)\) is continuous if and only if \(u\) and \(v\) are continuous.
-					</p>
-					<p class="fragment" data-fragment-index="3"><strong>4.</strong>  Obvious analogues of <a href="lecture-12.html#/limit-theorems-1/1">Theorems 1</a> &amp; <a  href="lecture-12.html#/limit-theorem-2">2</a> from Lecture 2.
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out" id="limit-theorems">
-				<h4>Limit Theorems</h4>
+			<section id="differentiability-in-R">
+				<h4>Differentiability in \(\R\)</h4>
 				<div class="mylftText" style="font-size:80%">
-					<p>Suppose \(f(z) = f(x+iy) = u(x,y) + i v(x,y) \),
-						<span class="fragment" data-fragment-index="0">\[z_0= x_0+iy_0 \text{ and } w_0
-							=u_0+iv_0.\]</span></p>
-					<p class="fragment" data-fragment-index="1"><strong>Theorem 1:</strong>
-						\[
-						\lim_{z \ra z_0} f(z)=w_0 \iff
-						\left\{
-						\begin{array}{rl}
-						\displaystyle\lim_{(x,y)\ra (x_0+iy_0)} u(x,y) & = u_0,\\
-						\displaystyle\lim_{(x,y)\ra (x_0+iy_0)} v(x,y) & = v_0.
-						\end{array}
-						\right.
-						\]
+					<p>\(f: \Omega \subseteq \R \ra \R \),
+						<span class="fragment" data-fragment-index="0">
+							\[
+							\lim_{h\ra 0 } \frac{f(x+h)-f(z)}{h}.
+							\]
+						</span></p>
+					<p class="fragment" data-fragment-index="1">If this exists, defines \(f'(x)\). 
+					</p>
+					<p class="fragment" data-fragment-index="2" style="color:#b30000">This limit is in \(\R\).
 					</p>
 				</div>
 			</section>
 
-			<section>
-				<h4>Limit Theorems</h4>
-				<div class="mylftText" style="font-size:70%">
-					<p><strong>Theorem 2:</strong> Suppose \(\displaystyle \lim_{z \ra z_0}f(z) = w_0\)
-						and \(\displaystyle \lim_{z \ra z_0}g(z) = w_0\) and \(\lambda\in \C\). Then
+			<section id="differentiability-in-C">
+				<h4>Differentiability in \(\C\)</h4>
+				<div class="mylftText" style="font-size:65%">
+					<p>\(f: \Omega \subseteq \C \ra \C \),
+						<span class="fragment" data-fragment-index="0">
+							\[
+							\lim_{\xi\ra 0 } \frac{f(z_0+\xi)-f(z_0)}{\xi}. \qquad (1)
+							\]
+						</span></p>
+					<p class="fragment" data-fragment-index="1">If this exists, defines \(f'(z_0)\). 
+						<span class="fragment" data-fragment-index="2">Write \(\Delta z\) for \(\xi\).
+						</span>
 					</p>
-					<ol>
-						<li class="fragment" data-fragment-index="0">\(\displaystyle \lim_{z \ra z_0}\left(f \pm
-							g\right)(z) = w_0 \pm \xi_0\);</li>
-						<li class="fragment" data-fragment-index="1">\(\displaystyle \lim_{z \ra z_0}\left(\lambda \cdot
-							f
-							\right)(z) = \lambda \cdot w_0\);</li>
-						<li class="fragment" data-fragment-index="2">\(\displaystyle \lim_{z \ra z_0}\left(f \cdot
-							g\right)(z) = w_0 \cdot \xi_0\);</li>
-						<li class="fragment" data-fragment-index="3">\(\displaystyle \lim_{z \ra z_0}\dfrac{f(z)}{g(z)}
-							= \dfrac{w_0}{\xi_0}\), as long as \(\xi_0\neq 0\).</li>
-					</ol>
-
+					<p class="fragment" data-fragment-index="3">(1) implies \(f'(z_0) = \displaystyle \lim_{\Delta z \ra 0} \frac{f(z_0+\Delta z)- f(z_0)}{\Delta z}.\quad (2)\)
+					</p>
+					<p><span class="fragment" data-fragment-index="4">Write \(w = f(z)\):</span>
+						<span class="fragment" data-fragment-index="5"> So (2) implies \(f'(z_0) = \displaystyle \lim_{\Delta z \ra 0} \frac{\Delta w}{\Delta z} = \frac{dw}{dz}(z_0).\quad (3)\)</span>
+					</p>
+					<p class="fragment" data-fragment-index="6">Note (1)-(3) are equivalent.</p>
 				</div>
 			</section>
+
 
 			<section>
 				<h4>Credits</h4>
