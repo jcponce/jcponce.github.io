@@ -121,16 +121,6 @@
 			</section>
 
 			<section data-transition="fade-out">
-				<h3>Limits at \(\infty\)</h3>
-				<div class="mylftText">
-					<p><strong>Example 1:</strong> Show \(\displaystyle \lim_{z\ra -1}\frac{iz+3}{z+1}= \infty.\)
-					</p>
-					<p><strong>Example 2:</strong> Calculate \(\displaystyle \lim_{z\ra \infty}\frac{2z^3-1}{z^2-1}.\)
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
 				<h4>Limits at \(\infty\)</h4>
 				<div class="mylftText" style="font-size:80%">
 					<p><strong>Example 1:</strong> Show \(\displaystyle \lim_{z\ra -1}\frac{iz+3}{z+1}= \infty.\)
@@ -147,7 +137,7 @@
 						<span class="fragment" data-fragment-index="4">\(= \displaystyle \frac{0}{3-i} = 0 \)</span>
 						<span class="fragment" data-fragment-index="5">\(=\) RHS.</span>
 					</p>
-					<p class="fragment" data-fragment-index="4">(via Lect 12, <a href="lecture-12#/limit-properties"
+					<p class="fragment" data-fragment-index="4">(via Lect 12, <a href="lecture-12#/limit-theorem-2/3"
 							target="_blank">Theorem 2, part 4</a>)
 					</p>
 				</div>
@@ -175,44 +165,33 @@
 			</section>
 
 			<section id="continuity">
-				<h4>Continuity &amp; Differentiability</h4>
+				<h3>Continuity &amp; Differentiability</h3>
 				<div class="mylftText" style="font-size:80%">
-					<p>Let \(f\) be a \(\C\)-valued function defined on a deleted neighbourhood of \(z\in\C\).
+					<p>Let \(f\) be a \(\C\)-valued function defined on a deleted neighbourhood of \(z_0\in\C\).
 					</p>
-					<p><span class="fragment" data-fragment-index="0">\(\displaystyle \lim_{z\ra z_0}f(z)=w_0\)
-							says:</span>
-						<span class="fragment" data-fragment-index="1">Given \(\epsilon &gt; 0\) exists \(\delta &gt;
-							0\) such
-							that</span>
-						<span class="fragment" data-fragment-index="2">\[0&lt;|z-z_0|&lt;\delta \implies
-							\left|f(z)-w_0\right|&lt;\epsilon.\]</span>
+					<p class="fragment" data-fragment-index="0">\(f\) is continuos at \(z_0\)means:
+						\(\displaystyle\lim_{z\ra z_0 } f(z) = f(z_0).\)
 					</p>
-					<p class="fragment" data-fragment-index="3"><strong>Note:</strong> \(f\) does not have to be defined
-						at \(z_0\).</p>
+					<p class="fragment" data-fragment-index="1">i. e. given \(\epsilon >0\) exists \(\delta >0\) such that
+						\[|z-z_0|<\delta \implies |f(z)-f(z_0)|<\epsilon.\]
+					</p>
 				</div>
 			</section>
 
-			<section data-transition="fade-out">
-				<h4>Limits</h4>
-				<p style="font-size:60%">Examples:</p>
-				<div style="font-size:80%">
-					<p>
-						<span class="fragment" data-fragment-index="0">
-							\(
-							f(z) = \left\{
-							\begin{array}{ll}
-							0 & z\neq 0,\\
-							1337 & z=0.
-							\end{array}
-							\right.
-							\)
-						</span> &nbsp;&nbsp;
-						<span class="fragment" data-fragment-index="1">\(\displaystyle\lim_{z\ra 0}f(z)=0\);</span>
+			<section>
+				<h4>Continuity &amp; Differentiability</h4>
+				<h6>Basic examples</h6>
+				<div class="mylftText" style="font-size:70%">
+					<p><strong>1.</strong> If \(f: \Omega \ra U\) and \(g:U\ra W\) are continuous, so is \(g \circ f : \Omega \ra W\) 
+						<span class="fragment" data-fragment-index="0">(\(g\) compose with \(f\): \(\left(g\circ f\right)(z) = g\left(f(z)\right)\))</span>
 					</p>
-					<p class="fragment" data-fragment-index="2">\[\displaystyle \lim_{z\ra 0}\dfrac{\sin z}{z}=1.\]
+					<p class="fragment" data-fragment-index="1"><strong>2.</strong>  If \(f\) is continuous and nonzero at \(z_0\)
+						then exists \(\epsilon>0\) such that \(f(z)\neq 0\) on \(B_{\epsilon}(z_)\). Proof on tutes.
 					</p>
-					<p class="fragment" data-fragment-index="3" style="text-align:left"><strong>Remark:</strong>If a
-						limit exists, it is unique.</p>
+					<p class="fragment" data-fragment-index="2"><strong>3.</strong>  \(f: x+iy \mapsto u(x,y) + v(x,y)\) is continuous if and only if \(u\) and \(v\) are continuous.
+					</p>
+					<p class="fragment" data-fragment-index="3"><strong>4.</strong>  Obvious analogues of <a href="lecture-12.html#/limit-theorems-1/1">Theorems 1</a> &amp; <a  href="lecture-12.html#/limit-theorem-2">2</a> from Lecture 2.
+					</p>
 				</div>
 			</section>
 
