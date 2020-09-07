@@ -36,7 +36,7 @@
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
-	
+
 </head>
 
 <body>
@@ -49,120 +49,123 @@
 				<h1>MATH3401</h1>
 				<h3>Complex Analysis</h3>
 				<p>Lecture 6</p>
-			  </section>
-		
-			  <section id="implicit-form">
+			</section>
+
+			<section id="implicit-form">
 				<h4>Implicit form of M&ouml;bius transformations (MT)</h4>
 				<div class="left-txt size-80">
-				  <p>\(T(z) = w = \dfrac{az+b}{cz+d}\; (*)\), with \(ad-bc \neq 0\),
-					<span class="fragment" data-fragment-index="0">can be written as
-					  \[
-					  A z w + B z + C w + D = 0
-					  \]
-					</span>
-					<span class="fragment" data-fragment-index="1">with \(A=c, B=-a, C=d\) and \(D=b\);</span>
-					<span class="fragment" data-fragment-index="2">called the <strong>implicit form</strong>.
-					</span>
-				  </p>
+					<p>\(T(z) = w = \dfrac{az+b}{cz+d}\; (*)\), with \(ad-bc \neq 0\),
+						<span class="fragment" data-fragment-index="0">can be written as
+							\[
+							A z w + B z + C w + D = 0
+							\]
+						</span>
+						<span class="fragment" data-fragment-index="1">with \(A=c, B=-a, C=d\) and \(D=b\);</span>
+						<span class="fragment" data-fragment-index="2">called the <strong>implicit form</strong>.
+						</span>
+					</p>
 				</div>
-			  </section>
-		
-			  <section data-transition="fade-out">
+			</section>
+
+			<section data-transition="fade-out">
 				<h4>Implicit form of MT</h4>
 				<div class="left-txt size-70">
-				  <p class="fragment" data-fragment-index="0"><strong>Case I:</strong> \(c=0\).
-					<span class="fragment" data-fragment-index="1">
-					  \(T\) is a bijection (1-1 and onto): \(\C\ra\C\).
-					</span>
-				  </p>
-				  <p class="fragment" data-fragment-index="2"><strong>Case II:</strong> \(c\neq 0\). <a href="#implicit-form">\((*)\)</a> \(\implies z=\dfrac{-dw+b}{cw-a}\). 
-					<span class="fragment" data-fragment-index="3"> Thus
-					  \[
-					  T^{-1}(w)= \dfrac{-dw+b}{cw-a}.
-					  \]
-					</span>
-				  </p>
-				  <p class="fragment" data-fragment-index="4">Then in Case II, \(T\) is 1-1 and onto 
-					\(\C \setminus \left\{-d/c\right\} \ra \C \setminus \left\{a/c\right\}\).
-				  </p>
-				  <p class="fragment" data-fragment-index="5"><strong>Question:</strong> Can we extend \(T\) to a function
-					\(\C \ra \C\) in Case II? In particular, so extension is 1-1 and onto.
-				  </p>
-				  <p class="fragment" data-fragment-index="6"><strong>Ans:</strong> Yes! Take 
-					\(T\left(-d/c\right)=a/c\).
-				  </p>
+					<p class="fragment" data-fragment-index="0"><strong>Case I:</strong> \(c=0\).
+						<span class="fragment" data-fragment-index="1">
+							\(T\) is a bijection (1-1 and onto): \(\C\ra\C\).
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="2"><strong>Case II:</strong> \(c\neq 0\). <a
+							href="#implicit-form">\((*)\)</a> \(\implies z=\dfrac{-dw+b}{cw-a}\).
+						<span class="fragment" data-fragment-index="3"> Thus
+							\[
+							T^{-1}(w)= \dfrac{-dw+b}{cw-a}.
+							\]
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="4">Then in Case II, \(T\) is 1-1 and onto
+						\(\C \setminus \left\{-d/c\right\} \ra \C \setminus \left\{a/c\right\}\).
+					</p>
+					<p class="fragment" data-fragment-index="5"><strong>Question:</strong> Can we extend \(T\) to a
+						function
+						\(\C \ra \C\) in Case II? In particular, so extension is 1-1 and onto.
+					</p>
+					<p class="fragment" data-fragment-index="6"><strong>Ans:</strong> Yes! Take
+						\(T\left(-d/c\right)=a/c\).
+					</p>
 				</div>
-			  </section>
-		
-			  <section id="extended-plane">
+			</section>
+
+			<section id="extended-plane">
 				<h3>Important concept</h3>
 				<div class="left-txt size-90">
-				  <p class="fragment" data-fragment-index="0">Extend \(\C\) to the <strong>extended complex plane</strong>, 
-					denoted by \(\conj{\C}\), "by adding a point to infinity", which we call \(\infty\).
-				  </p>
-				  <p class="fragment" data-fragment-index="1">Define \(T\left(-d/c\right)=\infty\) and \(T\left(\infty\right)=a/c\).
-				  </p>
-				  <p class="fragment" data-fragment-index="2">This extends \(T\) to a map \(\conj{\C} \ra \conj{\C}\),
-					which is 1-1 &amp; onto.
-				  </p>
-				  <p class="fragment" data-fragment-index="3"><strong>Remark:</strong> \(\conj{\C}\) is a topological space
-					and the given extension is continuous.
-				  </p>
+					<p class="fragment" data-fragment-index="0">Extend \(\C\) to the <strong>extended complex
+							plane</strong>,
+						denoted by \(\conj{\C}\), "by adding a point to infinity", which we call \(\infty\).
+					</p>
+					<p class="fragment" data-fragment-index="1">Define \(T\left(-d/c\right)=\infty\) and
+						\(T\left(\infty\right)=a/c\).
+					</p>
+					<p class="fragment" data-fragment-index="2">This extends \(T\) to a map \(\conj{\C} \ra \conj{\C}\),
+						which is 1-1 &amp; onto.
+					</p>
+					<p class="fragment" data-fragment-index="3"><strong>Remark:</strong> \(\conj{\C}\) is a topological
+						space
+						and the given extension is continuous.
+					</p>
 				</div>
-			  </section>
-		
-			  <section id="riemann-sphere">
+			</section>
+
+			<section id="riemann-sphere">
 				<h4>Riemann sphere</h4>
-				<iframe width="100%" height="397px" style="border:0px" noscrolling 
-				  data-src="https://www.geogebra.org/material/iframe/id/qyty8sba/width/827/height/358/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-				  data-preload></iframe>
+				<iframe width="100%" height="397px" style="border:0px" noscrolling
+					data-src="https://www.geogebra.org/material/iframe/id/qyty8sba/width/827/height/358/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					data-preload></iframe>
 				<p class="size-65">\(\varphi(z)\) is on the Riemann sphere.
-			  </section>
-		
-			  <section id="remarks-mobius">
+			</section>
+
+			<section id="remarks-mobius">
 				<h4>Final remarks on MT</h4>
 				<div class="left-txt size-90">
-				  <p class="fragment" data-fragment-index="0"><strong>Remark 1:</strong> Given 3 distinct points in \(\conj{\C}\), \(z_1,z_2,z_3\) 
-					and 3 distinct points in \(\conj{\C}\), \(w_1,w_2,w_3\), there exists a unique 
-					M&ouml;bius transformation \(T\) such that \(T(z_j)=w_j\).
-				  </p>
-				  <p class="fragment" data-fragment-index="1">Here \(T=w(z)\) is given by
-					  \[
-					  \frac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} = \frac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)}\;(**)
-					  \]
-				  </p>
+					<p class="fragment" data-fragment-index="0"><strong>Remark 1:</strong> Given 3 distinct points in
+						\(\conj{\C}\), \(z_1,z_2,z_3\)
+						and 3 distinct points in \(\conj{\C}\), \(w_1,w_2,w_3\), there exists a unique
+						M&ouml;bius transformation \(T\) such that \(T(z_j)=w_j\).
+					</p>
+					<p class="fragment" data-fragment-index="1">Here \(T=w(z)\) is given by
+						\[
+						\frac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} = \frac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)}\;(**)
+						\]
+					</p>
 				</div>
-			  </section>
-		
-			  <section data-transition="fade-out">
+			</section>
+
+			<section data-transition="fade-out">
 				<h4>Final remarks on MT</h4>
 				<div class="left-txt size-90">
-				  <p class="fragment" data-fragment-index="0"><strong>Note 1:</strong> In practice may be easier to solve directly for 
-					\(a,b,c,d\) rather than use <a href="#remarks-mobius">\((**)\)</a>.
-				  </p>
-				  <p class="fragment" data-fragment-index="1"><strong>Note 2:</strong> How does this work for \(\infty\)?
-				  </p>
-				  <p class="fragment" data-fragment-index="2">\(T(\infty)=a/c\) and \(T(-d/c)=\infty\), <span class="fragment" data-fragment-index="3">rigorously later.</span>
-				  </p>
-				  <p class="fragment" data-fragment-index="4">\(T(\infty)=w \iff \displaystyle \lim_{|z|\ra \infty}T(z) = w\).
-				  </p>
-				  <p class="fragment" data-fragment-index="5">\(T(\xi)=\infty \iff \displaystyle \lim_{z\ra \xi }1/T(z) = 0\).
-				  </p>
+					<p class="fragment" data-fragment-index="0"><strong>Note 1:</strong> In practice may be easier to
+						solve directly for
+						\(a,b,c,d\) rather than use <a href="#remarks-mobius">\((**)\)</a>.
+					</p>
+					<p class="fragment" data-fragment-index="1"><strong>Note 2:</strong> How does this work for
+						\(\infty\)?
+					</p>
+					<p class="fragment" data-fragment-index="2">\(T(\infty)=a/c\) and \(T(-d/c)=\infty\), <span
+							class="fragment" data-fragment-index="3">rigorously later.</span>
+					</p>
+					<p class="fragment" data-fragment-index="4">\(T(\infty)=w \iff \displaystyle \lim_{|z|\ra
+						\infty}T(z) = w\).
+					</p>
+					<p class="fragment" data-fragment-index="5">\(T(\xi)=\infty \iff \displaystyle \lim_{z\ra \xi
+						}1/T(z) = 0\).
+					</p>
 				</div>
-			  </section>
-		
-			  <section>
+			</section>
+
+			<section>
 				<h4>Credits</h4>
-				<div style="font-size:24px">
-				  <p>Lecture notes<br /><a href="https://people.smp.uq.edu.au/JosephGrotowski/">Joseph Grotowski</a></p>
-				  <p>Design, Images &amp; Applets<br />
-					<a href="https://smp.uq.edu.au/profile/2155/juan-ponce-campuzano">
-					  Juan Carlos Ponce Campuzano</a> </p>
-				  <br />
-				  <!--<p>Go to next <a href="lecture-07.html">Lecture</a></p>-->
-				</div>
-		
-			  </section>
+				<div include-html="credits.html"></div>
+			</section>
 
 			<!-- Ends sections -->
 
@@ -174,6 +177,9 @@
 	<script src="plugin/highlight/highlight.js"></script>
 	<script src="plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
 
 </body>
 

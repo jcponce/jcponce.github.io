@@ -117,14 +117,15 @@
 						\(z = \sin w\)
 					</p>
 					<p class="fragment" data-fragment-index="2">\( \;\; = \dfrac{e^{iw}- e^{-iw}}{2i}\cdot
-						\dfrac{e^{iw}}{e^{iw}}\) 
+						\dfrac{e^{iw}}{e^{iw}}\)
 						<span class="fragment" data-fragment-index="3">\( \;\; = \dfrac{e^{2w}-1}{2i e^{iw}} \)
 						</span>
 					</p>
-					
+
 					<p class="fragment" data-fragment-index="4">\(\implies 2iz e^{iw} = e^{2iw} - 1 \)
 					</p>
-					<p class="fragment" data-fragment-index="5">\(\implies \left( e^{iw} \right)^2- 2i z\left(e^{iw}\right) -1 = 0 \)
+					<p class="fragment" data-fragment-index="5">\(\implies \left( e^{iw} \right)^2- 2i
+						z\left(e^{iw}\right) -1 = 0 \)
 					</p>
 				</div>
 			</section>
@@ -134,13 +135,16 @@
 				<h5>Inverse trigonometric functions</h5>
 				<h6>\(\sin^{-1}\), \(\cos^{-1}\)</h6>
 				<div class="left-txt size-70">
-					<p class="fragment" data-fragment-index="0">\(\implies  e^{iw}  = \dfrac{2iz + \left( -4z^2+4\right)^{1/2}}{2}\)
+					<p class="fragment" data-fragment-index="0">\(\implies e^{iw} = \dfrac{2iz + \left(
+						-4z^2+4\right)^{1/2}}{2}\)
 					</p>
 					<p class="fragment" data-fragment-index="1">\( \qquad \qquad = iz + \left( 1-z^2\right)^{1/2}\)
 					</p>
-					<p class="fragment" data-fragment-index="2">\( \implies iw = \log \left( iz + \left( 1-z^2\right)^{1/2} \right)\)
+					<p class="fragment" data-fragment-index="2">\( \implies iw = \log \left( iz + \left(
+						1-z^2\right)^{1/2} \right)\)
 					</p>
-					<p class="fragment" data-fragment-index="4">\(\implies w = \sin^{-1} z  = -i \log \left( iz + \left( 1-z^2\right)^{1/2} \right) \)
+					<p class="fragment" data-fragment-index="4">\(\implies w = \sin^{-1} z = -i \log \left( iz + \left(
+						1-z^2\right)^{1/2} \right) \)
 					</p>
 				</div>
 			</section>
@@ -149,20 +153,22 @@
 				<h5>Inverse trigonometric functions</h5>
 				<h6>\(\sin^{-1}\), \(\cos^{-1}\)</h6>
 				<div class="left-txt size-60">
-					<p><strong>Example:</strong> \(\sin^{-1}(-i) \) 
+					<p><strong>Example:</strong> \(\sin^{-1}(-i) \)
 						<span class="fragment" data-fragment-index="0">\(= -i\log\left(1+2^{1/2}\right)\)</span>
 						<span class="fragment" data-fragment-index="1">\(= -i\log\left(1\pm \sqrt{2}\right)\).</span>
 					</p>
-					<p class="fragment" data-fragment-index="3">Now, \( \log\left( 1+\sqrt{2} \right) = \ln\left( 1+\sqrt{2} \right) + 2n\pi i \) with \(n \in \Z \),
+					<p class="fragment" data-fragment-index="3">Now, \( \log\left( 1+\sqrt{2} \right) = \ln\left(
+						1+\sqrt{2} \right) + 2n\pi i \) with \(n \in \Z \),
 					</p>
-					<p class="fragment" data-fragment-index="4">and \( \log\left(\sqrt{2} - 1 \right) = \ln\left(\sqrt{2} - 1 \right) + (2n+1)\pi i \) with \(n \in \Z \).
+					<p class="fragment" data-fragment-index="4">and \( \log\left(\sqrt{2} - 1 \right) =
+						\ln\left(\sqrt{2} - 1 \right) + (2n+1)\pi i \) with \(n \in \Z \).
 					</p>
-					<p class="fragment" data-fragment-index="5">So 
+					<p class="fragment" data-fragment-index="5">So
 						\[
 						\sin^{-1}(-i) = \left\{
 						\begin{align*}
-						 & -i\left( \ln\left(1+\sqrt{2} \right) + 2n\pi i \right), n\in\Z;\\
-						 & -i\left( \ln\left(\sqrt{2} - 1 \right) + (2n+1)\pi i \right), n \in \Z.
+						& -i\left( \ln\left(1+\sqrt{2} \right) + 2n\pi i \right), n\in\Z;\\
+						& -i\left( \ln\left(\sqrt{2} - 1 \right) + (2n+1)\pi i \right), n \in \Z.
 						\end{align*}
 						\right.
 						\]
@@ -173,59 +179,61 @@
 			<section id="topology">
 				<h4>Topology</h4>
 				<div class="left-txt size-60">
-					<p class="fragment" data-fragment-index="0">Given \(z_0\in \C\) and \(\epsilon>0\), 
+					<p class="fragment" data-fragment-index="0">Given \(z_0\in \C\) and \(\epsilon>0\),
 						\(B_{\epsilon}(z_0)\) denotes the (open) ball of radius \(\epsilon\) about
 						\(z_0\) a.k.a \(\epsilon\)-neighbourhood of \(z_0\), given by
-						\[\{z: |z-z_0|< \epsilon\}.\]
+						\[\{z: |z-z_0|< \epsilon\}.\] </p> <p class="fragment" data-fragment-index="1">
+							\(\overline{B}_{\epsilon}(z_0) = \) closed ball of
+							radius \(\epsilon\) about \(z_0\) (a.k.a closed \(\epsilon\)-neighbourhood of \(z_0\))
+							given by
+							\[\{z: |z-z_0| \leq \epsilon\}.\]
 					</p>
-					<p class="fragment" data-fragment-index="1">\(\overline{B}_{\epsilon}(z_0) = \) closed ball of
-						radius \(\epsilon\) about \(z_0\) (a.k.a closed \(\epsilon\)-neighbourhood of \(z_0\))
-						given by
-						\[\{z: |z-z_0| \leq  \epsilon\}.\]
-					</p>
-					<p class="fragment" data-fragment-index="2">A deleted \(epsilon\) neighbourhood of \(z_0\) is given by
-						\[\{z: 0 < |z-z_0| < \epsilon\}.\]
-					</p>
-				</div>
+					<p class="fragment" data-fragment-index="2">A deleted \(epsilon\) neighbourhood of \(z_0\) is given
+						by
+						\[\{z: 0 < |z-z_0| < \epsilon\}.\] </p> </div> </section> <section data-transition="fade-out">
+							<h4>Topology</h4>
+							<div class="left-txt size-60">
+								<p class="fragment" data-fragment-index="0"> \( B_{\epsilon}(z_0) = \{z: |z-z_0|<
+										\epsilon\}\) </p> <p>
+										<span class="fragment" data-fragment-index="1">\(|z-z_0| = \left| \left(
+											x+iy\right) - \left( x_0+iy_0\right) \right| \) </span>
+										<span class="fragment" data-fragment-index="2">\(= \left| \left( x-x_0\right) +
+											\left( y +y_0\right)i \right| \) </span>
+								</p>
+								<p class="fragment" data-fragment-index="3">\(\qquad \quad = \sqrt{ \left(
+									x-x_0\right)^2 + \left( y +y_0\right)^2 } \)
+								</p>
+								<p class="fragment" data-fragment-index="4">\(\qquad \quad = \left|\left| \left(
+									x,y\right) - \left( x_0 ,y_0\right) \right|\right|_{\R^2} \)
+								</p>
+								<p class="fragment" data-fragment-index="5">\(\qquad \quad = d\left( \left( x,y\right) ,
+									\left( x_0 ,y_0\right) \right)_{\R} \)
+								</p>
+								<p class="fragment" data-fragment-index="6">\(\qquad \quad = d\left( z, z_0 \right)_{\C}
+									\).
+								</p>
+							</div>
 			</section>
 
 			<section data-transition="fade-out">
 				<h4>Topology</h4>
 				<div class="left-txt size-60">
-					<p class="fragment" data-fragment-index="0"> \( B_{\epsilon}(z_0) = \{z: |z-z_0|< \epsilon\}\)
+					<p class="fragment" data-fragment-index="0">Take \( \Omega \subseteq \C\).
 					</p>
-					<p >
-						<span class="fragment" data-fragment-index="1">\(|z-z_0| = \left| \left( x+iy\right) - \left( x_0+iy_0\right) \right| \) </span>
-						<span class="fragment" data-fragment-index="2">\(= \left| \left( x-x_0\right) + \left( y +y_0\right)i \right| \) </span>
+					<p class="fragment" data-fragment-index="1">\(*\;\) \(z\in \C\) is an <u>interior
+							point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\subset
+						\Omega\)
 					</p>
-					<p class="fragment" data-fragment-index="3">\(\qquad \quad = \sqrt{ \left( x-x_0\right)^2 + \left( y +y_0\right)^2 } \) 
+					<p class="fragment" data-fragment-index="2">(note \(\implies B_{\epsilon}(z_0)\subset \Omega\;
+						\forall \epsilon^{\prime}\), \(0<\epsilon^{\prime}< \epsilon\)). </p> <p class="fragment"
+							data-fragment-index="3">\(*\;\) \(z\in \C\) is an <u>exterior
+								point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\cap
+							\Omega \neq \emptyset\).
 					</p>
-					<p class="fragment" data-fragment-index="4">\(\qquad \quad = \left|\left| \left( x,y\right) - \left( x_0 ,y_0\right) \right|\right|_{\R^2} \) 
-					</p>
-					<p class="fragment" data-fragment-index="5">\(\qquad \quad = d\left( \left( x,y\right) , \left( x_0 ,y_0\right) \right)_{\R} \) 
-					</p>
-					<p class="fragment" data-fragment-index="6">\(\qquad \quad = d\left( z, z_0 \right)_{\C} \). 
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
-				<h4>Topology</h4>
-				<div class="left-txt size-60">
-					<p class="fragment" data-fragment-index="0">Take \( \Omega \subseteq \C\). 
-					</p>
-					<p class="fragment" data-fragment-index="1">\(*\;\) \(z\in \C\) is an <u>interior 
-						point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\subset \Omega\)
-					</p>
-					<p class="fragment" data-fragment-index="2">(note \(\implies B_{\epsilon}(z_0)\subset \Omega\; \forall \epsilon^{\prime}\), \(0<\epsilon^{\prime}< \epsilon\)).
-					</p>
-					<p class="fragment" data-fragment-index="3">\(*\;\) \(z\in \C\) is an <u>exterior 
-						point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\cap \Omega \neq \emptyset\).
-					</p>
-					<p class="fragment" data-fragment-index="4">\(*\;\) \(z\in \C\) is a <u>boundary 
-						point</u> of \(\Omega\), \(z\in\partial \Omega \), if \(\forall \epsilon>0\):<br/>
+					<p class="fragment" data-fragment-index="4">\(*\;\) \(z\in \C\) is a <u>boundary
+							point</u> of \(\Omega\), \(z\in\partial \Omega \), if \(\forall \epsilon>0\):<br />
 						\[
-						B_{\epsilon}(z_0)\cap \Omega \neq \emptyset \text{ and } 
+						B_{\epsilon}(z_0)\cap \Omega \neq \emptyset \text{ and }
 						B_{\epsilon}(z_0)\cap \Omega^c \neq \emptyset.
 						\]
 					</p>
@@ -234,15 +242,7 @@
 
 			<section>
 				<h4>Credits</h4>
-				<div style="font-size:24px">
-					<p>Lecture notes<br /><a href="https://people.smp.uq.edu.au/JosephGrotowski/">Joseph Grotowski</a>
-					</p>
-					<p>Design, Images &amp; Applets<br />
-						<a href="https://smp.uq.edu.au/profile/2155/juan-ponce-campuzano">
-							Juan Carlos Ponce Campuzano</a> </p>
-					<br />
-					<!--<p>Go to next <a href="#">Lecture</a></p>-->
-				</div>
+				<div include-html="credits.html"></div>
 			</section>
 
 			<!-- Ends sections -->
@@ -255,6 +255,9 @@
 	<script src="plugin/highlight/highlight.js"></script>
 	<script src="plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
 
 </body>
 
