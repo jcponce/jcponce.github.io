@@ -56,7 +56,7 @@
 				<p class="size-60"><strong>in polar coordinates</strong></p>
 				<div class="left-txt size-90">
 					<p><span class="fragment" data-fragment-index="0">\(z = x+iy=r e^{i\theta }\),</span> &nbsp;
-						<span class="fragment" data-fragment-index="1">\(x = r\cos \theta\), \(r \sin \theta\).</span>
+						<span class="fragment" data-fragment-index="1">\(x = r\cos \theta\), \(y = r \sin \theta\).</span>
 					</p>
 					<p class="fragment" data-fragment-index="2">Chain rule implies</p>
 					<p class="fragment" data-fragment-index="2">\( u_r = u_x \cos \theta + u_y \sin \theta \quad \quad
@@ -92,7 +92,7 @@
 				<h3>Cauchy-Riemann</h3>
 				<p class="size-60"><strong>in polar coordinates</strong></p>
 				<div class="left-txt size-90">
-					<p><u>Useful:</u> (recall <a href="lecture-14.html#/cauchy-riemann/3">(⚛️), Lecture 14</a>)
+					<p><u>Useful:</u> (recall <a href="lecture-14.html#/cauchy-riemann/3" target="_blank">(⚛️), Lecture 14</a>)
 
 					</p>
 					<p><span class="fragment" data-fragment-index="0">If \(f'\) exists then
@@ -281,7 +281,8 @@
 							\(\C\).</span>
 					</p>
 					<p>
-						<span class="fragment" data-fragment-index="6"><strong>b)</strong> Check C/R: \(u_x=v_y\) &amp; \(u_y = -v_x
+						<span class="fragment" data-fragment-index="6"><strong>b)</strong> Check C/R: \(u_x=v_y\) &amp;
+							\(u_y = -v_x
 							\)</span> &nbsp;
 						<span class="fragment" data-fragment-index="7">or \( \displaystyle \frac{\partial f}{\partial
 							\overline{z}}=0. \)</span>
@@ -332,7 +333,54 @@
 						</span>
 					</p>
 					<p class="fragment" data-fragment-index="4">
-						<span title="Check it!">📝</span><strong>Exercise:</strong> Go through Application 1 for \(z\mapsto 1/z\) on \(\C_*\)
+						<span title="Check it!">📝</span><strong>Exercise:</strong> Go through Application 1 for
+						\(z\mapsto 1/z\) on \(\C_*\)
+					</p>
+				</div>
+			</section>
+
+			<section id="analytic-singular-function">
+				<h3>Analytic and singular function</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">
+						<strong>Definition:</strong> \(f:\Omega \ra \C\) is <u>analytic</u> at \(z_0\)
+						if \(f\) is differentiable on a neighbourhood of \(z_0\).
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						A function is <u>singular</u> at \(z_0\) if it is NOT analytic at \(z_0\),
+						but is analytic at some point in every neighbouhood of \(z_0\).
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="analytic-singular-function-example">
+				<h3>Analytic and singular function</h3>
+				<div class="left-txt">
+					<p>
+						<strong>E. g.</strong> &nbsp; <span class="fragment" data-fragment-index="0">
+							\(f(z)=\displaystyle \frac{1}{z}\) is analytic on \(\C_*\) and singular at \(0\)
+							on \(B_{\epsilon}(0)\), &nbsp;
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\(f\) is analytic on \(B_{\epsilon'}(z_0)\), \(z_0\in B_{\epsilon}(0)\), 
+							\(\epsilon'<|z_0|\).
+						</span>
+					</p>
+				</div>
+			</section>
+
+			<section id="entire-function">
+				<h3>Entire function</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">
+						A function is <u>entire</u> if it is analytic on all of \(\C\).
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						<strong>E. g.</strong> Polynomials, \(\sin,\cos, \exp, \cosh, \sinh\).
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						<strong>Note:</strong> If a function is differentiable at precisely on a point,
+						it is not analytic there, or anywhere. <strong>E. g.</strong> \(|z|^2\).
 					</p>
 				</div>
 			</section>
