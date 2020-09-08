@@ -142,7 +142,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section  data-transition="fade-out">
 				<h3>Derivative of \(z^c\)</h3>
 				<div class="left-txt">
 					<p>
@@ -151,9 +151,8 @@
 							data-fragment-index="0">
 							(due to needing to pick a branch of \(\log z\) in \((*)\)).
 					</p>
-					<p class="fragment" data-fragment-index="1"> <span
-							title="Check it!">📝</span><strong>Remark:</strong> Try for
-						\(g(z) = c^z\)
+					<p class="fragment" data-fragment-index="1">
+						<span title="Check it!">📝</span><strong>Remark:</strong> Try for \(g(z) = c^z\)
 					</p>
 				</div>
 			</section>
@@ -184,7 +183,7 @@
 				</div>
 			</section>
 
-			<section id="notation-from-real-analysis-2">
+			<section data-transition="fade-out" id="notation-from-real-analysis-2">
 				<h3>Notation from Real Analysis</h3>
 				<div class="left-txt">
 					<p>
@@ -199,7 +198,7 @@
 				</div>
 			</section>
 
-			<section id="notation-from-real-analysis-3">
+			<section data-transition="fade-out" id="notation-from-real-analysis-3">
 				<h3>Notation from Real Analysis</h3>
 				<div class="left-txt size-90">
 					<p>
@@ -218,30 +217,36 @@
 					</p>
 					<p class="size-80">
 						<span class="fragment" data-fragment-index="3"><strong>Note:</strong> (i) \(\Rightarrow f\in C^{\infty}(\Omega)\)</span>
-						<span class="fragment" data-fragment-index="4">,&nbsp; &nbsp; (i) \(\nRightarrow \) (ii) \(\in \R^{n}\)</span>
+						<span class="fragment" data-fragment-index="4">,&nbsp; &nbsp; (i) \(\nRightarrow \) (ii) \(\in \R^{n}\).</span>
 					</p>
 				</div>
 			</section>
 
-			<section data-transition="fade-out">
-				<h3>Wirtinger operators</h3>
-				<p class="size-60"><strong>Relationship with C/R</strong></p>
-				<div class="left-txt size-90">
-					<p>Note also from <a href="lecture-15.html#/3/0/0">(5)</a>:
+			<section data-transition="fade-out" id="notation-from-real-analysis-4">
+				<h3>Notation from Real Analysis</h3>
+				<div class="left-txt size-70">
+					<p>Consider
+							\[
+							f(x) = \left\{
+								\begin{array}{lr}
+								  e^{-1/x^2} &  x > 0\\
+								  0 &  x \le 0
+								\end{array}
+							  \right.
+							  \]
 					</p>
 					<p>
-						<span class="fragment" data-fragment-index="0">\(\displaystyle \frac{d f}{d z} \)</span>
-						<span class="fragment" data-fragment-index="1">\( = u_x + iv_x \)</span>
-						<span class="fragment" data-fragment-index="2">\(= \displaystyle \frac{\partial f}{\partial
-							x}\)</span>
-						<span class="fragment" data-fragment-index="3">\(= \displaystyle - \frac{\partial f}{\partial y}
-							\)</span>
-						<span class="fragment" data-fragment-index="4">\(= \displaystyle \frac{i}{2} \left(
-							\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y} \right) \)</span>
-						<span class="fragment" data-fragment-index="5">\( = \displaystyle \frac{\partial f}{\partial z}
-							\).</span>
+					  <span class="fragment" data-fragment-index="0"><span title="Check it!">📝</span><strong>Check:</strong>&nbsp; \(f^{(n)}(x)\) exists for all \(x\neq 0\)</span>
+					  <span class="fragment" data-fragment-index="1">, and \(f^{(n)}(0) = 0\) for all \(n\in \N\),</span>
+					  <span class="fragment" data-fragment-index="2"> and  \(f^{(n)}\) is continuous on \(\R\).</span>
+					  <span class="fragment" data-fragment-index="3">Then Taylor series for \(f\) at \(0\) is
+						  \[
+						  \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n \equiv 0.
+						  \]
+					  </span>
 					</p>
 				</div>
+				<p class="fragment size-70" data-fragment-index="4">\(f\in C^{\infty}(\R), \quad f\notin C^{\omega}(\R)\).</p>
 			</section>
 
 			<section data-transition="fade-out" id="wirtinger-operators-application-1">
