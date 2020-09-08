@@ -93,7 +93,7 @@
 								<p>So if we specify a <u>branch</u>,
 									<span class="fragment" data-fragment-index="0">we have that \(\log\) is
 										differentiable
-										and Lecture 15 \( \implies \)</span>
+										and <a href="lecture-15.html#/3/0/1" target="_blank">Lecture 15</a> \( \implies \)</span>
 								</p>
 								<p><span class="fragment" data-fragment-index="1">\( \displaystyle \frac{d}{dz}\log z
 										\)</span>
@@ -142,7 +142,7 @@
 				</div>
 			</section>
 
-			<section  data-transition="fade-out">
+			<section data-transition="fade-out">
 				<h3>Derivative of \(z^c\)</h3>
 				<div class="left-txt">
 					<p>
@@ -162,15 +162,15 @@
 				<div class="left-txt">
 					<p>\(\Omega \subseteq \R^n\)</p>
 					<p>
-						<span class="fragment" data-fragment-index="0">\(*\) \(C\left( \Omega \right)\)</span>
-						<span class="fragment" data-fragment-index="1">\( = C^0\left( \Omega \right)\)</span>
+						<span class="fragment" data-fragment-index="0">\(*\) \(\mathcal C\left( \Omega \right)\)</span>
+						<span class="fragment" data-fragment-index="1">\( = \mathcal C^0\left( \Omega \right)\)</span>
 
 					</p>
 					<p class="fragment" data-fragment-index="2">
 						\(\quad\qquad = \left\{ \text{continuous functions}: \Omega \ra \R \right\}\)
 					</p>
 					<p>
-						<span class="fragment" data-fragment-index="3">\(*\) \( C^k\left( \Omega \right)\)</span>
+						<span class="fragment" data-fragment-index="3">\(*\) \( \mathcal C^k\left( \Omega \right)\)</span>
 						<span class="fragment" data-fragment-index="4">\( = \left\{ \text{functions } f:\Omega \ra
 							\R:\right. \)</span>
 						<span class="fragment" data-fragment-index="5">\(\qquad \quad\left. f \text{ and all its
@@ -187,7 +187,7 @@
 				<h3>Notation from Real Analysis</h3>
 				<div class="left-txt">
 					<p>
-						<span class="fragment" data-fragment-index="0">\(*\) \( C^{\infty}\left( \Omega \right)\)</span>
+						<span class="fragment" data-fragment-index="0">\(*\) \( \mathcal C^{\infty}\left( \Omega \right)\)</span>
 						<span class="fragment" data-fragment-index="1">\( = \left\{ \text{functions } f:\Omega \ra
 							\R:\right. \)</span>
 						<span class="fragment" data-fragment-index="2">\(\qquad \quad\left. f \text{ and all its
@@ -202,22 +202,24 @@
 				<h3>Notation from Real Analysis</h3>
 				<div class="left-txt size-90">
 					<p>
-						<span class="fragment" data-fragment-index="0">\(*\) \( f\in C^{\omega} \left( \Omega \right)\)
+						<span class="fragment" data-fragment-index="0">\(*\) \( f\in \mathcal C^{\omega} \left( \Omega \right)\)
 							says at every \(x_0\in \Omega\):</span>
 						<ol class="r">
 							<li class="fragment" data-fragment-index="1">
 								\(f\) has a power series expansion about \(x_0\). Namely, its Taylor series.
 							</li>
 							<li class="fragment" data-fragment-index="2">
-								<span>\(f\) <u>is given by</u> its power series expansion, i.e. power series 
+								<span>\(f\) <u>is given by</u> its power series expansion, i.e. power series
 									converges to \(f\) on some neighbourhood of \(x_0\). </span>
 								<span>a.k.a real analytic functions.</span>
 							</li>
 						</ol>
 					</p>
 					<p class="size-80">
-						<span class="fragment" data-fragment-index="3"><strong>Note:</strong> (i) \(\Rightarrow f\in C^{\infty}(\Omega)\)</span>
-						<span class="fragment" data-fragment-index="4">,&nbsp; &nbsp; (i) \(\nRightarrow \) (ii) \(\in \R^{n}\).</span>
+						<span class="fragment" data-fragment-index="3"><strong>Note:</strong> (i) \(\Rightarrow f\in
+							C^{\infty}(\Omega)\)</span>
+						<span class="fragment" data-fragment-index="4">,&nbsp; &nbsp; (i) \(\nRightarrow \) (ii) \(\in
+							\R^{n}\).</span>
 					</p>
 				</div>
 			</section>
@@ -226,145 +228,37 @@
 				<h3>Notation from Real Analysis</h3>
 				<div class="left-txt size-70">
 					<p>Consider
+						\[
+						f(x) = \left\{
+						\begin{array}{lr}
+						e^{-1/x^2} & x > 0\\
+						0 & x \le 0
+						\end{array}
+						\right.
+						\]
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0"><span
+								title="Check it!">📝</span><strong>Check:</strong>&nbsp; \(f^{(n)}(x)\) exists for all
+							\(x\neq 0\)</span>
+						<span class="fragment" data-fragment-index="1">, and \(f^{(n)}(0) = 0\) for all \(n\in
+							\N\),</span>
+						<span class="fragment" data-fragment-index="2"> and \(f^{(n)}\) is continuous on \(\R\).</span>
+						<span class="fragment" data-fragment-index="3">Then Taylor series for \(f\) at \(0\) is
 							\[
-							f(x) = \left\{
-								\begin{array}{lr}
-								  e^{-1/x^2} &  x > 0\\
-								  0 &  x \le 0
-								\end{array}
-							  \right.
-							  \]
-					</p>
-					<p>
-					  <span class="fragment" data-fragment-index="0"><span title="Check it!">📝</span><strong>Check:</strong>&nbsp; \(f^{(n)}(x)\) exists for all \(x\neq 0\)</span>
-					  <span class="fragment" data-fragment-index="1">, and \(f^{(n)}(0) = 0\) for all \(n\in \N\),</span>
-					  <span class="fragment" data-fragment-index="2"> and  \(f^{(n)}\) is continuous on \(\R\).</span>
-					  <span class="fragment" data-fragment-index="3">Then Taylor series for \(f\) at \(0\) is
-						  \[
-						  \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n \equiv 0.
-						  \]
-					  </span>
-					</p>
-				</div>
-				<p class="fragment size-70" data-fragment-index="4">\(f\in C^{\infty}(\R), \quad f\notin C^{\omega}(\R)\).</p>
-			</section>
-
-			<section data-transition="fade-out" id="wirtinger-operators-application-1">
-				<h3>Wirtinger operators</h3>
-				<p class="size-60"><strong>Application 1</strong></p>
-				<div class="left-txt size-90">
-					<p>Find \(f'(z)\) for \(f(z) = \exp z\).
-					</p>
-					<p class="fragment" data-fragment-index="0">Check sufficient conditions for \(f'\) to exist:</p>
-					<p>
-						<span class="fragment" data-fragment-index="1"><strong>a)</strong> \(f= u+iv \)</span>
-						<span class="fragment" data-fragment-index="2">\( = e^{x+iy} \)</span>
-						<span class="fragment" data-fragment-index="3">\( = e^x \left(\cos y +i \sin y\right) \) defined
-							on \(\C\).</span>
-					</p>
-					<p>
-						<span class="fragment" data-fragment-index="4">\( u = e^x\cos y, v = e^{x}\sin y \).</span>
-						&nbsp;
-						<span class="fragment" data-fragment-index="5">\(u_x, u_y, v_x, v_y \) defined and continuous on
-							\(\C\).</span>
-					</p>
-					<p>
-						<span class="fragment" data-fragment-index="6"><strong>b)</strong> Check C/R: \(u_x=v_y\) &amp;
-							\(u_y = -v_x
-							\)</span> &nbsp;
-						<span class="fragment" data-fragment-index="7">or \( \displaystyle \frac{\partial f}{\partial
-							\overline{z}}=0. \)</span>
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out" id="wirtinger-operators-application-2">
-				<h3>Wirtinger operators</h3>
-				<p class="size-60"><strong>Application 2</strong></p>
-				<div class="left-txt size-90">
-					<p>When is \(g(z) = |z|^2\) differentiable?
-					</p>
-					<p class="fragment" data-fragment-index="0">Note: \(g(z)=z\overline{z} = x^2+y^2\).</p>
-					<p>
-						<span class="fragment" data-fragment-index="1">C/R: \(\displaystyle \frac{\partial g}{\partial
-							\overline{z}}= 0 \)</span>
-						<span class="fragment" data-fragment-index="2">\( \implies z = 0 \)</span>
-					</p>
-					<p>
-						<span class="fragment" data-fragment-index="4">So \(g\) cannot be differentiable for \(z\neq 0\)
-							because C/R is necessary for differentiability.</span>
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
-				<h3>Wirtinger operators</h3>
-				<p class="size-60"><strong>Application 2</strong></p>
-				<div class="left-txt size-90">
-					<p>
-						At \(z=0\) check sufficient conditions:
-					</p>
-					<p>
-						<span class="fragment" data-fragment-index="0">
-							\(u,v\) are defined on \(\C\).
-						</span>
-						<span class="fragment" data-fragment-index="1">
-							\(u_x,u_y,v_x,v_y\) are defined and continuous on \(\C\) (a neighbourhood of \(z=0\)).
+							\sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n \equiv 0.
+							\]
 						</span>
 					</p>
-					<p>
-						<span class="fragment" data-fragment-index="2">
-							C/R hold.
-						</span>
-						<span class="fragment" data-fragment-index="3">
-							So \(g'(0)=0\).
-						</span>
-					</p>
-					<p class="fragment" data-fragment-index="4">
-						<span title="Check it!">📝</span><strong>Exercise:</strong> Go through Application 1 for
-						\(z\mapsto 1/z\) on \(\C_*\)
-					</p>
 				</div>
+				<p class="fragment size-70" data-fragment-index="4">\(f\in \mathcal C^{\infty}(\R), \quad f\notin
+					\mathcal C^{\omega}(\R)\).</p>
 			</section>
 
-			<section id="analytic-singular-function">
-				<h3>Analytic and singular function</h3>
-				<div class="left-txt">
-					<p class="fragment" data-fragment-index="0">
-						<strong>Definition:</strong> \(f:\Omega \ra \C\) is <u>analytic</u> at \(z_0\)
-						if \(f\) is differentiable on a neighbourhood of \(z_0\).
-					</p>
-					<p class="fragment" data-fragment-index="1">
-						A function is <u>singular</u> at \(z_0\) if it is NOT analytic at \(z_0\),
-						but is analytic at some point in every neighbouhood of \(z_0\).
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out" id="analytic-singular-function-example">
-				<h3>Analytic and singular function</h3>
-				<div class="left-txt">
-					<p>
-						<strong>E. g.</strong> &nbsp; <span class="fragment" data-fragment-index="0">
-							\(f(z)=\displaystyle \frac{1}{z}\) is analytic on \(\C_*\) and singular at \(0\)
-							on \(B_{\epsilon}(0)\), &nbsp;
-						</span>
-						<span class="fragment" data-fragment-index="1">
-							\(f\) is analytic on \(B_{\epsilon'}(z_0)\), \(z_0\in B_{\epsilon}(0)\),
-							\(\epsilon'<|z_0|\). </span> </p> </div> </section> <section id="entire-function">
-								<h3>Entire function</h3>
-								<div class="left-txt">
-									<p class="fragment" data-fragment-index="0">
-										A function is <u>entire</u> if it is analytic on all of \(\C\).
-									</p>
-									<p class="fragment" data-fragment-index="1">
-										<strong>E. g.</strong> Polynomials, \(\sin,\cos, \exp, \cosh, \sinh\).
-									</p>
-									<p class="fragment" data-fragment-index="2">
-										<strong>Note:</strong> If a function is differentiable at precisely on a point,
-										it is not analytic there, or anywhere. <strong>E. g.</strong> \(|z|^2\).
-									</p>
-								</div>
+			<section data-transition="fade-out" id="notation-from-real-analysis-5">
+				<h3>Notation from Real Analysis</h3>
+				<p>\(\mathcal C^{\omega} \subsetneq \mathcal C^{\infty} \subsetneq \ldots \mathcal C^{1337} \subsetneq \mathcal C^{1336}\)</p>
+				<p class="fragment" data-fragment-index="0">\(\subsetneq \ldots \subsetneq \mathcal C^{1} \subsetneq  \mathcal C^{0}\).</p>
 			</section>
 
 			<section>
