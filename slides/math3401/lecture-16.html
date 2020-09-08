@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH3401 - Lecture 16</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h1>MATH3401</h1>
+				<h3>Complex Analysis</h3>
+				<p>Lecture 16</p>
+			</section>
+
+			<section id="derivative-logz">
+				<h3>Derivative of \(\log z\)</h3>
+				<div class="left-txt">
+					<p><span class="fragment" data-fragment-index="0">\(\displaystyle \frac{d}{dz}\log z\):</span>
+						&nbsp;
+						<span class="fragment" data-fragment-index="1">Consider \(|z|>0\) and recall</span>
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						\[
+						\begin{align}
+						\log z & = \ln |z| + i \,\arg(z) \\
+						& = \ln r + i \theta.
+						\end{align}
+						\]
+					</p>
+					<p class="fragment" data-fragment-index="3">\( \implies u = \ln r, v = \theta\)</p>
+					<p class="fragment" data-fragment-index="4">\( \implies u_r = \displaystyle \frac{1}{r}, u_{\theta}
+						= 0 , v_r =0, v_{\theta} = 1.\)</p>
+
+				</div>
+			</section>
+
+			<section data-transition="fade-out">
+				<h3>Derivative of \(\log z\)</h3>
+				<div class="left-txt">
+					<p>C/R in polar coordinates:
+						\[
+						\begin{align}
+						ru_r & = v_{\theta} \\
+						u_{\theta} & = -ru_r
+						\end{align}
+						\]
+					</p>
+					<p class="fragment" data-fragment-index="0">Satisfies sufficient conditions for complex
+						differentiability
+						on any subset of \(\C_*\), such that \(\alpha < \theta < \alpha + 2 \pi\), with \(\alpha\) fixed
+							in \(\R\). </p> </div> </section> <section data-transition="fade-out">
+							<h3>Derivative of \(\log z\)</h3>
+							<div class="left-txt">
+								<p>So if we specify a <u>branch</u>,
+									<span class="fragment" data-fragment-index="0">we have that \(\log\) is
+										differentiable
+										and Lecture 15 \( \implies \)</span>
+								</p>
+								<p><span class="fragment" data-fragment-index="1">\( \displaystyle \frac{d}{dz}\log z
+										\)</span>
+									<span class="fragment" data-fragment-index="2">\( = e^{-i\theta} \left( u_r + i v_r
+										\right)\)</span>
+									<span class="fragment" data-fragment-index="3">\( = e^{-i\theta}\displaystyle
+										\frac{1}{r}\)</span>
+									<span class="fragment" data-fragment-index="4">\( = \displaystyle
+										\frac{1}{re^{i\theta}}\)</span>
+									<span class="fragment" data-fragment-index="5">\( = \displaystyle
+										\frac{1}{z}\)</span>
+								</p>
+							</div>
+			</section>
+
+			<section data-transition="fade-out">
+				<h3>Derivative of \(\log z\)</h3>
+				<div class="left-txt">
+					<p><strong>E. g.</strong>
+						<span class="fragment" data-fragment-index="0">\( \displaystyle \frac{d}{dz}\Log\, z \)</span>
+						<span class="fragment" data-fragment-index="1">\( \displaystyle = \frac{1}{z} \)</span>&nbsp;
+						<span class="fragment" data-fragment-index="2">for \( -\pi < \Arg \, z< \pi \), \(|z|>
+								0\).</span>
+					</p>
+				</div>
+			</section>
+
+			<section id="derivative-z-to-the-power-c">
+				<h3>Derivative of \(z^c\)</h3>
+				<div class="left-txt">
+					<p>
+						For \(f(z)= z^c\), with \(c\in \C_*\) fixed, defined on \(\C_*\):
+					</p>
+					<p class="fragment" data-fragment-index="0">
+						\[f(z) = \exp\left( c \log z \right) \]
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">\(f'(z) = \exp\left( c \log z \right) \cdot
+							\frac{c}{z} \) &nbsp; &nbsp; \((*)\)</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="1">\(\qquad = z^c \cdot \frac{c}{z} \)</span>
+						<span class="fragment" data-fragment-index="2">\( = c z^{c-1} \)&nbsp; &nbsp; &nbsp;
+							\((**)\)</span>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Derivative of \(z^c\)</h3>
+				<div class="left-txt">
+					<p>
+						\((**)\) is valid on aby domain of the form
+						\[\left\{ z: |z|>0, \alpha <\arg\, z < \alpha + 2\pi\right\}\] </p> <p class="fragment"
+							data-fragment-index="0">
+							(due to needing to pick a branch of \(\log z\) in \((*)\)).
+					</p>
+					<p class="fragment" data-fragment-index="1"> <span
+							title="Check it!">📝</span><strong>Remark:</strong> Try for
+						\(g(z) = c^z\)
+					</p>
+				</div>
+			</section>
+
+			<section id="notation-from-real-analysis-1">
+				<h3>Notation from Real Analysis</h3>
+				<div class="left-txt">
+					<p>\(\Omega \subseteq \R^n\)</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">\(*\) \(C\left( \Omega \right)\)</span>
+						<span class="fragment" data-fragment-index="1">\( = C^0\left( \Omega \right)\)</span>
+
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						\(\quad\qquad = \left\{ \text{continuous functions}: \Omega \ra \R \right\}\)
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="3">\(*\) \( C^k\left( \Omega \right)\)</span>
+						<span class="fragment" data-fragment-index="4">\( = \left\{ \text{functions } f:\Omega \ra
+							\R:\right. \)</span>
+						<span class="fragment" data-fragment-index="5">\(\qquad \quad\left. f \text{ and all its
+							derivatives/partial derivatives } \right.\)</span>
+						<span class="fragment" data-fragment-index="5">\(\qquad \quad\left. \text{of order } 0,1,\ldots,
+							k \text{ exist and are continuos} \right\}\)</span>
+					</p>
+					<p class="fragment size-50" data-fragment-index="6"><strong>Note:</strong> \(0\)th order derivative
+						of \(f\) is \(f\).</p>
+				</div>
+			</section>
+
+			<section id="notation-from-real-analysis-2">
+				<h3>Notation from Real Analysis</h3>
+				<div class="left-txt">
+					<p>
+						<span class="fragment" data-fragment-index="0">\(*\) \( C^{\infty}\left( \Omega \right)\)</span>
+						<span class="fragment" data-fragment-index="1">\( = \left\{ \text{functions } f:\Omega \ra
+							\R:\right. \)</span>
+						<span class="fragment" data-fragment-index="2">\(\qquad \quad\left. f \text{ and all its
+							derivatives/partial derivatives } \right.\)</span>
+						<span class="fragment" data-fragment-index="2">\(\qquad \quad\left. \text{of all orders exist
+							and are continuos} \right\}\)</span>
+					</p>
+				</div>
+			</section>
+
+			<section id="notation-from-real-analysis-3">
+				<h3>Notation from Real Analysis</h3>
+				<div class="left-txt size-90">
+					<p>
+						<span class="fragment" data-fragment-index="0">\(*\) \( f\in C^{\omega} \left( \Omega \right)\)
+							says at every \(x_0\in \Omega\):</span>
+						<ol class="r">
+							<li class="fragment" data-fragment-index="1">
+								\(f\) has a power series expansion about \(x_0\). Namely, its Taylor series.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<span>\(f\) <u>is given by</u> its power series expansion, i.e. power series 
+									converges to \(f\) on some neighbourhood of \(x_0\). </span>
+								<span>a.k.a real analytic functions.</span>
+							</li>
+						</ol>
+					</p>
+					<p class="size-80">
+						<span class="fragment" data-fragment-index="3"><strong>Note:</strong> (i) \(\Rightarrow f\in C^{\infty}(\Omega)\)</span>
+						<span class="fragment" data-fragment-index="4">,&nbsp; &nbsp; (i) \(\nRightarrow \) (ii) \(\in \R^{n}\)</span>
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out">
+				<h3>Wirtinger operators</h3>
+				<p class="size-60"><strong>Relationship with C/R</strong></p>
+				<div class="left-txt size-90">
+					<p>Note also from <a href="lecture-15.html#/3/0/0">(5)</a>:
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">\(\displaystyle \frac{d f}{d z} \)</span>
+						<span class="fragment" data-fragment-index="1">\( = u_x + iv_x \)</span>
+						<span class="fragment" data-fragment-index="2">\(= \displaystyle \frac{\partial f}{\partial
+							x}\)</span>
+						<span class="fragment" data-fragment-index="3">\(= \displaystyle - \frac{\partial f}{\partial y}
+							\)</span>
+						<span class="fragment" data-fragment-index="4">\(= \displaystyle \frac{i}{2} \left(
+							\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y} \right) \)</span>
+						<span class="fragment" data-fragment-index="5">\( = \displaystyle \frac{\partial f}{\partial z}
+							\).</span>
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="wirtinger-operators-application-1">
+				<h3>Wirtinger operators</h3>
+				<p class="size-60"><strong>Application 1</strong></p>
+				<div class="left-txt size-90">
+					<p>Find \(f'(z)\) for \(f(z) = \exp z\).
+					</p>
+					<p class="fragment" data-fragment-index="0">Check sufficient conditions for \(f'\) to exist:</p>
+					<p>
+						<span class="fragment" data-fragment-index="1"><strong>a)</strong> \(f= u+iv \)</span>
+						<span class="fragment" data-fragment-index="2">\( = e^{x+iy} \)</span>
+						<span class="fragment" data-fragment-index="3">\( = e^x \left(\cos y +i \sin y\right) \) defined
+							on \(\C\).</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="4">\( u = e^x\cos y, v = e^{x}\sin y \).</span>
+						&nbsp;
+						<span class="fragment" data-fragment-index="5">\(u_x, u_y, v_x, v_y \) defined and continuous on
+							\(\C\).</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="6"><strong>b)</strong> Check C/R: \(u_x=v_y\) &amp;
+							\(u_y = -v_x
+							\)</span> &nbsp;
+						<span class="fragment" data-fragment-index="7">or \( \displaystyle \frac{\partial f}{\partial
+							\overline{z}}=0. \)</span>
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="wirtinger-operators-application-2">
+				<h3>Wirtinger operators</h3>
+				<p class="size-60"><strong>Application 2</strong></p>
+				<div class="left-txt size-90">
+					<p>When is \(g(z) = |z|^2\) differentiable?
+					</p>
+					<p class="fragment" data-fragment-index="0">Note: \(g(z)=z\overline{z} = x^2+y^2\).</p>
+					<p>
+						<span class="fragment" data-fragment-index="1">C/R: \(\displaystyle \frac{\partial g}{\partial
+							\overline{z}}= 0 \)</span>
+						<span class="fragment" data-fragment-index="2">\( \implies z = 0 \)</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="4">So \(g\) cannot be differentiable for \(z\neq 0\)
+							because C/R is necessary for differentiability.</span>
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out">
+				<h3>Wirtinger operators</h3>
+				<p class="size-60"><strong>Application 2</strong></p>
+				<div class="left-txt size-90">
+					<p>
+						At \(z=0\) check sufficient conditions:
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							\(u,v\) are defined on \(\C\).
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\(u_x,u_y,v_x,v_y\) are defined and continuous on \(\C\) (a neighbourhood of \(z=0\)).
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							C/R hold.
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							So \(g'(0)=0\).
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="4">
+						<span title="Check it!">📝</span><strong>Exercise:</strong> Go through Application 1 for
+						\(z\mapsto 1/z\) on \(\C_*\)
+					</p>
+				</div>
+			</section>
+
+			<section id="analytic-singular-function">
+				<h3>Analytic and singular function</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">
+						<strong>Definition:</strong> \(f:\Omega \ra \C\) is <u>analytic</u> at \(z_0\)
+						if \(f\) is differentiable on a neighbourhood of \(z_0\).
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						A function is <u>singular</u> at \(z_0\) if it is NOT analytic at \(z_0\),
+						but is analytic at some point in every neighbouhood of \(z_0\).
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="analytic-singular-function-example">
+				<h3>Analytic and singular function</h3>
+				<div class="left-txt">
+					<p>
+						<strong>E. g.</strong> &nbsp; <span class="fragment" data-fragment-index="0">
+							\(f(z)=\displaystyle \frac{1}{z}\) is analytic on \(\C_*\) and singular at \(0\)
+							on \(B_{\epsilon}(0)\), &nbsp;
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\(f\) is analytic on \(B_{\epsilon'}(z_0)\), \(z_0\in B_{\epsilon}(0)\),
+							\(\epsilon'<|z_0|\). </span> </p> </div> </section> <section id="entire-function">
+								<h3>Entire function</h3>
+								<div class="left-txt">
+									<p class="fragment" data-fragment-index="0">
+										A function is <u>entire</u> if it is analytic on all of \(\C\).
+									</p>
+									<p class="fragment" data-fragment-index="1">
+										<strong>E. g.</strong> Polynomials, \(\sin,\cos, \exp, \cosh, \sinh\).
+									</p>
+									<p class="fragment" data-fragment-index="2">
+										<strong>Note:</strong> If a function is differentiable at precisely on a point,
+										it is not analytic there, or anywhere. <strong>E. g.</strong> \(|z|^2\).
+									</p>
+								</div>
+			</section>
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
+
+</body>
+
+</html>
