@@ -6,6 +6,8 @@ let fn = $("#equation-input").val(); //'z^2';
 let opt = 'Cartesian';
 let s, parsed;
 
+let cnv;
+
 let u = 0.0;
 let scl = 2;
 let rad = 2.5;
@@ -18,7 +20,8 @@ let xPos, yPos, w, h, sw, sh,
 let sizing = false;
 
 function setup() {
-  createCanvas(500, 500);
+  cnv = createCanvas(500, 500);
+  cnv.parent('sketch-Holder');
   setInitVals();
   setInput();
 }
