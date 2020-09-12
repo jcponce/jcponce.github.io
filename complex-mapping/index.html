@@ -9,68 +9,77 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
   <script src="jquery-2.1.4.min.js"></script>
-  
+
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
   <link rel="icon" type="image/png" href="https://www.dynamicmath.xyz/assets/img/png/icon/infinity32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="https://www.dynamicmath.xyz/assets/img/png/icon/infinity16.png" sizes="16x16">
+  <link rel="stylesheet" href="https://www.dynamicmath.xyz/assets/style/w3.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
-   <script>
-       window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-       function gtag() {
-           dataLayer.push(arguments);
-       }
-       gtag('js', new Date());
-
-       gtag('config', 'UA-121691678-1');
-   </script>
+    gtag('config', 'UA-121691678-1');
+  </script>
 
 </head>
 
 <body>
 
-  <div id="sketch-holder"></div>
+  <!--Mobile message-->
+  <div class="w3-hide-large w3-hide-medium w3-padding w3-display-middle w3-blue w3-round w3-large">
+    <p>Pssst! Rotate your device to landscape.</p>
+    <p>Or resize your window so it's more wide than tall.</p>
+    <p>Not supported for phones, yet.</p>
+</div>
 
-  <div id="container">
+  <div class="w3-hide-small">
+    <div id="sketch-holder"></div>
 
-    <div class="full-width">
+    <div id="container">
 
-      <div id="link-container" style="display: none;">
-        <input id="copyable-link" class="dark-translucent input-control" value="">
+      <div class="full-width">
+
+        <div id="link-container" style="display: none;">
+          <input id="copyable-link" class="dark-translucent input-control" value="">
+        </div>
+
+        <a class="dark-translucent input-control" href="https://jcponce.github.io/#projects" target="_blank">
+          <i id="show-instructions" class="fa fa-home"></i>
+        </a>
+
+        <input class="dark-translucent input-control" id="equation-input" placeholder="e.g. 1 / (z^2 + i)^2 - log(z)"
+          value="z^2">
+
+        <a id="transform" class="dark-translucent input-control hand"><i class="fas fa-play"></i></a>
+
+        <a id="back" class="dark-translucent input-control hand"><i class="fas fa-undo"></i></a>
+
+        <span id="texture-options">
+          <a id="delete" class="dark-translucent input-control hand"><i class="fas fa-trash"></i></a>
+
+          <a class="dark-translucent input-control hand" id="screen"><i class="fas fa-expand"></i></a>
+
+          <a class="dark-translucent input-control hand" id="polar"><img class="thumbnail" src="img/polar.png"></a>
+
+          <a class="dark-translucent input-control hand" id="cartesian"><img class="thumbnail"
+              src="img/cartesian.png"></a>
+
+          <a class="dark-translucent input-control hand" id="none"><img class="thumbnail" src="img/none.png"></a>
+        </span>
+
+
+
       </div>
 
-      <a class="dark-translucent input-control" href="https://jcponce.github.io/#projects" target="_blank">
-        <i id="show-instructions" class="fa fa-home"></i>
-      </a>
-
-      <input class="dark-translucent input-control" id="equation-input" placeholder="e.g. 1 / (z^2 + i)^2 - log(z)"
-        value="z^2">
-
-      <a id="transform" class="dark-translucent input-control hand"><i class="fas fa-play"></i></a>
-
-      <a id="back" class="dark-translucent input-control hand"><i class="fas fa-undo"></i></a>
-
-      <span id="texture-options">
-        <a id="delete" class="dark-translucent input-control hand"><i class="fas fa-trash"></i></a>
-
-        <a class="dark-translucent input-control hand" id="screen"><i class="fas fa-expand"></i></a>
-
-        <a class="dark-translucent input-control hand" id="polar"><img class="thumbnail" src="img/polar.png"></a>
-
-        <a class="dark-translucent input-control hand" id="cartesian"><img class="thumbnail"
-            src="img/cartesian.png"></a>
-
-        <a class="dark-translucent input-control hand" id="none"><img class="thumbnail" src="img/none.png"></a>
-      </span>
-
-
-
     </div>
-
   </div>
 
   <script src="Complex.min.js"></script>
