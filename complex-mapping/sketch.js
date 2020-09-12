@@ -1,3 +1,13 @@
+/* 
+
+ Written in p5.js (https://p5js.org/)
+ Under Creative Commons License
+ https://creativecommons.org/licenses/by-sa/4.0/
+ Written by Juan Carlos Ponce Campuzano, 12-Sep-2020
+ https://jcponce.github.io/
+
+*/
+
 let drawing = false;
 let points = [];
 let pointsEnd = [];
