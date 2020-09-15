@@ -177,63 +177,73 @@
 			</section>
 
 			<section>
-				<h5>Graph of a piece-wise continuous function</h5>
-				<img style="width: 70%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" data-src="img/lect-17/pwc-function.svg" />
+				<h3>Contours</h3>
+				<p><strong>Remarks</strong></p>
+				<p class="fragment" data-fragment-index="0">Examples 2, 3, and 4 have the same trace.</p>
+				<p class="fragment" data-fragment-index="1">Examples 2 and 3 are Jordan curves.</p>
+				<p class="fragment" data-fragment-index="2">Example 4 is not a Jordan curve.</p>
 			</section>
 
-			<section id="ftc-w">
-				<h3>Integration of functions \(w(t)\)</h3>
+			<section id="differentiable-arc-curve">
+				<h3>Contours</h3>
 				<div class="left-txt">
-					<p class="fragment" data-fragment-index="0">Suppose exists \(W(t) = U(t) + i V(t)\) such that \(W' =
-						w\) on \([a,b]\).
+					<p class="fragment" data-fragment-index="0">An arc/curve is called <u>differentiable</u> if \(z'(t)\) exists
 					</p>
-					<p>
-						<span class="fragment" data-fragment-index="1">
-							Then the <u>Fundamental Theorem of Calculus</u> holds in the form
-							\[
-							\int_a^b w\left(t\right)dt = W(b)-W(a).
-							\]
-						</span>
+					<p class="fragment" data-fragment-index="1">(\( \forall t\in (a,b)\) for an arc, 
+						\( \forall t\in [a,b]\) for an curve 
+						).
 					</p>
+					<p class="fragment" data-fragment-index="2">If \(z'\) is also continuous, then \(\displaystyle \int_a^b \left|z'(t)\right| dt\) exists, 
+						and defines the <u>arc length</u>.</p>
 				</div>
 			</section>
 
-			<section id="integral-estimate">
-				<h3>Integral estimate</h3>
+			<section>
+				<h3>Contours</h3>
 				<div class="left-txt">
 					<p>
-						<span>Next estimate is crucial: </span>
-						<span class="fragment" data-fragment-index="0">Suppose \(w = u+iv \) is piece-wise continuous
-							(pwc) on \([a,b]\)</span>
-					</p>
-					<p>
-						<span class="fragment" data-fragment-index="1">
-							Then
-							\[
-							\left| \int_a^b w\left(t\right)dt \right| \leq \int_a^b \left| w\left(t\right) \right|dt
-							\qquad (3)
-							\]
+						<span><strong>Note:</strong> If \(z(t)\) is a parametrisation of the image arc, 
 						</span>
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
-				<h3>Integral estimate</h3>
-				<div class="left-txt">
-					<p><strong>Proof:</strong>
 						<span class="fragment" data-fragment-index="0">
-							If \(\int_a^b w\left(t\right)dt = 0\),
+							we can defined another one by \(t = \Phi(\tau)\) with 
+							\[
+							\Phi (\alpha ) = a \quad \text{and} \quad \Phi (\beta) = b
+							\]
+							such that
+							\[
+							\Phi \in \mathcal C \left( \left[a,b\right] \right) \quad \text{and} \quad \Phi' \in \mathcal C \left( \left(a,b\right) \right).
+							\]
 						</span>
 					</p>
+					<p class="fragment" data-fragment-index="1">So \(z(t) = Z(\tau) = z\left(\Phi \left(\tau\right)\right)\).
+					</p>
 				</div>
-				<p class="fragment" data-fragment-index="1">
-					\(\text{LHS}\) of \((3) = 0\) and \(\text{RHS}\geq 0 \),
-				</p>
-				<p class="fragment" data-fragment-index="2">so done.</p>
+			</section>
+
+			<section>
+				<h3>Contours</h3>
+				<div class="left-txt">
+					<p>
+						<span><strong>Note (cont):</strong> Assume \(\Phi' (\tau)>0\; \forall \tau\),
+						</span>
+						<span class="fragment" data-fragment-index="0">
+							then
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="0">
+						\(
+							\displaystyle \int_a^b \left|z'(t)\right| dt =  \int_{\alpha}^{\beta} \left|z'\left(\Phi \left(\tau\right)\right)\right| \Phi' \left(\tau\right) d\tau
+					    \)
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						\(
+							\qquad \qquad  \;\; = \displaystyle   \int_{\alpha}^{\beta} \left|Z'\left(\tau \right)\right| d\tau.
+					    \)
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						i.e. arc-length is independent of parametrisation.
+					</p>
+				</div>
 			</section>
 
 			<section data-transition="fade-out">
