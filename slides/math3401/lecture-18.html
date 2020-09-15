@@ -51,106 +51,128 @@
 				<p>Lecture 18</p>
 			</section>
 
+			<section id="contour-arc">
+				<h3>Contours</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">
+						A contour is a parametrised curve in \(\C\).</p>
+					<p class="fragment" data-fragment-index="1">
+						Given \(x(t)\), \(y(t)\) continuous \([a,b]\ra \R\),
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						\[
+						z(t) = x(t) +i y(t), \quad a\leq t \leq b
+						\]
+						defines an <u>arc</u> in \(\C\).
+					</p>
+					<p class="fragment" data-fragment-index="3">
+						This is both a set of points (the image \(z\left([a,b]\right)\)), called
+						the <u>trace</u> of the arc, and also a recipe for drawing it/parametrisation.
+					</p>
+				</div>
+			</section>
+
 			<section>
-				<h3>Jordan arc</h3>
-				<p class="size-60">a. k. a. simple arc</p>
+				<h3>Contours</h3>
 				<div class="left-txt">
-					<p><span class="fragment" data-fragment-index="0">Consider a \(\C\)-valued functions of a real
-							variable:</span>
-						<span class="fragment" data-fragment-index="1">\[w(t) = u(t) + i v(t).\]</span>
+					<p class="fragment" data-fragment-index="0"><u>Jordan arc</u> (a.k.a simple arc): \(z(t_1) \neq
+						z(t_2)\) for \(t_1\neq t_2\) (Here \(z(t) = x(t) + i y(t)\), \(t\in [a,b]\)).
 					</p>
-					<p class="fragment" data-fragment-index="2">Define:</p>
-					<p class="fragment" data-fragment-index="2">\[w'(t) = u'(t) + i v'(t).\]</p>
-
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
-				<h3>Derivatives of functions \(w(t)\)</h3>
-				<div class="left-txt size-90">
-					<p>Standard differential laws for functions of a real variable apply:
-					</p>
-					<p class="fragment" data-fragment-index="0">
-						\((*)\) \(\left( c \cdot w \right)^{\prime} = c \cdot w^{\prime}\), &nbsp; \(c\in\C\);
-					</p>
-					<p class="fragment" data-fragment-index="1">
-						\(\quad\) \(\left( w_1 \pm w_2 \right)^{\prime} = w_1^{\prime} \pm w_2^{\prime}\);
-					</p>
-					<p class="fragment" data-fragment-index="2">
-						\(\quad\) \(\displaystyle \frac{d}{dt}e^{ct} = ce^{ct}\) &nbsp; &nbsp; ... etc.
-					</p>
-					<p class="fragment" data-fragment-index="3">
-						\((*)\) Product rule, quotient rule, etc.
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
-				<h3>Integration of functions \(w(t)\)</h3>
-				<div class="left-txt size-70">
-					<p>
-						Definite and indefinite integrals of such functions:
-					</p>
-					<p class="fragment" data-fragment-index="1">
-						\((*)\) \(\displaystyle \int_a^b w\left(t\right) dt = \int_a^b u\left(t\right)dt + i \int_a^b
-						v\left(t\right)dt, \quad a,b\in \R\). &nbsp;&nbsp;&nbsp; (🪁)
-					</p>
-					<p class="fragment" data-fragment-index="2">
-						i. e.
-						\[\Re\left( \int_a^b w\left(t\right) dt \right) = \int_a^b \Re\left( w(t) \right) dt\qquad (1)\]
-					</p>
-					<p class="fragment" data-fragment-index="3">
-						\[\Im\left( \int_a^b w\left(t\right) dt \right) = \int_a^b \Im\left( w(t) \right) dt\qquad (2)\]
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
-				<h3>Integration of functions \(w(t)\)</h3>
-				<div class="left-txt">
-					<p>
-						\(\int_0^{\infty} w\left(t\right)dt\) is defined analogously.
-					</p>
-					<p class="fragment" data-fragment-index="0">
-						<a href="#/3/0/0">(🪁)</a> certanly makes sense if \(w\) is continuous,
-					</p>
-					<p class="fragment" data-fragment-index="1">
-						i. e.
-						\[w\in \mathcal C^0\big([a,b]\big).\]
-					</p>
-				</div>
-			</section>
-
-			<section data-transition="fade-out">
-				<h3>Piece-wise functions</h3>
-				<div class="left-txt size-70">
-					<p>
-						Indeed, ok for so-called piece-wise continuous functions on \([a,b]\),
-						<span class="fragment" data-fragment-index="0">
-							i.e. \(w\) such that exists
-							\[c_1 \lt c_2 \lt \cdots \lt c_n\in [a,b] \quad \text{ such that}\]
-						</span>
-					</p>
-					<p>
-
-						<ol class="r">
-							<li class="fragment" data-fragment-index="1">
-								\(w\) is continuous on each of
-								\[(a,c_1), (c_1,c_2), \ldots, (c_n,b)\]
-							</li>
-							<li class="fragment" data-fragment-index="2">
-								\(\displaystyle \lim_{t\ra c_j^-} w\left(t\right)\), \(\displaystyle \lim_{t\ra c_j^+}
-								w\left(t\right)\) both exist
-								(they may or may not coincide).
-							</li>
-							<li class="fragment" data-fragment-index="3">
-								\(\displaystyle \lim_{t\ra a^+} w\left(t\right)\), \(\displaystyle \lim_{t\ra b^-}
-								w\left(t\right)\) both exist
-								<span>(Here "exists" means "exist for \(u\) & \(v\)).</span>
-							</li>
+					<p class="fragment" data-fragment-index="1"><u>Jordan curve</u> (a.k.a imple cosed curve):
+						<ol>
+							<li class="fragment" data-fragment-index="2">\(z(b)= z(a)\)</li>
+							<li class="fragment" data-fragment-index="3">Otherwise \(z(t_1)\neq z(t_2)\) for \(t_1\neq t_2 \in [a,b].\)</li>
 						</ol>
 					</p>
 				</div>
+			</section>
+
+			<section>
+				<h3>Contours</h3>
+				<p class="size-60"><strong>Example 1</strong></p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:45%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="img/lect-02/axis-rep.svg" />
+						</th>
+						<th style="width:55%">
+							<div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p class="fragment" data-fragment-index="0">\(z = \left\{
+									\begin{array}{lr}
+									  t+it &  0\leq t\leq 1\\
+									  t+i &  1< t \leq 2
+									\end{array}
+								  \right.
+								  \)
+								</p>
+								<p class="fragment" data-fragment-index="0">is a simple arc.
+								</p>
+							</div>
+						</th>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h3>Contours</h3>
+				<p class="size-60"><strong>Example 2</strong></p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:45%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="img/lect-02/axis-rep.svg" />
+						</th>
+						<th style="width:55%">
+							<div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p class="fragment" data-fragment-index="0">\(z = z_0 + R e ^{i \theta}\), \(0\leq \theta \leq 2 \pi\)
+								</p>
+							</div>
+						</th>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h3>Contours</h3>
+				<p class="size-60"><strong>Example 3</strong></p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:45%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="img/lect-02/axis-rep.svg" />
+						</th>
+						<th style="width:55%">
+							<div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p class="fragment" data-fragment-index="0">\(z = z_0 + R e ^{-i \theta}\), \(0\leq \theta \leq 2 \pi\)
+								</p>
+							</div>
+						</th>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h3>Contours</h3>
+				<p class="size-60"><strong>Example 4</strong></p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:45%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="img/lect-02/axis-rep.svg" />
+						</th>
+						<th style="width:55%">
+							<div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p class="fragment" data-fragment-index="0">\(z = z_0 + R e ^{2 i \theta}\), \(0\leq \theta \leq 2 \pi\)
+								</p>
+							</div>
+						</th>
+					</tr>
+				</table>
 			</section>
 
 			<section>
@@ -158,8 +180,7 @@
 				<img style="width: 70%; 
 					  display: block;
 					  margin-left: auto;
-					  margin-right: auto;" 
-						data-src="img/lect-17/pwc-function.svg" />
+					  margin-right: auto;" data-src="img/lect-17/pwc-function.svg" />
 			</section>
 
 			<section id="ftc-w">
@@ -248,7 +269,7 @@
 						<p class="fragment" data-fragment-index="1">\( \qquad = \Re\left( \displaystyle \int_a^b
 							e^{-i\theta_0} w\left(t\right)dt \right)\) (since \(r\in \R\))</p>
 						<p class="fragment" data-fragment-index="2">\( \qquad = \displaystyle \int_a^b \Re\left(
-							\displaystyle e^{-i\theta_0} w\left(t\right) \right) dt\)  \(\quad (5)\)</p>
+							\displaystyle e^{-i\theta_0} w\left(t\right) \right) dt\) \(\quad (5)\)</p>
 
 				</div>
 
@@ -277,26 +298,7 @@
 				</div>
 			</section>
 
-			<section id="contour-arc">
-				<h3>Contours</h3>
-				<div class="left-txt">
-					<p class="fragment" data-fragment-index="0">
-						A contour is a parametrised curve in \(\C\).</p>
-					<p class="fragment" data-fragment-index="1">
-						Given \(x(t)\), \(y(t)\) continuous \([a,b]\ra \R\), 
-					</p>
-					<p class="fragment" data-fragment-index="2">
-						\[
-						z(t) = x(t) +i y(t), \quad a\leq t \leq b
-						\]
-						defines an <u>arc</u> in \(\C\).
-					</p>
-					<p class="fragment" data-fragment-index="3">
-						This is both a set of points (the image \(z\big([a,b]\big)\)), called
-						the <u>trace</u> of the arc, and also a recipe for drawing it/parametrisation.
-					</p>
-				</div>
-			</section>
+			
 
 			<section>
 				<h4>Credits</h4>
