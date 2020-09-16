@@ -94,10 +94,10 @@
 				</div>
 			</section>
 
-			<section id="contour-example">
+			<section id="contour-example-1">
 				<h3>Contour integral</h3>
 				<div class="left-txt">
-					<p><strong>Example:</strong> Evaluate &nbsp; \(I=\displaystyle \int_C \conj{z}\, dz\) &nbsp; where 
+					<p><strong>Example 1:</strong> Evaluate &nbsp; \(I=\displaystyle \int_C \conj{z}\, dz\) &nbsp; where 
 						\[C: z=2e^{i\theta}, -\pi/2\leq \theta \leq \pi /2\]</p>
 					<p>
 						<span class="fragment" data-fragment-index="0">
@@ -146,9 +146,8 @@
 			<section id="anti-differentiation">
 				<h3>Anti-differentiation</h3>
 				<div class="left-txt">
-					<p>Let \(D\) be a domain in \(\C\) (i.e. an open, connected subset of \(\C\)).
-					</p>
-					<p>An anti-derivative of \(f\) on \(D\) is \(F\) such that
+					<p class="fragment" data-fragment-index="0">Let \(D\) be a domain in \(\C\) (i.e. an open, connected subset of \(\C\)).</p>
+					<p class="fragment" data-fragment-index="1">An anti-derivative of \(f\) on \(D\) is \(F\) such that
 						\[F'(z) = f(z)\text{ on } D.\]
 					</p>
 				</div>
@@ -156,11 +155,73 @@
 
 			<section>
 				<h3>Anti-differentiation</h3>
-				<div class="left-txt">
-					<p>Let \(D\) be a domain in \(\C\) (i.e. an open, connected subset of \(\C\)).
+				<div class="left-txt size-90">
+					<p>
+						<span><strong>Theorem:</strong> The following are equivalent</span>
+						<ol class="r">
+							<li class="fragment" data-fragment-index="0">\(f\) has an anti-derivative on \(D\);</li>
+							<li class="fragment" data-fragment-index="1">For any \(z_1,z_2 \in D\) and any contour \(C\) from \(z_1\) to \(z_2\) in \(D\), we have that \(\int_C f\left(z\right) dz\) is independent of \(C\);</li>
+							<li class="fragment" data-fragment-index="2">For any closed contour \(C\) in \(D\) there holds
+								\[\int_C f\left(z\right)dz = 0.\]
+							</li>
+						</ol>
 					</p>
-					<p>An anti-derivative of \(f\) on \(D\) is \(F\) such that
-						\[F'(z) = f(z)\text{ on } D.\]
+				</div>
+			</section>
+
+			<section>
+				<h3>Anti-differentiation</h3>
+				<div class="left-txt size-90">
+					<p>
+						<span><strong>Proof:</strong> </span>
+						<span class="fragment" data-fragment-index="0">(i) \(\Rightarrow\) (ii) follows from the fundamental theorem.</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="1">(ii) \(\Rightarrow\) (iii): </span>
+						<span class="fragment" data-fragment-index="2">Let  \(C\) be a closed contour in \(D\) with \(z(a) = z(b) = z_1\).</span>
+						<span class="fragment" data-fragment-index="3">
+							Fix \(\gamma \in (a,b)\) such that \(z(\gamma)\neq z_1\) and define contours in \(D\)
+							\[
+							C_1: \;\; w(t) = z(t), \quad a\leq t \leq \gamma\\
+							C_2: \;\; w(t) = z(t), \quad \gamma\leq t \leq b
+							\]
+						</span>
+
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Anti-differentiation</h3>
+				<div class="left-txt size-90">
+					<p>
+						(ii) \(\Rightarrow\) (iii) (cont): Then \(C_1+C_2 = C\) <span class="fragment" data-fragment-index="0">and</span>
+					</p>
+					
+				</div>
+				<p>
+					<span class="fragment" data-fragment-index="0">\(\displaystyle \int_C f\)</span>
+					<span class="fragment" data-fragment-index="0">\(=\displaystyle \int_{C_1+C_2} f\)</span>
+					<span class="fragment" data-fragment-index="1">\(=\displaystyle \int_{C_1} f + \int_{C_2} f\)</span>
+				</p>
+				<p>
+					<span class="fragment" data-fragment-index="2">\(\qquad=\displaystyle \int_{C_1} f - \int_{-C_2} f\)</span>
+					<span class="fragment" data-fragment-index="3">\(=0 \), by (ii). \(\square\)</span>
+				</p>
+				<p class="fragment left-txt" data-fragment-index="4">(iii) \(\Rightarrow\) (ii) \(\Rightarrow\) (i) see B/C.</p>
+			</section>
+
+			<section>
+				<h3>Anti-differentiation</h3>
+				<div class="left-txt size-90">
+					<p>
+						Note in particular for \(C: z_1\ra z_2\) in \(D\) under (i) \(\Rightarrow\) (iii), <span class="fragment" data-fragment-index="0">there folds:</span>
+						<span class="fragment" data-fragment-index="0">
+							\[
+							\int_Cf\left(z\right) dz = F(b)-F(a),
+							\]
+							where \(F\) is ANY anti-derivative of \(f\).
+						</span>
 					</p>
 				</div>
 			</section>
