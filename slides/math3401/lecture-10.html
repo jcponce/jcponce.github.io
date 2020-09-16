@@ -82,7 +82,8 @@
 			<section id="branch-cut">
 				<h4>Zeros of functions</h4>
 				<div class="left-txt size-60">
-					<p class="fragment" data-fragment-index="0"><u>Definition:</u> A zero of a function \(f\) is a
+					<p class="fragment" data-fragment-index="0"><strong>Definition:</strong> A zero of a function \(f\)
+						is a
 						value of \(z\) such that \(f(z)=0\).
 					</p>
 					<p class="fragment" data-fragment-index="1">E. g. Zeros of \(\sin\):
@@ -178,60 +179,66 @@
 
 			<section id="topology">
 				<h4>Topology</h4>
-				<div class="left-txt size-60">
-					<p class="fragment" data-fragment-index="0">Given \(z_0\in \C\) and \(\epsilon>0\),
+				<div class="left-txt size-70">
+					<p class="fragment" data-fragment-index="0">Given \(z_0\in \C\) and \(\epsilon &gt; 0\),
 						\(B_{\epsilon}(z_0)\) denotes the (open) ball of radius \(\epsilon\) about
 						\(z_0\) a.k.a \(\epsilon\)-neighbourhood of \(z_0\), given by
-						\[\{z: |z-z_0|< \epsilon\}.\] </p> <p class="fragment" data-fragment-index="1">
-							\(\overline{B}_{\epsilon}(z_0) = \) closed ball of
-							radius \(\epsilon\) about \(z_0\) (a.k.a closed \(\epsilon\)-neighbourhood of \(z_0\))
-							given by
-							\[\{z: |z-z_0| \leq \epsilon\}.\]
+						\[\{z: |z-z_0| &lt; \epsilon\}.\] </p>
+					<p class="fragment" data-fragment-index="1">
+						\(*\;\) \(\overline{B}_{\epsilon}(z_0) = \) closed ball of
+						radius \(\epsilon\) about \(z_0\) (a.k.a closed \(\epsilon\)-neighbourhood of \(z_0\))
+						given by
+						\[\{z: |z-z_0| \leq \epsilon\}.\]
 					</p>
-					<p class="fragment" data-fragment-index="2">A deleted \(epsilon\) neighbourhood of \(z_0\) is given
-						by
-						\[\{z: 0 < |z-z_0| < \epsilon\}.\] </p> </div> </section> <section data-transition="fade-out">
-							<h4>Topology</h4>
-							<div class="left-txt size-60">
-								<p class="fragment" data-fragment-index="0"> \( B_{\epsilon}(z_0) = \{z: |z-z_0|<
-										\epsilon\}\) </p> <p>
-										<span class="fragment" data-fragment-index="1">\(|z-z_0| = \left| \left(
-											x+iy\right) - \left( x_0+iy_0\right) \right| \) </span>
-										<span class="fragment" data-fragment-index="2">\(= \left| \left( x-x_0\right) +
-											\left( y +y_0\right)i \right| \) </span>
-								</p>
-								<p class="fragment" data-fragment-index="3">\(\qquad \quad = \sqrt{ \left(
-									x-x_0\right)^2 + \left( y +y_0\right)^2 } \)
-								</p>
-								<p class="fragment" data-fragment-index="4">\(\qquad \quad = \left|\left| \left(
-									x,y\right) - \left( x_0 ,y_0\right) \right|\right|_{\R^2} \)
-								</p>
-								<p class="fragment" data-fragment-index="5">\(\qquad \quad = d\left( \left( x,y\right) ,
-									\left( x_0 ,y_0\right) \right)_{\R} \)
-								</p>
-								<p class="fragment" data-fragment-index="6">\(\qquad \quad = d\left( z, z_0 \right)_{\C}
-									\).
-								</p>
-							</div>
+					<p class="fragment" data-fragment-index="2">
+						\(*\;\) A deleted \(epsilon\) neighbourhood of \(z_0\) is given by
+						\[\{z: 0 &gt; |z-z_0| &lt; \epsilon\}.\] </p>
+				</div>
 			</section>
 
 			<section data-transition="fade-out">
 				<h4>Topology</h4>
-				<div class="left-txt size-60">
-					<p class="fragment" data-fragment-index="0">Take \( \Omega \subseteq \C\).
+				<div class="left-txt size-80">
+					<p> \( B_{\epsilon}(z_0) = \{z: |z-z_0| &lt;
+						\epsilon\}\) </p>
+					<p>
+						<span class="fragment" data-fragment-index="0">\(|z-z_0| = \left| \left(
+							x+iy\right) - \left( x_0+iy_0\right) \right| \) </span>
+						<span class="fragment" data-fragment-index="1">\(= \left| \left( x-x_0\right) +
+							\left( y +y_0\right)i \right| \) </span>
 					</p>
-					<p class="fragment" data-fragment-index="1">\(*\;\) \(z\in \C\) is an <u>interior
-							point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\subset
+					<p class="fragment" data-fragment-index="2">\(\qquad \quad = \sqrt{ \left(
+						x-x_0\right)^2 + \left( y +y_0\right)^2 } \)
+					</p>
+					<p class="fragment" data-fragment-index="3">\(\qquad \quad = \left|\left| \left(
+						x,y\right) - \left( x_0 ,y_0\right) \right|\right|_{\R^2} \)
+					</p>
+					<p class="fragment" data-fragment-index="4">\(\qquad \quad = d\left( \left( x,y\right) ,
+						\left( x_0 ,y_0\right) \right)_{\R} \)
+					</p>
+					<p class="fragment" data-fragment-index="5">\(\qquad \quad = d\left( z, z_0 \right)_{\C}
+						\).
+					</p>
+				</div>
+			</section>
+
+			<section data-transition="fade-out" id="interior-exterior-boundary-points">
+				<h4>Topology</h4>
+				<div class="left-txt size-80">
+					<p>Take \( \Omega \subseteq \C\).
+					</p>
+					<p class="fragment" data-fragment-index="0">\(*\;\) \(z\in \C\) is an <em>interior
+							point</em> of \(\Omega\) if \(\exists \epsilon &gt; 0\) such that \(B_{\epsilon}(z_0)\subset
 						\Omega\)
 					</p>
-					<p class="fragment" data-fragment-index="2">(note \(\implies B_{\epsilon}(z_0)\subset \Omega\;
-						\forall \epsilon^{\prime}\), \(0<\epsilon^{\prime}< \epsilon\)). </p> <p class="fragment"
-							data-fragment-index="3">\(*\;\) \(z\in \C\) is an <u>exterior
-								point</u> of \(\Omega\) if \(\exists \epsilon>0\) such that \(B_{\epsilon}(z_0)\cap
-							\Omega \neq \emptyset\).
+					<p class="fragment" data-fragment-index="1">(note \(\Rightarrow B_{\epsilon}(z_0)\subset \Omega\;
+						\forall \epsilon^{\prime}\), \(0 &lt; \epsilon^{\prime} &lt; \epsilon\)). </p>
+					<p class="fragment" data-fragment-index="2">\(*\;\) \(z\in \C\) is an <em>exterior
+							point</em> of \(\Omega\) if \(\exists \epsilon &gt; 0\) such that \(B_{\epsilon}(z_0)\cap
+						\Omega \neq \emptyset\).
 					</p>
-					<p class="fragment" data-fragment-index="4">\(*\;\) \(z\in \C\) is a <u>boundary
-							point</u> of \(\Omega\), \(z\in\partial \Omega \), if \(\forall \epsilon>0\):<br />
+					<p class="fragment" data-fragment-index="3">\(*\;\) \(z\in \C\) is a <em>boundary
+							point</em> of \(\Omega\), \(z\in\partial \Omega \), if \(\forall \epsilon>0\):<br />
 						\[
 						B_{\epsilon}(z_0)\cap \Omega \neq \emptyset \text{ and }
 						B_{\epsilon}(z_0)\cap \Omega^c \neq \emptyset.
