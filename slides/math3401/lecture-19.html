@@ -97,7 +97,7 @@
 			<section id="contour-example">
 				<h3>Contour integral</h3>
 				<div class="left-txt">
-					<p><strong>Example:</strong> Evaluate &nbsp; \(I=\displaystyle \int_C \overline{z}\, dz\) &nbsp; where 
+					<p><strong>Example:</strong> Evaluate &nbsp; \(I=\displaystyle \int_C \conj{z}\, dz\) &nbsp; where 
 						\[C: z=2e^{i\theta}, -\pi/2\leq \theta \leq \pi /2\]</p>
 					<p>
 						<span class="fragment" data-fragment-index="0">
@@ -121,7 +121,7 @@
 						<span class="fragment" data-fragment-index="0">Then</spa>
 					</p>
 					<p class="fragment" data-fragment-index="0">\(I = \displaystyle \int_{-\pi/2}^{\pi/2} f\left( z\left(\theta \right)\right) z'\left(\theta \right) d\theta\) </p>
-					<p class="fragment" data-fragment-index="1">\(\;\;= \displaystyle \int_{-\pi/2}^{\pi/2} \overline{\left( 2 e^{i\theta}\right)} \cdot 2i e^{i\theta} d\theta\)</p>
+					<p class="fragment" data-fragment-index="1">\(\;\;= \displaystyle \int_{-\pi/2}^{\pi/2} \conj{\left( 2 e^{i\theta}\right)} \cdot 2i e^{i\theta} d\theta\)</p>
 					<p>
 						<span class="fragment" data-fragment-index="2">\(\;\;= 4i \displaystyle \int_{-\pi/2}^{\pi/2} e^{-i\theta}  e^{i\theta} d\theta\)</span>
 						<span class="fragment" data-fragment-index="3">\(=4\pi i\).</span>
@@ -132,8 +132,8 @@
 			<section>
 				<h3>Contour integral</h3>
 				<div class="left-txt">
-					<p>On \(C\), \(z\overline{z} = 4\). 
-						<span class="fragment" data-fragment-index="0">That is \(\overline{z} = \dfrac{4}{z}\) </span>
+					<p>On \(C\), \(z\conj{z} = 4\). 
+						<span class="fragment" data-fragment-index="0">That is \(\conj{z} = \dfrac{4}{z}\) </span>
 						<span class="fragment" data-fragment-index="1">Then
 							\[
 							\int_C \frac{dz}{z}= \pi i.
@@ -144,6 +144,17 @@
 			</section>
 
 			<section id="anti-differentiation">
+				<h3>Anti-differentiation</h3>
+				<div class="left-txt">
+					<p>Let \(D\) be a domain in \(\C\) (i.e. an open, connected subset of \(\C\)).
+					</p>
+					<p>An anti-derivative of \(f\) on \(D\) is \(F\) such that
+						\[F'(z) = f(z)\text{ on } D.\]
+					</p>
+				</div>
+			</section>
+
+			<section>
 				<h3>Anti-differentiation</h3>
 				<div class="left-txt">
 					<p>Let \(D\) be a domain in \(\C\) (i.e. an open, connected subset of \(\C\)).

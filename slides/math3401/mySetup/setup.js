@@ -21,8 +21,7 @@
 						Arg: "{\\mbox{Arg}}",
 						Log: "\\mbox{Log}",
 						ra: "\\rightarrow",
-						conj: ["{\\overline{#1}}", 1],
-						set: ["\\left\\{#1 \\; ; \\; #2\\right\\}", 2]
+						conj: ["{\\overline{#1}}", 1]
 					}
 				}
 			},
