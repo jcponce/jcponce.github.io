@@ -15,11 +15,11 @@
 						N: "\\mathbb{N}",
 						Z: "\\mathbb{Z}",
 						Q: "\\mathbb{Q}",
-						Re: "{\\mbox{Re}}",
-						Im: "{\\mbox{Im}}",
-						arg: "{\\mbox{arg}}",
-						Arg: "{\\mbox{Arg}}",
-						Log: "\\mbox{Log}",
+						Re: "{\\mbox{Re}}\\,",
+						Im: "{\\mbox{Im}}\\,",
+						arg: "{\\mbox{arg}}\\,",
+						Arg: "{\\mbox{Arg}}\\,",
+						Log: "\\mbox{Log}\\,",
 						ra: "\\rightarrow",
 						conj: ["{\\overline{#1}}", 1]
 					}
