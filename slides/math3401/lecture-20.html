@@ -168,15 +168,18 @@
 					</p>
 					<p class="fragment" data-fragment-index="0">e. g. \(\displaystyle \int_C z^n dz = 0\), \(n= -2, -3,
 						-4, \ldots \) </p>
+					<p class="fragment" data-fragment-index="1"><strong>Proof of C-G:</strong> Do it for
+					</p>
 				</div>
+				<p class="fragment" data-fragment-index="1"><img width="140"
+						data-src="img/lect-20/square-contour.svg" /></p>
 			</section>
 
 			<section id="m-l-estimate">
 				<h3>Cauchy-Goursat</h3>
 				<div class="left-txt">
-					<p><strong>Proof of C-G:</strong> Do it for , approximate.</p>
 					<p>
-						<span class="fragment" data-fragment-index="0">Key step in proof: </span>
+						Key step in proof:
 						<span class="fragment" data-fragment-index="1">\(M\)-\(\ell\) <em>estimate</em></span>
 					</p>
 					<p class="fragment" data-fragment-index="2">Suppose \(f\) is continuous on a contour \(C\) given by
@@ -194,12 +197,47 @@
 			<section>
 				<h3>Cauchy-Goursat</h3>
 				<div class="left-txt">
-					<p>So \(\displaystyle \int_C f \left(z\right) dz =\left| \displaystyle \int_a^b f \left(z \left(t\right)\right) z' \left(t\right) dt\right|\)</p>
-					<p class="fragment" data-fragment-index="0">\(\qquad \qquad \quad \leq \displaystyle \int_a^b \left| f \left(z \left(t\right)\right) \right| \cdot \left| z' \left(t\right)\right|dt \)</p>
-					<p class="fragment" data-fragment-index="1">\(\qquad \qquad \quad \leq M \displaystyle \int_a^b \left| z' \left(t\right)\right|dt \)
+					<p>So \(\displaystyle \int_C f \left(z\right) dz =\left| \displaystyle \int_a^b f \left(z
+						\left(t\right)\right) z' \left(t\right) dt\right|\)</p>
+					<p class="fragment" data-fragment-index="0">\(\qquad \qquad \quad \leq \displaystyle \int_a^b \left|
+						f \left(z \left(t\right)\right) \right| \cdot \left| z' \left(t\right)\right|dt \)</p>
+					<p class="fragment" data-fragment-index="1">\(\qquad \qquad \quad \leq M \displaystyle \int_a^b
+						\left| z' \left(t\right)\right|dt \)
 						<span class="fragment" data-fragment-index="2">\(= M \ell\).</span>
 					</p>
-					<p class="fragment" data-fragment-index="3">where \(\ell = \ell\left(C\right)=\text{length}\) of \(C\).</p>
+					<p class="fragment" data-fragment-index="3">where \(\ell = \ell\left(C\right)=\text{length}\) of
+						\(C\).</p>
+				</div>
+			</section>
+
+			<section id="simply-multiply-connected">
+				<h3>Cauchy-Goursat</h3>
+				<div class="left-txt">
+					<p><strong>Recall:</strong> a domain \(D\) is <em>simply connected</em> if for every simple closed contour
+						\(C\) in \(D\),
+						there holds
+						\[
+						\text{Int}\, C \subset D.
+						\]
+					</p>
+					<p class="fragment" data-fragment-index="0">i. e. "no holes". In other words, all simple closed contours
+						are null homotopic.
+					</p>
+					<p class="fragment" data-fragment-index="1">If \(D\) is not simply connected, it is <em>multiply connected</em>.</p>
+				</div>
+			</section>
+
+			<section id="cauchy-goursat-extension">
+				<h3>Cauchy-Goursat extension</h3>
+				<p class="size-60"><strong>Multiply connected domains</strong></p>
+				<div class="left-txt">
+					<p>If \(f\) is analytic on \(C\), \(C_1, C_2, \ldots, C_n\subset \text{Int}\, C\), and 
+						the interior of the domain bounded by \(C_1, C_2, \ldots, C_n\), with \(C,C_1, C_2, \ldots, C_n\) 
+						positively oriented, then
+						\[
+						\int_C f + \sum_{j=1}^{n} \int_{C_j} f = 0.
+						\]
+					</p>
 				</div>
 			</section>
 
