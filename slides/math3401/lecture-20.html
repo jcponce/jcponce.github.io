@@ -60,26 +60,24 @@
 					<p class="fragment" data-fragment-index="0">
 						Can't repeat argument from <a href="#/contour-integral-example-3/3">Example 3</a> directly.
 					</p>
-					<table style="width:100%;">
-						<tr>
-							<td style="width:50%;"><img style="width: 100%; 
-								display: block;
-								margin-left: auto;
-								margin-right: auto;" class="r-stretch fragment" data-fragment-index="1"
-									data-src="img/lect-20/int-contours.svg" />
-							</td>
-							<td style="width:50%">
-								<div style="text-align: center; margin-left: 0.1em;">
-									<p>
-										<span class="fragment" data-fragment-index="1">\(I = I_1 + I_2\)</span>
-										<span class="fragment" data-fragment-index="2"> where \[I_j =
-											\int_{C_j}\frac{dz}{z}\]</span>
-									</p>
-								</div>
-							</td>
-						</tr>
-					</table>
 				</div>
+
+				<table style="width:100%">
+					<tr>
+						<td style="width:50%">
+							<p class="size-70">
+								<span class="fragment" data-fragment-index="1">\(I = I_1 + I_2\) where \(I_j =
+									\displaystyle \int_{C_j}\frac{dz}{z}\)</span>
+							</p>
+						</td>
+						<td style="width:50%">
+							<img style="width: 100%; " class="fragment" data-fragment-index="2"
+								data-src="img/lect-20/contours-an.gif" />
+						</td>
+					</tr>
+
+				</table>
+
 			</section>
 
 			<section>
@@ -94,13 +92,14 @@
 								href="lecture-19.html#/anti-differentiation-theorem/2" target="_blank">Theorem in
 								Lecture 19</a> \(\Rightarrow\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="2">\(I_1 = \Log(2i)-\Log(-2i)\)</p>
-					<p class="fragment" data-fragment-index="3">\(\quad = \ln|2i| + i\dfrac{\pi}{2}-\left(\ln|-2i| +
-						i\left(-\dfrac{\pi}{2}\right)\right)\)</p>
-					<p class="fragment" data-fragment-index="4">\(\quad = \pi i\)
-						<span class="fragment" data-fragment-index="5">&nbsp;&nbsp;(see calculation from <a
-								href="lecture-19.html#/5/0/1" target="_blank">Lecture 19, Example 1</a>).</span>
+					<p>
+						<span class="fragment" data-fragment-index="2">\(I_1 = \Log(2i)-\Log(-2i)\)</span>
+						<span class="fragment" data-fragment-index="3">\(= \ln|2i| + i\dfrac{\pi}{2}-\left(\ln|-2i| +
+							i\left(-\dfrac{\pi}{2}\right)\right)\)</span>
 					</p>
+					<p class="fragment" data-fragment-index="4">\(\quad = \pi i\).</p>
+					<p class="fragment" data-fragment-index="5">See calculation from <a href="lecture-19.html#/5/0/1"
+							target="_blank">Lecture 19, Example 1</a>.</p>
 				</div>
 			</section>
 
@@ -117,9 +116,11 @@
 								href="lecture-19.html#/anti-differentiation-theorem/2" target="_blank">Theorem in
 								Lecture 19</a> \(\Rightarrow\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="3">\(I_2 = \Log(-2i)-\Log(2i)\)</p>
-					<p class="fragment" data-fragment-index="4">\(\quad = \ln 2 + i\dfrac{3\pi}{2}-\left(\ln 2 +
-						i\left(\dfrac{\pi}{2}\right)\right)\)</p>
+					<p>
+						<span class="fragment" data-fragment-index="3">\(I_2 = \Log(-2i)-\Log(2i)\)</span>
+						<span class="fragment" data-fragment-index="4">\( = \ln 2 + i\dfrac{3\pi}{2}-\left(\ln 2 +
+							i\left(\dfrac{\pi}{2}\right)\right)\)</span>
+					</p>
 					<p class="fragment" data-fragment-index="5">\(\quad = \pi i\).</p>
 					<p class="fragment" data-fragment-index="6">Thus \(I= I_1 + I_2 = 2 \pi i\).</p>
 				</div>
@@ -213,17 +214,20 @@
 			<section id="simply-multiply-connected">
 				<h3>Cauchy-Goursat</h3>
 				<div class="left-txt">
-					<p><strong>Recall:</strong> a domain \(D\) is <em>simply connected</em> if for every simple closed contour
+					<p><strong>Recall:</strong> a domain \(D\) is <em>simply connected</em> if for every simple closed
+						contour
 						\(C\) in \(D\),
 						there holds
 						\[
 						\text{Int}\, C \subset D.
 						\]
 					</p>
-					<p class="fragment" data-fragment-index="0">i. e. "no holes". In other words, all simple closed contours
+					<p class="fragment" data-fragment-index="0">i. e. "no holes". In other words, all simple closed
+						contours
 						are null homotopic.
 					</p>
-					<p class="fragment" data-fragment-index="1">If \(D\) is not simply connected, it is <em>multiply connected</em>.</p>
+					<p class="fragment" data-fragment-index="1">If \(D\) is not simply connected, it is <em>multiply
+							connected</em>.</p>
 				</div>
 			</section>
 
@@ -231,8 +235,9 @@
 				<h3>Cauchy-Goursat extension</h3>
 				<p class="size-60"><strong>Multiply connected domains</strong></p>
 				<div class="left-txt">
-					<p>If \(f\) is analytic on \(C\), \(C_1, C_2, \ldots, C_n\subset \text{Int}\, C\), and 
-						the interior of the domain bounded by \(C_1, C_2, \ldots, C_n\), with \(C,C_1, C_2, \ldots, C_n\) 
+					<p>If \(f\) is analytic on \(C\), \(C_1, C_2, \ldots, C_n\subset \text{Int}\, C\), and
+						the interior of the domain bounded by \(C_1, C_2, \ldots, C_n\), with \(C,C_1, C_2, \ldots,
+						C_n\)
 						positively oriented, then
 						\[
 						\int_C f + \sum_{j=1}^{n} \int_{C_j} f = 0.
