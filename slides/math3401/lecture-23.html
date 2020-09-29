@@ -51,8 +51,8 @@
 				<p>Lecture 23</p>
 			</section>
 
-			<section>
-				<h3>Coformal mappings</h3>
+			<section id="conformal-mapping">
+				<h3>Conformal mapping</h3>
 				<div class="left-txt size-90">
 					<p>Consider</p>
 					<ul>
@@ -66,12 +66,98 @@
 						<li>orientation;</li>
 						<li>shape.</li>
 					</ul>
-					<p class="fragment" data-fragment-index="1">We say that \(f\) is conformal.</p>
+					<p class="fragment" data-fragment-index="1">We say that \(f\) is <em>conformal</em>.</p>
 				</div>
-
 			</section>
 
+			<section id="isogonal-mapping">
+				<h3>Conformal mapping</h3>
+				<div class="left-txt">
+					<p>If orientation (i. e. sense) is not necessarily preserved,
+						but angle magnitudes is, the map is called <em>isogonal</em>.
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">Consider \(f\) an analytic function with \(f'(z_0) = 0\):</span> <br>
+						<span class="fragment" data-fragment-index="1">\(z_0\) is a <em>critical point</em> of \(f\).</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="2">Angle will not be preserved.</span>
+						<span class="fragment" data-fragment-index="3">Can show:</span>
+						<span class="fragment" data-fragment-index="4">angle will be multiplied by \(m\), where \(m\) is the smallest integer such that \(f^{(m)}(z_0) \neq 0.\)</span>
+					</p>
+				</div>
+			</section>
 
+			<section id="locally-inverses">
+				<h3>Local inverses</h3>
+				<div class="left-txt">
+					<p>Conformality \(\implies\) locally one-to-one and onto, i. e. \(f\)
+						has a <em>local inverse</em>.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Local inverses</h3>
+				<div class="left-txt">
+					<p>This follows from MATH2400/2401: Inverse function theorem.
+					</p>
+					<p class="fragment" data-fragment-index="4">\(f:(x,y) \mapsto (u,v)\) sufficiently smooth is locally invertible if
+						\[
+						\text{det}\left(J_f\right) =  
+						\left|
+							\begin{array}{cc}
+							  u_x & u_y\\
+							  v_x & v_y
+							\end{array}
+						  \right| \neq 0.
+						\]
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Local inverses</h3>
+				<div class="left-txt">
+					<p>In our case, \(f\) is analytic \(\Rightarrow  u_x, u_y, v_x, v_y\) are continuous and</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">\(\text{det}\left(J_f\right) \)</span>
+						<span class="fragment" data-fragment-index="1">\( = u_x v_y -  u_y v_x\)</span>
+						<span class="fragment" data-fragment-index="2">\( = u_x^2 + v_x^2\)</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="3">\( \quad \qquad = |u_x+u_y|^2\)</span>
+						<span class="fragment" data-fragment-index="4">\( = \left|\,f'\right|^2\)</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="5">\( \quad \qquad \neq 0 \) at \(z_0\).</span>
+						
+					</p>
+				</div>
+			</section>
+
+			<section id="harmonic-functions">
+				<h3>Harmonic functions</h3>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="0">\(\Omega \subseteq \R^2\), \(U: \Omega \ra \R\) such that</p>
+					<p class="fragment" data-fragment-index="1">\(\Delta U = 0\)</p>
+					<p class="fragment" data-fragment-index="2"><em>Laplacian or Laplace operator</em></p>
+					<p class="fragment" data-fragment-index="3">\(\Delta U = U_{xx} + U_{yy}\)</p>
+					<p class="fragment" data-fragment-index="4">In \(\R^3\) \(\Delta U = U_{xx} + U_{yy} + U_{zz}\)</p>
+					<p class="fragment" data-fragment-index="5">In \(\R^n\) \(\Delta U = \sum_{j=1}^{n} U_{jj}\)</p>
+				</div>
+				<p class="size-70 fragment" data-fragment-index="6">Models many physical situations in "steady state"</p>
+			</section>
+
+			<section>
+				<h3>Harmonic functions</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">\(\Omega \subseteq \R^2\) or  \(\R^3\)</p>
+					<p class="fragment" data-fragment-index="1">\(\Lambda =\) sufficiently smooth subdomain of \(\Omega\) with external normal
+						\(v(x)\) on \(\partial \Lambda\)
+					</p>
+				</div>
+			</section>
 
 			<section>
 				<h4>Credits</h4>
