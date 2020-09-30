@@ -53,7 +53,7 @@
 
 			<section id="conformal-mapping">
 				<h3>Conformal mapping</h3>
-				<div class="left-txt size-90">
+				<div class="left-txt size-80">
 					<p>Consider</p>
 					<ul>
 						<li>\(f: z\mapsto w\);</li>
@@ -70,6 +70,18 @@
 				</div>
 			</section>
 
+			<section id="applet-conformal-mapping">
+				<h3>Local inverses</h3>
+				<iframe scrolling="no" title="Conformal mapping"
+					src="https://www.geogebra.org/material/iframe/id/x27krx9y/width/829/height/358/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="829px" height="358px" style="border:0px;" data-preload> </iframe>
+				<div class="size-70">
+					<p class="fragment" data-fragment-index="0">\(\Gamma_1 = f(C_1)\), &nbsp; \(\Gamma_2 = f(C_2)\).
+					</p>
+					<p class="fragment" data-fragment-index="1">Conformality \(\Rightarrow\) \(\beta = \alpha\).</p>
+				</div>
+			</section>
+
 			<section id="isogonal-mapping">
 				<h3>Conformal mapping</h3>
 				<div class="left-txt">
@@ -77,24 +89,30 @@
 						but angle magnitudes is, the map is called <em>isogonal</em>.
 					</p>
 					<p>
-						<span class="fragment" data-fragment-index="0">Consider \(f\) an analytic function with \(f'(z_0) = 0\):</span> <br>
-						<span class="fragment" data-fragment-index="1">\(z_0\) is a <em>critical point</em> of \(f\).</span>
+						<span class="fragment" data-fragment-index="0">Consider \(f\) an analytic function with
+							\(f'(z_0) = 0\):</span> <br>
+						<span class="fragment" data-fragment-index="1">\(z_0\) is a <em>critical point</em> of
+							\(f\).</span>
 					</p>
 					<p>
 						<span class="fragment" data-fragment-index="2">Angle will not be preserved.</span>
 						<span class="fragment" data-fragment-index="3">Can show:</span>
-						<span class="fragment" data-fragment-index="4">angle will be multiplied by \(m\), where \(m\) is the smallest integer such that \(f^{(m)}(z_0) \neq 0.\)</span>
+						<span class="fragment" data-fragment-index="4">angle will be multiplied by \(m\), where \(m\) is
+							the smallest integer such that \(f^{(m)}(z_0) \neq 0.\)</span>
 					</p>
 				</div>
 			</section>
 
 			<section id="locally-inverses">
 				<h3>Local inverses</h3>
-				<div class="left-txt">
-					<p>Conformality \(\implies\) locally one-to-one and onto, i. e. \(f\)
+				<div class="left-txt size-70">
+					<p class="fragment" data-fragment-index="0">Conformality \(\Rightarrow\) locally one-to-one and
+						onto, i. e. \(f\)
 						has a <em>local inverse</em>.
 					</p>
 				</div>
+				<img style="width: 100%;" class="fragment" data-fragment-index="1"
+					data-src="img/lect-23/local-inverse.svg" />
 			</section>
 
 			<section>
@@ -102,15 +120,16 @@
 				<div class="left-txt">
 					<p>This follows from MATH2400/2401: Inverse function theorem.
 					</p>
-					<p class="fragment" data-fragment-index="4">\(f:(x,y) \mapsto (u,v)\) sufficiently smooth is locally invertible if
+					<p class="fragment" data-fragment-index="4">\(f:(x,y) \mapsto (u,v)\) sufficiently smooth is locally
+						invertible if
 						\[
-						\text{det}\left(J_f\right) =  
+						\text{det}\left(J_f\right) =
 						\left|
-							\begin{array}{cc}
-							  u_x & u_y\\
-							  v_x & v_y
-							\end{array}
-						  \right| \neq 0.
+						\begin{array}{cc}
+						u_x & u_y\\
+						v_x & v_y
+						\end{array}
+						\right| \neq 0.
 						\]
 					</p>
 				</div>
@@ -119,10 +138,10 @@
 			<section>
 				<h3>Local inverses</h3>
 				<div class="left-txt">
-					<p>In our case, \(f\) is analytic \(\Rightarrow  u_x, u_y, v_x, v_y\) are continuous and</p>
+					<p>In our case, \(f\) is analytic \(\Rightarrow u_x, u_y, v_x, v_y\) are continuous and</p>
 					<p>
 						<span class="fragment" data-fragment-index="0">\(\text{det}\left(J_f\right) \)</span>
-						<span class="fragment" data-fragment-index="1">\( = u_x v_y -  u_y v_x\)</span>
+						<span class="fragment" data-fragment-index="1">\( = u_x v_y - u_y v_x\)</span>
 						<span class="fragment" data-fragment-index="2">\( = u_x^2 + v_x^2\)</span>
 					</p>
 					<p>
@@ -131,31 +150,89 @@
 					</p>
 					<p>
 						<span class="fragment" data-fragment-index="5">\( \quad \qquad \neq 0 \) at \(z_0\).</span>
-						
+
 					</p>
 				</div>
-			</section>
-
-			<section id="harmonic-functions">
-				<h3>Harmonic functions</h3>
-				<div class="size-80">
-					<p class="fragment" data-fragment-index="0">\(\Omega \subseteq \R^2\), \(U: \Omega \ra \R\) such that</p>
-					<p class="fragment" data-fragment-index="1">\(\Delta U = 0\)</p>
-					<p class="fragment" data-fragment-index="2"><em>Laplacian or Laplace operator</em></p>
-					<p class="fragment" data-fragment-index="3">\(\Delta U = U_{xx} + U_{yy}\)</p>
-					<p class="fragment" data-fragment-index="4">In \(\R^3\) \(\Delta U = U_{xx} + U_{yy} + U_{zz}\)</p>
-					<p class="fragment" data-fragment-index="5">In \(\R^n\) \(\Delta U = \sum_{j=1}^{n} U_{jj}\)</p>
-				</div>
-				<p class="size-70 fragment" data-fragment-index="6">Models many physical situations in "steady state"</p>
 			</section>
 
 			<section>
 				<h3>Harmonic functions</h3>
-				<div class="left-txt">
-					<p class="fragment" data-fragment-index="0">\(\Omega \subseteq \R^2\) or  \(\R^3\)</p>
-					<p class="fragment" data-fragment-index="1">\(\Lambda =\) sufficiently smooth subdomain of \(\Omega\) with external normal
-						\(v(x)\) on \(\partial \Lambda\)
-					</p>
+				<div class="">
+
+					<p class="fragment" data-fragment-index="0">\(\Omega \subseteq \R^2\),</p>
+					<p class="fragment" data-fragment-index="1">\(U: \Omega \ra \R\) such
+						that</p>
+					<p class="fragment" data-fragment-index="2">\(\Delta U = 0\).</p>
+				</div>
+			</section>
+
+			<section id="laplace-operator">
+				<h3>Harmonic functions</h3>
+				<div>
+					<p><em>Laplacian or Laplace operator</em></p>
+					<p>\(\Delta U = U_{xx} + U_{yy}\)</p>
+					<p class="fragment" data-fragment-index="0">In \(\R^3\) \(\Delta U = U_{xx} + U_{yy} + U_{zz}\)</p>
+					<p class="fragment" data-fragment-index="1">In \(\R^n\) \(\Delta U = \sum_{j=1}^{n} U_{jj}\)</p>
+				</div>
+				<p class="size-80 fragment" data-fragment-index="2">Models many physical situations in "steady state"
+				</p>
+			</section>
+
+			<section>
+				<h3>Harmonic functions</h3>
+				<p class="fragment size-80" data-fragment-index="0">\(\Omega \subseteq \R^2\) or \(\R^3\)</p>
+				<img style="width: 60%;" class="fragment" data-fragment-index="1"
+					data-src="img/lect-23/region-omega.svg" />
+				<p class="fragment size-70" data-fragment-index="1">\(\Lambda =\) sufficiently smooth subdomain of
+					\(\Omega\) with external normal
+					\(\mathbf v(\mathbf x)\) on \(\partial \Lambda\)
+				</p>
+			</section>
+
+			<section>
+				<h3>Harmonic functions</h3>
+				<p>\(U =\) density of something on equilibrium.</p>
+				<p class="fragment" data-fragment-index="0">\(\mathbf F\): flux density of \(U\) in \(\Omega\) in
+					equilibrium.</p>
+				<p class="fragment" data-fragment-index="1">\[
+					\int_{\partial \Lambda} \mathbf F \cdot \mathbf v' dS = 0
+					\]
+					\(dS=\) surface measure on \(\partial \Lambda\)
+				</p>
+			</section>
+
+			<section>
+				<h3>Harmonic functions</h3>
+				<p>Gauss's divergence theorem:</p>
+				<p class="fragment" data-fragment-index="0">
+					\[
+					\int_{\Lambda} \text{div} \, \mathbf F \, \text{d} \mathbf x = 0
+					\]
+				</p>
+				<p class="fragment" data-fragment-index="1">\(\text{d}\mathbf x= dx \,dy\) in 2D \(\qquad\)</p>
+				<p class="fragment" data-fragment-index="2">\(= dx \,dy\, dz\) in 3D</p>
+				<p class="fragment" data-fragment-index="3">\(\text{d}\mathbf x= dx_1 \cdots dx_n\) in \(n\)-D</p>
+			</section>
+
+			<section>
+				<h3>Harmonic functions</h3>
+				<div class="size-70">
+					<p>Since \(\Lambda\) is (essentially) arbitrary, there holds:</p>
+				<p class="fragment" data-fragment-index="0">
+					\[
+					\text{div} \, \mathbf F  = 0 \;\text{ in } \;\Omega,
+					\]
+				</p>
+				<p class="fragment" data-fragment-index="1">i. e. \(\displaystyle \sum_{j=1}^{n} \partial_j F_j = 0\;\) in \(\;\Omega\quad (*)\)</p>
+				<p class="fragment" data-fragment-index="2">In many phisical situations,
+					\[
+					\mathbf F = c \nabla U, \text{ with } c \text{ usually positive}
+					\]
+				</p>
+				<p class="fragment" data-fragment-index="3">
+					\((*) \Rightarrow\)  \(c\left( \text{div}\, \nabla U =0 \right)\) &nbsp;
+					<span class="fragment" data-fragment-index="4">i. e. \(\Delta U = 0\).</span>
+				</p>
 				</div>
 			</section>
 
