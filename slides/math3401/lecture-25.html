@@ -51,11 +51,68 @@
 				<p>Lecture 25</p>
 			</section>
 
-			<section id="harmonic-conjugate-example">
+			<section>
 				<h3>Physical problems</h3>
 				<div class="left-txt">
 					<p>Physical configurations often modeled by solutions of partial differential equations.</p>
 					<p>Generally, interested in solving a PDE subject to associated initial/boundary conditions.</p>
+				</div>
+			</section>
+
+			<section id="dirchlet-problem">
+				<h3>Dirichlet problem</h3>
+				<p>
+					\(
+					\text{(D) }
+					\left\{
+					\begin{array}{cc}
+					\Delta u = 0 & \text{in } \Omega\\
+					u|_{\partial \Omega} = \varphi & (*)
+					\end{array}
+					\right.
+					\)
+				</p>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">\((*)\) Says \(u(\mathbf x)= \varphi(\mathbf x)\) for
+						all \(\mathbf x \in \partial \Omega\) &nbsp; (\(\varphi: \partial \Omega \ra \R\))</p>
+					<p class="fragment" data-fragment-index="1">\(\Omega, \varphi\) are known/given. \(u\) is the
+						unknown.</p>
+					<p class="fragment" data-fragment-index="2">
+						\(\text{(D)}\) is called <em>Dirichlet problem</em> for Laplace's equation, a. k. a.
+						<em>boundary problem of the first find.</em>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Dirichlet problem</h3>
+				<div class="left-txt">
+					<p>One way to "solve" \(\text{(D)}\) is to find \(u\) that minimises
+						\[\int_{\Omega} \left|\nabla u\right|^2 d\mathbf x\]
+						subject to \(u|_{\partial \Omega} = \varphi\).</p>
+				</div>
+			</section>
+
+			<section id="neumann-problem">
+				<h3>Neumann problem</h3>
+				<div class="left-txt">
+					<p>Also important: Boundary conditions of the second kind, called <em>Neumann boundary
+							conditions</em></p>
+					
+				</div>
+				<p class="fragment" data-fragment-index="0">
+					\(
+					\text{(N) }
+					\left\{
+					\begin{array}{cc}
+					\Delta u = 0 & \\
+					\displaystyle\frac{\partial u}{\partial \mathbf v} = \psi & \text{on } \partial \Omega
+					\end{array}
+					\right.
+					\)
+				</p>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="1">In practice often have homogeneous Neumann boundary conditions, i. e. \(\psi = 0\).</p>
 				</div>
 			</section>
 
