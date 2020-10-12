@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH3401 - Lecture 27</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h1>MATH3401</h1>
+				<h3>Complex Analysis</h3>
+				<p>Lecture 27</p>
+			</section>
+
+			<section>
+				<h3>Steady-state temperature</h3>
+				<p class="size-60"><strong>in half plane</strong></p>
+				<img style="width: 100%;" data-src="img/lect-27/ss-01.svg" />
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="0">We need to find the steady-sate temperature distribution
+						on \(\Omega\)</p>
+				</div>
+			</section>
+
+			<section id="heat-conduction">
+				<h3>Heat Conduction</h3>
+				<p class="fragment" data-fragment-index="0">\[\frac{\partial T }{\partial t} = \nabla \cdot (-k^2 \nabla
+					T)\]</p>
+				<p class="fragment" data-fragment-index="1">\[= -k^2 \Delta T\]</p>
+				<p class="fragment" data-fragment-index="2">Steady state \(\Rightarrow\) \(\Delta T = 0\)</p>
+			</section>
+
+			<section>
+				<h3>Heat Conduction</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">So we want to solve
+						\[
+						\text{(D) }
+						\left\{
+						\begin{array}{ll}
+						\Delta T = 0 \qquad\text{ in } \Omega & \\
+						T(x,0) = \left\{
+						\begin{array}{cc}
+						1 & |x|\lt 1;\\
+						0 & |x|\geq 1
+						\end{array}
+						\right. &
+						\end{array}
+						\right.
+						\]
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Heat Conduction</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0"><strong>Note:</strong> In \(\C\) (\(w\)-plane), \(h(u,v)
+						= v = \Im w\) is harmonic.</p>
+					<p class="fragment" data-fragment-index="1">Back to \((D)\): physically, look for a bounded solution
+						to \((D)\) with
+						\[\lim_{y\ra \infty } T(x,y) = 0 \quad \forall x.\]
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Heat Conduction</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">Define \(\hat{\Omega} = \left\{ z: \Im z \ge 0, z\neq
+						\pm 1\right\}\).</p>
+					<p class="fragment" data-fragment-index="1">Define \(\theta_1, \theta_2, r_1, r_2\) on
+						\(\hat{\Omega} \) via
+						\[
+						\begin{array}{l}
+						z-1 = r_1 \exp(i\theta_1)\\
+						z+1 = r_2 \exp(i\theta_2)
+						\end{array}
+						\]
+						\(r_1, r_2 \gt 0; 0\leq \theta_1, \theta_2 \leq \pi\).
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Heat Conduction</h3>
+				<div class="left-txt">
+					<p class="fragment size-90" data-fragment-index="0">Define \(\hat{\Omega} = \left\{ z: \Im z \ge 0,
+						z\neq \pm 1\right\}\).</p>
+				</div>
+				<table style="width:100%;">
+					<tr>
+						<td style="width:50%">
+							<p class="left-txt fragment size-90" data-fragment-index="1">Define \(\theta_1, \theta_2,
+								r_1, r_2\) on \(\hat{\Omega} \) via
+								\[
+								\begin{array}{l}
+								z-1 = r_1 \exp\left(i\theta_1\right)\\
+								z+1 = r_2 \exp\left(i\theta_2\right)
+								\end{array}
+								\]
+								\(r_1, r_2 \gt 0; 0\leq \theta_1, \theta_2 \leq \pi\).
+							</p>
+
+						</td>
+						<th style="width:50%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="fragment" data-fragment-index="2" class="r-stretch"
+								data-src="img/lect-27/diagram.svg" />
+						</th>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h3>Heat Conduction</h3>
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="0">Introduce the transformation
+						\[w = \Log \frac{z-1}{z+1}\]
+					</p>
+					<p class="fragment" data-fragment-index="1">where \(\Log\) has a branch cut in the positive imaginary axis, 
+						<span class="fragment" data-fragment-index="2">so 
+							\[
+							-\frac{\pi}{2}\lt \Log\frac{z-1}{z+1} \leq  \frac{3\pi}{2}
+							\]</span>
+					</p>
+					<p class="fragment" data-fragment-index="3">So: \(w = \Log \displaystyle \frac{r_1 \exp\left(i\theta_1\right)}{ r_2 \exp\left(i\theta_2\right)}\)
+						<span class="fragment" data-fragment-index="4">\(=\ln \displaystyle \frac{r_1}{r_2} + i (\theta_1 - \theta_2)\)</span>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
+
+</body>
+
+</html>
