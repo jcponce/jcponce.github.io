@@ -84,13 +84,13 @@
 				<h3>Scale factor</h3>
 				<div class="left-txt size-80">
 					<p><strong>Example:</strong> \(f(z) = z^2\) at \(z_0=1+i\),
-						<span class="fragment" data-fragment-index="0">(\(z=x+iy, \) \(w = u+iv\))</span></p>
+						<span>(\(z=x+iy, \) \(w = u+iv\))</span></p>
 				</div>
 				<div class="size-80">
-					<p class="fragment" data-fragment-index="1">\(u = x^2-y^2\), &nbsp; \(v= 2xy\)</p>
+					<p class="fragment" data-fragment-index="0">\(u = x^2-y^2\), &nbsp; \(v= 2xy\)</p>
 
 				</div>
-				<img class="r-stretch" data-fragment-index="2" data-src="img/lect-28/scale-factor.svg" stretch />
+				<img class="fragment" data-fragment-index="1" data-src="img/lect-28/scale-factor.svg" stretch />
 				<div class="size-80">
 					<p class="fragment" data-fragment-index="2">Scaling factor = \(f'(z_0)\)
 						<span class="fragment" data-fragment-index="3">\(= 2 z_0\)</span>
@@ -167,7 +167,7 @@
 
 			<section>
 				<h3>Poisson's integral formula</h3>
-				<img class="r-stretch" data-src="img/lect-28/cos-rule.svg" stretch/>
+				<img class="r-stretch" data-src="img/lect-28/cos-rule.svg" stretch />
 				<div class="left-txt size-70">
 					<p class="fragment" data-fragment-index="0">Using the cosine rule: &nbsp;
 						\(|\zeta - z|^2 = r_0^2+r^2-2r_0r \cos \left(\phi - \theta\right)\quad (5)'\)
@@ -179,10 +179,42 @@
 				<h3>Poisson's integral formula</h3>
 				<div class="left-txt size-90">
 					<p><a>\((3)\)</a> implies
-						\[f\left(re^{i \theta}\right)= \frac{1}{2\pi i} \int_{0}^{2 \pi}\frac{r_0^2-r^2}{|\zeta - z|^2}\cdot \frac{f\left(r_0e^{i\phi}\right)r_0 i e^{i\phi}d \phi}{r_0 e^{i\phi}}\]
+						\[f\left(re^{i \theta}\right)= \frac{1}{2\pi i} \int_{0}^{2 \pi}\frac{r_0^2-r^2}{|\zeta -
+						z|^2}\cdot \frac{f\left(r_0e^{i\phi}\right)r_0 i e^{i\phi}d \phi}{r_0 e^{i\phi}}\quad\]
 					</p>
-					<p class="fragment" data-fragment-index="0">\(\qquad \quad= \displaystyle \frac{r_0^2-r^2}{2 \pi } \int_{0}^{2 \pi}  \frac{f\left(r_0e^{i\phi}\right) d\phi}{r_0^2-2r_0r \cos \left(\phi - \theta\right) +r^2} \).</p>
+					<p class="fragment" data-fragment-index="0">\(\qquad \quad= \displaystyle \frac{r_0^2-r^2}{2 \pi }
+						\int_{0}^{2 \pi} \frac{f\left(r_0e^{i\phi}\right) d\phi}{r_0^2-2r_0r \cos \left(\phi -
+						\theta\right) +r^2} \). 😀</p>
 				</div>
+			</section>
+
+			<section id="poisson-kernel">
+				<h3>Poisson kernel</h3>
+				<div class="left-txt size-70">
+					<p>Taking the real part of <a href="#/9/0/0">😀</a>:
+						<span class="fragment" data-fragment-index="0">Given "nice enough" \(\Phi(r_0, \phi)\) defined on the boundary \(C_0\) of
+							\(B_{r_0}\),</span>
+						<span class="fragment" data-fragment-index="1">a (infact, the) solution of the Dirichlet problem
+							\[
+							\text{(D) }
+							\left\{
+							\begin{align}
+							\Delta u = & \;0 \;\text{ in } \;B_{r_0}\\
+							u|_{\partial B_{r_0}} = & \;\Phi(r_0, \phi)
+							\end{align}
+							\right.
+							\]
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							is given by
+							\(u(r, \theta) = \displaystyle \frac{1}{2 \pi } \int_{0}^{2 \pi}
+							\frac{r_0^2-r^2}{r_0^2-2r_0r \cos \left(\phi - \theta\right) +r^2} \Phi(r, \phi)d\Phi\)
+						</span>
+						<span class="fragment" data-fragment-index="3">\[= \displaystyle \frac{1}{2 \pi } \int_{0}^{2 \pi}
+							P\left(r_0, r, \phi- \theta\right) \Phi(r, \phi)d\Phi \]</span>
+					</p>
+				</div>
+				<p  class="fragment size-70" data-fragment-index="4"><em>Poisson kernel</em> \(P(r_0, r, \phi- \theta)\).</p>
 			</section>
 
 			<section>
