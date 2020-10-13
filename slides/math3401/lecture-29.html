@@ -52,14 +52,148 @@
 			</section>
 
 			<section>
-				<h3>Sequences and Series</h3>
-				
-				<div class="left-txt size-90">
-					
+				<h3>Sequences</h3>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="0">Compare the situation in \(\R\).</p>
+					<p class="fragment" data-fragment-index="1">Formally, a sequence is a function: </p>
+				</div>
+				<p class="fragment" data-fragment-index="1">
+					\(\N \ra \C \) (or \(\N_0 \ra \C \))
+					\[n \mapsto z_n\]
+				</p>
+				<p class="fragment" data-fragment-index="2">Write: \(\{z_n\}\).</p>
+			</section>
+
+			<section id="limit-of-a-sequence">
+				<h3>Sequences</h3>
+				<div class="left-txt">
+					<p><strong>Limit of a sequence:</strong></p>
+				</div>
+				<p class="fragment" data-fragment-index="0">\(\displaystyle \lim_{n\ra \infty} z_n = z \iff \{z_n\} \)
+					converges to \(z\).</p>
+				<div class="left-txt">
+					<p class="fragment" data-fragment-index="1">\(\iff\) Given \(\varepsilon >0 \) exists \(N\in \N\)
+						such that
+						\[n\gt N \implies |z_n-z|\lt \varepsilon.\]
+					</p>
 				</div>
 			</section>
 
-			
+			<section id="limit-of-a-series">
+				<h3>Series</h3>
+				<div class="left-txt">
+					<p>Now for series: Formally we have \(\displaystyle \sum_{n=0}^{\infty} z_n\), \(z_n \in \C\).</p>
+					<p class="fragment" data-fragment-index="0">The series \(\displaystyle \sum z_n\) converges as a
+						series \(\iff\) the associated sequence of
+						partial sums \(\{s_n\}\) converges as a sequence.
+					</p>
+				</div>
+				<p class="fragment" data-fragment-index="1">Here: \(s_n = \displaystyle \sum_{k=0}^{n} z_k\).</p>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<div class="left-txt">
+					<p>Typical question: Does \(\sum z_n\) converge?</p>
+					<p class="fragment" data-fragment-index="0">Test for NO: The \(n\)th term test
+						\[\sum z_n \text{ converges } \Rightarrow z_n \ra 0.\]
+					</p>
+					<p class="fragment" data-fragment-index="1">\(\nLeftarrow\) e. g. \(\sum 1/n\) diverges.</p>
+				</div>
+			</section>
+
+			<section id="absolute-convergence">
+				<h3>Series</h3>
+				<div class="left-txt">
+					<p><strong>Remark:</strong> \(\{z_n\}\) is <em>bounded</em> says exists such tat \(|z_n|\lt M\) for
+						all \(n\).</p>
+					<p class="fragment" data-fragment-index="0">\(*\) convergent \(\Rightarrow\) bounded,
+						<span class="fragment" data-fragment-index="1">\(\nLeftarrow \{(-1)^n\}\).</span>
+					</p>
+
+					<p class="fragment" data-fragment-index="2"><strong>Definition:</strong> \(\sum z_n\) <em>converges
+							absolutely</em> \(\iff\) \(\sum |z_n|\) converges.</p>
+					<p class="fragment" data-fragment-index="3">Absolute convergence \(\Rightarrow\) convergence,</p>
+
+				</div>
+				<p class="fragment" data-fragment-index="4">\(\nLeftarrow\) \(\sum \frac{(-1)^n}{n}\)</p>
+			</section>
+
+			<section id="remainder">
+				<h3>Series</h3>
+				<div class="left-txt size-80">
+					<p>Given \(\sum_{n=0}^{\infty} z_n\), set \(S_n = \sum_{k=0}^{n} z_k\) as above, and write \[\rho_n
+						= \sum_{k=n+1}^{\infty} z_k\]</p>
+					<p class="fragment" data-fragment-index="0">\(\rho\) is the <em>tail/remainder</em>.
+						<span class="fragment" data-fragment-index="1">Then \[S_n \ra S \iff \sum z_n = S \;\text{ by
+							definition.}\]
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="2"><strong>Theorem:</strong> \(S_n \ra S \iff \rho_n =0\).
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-80">Claim \(\displaystyle\sum_{n=0}^{\infty} z_n = \frac{1}{1-z}\) for \(|z|\lt 1\).
+					\(\quad(*)\)</p>
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="0"><strong>Proof:</strong> \(\qquad S_n = 1+ z+ \cdots +
+						z^n\)</p>
+					<p class="fragment" data-fragment-index="1">\(\qquad \qquad z S_n = z+ \cdots + z^n + z^{n+1}\).</p>
+				</div>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="2">\(\Rightarrow (1-z) S_n = 1-z^{n+1}\).
+						<span class="fragment" data-fragment-index="3">\(\Rightarrow S_n =
+							\dfrac{1-z^{n+1}}{1-z}.\quad\qquad\)</span>
+					</p>
+				</div>
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="4">\(\Rightarrow \rho_n = S - S_n \)
+						<span class="fragment" data-fragment-index="5">\(=\dfrac{z^{n+1}}{1-z}\). </span>
+						<span class="fragment" data-fragment-index="6">Since \(|z|\lt 1\), \(|\rho_n|\ra 0\) as \(n\ra \infty
+							\),</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="8">\(\Rightarrow \rho_n\ra 0\) as \(n\ra
+							\infty\),</span>
+						<span class="fragment" data-fragment-index="9">\(\Rightarrow S_n \ra S\), which shows
+							\((*)\).</span>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<div class="left-txt size-90">
+					<p><strong>Remark:</strong> As in \(\R\), if \(\sum a_n\) and \(\sum b_n\) converge, then so do
+						\[\sum \left(a_n\pm b_n\right) \text{ to } \left(\sum a_n\right) \pm \left(\sum b_n\right).\]
+					</p>
+					<p class="fragment" data-fragment-index="0">For \(\lambda \in \C \) fixed</p>
+				</div>
+				<p class="fragment  size-90" data-fragment-index="0">\(\displaystyle\sum \left( \lambda a_n\right) \) converges
+					to \(\lambda \displaystyle\sum a_n\).</p>
+			</section>
+
+			<section id="power-series">
+				<h3>Power Series</h3>
+				<div class="left-txt size-80">
+					<p>Centred at \(z_0\), the series of a function \(f(z)\) is
+						\[\sum_{n=0}^{\infty} a_n (z-z_0)^n.\]
+					</p>
+					<p class="fragment" data-fragment-index="0">Series will
+						<ul>
+							<li class="fragment" data-fragment-index="0">converge absolutely for \(|z-z_0|\lt R\), where
+								\(R\) is the <em>radius of convergence</em>;</li>
+							<li class="fragment" data-fragment-index="1">diverge for \(|z-z_0|\gt R\);</li>
+							<li class="fragment" data-fragment-index="2">check by hand for \(|z-z_0|= R\).</li>
+						</ul>
+					</p>
+					<p class="fragment" data-fragment-index="3">What happens when \(R=0\) or \(R=\infty\)?</p>
+				</div>
+
+			</section>
 
 			<section>
 				<h4>Credits</h4>
