@@ -78,11 +78,11 @@ class curveObj {
     rotate(radians(this.rotAngle));
     scale(this.sizeScale, this.sizeScale);
     stroke(this.red, this.green, this.blue);
-    strokeWeight(0.1);
+    strokeWeight(0.11);
     strokeJoin(ROUND);
     noFill();
     beginShape();
-    for (let k = 0; k < 360; k += 0.3) {
+    for (let k = 0; k < 360; k += 0.5) {
       let t = map(k, 0, 360, 0, TWO_PI);
       let vs = this.sumC(t);
       vertex(vs.x, vs.y);
@@ -130,7 +130,7 @@ class curveObj {
     strokeJoin(ROUND);
     noFill();
     beginShape();
-    for (let k = 0; k < 360; k += 0.3) {
+    for (let k = 0; k < 360; k += 1) {
       let t = map(k, 0, 360, 0, TWO_PI);
       let vs = this.sumC(t);
       vertex(vs.x, vs.y);
