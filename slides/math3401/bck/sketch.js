@@ -6,18 +6,18 @@ https://creativecommons.org/licenses/by-sa/4.0/
 
 Author: Juan Carlos Ponce Campuzano
 Site: https://jcponce.github.io/
-Date: 21-July-2020
+Date: 15-Oct-2020
  
 */
 
 let dots = [];
-let count = 60;
+let count = 40;
 let noiseval = 0.01;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   pointInit();
-  
+
 }
 
 function draw() {
@@ -26,8 +26,10 @@ function draw() {
     dots[i].drawMe();
     dots[i].updateMe();
   }
+}
 
-  
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function pointInit() {
@@ -35,6 +37,8 @@ function pointInit() {
     dots[i] = new curveObj();
   }
 }
+
+
 
 class curveObj {
 
@@ -46,17 +50,15 @@ class curveObj {
     this.x = random(0, width);
     this.y = random(0, height);
     this.imgCol = floor(random(0, 3));
-    this.sizeScale = random(0.05, 0.3);
+    this.sizeScale = random(4, 12);
     this.rotAngle = 0;
     this.rotSpeed = random(-3, 3);
     this.speed = random(0.5, 2);
     this.xnoise = random(100);
-    this.sz = random(9, 50);
-    this.a = Math.round(random(3, 12));
-    this.b = Math.round(random(3, 12));
-    this.red = random(90, 90);
-    this.green = random(160, 255);
-    this.blue = random(200, 255);
+    this.red = random(90, 110);
+    this.green = random(100, 255);
+    this.blue = random(180, 255);
+    this.set();
   }
 
   updateMe() {
@@ -76,17 +78,64 @@ class curveObj {
     rotate(radians(this.rotAngle));
     scale(this.sizeScale, this.sizeScale);
     stroke(this.red, this.green, this.blue);
-    strokeWeight(0.9);
+    strokeWeight(0.09);
+    strokeJoin(ROUND);
     noFill();
     beginShape();
-    for (let i = 0; i <= 360; i++) {
-      let nextx, nexty;
-      nextx = this.sz * (cos(1.0 * this.a * i) + pow(cos(1.0 * this.b * i), 2)) * cos(i);
-      nexty = this.sz * (cos(1.0 * this.a * i) + pow(cos(1.0 * this.b * i), 2)) * sin(i);
-      vertex(nextx, nexty);
+    for (let k = 0; k < 360; k += 0.3) {
+      let t = map(k, 0, 360, 0, TWO_PI);
+      let vs = this.sumC(t);
+      vertex(vs.x, vs.y);
     }
-    endShape();
+    endShape(CLOSE);
     pop();
+  }
+
+  set() {
+    this.m = this.getRndInteger(2, 4);
+
+    this.complex = [];
+    let s = 1;
+    for (let i = 0; i < 4; i++) {
+      this.complex[i] = new p5.Vector(random(-s, s), random(-s, s));
+    }
+
+    this.n = [];
+    for (let i = 0; i < 4; i++) {
+      this.n[i] = this.getRndInteger(-30, 30);
+    }
+  }
+
+  getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  sumC(t) {
+    let sumX = 0;
+    let sumY = 0;
+    let k = 0;
+    while (k < this.m) {
+      let x = this.complex[k].x;
+      let y = this.complex[k].y;
+      let c = this.n[k];
+      sumX += x * cos(c * t) - y * sin(c * t);
+      sumY += x * sin(c * t) + y * cos(c * t);
+      k++
+    }
+
+    return createVector(sumX, sumY);
+  }
+
+  show() {
+    strokeJoin(ROUND);
+    noFill();
+    beginShape();
+    for (let k = 0; k < 360; k += 0.3) {
+      let t = map(k, 0, 360, 0, TWO_PI);
+      let vs = this.sumC(t);
+      vertex(vs.x, vs.y);
+    }
+    endShape(CLOSE);
   }
 
 }
