@@ -50,14 +50,14 @@ class curveObj {
     this.x = random(0, width);
     this.y = random(0, height);
     this.imgCol = floor(random(0, 3));
-    this.sizeScale = random(4, 12);
+    this.sizeScale = random(6, 10);
     this.rotAngle = 0;
     this.rotSpeed = random(-3, 3);
     this.speed = random(0.5, 2);
     this.xnoise = random(100);
-    this.red = random(90, 110);
+    this.red = random(90, 90);
     this.green = random(100, 255);
-    this.blue = random(180, 255);
+    this.blue = random(200, 255);
     this.set();
   }
 
@@ -78,7 +78,7 @@ class curveObj {
     rotate(radians(this.rotAngle));
     scale(this.sizeScale, this.sizeScale);
     stroke(this.red, this.green, this.blue);
-    strokeWeight(0.09);
+    strokeWeight(0.1);
     strokeJoin(ROUND);
     noFill();
     beginShape();
@@ -97,7 +97,7 @@ class curveObj {
     this.complex = [];
     let s = 1;
     for (let i = 0; i < 4; i++) {
-      this.complex[i] = new p5.Vector(random(-s, s), random(-s, s));
+      this.complex[i] = new p5.Vector(random(0.5, s), random(0.5, s));
     }
 
     this.n = [];
