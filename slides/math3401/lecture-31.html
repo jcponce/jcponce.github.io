@@ -52,19 +52,83 @@
 			</section>
 
 			<section>
-				<h3>Sequences</h3>
+				<h3>Taylor series in \(\C\)</h3>
 				<div class="left-txt">
-					<p class="fragment" data-fragment-index="0">Compare the situation in \(\R\).</p>
-					<p class="fragment" data-fragment-index="1">Formally, a sequence is a function: </p>
+					<p><strong>Example 3:</strong> Find Maclaurin series for \(f(z) = \dfrac{1}{1-z}\).</p>
+					<p class="fragment" data-fragment-index="0">Notice \(f\) is entire for \(|z|\lt 1\):
+						<span class="fragment" data-fragment-index="1">Indeed, on \(\C\setminus \{1\}\)  and 
+							\[
+							f^{(n)}(z) = \dfrac{n!}{(1-z)^={n+1}}, z\neq 1.
+							\]
+							
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="2">\(\implies f^{(n)}(0) = n!\)
+						<span class="fragment" data-fragment-index="3">\(\implies \) Taylor series of \(f\) at \(0\),</span>
+					</p>
 				</div>
-				<p class="fragment" data-fragment-index="1">
-					\(\N \ra \C \) (or \(\N_0 \ra \C \))
-					\[n \mapsto z_n\]
-				</p>
-				<p class="fragment" data-fragment-index="2">Write: \(\{z_n\}\).</p>
 			</section>
 
-			
+			<section>
+				<h3>Taylor series in \(\C\)</h3>
+				<div class="left-txt size-90">
+					<p><strong>Example 3 (cont):</strong> \(T_{f,0}\) is given by 
+						\[
+						T_{f,0}(z) = \sum_{n=0}^{\infty} z^n,
+						\]
+						where this converges.
+						<span class="fragment" data-fragment-index="0">\(\Lambda = \displaystyle \lim_{n\ra \infty } \frac{1}{1} = 1 \implies R=1\) 
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="1"><a href="lecture-30.html#/taylor-series/1" target="_blank">Theorem (Lect 30)</a> \(\implies T_{f,0}\) converges to \(f\) for \(|z|\lt 1\).
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Taylor series in \(\C\)</h3>
+				<p class="size-90"><strong>Notes</strong></p>
+				<div class="left-txt">
+					<ol>
+						<li class="fragment" data-fragment-index="0">Geometric series formula \(\implies\) 
+							\[
+							\frac{1}{1-z} =\sum_{n=0}^{\infty} \text{ for } |z|\lt 1.
+							\]
+						</li>
+						<li class="fragment" data-fragment-index="1">Series converges "out to the first singularity", <br> here is \(1\).</li>
+					</ol>
+				</div>
+			</section>
+
+			<section>
+				<h3>Taylor series in \(\C\)</h3>
+				<div class="left-txt size-70">
+					<p><strong>Example 4:</strong>  Find Maclaurin series for \(f(z) = \dfrac{1}{2+ 4z}\) on \(\C\setminus \{1/2\}\).</p>
+					<p class="fragment" data-fragment-index="0">Note that</p>
+					<p class="fragment" data-fragment-index="0">\(\displaystyle \frac{1}{2+4z} = \frac{1/2}{1+2z}\)
+						<span class="fragment" data-fragment-index="1">\(\displaystyle =\frac{1/2}{1-(-2z)}\)</span>
+						
+					</p>
+					<p class="fragment" data-fragment-index="2">\(\qquad \quad= \displaystyle\frac{1}{2} \sum_{n=0}^{\infty} (-2z)^{n}\) for \(|-2z|\lt 1\)</p>
+					<p class="fragment" data-fragment-index="3">\(\qquad \quad= \displaystyle\frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n}2^{n-1}z^n\) for \(|z|\lt 1/2\).</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Taylor series in \(\C\)</h3>
+				<div class="left-txt size-70">
+					<p><strong>Example 5:</strong> &nbsp; \(f(z) = \dfrac{1+2z^2}{z^3+z^5}\)
+						<span class="fragment" data-fragment-index="0">\( = \displaystyle \frac{1}{z^3} \left( \frac{2+2z^2}{1+z^2} - \frac{1}{1+z^2} \right)\)</span>
+					</p>
+					<p class="fragment" data-fragment-index="1">\(\qquad \qquad\;\; \quad = \displaystyle \frac{1}{z^3} \left( 2 - \frac{1}{1+z^2} \right)\) analytic on \(\C\setminus\{\pm i\}\).</p>
+					<p class="fragment" data-fragment-index="2">For \(|z|\lt 1\), \(\displaystyle \frac{1}{1+z^2} = \sum_{n=0}^{\infty} (-1)^nz^{2n}\).
+						<span class="fragment" data-fragment-index="3">So for \(0\lt |z|\lt 1\),</span>
+					</p>
+					
+				</div>
+				<p class="size-80 fragment" data-fragment-index="4">\(f(z) = \displaystyle \frac{1}{z^3} \left( 2- \left( 1-z^2+z^4-\cdots  \right) \right)\)</p>
+				<p class="size-80 fragment" data-fragment-index="5">\( = \displaystyle \frac{1}{z^3} + \frac{1}{z} -z + z^3 - \cdots\)</p>
+			</section>
 
 			<section>
 				<h4>Credits</h4>
