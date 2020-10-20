@@ -51,7 +51,7 @@
 				<p>Lecture 31</p>
 			</section>
 
-			<section>
+			<section id="series-example-3">
 				<h3>Taylor series in \(\C\)</h3>
 				<div class="left-txt">
 					<p><strong>Example 3:</strong> Find Maclaurin series for \(f(z) = \dfrac{1}{1-z}\).</p>
@@ -105,7 +105,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section id="series-example-4">
 				<h3>Taylor series in \(\C\)</h3>
 				<div class="left-txt size-70">
 					<p><strong>Example 4:</strong> Find Maclaurin series for \(f(z) = \dfrac{1}{2+ 4z}\) on
@@ -125,7 +125,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section id="series-example-5">
 				<h3>Taylor series in \(\C\)</h3>
 				<div class="left-txt size-70">
 					<p><strong>Example 5:</strong> &nbsp; \(f(z) = \dfrac{1+2z^2}{z^3+z^5}\)
@@ -206,15 +206,56 @@
 				</div>
 			</section>
 
-			<section>
+			<section id="series-example-6">
 				<h3>Laurent Series</h3>
-				<div class="left-txt size-90">
+				<div class="left-txt">
+					<p><strong>Example 6:</strong> Find Laurent series for \(e^{1/z}\):</p>
+					<p class="fragment" data-fragment-index="0">\(e^{1/z} = \ds \sum_{n=0}^{\infty} = \frac{1}{n!z^n} \)
+						<span class="fragment" data-fragment-index="1">\(= 1 + \ds \frac{1}{z} + \frac{1}{2!z^2} + \cdots \)</span>
+					</p>
+					<p class="fragment" data-fragment-index="2">for all \(|z|\gt 0\), 
+						<span class="fragment" data-fragment-index="3">and note
+						\[\ds \frac{1}{2\pi i } \int_C e^{1/\zeta}d\zeta = b_1 = 1.\]</span>
+					</p>
+				</div>
+			</section>
+
+			<section id="series-example-7">
+				<h3>Laurent Series</h3>
+				<div class="left-txt">
+					<p><strong>Example 7:</strong> Compute \(I = \ds \int_C \frac{5z-2}{z(z-1)} dz\) where \( C = 2 e^{i \theta } \) \( \theta \in [0,2\pi]\).</p>
+					<p class="fragment" data-fragment-index="0">Note \(f(z) = \ds \frac{5z-2}{z(z-1)} \) is analytic on \(\C \setminus\{0,1\}\).</p>
+					<p class="fragment" data-fragment-index="1">Solution coming soon!</p>
+				</div>
+			</section>
+
+			<section id="singularity">
+				<h3>Residues and Poles</h3>
+				<div class="left-txt">
+					<p>\(f: \Omega \ra \C\) has a <em>singularity</em> at \( z_0\) if:</p>
 					<ol>
-						<li class="fragment" data-fragment-index="0">If \(f\) is analytic on and in \(C\), then all the \(b_n\)'s are zero.
+						<li class="fragment" data-fragment-index="0">\(f\) is not analytic at \(z_0\);
 						</li>
-						<li class="fragment" data-fragment-index="1">\(r_1 \searrow 0 \),  \( r_2 \nearrow \infty\) are ok.</li>
-						<li class="fragment" data-fragment-index="2">Taylor and Laurent series are unique.</li>
+						<li class="fragment" data-fragment-index="1">Given any \( \varepsilon \gt 0 \)  \( \exists\, z_1\in B_{\varepsilon}(z_0)\) such that \(f\) is analytic at \(z_1\).</li>
 					</ol>
+				</div>
+			</section>
+
+			<section id="isolated-singularity">
+				<h3>Residues and Poles</h3>
+				<div class="left-txt size-90">
+					<p>\(f\) has an <em>isolated singularity</em> at \( z_0\) if \(f\) is analytic on \(B_{\varepsilon}(z_0)\setminus\{z_0\} \) for some \(\varepsilon \gt 0\).</p>
+					<p class="fragment" data-fragment-index="0"><strong>E. g.</strong> &nbsp;\(f\) from <a href="#series-example-7">Example 7</a> has isolated singularities at \(0, 1\);</p>
+					<p class="fragment" data-fragment-index="1">\(\Log z\) has non-isolated singularities on the negative real axis union \(\{0\}\);</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Residues and Poles</h3>
+				<div class="left-txt">
+					<p>\(\ds \frac{\sin z}{z}\) has one isolated singularity at \(0\);</p>
+					<p class="fragment" data-fragment-index="0">\(\ds \frac{1}{\sin(\pi /z)}\) has isolated singularities at \(z=\dfrac{1}{k}, k\in \Z\) </p>
+					<p class="fragment" data-fragment-index="0">\(\qquad \quad \;\;\)and non-isolated singulaty at \(0\).</p>
 				</div>
 			</section>
 
