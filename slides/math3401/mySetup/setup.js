@@ -28,6 +28,8 @@ Reveal.initialize({
 				Arg: "{\\mbox{Arg}}\\,",
 				Log: "\\mbox{Log}\\,",
 				ra: "\\rightarrow",
+				ds: "\\displaystyle",
+				res: "\\mbox{res}\\,",
 				conj: ["{\\overline{#1}}", 1]
 			}
 		}
