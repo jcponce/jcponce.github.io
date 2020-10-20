@@ -78,7 +78,7 @@
 						T_{f,0}(z) = \sum_{n=0}^{\infty} z^n,
 						\]
 						where this converges.
-						<span class="fragment" data-fragment-index="0">\(\Lambda = \displaystyle \lim_{n\ra \infty }
+						<span class="fragment" data-fragment-index="0">\(\Lambda = \ds \lim_{n\ra \infty }
 							\frac{1}{1} = 1 \implies R=1\)
 						</span>
 					</p>
@@ -114,13 +114,13 @@
 
 				</div>
 				<div class="size-70">
-					<p class="fragment" data-fragment-index="0">\(\displaystyle \frac{1}{2+4z} = \frac{1/2}{1+2z}\)
-						<span class="fragment" data-fragment-index="1">\(\displaystyle =\frac{1/2}{1-(-2z)}\qquad \qquad
+					<p class="fragment" data-fragment-index="0">\(\ds \frac{1}{2+4z} = \frac{1/2}{1+2z}\)
+						<span class="fragment" data-fragment-index="1">\(\ds =\frac{1/2}{1-(-2z)}\qquad \qquad
 							\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="2">\(\quad = \displaystyle\frac{1}{2}
+					<p class="fragment" data-fragment-index="2">\(\quad = \ds\frac{1}{2}
 						\sum_{n=0}^{\infty} (-2z)^{n}\) for \(|-2z|\lt 1\)</p>
-					<p class="fragment" data-fragment-index="3">\(\qquad \; = \displaystyle\frac{1}{2}
+					<p class="fragment" data-fragment-index="3">\(\qquad \; = \ds\frac{1}{2}
 						\sum_{n=0}^{\infty} (-1)^{n}2^{n-1}z^n\) for \(|z|\lt 1/2\).</p>
 				</div>
 			</section>
@@ -129,21 +129,21 @@
 				<h3>Taylor series in \(\C\)</h3>
 				<div class="left-txt size-70">
 					<p><strong>Example 5:</strong> &nbsp; \(f(z) = \dfrac{1+2z^2}{z^3+z^5}\)
-						<span class="fragment" data-fragment-index="0">\( = \displaystyle \frac{1}{z^3} \left(
+						<span class="fragment" data-fragment-index="0">\( = \ds \frac{1}{z^3} \left(
 							\frac{2+2z^2}{1+z^2} - \frac{1}{1+z^2} \right)\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="1">\(\qquad \qquad\;\; \quad = \displaystyle \frac{1}{z^3}
+					<p class="fragment" data-fragment-index="1">\(\qquad \qquad\;\; \quad = \ds \frac{1}{z^3}
 						\left( 2 - \frac{1}{1+z^2} \right)\) analytic on \(\C\setminus\{\pm i\}\).</p>
-					<p class="fragment" data-fragment-index="2">For \(|z|\lt 1\), \(\displaystyle \frac{1}{1+z^2} =
+					<p class="fragment" data-fragment-index="2">For \(|z|\lt 1\), \(\ds \frac{1}{1+z^2} =
 						\sum_{n=0}^{\infty} (-1)^nz^{2n}\).
 						<span class="fragment" data-fragment-index="3">So for \(0\lt |z|\lt 1\),</span>
 					</p>
 
 				</div>
 				<div class="size-80">
-					<p class="fragment" data-fragment-index="4">\(f(z) = \displaystyle \frac{1}{z^3} \left( 2-
+					<p class="fragment" data-fragment-index="4">\(f(z) = \ds \frac{1}{z^3} \left( 2-
 						\left( 1-z^2+z^4-\cdots \right) \right)\)</p>
-					<p class="fragment" data-fragment-index="5">\( = \displaystyle \frac{1}{z^3} + \frac{1}{z} -z +
+					<p class="fragment" data-fragment-index="5">\( = \ds \frac{1}{z^3} + \frac{1}{z} -z +
 						z^3 - \cdots\)</p>
 				</div>
 			</section>
@@ -160,12 +160,12 @@
 							series</em>)</p>
 				</div>
 				<div class="size-70">
-					<p class="fragment" data-fragment-index="3">\(f(z)=\displaystyle\sum_{n=0}^{\infty}
-						a_n(z-z_0)^n+\displaystyle\sum_{n=1}^{\infty}\frac{b_n}{(z-z_0)^n}\)
+					<p class="fragment" data-fragment-index="3">\(f(z)=\ds\sum_{n=0}^{\infty}
+						a_n(z-z_0)^n+\ds\sum_{n=1}^{\infty}\frac{b_n}{(z-z_0)^n}\)
 						&nbsp; on &nbsp;\(A\),</p>
 					<p class="size-90 fragment" data-fragment-index="4">where:&nbsp; \(
-						a_n=\displaystyle\frac{1}{2\pi i} \int_C \frac{f(\zeta)}{(\zeta-z_0)^{n+1}}d\zeta\) &nbsp; and &nbsp;
-						\(b_n=\displaystyle \frac{1}{2\pi i}\int_C \frac{f(\zeta)}{(\zeta-z_0)^{-n+1}}d\zeta\).</p>
+						a_n=\ds\frac{1}{2\pi i} \int_C \frac{f(\zeta)}{(\zeta-z_0)^{n+1}}d\zeta\) &nbsp; and &nbsp;
+						\(b_n=\ds \frac{1}{2\pi i}\int_C \frac{f(\zeta)}{(\zeta-z_0)^{-n+1}}d\zeta\).</p>
 				</div>
 			</section>
 
@@ -186,16 +186,28 @@
 					<p>In particular:
 					</p>
 				</div>
-				<p>\(b_1 = \displaystyle \frac{1}{2 \pi i} \int_C \frac{f(\zeta)}{(\zeta - z_0)^{-1+1}}d\zeta  \)</p>
-				<p class="fragment" data-fragment-index="0">\(= \displaystyle  \frac{1}{2 \pi i} \int_Cf(\zeta)d\zeta. \;\)</p>
+				<p>\(b_1 = \ds \frac{1}{2 \pi i} \int_C \frac{f(\zeta)}{(\zeta - z_0)^{-1+1}}d\zeta  \)</p>
+				<p class="fragment" data-fragment-index="0">\(= \ds \frac{1}{2 \pi i} \int_Cf(\zeta)d\zeta. \;\)</p>
 				<div class="left-txt">
-					<p class="fragment" data-fragment-index="1">This is called the <em>residue</em> of \(f\) at \(z_0\): \( \underset{z=z_0}{\res} f(z)\).</p>
+					<p class="fragment" data-fragment-index="1">This is called the <em>residue</em> of \(\,f\) at \(z_0\): \( \;\underset{z=z_0}{\res} f(z)\).</p>
 				</div>
 			</section>
 
 			<section>
 				<h3>Laurent Series</h3>
 				<p class="size-80"><strong>Notes</strong></p>
+				<div class="left-txt size-90">
+					<ol>
+						<li class="fragment" data-fragment-index="0">If \(f\) is analytic on and in \(C\), then all the \(b_n\)'s are zero.
+						</li>
+						<li class="fragment" data-fragment-index="1">\(r_1 \searrow 0 \),  \( r_2 \nearrow \infty\) are ok.</li>
+						<li class="fragment" data-fragment-index="2">Taylor and Laurent series are unique.</li>
+					</ol>
+				</div>
+			</section>
+
+			<section>
+				<h3>Laurent Series</h3>
 				<div class="left-txt size-90">
 					<ol>
 						<li class="fragment" data-fragment-index="0">If \(f\) is analytic on and in \(C\), then all the \(b_n\)'s are zero.
