@@ -27,6 +27,7 @@ Reveal.initialize({
 				arg: "{\\mbox{arg}}\\,",
 				Arg: "{\\mbox{Arg}}\\,",
 				Log: "\\mbox{Log}\\,",
+				Int: "\\mbox{Int}\\,",
 				ra: "\\rightarrow",
 				ds: "\\displaystyle",
 				res: "\\mbox{res}\\,",

@@ -54,12 +54,214 @@
 			<section>
 				<h3>Remarks on series</h3>
 				<div class="left-txt">
-					<p>Test</p>
+					<p class="fragment" data-fragment-index="0">\((1)\) &nbsp; \(f(z) = \dfrac{1}{(z-1)^2}\) is already
+						a Laurent series <br> \(\quad\;\) about \(\,i\),
+						<span class="fragment" data-fragment-index="1">with </span>
+					</p>
 				</div>
-				
+				<p class="fragment" data-fragment-index="1">\(b_2 = 1,\qquad \quad \;\;\)</p>
+				<p class="fragment" data-fragment-index="2">\(b_k = 0 \text{ for } k\neq 2\),</p>
+				<p class="fragment" data-fragment-index="3">\(a_k = 0 \text{ } \forall k. \quad \quad \; \)</p>
 			</section>
 
-			
+			<section>
+				<h3>Remarks on series</h3>
+				<div class="left-txt">
+					<p>\((2)\) &nbsp; Cauchy product of series: <br>
+						<span class="fragment" data-fragment-index="0">Suppose &nbsp; \(f(z) = \ds \sum_{n=0}^{\infty}
+							a_n z^n\), \(g(z) = \ds \sum_{n=0}^{\infty} b_n z^n\).</span>
+						<span class="fragment" data-fragment-index="1">Then
+						</span>
+					</p>
+				</div>
+				<div>
+					<p class="fragment" data-fragment-index="1">\(\left(\, f g \right)(z) = \ds\sum_{n=0}^{\infty} c_n
+						z^n\),
+						&nbsp; where &nbsp; \(c_n =\ds \sum_{n=0}^{\infty} a_k b_{n-k} \).
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Remarks on series</h3>
+				<div class="left-txt size-90">
+					<p><strong>Example:</strong></p>
+					<p>\(\ds \frac{e^z}{1+z} \)
+						<span class="fragment" data-fragment-index="0">\(= e^z\cdot \frac{1}{1-(-z)}\)</span></p>
+					<p class="fragment" data-fragment-index="1">\( \qquad \;= \left( 1+ z + \ds \frac{z^2}{2!} +\cdots
+						\right) \left( 1 - z + z^2 - \cdots \right)\)</p>
+					<p class="fragment" data-fragment-index="2">\( \qquad \;= 1+(-1+1)z + \left(1+
+						\frac{1}{2}-1\right)z^2 + \cdots \)</p>
+					<p class="fragment" data-fragment-index="3">\( \qquad \;= 1+ \frac{1}{2}z^2 + \cdots \)</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Remarks on series</h3>
+				<div class="left-txt">
+					<p>\((3)\) &nbsp; We can take term-by-term derivatives and <br>
+						\(\quad \;\) integrals of series.</p>
+				</div>
+			</section>
+
+			<section id="cauchy-residue-theorem">
+				<h3>Cauchy residue Theorem</h3>
+				<div class="left-txt size-90">
+					<p>Suppose \(C\) is a positively oriented simple closed curve and that \(f\)
+						is analytic on \(C\cup \{\Int(C)\setminus \{z_1,\ldots, z_k\}\}\).
+						<span>Then
+							\[
+							\int_C f(x)dz = 2\pi i \sum_{j=1}^{k}\underset{z=z_j}{\res} f(z) .
+							\]
+						</span>
+					</p>
+				</div>
+			</section>
+
+			<section id="cauchy-residue-theorem-proof">
+				<h3>Cauchy residue Theorem</h3>
+				<div class="left-txt size-90">
+					<p><strong>Proof:</strong>
+						<span class="fragment" data-fragment-index="0">Take disjoint positively oriented circles \(C_1,
+							\ldots , C_k\)
+							around each \(z_1, \ldots , z_k\) with disjoint interiors, all lying in \(\Int(C)\).</span>
+						<span class="fragment" data-fragment-index="1">Then \(C, C_1,\ldots , C_k\) for the boundary of
+							a multiply-connected domain \(\Omega\).</span>
+						<span class="fragment" data-fragment-index="2">Then \(f\) is analytic on \(\Omega\) and
+							\(\partial \Omega\), </span>
+						<span class="fragment" data-fragment-index="3">so <a
+								href="lecture-20.html#/cauchy-goursat-extension" target="_blank">Cauchy-Goursat
+								extension</a> implies</span>
+					</p>
+				</div>
+				<div class="size-90">
+					<p class="fragment" data-fragment-index="3">\(\ds \int_Cf(z)dz = \sum_{j=1}^k \int_{C_j} f(z)dz\)
+						<span>\(= 2 \pi i \ds \sum_{j= 1}^k\underset{z=z_j}{\res} f(z) \).</span>
+					</p>
+				</div>
+			</section>
+
+			<section id="series-example-7-solution">
+				<h3>Cauchy residue Theorem</h3>
+				<div class="left-txt">
+					<p>Recall <a href="lecture-31.html#/series-example-7">Example 7</a> from last lecture: \[I = \ds
+						\int_C \frac{5z-2}{z(z-1)} dz\]</p>
+					<p class="fragment" data-fragment-index="0">Note \(f(z) \) is analytic on \(\C \setminus\{0,1\}\).
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Cauchy residue Theorem</h3>
+				<div class="left-txt size-90">
+					<p><strong>Method 1:</strong>
+						<span class="fragment" data-fragment-index="0">Look at \(0\lt |z|\lt 1\).</span>
+						<span class="fragment" data-fragment-index="1">Then</span>
+					</p>
+				</div>
+				<div class="size-90">
+					<p class="fragment" data-fragment-index="1">\(f(z) = \ds \frac{1}{1-z} (-1) \frac{5z-2}{2}\qquad
+						\qquad\qquad \;\;\)</p>
+					<p class="fragment" data-fragment-index="2">\(= \left(1+z+z^2+\cdots \right) (-1) \left(5 -
+						\frac{2}{z}\right) \)</p>
+				</div>
+				<div class="left-txt size-90">
+					<p class="fragment" data-fragment-index="3">\(\implies \underset{z=0}{\res} f(z) =
+						\text{coefficients of } \frac{1}{z}\)
+						<span class="fragment" data-fragment-index="4">\(= 2\).</span>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Cauchy residue Theorem</h3>
+				<div class="left-txt size-70">
+					<p><strong>Method 1 (cont):</strong> Now look at \(z\) such that \(0\lt |z-1|\lt 1\).
+						<span class="fragment" data-fragment-index="0">Then</span>
+					</p>
+				</div>
+				<div class="size-70">
+					<p class="fragment" data-fragment-index="0">\(f(z) = \ds \frac{5(z-1)+3}{z-1} \cdot
+						\frac{1}{(z-1)+1} \qquad \quad\)</p>
+					<p class="fragment" data-fragment-index="1">\(= \left( 5+\frac{3}{z-1} \right) \dfrac{1}{1-(-(z-1))}
+						\qquad \)</p>
+					<p class="fragment" data-fragment-index="2">\(= \left( 5+\frac{3}{z-1} \right) \left(
+						1+(-(z-1))+\cdots \right) \)</p>
+				</div>
+				<div class="left-txt size-70">
+					<p class="fragment" data-fragment-index="3">\(\implies \underset{z=1}{\res} f(z) =
+						\text{coefficients of } \frac{1}{z-1}\)
+						<span class="fragment" data-fragment-index="4">\(= 3\).</span>
+					</p>
+					<p class="fragment" data-fragment-index="5">Cauchy residue theorem implies \(I = 2 \pi i (2+ 3)\)
+						<span class="fragment" data-fragment-index="6">\(= 10 \pi i\)</span>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Cauchy residue Theorem</h3>
+				<div class="left-txt size-80">
+					<p><strong>Method 2:</strong>
+						<span class="fragment" data-fragment-index="0">Note \(f(z) = \ds \frac{3}{z-1} +
+							\frac{2}{z}\).</span>
+					</p>
+
+				</div>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="1">\(\ds \frac{2}{z} \) is analytic on \(\C\setminus
+						\{0\}\).
+					</p>
+					<p class="fragment" data-fragment-index="2">\(\ds \frac{3}{z-1} \) is analytic on \(\C\setminus
+						\{0\}\).
+					</p>
+					<p class="fragment" data-fragment-index="3">Therefore \(\underset{z=0}{\res} f(z) = 2\) and
+						\(\underset{z=1}{\res} f(z) = 3\).</p>
+					<p class="fragment" data-fragment-index="4">We get the same result \( I= 10 \pi i\).</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Classifying isolated singularities</h3>
+				<div class="left-txt size-90">
+					<p>If \(z_0\) is an isolated singularity of \(f\), then exists \(R\) such that \(f\) has a Laurent
+						series
+						expansion on \(B_R(z_0)\setminus\{z_0\}\):
+						\[f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n + \sum_{n=1}^{\infty}b_n(z-z_0)^{-n}.\]
+					</p>
+				</div>
+			</section>
+
+			<section id="removable-singularity">
+				<h3>Classifying isolated singularities</h3>
+				<div class="left-txt">
+					<p><strong>Case I:</strong> \(b_n=0 \;\forall n\).</p>
+					<p class="fragment" data-fragment-index="0">Singularity is <em>removable</em>. By setting \(f(z_0) =
+						z_0\) makes \(f\) analytic on \(B_R(z_0)\).</p>
+				</div>
+			</section>
+
+			<section id="poles-order-n">
+				<h3>Classifying isolated singularities</h3>
+				<div class="left-txt">
+					<p><strong>Case II:</strong> At least one, but only
+						finitely many of the \(b_n\)'s are nonzero.</p>
+					<p class="fragment" data-fragment-index="0">Such a point is called a <em>pole</em>.
+						<span class="fragment" data-fragment-index="1">Define \[m = \max \{ n: b_n\neq 0\}\] </span>
+					</p>
+					<p class="fragment" data-fragment-index="2">\(m\) is the <em>order</em> of the pole.
+						<span class="fragment" data-fragment-index="3">\(\;m=1 \iff\) <em>simple pole.</em></span>
+					</p>
+				</div>
+			</section>
+
+			<section id="essential-singularity">
+				<h3>Classifying isolated singularities</h3>
+				<div class="left-txt">
+					<p><strong>Case III:</strong> Infinitely many of the \(b_n\)'s \( \neq 0\).</p>
+					<p class="fragment" data-fragment-index="1">This is called an <em>essential singularity</em>.</p>
+				</div>
+			</section>
 
 			<section>
 				<h4>Credits</h4>
