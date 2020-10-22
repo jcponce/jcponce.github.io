@@ -6,7 +6,7 @@ https://creativecommons.org/licenses/by-sa/4.0/
 
 Author: Juan Carlos Ponce Campuzano
 Site: https://jcponce.github.io/
-Date: 15-Oct-2020
+Date: 20-Oct-2020
  
 */
 
@@ -39,7 +39,6 @@ function pointInit() {
 }
 
 
-
 class curveObj {
 
   constructor() {
@@ -49,7 +48,6 @@ class curveObj {
   initMe() {
     this.x = random(0, width);
     this.y = random(0, height);
-    this.imgCol = floor(random(0, 3));
     this.sizeScale = random(6, 10);
     this.rotAngle = 0;
     this.rotSpeed = random(-3, 3);
@@ -67,7 +65,7 @@ class curveObj {
     this.y = this.y + this.speed;
     if (this.y > height + 100) {
       this.initMe();
-      this.y = -100;
+      this.y = -50;
     }
     this.rotAngle += this.rotSpeed;
   }
@@ -78,7 +76,7 @@ class curveObj {
     rotate(radians(this.rotAngle));
     scale(this.sizeScale, this.sizeScale);
     stroke(this.red, this.green, this.blue);
-    strokeWeight(0.11);
+    strokeWeight(0.115);
     strokeJoin(ROUND);
     noFill();
     beginShape();
@@ -102,7 +100,7 @@ class curveObj {
 
     this.n = [];
     for (let i = 0; i < 4; i++) {
-      this.n[i] = this.getRndInteger(-30, 30);
+      this.n[i] = this.getRndInteger(-20, 20);
     }
   }
 
@@ -126,16 +124,6 @@ class curveObj {
     return createVector(sumX, sumY);
   }
 
-  show() {
-    strokeJoin(ROUND);
-    noFill();
-    beginShape();
-    for (let k = 0; k < 360; k += 1) {
-      let t = map(k, 0, 360, 0, TWO_PI);
-      let vs = this.sumC(t);
-      vertex(vs.x, vs.y);
-    }
-    endShape(CLOSE);
-  }
+ 
 
 }
