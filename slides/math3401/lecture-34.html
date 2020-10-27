@@ -225,7 +225,67 @@
 						Then \(p/q\) has a simple at \(z_0\), and
 						\[\underset{z-z_0}{\res}\frac{p(z)}{q(z)} = \frac{p(z_0)}{q'(z_0)}\]
 					</p>
-					<p class="size-60 fragment" data-fragment-index="5"><strong>Note:</strong> Exist higher order analogues but they are messy</p>
+					<p class="size-60 fragment" data-fragment-index="0"><strong>Note:</strong> Exist higher order analogues but they are messy.</p>
+				</div>
+			</section>
+
+			<section id="applications-contour-integrals">
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-90">
+					<p>Recall:
+						\[{\small\int_{-\infty}^{\infty} f(x)\,dx = \lim_{M_1\ra -\infty}\int_{M_1}^{0} f(x)\,dx + \lim_{M_2\ra \infty}\int_{0}^{M_2} f(x)\,dx}\]
+						if both of the limits here exist.
+					</p>
+					<p class="size-70 fragment" data-fragment-index="0"><strong>Remark:</strong> We can replace \(0\) by any fixed \(c\in \R\).</p>
+				</div>
+			</section>
+
+			<section id="cauchy-principal-value">
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-90">
+					<p>You cannot in general replace <a href="#/applications-contour-integrals">RHS</a> by
+						\[\lim_{M\ra -\infty}\int_{-M}^{M} f(x)\,dx .\]
+					</p>
+					<p class="fragment" data-fragment-index="0">If you do this anyhow, it defines the <em>Cauchy Principal</em> value (PV) integral.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-70">
+					<p><strong>E. g.</strong> \(\ds\int_{-\infty}^{\infty}x \,dx\)
+						<span class="fragment" data-fragment-index="0">\(=\ds\lim_{M_1\ra -\infty}\int_{M_1}^{0} x\,dx + \lim_{M_2\ra \infty}\int_{0}^{M_2} x\,dx\)</span>
+					</p>
+					<p class="fragment" data-fragment-index="1">\(\qquad\qquad\quad = \ds\lim_{M_1\ra -\infty} \frac{-M_1^2}{2}\,dx + \lim_{M_2\ra \infty} \frac{M_2^2}{2}\,dx\)</p>
+					<p class="fragment" data-fragment-index="2">\(\qquad\qquad\quad = \) undefined,
+						<span class="fragment" data-fragment-index="3">but</span>
+					</p>
+					<p class="fragment" data-fragment-index="3">\(\ds\text{PV} \int_{-\infty}^{\infty}x\, dx = \lim_{M\ra \infty}\int_{-M}^{M} x\,dx\)
+						<span class="fragment" data-fragment-index="4">\(=\ds \lim_{M\ra \infty}\left[\frac{M^2}{2}-\frac{M^2}{2}\right]\)</span>
+						<span class="fragment" data-fragment-index="5">\(=\ds \lim_{M\ra \infty}\left[0\right]\)</span>
+						<span class="fragment" data-fragment-index="6">\(=0\).</span>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-80">
+					<p>When is \(\text{PV}\ds  \int_{-\infty}^{\infty} f = \int_{-\infty}^{\infty}f\,\)?
+						<span class="fragment" data-fragment-index="0"><strong>E. g.</strong> for \(f\) even (or for \(f\geq 0\)).</span>
+					</p>
+					<p class="fragment" data-fragment-index="1">If \(f\) is even, i. e. \(f(x) = f(-x)\) \(\forall x\in \R\), 
+						<span class="fragment" data-fragment-index="2">then</span>
+					</p>
+				</div>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="2">\(\ds\int_{0}^{\infty} f(x)\, dx = \frac{1}{2} \int_{-\infty}^{\infty} f(x)\, dx\)
+						<span>\(=\ds \frac{1}{2}\text{PV} \int_{-\infty}^{\infty} f(x)\, dx\)</span>
+					</p>
+				</div>
+				<div class="left-txt size-80">
+					<p  class="fragment" data-fragment-index="3">and all of these converge or diverge together.</p>
+					
 				</div>
 			</section>
 
