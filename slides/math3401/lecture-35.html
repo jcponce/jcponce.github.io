@@ -53,36 +53,154 @@
 
 			<section>
 				<h3>Applications contour integrals</h3>
-				<div class="left-txt">
-					<p>Suppose \(f\) is even and "nice" on \(\R\). 
-						<span>Our aim is to evaluate \(\int_{-\infty}^{\infty}f\)</span>
+				<div class="left-txt size-80">
+					<p>Suppose \(f\) is even and "nice" on \(\R\).
+						<span class="fragment" data-fragment-index="0">Our aim is to evaluate
+							\(\ds\int_{-\infty}^{\infty}f\).</span>
 					</p>
 				</div>
+				<img class="fragment" data-fragment-index="0" style="width: 60%;"
+					data-src="img/lect-35/contour-integral.svg" />
 			</section>
 
 			<section>
 				<h3>Applications contour integrals</h3>
-				<div class="left-txt">
-					<p>Suppose \(f\) is analytic in and on \(C = \Gamma_1+ \Gamma_2\), except maybe for isolated 
+				<div class="left-txt size-80">
+					<p>Suppose \(f\) is analytic in and on \(C = \Gamma_1+ \Gamma_2\), except maybe for isolated
 						singularities in \(\text{Int}(C)\).
 					</p>
 				</div>
-				<div class="">
-					<p>\(\ds\int_C f = \int_{\Gamma_1}f + \int_{\Gamma_2}f\)</p>
-					<p>\(\;\;\qquad(\text{I})\)  \(\qquad (\text{II})\)</p>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="0">\(\ds\int_C f = \int_{\Gamma_1}f + \int_{\Gamma_2}f\)
+					</p>
+					<p class="fragment" data-fragment-index="1">\(\;\;\qquad(\text{I})\) \(\qquad (\text{II})\)</p>
+				</div>
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="2">LHS: hopefully can evalate via residue theorem.
+						<span class="fragment" data-fragment-index="3">Then let \(R \ra \infty\).</span>
+					</p>
 				</div>
 			</section>
 
 			<section>
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt">
-				<div class="left-txt">
-					<p>LHS: hopefully can evalate via residue theorem. 
-						<span>Then let \(R \ra \infty\).</span>
+					<p>\((\text{II}) \ra\) \(\text{PV}\ds\int_{-\infty}^{\infty}f = \int_{-\infty}^{\infty}f\) since
+						\(f\) is even.</p>
+					<p class="fragment" data-fragment-index="0">Only remains to deal with \(\ds\lim_{R\ra
+						\infty}\int_{\Gamma_1}f\).</p>
+					<p class="fragment" data-fragment-index="1">Hopefully = 0, e. g. via \(M-\ell\) estimate.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-90">
+					<p><strong>Example:</strong> Evaluate \(I = \ds \int_{0}^{\infty}\frac{x^2}{x^6+1}dx\).</p>
+					<p class="fragment" data-fragment-index="0">Note \(f\) is even and continuous.
+						<span class="fragment" data-fragment-index="1"> Also \(f \backsim 1/x^4\) as \(x\ra
+							\pm\infty\).</span>
+						<span class="fragment" data-fragment-index="2">So \(I\) converges (\(p\)-test, \(p\gt
+							1\)).</span>
 					</p>
-					<p>\((\text{II}) \ra\) \(\text{PV}\ds\int_{-\infty}^{\infty}f = \int_{-\infty}^{\infty}f\) since \(f\) is even.</p>
-					<p>Only remains to deal with \(\ds\lim_{R\ra \infty}\int_{\Gamma_1}f\).</p>
-					<p class="size-70 fragment" data-fragment-index="0">Hopefully = 0, e. g. via \(M-\ell\) estimate.</p>
+					<p class="fragment" data-fragment-index="3">Note \(f(z)=\dfrac{z^2}{z^6+1}\) is analytic on \(\C\),
+						except for the 6 zeros of the denominator \(z^6+1\).</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<img style="width: 55%;" data-src="img/lect-35/contour-integral-example.svg" />
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="0"><strong>Example (cont):</strong> \(f\) is analytic in
+						and on \(C= \Gamma_1 +
+						\Gamma_2\), except for the 3 zeros of \(z^6+1\) in the UHP.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-80">
+					<p><strong>Example 1 (cont):</strong> Note that \(z_1 = e^{\pi i/6}\), \(z_2 = i\), \(z_3 = e^{5\pi
+						i/6}\).</p>
+					<p class="fragment" data-fragment-index="0"><a href="lecture-32.html#/cauchy-residue-theorem" target="_blank">Residue Theorem</a>
+						\(\Rightarrow \)
+						\[\int_C f= 2 \pi i \sum_{j=1}^{3}\underset{z=z_j}{\res} f(z)\qquad (1)\]
+					</p>
+					<p class="fragment" data-fragment-index="1">Also note \(f\) has the form \(p/q\): for each \(z_j\),
+						there holds: \[p(z_i)\neq 0, q(z_j)=0, q'(z_i)\neq 0.\]</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-80">
+					<p><strong>Example 1 (cont):</strong> \(\Rightarrow\) simple pole ar each \(z_j\)
+						<span class="fragment" data-fragment-index="0">and so <a href="lecture-34.html#/simple-poles-residue-theorem">Theorem 4</a> (previous
+							lecture) implies</span>
+					</p>
+				</div>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="1">\(\text{RHS} = 2 \pi i \ds \sum_{j=1}^{3} \left.\frac{z^2}{(z^6+1)^{\prime}}\right|_{z=z_j}\)
+						<span class="fragment" data-fragment-index="2">\(= 2 \pi i \ds \sum_{j=1}^{3} \frac{z_j^2}{6z_j^5}\)</span>
+						<span class="fragment" data-fragment-index="3">\(= 2 \pi i \ds \sum_{j=1}^{3} \frac{1}{6z_j^3}\)</span>
+					</p>
+					<p class="fragment" data-fragment-index="4">\(= 2 \pi i \left( \ds \frac{1}{6i} -\frac{1}{6i}+ \frac{1}{6i} \right)\)
+						<span class="fragment" data-fragment-index="5">\(= \dfrac{\pi}{3}.\qquad \qquad \qquad\)</span>
+					</p>
+					
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-80">
+					<p><strong>Example 1 (cont):</strong> Note</p>
+				</div>
+				<div class="size-80">
+					<p>\(\ds\int_C f = \int_{\Gamma_1}f + \int_{\Gamma_2}f\)</p>
+					<p class="fragment" data-fragment-index="0">\(\;\;\qquad(\alpha)\) \(\qquad (\beta)\)</p>
+				</div>
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="1">As \(R\ra \infty\), \((\beta) \ra 2I\).</p>
+					<p class="fragment" data-fragment-index="2"><strong>Claim:</strong>  \((\beta) \ra 0\) as \(R\ra \infty\).</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-90">
+					<p><strong>Example (cont):</strong> <strong>Claim:</strong>  \((\beta) \ra 0\) as \(R\ra \infty\).</p>
+					<p class="fragment" data-fragment-index="0">Note \(\big|(\alpha)\big|  \leq M_R \ell_R\; \,(*)\,\) where \( \ell_R = \text{length } \Gamma_1 = \pi R \)</p>
+					<p class="fragment" data-fragment-index="1">and \(M_R = \ds\max_{z\in \Gamma_1 } \left| f(z)  \right|\)
+						<span class="fragment" data-fragment-index="2">\(\leq \ds \max_{|z|=R } \left| \frac{z^2}{z^6+1}  \right|\)</span>
+						<span class="fragment" data-fragment-index="3">\(\leq  \ds \frac{R^2}{R^6-1}  \).</span>
+					</p>
+					<p class="fragment" data-fragment-index="4">(via reverse triangle inequality: \(|a+b|\geq \big||a|+|b|\big|\)).</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Applications contour integrals</h3>
+				<div class="left-txt size-90">
+					<p><strong>Example 1 (cont):</strong> So <a href="#/9/0/0">\((*)\)</a> implies</p>
+				</div>
+				<div class="size-90">
+					<p>\(\big|(\alpha)\big| \leq \ds \frac{\pi R \cdot R^2}{R^6-1}\)
+						<span>\(=\ds\frac{\pi}{R^3 -\frac{1}{R^3}}\)</span>
+					</p>
+				</div>
+				<div class="left-txt size-90">
+					<p class="fragment" data-fragment-index="0">this espression \(\ra 0\) as \(R\ra \infty\). 
+						<span class="fragment" data-fragment-index="1">So \(\ds\lim_{R\ra \infty}\) in <a href="#/6/0/0">\((1)\)</a> \(\Rightarrow\)
+							
+						</span>
+					</p>
+				</div>
+				<div class="size-90">
+					<p class="fragment" data-fragment-index="1">\(\ds \frac{\pi}{3} = 2I + 0 \;\)
+						<span class="fragment" data-fragment-index="3">\( \Rightarrow \; I = \ds\frac{\pi}{6}\).</span></p>
 				</div>
 			</section>
 
