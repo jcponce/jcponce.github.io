@@ -69,9 +69,9 @@ Reveal.initialize({
 	dependencies: [
 		// Here I need to add the third party plugins
 		// The plugin Menu is now available for reveal.js 4.0.2
-		//{
-		//	src: 'plugin/menu/menu.js'
-		//},
+		// {
+		// 	src: 'plugin/menu/menu.js'
+		// },
 		{
 			src: 'plugin/chalkboard/chalkboard.js'
 		},
@@ -104,12 +104,12 @@ Reveal.initialize({
 });
 
 // This function allows you to toggle themes, I don't need it now :)
-//toggleMenu = () => {
-//	let menu = Reveal.getPlugin('menu');
-//	if (menu) menu.toggle();
-//};
+// toggleMenu = () => {
+//   let menu = Reveal.getPlugin('menu');
+//	 if (menu) menu.toggle();
+//  };
 
-//Reveal.getPlugins();
+// Reveal.getPlugins(); // Not required now for v.4.0.2
 
 /* 
 The follwing function is to include an HTML file in the slides
