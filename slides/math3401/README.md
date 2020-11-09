@@ -4,7 +4,7 @@
 
 This project was written with [reveal.js](https://revealjs.com/), an open source HTML presentation framework created by [@hakimel](https://github.com/hakimel/). It's a tool that enables anyone with a web browser to create fully-featured and beautiful presentations for free.
 
-#### Third party plugins for reveal.js v 4.0.2
+#### Third party plugins used for reveal.js v 4.0.2
 
 * Chalkboard by [Asvin Goel](https://github.com/rajgoel/reveal.js-plugins)
 * Menu by [Greg Denehy](https://github.com/denehyg/reveal.js-menu)
