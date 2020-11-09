@@ -51,7 +51,49 @@
 				<p>Lecture 37</p>
 			</section>
 
-			
+			<section>
+				<h3>Jordan's Lemma</h3>
+				<div class="left-txt size-80">
+					<p><strong>Lemma:</strong> If \(f\) is analytic on 
+					\( \left\{ z : \Im z \ge 0\right\} \cap \left\{ z : |z| \ge R_0 \right\}\)
+					satisfies \(\big|\,f(z) \le \frac{M}{R^\beta}\big|\;\) \((*)\;\) (\(M,\beta \gt 0 \) constants) on 
+					\[ \Gamma_R=\left\{ Re^{i\theta}: R\gt R_0, 0\le \theta \le \pi \right\}. \]
+					Then 
+					\[\ds \lim_{R\ra \infty } \int_{\Gamma_R } e^{i\alpha z} f(z)\, dz = 0,\; \forall \alpha.\]
+					</p>
+				</div>
+			</section>
+
+			<section id="proof-jordan-lemma">
+				<h3>Jordan's Lemma</h3>
+				<div class="left-txt size-70">
+					<p><strong>Proof:</strong> On \(\Gamma_R\) we have \(z= Re^{i \theta }\), \(dz = i R e^{i\theta}\)</p>
+					<p class="fragment" data-fragment-index="0">\(\left| \ds\int_{\Gamma_R } e^{i\alpha z} f(z)\, dz \right|\)
+						<span class="fragment" data-fragment-index="1">\(= R \left| \ds\int_{0}^{\pi} e^{i\alpha Re^{i \theta } } f\left(Re^{i \theta }\right)\, d\theta \right|\)</span>
+						<span class="fragment" data-fragment-index="2">\(\le R \ds \int_0^{\pi} \left| e^{i\alpha Re^{i \theta } } f\left(Re^{i \theta }\right)\, d\theta \right|\)</span>
+					</p>
+					<p class="fragment" data-fragment-index="3">\(\qquad \qquad \qquad = R \ds \int_0^{\pi} \left| e^{i\alpha R\left(R \cos \theta + i R \sin \theta \right) } f\left(Re^{i \theta }\right) \right| d\theta\)</p>
+					<p class="fragment" data-fragment-index="4">\(\qquad \qquad \qquad = R \ds \int_0^{\pi} e^{-\alpha \,R \sin \theta} \left| \, f\left(Re^{i \theta }\right) \right| d\theta\)</p>
+					<p class="fragment" data-fragment-index="5">\(\qquad \qquad \qquad \overset{(*)}{\le}  \ds \frac{M}{R^{\beta -1}}  \int_0^{\pi} e^{-\alpha \,R \sin \theta}  d\theta\)</p>
+					<p class="fragment" data-fragment-index="6">\(\qquad \qquad \qquad =  \ds \frac{2M}{R^{\beta -1}}  \int_0^{\pi/2} e^{-\alpha \,R \sin \theta}  d\theta\) \(\quad (**)\)</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Jordan's Lemma</h3>
+				<div class="left-txt size-80">
+					<p><strong>Proof (cont):</strong> Note that \(\sin \theta \ge \frac{2\theta}{\pi}\) for \(0\le \theta \le \pi/2\).</p>
+					<p class="fragment" data-fragment-index="0">So we have</p>
+				</div>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="0">\((**) \le \ds \frac{2M}{R^{\beta-1}}  \int_0^{\pi/2} e^{-\frac{2\alpha R}{\pi} \theta}  d\theta \) \(\qquad\qquad \)</p>
+					<span class="fragment" data-fragment-index="1">\(= \ds \frac{2M}{R^{\beta-1}}  \frac{\pi}{2 \alpha R} \left( 1-e^{-\alpha R} \right) \) \(\qquad \)</span>
+					<p class="fragment" data-fragment-index="2">\(\quad \quad \;\;= \ds \frac{M \pi }{\alpha R^{\beta}} \left( 1-e^{-\alpha R} \right)\)
+						<span class="fragment" data-fragment-index="3">\(\ra 0\) as \(R\ra \infty\). \(\;\square\)</span>
+					</p>
+				</div>
+			</section>
+
 
 			<section>
 				<h4>Credits</h4>
