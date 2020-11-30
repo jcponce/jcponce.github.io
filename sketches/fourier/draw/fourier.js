@@ -57,7 +57,7 @@ function dftEven(x) {
   const X = [];
   const N = x.length;
 
-  for (let k = -N / 2; k <= (N - 1) / 2; k++) {
+  for (let k = -N / 2; k <= N / 2 - 1; k++) {
     let sum = new Complex(0, 0);
     for (let l = 0; l < N; l++) {
       const phi = k * 2 * PI * l / N;
