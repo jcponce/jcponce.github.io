@@ -13,7 +13,6 @@ function setup() {
   let w = windowWidth;
   let h = windowHeight;
   createCanvas(w, h);
-  //createCanvas(500, 500);
   background(500);
   branch_len = random(w/12, w/6);
   branch_angle = 55; //random (30,60);
@@ -75,7 +74,8 @@ function branch(len) {
   if (len > 5) {
 
     push();
-    rotate(branch_angle * random() * 0.6 );
+    let a1 = 0.55 
+    rotate(branch_angle * random(-a1, a1));
     branch(len * branch_dec);
     pop();
 
