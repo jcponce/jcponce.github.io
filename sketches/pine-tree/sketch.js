@@ -25,7 +25,7 @@ function setup() {
 }
 
 function draw() {
-  stroke('rgb(71, 66, 51)');
+  stroke('rgb(38, 25, 24)');
   strokeWeight(20);
   line(width / 2, height, width / 2, height * 0.68 - branch_len)
   translate(width / 2, height * 0.68);
@@ -52,22 +52,22 @@ function branch(len) {
   $june-bud-2: rgba(196, 217, 103, 1);
   */
 
-  stroke('rgb(71, 66, 51)');
-  if (len < 100) {
-    stroke('rgb(117, 109, 84)');
-  }
-  if (len < 50) {
-    stroke('rgb(139, 149, 86)');
-  }
-  if (len < 20) {
-    stroke('rgb(171, 181, 87)');
-  }
-  if (len < 12) {
-    stroke('rgb(190, 213, 88)');
-  }
-  if (len === 6) {
-    stroke('rgb(196, 217, 103)');
-  }
+ stroke('rgb(38, 25, 24)');
+ if (len < 100) {
+   stroke('rgb(54, 41, 33)');
+ }
+ if (len < 50) {
+   stroke('rgb(69, 57, 41)');
+ }
+ if (len < 20) {
+   stroke('rgb(85, 128, 39)');
+ }
+ if (len < 12) {
+   stroke('rgb(84, 130, 38)');
+ }
+ if (len === 6) {
+   stroke('rgb(83, 132, 37)');
+ }
 
   line(0, 0, 0, -len);
 
