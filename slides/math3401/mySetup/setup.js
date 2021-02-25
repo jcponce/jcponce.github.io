@@ -57,6 +57,7 @@ Reveal.initialize({
 	chalkboard: {
 		// optionally load pre-recorded chalkboard drawing from file
 		//src: "chalkboard.json",
+		boardmarkerWidth: 4,
 		chalkWidth: 4,
 		toggleChalkboardButton: {
 			left: "80px"
