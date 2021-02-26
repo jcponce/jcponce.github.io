@@ -51,24 +51,24 @@
 				<p>Lecture 10</p>
 			</section>
 
-			<section id="branches">
+			<section id="bounded-functions-examples">
 				<h4>Bounded &amp; unbounded functions</h4>
-				<div class="left-txt size-80">
+				<div class="left-txt size-70">
 					<p class="fragment" data-fragment-index="0">\((*)\) \(\;f(z)=\pi\) is bounded on \(\C\).
 					</p>
 					<p class="fragment" data-fragment-index="1">\((*)\) \(\;f(z)=1/z\) is unbounded on \(\C\),<br />
 						<span class="fragment" data-fragment-index="2">
 							<span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span>
 							is unbounded on \(\{z: 0
-							< |z| \leq 1\}\), </span> <br />
-							<span class="fragment" data-fragment-index="3">
-								<span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span>
-								is bounded on \(\{z: |z| \geq 1\}\),
-							</span><br />
-							<span class="fragment" data-fragment-index="4">
-								<span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span>
-								is unbounded on \(\{z: |z| = 1\}\).
-							</span>
+							\lt |z| \leq 1\}\), </span> <br />
+						<span class="fragment" data-fragment-index="3">
+							<span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span>
+							is bounded on \(\{z: |z| \geq 1\}\),
+						</span><br />
+						<span class="fragment" data-fragment-index="4">
+							<span style="color:white;">\((*)\) \(\;f(z)=1/z\)</span>
+							is unbounded on \(\{z: |z| = 1\}\).
+						</span>
 					</p>
 					<p class="fragment" data-fragment-index="5">\((*)\) \(\;f(z)=z\) is unbounded on \(\C\), bounded
 						on any bounded subset of \(\C\).
@@ -79,19 +79,19 @@
 				</div>
 			</section>
 
-			<section id="branch-cut">
+			<section id="zeros-of-functions">
 				<h4>Zeros of functions</h4>
 				<div class="left-txt size-60">
 					<p class="fragment" data-fragment-index="0"><strong>Definition:</strong> A zero of a function \(f\)
 						is a
 						value of \(z\) such that \(f(z)=0\).
 					</p>
-					<p class="fragment" data-fragment-index="1">E. g. Zeros of \(\sin\):
+					<p class="fragment" data-fragment-index="1"><strong>E. g.</strong> Zeros of \(\sin\):
 						\[
 						(12)\implies n\pi + 0 i, \quad n\in \Z.
 						\]
 					</p>
-					<p class="fragment" data-fragment-index="2">E. g. Zeros of \(\cos\):
+					<p class="fragment" data-fragment-index="2"><strong>E. g.</strong> Zeros of \(\cos\):
 						\[
 						(13)\implies \text{ only } \left(n+\frac{1}{2}\right)\pi , \quad n\in \Z.
 						\]
@@ -114,19 +114,21 @@
 					<p class="fragment" data-fragment-index="0">Set \(w = \sin ^{-1}z\),
 						<span class="fragment" data-fragment-index="1"> then </span>
 					</p>
+
+				</div>
+
+				<div class="size-70">
 					<p class="fragment" data-fragment-index="1">
-						\(z = \sin w\)
-					</p>
-					<p class="fragment" data-fragment-index="2">\( \;\; = \dfrac{e^{iw}- e^{-iw}}{2i}\cdot
-						\dfrac{e^{iw}}{e^{iw}}\)
+						\(z = \sin w\) <span class="fragment" data-fragment-index="2"> \(= \dfrac{e^{iw}-
+							e^{-iw}}{2i}\cdot
+							\dfrac{e^{iw}}{e^{iw}}\)</span>
 						<span class="fragment" data-fragment-index="3">\( \;\; = \dfrac{e^{2w}-1}{2i e^{iw}} \)
 						</span>
 					</p>
-
 					<p class="fragment" data-fragment-index="4">\(\implies 2iz e^{iw} = e^{2iw} - 1 \)
 					</p>
 					<p class="fragment" data-fragment-index="5">\(\implies \left( e^{iw} \right)^2- 2i
-						z\left(e^{iw}\right) -1 = 0 \)
+						z\left(e^{iw}\right) -1 = 0. \)
 					</p>
 				</div>
 			</section>
@@ -161,7 +163,7 @@
 					<p class="fragment" data-fragment-index="3">Now, \( \log\left( 1+\sqrt{2} \right) = \ln\left(
 						1+\sqrt{2} \right) + 2n\pi i \) with \(n \in \Z \),
 					</p>
-					<p class="fragment" data-fragment-index="4">and \( \log\left(1 -\sqrt{2}  \right) =
+					<p class="fragment" data-fragment-index="4">and \( \log\left(1 -\sqrt{2} \right) =
 						\ln\left(\sqrt{2} - 1 \right) + (2n+1)\pi i \) with \(n \in \Z \).
 					</p>
 					<p class="fragment" data-fragment-index="5">So
@@ -228,13 +230,16 @@
 					<p>Take \( \Omega \subseteq \C\).
 					</p>
 					<p class="fragment" data-fragment-index="0">\(*\;\) \(z\in \C\) is an <em>interior
-							point</em> of \(\Omega\) if \(\exists \varepsilon &gt; 0\) such that \(B_{\varepsilon}(z_0)\subset
+							point</em> of \(\Omega\) if \(\exists \varepsilon &gt; 0\) such that
+						\(B_{\varepsilon}(z_0)\subset
 						\Omega\)
 					</p>
-					<p class="fragment" data-fragment-index="1">(note \(\Rightarrow B_{\varepsilon^{\prime}}(z_0)\subset \Omega\;
+					<p class="fragment" data-fragment-index="1">(note \(\Rightarrow B_{\varepsilon^{\prime}}(z_0)\subset
+						\Omega\;
 						\forall \varepsilon^{\prime}\), \(0 &lt; \varepsilon^{\prime} &lt; \varepsilon\)). </p>
 					<p class="fragment" data-fragment-index="2">\(*\;\) \(z\in \C\) is an <em>exterior
-							point</em> of \(\Omega\) if \(\exists \varepsilon &gt; 0\) such that \(B_{\varepsilon}(z_0)\cap
+							point</em> of \(\Omega\) if \(\exists \varepsilon &gt; 0\) such that
+						\(B_{\varepsilon}(z_0)\cap
 						\Omega \neq \emptyset\).
 					</p>
 					<p class="fragment" data-fragment-index="3">\(*\;\) \(z\in \C\) is a <em>boundary
@@ -244,9 +249,9 @@
 						B_{\varepsilon}(z_0)\cap \Omega^c \neq \emptyset.
 						\]
 					</p>
-					<p class="fragment" data-fragment-index="4">\(\Omega^c \) is the complement of \(\Omega \), i. e. 
+					<p class="fragment" data-fragment-index="4">\(\Omega^c \) is the complement of \(\Omega \), i. e.
 						\(\C \setminus \Omega\).
-				</p>
+					</p>
 				</div>
 			</section>
 
