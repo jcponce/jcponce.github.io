@@ -78,7 +78,7 @@
 					<p><strong>Show:</strong> If \(\Omega_1,\Omega_2 \subseteq \C\) are open, then so is \(\Omega_1\cap
 						\Omega_2\).
 					</p>
-					<p class="fragment" data-fragment-index="0"><strong>Proof:</strong> If \(\Omega_1\cap \Omega_2 \neq
+					<p class="fragment" data-fragment-index="0"><strong>Proof:</strong> If \(\Omega_1\cap \Omega_2 =
 						\emptyset\) done
 						(\(\emptyset\) is open).
 					</p>
@@ -87,9 +87,9 @@
 					</p>
 				</div>
 				<div class="size-70">
-					<p class="fragment" data-fragment-index="2">\(z\in \Omega_1 \implies \exists\varepsilon_1 \text{
+					<p class="fragment" data-fragment-index="2">\(z\in \Omega_1 \Rightarrow \exists\varepsilon_1 \gt0 \text{
 						such that } B_{\varepsilon_1}(z)\subset \Omega_1\) ... ♣️</p>
-					<p class="fragment" data-fragment-index="3">\(z\in \Omega_1 \implies \exists\varepsilon_2 \text{
+					<p class="fragment" data-fragment-index="3">\(z\in \Omega_1 \Rightarrow  \exists\varepsilon_2 \gt 0  \text{
 						such that } B_{\varepsilon_2}(z)\subset \Omega_2\) ... 🙂</p>
 				</div>
 			</section>
@@ -111,11 +111,13 @@
 						<span class="fragment" data-fragment-index="3">So \(B_{\varepsilon}(z)\subset
 							\Omega_1\cap\Omega_2\).</span>
 						<span class="fragment" data-fragment-index="4">Since \(z\) was arbitrary in
-							\(\Omega_1\cap\Omega_2\)</span>
+							\(\Omega_1\cap\Omega_2\).</span>
 					</p>
 					<p class="fragment" data-fragment-index="5">This implies \(\text{Int } \Omega_1\cap\Omega_2=
-						\Omega_1\cap\Omega_2\).</p>
-					<p class="fragment" data-fragment-index="6">Hence \(\Omega_1\cap\Omega_2\) is open.</p>
+						\Omega_1\cap\Omega_2\).
+						<span class="fragment" data-fragment-index="6">Hence \(\Omega_1\cap\Omega_2\) is open. \(\blacksquare\)</span>
+					</p>
+					
 				</div>
 			</section>
 
@@ -132,15 +134,21 @@
 
 			<section id="accumulation-point">
 				<h3>Topology</h3>
-				<div class="left-txt size-90">
+				<div class="left-txt size-80">
 					<p>\(*\) A Point \(z\in \C\) is called an
-						<em>accumulation point</em> of a set \(\Omega \subseteq \C\) if every deleted neighbourood
+						<em>accumulation point</em> of a set \(\Omega \subseteq \C\) if every deleted neighbouhood
 						of \(z\) intersects \(\Omega\).
 					</p>
 					<p class="fragment" data-fragment-index="1"><strong>Example 1:</strong>
 						\(\Omega=\left\{\dfrac{i}{2^n}\right\}_{n\in \N}\).
+						<span class="fragment" data-fragment-index="4">The only accumulation point is 0.</span>
 					</p>
-					<p class="fragment" data-fragment-index="4">The only accumulation point is 0.</p>
+					<p></p>
+					<p class="fragment" data-fragment-index="5"><strong>Example 2:</strong>
+						\(\Omega=B_1\).
+						<span class="fragment" data-fragment-index="6">The set of accumulation points  is \(\conj{B_1}\).</span>
+					</p>
+					
 				</div>
 			</section>
 
@@ -197,8 +205,8 @@
 						\lim_{z \ra z_0} f(z)=w_0 \iff
 						\left\{
 						\begin{array}{rl}
-						\ds\lim_{(x,y)\ra (x_0+iy_0)} u(x,y) & = u_0,\\
-						\ds\lim_{(x,y)\ra (x_0+iy_0)} v(x,y) & = v_0.
+						\ds\lim_{(x,y)\ra (x_0, y_0)} u(x,y) & = u_0,\\
+						\ds\lim_{(x,y)\ra (x_0, y_0)} v(x,y) & = v_0.
 						\end{array}
 						\right.
 						\]
@@ -210,7 +218,7 @@
 				<h4>Limit Theorems</h4>
 				<div class="left-txt size-70">
 					<p><strong>Theorem 2:</strong> Suppose \(\ds \lim_{z \ra z_0}f(z) = w_0\)
-						and \(\ds \lim_{z \ra z_0}g(z) = w_0\) and \(\lambda\in \C\). Then
+						and \(\ds \lim_{z \ra z_0}g(z) = \xi_0\) and \(\lambda\in \C\). Then
 					</p>
 					<ol>
 						<li class="fragment" data-fragment-index="0">\(\ds \lim_{z \ra z_0}\left(f \pm
