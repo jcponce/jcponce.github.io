@@ -87,9 +87,9 @@
 							\(\Rightarrow\) continuity</span>
 					</p>
 				</div>
-				<p class="fragment" data-fragment-index="2">continuity \(\nRightarrow\) differentiability</p>
+				<p class="fragment" data-fragment-index="2">differentiability \(\nLeftarrow\) continuity</p>
 				<div class="left-txt">
-					<p><span class="fragment" data-fragment-index="3">Example for \(\nRightarrow\): \(|z|^2\) (or
+					<p><span class="fragment" data-fragment-index="3">Example for \(\nLeftarrow\): \(|z|^2\) (or
 							\(|z|\), or others).</span>
 					</p>
 				</div>
@@ -104,14 +104,14 @@
 						<li>\(\ds \frac{d}{dz}z^n = nz^{n-1}\); \(n\in\Z\)</li>
 						<li> \(\ds e^z = e^z\)</li>
 						<li>\(\ds \sin z = \cos z\)</li>
-						<li>\(\ds \cos z = -sin z\)</li>
+						<li>\(\ds \cos z = -\sin z\)</li>
 					</ul>
 				</div>
 			</section>
 
 			<section data-transition="fade-out" id="derivatives-formulae-part-2">
 				<h3>Formulae</h3>
-				<div class="left-txt size-80">
+				<div class="left-txt size-70">
 					<p>For \(f, g\) differentiable functions:</p>
 					<ul>
 						<li>\(\ds \big(f\pm g\big)^{\prime} = f^{\prime} \pm g^{\prime}\)</li>
@@ -119,8 +119,9 @@
 						<li>\(\ds \left(\frac{f}{g}\right)^{\prime} = \frac{gf^{\prime} - f g^{\prime}}{g^2}\)
 						</li>
 						<li><strong>Chain rule:</strong> \(f\) differentiable at \(z_0\) and \(g\) differentiable at
-							\(f(z_0)\), then \(g\circ f\) is differentiable at \(z_0\) and \(\big(g \circ f\big) =
-							g^{\prime}\big(f(z_0)\big)f^{\prime}(z_0)\)</li>
+							\(f(z_0)\),<br/> then \(g\circ f\) is differentiable at \(z_0\) and \[\big(g \circ f\big) =
+							g^{\prime}\big(f(z_0)\big)f^{\prime}(z_0).\]
+							Write \(\dfrac{dg}{dz} = \dfrac{dg}{dw} \dfrac{dw}{dz} \) where \(w=f(z).\)</li>
 					</ul>
 				</div>
 			</section>
@@ -133,7 +134,7 @@
 							x_0+iy_0\). </span>
 						<span class="fragment" data-fragment-index="1">Set \(\Delta z = \Delta x + i \Delta y \) ...
 							(♣️)</span>
-						<span class="fragment" data-fragment-index="2">\[f^{\prime} (z_0) = \lim_{z\ra z_0}\frac{ \Delta
+						<span class="fragment" data-fragment-index="2">\[f^{\prime} (z_0) = \lim_{\Delta z\ra 0}\frac{ \Delta
 							w }{ \Delta z} \quad (1)\]</span>
 					</p>
 					<p class="fragment" data-fragment-index="3"><strong>Key point:</strong> Derivative is independent of
@@ -146,15 +147,19 @@
 				<h4>Cauchy-Riemann</h4>
 				<div class="left-txt size-70">
 					<p>Note \(\Delta w = f(z_0+\Delta z)-f(z_0) \)</p>
-					<p class="fragment" data-fragment-index="0">\(= u(x_0 +\Delta x, y_0 +\Delta y) + i v(x_0 +\Delta x,
-						y_0 +\Delta y) \quad (2) \)
+					<p class="fragment" data-fragment-index="0">\(\qquad = u(x_0 +\Delta x, y_0 +\Delta y) + i v(x_0 +\Delta x,
+						y_0 +\Delta y)  \)
 					</p>
-					<p class="fragment" data-fragment-index="1">Now, from <a href="#/5/0/1">(♣️)</a> we have
+					<p class="fragment" data-fragment-index="0">\(\qquad \;\;\,- u(x_0 , y_0 ) - i v(x_0 ,
+						y_0 ) \quad (2) \)
+					</p>
+					<p class="fragment" data-fragment-index="1">Now, from <a href="#/5/0/2">(1)</a> we have
 					</p>
 					<p class="fragment" data-fragment-index="2">\(f^{\prime}(z_0) = \ds \lim_{\left(\Delta x,
 						\Delta y\right)\ra (0,0)} \Re \left(\frac{\Delta w}{\Delta z}\right) + i \lim_{\left(\Delta x,
 						\Delta y\right)\ra (0,0)} \Im \left(\frac{\Delta w}{\Delta z}\right) \quad (3) \)</p>
-					<p class="fragment" data-fragment-index="3">As per <a href="#/5/0/3">(⚛️)</a>, the value of the limit is independent of
+					<p class="fragment" data-fragment-index="3">As per <a href="#/5/0/3">(⚛️)</a>, the value of the
+						limit is independent of
 						how \(\left(\Delta x, \Delta y\right)\ra (0,0)\).</p>
 
 				</div>
@@ -198,7 +203,7 @@
 				<h4>Cauchy-Riemann</h4>
 				<div class="left-txt size-70">
 					<p>Repeat for \(\Delta z\) of the form \(\Delta z = 0 + i \Delta y\) with \(\Delta y\neq 0\),
-						i. e. \(\Delta z \ra 0\) on the \(y\)-axis.
+						i. e. \(\Delta z \ra 0\) on <br/>the \(y\)-axis.
 						<span class="fragment" data-fragment-index="0">For this \(\Delta z\):
 							\[
 							\frac{\Delta w}{\Delta z} = \frac{u(x_0, y_0+\Delta y) - u(x_0,y_0)}{i \Delta y} + i
@@ -227,8 +232,8 @@
 			<section data-transition="fade-out" id="cauchy-riemann-equations">
 				<h4>Cauchy-Riemann</h4>
 				<div class="left-txt size-90">
-					<p>Keeping in mind <a href="#/5/0/3">(⚛️)</a>, (4) &amp; (6) and (5) &amp; (7) imply the 
-						<br>
+					<p>Keeping in mind <a href="#/5/0/3">(⚛️)</a>, (4) &amp; (6) and (5) &amp; (7) imply <br/>the
+						
 						<em>Cauchy-Riemann equations:</em>
 					</p>
 					<p class="fragment" data-fragment-index="0">If \(f=u+iv\) is differentiable at \(z_0=x_0+iy_0\),
@@ -237,9 +242,8 @@
 						\begin{align}
 						u_x & = v_y \\
 						-v_x & = u_y
-						\end{align}
+						\end{align} \quad \text{ at }\quad(x_0, y_0).
 						\]
-						at \((x_0, y_0)\).
 					</p>
 				</div>
 			</section>
@@ -252,16 +256,18 @@
 						<span class="fragment" data-fragment-index="0">They are <em>not</em> sufficient (later).
 						</span>
 					</p>
-					
+
 					<p>
 						<span class="fragment" data-fragment-index="1">Sufficient conditions for \(f^{\prime}(z_0)\) to
 							exist: </span>
 						<ul>
-							<li class="fragment" data-fragment-index="2">\(f\) is defined in a neibourhood of \(z_0\),</li>
-							<li class="fragment" data-fragment-index="3">\(u_x, u_y, v_x, v_y\) are defined and continuous in a beighbourhood at \((x_0,y_0)\),</li>
+							<li class="fragment" data-fragment-index="2">\(f\) is defined in a neibourhood of \(z_0\),
+							</li>
+							<li class="fragment" data-fragment-index="3">\(u_x, u_y, v_x, v_y\) are defined and
+								continuous in a beighbourhood at \((x_0,y_0)\),</li>
 							<li class="fragment" data-fragment-index="4">C/R hold at \((x_0,y_0)\).</li>
 						</ul>
-						<br/><br/>
+						<br /><br />
 						<span class="fragment" data-fragment-index="5">Then \(f^{\prime}(z_0)\) exists.</span>
 					</p>
 				</div>
