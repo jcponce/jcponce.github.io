@@ -81,7 +81,7 @@
 				<div class="left-txt size-80">
 					<p class="fragment" data-fragment-index="0">On \(\R^2\setminus \left\{(0,0)\right\}\)
 						\[f(x,y) = \ln \big(||(x,y)||\big) = \ln \left(\sqrt{x^2+y^2}\right)\]
-						is harmonic;</p>
+						is harmonic; <span title="Check it!">📝</span></p>
 					<p class="fragment" data-fragment-index="1">On \(\R^n\setminus \left\{\mathbf 0 \right\}\), \(n\geq
 						3\)
 						\[f(\mathbf x) = \frac{1}{||\mathbf x||^{n-2}} = \frac{1}{\left(x_1^2 + \cdots +
@@ -102,6 +102,7 @@
 						continuous partials
 						of all orders and C/R hold, i. e.
 						\[u_x = v_y\quad\text{and}\quad u_y=-v_x\qquad (1)\]</p>
+						<!--In the PDF it starts in (2), but there is no equation (1). So I started with (1) here.-->
 				</div>
 			</section>
 
@@ -113,7 +114,7 @@
 					<p class="fragment" data-fragment-index="0">\(\partial_y\) of \((1)\) implies
 						\[u_{yx} = v_{yy}\quad\text{and}\quad u_{yy}=-v_{yx}.\qquad (3)\]</p>
 					<p class="fragment" data-fragment-index="1">Since all partial of all orders are continuous
-						\[u_{xy} = v_{yx}\quad\text{and}\quad u_{xy}=-v_{yx}.\]
+						\[u_{xy} = u_{yx}\quad\text{and}\quad v_{xy}=v_{yx}.\]
 					</p>
 					<p class="fragment" data-fragment-index="2">So \((2)\) and \((3)\) implies
 						\[\Delta u = 0 \quad \text{and}\quad \Delta v = 0.\]
@@ -126,7 +127,7 @@
 				<div class="left-txt size-80">
 					<p class="fragment" data-fragment-index="0"><strong>Definition:</strong> If \(u\) and \(v\) are
 						harmonic and satisfy C/R, then
-						\(v\) is called a <em>harmonic conjugate</em> of \(u\).</p>
+						\(v\) is called <br/>a <em>harmonic conjugate</em> of \(u\).</p>
 					<p class="fragment" data-fragment-index="1"><strong>Theorem:</strong> \(f= u+iv\) is analytic in
 						\(\Omega\) \(\iff\) \(v\) is harmonic
 						conjugate
@@ -165,8 +166,8 @@
 				<div class="left-txt size-80">
 					<p>C/R\(_{\text{II}}\) implies \[u_y=-v_x=-w_x\qquad (\heartsuit)\]
 					</p>
-					<p class="fragment" data-fragment-index="0">Integrate \((\heartsuit)\) with respect of \(x\).
-						<span class="fragment" data-fragment-index="1">Then
+					<p class="fragment" data-fragment-index="0">Integrate \((\heartsuit)\) with respect of \(x\) 
+						<span class="fragment" data-fragment-index="0">\(\implies\)
 							\(v = w+ \psi(y).\)
 						</span>
 					</p>
@@ -182,13 +183,14 @@
 				<h3>Harmonic functions</h3>
 				<div class="left-txt size-80">
 					<p><strong>Example 1:</strong> \(u(x,y) = y^3 - 3x^2y\). Find a harmonic conjugate.</p>
-					<p class="fragment" data-fragment-index="0"><strong>Solution:</strong> \(u\) is a polunomial
+					<p class="fragment" data-fragment-index="0"><strong>Solution:</strong> \(u\) is a polynomial
 						function in \(x\) and \(y\), so has
 						continuous partials of all orders.</p>
 				</div>
 
 				<p class="fragment size-80" data-fragment-index="1">Further \(u_{xx} + u_{yy}= 0\). &nbsp; &nbsp;
-					&nbsp;⭐ </p>
+					&nbsp;<span
+					title="Check it!">📝</span></p>
 				<div class="left-txt size-80">
 					<p class="fragment" data-fragment-index="2">Let \(v\) be a harmonic conjugate of \(u\).
 						<span class="fragment" data-fragment-index="3">C/R\(_{\text{I}}\) implies \(u_x = v_y\)</span>
@@ -220,29 +222,6 @@
 					</p>
 					<p class="fragment" data-fragment-index="4"><strong>Note:</strong> For \(f(z)=iz^3\), \(u =
 						\Re(\,f)\) and \( v = \Im(\,f)\).</p>
-				</div>
-			</section>
-
-			<section>
-				<h3>Harmonic functions</h3>
-				<div class="left-txt size-80">
-					<p><strong>Remark:</strong> \(v\) is harmonic conjugate of \(u\) \(\nRightarrow\) \(u\) is a
-						harmonic conjugate of \(v\).</p>
-					<p class="fragment" data-fragment-index="0"><strong>Example:</strong> \(u(x,y) = x^2-y^2\),
-						&nbsp;\(v(x,y) = 2xy\).
-						
-						<span class="fragment" data-fragment-index="2">
-							Since \(u+iv = z^2\) is entire \(\implies\) \(v\) is a harmonic conjugate of \(u\).
-						</span>
-					</p>
-					<p class="fragment" data-fragment-index="3">But if \(u\) were a harmonic conjugate of \(v\), then
-						\(g = v+iu\) would be analytic:
-						<span title="Check it!">📝</span> Check via C/R, nowhere analytic.
-					</p>
-					<p class="fragment" data-fragment-index="4"><strong>Remark:</strong> Suppose \(u\) is harmonic on a
-						simple connected domain \(\Omega\).
-						<span class="fragment" data-fragment-index="5">Then \(u\) has a harmonic conjugate on \(\Omega\).</span>
-					</p>
 				</div>
 			</section>
 

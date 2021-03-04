@@ -62,9 +62,9 @@
 					<p class="fragment" data-fragment-index="1">Then if \(z_0 \in \text{Int}\, C\) we have</p>
 				</div>
 				<div class="size-80">
-					<p class="fragment" data-fragment-index="2">\(f(z_0) = \ds \frac{1}{2\pi i} \int_C
+					<p class="fragment" data-fragment-index="1">\(f(z_0) = \ds \frac{1}{2\pi i} \int_C
 						\frac{f(z)}{z-z_0} dz, \qquad (1)\),</p>
-					<p class="fragment" data-fragment-index="3">i. e. &nbsp; \(2 \pi i \,f(z_0) = \ds \int_C
+					<p class="fragment" data-fragment-index="2">i. e. &nbsp; \(2 \pi i \,f(z_0) = \ds \int_C
 						\frac{f(z)}{z-z_0} dz. \quad (1)'\)</p>
 				</div>
 			</section>
@@ -81,7 +81,7 @@
 							\]
 							for \(\rho\) sufficiently small such that
 							\[
-							\text{Int}\, C_{\rho} = \text{Int}\, C.
+							\text{Int}\, C_{\rho} \subset D = \text{Int}\, C.
 							\]</span>
 					</p>
 					<p class="fragment" data-fragment-index="1">Then \(\ds \frac{f(z)}{z-z_0}\) is analytic on
@@ -119,8 +119,8 @@
 						\]
 						(c.f. <a href="lecture-20.html#/contour-integral-example-4-iv" target="_blank">Lecture 20</a>).
 						<span class="fragment" data-fragment-index="0">Since \(f\) is analytic at \(z_0\), it is
-							continuous at \(z_0\).</span>
-						<span class="fragment" data-fragment-index="1">Thus, given \(\varepsilon \gt 0\) exists \(\delta
+							continuous at \(z_0\).</span><br/>
+						<span class="fragment" data-fragment-index="1">Then, given \(\varepsilon \gt 0\) exists \(\delta
 							\gt 0\) such that
 							\[
 							|f(z)-f(z_0)| \lt \varepsilon \quad \forall |z-z_0|\lt \delta \quad (3)
@@ -145,15 +145,15 @@
 				<div class="size-80">
 					<p class="fragment" data-fragment-index="2">
 						\(
-						\implies \left|\ds \int_C \frac{f\left(z\right)dz}{z-z_0} - 2 \pi i\, f(z_0) \right| 
-						\le \ds \int_{C_{\rho}} \frac{\left| f\left(z\right) - f\left(z_0\right) \right|
+						\overset{{\tiny(2)}}{\implies} \left|\ds \int_C \frac{f\left(z\right)dz}{z-z_0} - 2 \pi i\, f(z_0) \right| 
+						\le \ds \int_{C_{\rho}} \frac{\left|\, f\left(z\right) - f\left(z_0\right) \right|
 						}{\left|z-z_0\right|} dz
 						\)
 					</p>
 					<p class="fragment" data-fragment-index="3">
 						\(
-						\;\; \; = \ds \frac{1}{\rho} \int_{C_{\rho}} \left| f\left(z\right) -
-						f\left(z_0\right) \right| dz \qquad \qquad
+						\;\; \; = \ds \frac{1}{\rho} \int_{C_{\rho}} \big| \,f\left(z\right) -
+						f\left(z_0\right) \big| dz \qquad \qquad
 						\)
 					</p>
 					<p class="fragment" data-fragment-index="4">
