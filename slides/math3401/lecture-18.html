@@ -51,26 +51,7 @@
 				<p>Lecture 18</p>
 			</section>
 
-			<section id="contour-arc">
-				<h3>Contours</h3>
-				<div class="left-txt size-90">
-					<p class="fragment" data-fragment-index="0">
-						A contour is a parametrised curve in \(\C\).</p>
-					<p class="fragment" data-fragment-index="1">
-						Given \(x(t)\), \(y(t)\) continuous \([a,b]\ra \R\),
-					</p>
-					<p class="fragment" data-fragment-index="2">
-						\[
-						z(t) = x(t) +i y(t), \quad a\leq t \leq b
-						\]
-						defines an <em>arc</em> in \(\C\).
-					</p>
-					<p class="fragment" data-fragment-index="3">
-						This is both a set of points (the image \(z\left([a,b]\right)\)), called
-						the <em>trace</em> of the arc, and also a recipe for drawing it/parametrisation.
-					</p>
-				</div>
-			</section>
+			
 
 			<section id="jordan-arc-curve">
 				<h3>Contours</h3>
@@ -98,7 +79,7 @@
 								<p class="size-80">\(z = \left\{
 									\begin{array}{lr}
 									t+it & 0\leq t\leq 1\\
-									t+i & 1< t \leq 2 \end{array} \right. \) </p> <p class="fragment size-80"
+									t+i & 1 \lt t \leq 2 \end{array} \right. \) </p> <p class="fragment size-80"
 										data-fragment-index="1">is a simple arc.
 								</p>
 							</div>
@@ -183,13 +164,13 @@
 
 			<section id="differentiable-arc-curve">
 				<h3>Contours</h3>
+				<p class="size-60"><strong>Differentiability</strong></p>
 				<div class="left-txt">
 					<p class="fragment" data-fragment-index="0">An arc/curve is called <em>differentiable</em> if
 						\(z'(t)\) exists
 					</p>
 					<p class="fragment" data-fragment-index="1">(\( \forall t\in (a,b)\) for an arc,
-						\( \forall t\in [a,b]\) for an curve
-						).
+						\( \forall t\in [a,b]\) for a closed curve).
 					</p>
 					<p class="fragment" data-fragment-index="2">If \(z'\) is also continuous, then \(\ds
 						\int_a^b \left|z'(t)\right| dt\) exists,
@@ -210,8 +191,8 @@
 							\]
 							such that
 							\[
-							\Phi \in \mathcal C \left( \left[a,b\right] \right) \quad \text{and} \quad \Phi' \in
-							\mathcal C \left( \left(a,b\right) \right).
+							\Phi \in \mathcal C \big( \left[\alpha,\beta\right] \big) \quad \text{and} \quad \Phi' \in
+							\mathcal C \big( \left(\alpha,\beta\right) \big).
 							\]
 						</span>
 					</p>
@@ -259,7 +240,7 @@
 						<li class="fragment" data-fragment-index="2">\(z\) is piecewise differentiable.</li>
 					</ol>
 					<p class="fragment" data-fragment-index="3">If initial and final values of \(z\) coincide and no
-						other self intersection, we have a simple closed contour.
+						other self intersection, we have a <em>simple closed contour</em>.
 					</p>
 				</div>
 			</section>
@@ -304,7 +285,7 @@
 					<p class="fragment" data-fragment-index="0">and suppse \(f\) is piece-wise continuous (pwc) on \(C\).</p>
 					<p class="fragment" data-fragment-index="1">Then (cf. line integrals)
 						\[
-						\int_C f\left(z\right) dz = \int_z^b  f\left( z\left( t\right)\right)z'( t) dt.
+						\int_C f\left(z\right) dz = \int_a^b  f\left( z\left( t\right)\right)z'( t) dt.
 						\]
 					</p>
 				</div>
