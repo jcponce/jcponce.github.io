@@ -56,7 +56,7 @@
 				<p class="size-60"><strong>in half plane</strong></p>
 				<img style="width: 100%;" data-src="img/lect-27/ss-01.svg" />
 				<div class="left-txt size-80">
-					<p class="fragment" data-fragment-index="0">We need to find the steady-sate temperature distribution
+					<p class="fragment" data-fragment-index="0">We want to find the steady-sate temperature distribution
 						on \(\Omega\)</p>
 				</div>
 			</section>
@@ -96,7 +96,7 @@
 				<div class="left-txt">
 					<p><strong>Note:</strong> In \(\C\) (\(w\)-plane), \(h(u,v)
 						= v = \Im w\) is harmonic.</p>
-					<p class="fragment" data-fragment-index="0">Back to \((D)\): physically, look for a bounded solution
+					<p class="fragment" data-fragment-index="0">Back to <a href="#/dirchlet-problem/3" target="_blank">\((D)\)</a>: physically, look for a bounded solution
 						to \((D)\) with
 						\[\lim_{y\ra \infty } T(x,y) = 0 \quad \forall x.\]
 					</p>
@@ -127,7 +127,7 @@
 						<td style="width:50%;"><img style="width: 100%; 
 					  display: block;
 					  margin-left: auto;
-					  margin-right: auto;" class="fragment" data-fragment-index="1" class="r-stretch"
+					  margin-right: auto;" class="fragment" data-fragment-index="0" class="r-stretch"
 								data-src="img/lect-27/diagram.svg" />
 						</td>
 					</tr>
@@ -138,15 +138,15 @@
 				<h3>Heat Conduction</h3>
 				<div class="left-txt size-70">
 					<p>Introduce the transformation
-						\[w = \Log \frac{z-1}{z+1}\]
+						\[w = \mathcal \Log \frac{z-1}{z+1}\]
 					</p>
-					<p class="fragment" data-fragment-index="0">where \(\Log\) has a branch cut in the positive imaginary axis, 
+					<p class="fragment" data-fragment-index="0">where \(\mathcal \Log\) has a branch cut in the positive imaginary axis, 
 						<span class="fragment" data-fragment-index="1">so 
 							\[
-							-\frac{\pi}{2}\lt \Log\frac{z-1}{z+1} \leq  \frac{3\pi}{2}.
+							-\frac{\pi}{2}\lt \mathcal \Log\frac{z-1}{z+1} \leq  \frac{3\pi}{2}.
 							\]</span>
 					</p>
-					<p class="fragment" data-fragment-index="2">So: \(w = \Log \ds \frac{r_1 \exp\left(i\theta_1\right)}{ r_2 \exp\left(i\theta_2\right)}\)
+					<p class="fragment" data-fragment-index="2">So: \(w = \mathcal \Log \ds \frac{r_1 \exp\left(i\theta_1\right)}{ r_2 \exp\left(i\theta_2\right)}\)
 						<span class="fragment" data-fragment-index="3">\(=\ln \ds \frac{r_1}{r_2} + i (\theta_1 - \theta_2)\).</span>
 					</p>
 				</div>
@@ -163,20 +163,20 @@
 				<h3>Heat Conduction</h3>
 				<div class="left-txt">
 					<p>\(\frac{1}{\pi} v\) is a harmonic function satisfyin 
-						\[T\big|_{v=i\pi} = 1 \;\text{ and } \;T\big|_{v=0s}.\]
+						\[T\big|_{v=i\pi} = 1 \;\text{ and } \;T\big|_{v=0}.\]
 					</p>
-					<p class="fragment" data-fragment-index="0">So, \[w = \ln \left|\dfrac{z-1}{z+1}\right| + i \text{Arg} \dfrac{z-1}{z+1}.\] </p>
+					<p class="fragment" data-fragment-index="0">So, \[w = \ln \left|\dfrac{z-1}{z+1}\right| + i \,\mathcal{\Large a}rg \dfrac{z-1}{z+1}.\] </p>
 				</div>
 			</section>
 
 			<section>
 				<h3>Heat Conduction</h3>
 				<div class="left-txt size-80">
-					<p>\(\Rightarrow v = \text{Arg} \left( \dfrac{z-1}{z+1} \cdot \dfrac{\conj{z+1}}{\conj{z+1}} \right)\)</p>
-					<p class="fragment" data-fragment-index="0">\(\qquad =  \text{Arg} \left( \dfrac{x^2+y^2 -1 + 2 iy}{(x+1)^2 + y^2} \right) \)</p>
+					<p>\(\Rightarrow v = \mathcal{\Large a}rg \left( \dfrac{z-1}{z+1} \cdot \dfrac{\conj{z+1}}{\conj{z+1}} \right)\)</p>
+					<p class="fragment" data-fragment-index="0">\(\qquad =  \mathcal{\Large a}rg \left( \dfrac{x^2+y^2 -1 + 2 iy}{(x+1)^2 + y^2} \right) \)</p>
 					<p class="fragment" data-fragment-index="1">\(\qquad =  \arctan \left( \dfrac{2y}{x^2+y^2-1} \right) \)</p>
 					<p class="fragment" data-fragment-index="1">&nbsp; &nbsp;where \(0\leq \arctan (\cdot) \leq \pi\).
-						<span  class="fragment" data-fragment-index="2">Careful for \(x^2+y^2=1\)!</span>
+						<span  class="fragment" data-fragment-index="2"><span title="Check it!">📝</span> Careful for \(x^2+y^2=1\)!</span>
 					</p>
 				</div>
 			</section>
