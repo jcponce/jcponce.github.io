@@ -51,6 +51,35 @@
 				<p>Lecture 29</p>
 			</section>
 
+			<section id="poisson-kernel">
+				<h3>Poisson kernel</h3>
+				<div class="left-txt size-70">
+					<p>Taking the real part from <a href="lecture-28.html#/9/0/0" target="_blank">😀 defined in Lecture 28</a>:
+						<span class="fragment" data-fragment-index="0">Given "nice enough" \(\Phi(r_0, \phi)\) defined on the boundary \(C_0\) of
+							\(B_{r_0}\),</span>
+						<span class="fragment" data-fragment-index="1">a (infact, the) solution of the Dirichlet problem
+							\[
+							\text{(D) }
+							\left\{
+							\begin{align}
+							\Delta u = & \;0 \;\text{ in } \;B_{r_0}\\
+							u|_{\partial B_{r_0}} = & \;\Phi(r_0, \phi)
+							\end{align}
+							\right.
+							\]
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							is given by
+							\(u(r, \theta) = \ds \frac{1}{2 \pi } \int_{0}^{2 \pi}
+							\frac{r_0^2-r^2}{r_0^2-2r_0r \cos \left(\phi - \theta\right) +r^2} \Phi(r, \phi)d\Phi\)
+						</span>
+						<span class="fragment" data-fragment-index="3">\[= \ds \frac{1}{2 \pi } \int_{0}^{2 \pi}
+							P\left(r_0, r, \phi- \theta\right) \Phi(r, \phi)d\Phi \]</span>
+					</p>
+				</div>
+				<p  class="fragment size-70" data-fragment-index="4">where \(P(r_0, r, \phi- \theta)\) is known as the <em>Poisson kernel</em>.</p>
+			</section>
+
 			<section>
 				<h3>Sequences</h3>
 				<div class="left-txt">
@@ -82,7 +111,7 @@
 			<section id="limit-of-a-series">
 				<h3>Series</h3>
 				<div class="left-txt">
-					<p>Now for series: Formally we have \( \sum_{n=0}^{\infty} z_n\), \(z_n \in \C\).</p>
+					<p>Now for series: Formally we have \(\ds \sum_{n=0}^{\infty} z_n\), \(z_n \in \C\).</p>
 					<p class="fragment" data-fragment-index="0">The series \(\sum z_n\) converges as a
 						series \(\iff\) the associated sequence of
 						partial sums \(\{s_n\}\) converges as a sequence.
@@ -105,7 +134,7 @@
 			<section id="absolute-convergence">
 				<h3>Series</h3>
 				<div class="left-txt">
-					<p><strong>Remark:</strong> \(\{z_n\}\) is <em>bounded</em> says exists such tat \(|z_n|\lt M\) for
+					<p><strong>Remark:</strong> \(\{z_n\}\) is <em>bounded</em> says exists \(M\) such tat \(|z_n|\lt M\) for
 						all \(n\).</p>
 					<p class="fragment" data-fragment-index="0">\(*\) convergent \(\Rightarrow\) bounded,
 						<span class="fragment" data-fragment-index="1">\(\nLeftarrow \{(-1)^n\}\).</span>
@@ -136,7 +165,8 @@
 
 			<section>
 				<h3>Series</h3>
-				<p class="size-80">Claim \(\sum_{n=0}^{\infty} z_n = \frac{1}{1-z}\) for \(|z|\lt 1\).
+				<p class="size-60"><strong>Application</strong></p>
+				<p class="size-80">Claim \(\ds\sum_{n=0}^{\infty} z_n = \frac{1}{1-z}\) for \(|z|\lt 1\).
 					\(\quad(*)\)</p>
 				<div class="left-txt size-70">
 					<p class="fragment" data-fragment-index="0"><strong>Proof:</strong> \(\qquad S_n = 1+ z+ \cdots +
@@ -144,9 +174,9 @@
 					<p class="fragment" data-fragment-index="1">\(\qquad \qquad z S_n = z+ \cdots + z^n + z^{n+1}\).</p>
 				</div>
 				<div class="size-70">
-					<p class="fragment" data-fragment-index="2">\(\Rightarrow (1-z) S_n = 1-z^{n+1}\).
+					<p class="fragment" data-fragment-index="2">\(\Rightarrow (1-z) S_n = 1-z^{n+1}\)
 						<span class="fragment" data-fragment-index="3">\(\Rightarrow S_n =
-							\dfrac{1-z^{n+1}}{1-z}.\quad\qquad\)</span>
+							\dfrac{1-z^{n+1}}{1-z}\quad\qquad\)</span>
 					</p>
 				</div>
 				<div class="left-txt size-80">
@@ -180,7 +210,7 @@
 				<h3>Power Series</h3>
 				<div class="left-txt size-80">
 					<p>Centred at \(z_0\), the series of a function \(f(z)\) is
-						\(\sum_{n=0}^{\infty} a_n (z-z_0)^n.\)
+						\(\ds\sum_{n=0}^{\infty} a_n (z-z_0)^n.\)
 					</p>
 					<p class="fragment" data-fragment-index="0">Series will
 						<ul>

@@ -72,8 +72,8 @@
 						or <em>dilatation factor</em>.
 						<span class="fragment" data-fragment-index="0">That is
 							<ul>
-								<li class="fragment" data-fragment-index="0">stretching, if \(f'(z_0)| \gt 1\);</li>
-								<li class="fragment" data-fragment-index="1">shrinking, if \(f'(z_0)| \lt 1\).</li>
+								<li class="fragment" data-fragment-index="0">stretching, if \(\,f'(z_0)| \gt 1\);</li>
+								<li class="fragment" data-fragment-index="1">shrinking, if \(\,f'(z_0)| \lt 1\).</li>
 							</ul>
 						</span>
 					</p>
@@ -92,8 +92,8 @@
 				</div>
 				<img class="fragment" data-fragment-index="1" data-src="img/lect-28/scale-factor.svg" stretch />
 				<div class="size-80">
-					<p class="fragment" data-fragment-index="2">Scaling factor = \(f'(z_0)\)
-						<span class="fragment" data-fragment-index="3">\(= 2 z_0\)</span>
+					<p class="fragment" data-fragment-index="2">Scaling factor = \(|\,f'(z_0)|\)
+						<span class="fragment" data-fragment-index="3">\(= 2 |z_0|\)</span>
 						<span class="fragment" data-fragment-index="4">\(=2 \sqrt{2}\).</span>
 					</p>
 				</div>
@@ -102,7 +102,7 @@
 			<section id="poisson-integral-formula">
 				<h3>Poisson's integral formula</h3>
 				<div class="left-txt size-80">
-					<p>Let \(C_0\) denote a positively oriented circle, centred at the origin.</p>
+					<p>Let \(C_0\) be a positively oriented circle, centred at the origin.</p>
 					<p class="fragment" data-fragment-index="0">Recall Cauchy: if \(f\) is analytic in and on \(C_0\),
 						then for \(z_0 \in \text{Int} \,C_0\)
 						\[f(z) = \frac{1}{2\pi i}\int_{C_0} \frac{f\left( \zeta \right)}{\zeta - z}d \zeta \qquad (1) \]
@@ -120,14 +120,14 @@
 					<p>Recall \((z^*)^*=z\).
 						<span class="fragment" data-fragment-index="0">Note also:</span>
 					</p>
-					<p class="fragment" data-fragment-index="0">\(z^* = r^* e^{i \theta}\)
+					<p class="fragment" data-fragment-index="0">\(\qquad z^* = r^* e^{i \theta}\)
 						<span class="fragment" data-fragment-index="1">\(= \dfrac{r_0^2}{r} e^{i \theta}\)</span>
 						<span class="fragment" data-fragment-index="2">\(= \dfrac{r_0^2}{re^{-i\theta}}\)</span>
 						<span class="fragment" data-fragment-index="3">\(= \dfrac{r_0^2}{\conj{z}}\)</span>
 						<span class="fragment" data-fragment-index="4">\(=\dfrac{\zeta \conj{\zeta}}{\conj{z}}\)
 							\(\;(2)\;\)
-							for any \(\zeta\in \C_0\).</span></p>
-					<p class="fragment" data-fragment-index="5">Now fix \(z \in \text{Int}\, C_0, \; z_0\neq 0\)
+							</span></p>
+					<p class="fragment" data-fragment-index="5">for any \(\zeta\in C_0\). Now fix \(z \in \text{Int}\, C_0, \; z_0\neq 0\)
 						and note \[\ds \int_{C_0} \frac{f\left( \zeta \right)}{\zeta - z}d \zeta = 0
 						\quad(\text{Cauchy}),\]
 						<span class="fragment" data-fragment-index="6">since \(\zeta\mapsto \dfrac{f(\zeta)}{\zeta
@@ -145,7 +145,7 @@
 					<p class="fragment" data-fragment-index="1">\(\quad I = \ds \left( \frac{\zeta}{\zeta -z}
 						- \frac{\zeta}{\zeta - z^*} \right) \frac{1}{\zeta} \)
 						<span class="fragment" data-fragment-index="2">\(= \ds \left( \frac{\zeta}{\zeta -z} -
-							\frac{\zeta}{1 - \frac{\conj{\zeta}}{\conj{z}}} \right) \frac{1}{\zeta}\)</span>
+							\frac{1}{1 - \frac{\conj{\zeta}}{\conj{z}}} \right) \frac{1}{\zeta}\)</span>
 					</p>
 					<p class="fragment" data-fragment-index="3">\(\;\;\quad = \ds \left( \frac{\zeta}{\zeta
 						-z} - \frac{\conj{z}}{\conj{z} - \conj{\zeta}} \right) \frac{1}{\zeta}\)
@@ -158,7 +158,7 @@
 			<section>
 				<h3>Poisson's integral formula</h3>
 				<div class="left-txt">
-					<p>Now \(z = r e^{i \theta} \). Put \(\zeta = r e^{i \theta}\), \(0\leq \phi \leq 2 \pi \).</p>
+					<p>Now for \(z = r e^{i \theta} \) put \(\zeta = r e^{i \phi}\), \(0\leq \phi \leq 2 \pi \).</p>
 					<p class="fragment" data-fragment-index="0">Then \(d\zeta = r_0i e^{i \phi}d\phi\) and
 						\[I = \frac{r_0^2 - r^2}{|\zeta - z|^2} \cdot \frac{1}{r_0 e^{i \phi}} \qquad (5) \]
 					</p>
@@ -177,7 +177,7 @@
 
 			<section>
 				<h3>Poisson's integral formula</h3>
-				<div class="left-txt size-90">
+				<div class="left-txt size-80">
 					<p><a>\((3)\)</a> implies
 						\[f\left(re^{i \theta}\right)= \frac{1}{2\pi i} \int_{0}^{2 \pi}\frac{r_0^2-r^2}{|\zeta -
 						z|^2}\cdot \frac{f\left(r_0e^{i\phi}\right)r_0 i e^{i\phi}d \phi}{r_0 e^{i\phi}}\quad \quad\]
@@ -188,34 +188,7 @@
 				</div>
 			</section>
 
-			<section id="poisson-kernel">
-				<h3>Poisson kernel</h3>
-				<div class="left-txt size-70">
-					<p>Taking the real part of <a href="#/9/0/0">😀</a>:
-						<span class="fragment" data-fragment-index="0">Given "nice enough" \(\Phi(r_0, \phi)\) defined on the boundary \(C_0\) of
-							\(B_{r_0}\),</span>
-						<span class="fragment" data-fragment-index="1">a (infact, the) solution of the Dirichlet problem
-							\[
-							\text{(D) }
-							\left\{
-							\begin{align}
-							\Delta u = & \;0 \;\text{ in } \;B_{r_0}\\
-							u|_{\partial B_{r_0}} = & \;\Phi(r_0, \phi)
-							\end{align}
-							\right.
-							\]
-						</span>
-						<span class="fragment" data-fragment-index="2">
-							is given by
-							\(u(r, \theta) = \ds \frac{1}{2 \pi } \int_{0}^{2 \pi}
-							\frac{r_0^2-r^2}{r_0^2-2r_0r \cos \left(\phi - \theta\right) +r^2} \Phi(r, \phi)d\Phi\)
-						</span>
-						<span class="fragment" data-fragment-index="3">\[= \ds \frac{1}{2 \pi } \int_{0}^{2 \pi}
-							P\left(r_0, r, \phi- \theta\right) \Phi(r, \phi)d\Phi \]</span>
-					</p>
-				</div>
-				<p  class="fragment size-70" data-fragment-index="4"><em>Poisson kernel</em> \(P(r_0, r, \phi- \theta)\).</p>
-			</section>
+			
 
 			<section>
 				<h4>Credits</h4>
