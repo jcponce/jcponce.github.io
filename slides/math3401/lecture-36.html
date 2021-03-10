@@ -84,15 +84,15 @@
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt size-80">
 					<p><strong>Example 2 (cont):</strong> Then
-					\(\ds \lim_{\rho \downarrow 0} I_2 = i \int_0^{\pi} \lim_{\rho \downarrow 0} \left(e^{i\rho e^{i\theta}}\right)d\theta.\)
+					\(\ds \lim_{\rho \downarrow 0} I_2 = -i \int_0^{\pi} \lim_{\rho \downarrow 0} \left(e^{i\rho e^{i\theta}}\right)d\theta.\)
 					</p>
 					<p class="fragment" data-fragment-index="0">Thus \(I_2 \ra -i\ds \int_0^{\pi} 1 d\theta = -i \pi\) as \(\rho \downarrow 0\).</p>
 					<p class="fragment" data-fragment-index="1">Also,  \(I_4 \ra 0\) as \(R \ra \infty\) by Jordan's Lemma.</p>
 					<p class="fragment" data-fragment-index="2">So <a href="#/1/0/0">\((\text{😀})\)</a> implies</p>
 				</div>
-				<div class="size-80"><span class="fragment" data-fragment-index="3">\(\ds \int_0^{\infty} \frac{\sin x}{x} dx\)</span>
-					<span class="fragment" data-fragment-index="4">\(= \ds-\frac{1}{2i}\big[-i\pi +0\big]\)</span>
-					<span class="fragment" data-fragment-index="5">\(= \ds\frac{\pi}{2}\).</span>
+				<div class="size-80"><span class="fragment" data-fragment-index="2">\(\ds \int_0^{\infty} \frac{\sin x}{x} dx\)</span>
+					<span class="fragment" data-fragment-index="3">\(= \ds-\frac{1}{2i}\big[-i\pi +0\big]\)</span>
+					<span class="fragment" data-fragment-index="4">\(= \ds\frac{\pi}{2}\).</span>
 				</div>
 			</section>
 
@@ -104,7 +104,7 @@
 					satisfies \(\big|\,f(z) \le \frac{M}{R^\beta}\big|\;\) \((*)\;\) (\(M,\beta \gt 0 \) constants) on 
 					\[ \Gamma_R=\left\{ Re^{i\theta}: R\gt R_0, 0\le \theta \le \pi \right\}. \]
 					Then 
-					\[\ds \lim_{R\ra \infty } \int_{\Gamma_R } e^{i\alpha z} f(z)\, dz = 0,\; \forall \alpha.\]
+					\[\ds \lim_{R\ra \infty } \int_{\Gamma_R } e^{i\alpha z} f(z)\, dz = 0,\; \forall \alpha\gt 0.\]
 					</p>
 				</div>
 			</section>
@@ -124,7 +124,8 @@
 			<section id="rouche-theorem">
 				<h3>Rouche's Theorem</h3>
 				<div class="left-txt size-80">
-					<p><strong>Theorem:</strong> Let \(f\) and \(g\) be analytic in and on  a simple closed curve \(C\), orientation irrelevant. Suppose \(|f(z)\gt |g(z)|\; \forall z\in \C\).
+					<p><strong>Theorem:</strong> Let \(f\) and \(g\) be analytic in and on  a simple closed curve \(C\), orientation irrelevant. 
+						Suppose \(|\,f(z)|\gt |g(z)|,\; \forall z\in \C\).
 					   Then \(f\) and \(f+g\) have the same number of zeros (counting miltiplicity) inside \(C\). 
 					</p>
 					<p class="fragment" data-fragment-index="0"><strong>Nomeclature:</strong> \(f(z)=(z-i)^2(z+i)^3\) has 5 zeros (counting multiplicity).</p>
@@ -144,8 +145,11 @@
 						<span class="fragment" data-fragment-index="4">\(=3\)</span>
 						<span class="fragment" data-fragment-index="5">\(\lt 4 = |\, f(z)|\).</span>
 					</p>
-					<p class="fragment" data-fragment-index="6">So Rouché' implies  \(f\) and \(f+g = h\) have the same number of zeros inside
-						\(C\), namely 3 (\(f\) has a 3-fold zero at \(0\)).</p>
+					<p class="fragment" data-fragment-index="6">So \(|f| \lt |g|\) on \(C\).
+						<span class="fragment" data-fragment-index="7">So Rouché' implies  \(f\) and \(f+g = h\) have the same number of zeros inside
+							\(C\), namely 3 (\(f\) has a 3-fold zero at \(0\)).</span>
+					</p>
+					
 				</div>
 			</section>
 

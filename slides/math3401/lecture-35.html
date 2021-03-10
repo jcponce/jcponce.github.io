@@ -99,7 +99,7 @@
 					<p><strong>Example 1:</strong> Evaluate \(I = \ds \int_{0}^{\infty}\frac{x^2}{x^6+1}dx\).</p>
 					<p class="fragment" data-fragment-index="0">Note \(f\) is even and continuous.
 						<span class="fragment" data-fragment-index="1"> Also \(f \backsim 1/x^4\) as \(x\ra
-							\pm\infty\).</span>
+							\pm\infty\).</span> <br />
 						<span class="fragment" data-fragment-index="2">So \(I\) converges (\(p\)-test, \(p\gt
 							1\)).</span>
 					</p>
@@ -124,7 +124,8 @@
 				<div class="left-txt size-80">
 					<p><strong>Example 1 (cont):</strong> Note that \(z_1 = e^{\pi i/6}\), \(z_2 = i\), \(z_3 = e^{5\pi
 						i/6}\).</p>
-					<p class="fragment" data-fragment-index="0"><a href="lecture-32.html#/cauchy-residue-theorem" target="_blank">Residue Theorem</a>
+					<p class="fragment" data-fragment-index="0"><a href="lecture-32.html#/cauchy-residue-theorem"
+							target="_blank">Residue Theorem</a>
 						\(\Rightarrow \)
 						\[\int_C f= 2 \pi i \sum_{j=1}^{3}\underset{z=z_j}{\res} f(z)\qquad (1)\]
 					</p>
@@ -136,20 +137,25 @@
 			<section>
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt size-80">
-					<p><strong>Example 1 (cont):</strong> \(\Rightarrow\) simple pole ar each \(z_j\)
-						<span class="fragment" data-fragment-index="0">and so <a href="lecture-34.html#/simple-poles-residue-theorem">Theorem 4</a> (previous
-							lecture) implies</span>
+					<p><strong>Example 1 (cont):</strong> Thus we have simple poles at each \(z_j\)
+						<span class="fragment" data-fragment-index="0">and so <a
+								href="lecture-34.html#/simple-poles-residue-theorem" target="_blank">Theorem 3 (Lec
+								34)</a> implies</span>
 					</p>
 				</div>
 				<div class="size-80">
-					<p class="fragment" data-fragment-index="1">\(\text{RHS} = 2 \pi i \ds \sum_{j=1}^{3} \left.\frac{z^2}{(z^6+1)^{\prime}}\right|_{z=z_j}\)
-						<span class="fragment" data-fragment-index="2">\(= 2 \pi i \ds \sum_{j=1}^{3} \frac{z_j^2}{6z_j^5}\)</span>
-						<span class="fragment" data-fragment-index="3">\(= 2 \pi i \ds \sum_{j=1}^{3} \frac{1}{6z_j^3}\)</span>
+					<p class="fragment" data-fragment-index="1">\(\text{RHS} = 2 \pi i \ds \sum_{j=1}^{3}
+						\left.\frac{z^2}{(z^6+1)^{\prime}}\right|_{z=z_j}\)
+						<span class="fragment" data-fragment-index="2">\(= 2 \pi i \ds \sum_{j=1}^{3}
+							\frac{z_j^2}{6z_j^5}\)</span>
+						<span class="fragment" data-fragment-index="3">\(= 2 \pi i \ds \sum_{j=1}^{3}
+							\frac{1}{6z_j^3}\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="4">\(= 2 \pi i \left( \ds \frac{1}{6i} -\frac{1}{6i}+ \frac{1}{6i} \right)\)
+					<p class="fragment" data-fragment-index="4">\(= 2 \pi i \left( \ds \frac{1}{6i} -\frac{1}{6i}+
+						\frac{1}{6i} \right)\)
 						<span class="fragment" data-fragment-index="5">\(= \dfrac{\pi}{3}.\qquad \qquad \qquad\)</span>
 					</p>
-					
+
 				</div>
 			</section>
 
@@ -164,20 +170,26 @@
 				</div>
 				<div class="left-txt size-80">
 					<p class="fragment" data-fragment-index="1">As \(R\ra \infty\), \((\beta) \ra 2I\).</p>
-					<p class="fragment" data-fragment-index="2"><strong>Claim:</strong>  \((\beta) \ra 0\) as \(R\ra \infty\).</p>
+					<p class="fragment" data-fragment-index="2"><strong>Claim:</strong> \((\beta) \ra 0\) as \(R\ra
+						\infty\).</p>
 				</div>
 			</section>
 
 			<section>
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt size-80">
-					<p><strong>Example (cont):</strong> <strong>Claim:</strong>  \((\beta) \ra 0\) as \(R\ra \infty\).</p>
-					<p class="fragment" data-fragment-index="0">Note \(\big|(\alpha)\big|  \leq M_R \ell_R\; \,(*)\,\) where \( \ell_R = \text{length } \Gamma_1 = \pi R \)</p>
-					<p class="fragment" data-fragment-index="1">and \(M_R = \ds\max_{z\in \Gamma_1 } \left| \,f(z)  \right|\)
-						<span class="fragment" data-fragment-index="2">\(\leq \ds \max_{|z|=R } \left| \frac{z^2}{z^6+1}  \right|\)</span>
-						<span class="fragment" data-fragment-index="3">\(\leq  \ds \frac{R^2}{R^6-1}  \).</span>
+					<p><strong>Example (cont):</strong><br /><br />
+						<strong>Claim:</strong> \((\beta) \ra 0\) as \(R\ra \infty\).</p>
+					<p class="fragment" data-fragment-index="0">Note \(\big|(\alpha)\big| \leq M_R \ell_R\; \,(*)\,\)
+						where \( \ell_R = \text{length } \Gamma_1 = \pi R \)</p>
+					<p class="fragment" data-fragment-index="1">and \(M_R = \ds\max_{z\in \Gamma_1 } \left| \,f(z)
+						\right|\)
+						<span class="fragment" data-fragment-index="2">\(\leq \ds \max_{|z|=R } \left| \frac{z^2}{z^6+1}
+							\right|\)</span>
+						<span class="fragment" data-fragment-index="3">\(\leq \ds \frac{R^2}{R^6-1} \).</span>
 					</p>
-					<p class="fragment" data-fragment-index="4">(via reverse triangle inequality: \(|a+b|\geq \big||a|+|b|\big|\)).</p>
+					<p class="fragment" data-fragment-index="4">(via reverse triangle inequality: \(|a+b|\geq
+						\big||a|+|b|\big|\)).</p>
 				</div>
 			</section>
 
@@ -192,15 +204,17 @@
 					</p>
 				</div>
 				<div class="left-txt size-90">
-					<p class="fragment" data-fragment-index="0">this espression \(\ra 0\) as \(R\ra \infty\). 
-						<span class="fragment" data-fragment-index="1">So \(\ds\lim_{R\ra \infty}\) in <a href="#/8/0/0">\((2)\)</a> \(\Rightarrow\)
-							
+					<p class="fragment" data-fragment-index="0">this espression \(\ra 0\) as \(R\ra \infty\).
+						<span class="fragment" data-fragment-index="1">So \(\ds\lim_{R\ra \infty}\) in <a
+								href="#/8/0/0">\((2)\)</a> \(\Rightarrow\)
+
 						</span>
 					</p>
 				</div>
 				<div class="size-90">
 					<p class="fragment" data-fragment-index="1">\(\ds \frac{\pi}{3} = 2I + 0 \;\)
-						<span class="fragment" data-fragment-index="3">\( \Rightarrow \; I = \ds\frac{\pi}{6}\).</span></p>
+						<span class="fragment" data-fragment-index="3">\( \Rightarrow \; I = \ds\frac{\pi}{6}\).</span>
+					</p>
 				</div>
 			</section>
 
@@ -208,13 +222,15 @@
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt size-90">
 					<p><strong>Example 2:</strong> Evaluate \(I = \ds \int_{0}^{\infty}\frac{\sin x}{x}dx\).</p>
-					<p class="fragment" data-fragment-index="0">Note \(f\) is even, 
+					<p class="fragment" data-fragment-index="0">Note \(f\) is even,
 						<span class="fragment" data-fragment-index="1">so if \(I\) exists</span>
 					</p>
 				</div>
 				<div class="size-90">
-					<p class="fragment" data-fragment-index="1">\(I = \ds \frac{1}{2} \int_{-\infty}^{\infty}\frac{\sin x}{x}dx \)
-						<span class="fragment" data-fragment-index="2">\(= \ds \frac{1}{2} \text{PV}\int_{-\infty}^{\infty}\frac{\sin x}{x}dx \).</span>
+					<p class="fragment" data-fragment-index="1">\(I = \ds \frac{1}{2} \int_{-\infty}^{\infty}\frac{\sin
+						x}{x}dx \)
+						<span class="fragment" data-fragment-index="2">\(= \ds \frac{1}{2}
+							\text{PV}\int_{-\infty}^{\infty}\frac{\sin x}{x}dx \).</span>
 					</p>
 				</div>
 			</section>
@@ -223,16 +239,26 @@
 				<h3>Applications contour integrals</h3>
 				<table style="width:100%;">
 					<tr>
-						<td style="width:55%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="img/lect-35/contour-integral-example-2.svg" />
+						<td style="width:55%;">
+							<div style="margin-left: 0.1em;">
+								<p class="size-80"><strong>Example 2 (cont):</strong> </p>
+							</div>
+							<img style="width: 100%; 
+					                    display: block;
+					                    margin-left: auto;
+					                    margin-right: auto;" 
+								  class="r-stretch" 
+								  data-src="img/lect-35/contour-integral-example-2.svg" />
 						</td>
 						<td style="width:45%">
-							<div style="margin-left: 0.1em;"  class="fragment" data-fragment-index="0">
-								<p class="size-80"><strong>Example 2 (cont):</strong> <br>Take \(f(z)=e^{iz}/z\). 
-									<span>Notice that \(f\) is analytic on \(\C_*\), so Cauchy \(\Rightarrow \)
-									\[\int_{\gamma_1 + C_{\rho} + \gamma_2 + C_R} f = 0.\]</span>
+							<div style="margin-left: 0.1em;">
+								<p class="size-80">
+									<span class="fragment" data-fragment-index="0">Take
+										\(f(z)=\dfrac{e^{iz}}{z}\).<br /></span>
+									<span class="fragment" data-fragment-index="1">Notice that \(f\) is analytic on
+										\(\C_*\), </span>
+									<span class="fragment" data-fragment-index="2">so Cauchy \(\Rightarrow \)
+										\[\int\limits_{\gamma_1 + C_{\rho} + \gamma_2 + C_R} f = 0.\]</span>
 								</p>
 							</div>
 						</td>
@@ -244,33 +270,38 @@
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt size-80">
 					<p><strong>Example 2 (cont):</strong> Now
-						\(\ds\int_{\gamma_1 } f + \int_{C_{\rho} } f+ \int_{\gamma_2} f+ \int_{ C_R} f = 0 \quad(*)\)
+						\(\ds \int_{\gamma_1 } f + \int_{C_{\rho} } f+ \int_{\gamma_2} f+ \int_{ C_R} f = 0 \quad(*)\)
 					</p>
 				</div>
 				<div class="size-80">
 					<p class="fragment" data-fragment-index="0">\(\;\qquad I_1\qquad I_2 \qquad I_3 \qquad I_4\)</p>
 				</div>
 				<div class="left-txt size-80">
-					<p class="fragment" data-fragment-index="1">\(\qquad\qquad I_1 = \ds \int_{-R}^{-\rho} \frac{e^{ix}}{x}dx \)
-						<span class="fragment" data-fragment-index="2">\(= \ds- \int_{\rho}^{R} \frac{e^{i w}(-1)}{-w}dx \).</span>
+					<p class="fragment" data-fragment-index="1">\(\qquad\qquad I_1 = \ds \int_{-R}^{-\rho}
+						\frac{e^{ix}}{x}dx \)
+						<span class="fragment" data-fragment-index="2">\(= \ds- \int_{\rho}^{R} \frac{e^{i w}(-1)}{-w}dx
+							\).</span>
 					</p>
-					<p class="fragment" data-fragment-index="3">\(\qquad\qquad I_3 = \ds \int_{\rho}^{R} \frac{e^{ix}}{x}dx \).</p>
+					<p class="fragment" data-fragment-index="3">\(\qquad\qquad I_3 = \ds \int_{\rho}^{R}
+						\frac{e^{ix}}{x}dx \).</p>
 				</div>
 			</section>
 
 			<section>
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt size-80">
-					<p><strong>Example 2 (cont):</strong> \( \Rightarrow I_1 + I_3 = \ds \int_{\rho}^{R} \frac{e^{ix}- e^{-ix}}{x}dx \)
+					<p><strong>Example 2 (cont):</strong> \( \Rightarrow I_1 + I_3 = \ds \int_{\rho}^{R} \frac{e^{ix}-
+						e^{-ix}}{x}dx \)
 					</p>
 				</div>
 				<div class="size-80">
-					<p class="fragment" data-fragment-index="0">\( \;\quad\qquad= \ds 2 i \int_{\rho}^{R} \frac{\sin x}{x}dx \)
+					<p class="fragment" data-fragment-index="0">\( \;\quad\qquad= \ds 2 i \int_{\rho}^{R} \frac{\sin
+						x}{x}dx \)
 					</p>
 				</div>
 				<div class="left-txt size-80">
 					<p class="fragment" data-fragment-index="1">as \( \rho \downarrow 0 \) and \(R\ra \infty\).</p>
-					 <p>\(\qquad\)</p>
+					<p>\(\qquad\)</p>
 				</div>
 			</section>
 

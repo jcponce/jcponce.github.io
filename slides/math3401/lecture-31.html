@@ -58,7 +58,7 @@
 					<p class="fragment" data-fragment-index="0">Notice \(f\) is entire for \(|z|\lt 1\):
 						<span class="fragment" data-fragment-index="1">Indeed, on \(\C\setminus \{1\}\) and
 							\[
-							f^{(n)}(z) = \dfrac{n!}{(1-z)^={n+1}}, z\neq 1.
+							f^{(n)}(z) = \dfrac{n!}{(1-z)^{n+1}}, z\neq 1.
 							\]
 
 						</span>
@@ -96,7 +96,7 @@
 					<ol>
 						<li class="fragment" data-fragment-index="0">Geometric series formula \(\implies\)
 							\[
-							\frac{1}{1-z} =\sum_{n=0}^{\infty} \text{ for } |z|\lt 1.
+							\frac{1}{1-z} =\sum_{n=0}^{\infty}z^n \text{ for } |z|\lt 1.
 							\]
 						</li>
 						<li class="fragment" data-fragment-index="1">Series converges "out to the first singularity",
@@ -119,9 +119,9 @@
 							\)</span>
 					</p>
 					<p class="fragment" data-fragment-index="2">\(\quad = \ds\frac{1}{2}
-						\sum_{n=0}^{\infty} (-2z)^{n}\) for \(|-2z|\lt 1\)</p>
+						\sum_{n=0}^{\infty} \left(-2z\right)^{n}\) for \(|-2z|\lt 1\)</p>
 					<p class="fragment" data-fragment-index="3">\(\qquad \; = \ds\frac{1}{2}
-						\sum_{n=0}^{\infty} (-1)^{n}2^{n-1}z^n\) for \(|z|\lt 1/2\).</p>
+						\sum_{n=0}^{\infty} (-1)^{n}2^{n-1}z^n\,\) for \(\,|z|\lt 1/2\).</p>
 				</div>
 			</section>
 
@@ -133,7 +133,7 @@
 							\frac{2+2z^2}{1+z^2} - \frac{1}{1+z^2} \right)\)</span>
 					</p>
 					<p class="fragment" data-fragment-index="1">\(\qquad \qquad\;\; \quad = \ds \frac{1}{z^3}
-						\left( 2 - \frac{1}{1+z^2} \right)\) analytic on \(\C\setminus\{\pm i\}\).</p>
+						\left( 2 - \frac{1}{1+z^2} \right)\) analytic on \(\C\setminus\{0, \pm i\}\).</p>
 					<p class="fragment" data-fragment-index="2">For \(|z|\lt 1\), \(\ds \frac{1}{1+z^2} =
 						\sum_{n=0}^{\infty} (-1)^nz^{2n}\).
 						<span class="fragment" data-fragment-index="3">So for \(0\lt |z|\lt 1\),</span>
@@ -189,7 +189,7 @@
 				<p>\(b_1 = \ds \frac{1}{2 \pi i} \int_C \frac{f(\zeta)}{(\zeta - z_0)^{-1+1}}d\zeta  \)</p>
 				<p class="fragment" data-fragment-index="0">\(= \ds \frac{1}{2 \pi i} \int_Cf(\zeta)d\zeta. \;\)</p>
 				<div class="left-txt">
-					<p class="fragment" data-fragment-index="1">This is called the <em>residue</em> of \(\,f\) at \(z_0\): \( \;\underset{z=z_0}{\res} f(z)\).</p>
+					<p class="fragment" data-fragment-index="1">This is called <em>the residue</em> of \(\,f\) at \(z_0\): \( \;\underset{z=z_0}{\res} f(z)\).</p>
 				</div>
 			</section>
 
@@ -197,7 +197,7 @@
 				<h3>Laurent Series</h3>
 				<p class="size-80"><strong>Notes</strong></p>
 				<div class="left-txt size-90">
-					<ol>
+					<ol style="line-height:80px">
 						<li class="fragment" data-fragment-index="0">If \(f\) is analytic on and in \(C\), then all the \(b_n\)'s are zero.
 						</li>
 						<li class="fragment" data-fragment-index="1">\(r_1 \searrow 0 \),  \( r_2 \nearrow \infty\) are ok.</li>
@@ -223,7 +223,7 @@
 			<section id="series-example-7">
 				<h3>Laurent Series</h3>
 				<div class="left-txt">
-					<p><strong>Example 7:</strong> Compute \(I = \ds \int_C \frac{5z-2}{z(z-1)} dz\) where \( C = 2 e^{i \theta } \) \( \theta \in [0,2\pi]\).</p>
+					<p><strong>Example 7:</strong> Compute \(I = \ds \int_C \frac{5z-2}{z(z-1)} dz\) where \( C = 2 e^{i \theta } \),  \( \theta \in [0,2\pi]\).</p>
 					<p class="fragment" data-fragment-index="0">Note \(f(z) = \ds \frac{5z-2}{z(z-1)} \) is analytic on \(\C \setminus\{0,1\}\).</p>
 					<p class="fragment" data-fragment-index="1">Solution coming soon!</p>
 				</div>
@@ -233,7 +233,7 @@
 				<h3>Residues and Poles</h3>
 				<div class="left-txt">
 					<p>\(f: \Omega \ra \C\) has a <em>singularity</em> at \( z_0\) if:</p>
-					<ol>
+					<ol style="line-height:80px">
 						<li class="fragment" data-fragment-index="0">\(f\) is not analytic at \(z_0\);
 						</li>
 						<li class="fragment" data-fragment-index="1">Given any \( \varepsilon \gt 0 \)  \( \exists\, z_1\in B_{\varepsilon}(z_0)\) such that \(f\) is analytic at \(z_1\).</li>
@@ -244,7 +244,9 @@
 			<section id="isolated-singularity">
 				<h3>Residues and Poles</h3>
 				<div class="left-txt size-90">
-					<p>\(f\) has an <em>isolated singularity</em> at \( z_0\) if \(f\) is analytic on \(B_{\varepsilon}(z_0)\setminus\{z_0\} \) for some \(\varepsilon \gt 0\).</p>
+					<p>\(f\) has an <em>isolated singularity</em> at \( z_0\) if \(f\) is analytic on 
+						\[B_{\varepsilon}(z_0)\setminus\{z_0\} \text{ for some } \varepsilon \gt 0.\]
+					</p>
 					<p class="fragment" data-fragment-index="0"><strong>E. g.</strong> &nbsp;\(f\) from <a href="#series-example-7">Example 7</a> has isolated singularities at \(0, 1\);</p>
 					<p class="fragment" data-fragment-index="1">\(\Log z\) has non-isolated singularities on the negative real axis union \(\{0\}\);</p>
 				</div>
@@ -254,8 +256,8 @@
 				<h3>Residues and Poles</h3>
 				<div class="left-txt">
 					<p>\(\ds \frac{\sin z}{z}\) has one isolated singularity at \(0\);</p>
-					<p class="fragment" data-fragment-index="0">\(\ds \frac{1}{\sin(\pi /z)}\) has isolated singularities at \(z=\dfrac{1}{k}, k\in \Z\) </p>
-					<p class="fragment" data-fragment-index="0">\(\qquad \quad \;\;\)and non-isolated singulaty at \(0\).</p>
+					<p class="fragment" data-fragment-index="0">\(\ds \frac{1}{\sin\left(\frac{\pi}{z}\right)}\) has isolated singularities at \(z=\dfrac{1}{k}, k\in \Z\) </p>
+					<p class="fragment" data-fragment-index="0">\(\qquad \quad \)and non-isolated singulaty at \(0\).</p>
 				</div>
 			</section>
 
