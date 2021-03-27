@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+
+  <!--MathJax starts-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      },
+                       TeX: { 
+                         equationNumbers: { autoNumber: "AMS" },
+                         extensions: ["AMSmath.js", "AMSsymbols.js"],
+                         Macros: {
+                          bh: "{\\mathbb{H}}",
+                          bt: "{$\\blacktriangleleft$}",
+                          btt: "{$\\blacktriangleright$}",
+                          acc: "{\\curvearrowright}",
+                          rp: ["{\\mathbb{RP}^{#1}}",1],
+                          cp: ["{\\mathbb{CP}^{#1}}",1],
+                          ida: "{\\boxed{\\Rightarrow}}",
+                          vuelta: "{\\boxed{\\Leftarrow}}",
+                          simi: "{\\!\sim}",
+                          dem: "{\\underline{Demostraci\'on.}}",
+                          findem: "{$\\;\\blacksquare$}",
+                          bk: "{\\mathbb{K}}",
+                          ff: "{\\mathbb{F}}",
+                          br: "{\\mathbb{R}}",
+                          bn: "{\\mathbb{N}}",
+                          bz: "{\\mathbb{Z}}",
+                          bc: "{\\mathbb{C}}",
+                          bq: "{\\mathbb{Q}}",
+                          ra: "{\\rightarrow}",
+                          lra: "{\\longrightarrow}",
+                          sss: "{\\Longleftrightarrow}",
+                          stac: ["{\\stackrel{#1}{\\longrightarrow}}",1],
+                          Ra: "{\\Rightarrow}",
+                          res: ["}",1],
+                          barra: "{\\;|\\;}",
+                          topp: "{\\rm Top}",
+                          baca: "{\\backslash}",
+                          til: ["{\\tilde{#1}}",1],
+                          mcal: ["{\\mathcal #1}",1],
+                          ol: ["{\\overline{#1}}",1],
+                          map: "{\\mbox{Map}}",
+                          rel: "{\\: \\mbox{rel}}"
+                        }
+                         }
+                       });
+    </script>
+
+  <!---<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+  <!--MathJax Ends-->
+
+  <title>Exploraciones Geométricas</title>
+  <link rel="stylesheet" href="assets/css/html.css">
+
+</head>
+
+<body data-type="book" data-type="book">
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+
+        <!-- Header -->
+        <header id="header">
+          <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+          <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a>
+            </li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+          </ul>
+        </header>
+
+        <div class="container">
+          <section data-type="chapter" id="introduccion-o1AWI2n">
+  <header class="main">
+    <h1>Introducci&#xF3;n</h1>
+  </header>
+
+  <span class="image main"><img src="images/pic11.jpg" alt></span>
+
+  <p>Cuando hablamos de geometr&#xED;a quiz&#xE1; lo primero que viene a nuestra mente son
+    tri&#xE1;ngulos, cuadrados, c&#xED;rculos, rectas, pol&#xED;gonos, etc. Incluso es posible
+    que creamos que la geometr&#xED;a fue desarrollada por los griegos de la antig&#xFC;edad
+    debido a los populares nombres de matem&#xE1;ticos como Pit&#xE1;goras o Arqu&#xED;medes.
+    En efecto, la palabra &#xAB;geometr&#xED;a&#xBB; proviene del griego antiguo formado a partir
+    de un derivado de las palabras &#xAB;geo&#xBB;, tierra, y &#xAB;metr&#xED;a&#xBB;, medida o medici&#xF3;n.
+    Ciertamente los griegos establecieron la palabra &#xAB;geometr&#xED;a&#xBB;, sin embargo,
+    no fueron ellos los primeros en desarrollar o usar esta disciplina.</p>
+
+  <p>En la antig&#xFC;edad, los sumerios de Mesopotamia (3000 a 2300 a. C.) y los egipcios
+    (2700 a 1650 a. C.) ya hab&#xED;an desarrollado un cuerpo de conocimientos geom&#xE9;tricos
+    elementales para el c&#xE1;lculo de longitudes, &#xE1;reas y vol&#xFA;menes. Sin embargo, dicho
+    cuerpo de conocimientos era m&#xE1;s bien un conjunto de recetas para resolver problemas
+    espec&#xED;ficos. Los resultados de estas culturas no ten&#xED;an la forma de enunciados
+    generales y tampoco exist&#xED;a la idea de demostraci&#xF3;n.</p>
+
+
+
+
+  <p>Fuentes antiguas escritas en tablillas de arcilla y papiros son evidencia del
+    desarrollo de la Geometr&#xED;a en la antig&#xFC;edad. Por ejemplo, la tablilla de barro
+    babil&#xF3;nica YBC 7289:</p>
+
+  <div class="image center">
+    <img alt="Ilustracion 1: Tablilla." src="images/intro/001claytbw.jpg">
+  </div>
+  <figcaption>
+    Illustraci&#xF3;n 1: Tablilla YBC 7289.&#xA0;
+  </figcaption>
+
+  <p>La diagonal que se observa en la imagen anterior, es una representaci&#xF3;n
+    geom&#xE9;trica de la aproximaci&#xF3;n de la ra&#xED;z cuadrada de 2 en cuatro cifras
+    sexagesimales, que son aproximadamente seis cifras decimales. </p>
+
+
+  <div class="image center">
+    <img alt="Ilustracion 2: Papiro Matem&#xE1;tico Rhind." src="images/intro/002papyrus.jpg" width="40%">
+  </div>
+  <figcaption>
+    Illustraci&#xF3;n 2: Papiro Matem&#xE1;tico Rhind.&#xA0;
+  </figcaption>
+
+
+
+
+  <p>Por otra parte,
+    tenemos el famoso Papiro de Ahmes, tambi&#xE9;n conocido como Papiro Matem&#xE1;tico Rhind:
+    El papiro contiene 87 problemas matem&#xE1;ticos con cuestiones aritm&#xE9;ticas b&#xE1;sicas,
+    fracciones, c&#xE1;lculo de &#xE1;reas, vol&#xFA;menes, progresiones, repartos proporcionales,
+    regla de tres, ecuaciones lineales y trigonometr&#xED;a b&#xE1;sica.
+    Durante el periodo griego, que abarca el a&#xF1;o 700 a. C. al 100 d. C., la ciencia
+    de la medici&#xF3;n de la tierra (geometr&#xED;a) se volvi&#xF3; m&#xE1;s refinada. Los antiguos
+    ge&#xF3;metras griegos, bas&#xE1;ndose en el razonamiento deductivo, realizaron descubrimientos
+    esenciales, a veces de imposible comprobaci&#xF3;n experimental, pero fundamentales para
+    el desarrollo de la geometr&#xED;a. Esto fue posible debido a que los griegos tomaron
+    las ideas matem&#xE1;ticas de las culturas que los precedieron y las transformaron en
+    enunciados generales. Esto es el aporte esencial de la cultura griega a la
+    geometr&#xED;a: considerar los resultados matem&#xE1;ticos como afirmaciones generales.
+    Adem&#xE1;s, los griegos crearon el m&#xE9;todo deductivo y esta creaci&#xF3;n se debe en gran
+    medida a su cultura que privilegiaba la discusi&#xF3;n y el razonamiento.
+    Los ge&#xF3;metras griegos tambi&#xE9;n realizaron mediciones de gran precisi&#xF3;n como es
+    el caso de Erat&#xF3;stenes (276 a. C.-194 a. C.) quien realiz&#xF3; la medici&#xF3;n de la
+    circunferencia de la tierra, al rededor del a&#xF1;o 230 a. C.</p>
+
+
+  <div class="image center">
+    <img alt="Ilustracion 3: Erat&#xF3;stenes." src="images/intro/003eratostenes1.jpg" width="25%">
+  </div>
+  <figcaption>
+    Illustraci&#xF3;n 3: Erat&#xF3;stenes.&#xA0;
+  </figcaption>
+
+
+
+
+  <p>La historia cuenta que estando en la Biblioteca de Alejandr&#xED;a, encontr&#xF3;
+    un informe de observaciones sobre Siena, ciudad situada a unos 800 km al
+    sur de Alejandr&#xED;a, en el que se dec&#xED;a que el d&#xED;a del solsticio de verano
+    (21 de junio) a mediod&#xED;a, los objetos (como por ejemplo, los obeliscos)
+    no produc&#xED;an sombra y en el fondo de los pozos pod&#xED;a verse la luz del sol.
+    Erat&#xF3;stenes observ&#xF3; que, en Alejandr&#xED;a, el mismo d&#xED;a y a la misma hora no
+    se produc&#xED;a este mismo hecho. Asumi&#xF3; de manera correcta que el Sol se encontraba
+    a gran distancia y que sus rayos, al alcanzar la tierra, lo hac&#xED;an en forma
+    (pr&#xE1;cticamente) paralela. Esto ratificaba su idea de que la superficie
+    de la Tierra era curva pues, de haber sido plana, no se hubiese producido
+    esta diferencia entre las dos ciudades.
+    El siguiente paso fue medir en Alejandr&#xED;a el &#xE1;ngulo que formaban los rayos
+    del sol con la vertical que por construcci&#xF3;n es igual al &#xE1;ngulo cuyo v&#xE9;rtice
+    est&#xE1; en el centro de la Tierra:</p>
+
+
+  <div class="image center">
+    <img alt="Figura 1: Diagrama para calcular la circunferencia de la tierra." src="images/intro/003eratostenes2.jpg" width="50%">
+  </div>
+  <figcaption>
+    Figura 1: Diagrama para calcular la circunferencia de la tierra.&#xA0;
+  </figcaption>
+
+
+
+  <p>Este &#xE1;ngulo result&#xF3; ser de 7.2 grados. Con estos datos y conociendo
+    la distancia entre las dos ciudades, Erat&#xF3;stenes concluy&#xF3; que la
+    circunferencia de la Tierra med&#xED;a (en unidades actuales) 40,000 km,
+    aproximadamente. Esto representa solamente 75 km, o un 0.2%, de error
+    de la circunferencia real de la Tierra medida por sat&#xE9;lites avanzados,
+    que es de 40,075 km.
+    En la actualidad la geometr&#xED;a todav&#xED;a se utiliza para realizar mediciones,
+    pero con la ayuda de instrumentos de medici&#xF3;n m&#xE1;s sofisticados como los
+    cientos de sat&#xE9;lites artificiales que orbitan la Tierra diariamente.
+    Los griegos de la antig&#xFC;edad reciben la mayor&#xED;a del cr&#xE9;dito por el desarrollo
+    de la geometr&#xED;a basada en axiomas y demostraciones, algo similar a la geometr&#xED;a
+    que se estudia todav&#xED;a en la escuela elemental. Ellos reconocieron la
+    belleza de la geometr&#xED;a como una disciplina con una estructura y comprendieron
+    que la demostraci&#xF3;n de un teorema era m&#xE1;s excitante que el descubrimiento
+    de una simple aplicaci&#xF3;n pr&#xE1;ctica.</p>
+
+  <hr class="major">
+
+  <section data-type="sect1" id="intro_secc01">
+
+    <h2>Tales de Mileto</h2>
+
+    <p>Si pedimos a cualquier persona mencionar el nombre de alg&#xFA;n matem&#xE1;tico
+      griego, seguramente muchos mencionar&#xE1;n el nombre de Pit&#xE1;goras y posiblemente
+      el de Euclides. Aunque actualmente no se usa como libro de texto las
+      escuelas, los Elementos de Euclides se us&#xF3; para estudiar geometr&#xED;a hasta
+      el siglo XIX. De hecho, se suele referir a Euclides como el Padre de la Geometr&#xED;a,
+      pero en realidad ese t&#xED;tulo lo merece m&#xE1;s Tales de Mileto (circa 624 - 546 a.C.)
+      quien realiz&#xF3; estudios de geometr&#xED;a 300 a&#xF1;os (aproximadamente) antes que Euclides.
+      De hecho, los griegos adquirieron mucho del conocimiento geom&#xE9;trico de la
+      civilizaci&#xF3;n egipcia gracias a &#xE9;l.</p>
+
+
+    <div class="image center">
+      <img alt="Ilustracion 4: Tales de Mileto." src="images/intro/004tales.jpg" width="25%">
+    </div>
+    <figcaption>
+      Ilustraci&#xF3;n 4: Tales de Mileto.
+    </figcaption>
+
+
+
+    <p>A pesar de que no existen escritos realizados por Tales, existen muchas
+      historias acerca de &#xE9;l. Una de las m&#xE1;s famosas habla acerca del m&#xE9;todo que
+      utiliz&#xF3; para calcular la altura de la gran pir&#xE1;mide de Giza, la cual fue
+      construida alrededor del a&#xF1;o 2,600 a.C. No se conoce exactamente cuales
+      fueron los elementos de geometr&#xED;a que los egipcios usaron en el dise&#xF1;o
+      de las pir&#xE1;mides, pero al parecer el c&#xE1;lculo de su altura hab&#xED;a sido,
+      por mucho tiempo, un reto sin resolver. Tales resolvi&#xF3; este problema al
+      darse cuenta que, a cierta hora, la longitud de su sombra proyectada en
+      el suelo era la misma que su altura. Al esperar hasta que el sol se
+      encontrara en una posici&#xF3;n en el cielo de tal manera que su propia sombra
+      era la misma que su altura, Tales midi&#xF3; la longitud de la sombra de la
+      pir&#xE1;mide desde su base. Al sumar la mitad de la longitud de la base de
+      la pir&#xE1;mide a la longitud de la sombra, Tales dedujo que el resultado
+      dar&#xED;a la altura de la pir&#xE1;mide.</p>
+
+
+    <div class="image fit">
+      <img alt="Figura 2: C&#xE1;lculo de la altura de la pir&#xE1;mide." src="images/intro/004piramidesombra.jpg">
+    </div>
+    <figcaption>
+      Figura 2: C&#xE1;lculo de la altura de la pir&#xE1;mide.&#xA0;
+    </figcaption>
+
+
+
+    <p>Historiadores de las matem&#xE1;ticas suponen que Tales conoc&#xED;a otros
+      resultados geom&#xE9;tricos, tales como el hecho de que cualquier di&#xE1;metro
+      de un c&#xED;rculo lo dividir&#xED;a en partes id&#xE9;nticas, que un tri&#xE1;ngulo is&#xF3;sceles
+      tiene necesariamente dos &#xE1;ngulos iguales en su base o las propiedades
+      relacionales entre los &#xE1;ngulos que se forman al cortar dos paralelas
+      por una l&#xED;nea recta. En la actualidad, este tipo de resultados geom&#xE9;tricos
+      pueden causar poca sorpresa en cualquier persona &#x2013;incluso en aquellas
+      personas han desarrollado cierto miedo y odio por las matem&#xE1;ticas&#x2013;
+      ya que se pueden considerar como un conocimiento del sentido com&#xFA;n
+      y no como un profundo conocimiento matem&#xE1;tico. Sin embargo, para
+      los fil&#xF3;sofos contempor&#xE1;neos a Tales, estas observaciones conformaban
+      pasos mayores para el estudio de las matem&#xE1;ticas ya que &#xE9;l estableci&#xF3;
+      sus conclusiones no para un c&#xED;rculo en particular, sino para todos
+      los c&#xED;rculos, o para todos los tri&#xE1;ngulos is&#xF3;sceles, en general.
+      De hecho, Tales estableci&#xF3; una nueva aproximaci&#xF3;n deductiva de
+      pensamiento y an&#xE1;lisis que transformar&#xED;a a las matem&#xE1;ticas (consideradas
+      al inicio s&#xF3;lo desde un punto de visto pr&#xE1;ctico) en el estudio
+      abstracto de generalidades. M&#xE1;s a&#xFA;n, Tales estableci&#xF3; el estilo
+      de pensamiento en el cual se fundamentan las matem&#xE1;ticas de la actualidad.
+      Podemos decir que Tales cambi&#xF3; el enfoque del estudio de la geometr&#xED;a,
+      desde un aspecto de medida a un estudio de invariantes: propiedades de
+      c&#xED;rculos, o tri&#xE1;ngulos is&#xF3;sceles, que son independientes del tama&#xF1;o de
+      las figuras. Los di&#xE1;metros de los c&#xED;rculos cambian, si se cambia el tama&#xF1;o
+      de las circunferencias pero el invariante es que cualquier di&#xE1;metro divide
+      a la circunferencia en dos partes iguales. De hecho, el estudio de invariantes
+      se puede considerar como el v&#xED;nculo entre las diferentes ramas que
+      existen de la geometr&#xED;a.</p>
+
+    <hr class="major">
+
+
+    <section data-type="sect2" id="intro_secc02">
+      <h2>La esencia de la Geometr&#xED;a: Simetr&#xED;a e invariantes</h2>
+
+
+      <p>La mayor&#xED;a de las personas tienen una idea general del concepto de simetr&#xED;a,
+        pues es una caracter&#xED;stica que se reconoce f&#xE1;cilmente en la naturaleza. Por ejemplo,
+        la simetr&#xED;a del cuerpo de los insectos (como el de una mariposa), la simetr&#xED;a de
+        las flores con cinco p&#xE9;talos, o la simetr&#xED;a que se observa al cortar una manzana
+        por la mitad.</p>
+
+
+      <div class="row">
+        <!-- Break -->
+        <div class="col-4 col-12-medium">
+          <div class="image fit">
+            <img src="images/intro/005mariposa.jpg" style="width:100%">
+            <figcaption>
+              Mariposa
+            </figcaption>
+          </div>
+        </div>
+        <div class="col-4 col-12-medium">
+          <div class="image fit">
+            <img src="images/intro/006florcinco.jpg" style="width:100%">
+            <figcaption>Flor</figcaption>
+          </div>
+        </div>
+        <div class="col-4 col-12-medium">
+          <div class="image fit">
+            <img src="images/intro/007manzana.jpg" style="width:100%">
+            <figcaption>Corte de manzana</figcaption>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <p>Este tipo de simetr&#xED;as informales, o intuitivas, se abordan formalmente
+        en la geometr&#xED;a Euclidiana como el estudio de la simetr&#xED;a reflectiva y
+        rotacional. La mariposa, por ejemplo, tiene una simetr&#xED;a axial. El dise&#xF1;o
+        que se observa en el centro de una manzana cortada trasversalmente es un
+        caso de simetr&#xED;a reflectiva, pero tambi&#xE9;n se puede observar una simetr&#xED;a
+        rotacional. Asimismo, una flor con cinco p&#xE9;talos se puede rotar (usando
+        un &#xE1;ngulo de 72 grados) en cinco posiciones y a&#xFA;n as&#xED; se ver&#xE1; exactamente
+        igual despu&#xE9;s de cada rotaci&#xF3;n.
+        En esencia, el concepto intuitivo y cotidiano de simetr&#xED;a &#x2013;reflectiva o
+        rotacional&#x2013; se puede extender a un significado matem&#xE1;tico. Esto es, en
+        matem&#xE1;ticas se define un objeto matem&#xE1;tico como sim&#xE9;trico con respecto a
+        una operaci&#xF3;n matem&#xE1;tica si esa operaci&#xF3;n, cuando se aplica al objeto,
+        preserva algunas propiedades del objeto.
+        En este caso, hemos usados el t&#xE9;rmino &#xAB;objeto matem&#xE1;tico&#xBB;, para distinguir
+        entre objetos del mundo real y el objeto matem&#xE1;tico ideal (en el sentido
+        de perfecci&#xF3;n). En el mundo real, una mariposa real nunca ser&#xE1; perfectamente
+        sim&#xE9;trica: si observamos con detalle a sus alas, podremos apreciar peque&#xF1;as
+        diferencias entre ellas. Incluso un dibujo de una mariposa realizado
+        cuidadosamente revelar&#xE1; algunas diferencias min&#xFA;sculas, si se agranda
+        a una gran escala. En la vida cotidiana, tales imperfecciones son imperceptibles
+        y nimias; sin embargo, estas imperfecciones son de gran importancia para
+        los matem&#xE1;ticos, quienes trabajan con la perfecci&#xF3;n absoluta. Como veremos
+        m&#xE1;s adelante, uno de los grandes legados de Euclides fue el hecho distinguir
+        entre lo real y lo ideal. De hecho, la geometr&#xED;a trata con objetos ideales;
+        es decir, objetos matem&#xE1;ticos tales como puntos, l&#xED;neas, pol&#xED;gonos, poliedros
+        y fractales (aunque estos &#xFA;ltimos Euclides no los consider&#xF3;).
+        En el caso de nuestra mariposa (matem&#xE1;tica), la operaci&#xF3;n matem&#xE1;tica que
+        usamos es la reflexi&#xF3;n con respecto a un eje. Esta operaci&#xF3;n preserva la
+        imagen de la mariposa de tal manera que es imposible decidir si se est&#xE1;
+        mirando a la mariposa original o a su reflexi&#xF3;n. De manera similar, al aplicar
+        la operaci&#xF3;n de rotaci&#xF3;n a la flor de cinco p&#xE9;talos, o al coraz&#xF3;n de la manzana,
+        se preserva su imagen.</p>
+
+      <p>Las simetr&#xED;as descritas anteriormente son quiz&#xE1; las m&#xE1;s comunes pero no
+        son las &#xFA;nicas. Consideremos un tri&#xE1;ngulo cualquiera y cambiemos su forma
+        de tal manera que sus lados se contraen o dilatan uniformemente. En
+        este caso, la operaci&#xF3;n matem&#xE1;tica de contracci&#xF3;n, o dilataci&#xF3;n, uniforme
+        preserva ciertas propiedades de los tri&#xE1;ngulos:</p>
+
+      <div class="frame">
+        <iframe scrolling="no" title="Dilataci&#xF3;n y contracci&#xF3;n" src="https://www.geogebra.org/material/iframe/id/NqQU7K99/width/619/height/485/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="619px" height="485px" style="border:0px;" allowfullscreen> </iframe>
+      </div>
+
+      <br>
+
+      <p>La medida de los &#xE1;ngulos no cambia y las proporciones relativas de
+        los lados son invariantes tambi&#xE9;n. Los tri&#xE1;ngulos son sim&#xE9;tricos con
+        respecto a la contracci&#xF3;n y dilataci&#xF3;n en t&#xE9;rminos de propiedades de
+        &#xE1;ngulos y razones de lados.
+        Si ahora movemos el tri&#xE1;ngulo a otra posici&#xF3;n sin rotarlo &#x2013;a esta
+        operaci&#xF3;n se le conoce como traslaci&#xF3;n:</p>
+
+
+      <div class="frame">
+        <iframe scrolling="no" title="Traslaci&#xF3;n y rotaci&#xF3;n" src="https://www.geogebra.org/material/iframe/id/gsD66KDJ/width/606/height/485/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="606px" height="485px" style="border:0px;" allowfullscreen> </iframe>
+      </div>
+
+      <br>
+
+      <p>Las propiedades del tri&#xE1;ngulo se preservan. Este movimiento
+        se puede considerar como otro tipo de simetr&#xED;a.
+        Estas simetr&#xED;as b&#xE1;sicas &#x2013;reflexi&#xF3;n, rotaci&#xF3;n, contracci&#xF3;n, dilataci&#xF3;n,
+        translaci&#xF3;n&#x2013; y la combinaci&#xF3;n entre ellas, forman la base del estudio
+        de la geometr&#xED;a Euclidiana, tambi&#xE9;n llamada geometr&#xED;a de figuras planas.
+        Las figuras planas son aquellas que se pueden representar en dos dimensiones
+        en una superficie perfectamente plana (y se extiende a tres dimensiones
+        por medio de planos verticales). El estudio de estas simetr&#xED;as se
+        aborda en la geometr&#xED;a escolar, la cual es familiar para la mayor&#xED;a
+        de nosotros. Los hechos geom&#xE9;tricos que se ense&#xF1;an en la escuela
+        &#x2013;por ejemplo, la suma los &#xE1;ngulos internos de un tri&#xE1;ngulo siempre
+        es 180 grados&#x2013; se originan de estas simetr&#xED;as.</p>
+
+      <hr class="major">
+
+    </section>
+
+    <section data-type="sect3" id="intro_secc03">
+
+      <h2>Geometr&#xED;as no euclidianas</h2>
+
+      <p>La geometr&#xED;a euclidiana se utiliz&#xF3; con &#xE9;xito durante m&#xE1;s de dos
+        mil a&#xF1;os y en la actualidad sigue siendo la base para la realizaci&#xF3;n
+        de obras de ingenier&#xED;a, proyectos arquitect&#xF3;nicos y muchas otras
+        aplicaciones. Sin embargo, los objetos matem&#xE1;ticos definidos en
+        esta geometr&#xED;a, y sus propiedades, existen en un universo perfectamente
+        plano. Es claro que la suma de los &#xE1;ngulos internos de cualquier
+        tri&#xE1;ngulo definido en el plano es 180 grados, pero si un tri&#xE1;ngulo
+        est&#xE1; definido en una esfera, la suma de sus &#xE1;ngulos ser&#xE1; mayor
+        que 180 grados. Este &#xFA;ltimo tri&#xE1;ngulo existe en un universo esf&#xE9;rico
+        y su geometr&#xED;a se considera no euclidiana.</p>
+
+      <p>Las geometr&#xED;as no euclidianas (algunas de ellas desarrolladas apenas
+        hace unos 300 a&#xF1;os aproximadamente) permiten estudiar nuevos tipos
+        simetr&#xED;as. En la geometr&#xED;a proyectiva, por ejemplo, se estudian
+        las propiedades de incidencia de los objetos geom&#xE9;tricos, como en
+        el caso de la representaci&#xF3;n de un objeto tridimensional proyectado
+        en un plano en dos dimensiones. Muchos artistas italianos del renacimiento
+        utilizaron este tipo de geometr&#xED;a para representar con mayor precisi&#xF3;n
+        la realidad en sus pinturas. Como es el caso del pintor Pietro di
+        Cristoforo Vanucci en su obra Entrega de las llaves a San Pedro, realizada en 1482:</p>
+
+      <div class="image center">
+        <img alt="Ilustracion 6: Entrega de las llaves a San Pedro, realizada en 1482." src="images/intro/010renacimiento.jpg" width="60%">
+      </div>
+      <figcaption>
+        Ilustraci&#xF3;n 6: Entrega de las llaves a San Pedro, realizada en 1482.
+      </figcaption>
+
+      <p>Otro tipo de geometr&#xED;a no euclidiana, en la cual se consideran
+        simetr&#xED;as de transformaciones m&#xE1;s extremas, es la llamada topolog&#xED;a.
+        En esta rama de las matem&#xE1;ticas se estudia
+        c&#xF3;mo ciertos objetos matem&#xE1;ticos se pueden transformar en otro tipo de objetos por medio
+        de deformaciones continuas, como si estuvieran hechos de una goma el&#xE1;stica.
+        Imaginemos, por ejemplo, un globo con forma de dona hecho de un material deformable.
+        En teor&#xED;a, este objeto se puede deformar de tal manera que se puede convertir en una taza
+        de caf&#xE9;, con la &#xFA;nica condici&#xF3;n de que no se rompa, se corte, o se hagan m&#xE1;s hoyos en
+        su superficie. Sin embargo, este mismo globo no se puede transformar en una esfera,
+        precisamente porque tiene un hoyo en medio. De esta manera, podemos decir que las donas
+        y las tazas son sim&#xE9;tricas, en el contexto de la topolog&#xED;a.
+      </p>
+
+
+      <div class="image center">
+        <img alt="Dona y taza" src="https://1.bp.blogspot.com/-C0xSD0_xwU8/YEQjJuVplZI/AAAAAAAAaQo/78EVL8acwBIMC67cR7AewF0RZu13Ah74gCLcBGAsYHQ/s600/pink-torus-doughnut.gif" width="40%">
+      </div>
+      <figcaption>
+        Ilustraci&#xF3;n 7: Deformaci&#xF3;n de una taza en una dona (torus).
+      </figcaption>
+
+      <p>
+        Otro tipo de geometr&#xED;a no euclidiana es la geometr&#xED;a fractal.
+        Un fractal es un objeto geom&#xE9;trico cuya estructura b&#xE1;sica, fragmentada
+        o irregular, se repite a diferentes escalas. En este contexto, la forma
+        b&#xE1;sica del objeto matem&#xE1;tico permanece invariante con la operaci&#xF3;n
+        matem&#xE1;tica definida como escala. El t&#xE9;rmino &#xAB;fractal&#xBB; fue propuesto por
+        el matem&#xE1;tico Beno&#xEE;t Mandelbrot (1924-2010) en 1975 y deriva del lat&#xED;n
+        fractus, que significa quebrado o fracturado. Muchas estructuras naturales
+        son de tipo fractal.</p>
+
+      <div class="frame">
+        <iframe src="https://editor.p5js.org/jcponce/embed/s7MSEN24-" width="300px" height="300px" style="border:0px;"></iframe>
+      </div>
+      <figcaption>
+        Ilustraci&#xF3;n 8: Fractal de Fern. Has clic para reiniciar.
+      </figcaption>
+
+      <hr class="major">
+    </section>
+
+
+    <section data-type="sect4" id="intro_secc04">
+      <h2>Exploraciones geom&#xE9;tricas</h2>
+      <p>Bertrand Russell (1872-1970), en su libro The Study of Mathematics.
+        Mysticism and Logic: And Other Essays (1918), menciona que:
+        Las matem&#xE1;ticas no solamente poseen la verdad, sino la suprema belleza;
+        una belleza fr&#xED;a y austera, como aquella de la escultura, sin apelaci&#xF3;n
+        a ninguna parte de nuestra naturaleza d&#xE9;bil, sin los adornos magn&#xED;ficos
+        de la pintura o la m&#xFA;sica, pero sublime y pura, y capaz de una perfecci&#xF3;n
+        severa como s&#xF3;lo las mejores artes pueden presentar (p. 60).
+        Concuerdo con Russell al considerar a las matem&#xE1;ticas como una forma
+        de arte caracterizada por una belleza suprema, pero creo que tambi&#xE9;n
+        pueden ser excitantes y llenas de resultados inesperados y algunas
+        veces engorrosos. Asimismo, considero que cualquier persona de mente
+        curiosa puede apreciar la belleza de las matem&#xE1;ticas a trav&#xE9;s de la
+        geometr&#xED;a m&#xE1;s r&#xE1;pidamente que a trav&#xE9;s de cualquier otra ruta.
+        La geometr&#xED;a es la rama m&#xE1;s antigua y la m&#xE1;s accesible las matem&#xE1;ticas.
+        Ha evolucionado paulatinamente gracias a la contribuci&#xF3;n de diferentes
+        pensadores a trav&#xE9;s de la historia, lo cual ha permitido el descubrimiento
+        de diversos resultados sorprendentes, ideas elegantes y conexiones
+        inesperadas. En este libro exploraremos algunos de los resultados e
+        ideas que la geometr&#xED;a y sus diversas ramas ofrecen, tales como el
+        Teorema de Pit&#xE1;goras, la recta de Euler o el n&#xFA;mero &#xE1;ureo, incluyendo
+        tambi&#xE9;n resultados de topolog&#xED;a y geometr&#xED;a fractal.
+        Asimismo, el presente libro ofrece la oportunidad de explorar por qu&#xE9;
+        la geometr&#xED;a es importante, pero sobre todo proporciona una visi&#xF3;n general
+        de la actividad que realizaron los ge&#xF3;metras de ayer y hoy. He dedicado
+        mucho tiempo y esfuerzo para producir un libro interesante y agradable,
+        dedicado principalmente para todos aquellos interesados en conocer un
+        poco del vasto mundo de la geometr&#xED;a, incluyendo ilustraciones, figuras,
+        ejercicios y referencias a la literatura.</p>
+
+    </section>
+
+
+
+  </section>
+
+</section>
+        </div>
+
+      </div><!-- inner class -->
+    </div><!-- Main -->
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <div class="inner">
+
+        <!-- Search -->
+        <section id="search" class="alt">
+          <form method="post" action="#">
+            <input type="text" name="query" id="query" placeholder="Search" />
+          </form>
+        </section>
+
+        <!-- Menu -->
+        <nav id="menu">
+          <header class="major">
+            <h2>Contenido</h2>
+          </header>
+          <ul>
+            <li><a href="index.html">Presentación</a></li>
+            <li><a href="intro.html">Introducción</a></li>
+            <li><a href="generic.html">Generic</a></li>
+            <li>
+              <span class="opener">Fundamentos de la geometría</span>
+              <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a href="#">Feugiat Veroeros</a></li>
+              </ul>
+            </li>
+            <li>
+              <span class="opener">Tesoros de la geometría plana</span>
+              <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a href="#">Feugiat Veroeros</a></li>
+              </ul>
+            </li>
+            <li>
+              <span class="opener">Del espacio plano y curvo</span>
+              <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a href="#">Feugiat Veroeros</a></li>
+              </ul>
+            </li>
+            <li>
+              <span class="opener">Arte y recreación</span>
+              <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a href="#">Feugiat Veroeros</a></li>
+              </ul>
+            </li>
+            <li>
+              <span class="opener">Deformaciones geométricas</span>
+              <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a href="#">Feugiat Veroeros</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        
+
+        
+
+        <!-- Footer -->
+        <footer id="footer">
+          <p class="copyright">&copy; Juan Carlos Ponce Campuzano. All rights reserved. Demo Images: <a
+              href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+              UP</a>.</p>
+        </footer>
+
+      </div>
+    </div>
+
+
+  </div><!-- Wrapper -->
+
+  <!-- Scripts -->
+  <script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/util.js"></script>
+
+
+</body>
+
+</html>
