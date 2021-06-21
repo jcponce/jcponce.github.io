@@ -51,37 +51,7 @@
 				<p>Lecture 34</p>
 			</section>
 
-			<section>
-				<h3>Residues at Poles</h3>
-				<div class="left-txt size-70">
-					<p>Consider the function \(f(z)=\dfrac{1}{1-1/z}\), \(\quad z\neq 0\).</p>
-				</div>
-				<div class="size-70">
-					<p class="fragment" data-fragment-index="0">\(f(z) = \dfrac{z}{z-1}\), \(\quad z\neq 0 \qquad\qquad\quad\quad\;\)</p>
-					<p class="fragment" data-fragment-index="1">\(=\dfrac{-z}{1-z}\qquad \quad\quad\qquad\qquad\)</p>
-					<p class="fragment" data-fragment-index="2">\(\qquad \qquad=-z\left( 1+z+z^2+ \cdots \right)\;\;
-						0\lt |z|\lt 1\)</p>
-					<p class="fragment" data-fragment-index="3">\(= - z -z^2 - z^3-\cdots \quad\quad\;\)</p>
-				</div>
-			</section>
-
-			<section>
-				<h3>Residues at Poles</h3>
-				<div class="left-txt size-80">
-					<p>Taking &nbsp;\(f(0)=0\) extends \(f\) to an analytic functions on
-						\[\{z: |z|\lt 1\}.\]
-					</p>
-					<p class="fragment" data-fragment-index="0">So we have a removable singularity at \(0\).</p>
-					<p class="fragment" data-fragment-index="1"><strong>Note:</strong> From <a
-							href="#/residues-at-poles" target="_blank">Theorem in Lecture 33</a>, if \(m=1\) (simple pole)
-					</p>
-					<p class="fragment" data-fragment-index="1">\(\quad\qquad\qquad \underset{z=z_0}{\res}f(z) =
-						\dfrac{\phi^{(0)}(z_0)}{0!}\)
-						<span class="fragment" data-fragment-index="2">\(= \phi(z_0)\). \(\quad(**)\)</span></p>
-				</div>
-			</section>
-
-			<section>
+			<section id="residues-at-poles-example-1">
 				<h3>Residues at Poles</h3>
 				<div class="left-txt size-80">
 					<p><strong>Example 1:</strong> &nbsp; \(f(z)=\dfrac{z+i}{z^2+9}\).
@@ -98,10 +68,10 @@
 				</div>
 			</section>
 
-			<section>
+			<section id="residues-at-poles-example-1-cont">
 				<h3>Residues at Poles</h3>
 				<div class="left-txt size-80">
-					<p><strong>Example 1 (cont):</strong> <a href="#/residues-at-poles" target="_blank">Theorem (Lec 33)</a> \(\Rightarrow\)
+					<p><strong>Example 1 (cont):</strong> <a href="lecture-33.html#/residues-at-poles-theorem-2" target="_blank">Theorem 2 (Lec 33)</a> \(\Rightarrow\)
 						simple pole
 						at \(z=3i\),
 						<span class="fragment" data-fragment-index="0">and \((**) \Rightarrow\)
@@ -118,7 +88,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section  id="residues-at-poles-example-2">
 				<h3>Residues at Poles</h3>
 				<div class="left-txt size-80">
 					<p><strong>Example 2:</strong> &nbsp; \(f(z)=\dfrac{z^3+2z}{(z-i)^3}\).
@@ -130,7 +100,7 @@
 						<span class="fragment" data-fragment-index="2">where \(\phi(z) = z^3+2z\) is analytic and
 							\(\phi(i)= i \neq 0\).</span>
 					</p>
-					<p class="fragment" data-fragment-index="3"><a href="#/residues-at-poles"  target="_blank">Theorem (Lec 33)</a>
+					<p class="fragment" data-fragment-index="3"><a href="lecture-33.html#/residues-at-poles-theorem-1"  target="_blank">Theorem 1 (Lec 33)</a>
 						\(\Rightarrow\) pole of order 3 at \(z=i\),
 						<span class="fragment" data-fragment-index="4">so</span>
 					</p>
@@ -185,7 +155,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section id="zeros-poles-example-1">
 				<h3>Zeros and Poles</h3>
 				<div class="left-txt">
 					<p><strong>Example:</strong> \(p(z)=1\) and \(q(z)=z(e^z-1)\).
@@ -199,7 +169,7 @@
 					<p class="fragment" data-fragment-index="4">\(q''(0)= 2\neq 0\). <span title="Check it!">📝</span></p>
 				</div>
 				<div class="left-txt">
-					<p class="fragment" data-fragment-index="5"><a href="#/zeros-and-poles">Theorem 2</a> \(\Rightarrow\) has a pole of order \(2\) at \(0\).
+					<p class="fragment" data-fragment-index="5"><a href="#/zeros-and-poles-theorem">Theorem 2</a> \(\Rightarrow\) has a pole of order \(2\) at \(0\).
 					</p>
 				</div>
 			</section>
@@ -211,7 +181,7 @@
 						Then \(p/q\) has a simple at \(z_0\), and
 						\[\underset{z=z_0}{\res}\frac{p(z)}{q(z)} = \frac{p(z_0)}{q'(z_0)}\]
 					</p>
-					<p class="size-60 fragment" data-fragment-index="0"><strong>Note:</strong> Exist higher order analogues but they are messy.</p>
+					<p class="size-60 fragment" data-fragment-index="0"><strong>Note:</strong> There exist higher order analogues but they are messy.</p>
 				</div>
 			</section>
 
@@ -220,7 +190,7 @@
 				<div class="left-txt size-90">
 					<p>Recall:
 						\[{\small\int_{-\infty}^{\infty} f(x)\,dx = \lim_{M_1\ra -\infty}\int_{M_1}^{0} f(x)\,dx + \lim_{M_2\ra \infty}\int_{0}^{M_2} f(x)\,dx}\]
-						if both of the limits here exist.
+						if both of the limits exist.
 					</p>
 					<p class="size-70 fragment" data-fragment-index="0"><strong>Remark:</strong> We can replace \(0\) by any fixed \(c\in \R\).</p>
 				</div>
@@ -236,13 +206,13 @@
 				</div>
 			</section>
 
-			<section>
+			<section  id="cauchy-principal-value-example">
 				<h3>Applications contour integrals</h3>
 				<div class="left-txt size-70">
 					<p><strong>E. g.</strong> \(\ds\int_{-\infty}^{\infty}x \,dx\)
 						<span class="fragment" data-fragment-index="0">\(=\ds\lim_{M_1\ra -\infty}\int_{M_1}^{0} x\,dx + \lim_{M_2\ra \infty}\int_{0}^{M_2} x\,dx\)</span>
 					</p>
-					<p class="fragment" data-fragment-index="1">\(\qquad\qquad\quad = \ds\lim_{M_1\ra -\infty} \frac{-M_1^2}{2}\,dx + \lim_{M_2\ra \infty} \frac{M_2^2}{2}\,dx\)</p>
+					<p class="fragment" data-fragment-index="1">\(\qquad\qquad\quad = \ds\lim_{M_1\ra -\infty} \frac{-M_1^2}{2} + \lim_{M_2\ra \infty} \frac{M_2^2}{2}\)</p>
 					<p class="fragment" data-fragment-index="2">\(\qquad\qquad\quad = \) undefined,
 						<span class="fragment" data-fragment-index="3">but</span>
 					</p>

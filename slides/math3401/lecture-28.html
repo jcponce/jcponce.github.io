@@ -51,6 +51,23 @@
 				<p>Lecture 28</p>
 			</section>
 
+			<section>
+				<h3>Harmonic functions</h3>
+				<h5>Precise definition</h5>
+				<div class="left-txt">
+
+					<p class="fragment" data-fragment-index="0">\(u: \Omega\subset \R^n \ra \R^n\) harmonic says:</p>
+					<ol>
+						<li class="fragment" data-fragment-index="1">
+							\(u\) and partials of order 1 and 2 are continuous;
+						</li>
+						<li class="fragment" data-fragment-index="2">
+							\(\Delta u = 0\).
+						</li>
+					</ol>
+				</div>
+			</section>
+
 			<section id="scale-factor">
 				<h3>Scale factor</h3>
 				<p class="size-70"><strong>Last remarks on conformal mappings</strong></p>
@@ -72,8 +89,8 @@
 						or <em>dilatation factor</em>.
 						<span class="fragment" data-fragment-index="0">That is
 							<ul>
-								<li class="fragment" data-fragment-index="0">stretching, if \(\,f'(z_0)| \gt 1\);</li>
-								<li class="fragment" data-fragment-index="1">shrinking, if \(\,f'(z_0)| \lt 1\).</li>
+								<li class="fragment" data-fragment-index="0">stretching, if \(\,\left|\,f'(z_0)\right| \gt 1\);</li>
+								<li class="fragment" data-fragment-index="1">shrinking, if \(\,\left|\,f'(z_0)\right| \lt 1\).</li>
 							</ul>
 						</span>
 					</p>
@@ -102,7 +119,7 @@
 			<section id="poisson-integral-formula">
 				<h3>Poisson's integral formula</h3>
 				<div class="left-txt size-80">
-					<p>Let \(C_0\) be a positively oriented circle, centred at the origin.</p>
+					<p>Let \(C_0\) be a positively oriented circle of radius \(r_0\), centred at the origin.</p>
 					<p class="fragment" data-fragment-index="0">Recall Cauchy: if \(f\) is analytic in and on \(C_0\),
 						then for \(z_0 \in \text{Int} \,C_0\)
 						\[f(z) = \frac{1}{2\pi i}\int_{C_0} \frac{f\left( \zeta \right)}{\zeta - z}d \zeta \qquad (1) \]
@@ -127,9 +144,10 @@
 						<span class="fragment" data-fragment-index="4">\(=\dfrac{\zeta \conj{\zeta}}{\conj{z}}\)
 							\(\;(2)\;\)
 							</span></p>
-					<p class="fragment" data-fragment-index="5">for any \(\zeta\in C_0\). Now fix \(z \in \text{Int}\, C_0, \; z_0\neq 0\)
-						and note \[\ds \int_{C_0} \frac{f\left( \zeta \right)}{\zeta - z}d \zeta = 0
-						\quad(\text{Cauchy}),\]
+					<p class="fragment" data-fragment-index="4">for any \(\zeta\in C_0\).
+						<span class="fragment" data-fragment-index="5"> Now fix \(z \in \text{Int}\, C_0, \; z_0\neq 0\)
+							and note \[\ds \int_{C_0} \frac{f\left( \zeta \right)}{\zeta - z}d \zeta = 0
+							\quad(\text{Cauchy}),\]</span>
 						<span class="fragment" data-fragment-index="6">since \(\zeta\mapsto \dfrac{f(\zeta)}{\zeta
 							-z^*}\) is analytic in and on \(C_0\) (\(z^*\in \text{Ext}\, C_0\)).</span>
 					</p>
@@ -158,7 +176,7 @@
 			<section>
 				<h3>Poisson's integral formula</h3>
 				<div class="left-txt">
-					<p>Now for \(z = r e^{i \theta} \) put \(\zeta = r e^{i \phi}\), \(0\leq \phi \leq 2 \pi \).</p>
+					<p>Now for \(z = r e^{i \theta} \) put \(\zeta = r_0 e^{i \phi}\), \(0\leq \phi \leq 2 \pi \).</p>
 					<p class="fragment" data-fragment-index="0">Then \(d\zeta = r_0i e^{i \phi}d\phi\) and
 						\[I = \frac{r_0^2 - r^2}{|\zeta - z|^2} \cdot \frac{1}{r_0 e^{i \phi}} \qquad (5) \]
 					</p>

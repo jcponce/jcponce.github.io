@@ -126,10 +126,10 @@
 				<div class="left-txt size-80">
 					<p>\(\implies \ds \frac{1}{2 \pi i } \int_C \frac{f(\zeta)}{\zeta-z}d\zeta\)
 					</p>
-					<p>\(\;\;\qquad = \ds \sum_{n=0}^{N-1} \frac{1}{2 \pi i } \int_C \frac{f(\zeta) z^n}{\zeta^{n+1}}d\zeta +  \underbrace{ \frac{z^N}{2 \pi i } \int_C \frac{f(\zeta)}{(\zeta -z)\zeta^N}d\zeta }_{ {\small \text{Call this } \rho_{N-1}(z)} } \)</p>
+					<p>\(\;\;\qquad = \ds \sum_{n=0}^{N-1} \frac{1}{2 \pi i } \int_C \frac{f(\zeta) z^n}{\zeta^{n+1}}d\zeta +  \underbrace{ \frac{z^N}{2 \pi i } \int_C \frac{f(\zeta)}{(\zeta -z)\zeta^N}d\zeta }_{ {\small \text{Call this } \rho_{{\tiny N-1}}(z)} } \)</p>
 					<p class="fragment" data-fragment-index="0"><a href="#/proof-taylor-series/1">\((1)\)</a>  and the <a href="lecture-22.html#/extension-cauchy-integral-formula" target="_blank">extended Cauchy integral formula</a> \(\implies\)
 						\[
-						f(z) = \sum_{n=0}^{N-1} \frac{f^{(n)}(0)z^n}{n!} + \rho_{N-1}(z).
+						f(z) = \sum_{n=0}^{N-1} \frac{f^{(n)}(0)z^n}{n!} + \rho_{{\tiny N-1}}(z).
 						\]
 					</p>
 				</div>
@@ -138,15 +138,15 @@
 			<section>
 				<h3>Proof of Taylor's Theorem</h3>
 				<div class="left-txt size-80">
-					<p>If we can show that \(\ds \lim_{N\ra \infty } \rho_{N-1} (z) = 0\) we are done.</p>
+					<p>If we can show that \(\ds \lim_{N\ra \infty } \rho_{{\tiny N-1}} (z) = 0\) we are done.</p>
 					<p class="fragment" data-fragment-index="0">Take \(\zeta \in C \implies |\zeta|=r_0\).
-						<span class="fragment" data-fragment-index="1">Suppose exists \(M_N\) such that
+						<span class="fragment" data-fragment-index="1">Suppose there exists \(M_N\) such that
 							\[
 							(H) \quad \left| \frac{f(\zeta)}{(\zeta-z)\zeta^N}\right|\leq M_N \text{ on } C.
 							\]
 						</span>
 					</p>
-					<p class="fragment" data-fragment-index="2">Then &nbsp; \(\left| \rho_{N-1} (z) \right|\leq \dfrac{r^N}{2 \pi} M_N \cdot \ell(C)\)
+					<p class="fragment" data-fragment-index="2">Then &nbsp; \(\left| \rho_{{\tiny N-1}} (z) \right|\leq \dfrac{r^N}{2 \pi} M_N \cdot \ell(C)\)
 						<span class="fragment" data-fragment-index="3">\(= r_0 r^N M_N\). \(\quad(**)\)</span>
 					</p>
 				</div>
@@ -155,9 +155,9 @@
 			<section>
 				<h3>Proof of Taylor's Theorem</h3>
 				<div class="left-txt size-80">
-					<p>To get \(M_N\): \(f\) is analytic \(\implies |f|\) is continuous, \(C\) is closed and 
-						bounded, so by the extreme value theorem \(\exists \;\mu\) such that
-						\[|f|\leq \mu  \text{ on } C.\]
+					<p>To get \(M_N\): \(f\) is analytic \(\implies |\,f|\) is continuous, \(C\) is closed and 
+						bounded, so by the extreme value theorem there exists \(\mu\) such that
+						\[|\,f|\leq \mu  \text{ on } C.\]
 					</p>
 					<p class="fragment" data-fragment-index="0">Further \(|\zeta|^N = r_0^N\) and 
 					</p>
@@ -174,7 +174,7 @@
 				<div class="left-txt size-90">
 					<p>Hence <a href="#/6/0/3">\((**)\)</a>  \(\implies\)</p>
 				</div>
-				<p class="size-80">\(\left| \rho_{N-1} (z) \right| \leq \ds \frac{\mu r_0 r^N}{r_0^N (r_0 - r)}\)
+				<p class="size-80">\(\left| \rho_{{\tiny N-1}} (z) \right| \leq \ds \frac{\mu r_0 r^N}{r_0^N (r_0 - r)}\)
 					<span class="fragment" data-fragment-index="0">\(= \ds \frac{\mu r_0}{r_0 - r}\left( \frac{r}{r_0} \right)^N\)</span>
 					
 				</p>

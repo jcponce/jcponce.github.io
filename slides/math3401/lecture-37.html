@@ -55,7 +55,7 @@
 				<h3>Jordan's Lemma</h3>
 				<div class="left-txt size-80">
 					<p><strong>Lemma:</strong> If \(f\) is analytic on
-						\( \left\{ z : \Im z \ge 0\right\} \cap \left\{ z : |z| \ge R_0 \right\}\)
+						\( \left\{ z : \Im z \ge 0\right\} \cap \left\{ z : |z| \gt R_0 \right\}\)
 						satisfies \(\big|\,f(z) \le \frac{M}{R^\beta}\big|\;\) \((*)\;\) (\(M,\beta \gt 0 \) constants)
 						on
 						\[ \Gamma_R=\left\{ Re^{i\theta}: R\gt R_0, 0\le \theta \le \pi \right\}. \]
@@ -165,7 +165,7 @@
 					<p class="fragment" data-fragment-index="1">Only \(-2 + \sqrt{3}\) is inside the countour \(C\), so
 						by the <a href="lecture-32.html#/cauchy-residue-theorem" target="_blank">Residue Theorem</a> and
 						<a href="#/5/0/3">\((\text{🌏})\)</a> we obtain
-						\[I= (-2i)(2\pi )\underset{{\tiny z=-2+\sqrt{3}}}{\res} \frac{1}{z^2+4z+1} \quad (\text{😀})\]
+						\[I= (-2i)(2\pi i)\underset{{\tiny z=-2+\sqrt{3}}}{\res} \frac{1}{z^2+4z+1} \quad (\text{😀})\]
 						</p>
 				</div>
 			</section>
@@ -186,10 +186,12 @@
 				<div class="left-txt size-80">
 					<p><strong>Example (cont):</strong> So \(\dfrac{1}{z^2+4z+1} \)
 					has a pole of order \(1\)  at \(z=-2+\sqrt{3}\), 
-					<span class="fragment" data-fragment-index="0">and <a href="lecture-33.html#/residues-at-poles" target="_blank">Theorem (Lec 33)</a> implies
+					<span class="fragment" data-fragment-index="0">and <a href="lecture-33.html#/residues-at-poles-theorem-2" target="_blank">Theorem 2 (Lec 33)</a> implies
 						\[\underset{{\tiny z=-2+\sqrt{3}}}{\res} \frac{1}{z^2+4z+1} = \phi\left(-2 + \sqrt{3}\right) = \frac{1}{2\sqrt{3}}.\]</span>
 					</p>
-					<p class="fragment" data-fragment-index="1">Hence,<a href="#/6/0/0">\(\;(\text{😀})\)</a> \(\Rightarrow I = (-2i)(2\pi )\ds \frac{1}{2\sqrt{3}} = \frac{2\pi}{\sqrt{3}}\). \(\qquad \square\)</p>
+					<p class="fragment" data-fragment-index="1">Hence,<a href="#/6/0/0">\(\;(\text{😀})\)</a> \(\Rightarrow I = (-2i)(2\pi i)\ds \frac{1}{2\sqrt{3}} \)
+						<span class="fragment" data-fragment-index="2">\(= \ds \frac{2\pi}{\sqrt{3}}\). \(\qquad \square\)</span>
+					</p>
 				</div>
 			</section>
 
@@ -197,7 +199,7 @@
 				<h3>Final remarks on Laurent series</h3>
 				<div class="left-txt size-80">
 					<p class="fragment" data-fragment-index="0">Laurent series for \(\dfrac{1}{\sinh z}\) at \(0\).
-						<span>Note that \(\sinh z = \) for \(z= n\pi i\) only with \(n\in \Z\).</span>
+						<span>Note that \(\sinh z = 0\) for \(z= n\pi i\) only with \(n\in \Z\).</span>
 						
 					</p>
 					<p class="fragment" data-fragment-index="1">So \(\dfrac{1}{\sinh z}\) will have a Laurent series on \(0\lt |z|\lt \pi\).
@@ -216,7 +218,7 @@
 					<p>... so \(\left| \ds \frac{z^2}{3!} + \frac{z^4}{5!} + \cdots \right|\lt 1\), there holds</p>
 					<p class="fragment" data-fragment-index="0"><a href="#/9/0/2">\((★)\)</a> \(=\ds  \frac{1}{z}\frac{1}{1 + \left(  \frac{z^2}{3!} + \frac{z^4}{5!} + \cdots \right) }\)</p>
 					<p class="fragment" data-fragment-index="1">\(\quad \;\;= \ds \frac{1}{z} \Bigg[ 1 - \left(  \frac{z^2}{3!} + \frac{z^4}{5!} + \cdots  \right) + \left(  \frac{z^2}{3!} + \frac{z^4}{5!} + \cdots  \right)^2 - \cdots \Bigg]\)</p>
-					<p class="size-80 fragment" data-fragment-index="1">(via formula ofr geometric series, as long as \(|z|\) is sufficiently small)</p>
+					<p class="size-80 fragment" data-fragment-index="1">(via formula for geometric series, as long as \(|z|\) is sufficiently small)</p>
 					
 				</div>
 			</section>
