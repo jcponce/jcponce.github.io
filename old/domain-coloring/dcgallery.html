@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Domain Coloring Gallery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Domain coloring Gallery">
+<meta name="keywords" content="Domain, coloring, Gallery">
+<meta name="author" content="Juan Carlos Ponce Campuzano">
+<link rel="icon" type="image/png" href="../assets/img/png/icon/infinity32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/img/png/icon/infinity16.png" sizes="16x16">
+<link rel="stylesheet" href="../assets/style/w3.css">
+<link rel="stylesheet" href="lightbox.css">
+
+<link rel="stylesheet" href="../assets/style/loadingrainbow.css"><!--this adds a loading spinner-->
+<script rel="stylesheet" src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
+<link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" >
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: 'Martel Sans', sans-serif;}
+    .w3-third img{margin-bottom: 0px; opacity: 1; cursor: pointer}
+    .w3-half img{margin-bottom: 0px; opacity: 1; cursor: pointer}
+    .w3-third img:hover{opacity: 0.8}
+    .w3-half img:hover{opacity: 0.8}
+</style>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-121691678-1');
+</script>
+
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { equationNumbers: { autoNumber: "AMS" } }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+</head>
+
+<body class="w3-content w3-light-grey" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:160px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-xxlarge w3-padding w3-hover-grey" title="close menu">
+      <i class="fas fa-times"></i>
+    </a>
+    <a href="../" class="w3-circle w3-button w3-hover-light-grey w3-xlarge">  <i class="fa fa-home"></i></a>
+    <a href="./" class="w3-circle w3-button w3-hover-light-grey w3-large">  <i class="fas fa-arrow-circle-left"></i> </a> <br><br>
+    
+    <p class="w3-text-black"><b>CONTENT</b></p>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#standard" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-indigo">HSL Scheme</a>
+    <a href="#HSB" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">HSB Scheme</a>
+    <a href="#branches" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Branches</a>
+    <a href="#singulatiries" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Singularities</a>
+    <a href="#realim" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Real/Imaginary components</a>
+    <a href="#hypergeometric" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Hypergeometric functions</a>
+    <a href="#misc" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Miscellaneous</a>
+    <a href="#owl" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Different color schemes</a>
+  </div>
+  
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:230px; margin-right:60px">
+
+  <!-- Header -->
+  <header  class="w3-container w3-top w3-white">
+    <a href="#" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"> <i class="fas fa-chevron-up"></i> </a>
+    <span class="w3-button w3-hide-large w3-xlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+  </header>
+  
+  <div class="w3-container" style="text-align:center">
+      <h1 class="w3-text-light-grey w3-hide-large w3-xxlarge" ><b>Gallery</b></h1>
+      <h1 id="titled" ><b>Domain Coloring Gallery</b></h1>
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  
+  
+  <div class="w3-container">
+      <h2 id="standard" style="text-align:center">HSL standard scheme</h2>
+      
+      <!-- First Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/hsl/z.jpg" alt="z" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>$z$</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/hsl/z1overz.jpg" alt="z+1/z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$z+\dfrac{1}{z}$</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/hsl/1overz.jpg" alt="1/z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$\dfrac{1}{z}$</p>
+              </div>
+              </div>
+      </div>
+      
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/hsl/sqrtz.jpg" alt="z^(1/2)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>$z^{1/2}$</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/hsl/zpower6plus1.jpg" alt="z^6+1" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$z^{6}+1$</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/hsl/rationalfunction.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$\dfrac{z-1}{z^2+z+1}$</p>
+              </div>
+              </div>
+      </div>
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  <br>
+  
+  <div class="w3-container" style="max-width:700px;margin-left:auto;margin-right:auto;">
+      
+      <h2 id="HSB" style="text-align:center">HSB scheme</h2>
+      
+      <p>Enhanced phase portraits for the function $f(z)=\dfrac{z-1}{z^2+z+1}.$</p>
+      
+      <!--Second Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-half w3-container w3-margin-bottom">
+              <img src="img/hsb/hsbscheme.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>Simple phase portrait.</p>
+                  </div>
+                  </div>
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/hsb/hsbschemephase.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Phase contour lines.</p>
+              </div>
+              </div>
+      </div>
+      
+      <div class="w3-row-padding">
+          <div class="w3-half w3-container w3-margin-bottom">
+              <img src="img/hsb/hsbschememod.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>Modulus contour lines.</p>
+                  </div>
+                  </div>
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/hsb/hsbschemeboth.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Contour lines of modulus and phase.</p>
+              </div>
+              </div>
+          
+      </div>
+      
+      <br>
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  <br>
+  
+  
+  <div class="w3-container">
+      <h2 id="branches" style="text-align:center">Branches</h2>
+      
+      <!--  Photo Grid-->
+      <p  style="text-align:center">$f(z)=z^{1/2}$</p>
+      <div class="w3-row-padding" style="max-width:700px;margin-left:auto;margin-right:auto;">
+          <div class="w3-half w3-container w3-margin-bottom">
+              <img src="img/branches/sqrtzb1.jpg" alt="z^(1/2)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>Branch 1</p>
+                      
+                  </div>
+                  </div>
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/branches/sqrtzb2.jpg" alt="z^(1/2)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Branch 2</p>
+                  
+              </div>
+              </div>
+      </div>
+      <br><br>
+      
+      <p  style="text-align:center">$f(z)=\sqrt{1-z^{2}}$</p>
+      <div class="w3-row-padding" style="max-width:700px;margin-left:auto;margin-right:auto;">
+          <div class="w3-half w3-container w3-margin-bottom">
+              <img src="img/branches/sqrt1minuszsqr1.jpg" alt="sqrt(1-z^2)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>Branch 1</p>
+                      
+                  </div>
+                  </div>
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/branches/sqrt1minuszsqr2.jpg" alt="sqrt(1-z^2)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Branch 2</p>
+              </div>
+              </div>
+      </div>
+      <br><br>
+      
+      <p  style="text-align:center">$f(z)=\dfrac{1}{\sqrt{1-z^{2}}}$</p>
+      <div class="w3-row-padding" style="max-width:700px;margin-left:auto;margin-right:auto;">
+          <div class="w3-half w3-container w3-margin-bottom">
+              <img src="img/branches/1oversqrt1minuszsqr1.jpg" alt="\frac{1}{\sqrt{1-z^{2}}}" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>Branch 1</p>
+                  </div>
+                  </div>
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/branches/1oversqrt1minuszsqr2.jpg" alt="\frac{1}{\sqrt{1-z^{2}}}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Branch 2</p>
+              </div>
+              </div>
+      </div>
+      <br><br>
+      
+      <p  style="text-align:center">$f(z)=\log z$</p>
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/branches/logzbm1.jpg" alt="log(z)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container  w3-center">
+                      <p>Branch -1</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/branches/logzb0.jpg" alt="log(z)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>Principal branch</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/branches/logzb1.jpg" alt="log(z)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Branch 1</p>
+              </div>
+              </div>
+      </div>
+      <br><br>
+      
+      <p  style="text-align:center">$f(z)=\arctan z$</p>
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/branches/arctanzm1.jpg" alt="arctan(z)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>Branch -1</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/branches/arctanzb0.jpg" alt="arctan(z)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>Principal branch</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/branches/arctanzb1.jpg" alt="arctan(z)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Branch 1</p>
+              </div>
+              </div>
+      </div>
+      
+      <br>
+      
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  
+  <br>
+  
+  
+  <div class="w3-container">
+      <h2 id="singulatiries" style="text-align:center">Singularities</h2>
+      
+      <!--  Photo Grid-->
+      
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <p  style="text-align:center">Pole of order 1</p>
+              <img src="img/singularities/1coshzz3.jpg" alt="(1-cosh(z))/z^3" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>$\dfrac{1-\cosh z}{z^3}$</p>
+                      
+                  </div>
+                  </div>
+          
+          <div class="w3-third w3-container w3-margin-bottom">
+              <p  style="text-align:center">Pole of order 2</p>
+              <img src="img/singularities/exp2zz12.jpg" alt="e^(2z)/(z-1)^2" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$\dfrac{\exp (2z)}{(z-1)^2}$</p>
+              </div>
+              </div>
+          
+          <div class="w3-third w3-container w3-margin-bottom">
+              <p  style="text-align:center">Pole of order 3</p>
+              <img src="img/singularities/singularidadorden3.jpg" alt="sinh(z)/z^4" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$\dfrac{\sinh z}{z^4}$</p>
+              </div>
+              </div>
+      </div>
+      
+       <br />
+       <br />
+       
+       <!--  2nd Photo Grid-->
+       <h4  style="text-align:center">Removable singularities</h4>
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/singularities/removible3.jpg" alt="sin(z)/z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$\dfrac{\sin\left(z\right)}{z}$</p>
+              </div>
+              </div>
+          
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/singularities/removible.jpg" alt="(1-cos(z))/z^2" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container  w3-center">
+                      <p>$\dfrac{1-\cos z}{z^2}$</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/singularities/removible2.jpg" alt="z/(e^z-1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$\dfrac{z}{e^z-1}$</p>
+              </div>
+              </div>
+      </div>
+      
+       <br />
+       <br />
+       
+      <!--  3rd Photo Grid-->
+      <h4  style="text-align:center">Essential singularities</h4>
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/singularities/essential01.jpg" alt="e^(1/z)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>$\exp\left(\dfrac{1}{z}\right)$</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/singularities/essential02.jpg" alt="(z-1) cos(1/z)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$(z-1)\cos\left(\dfrac{1}{z}\right)$</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/singularities/essential03.jpg" alt="zsin(1/(iz))" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$z \sin\left(\dfrac{1}{iz}\right)$</p>
+              </div>
+              </div>
+      </div>
+      
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  
+  <br>
+  
+  
+  <div class="w3-container" style="max-width:700px;margin-left:auto;margin-right:auto;">
+      <h2 id="realim" style="text-align:center">Level curves of real and imaginary components</h2>
+      
+      <!-- First Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-half w3-container w3-margin-bottom">
+              <img src="img/components/nearwall.jpg" alt="z^2" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>$z^2$</p>
+                  </div>
+                  </div>
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/components/logzminus1.jpg" alt="z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$\log\left(\frac{z-1}{z+1}\right)$</p>
+              </div>
+              </div>
+          
+      </div>
+      
+      <!--  Second Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/components/joukowsky.jpg" alt="z+1/z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$z+\frac{1}{z}$</p>
+              </div>
+              </div>
+          <div class="w3-half w3-container w3-margin-bottom"><img src="img/components/flowsource.jpg" alt="z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$z+\log\left(z\right)/\pi$</p>
+              </div>
+              </div>
+      </div>
+      
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  
+  <br>
+
+  <div class="w3-container" style="max-width:700px;margin-left:auto;margin-right:auto;">
+      
+    <h2 id="hypergeometric" style="text-align:center">Hypergeometric functions</h2>
+    
+    <p>$$_2F_1\left(a,b;c;z\right)=\sum_{n=0}^{\infty}\frac{(a)_n (b)_n}{(c)_n}\frac{z^n}{n!}$$</p>
+    
+    <!--Second Photo Grid-->
+    <div class="w3-row-padding">
+        <div class="w3-half w3-container w3-margin-bottom">
+            <img src="img/hypergeometric/hypergeometric-c.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                <div class="w3-container w3-center">
+                    <p>$_2F_1\left(1,\frac{3}{4};\frac{1}{2};z\right)$</p>
+                </div>
+                </div>
+        <div class="w3-half w3-container w3-margin-bottom"><img src="img/hypergeometric/hypergeometric-d.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container w3-center">
+                <p>$_2F_1\left(1-i,\frac{3}{4}i;-\frac{1}{2}i;z^2\right)$</p>
+            </div>
+            </div>
+    </div>
+
+    <h4 class="w3-center"><strong>Special cases</strong></h4>
+    
+    <div class="w3-row-padding">
+        <div class="w3-half w3-container w3-margin-bottom">
+            <img src="img/hypergeometric/hypergeometric-01a.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                <div class="w3-container w3-center">
+                    <p>$z\cdot\, _2F_1\left(1,1;2;-z\right)$</p>
+                </div>
+                </div>
+        <div class="w3-half w3-container w3-margin-bottom"><img src="img/hypergeometric/hypergeometric-01b.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container w3-center">
+                <p>$\log(1+z)$</p>
+            </div>
+            </div>
+        
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="w3-half w3-container w3-margin-bottom">
+            <img src="img/hypergeometric/hypergeometric-02a.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                <div class="w3-container w3-center">
+                    <p>$_2F_1\left(2-3i,b;b;z\right)$ $\,\forall b$</p>
+                </div>
+                </div>
+        <div class="w3-half w3-container w3-margin-bottom"><img src="img/hypergeometric/hypergeometric-02b.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container w3-center">
+                <p>$(1-z)^{-(2-3i)}$</p>
+            </div>
+            </div>
+        
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="w3-half w3-container w3-margin-bottom">
+            <img src="img/hypergeometric/hypergeometric-03a.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                <div class="w3-container w3-center">
+                    <p>$z\cdot \,_2F_1\left(\frac{1}{2},1;\frac{3}{2};-z^2\right)$</p>
+                </div>
+                </div>
+        <div class="w3-half w3-container w3-margin-bottom"><img src="img/hypergeometric/hypergeometric-03b.jpg" alt="(z-1)/(z^2+z+1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container w3-center">
+                <p>$\arctan(z)$</p>
+            </div>
+            </div>
+        
+    </div>
+    
+    <br>
+    <div class="w3-section w3-bottombar">
+        <p></p>
+    </div>
+</div>
+<br>
+
+  
+  <div class="w3-container">
+      <h2 id="misc" style="text-align:center">Miscellaneous</h2>
+      
+      <!-- 1st Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/misc/flower.jpg" alt="((1/z)^{18}-(1/z))/(1/z-1)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>$\dfrac{(1/z)^{18}-(1/z)}{1/z-1}$</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/lambertseriesmodulo.jpg" alt="sum(z^(n+1)/(1-z^(n+1)),20)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$\displaystyle \sum_{n=1}^{20}\dfrac{z^n}{1-z^n}$</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/sin1z2.jpg" alt="sin(1/z^2)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$\sin(1/z^2)$</p>
+              </div>
+              </div>
+      </div>
+      <br /><br />
+      
+      <!-- 2nd Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/misc/sqrt1minus1overz2plusz3.jpg" alt="(1-1/z^2+z^3)^(1/2)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>$\sqrt{1-1/z^2+z^3}$</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/wiki.jpg" alt="(z-2-i)^2(z^2-1)/(z^2+2+i)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$\dfrac{(z-2-i)^2(z^2-1)}{z^2+2+i}$</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/z2over3i.jpg" alt="z^(2/3+i)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>$z^{2/3+i}$</p>
+              </div>
+              </div>
+      </div>
+      <br /><br />
+      
+      <!-- 3rd Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/misc/snailrainbow.jpg" alt="z\sum(z^((n+1)i),5)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container  w3-center">
+                      <p>$\displaystyle \sum_{k=1}^{30}z^{ki}$</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/arte2.jpg" alt="(z+i)(z-1)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$\dfrac{z+i}{z-1}$</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/arte1.jpg" alt="e^(1-z^2)-1" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$e^{1-z^2}-1$</p>
+              </div>
+              </div>
+      </div>
+      <br /><br />
+      
+      <!-- 4th Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/misc/complicated.jpg" alt="0.926(z+7.3857e-2 z^5+4.5458e-3 z^9)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container  w3-center">
+                      <p>\begin{multline*}
+                      0.926(z+0.073857 z^5\\
+                      +0.0045458 z^9)
+                      \end{multline*}</p>
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/polynomial.jpg" alt="(2z-2) (z^2+z-i)/(z^4-2+2i)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>$\dfrac{(2z-2) (z^2+z-i)}{z^4-2+2i}$</p>
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/13singularites.jpg" alt="z^(1+10i) cos((z-1)/(z^(13)+z+1))" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>\begin{eqnarray*}
+                  f(z) &amp;=&amp; z^{1+10i} \cos\left(g(z)\right),\text{ with}\\
+                  g(z) &amp;=&amp; \frac{z-1}{z^{13}+z+1}
+                  \end{eqnarray*}</p>
+              </div>
+              </div>
+      </div>
+
+      <!-- 45th Photo Grid-->
+      <div class="w3-row-padding">
+        <div class="w3-third w3-container w3-margin-bottom">
+            <img src="img/misc/blaschke.jpg" alt="0.926(z+7.3857e-2 z^5+4.5458e-3 z^9)" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                <div class="w3-container  w3-center">
+                    <p>Finite Blaschke product</p>
+                </div>
+                </div>
+        <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/atomic-sing-inner.jpg" alt="(2z-2) (z^2+z-i)/(z^4-2+2i)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container  w3-center">
+                <p>Atomic Singular Inner Function \({\small \displaystyle
+                    \prod_{k=1}^5\exp\left(\dfrac{z+w^k}{z-w^k}\right), w=\exp(2\pi i/5)}\)</p>
+            </div>
+            </div>
+        <div class="w3-third w3-container w3-margin-bottom"><img src="img/misc/jacobicn.jpg" alt="z^(1+10i) cos((z-1)/(z^(13)+z+1))" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container  w3-center">
+                <p>Jacobi elliptic function cn$(z, 0.8)$</p>
+            </div>
+            </div>
+    </div>
+      
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  
+  
+  
+  <br>
+  
+  
+  <div class="w3-container">
+      <h2 id="owl" style="text-align:center">Different color schemes</h2>
+      
+      <p>Different phase portraits for the function $f(z)=\dfrac{-iz+1}{(-iz)^2-iz+1}.$</p>
+      <!-- 1st Photo Grid-->
+      <div class="w3-row-padding">
+          <div class="w3-third w3-container w3-margin-bottom">
+              <img src="img/owl/owlmod.jpg" alt="z" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container w3-center">
+                      <p>Level curves of modulus</p>
+                      
+                  </div>
+                  </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/owl/owlreim.jpg" alt="z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container  w3-center">
+                  <p>Modulus, real and imaginary components</p>
+                  
+              </div>
+              </div>
+          <div class="w3-third w3-container w3-margin-bottom"><img src="img/owl/owlgradient.jpg" alt="z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+              <div class="w3-container w3-center">
+                  <p>Gradient modulus</p>
+                  
+              </div>
+              </div>
+      </div>
+      
+      <br /><br />
+      
+      <!-- 2nd Photo Grid-->
+      
+      <div class="w3-row-padding">
+        <div class="w3-third w3-container w3-margin-bottom">
+            <img src="img/owl/owlrgb.jpg" alt="z" style="width:100%"  onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+                  <div class="w3-container  w3-center">
+                      <p>Level curves of modulus</p>
+                    
+                </div>
+                </div>
+        <div class="w3-third w3-container w3-margin-bottom"><img src="img/owl/owlbw.jpg" alt="z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container w3-center">
+                <p>Level curves of modulus</p>
+                
+            </div>
+            </div>
+        <div class="w3-third w3-container w3-margin-bottom"><img src="img/owl/owldiscrete.jpg" alt="z" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 w3-round-small">
+            <div class="w3-container w3-center">
+                <p>Discrete modulus</p>
+                
+            </div>
+            </div>
+    </div>
+
+      <div class="w3-row-padding" style="max-width:600px;margin-left:auto;margin-right:auto;">
+          <div class="w3-half w3-container w3-margin-bottom">
+              
+                      
+                  </div>
+                  </div>
+          <div class="w3-half w3-container w3-margin-bottom">
+                  
+              </div>
+              </div>
+      </div>
+      
+      <br>
+      <br>
+      
+      
+  </div>
+  
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+            <!--<p id="caption"></p>-->
+            </div>
+</div>
+  
+  
+<!-- End page content -->
+</div>
+
+<!--Footer-->
+
+<div class="w3-container w3-dark-grey w3-center">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a></p>
+</div>
+
+<!--Footer-->
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+<script>
+    function myFunction() {
+        window.open("https://jcponce.github.io/abcmath/Thomas", "", "width=500,height=500");
+        myWindow.focus();
+    }
+</script>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    //captionText.innerHTML = element.alt;
+}
+
+    </script>
+
+<script language="javascript" type="text/javascript">
+    $('body').append('<div style="" id="loadingDiv"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div>');
+    $(window).on('load', function(){
+                 setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+                 });
+    function removeLoader(){$( "#loadingDiv" ).fadeOut(500, function() {// fadeOut complete. Remove the loading div
+        $( "#loadingDiv" ).remove(); //makes page more lightweight
+         });
+       }
+</script>
+
+</body>
+</html>

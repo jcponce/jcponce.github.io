@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>MATH3401 - Lecture 4</title>
+
+  <meta name="description" content="MATH3401 - Lecture 4">
+	<meta name="author" content="">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="css/zenburn.css">
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script async defer src="js/buttons.js"></script>
+	<!--[if lt IE 9]>
+	<script src="../reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>MATH3401</h1>
+        <h3>Complex Analysis</h3>
+        <p>Lecture 4</p>
+      </section>
+
+      <section id="roots">
+        <h2>Roots of a complex number</h2>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">\(n\) roots of \(z=e^{i\theta}\), \(n>1\) means: 
+            We want all \(w\in \C\) such that \(w^n=z\).
+          </p>
+          <p class="fragment" data-fragment-index="1">Notation: \(\exp(\xi)= e^{\xi}\).
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h2>Roots of a complex number</h2>
+        <div class="mylftText">
+          <p>\(z\) has \(n\) distinct \(n\)-th roots:</p>
+          <span  class="fragment" data-fragment-index="0" style="font-size:90%">
+            \[{\small
+            \begin{align*}
+            & \left\{ r^{1/n}\exp\left(\frac{i\theta}{n}\right), r^{1/n}\exp\left(\frac{i\theta}{n} + \frac{i2\pi}{n}\right), \right. \\
+                     & \quad \left.  r^{1/n}\exp\left(\frac{i\theta}{n} + \frac{i4\pi}{n}\right), \ldots, r^{1/n}\exp\left(\frac{i\theta}{n} + \frac{i2(n-1)\pi}{n} \right) \right\}
+            \end{align*}}
+            \]
+            </span>
+          </p>
+        </div>
+      </section>
+
+      <section id="functions">
+        <h2>Functions and mappings</h2>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">\(\Omega \subseteq \C\): A function \(f:\Omega \ra \C\)
+            can be viewed as a mapping on \(\Omega\), the <span class="fragment highlight-red" data-fragment-index="1">domain</span> of \(f\).
+          </p>
+          <p class="fragment" data-fragment-index="2">If \(\Omega \) is not speficified, take \(\Omega \) as large
+            as possible. 
+          </p>
+          <p class="fragment" data-fragment-index="3">For example for \(f(z)=\frac{1}{z}\), the domain is \(\C_*\)
+            and \(f:\C_*\ra \C\).
+          </p>
+          <p class="fragment" data-fragment-index="4">We can write: \(f:z \mapsto \frac{1}{z}\); or \(w=\frac{1}{z}\); 
+            or just \(1/z\).
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h2>Functions and mappings</h2>
+        <div class="mylftText">
+          <p>Usual notation: \(w: (x,y) \mapsto (u,v)\) i. e.,
+            <span  class="fragment" data-fragment-index="0">
+              \[
+              \begin{align*}
+              w(x+iy) &= u(x+iy)+iv(x+iy)\\
+               & \text{  or} & \\
+              w(x, y) &= u(x,y)+iv(x, y)
+              \end{align*}
+              \]
+              </span>
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h3>Functions and mappings</h3>
+        <p><img style="width: 90%; 
+          display: block;
+          margin-left: auto;
+          margin-right: auto;"
+          class="r-stretch"
+          data-src="img/lect-04/map-diag.svg" /></p>
+      </section>
+
+      <section data-transition="fade-out">
+        <h3>Functions and mappings</h3>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">\(*\, \Omega = \) domain of \( f = \) dom\(\left(\,f\right)\).
+          </p>
+          <p class="fragment" data-fragment-index="1">\(*\,\) Range\(\left(\,f\right)\): 
+            \[
+            f\left(\Omega\right) = \left\{ w: w=f(z)\text{ for some }z\in\C\right\}.
+            \] 
+          </p>
+          <p class="fragment" data-fragment-index="2">\(*\, f^{-1}\left(\xi \right) = \left\{ z\in\C: f(z)=\xi \right\}\)
+            inverse of \(f\) <br/> (not \(1/f\)).  <span class="fragment" data-fragment-index="3">NOT necessarily a function!</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Functions and mappings</h3>
+        <p>Example 1 &nbsp; - &nbsp; \(f(z)=\dfrac{1}{z}\). </p>
+        <p class="fragment" data-fragment-index="0">dom\(\left(\,f\right) = \C_*\),
+        </p>
+        <p class="fragment" data-fragment-index="1">\( \;f^{-1}(\xi)=1/\xi\) is a function.
+        </p>
+      </section>
+
+      <section>
+        <h3>Functions and mappings</h3>
+        <p>Example 2 &nbsp; - &nbsp; \(f(z)=\dfrac{1}{1-|z|^2}\). </p>
+        <p class="fragment" data-fragment-index="0">dom\(\left(g\right) = \left\{ z:|z|\neq 1\right\}\),
+        </p>
+        <p class="fragment" data-fragment-index="1">\(g: \left\{ z:|z|\neq 1\right\}\ra \R\).
+        </p>
+        <p class="fragment" data-fragment-index="2">Inverse is not a function.
+        </p>
+        <p class="fragment" data-fragment-index="3"><strong>Check:</strong> If \(g(z)=\rho\), then \(g(e^{i\theta}z)=\rho\) 
+          for any \(\theta \in \R\). <span title="Check it!">📝</span>
+        </p>
+      </section>
+
+      <section>
+        <h2>Functions and mappings</h2>
+        <p>Example 3 &nbsp; - &nbsp; \(h(z)=z^2\). </p>
+        <p class="fragment" data-fragment-index="0">\(h:\C\ra \C\),
+        </p>
+        <p class="fragment" data-fragment-index="2">inverse is not a function.
+        </p>
+      </section>
+
+      <section>
+        <h4>Get a geometric picture of a given function</h4>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">E. g. \(w = 1 + z\) moves each point one (unit) to the right.
+          </p>
+          <p class="fragment" data-fragment-index="1">E. g. \(re^{i\theta} \mapsto re^{i\left(\theta + \pi/2\right)}\) 
+            rotates through angle of \(\pi/2\) in the positive (counterclockwise) direction about 0.
+          </p>
+        </div>
+      </section>
+
+      <section id="linear-transformation">
+        <h3>Basic idea with new mappings</h3>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">Break it down into compositions of known/easy maps.
+          </p>
+          <p class="fragment" data-fragment-index="1"><strong>Example 1:</strong> <u>Linear transformation</u>
+          </p>
+          <p class="fragment" data-fragment-index="2">\(w=Az+b\) with \(A,b\in \C, A\neq 0\).
+          </p>
+          <p class="fragment" data-fragment-index="3">Split up into:
+            <ol class="r">
+              <li class="fragment" data-fragment-index="4">dilatation &amp; rotation;</li>
+              <li class="fragment" data-fragment-index="5">translation.</li>
+            </ol>
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h3>Basic idea with new mappings</h3>
+        <div class="mylftText">
+          <p><strong>Example 1:</strong> <u>Linear transformation</u>
+          </p>
+          <p class="fragment" data-fragment-index="0"><strong>(i)</strong> \(z\mapsto Az\): Write \(A=ae^{i\alpha}\) with 
+            \(\alpha\in \R, a \in \R_+\). 
+          </p>
+          <p class="fragment" data-fragment-index="1">So \(re^{i\theta} \mapsto \left(a r\right)e^{i\left(\theta + \alpha \right)}\)
+            geometrically <span class="fragment highlight-red" data-fragment-index="2">dilates</span> (expands or contracts) modulus
+            by a factor of \(a=|A|\), and
+          </p>
+          <p class="fragment" data-fragment-index="3">rotates through an angle of \(\alpha=\arg A\).
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h3>Basic idea with new mappings</h3>
+        <div class="mylftText">
+          <p><strong>Example 1:</strong> <u>Linear transformation</u>
+          </p>
+          <p class="fragment" data-fragment-index="0"><strong>(ii)</strong> \(z\mapsto z + b\): Write \(b=b_1+b_2 i\)
+            with \(b_1,b_2\in \R\). 
+          </p>
+          <p class="fragment" data-fragment-index="1">Then translate \(b_1\) to the right and \(b_2\) up.
+          </p>
+          <p class="fragment" data-fragment-index="2">\(z \mapsto A z + b\): compose (i) and (ii).
+          </p>
+          <p class="fragment" data-fragment-index="3"><strong>Note:</strong> domain is \(\C\).
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h4>Credits</h4>
+        <div style="font-size:24px">
+          <p>Lecture notes<br /><a href="https://people.smp.uq.edu.au/JosephGrotowski/" target="_blank">Joseph Grotowski</a></p>
+          <p>Design, Images &amp; Applets<br />
+            <a href="https://smp.uq.edu.au/profile/2155/juan-ponce-campuzano" target="_blank">
+              Juan Carlos Ponce Campuzano</a> </p>
+          <br />
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+
+  <script src="reveal/reveal.js"></script>
+  <script src="reveal/config.js"></script>
+</body>
+
+</html>

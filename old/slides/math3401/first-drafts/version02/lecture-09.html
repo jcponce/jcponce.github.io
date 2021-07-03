@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>MATH3401 - Lecture 9</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <link rel="stylesheet" href="css/reveal.css" />
+  <link rel="stylesheet" href="css/white.css" id="theme" />
+  <link rel="stylesheet" href="css/mylayout.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>MATH3401</h1>
+        <h3>Complex Analysis</h3>
+        <p>Lecture 9</p>
+      </section>
+
+      <section id="branches">
+        <h3>Branches</h3>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0"><u>Branch:</u> interval of a function
+            \(
+            \alpha \leq \hat{\theta} &lt; \alpha + 2 \pi
+            \),
+            <span class="fragment" data-fragment-index="1">or
+              \(\alpha &lt; \hat{\theta} \leq \alpha + 2 \pi\),
+              for some \(\alpha \in \R.\)
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="2">We can define a single-valued \(\arg\)
+            with values in that interval and hence a single valued \(\log\), and a single-valued
+            branch of, e. g., \(z^{1/2}\).
+          </p>
+        </div>
+      </section>
+
+      <section id="branch-cut">
+        <h4>Branch cut</h4>
+        <div class="mylftText" style="font-size:80%">
+          <p class="fragment" data-fragment-index="0">\(\left\{ z: \arg(z) = \alpha \right\} \cup \left\{ 0 \right\}\)
+            subset of \(\C\).
+          </p>
+          <p><span class="fragment" data-fragment-index="1">E. g. PV\(\left(z^{1/2}\right)\):</span>
+            <span class="fragment" data-fragment-index="2">
+              \[
+              \begin{align*}
+              & z\mapsto |z|^{1/2}\exp\left(\frac{i\Arg (z)}{2}\right) \\
+              &re^{i \theta} \mapsto \sqrt{r}\exp \left(\frac{i\theta}{2}\right), -\pi &lt; \theta \leq \pi.
+              \end{align*}
+              \]
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="3">Branch is \(-\pi &lt; \theta \leq \pi\), and the branch cut
+            is the positive real axis union with \(\left\{ 0 \right\}\).
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h5>Branch cut</h5>
+        <iframe width="100%" height="600px" style="border:0px" noscrolling
+          data-src="https://www.geogebra.org/material/iframe/id/avp84vdz/width/827/height/420/border/888888/sfsb/false/smb/false/stb/true/stbh/false/ai/false/asb/true/sri/true/rc/true/ld/false/sdz/true/ctl/false"
+          data-preload></iframe>
+      </section>
+
+
+      <section id="trig-functions">
+        <h4>Trigonometric functions</h4>
+        <div class="mylftText" style="font-size:70%">
+          <p class="fragment" data-fragment-index="0">For \(x\in \R\)
+            \[
+            \begin{align*}
+            e^{ix} &= \cos x + i \sin x \quad (1)\\
+            e^{-ix} &= \cos x - i \sin x \quad (2)
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="1">\((1) + (2)\) implies
+            \[
+            \cos x = \frac{e^{ix}+ e^{-ix}}{2} \quad (3)'
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="2">\((1) - (2)\) implies
+            \[
+            \sin x = \frac{e^{ix} - e^{-ix}}{2i} \quad (4)'
+            \]
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h4>Trigonometric functions</h4>
+        <div class="mylftText">
+          <p>Use (3)' and (4)' to define \(\cos\) and \(\sin\) on \(\C\), i. e.:
+            <span class="fragment" data-fragment-index="0">
+              \[
+              \begin{align*}
+              \cos z &= \frac{e^{iz}+ e^{-iz}}{2}\\
+              \sin z &= \frac{e^{iz}+ e^{-iz}}{2i}.
+              \end{align*}
+              \]
+            </span>
+          </p>
+        </div>
+      </section>
+
+      <section id="trig-func-identities" data-transition="fade-out">
+        <h4>Trigonometric functions</h4>
+        <div class="mylftText" style="font-size:70%">
+          <p>
+            <span class="fragment" data-fragment-index="0">
+              \[
+              \begin{align*}
+              \cos z &= \cos(-z) \quad (3)\\
+              \sin z &= -\sin(-z) \quad (4)
+              \end{align*}
+              \]
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="1">
+            \[
+            \begin{align*}
+            \cos (z + \xi) &= \cos z \cos \xi - \sin z \sin \xi \quad (5)\\
+            \sin (z + \xi) &= \sin z \cos \xi + \cos z \sin \xi \quad (6)
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="2">
+            \[
+            \begin{align*}
+            \sin^2 z + \cos^2 z &= 1 \quad (7)
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="3">
+            \[
+            \begin{align*}
+            \sin \left(z+\frac{\pi}{2}\right) &= \cos z \quad (8)\\
+            \sin \left(z-\frac{\pi}{2}\right) &= -\cos z \quad (9)
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="4"><strong>Proof:</strong> Use properties of \(\exp\)
+            <span title="Check it!">📝</span>.
+          </p>
+        </div>
+      </section>
+
+      <section id="hyperbolic-functions">
+        <h4>Hyperbolic functions</h4>
+        <div class="mylftText" style="font-size:60%">
+          <p>Recall hyperbolic functions on \(\R\):</p>
+        </div>
+        <table style="width:100%;">
+          <tr>
+            <th style="width:50%" class="fragment" data-fragment-index="0">
+              <div style="text-align:center;font-size:60%;font-weight:normal;">
+                <p>\(y = \sinh x = \dfrac{e^x-e^{-x}}{2}\)</p>
+                <img style="width: 80%; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;" class="r-stretch" data-src="img/lect-09/sinh.svg" />
+              </div>
+            </th>
+            <th style="width:50%;" class="fragment" data-fragment-index="1">
+              <div style="text-align:center;font-size:60%;font-weight:normal;">
+                <p>\(y = \cosh x = \dfrac{e^x+e^{-x}}{2}\)</p>
+              </div>
+              <img style="width: 80%; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;" class="r-stretch" data-src="img/lect-09/cosh.svg" />
+            </td>
+            </th>
+          </tr>
+        </table>
+      </section>
+
+      <section id="hyper-func-properties" data-transition="fade-out">
+        <h4>Hyperbolic functions</h4>
+        <div class="mylftText" style="font-size:65%">
+          <p class="fragment" data-fragment-index="0">On \(\C\), define
+            \[
+            \sinh z = \frac{e^z-e^{-z}}{2}\quad \text{&amp;} \quad \cosh z = \frac{e^z+e^{-z}}{2}.
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="1">So
+            \[
+            \begin{align*}
+            \sinh (iy) &= \frac{e^{-y}-e^{y}}{2i} = \frac{i(e^y - e^{-y})}{2} \\
+            &= i \sinh y. \qquad\qquad \quad (10)
+            \end{align*}
+            \]
+          </p>
+          <p class="fragment" data-fragment-index="2">
+            \[
+            \begin{align*}
+            \cosh (iy) &= \frac{e^{-y}+e^{y}}{2} =\\
+            &= \cosh y. \qquad\qquad \quad (11)
+            \end{align*}
+            \]
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h4>Hyperbolic functions</h4>
+        <div class="mylftText" style="font-size:80%">
+          <p><span class="fragment" data-fragment-index="0">Take \(z= x\) and \(\xi = iy\) in (5), (6)</span>
+            <span class="fragment" data-fragment-index="1">
+              \[
+              \sin (x+iy) \overset{{\tiny(6)}}{=} \sin x \cos (iy) + \cos x \sin (iy), \quad \quad (12)
+              \]
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="2">\(\qquad \qquad \qquad \overset{{\tiny(12)(11)}}{=} \sin x \cosh y + i \cos x \sinh y\).</p>
+          <p><span class="fragment" data-fragment-index="3">Similarly <span title="Check it!">📝</span></span>
+            <span class="fragment" data-fragment-index="4">
+              \[
+              \cos (x+iy) = \cos x \cosh y - i \sin x \sinh y. \quad \quad (13)
+              \]
+            </span>
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h4>Hyperbolic functions</h4>
+        <div class="mylftText" style="font-size:70%">
+          <p>(12) and (13) implies
+            <span class="fragment" data-fragment-index="0">
+              \[
+              \begin{align*}
+              \sin (z + 2\pi) &= \sin z, \quad \quad (14)\\
+              \cos (x+2\pi )  &= \cos z. \quad \quad (15)
+              \end{align*}
+              \]
+            </span>
+          </p>
+          <p><span class="fragment" data-fragment-index="1">Note that \(\cosh^2 z = 1 + \sinh^2 z\) <span title="Check it!">📝</span>. </span>
+            <span class="fragment" data-fragment-index="2"> Then <br/><br/>
+              \( \qquad 
+              |\sinh z |^2  \overset{{\tiny(12)}}{=} \sin^2 z \cosh^2 y + \cos^2 z \sinh^2 y         
+              \)
+            </span>
+          </p>
+          <p class="fragment" data-fragment-index="3">\( \qquad \qquad \quad = \sin^2 x \left(1+\sinh^2 y\right) + \left(1-\sin^2 y\right) \sinh^2y \)</p>
+          <p class="fragment" data-fragment-index="4">\( \qquad \qquad \quad = \sin^2 x + \sinh^2 y. \)</p>
+          <p class="fragment" data-fragment-index="5">Similarly \( |\cosh z |^2  = \cos^2 x + \cosh^2 y. \)</p>
+        </div>
+      </section>
+
+      <section id="bounded-functions">
+        <h3>Bounded functions</h3>
+        <div class="mylftText">
+          <p class="fragment" data-fragment-index="0">Define \(\,f: \Omega \ra \C\) is <u>bounded</u> if exists a nonnegative real number \(M\) such that 
+            \[
+            |f(z)|\leq M \quad \forall z\in \Omega.
+            \]
+          </p>
+        </div>
+      </section>
+
+      <section data-transition="fade-out">
+        <h5>Bounded functions</h5>
+        <iframe width="100%" height="600px" style="border:0px" noscrolling
+          data-src="https://www.geogebra.org/material/iframe/id/avp84vdz/width/827/height/420/border/888888/sfsb/false/smb/false/stb/true/stbh/false/ai/false/asb/true/sri/true/rc/true/ld/false/sdz/true/ctl/false"
+          data-preload></iframe>
+      </section>
+
+      <section data-transition="fade-out">
+        <h3>Bounded functions</h3>
+        <p></p>
+        <p>The functions \(\sin \) &amp; \(\cos \) are unbounded on \(\C\).</p>
+      </section>
+
+
+      <section>
+        <h4>Credits</h4>
+        <div style="font-size:24px">
+          <p>Lecture notes<br /><a href="https://people.smp.uq.edu.au/JosephGrotowski/">Joseph Grotowski</a></p>
+          <p>Design, Images &amp; Applets<br />
+            <a href="https://smp.uq.edu.au/profile/2155/juan-ponce-campuzano">
+              Juan Carlos Ponce Campuzano</a> </p>
+          <br />
+          <!--<p>Go to next <a href="#">Lecture</a></p>-->
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+  <script src="js/math.js"></script>
+  <script src="js/macros.js"></script>
+</body>
+
+</html>

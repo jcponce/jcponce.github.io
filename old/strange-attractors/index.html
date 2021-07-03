@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Strange Attractors</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Strange Attractor in 3D">
+<meta name="keywords" content="Strange, Attractor, 3D">
+<meta name="author" content="Juan Carlos Ponce Campuzano">
+<link rel="icon" type="image/png" href="../assets/img/png/icon/infinity32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/img/png/icon/infinity16.png" sizes="16x16">
+<link rel="stylesheet" href="../assets/style/w3.css">
+<link rel="stylesheet" href="lightbox.css">
+
+<link rel="stylesheet" href="../assets/style/loadingrainbow.css"><!--this adds a loading spinner-->
+<script rel="stylesheet" src="../assets/style/jquery.min.js"></script><!--this is needed for  loading the spinner-->
+<link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" >
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: 'Martel Sans', sans-serif;}
+    .w3-third img{margin-bottom: 0px; opacity: 1; cursor: pointer}
+    .w3-half img{margin-bottom: 0px; opacity: 1; cursor: pointer}
+    .w3-third img:hover{opacity: 0.8}
+    .w3-half img:hover{opacity: 0.8}
+</style>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-121691678-1');
+</script>
+
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { 
+                           equationNumbers: { autoNumber: "AMS" },
+                           Macros: {
+                            br: "{\\mathbb{R}}"
+                          }
+                        }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+</head>
+
+<body class="w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-light-grey w3-animate-left" style="z-index:3;width:150px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-xxlarge w3-padding w3-hover-grey" title="close menu">
+      <i class="fas fa-times"></i>
+    </a>
+    <a href="../#sketches" class="w3-circle w3-button w3-hover-light-grey w3-xlarge">  <i class="fa fa-home"></i></a>
+    
+    
+    <p class="w3-text-black"><b>CONTENT</b></p>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#intro" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Intro</a>
+    <a href="#thomas" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Thomas</a>
+    <a href="#aizawa" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Aizawa</a>
+    <a href="#lorenz" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Lorenz</a>
+    <a href="#dadras" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Dadras</a>
+    <a href="#chen" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Chen</a>
+    <a href="#lorenz64" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Lorenz64</a>
+    <a href="#rossler" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Rössler</a>
+    <a href="#halvorsen" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Halvorsen</a>
+    <a href="#rabinovich" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Rabinovich</a>
+    <a href="#threescroll" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Three-Scroll</a>
+    <a href="#sprott" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Sprott</a>
+    <a href="#wangsu" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Four-Wing</a>
+  </div>
+  
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-large" style="margin-left:200px; margin-right:60px">
+
+  <!-- Header -->
+  <header  class="w3-container w3-top w3-white">
+    <a href="#" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"> <i class="fas fa-chevron-up"></i> </a>
+    <span class="w3-button w3-hide-large w3-xlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+  </header>
+  
+  <div class="w3-container" style="text-align:center">
+      <br>
+      <h1 class="w3-text-white w3-hide-large w3-xxlarge" ><b>Attractors</b></h1>
+      <h1 id="intro" ><b>Strange attractors</b></h1>
+      <p class="w3-centre">Juan Carlos Ponce Campuzano</p>
+      <p class="w3-centre">2018</p>
+      <div class="w3-section w3-bottombar">
+          <p></p>
+      </div>
+  </div>
+  <br>
+  <div class="w3-container">
+
+    <div class="w3-container" style="text-align:center">
+        <h1 id="titled" ><b>Introduction</b></h1>
+        </div>
+
+  <p>The term <strong class="w3-text-indigo">'Strange Attractor'</strong> is used to
+  describe an attractor (a region or shape to which points
+  are 'pulled' as the result of a certain process) that displays
+  sensitive dependence on initial conditions (that is, points
+  which are initially close on the attractor become
+  exponentially separated with time).
+  The most famous strange attractor is undoubtedly
+  the Lorenz attractor - a three dimensional object whose
+  body plan resembles a butterfly or a mask. The Lorenz
+  attractor, named for its discoverer Edward N. Lorenz,
+  arose from a mathematical model of the atmosphere [<a href="#lorenz1963" class="w3-hover-text-blue">2</a>].</p>
+  
+  <p>Imagine a rectangular slice of air heated from below and
+  cooled from above by edges kept at constant
+  temperatures. This is our atmosphere in its simplest
+  description. The bottom is heated by the earth and the top
+  is cooled by the void of outer space. Within this slice,
+  warm air rises and cool air sinks.
+  The state of the atmosphere in this model can be
+  described by three time-evolving variables
+  <ul>
+      <li>x = the convective flow</li>
+      <li>y = the horizontal temperature distribution</li>
+      <li>z = the vertical temperature distribution</li>
+  </ul>
+  with three parameters describing the character of the
+  model itself
+  <ul>
+      <li>$\sigma$ [sigma] = the ratio of viscosity to thermal conductivity</li>
+      <li>$\rho$ [rho] = the temperature difference between the top and
+          bottom of the slice</li>
+      <li>$\beta$ [beta] = the width to height ratio of the slice</li>
+  </ul>
+  and a system of three ordinary differential equations
+  describing the appropriate laws of fluid dynamics
+  $$\left\{ \begin{eqnarray*}
+  \frac{dx}{dt}&amp;=&amp;\sigma  (-x + y)\\
+  \frac{dy}{dt}&amp;=&amp;  -x  z + \rho  x - y \\
+  \frac{dz}{dt}&amp;=&amp; x  y - \beta  z
+  \end{eqnarray*}\right.
+  $$
+  When $\rho$ = 28, $\sigma$ = 10, and $\beta$ = 8/3, a solution curve of this
+  system has the shape of the iconic butterfly and the
+  position of particles will follow a similar path.</p>
+  
+  <div class="w3-center">
+  <iframe src="lorenz/index.html" scrolling="no" width="320" height="320" style="border:0px;"></iframe>
+  <p class="w3-text-grey w3-small">Use mouse to change view.</p>
+  </div>
+  
+  <p>The Lorenz attractor was the first strange attractor, but
+  there are many systems of equations that give rise to
+  strange attractors. In the next section you will find simulations
+  of strange attractors with particles moving based on
+  the given system of ordinary differential equations,
+  including one (or two) solution curve(s). Change the parameters
+  to observe the behaviour of the particles and the solution curve(s).
+  To access the simulation just click on the image.</p>
+  
+  <br>
+  
+  <div class="w3-section w3-bottombar">
+      <p></p>
+  </div>
+  
+  <div class="w3-container">
+     <div class="w3-container" style="text-align:center">
+     <h1 id="titled" ><b>Strange Attractors</b></h1>
+     </div>
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding">
+        <div id="thomas" class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/calculus/velfields/Thomas"><img id="myImg" src="img/thomas.png" alt="Thomas" style="width:100%" class="w3-card-4 w3-round-small"></a>
+            <div class="w3-container w3-white">
+                <h3><b>Thomas</b></h3>
+                <p>Parameter:</p>
+                <div class="w3-center">
+                <p>$b=0.208186$</p>
+                </div>
+                <p>System:</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp;\sin y -bx\\
+                \frac{dy}{dt}&amp;=&amp;\sin z -by\\
+                \frac{dz}{dt}&amp;=&amp;\sin x-bz
+                \end{eqnarray*}\right.
+                $$</p>
+            </div>
+        </div>
+        <div id="aizawa" class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/calculus/velfields/Aizawa"><img id="myImg" src="img/aizawa.png" alt="Aizawa" style="width:100%" class="w3-card-4 w3-round-small"></a>
+            <div class="w3-container w3-white">
+                <h3><b>Aizawa</b></h3>
+                <p>Parameters:</p>
+                <div class="w3-center">
+                <p>$a = 0.95,$ $b = 0.7,$ $c = 0.6,$<br>
+                $d = 3.5,$ $e = 0.25,$ $f = 0.1$</p>
+                </div>
+                <p>System:</p>
+                <p class="w3-responsive"> $$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp;(z - b)  x - d  y\\
+                \frac{dy}{dt}&amp;=&amp; d  x + (z - b)  y\\
+                \frac{dz}{dt}&amp;=&amp;c + a z - \frac{z^3}{3} - (x^2+y^2)(1+e z)+f z x^3
+                \end{eqnarray*}\right.
+                $$</p>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    
+    <!--Second Photo Grid-->
+    <div class="w3-row-padding">
+        <div id="lorenz" class="w3-half w3-container w3-margin-bottom">
+            <a href="https://jcponce.github.io/calculus/velfields/Lorenz"><img id="myImg" src="img/lorenz.png" alt="Lorenz" style="width:100%" class="w3-card-4 w3-round-small"></a>
+            <div class="w3-container w3-white">
+                <h3><b>Lorenz</b></h3>
+                <p>Parameters:</p>
+                <div class="w3-center">
+                <p>$\sigma = 10,$ $\rho = 28,$ $\beta = 8/3$</p>
+                </div>
+                <p>System:</p>
+                <p>$$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp;\sigma  (-x + y)\\
+                \frac{dy}{dt}&amp;=&amp;  -x  z + \rho  x - y \\
+                \frac{dz}{dt}&amp;=&amp; x  y - \beta  z
+                \end{eqnarray*}\right.
+                $$</p>
+            </div>
+        </div>
+        <div id="dadras" class="w3-half w3-container">
+            <a href="https://jcponce.github.io/calculus/velfields/Dadras"><img id="myImg" src="img/dadras.png" alt="Dadras" style="width:100%" class="w3-card-4 w3-round-small"></a>
+            <div class="w3-container w3-white">
+                <h3><b>Dadras</b></h3>
+                <p>Parameters:</p>
+                <div class="w3-center">
+                <p>$a = 3,$ $b = 2.7,$ $c = 1.7,$ <br> $d = 2,$ $e = 9$</p>
+                </div>
+                <p>System:</p>
+                <p> $$\left\{ \begin{eqnarray*}
+                \frac{dx}{dt}&amp;=&amp; y - a x +b  y  z\\
+                \frac{dy}{dt}&amp;=&amp;  c  y - x  z +z\\
+                \frac{dz}{dt}&amp;=&amp; d  x  y - e  z
+                \end{eqnarray*}\right.
+                $$</p>
+            </div>
+        </div>
+        
+        </div>
+    
+        <!-- Third Photo Grid-->
+        <div class="w3-row-padding">
+            <div id="chen" class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Chen"><img id="myImg" src="img/chen.png" alt="Chen" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Chen</b></h3>
+                    <p>Parameters:</p>
+                    <div class="w3-center">
+                    <p>$\alpha = 5$, $\beta = -10$, $\delta = -0.38$</p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp;\alpha x- y z\\
+                    \frac{dy}{dt}&amp;=&amp;\beta  y + x z \\
+                    \frac{dz}{dt}&amp;=&amp;\delta  z + x y/3
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            <div id="lorenz84"  class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Lorenz84"><img id="myImg" src="img/lorenz84.png" alt="Loren84" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Lorenz84</b></h3>
+                    <p>Parameters:</p>
+                    <div class="w3-center">
+                    <p>$a = 0.95,$ $b = 7.91,$ $f = 4.83,$ $g = 4.66$ </p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp;-a x - y^2 - z^2 + a f\\
+                    \frac{dy}{dt}&amp;=&amp; -y + x  y - b  x  z + g\\
+                    \frac{dz}{dt}&amp;=&amp; -z + b  x  y + x  z
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Forth Photo Grid-->
+        <div class="w3-row-padding">
+            <div id="rossler" class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Rossler"><img id="myImg" src="img/rossler.png" alt="Chen" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Rössler</b></h3>
+                    <p>Parameters:</p>
+                    <div class="w3-center">
+                    <p>$a = 0.2$, $b = 0.2$, $c = 5.7$</p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp;-(y+z)\\
+                    \frac{dy}{dt}&amp;=&amp;x+ay\\
+                    \frac{dz}{dt}&amp;=&amp;b+z(x-c)
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            <div id="halvorsen" class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Halvorsen"><img id="myImg" src="img/halvorsen.png" alt="Loren84" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Halvorsen</b></h3>
+                    <p>Parameter:</p>
+                    <div class="w3-center">
+                    <p>$a = 1.89$ </p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp;-a x-4y-4z-y^2 \\
+                    \frac{dy}{dt}&amp;=&amp; -a y-4z-4x-z^2  \\
+                    \frac{dz}{dt}&amp;=&amp; -a z-4x-4y-x^2
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Fifth Photo Grid-->
+        <div class="w3-row-padding">
+            <div id="rabinovich" class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/RabinovichFabrikant"><img id="myImg" src="img/rabinov.png" alt="Rabinovich-Fabrikant" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Rabinovich-Fabrikant</b></h3>
+                    <p>Parameters:</p>
+                    <div class="w3-center">
+                        <p>$\alpha = 0.14$, $\gamma = 0.10$</p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp;y ( z - 1 + x^2 ) + \gamma  x\\
+                    \frac{dy}{dt}&amp;=&amp;x  ( 3  z + 1 - x^2 ) + \gamma  y\\
+                    \frac{dz}{dt}&amp;=&amp; - 2  z  ( \alpha + x y )
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            <div id="threescroll" class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Tscus"><img id="myImg" src="img/tscus.png" alt="Tscus" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Three-Scroll Unified Chaotic System</b></h3>
+                    <p>Parameters:</p>
+                    <div class="w3-center">
+                        <p>$a = 32.48,$ $b = 45.84,$ $c = 1.18,$ <br> $d = 0.13,$ $e = 0.57$, $f = 14.7$</p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp;a(y-x)+d x y \\
+                    \frac{dy}{dt}&amp;=&amp; bx-x z + f y  \\
+                    \frac{dz}{dt}&amp;=&amp; cz+xy-ex^2
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <!-- Sixth Photo Grid-->
+        <div class="w3-row-padding">
+            <div id="sprott" class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Sprott"><img id="myImg" src="img/sprott.png" alt="Sprott" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Sprott</b></h3>
+                    <p>Parameters:</p>
+                    <div class="w3-center">
+                        <p>$a = 2.07$, $b = 1.79$</p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp; y + a x y +x z \\
+                    \frac{dy}{dt}&amp;=&amp; 1 - b x^2 +yz \\
+                    \frac{dz}{dt}&amp;=&amp; x-x^2-y^2
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            <div id="wangsu" class="w3-half w3-container w3-margin-bottom">
+                <a href="https://jcponce.github.io/calculus/velfields/Wang-Sun"><img id="myImg" src="img/wangsu.png" alt="Tscus" style="width:100%" class="w3-card-4 w3-round-small"></a>
+                <div class="w3-container w3-white">
+                    <h3><b>Four-Wing</b></h3>
+                    <p>Parameters:</p>
+                    <div class="w3-center">
+                        <p>$a = 0.2,$ $b = 0.01,$ $c = -0.4$</p>
+                    </div>
+                    <p>System:</p>
+                    <p> $$\left\{ \begin{eqnarray*}
+                    \frac{dx}{dt}&amp;=&amp; ax+yz \\
+                    \frac{dy}{dt}&amp;=&amp; b x + cy - xz \\
+                    \frac{dz}{dt}&amp;=&amp; -z-xy
+                    \end{eqnarray*}\right.
+                    $$</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+    </div>
+  
+  <div class="w3-section w3-bottombar">
+      <p></p><br>
+  </div>
+
+  <div class="w3-container ">
+    <h2>References</h2>
+    <ol>
+    <li>Dadras, S., Momeni, H.R. (2009). A novel three-dimensional autonomous chaotic system generating two, three and four-scroll attractors. <i>Physics Letters A.</i> Volume 373, Issue 40. pp. 3637-3642. <a href="https://doi.org/10.1016/j.physleta.2009.07.088" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li id="lorenz1963">Lorenz E. N. (1963). Deterministic Nonperiodic Flow. <i>Journal of the Atmospheric Sciences.</i> <b>20</b>(2): 130–141. <a href="http://journals.ametsoc.org/doi/abs/10.1175/1520-0469%281963%29020%3C0130%3ADNF%3E2.0.CO%3B2" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li>Pan, L., Zhou, W., Fang,J., Li, D. (2010). A new three-scroll unified chaotic system coined. <i>International Journal of Nonlinear Science.</i> vol. 10, 462-474. <a href="http://www.internonlinearscience.org/upload/papers/20110618025420887.pdf" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li>Rössler, O. E. (1976). An Equation for Continuous Chaos. <i>Physics Letters,</i> 57<b>A</b> (5): 397–398. <a href="https://doi.org/10.1016/0375-9601(76)90101-8" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li>Solís Pérez, J. E., Gómez-Aguilar, J. F., Baleanu, D., Tchier, F. (2018). Chaotic Attractors with Fractional Conformable Derivatives in the Liouville–Caputo Sense and Its Dynamical Behaviors.<i> Entropy.</i> 2018, 20(5), 384. <a href="https://doi.org/10.3390/e20050384" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li>Sprott. J. C. (2014). A dynamical system with a strange attractor and invariant tori
+        <i>Physic Letters A,</i> 378  1361-1363. <a href="http://sprott.physics.wisc.edu/pubs/paper423.pdf" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a> </li>
+    <li>Thomas, René. (1999). Deterministic chaos seen in terms of feedback circuits: Analysis, synthesis, ‘labyrinth chaos’. <i>Int. J. Bifurcation and Chaos.</i> 9 (10): 1889–1905. <a href="https://doi.org/10.1142/S0218127499001383" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li>Tam L., Chen J., Chen H., Tou W. (2008). Generation of hyperchaos from the Chen–Lee system via sinusoidal perturbation.<i> Chaos, Solitons and Fractals.</i> Vol. 38, 826-839. <a href="https://doi.org/10.1016/j.chaos.2007.01.039" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+    <li>Wang, Z., Sun, Y., van Wyk, J. B, Qi, G, van Wyk, M. A. (2009). A 3-D four-wing attractor and its analysis. <i>Brazilian Journal of Physics,</i> vol. 39, no. 3. pp.547-553. <a href="http://dx.doi.org/10.1590/S0103-97332009000500007" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fas fa-external-link-alt"></i></a></li>
+        </ol>
+    
+</div>
+  
+  <div class="w3-section w3-bottombar">
+      <p></p><br>
+  </div>
+
+<div class="w3-container">
+    <h3>Notes</h2>
+        <p>
+        The souce code can be found <a class="w3-hover-text-blue" href="https://github.com/jcponce/calculus/tree/gh-pages/velfields/Thomas"><i class="fas fa-code"></i> here</a>. 
+        For the 3d enviroment I used the <a class="w3-hover-text-blue"  href="https://diwi.github.io/p5.EasyCam/">p5.EasyCam</a> library developed by 
+            <a class="w3-hover-text-blue" href="https://github.com/diwi">Thomas Diewald</a>. I used the  <a class="w3-hover-text-blue" href="https://github.com/dataarts/dat.gui">dat.GUI</a> 
+            library for the controls. The position of a particle is computed with a 4th order 
+            <a class="w3-hover-text-blue" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta method</a>.
+        </p>
+    
+
+    <p>Finally, if you found this site useful, you can support it with
+        <strong><a class="w3-button w3-round w3-light-grey w3-hover-text-indigo" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WTMTR7D8RYZ26&item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+site.+Sincerely+appreciate+it%21&currency_code=AUD&source=url">❤️ PayPal</a></strong>
+        &nbsp; or &nbsp;
+        <strong><a class="w3-button w3-round w3-light-grey w3-hover-text-indigo" href="https://www.patreon.com/jcponce"><i class="fab fa-patreon"></i> Patreon</a></strong>
+        I sincerely appreciate it. Thank you! 😃
+    </p>
+
+    <br/>
+</div>
+  
+  
+  
+<!-- End page content -->
+</div>
+
+<!--Footer-->
+
+<div class="w3-container w3-dark-grey w3-center">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a></p>
+</div>
+
+<!--Footer-->
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+
+<script language="javascript" type="text/javascript">
+    $('body').append('<div style="" id="loadingDiv"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div>');
+    $(window).on('load', function(){
+                 setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+                 });
+    function removeLoader(){$( "#loadingDiv" ).fadeOut(500, function() {// fadeOut complete. Remove the loading div
+        $( "#loadingDiv" ).remove(); //makes page more lightweight
+         });
+       }
+</script>
+
+</body>
+</html>
