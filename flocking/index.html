@@ -1,172 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
 
 <head>
-    <title>Flocking simulations</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Flocking: Examples">
-    <meta name="author" content="Juan Carlos Ponce Campuzano">
-    <meta name="language" content="en" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <!--Style Stars-->
+  <!-- dublin core -->
+  <meta name="dc.title" CONTENT="Dynamic Mathematics">
+  <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+  <meta name="dc.date" CONTENT="01-Jul-2018">
+  <meta name="dc.type" CONTENT="Interactive Resource">
+  <meta name="dc.format" CONTENT="HTML">
+  <meta name="dc.language" CONTENT="en-US">
+  <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 
-    <link rel="stylesheet" href="../ext/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
+  <!-- social media cards -->
+  <meta property="og:title" content="Dynamic Mathematics">
+  <meta property="og:description" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+  <meta property="og:url" content="https://jcponce.github.io/">
+  <meta name="twitter:card" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:site_name" content="Dynamic Mathematics">
 
-    <style>
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Martel Sans', sans-serif;
-        }
+  <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
 
-        .center {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 900px;
-        }
-    </style>
+  <title>Dynamic Mathematics</title>
 
-    <!--Style ends-->
+  <link rel="stylesheet" href="../assets/css/main.css">
 
-    <!--MathJax starts-->
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-      TeX: { equationNumbers: { autoNumber: "AMS" } }
-            });
-       </script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-       </script>
-    <!---<script type="text/x-mathjax-config">//left-side eq
-         MathJax.Hub.Config({
-               displayAlign: "left",
-               displayIndent: "5em"
-               });
-</script>--->
-    <script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
-    </script>
-    <!--MathJax Ends-->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+  <!--MathJax starts-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+		  TeX: { equationNumbers: { autoNumber: "AMS" } }
+				});
+		   </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		   </script>
+  <!---<script type="text/x-mathjax-config">//left-side eq
+			 MathJax.Hub.Config({
+				   displayAlign: "left",
+				   displayIndent: "5em"
+				   });
+	    </script>--->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+  <!--MathJax Ends-->
 
-        gtag('config', 'UA-121691678-1');
-    </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121691678-1');
+  </script>
 
 </head>
 
-<body>
 
-    <!-- Navbar Stars-->
-    <div class="w3-top">
-        <div class="w3-bar w3-black w3-top w3-left-align">
-            <a href="../#projects" class="w3-bar-item w3-button w3-hover-indigo"> <i class="fa fa-arrow-left"></i> <i
-                    class="fa fa-home"></i></a>
+<body class="is-preload">
+  <!--Magicbook cotainer-->
+  <div class="container">
 
-            <a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-indigo serif">Flocking</a>
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <h1><a href="../">Dynamic Mathematics</a></h1>
+        
+      </header>
+
+      <!-- Main -->
+      <article id="main">
+
+        <header>
+  <h2>Flocking Simulations</h2>
+</header>
+<section class="wrapper style5">
+  <div class="inner">
+
+    <header>
+      <p>By Juan Carlos Ponce Campuzano, 15/December/2018</p>
+    </header>
+
+    <h3>Introduction</h3>
+
+    <p>A set of flocking simulations inspired by Daniel Shiffman&apos;s 
+      <a href="https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html" target="_blank">Coding Challenge #124</a></p>
+
+    
+
+    <hr>
+
+    <section>
+      <h3>Interactive simulations</h3>
+      <div class="box alt">
+        <div class="row gtr-50 gtr-uniform">
+          <!--First row-->
+          <div class="col-4"><span class="image fit"><a href="https://jcponce.github.io/calculus/velfields/Thomas"><img src="img/flocking.png" alt></a></span>
+            <span style="font-size:18px">
+              <h3><a href="https://jcponce.github.io/calculus/velfields/Thomas">Polygons</a></h3>
+              
+            </span>
+          </div>
+          <div class="col-4"><span class="image fit"><a href="https://jcponce.github.io/calculus/velfields/Aizawa"><img src="img/seacreatures.png" alt></a></span>
+            <span style="font-size:18px">
+              <h3><a href="https://jcponce.github.io/calculus/velfields/Aizawa">Sea cretures</a></h3>
+              <p>Parameters:</p>
+              
+            </span>
+          </div>
+          <div class="col-4"><span class="image fit"><a href="https://jcponce.github.io/calculus/velfields/Lorenz"><img src="img/knotcreatures.png" alt></a></span>
+            <span style="font-size:18px">
+              <h3><a href="https://jcponce.github.io/calculus/velfields/Lorenz">Knot curves</a></h3>
+              
+            </span>
+          </div>
+
+          <!--Second row-->
+          <div class="col-4"><span class="image fit"><a href="https://jcponce.github.io/calculus/velfields/Dadras"><img src="img/emoji.png" alt></a></span>
+            <span style="font-size:18px">
+              <h3><a href="https://jcponce.github.io/calculus/velfields/Dadras">Emojis</a></h3>
+              <p>Parameters:</p>
+              
+            </span>
+          </div>
+          <div class="col-4"><span class="image fit"><a href="https://jcponce.github.io/calculus/velfields/Chen"><img src="img/polarc.png" alt></a></span>
+            <span style="font-size:18px">
+              <h3><a href="https://jcponce.github.io/calculus/velfields/Chen">Polar curves</a></h3>
+              <p>Parameters:</p>
+              
+            </span>
+          </div>
+          <div class="col-4"><span class="image fit"><a href="https://jcponce.github.io/calculus/velfields/Lorenz84"><img src="img/rainbow-flowers.png" alt></a></span>
+            <span style="font-size:18px">
+              <h3><a href="https://jcponce.github.io/calculus/velfields/Lorenz84">Rainbow 3d flowers</a></h3>
+              <p>3D model made with GeoGebra.</p>
+            </span>
+          </div>
+
+          
+          
         </div>
-    </div>
-    <!-- Navbar Ends-->
+      </div>
 
-    <!-- Main content Stars-->
-    <div class="w3-main center" style="margin-top:45px">
+    </section>
 
-        <div class="w3-container">
-            <h1 class="w3-center">Flocking</h1>
-            <hr>
+    <br>
 
+    <h2 class="row gtr-50 aln-center"><i class="fas fa-infinity"></i></h2>
 
-            <!-- First Photo Grid-->
-            <div class="w3-row-padding">
-                <div id="polygons" class="w3-half w3-container w3-margin-bottom">
-                    <a href="https://jcponce.github.io/sketches/flock/"><img src="img/flocking.png"
-                            alt="Polygons" style="width:100%" class="w3-card-4 w3-round-small w3-hover-opacity"></a>
-                    <div class="w3-container w3-white">
-                        <h3><b>Polygons</b></h3>
-                    </div>
-                </div>
-                <div id="seacreatures" class="w3-half w3-container w3-margin-bottom">
-                    <a href="https://jcponce.github.io/sketches/flockcreatures/"><img
-                            src="img/seacreatures.png" alt="Seacreatures" style="width:100%"
-                            class="w3-card-4 w3-round-small w3-hover-opacity"></a>
-                    <div class="w3-container w3-white">
-                        <h3><b>Sea creatures</b></h3>
-                    </div>
-                </div>
+    <p>If you found this site useful, you can support it with
+      <strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=WTMTR7D8RYZ26&amp;item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+site.+Sincerely+appreciate+it%21&amp;currency_code=AUD&amp;source=url">&#x2764;&#xFE0F; PayPal</a></strong>
+       or 
+      <strong><a href="https://www.patreon.com/jcponce"><i class="fab fa-patreon"></i> Patreon</a></strong>.
+      I sincerely appreciate it. Thank you! &#x1F603;
+    </p>
 
-                <div id="knots" class="w3-half w3-container w3-margin-bottom">
-                    <a href="https://editor.p5js.org/jcponce/present/4cmRPWfF"><img 
-                            src="img/knotcreatures.png" alt="knots" style="width:100%"
-                            class="w3-card-4 w3-round-small w3-hover-opacity"></a>
-                    <div class="w3-container w3-white">
-                        <h3><b>Knot curves</b></h3>
-                    </div>
-                </div>
-                <div id="emojis" class="w3-half w3-container w3-margin-bottom">
-                    <a href="https://editor.p5js.org/jcponce/present/ECrShIcB8"><img  src="img/emoji.png"
-                            alt="Emojis" style="width:100%" class="w3-card-4 w3-round-small w3-hover-opacity"></a>
-                    <div class="w3-container w3-white">
-                        <h3><b>Emojis</b></h3>
-                    </div>
-                </div>
+    <hr>
 
-                <div id="polar" class="w3-half w3-container w3-margin-bottom">
-                    <a href="https://editor.p5js.org/jcponce/present/1uFS9FsG"><img  src="img/polarc.png"
-                            alt="Polar Curves" style="width:100%" class="w3-card-4 w3-round-small w3-hover-opacity"></a>
-                    <div class="w3-container w3-white">
-                        <h3><b>Polar curves</b></h3>
-                    </div>
-                </div>
+    <h3>References</h3>
 
-                <div id="aizawa" class="w3-half w3-container w3-margin-bottom">
-                    <a href="https://editor.p5js.org/jcponce/present/fwsX61dRa"><img id="myImg" src="img/rainbow-flowers.png"
-                            alt="3D-Rainbow-Flower" style="width:100%" class="w3-card-4 w3-round-small w3-hover-opacity"></a>
-                    <div class="w3-container w3-white">
-                        <h3><b>Rainbow flowers:</b> 3D model made with GeoGebra</h3>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
+    <ol>
+      <li>Craig Reynolds - <a href="https://www.red3d.com/cwr/boids/">Boids: Background and Update</a>.</li>
+      <li>Craig Reynolds - <a href="https://www.youtube.com/watch?v=86iQiV3-3IA" target="_blank" title="Open link">Original 1986 Boids simulation</a>.</li>
+      <li>Daniel Shiffman - <a href="https://natureofcode.com/book/chapter-2-forces/" target="_blank" title="Open link">Vectors - The Nature of Code</a>.</li>
+      <li>Daniel Shiffman - <a href="https://natureofcode.com/book/chapter-6-autonomous-agents/" target="_blank" title="Open link">Combining Steering Behaviors: Flocking - The Nature of Code</a>.</li>
+      <li> Gary William Flake - <a href="https://mitpress.mit.edu/books/computational-beauty-nature">The Computational Beauty of Nature</a>.</li>
+    </ol>
 
 
 
-       
-    </div>
-    <!-- END MAIN -->
+  </div>
+</section>
 
-    <!--Footer-->
+      </article>
 
-    <div class="w3-container w3-dark-grey w3-center">
-        <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License"
-                    style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a></p>
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li><a href="https://twitter.com/jcponcemath" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/jcponce" class="icon brands fa-github"><span class="label">Dribbble</span></a></li>
+          <li><a href="mailto: jcponcemath@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Juan Carlos Ponce Campuzano</li>
+          <li><a href="licence.html"><i class="fab fa-creative-commons"></i></a></li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+
     </div>
 
-    <!--Footer-->
 
+  </div>
 
-
-
+  <!--Scripts-->
+  <script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/jsutil.js"></script>
+<script src="../assets/js/main.js"></script>
 
 </body>
+
 
 </html>
