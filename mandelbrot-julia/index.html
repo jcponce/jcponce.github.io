@@ -414,32 +414,32 @@
 
 
     <pre><code>{
-x0 = x co-ordinate of pixel
-y0 = y co-ordinate of pixel
+  x0 = x co-ordinate of pixel
+  y0 = y co-ordinate of pixel
 
-x = 0
-y = 0
+  x = 0
+  y = 0
 
-iteration = 0
-max_iteration = 1000
+  iteration = 0
+  max_iteration = 1000
 
-while ( x*x + y*y &lt;= (2*2) AND iteration &lt; max_iteration )
-{
-xtemp = x*x - y*y + x0
-y = 2*x*y + y0
+  while ( x*x + y*y &lt;= (2*2) AND iteration &lt; max_iteration )
+  {
+    xtemp = x*x - y*y + x0
+    y = 2*x*y + y0
 
-x = xtemp
+    x = xtemp
 
-iteration = iteration + 1
-}
+    iteration = iteration + 1
+  }
 
-if ( iteration == max_iteration )
-then
-color = black
-plot(x0,y0,color)
-else
-color = iteration
-plot(x0,y0,color)
+  if ( iteration == max_iteration )
+  then
+    color = black
+    plot(x0,y0,color)
+  else
+    color = iteration
+    plot(x0,y0,color)
 }
 </code></pre>
 
