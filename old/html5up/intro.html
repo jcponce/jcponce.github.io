@@ -541,10 +541,10 @@
 
         <!-- Search 
         <section id="search" class="alt">
-          <form method="post" action="#">
+          <form method="post" onsubmit="myHilitor.apply(query.value); return false;">
             <input type="text" name="query" id="query" placeholder="Search" />
           </form>
-        </section>
+        </section>-->
         
 
         <!-- Menu -->
@@ -629,6 +629,14 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/util.js"></script>
 
+
+  <script type="text/javascript">
+
+    var myHilitor = new Hilitor("main"); // id of the element to parse
+    myHilitor.apply("highlight words");
+  
+  </script>
+  
 
 </body>
 
