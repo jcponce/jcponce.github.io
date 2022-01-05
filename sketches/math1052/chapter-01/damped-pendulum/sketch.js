@@ -1,7 +1,7 @@
 // Pendulum
 // Daniel Shiffman <http://www.shiffman.net>
 
-// This p5.js version
+// This p5.js version by
 // Juan Carlos Ponce Campuzano
 
 // A simple pendulum simulation
