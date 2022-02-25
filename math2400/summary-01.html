@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Summary Weeks 1 & 2</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!-- This script is to display Github buttons if you want them :)-->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3>Field Axioms</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong> A set $F$ is called a
+						field if it has two operations
+						defined on it, addition $x+y$ and multiplication $xy$, and if it satisfies
+						the following axioms
+					</p>
+					<p>(A1) If $x \in F$ and $y \in F$, then $x+y \in F$.
+					</p>
+					<p>(A2) (commutativity of addition)
+						$x+y = y+x$ for all $x,y \in F$.
+					</p>
+					<p>(A3) (associativity of addition)}
+						$(x+y)+z = x+(y+z)$ for all $x,y,z \in F$.
+					</p>
+					<p>(A4) There exists an element $0 \in F$ such that
+						$0+x = x$ for all $x \in F$.
+					</p>
+					<p>(A5) For every element $x\in F$, there exists an element $-x \in F$
+						such that $x + (-x) = 0$.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Field Axioms</h3>
+				<div class="left-txt size-60">
+					<p>(M1) If $x \in F$ and $y \in F$, then $xy \in F$.
+					</p>
+					<p>(M2) (commutativity of multiplication)
+						$xy = yx$ for all $x,y \in F$.
+					</p>
+					<p>(M3) (associativity of multiplication)
+						$(xy)z = x(yz)$ for all $x,y,z \in F$.
+					</p>
+					<p>(M4) There exists an element $1 \in F$ (and $1 \not= 0$) such that
+						$1x = x$ for all $x \in F$.
+					</p>
+					<p>(M5) For every $x\in F$ such that $x \not= 0$ there exists an element
+						$\frac{1}{x} \in F$
+						such that $x\left(\frac{1}{x}\right) = 1$.
+					</p>
+					<p>(D) (distributive law) $x(y+z) = xy+xz$
+						for all $x,y,z \in F$.
+					</p>
+				</div>
+			</section>
+
+
+
+			<section>
+				<h3>Ordered fields</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						A field $F$ is said to be an ordered field if
+						$F$ together with a relation $\lt$ has the following properties:
+					</p>
+					<ol class="r">
+						<li>(trichotomy) For all $x, y \in S$, exactly one of
+							$x < y$, $x=y$, or $y < x$ holds.</li> <li>
+								(transitivity) If $x,y,z \in S$ are such that $x < y$ and $y < z$, then $x < z$. </li>
+									<li>
+									For $x,y,z \in F$, $x < y$ implies $x+z < y+z$. </li> <li>
+										For $x,y \in F$, $x > 0$ and $y > 0$ implies $xy > 0$.
+
+						</li>
+					</ol>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Upper & Lower bound, <br />Supremum & Infimum</h4>
+				<div class="left-txt size-60">
+
+					<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/upper-lower-bounds.png" />
+
+				</div>
+			</section>
+
+
+
+			<section>
+				<h4>The Set of Real Numbers</h4>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong> There exists a unique
+						ordered field $\R$ with the least-upper-bound property
+						such that $\Q \subset \R$.</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Archimedean property</h3>
+					<div class="left-txt size-70">
+						<p><strong>Theorem:</strong>
+						</p>
+						<ol class="r">
+							<li>(Archimedean property)
+								If $x, y \in \R$ and
+								$x \gt 0$, then there exists an $n \in \N$ such that
+								\begin{equation*}
+								nx \gt y .
+								\end{equation*}</li>
+							<li>($\Q$ is dense in $\R$) If $x, y \in \R$ and
+								$x \lt y$, then there exists an $r \in \Q$ such that $x \lt r \lt y$. </li>
+						</ol>
+					</div>
+			</section>
+
+
+			<section>
+				<h4>Absolute value</h4>
+				<div class="left-txt size-90">
+					<p>The absolute value is defined as
+						\begin{equation*}
+						\abs{x} :=
+						\begin{cases}
+						x &amp; \text{if } x \geq 0, \\
+						-x &amp; \text{if } x \lt 0 . \end{cases} \end{equation*} </p>
+				</div>
+
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
+
+	<script>
+		Reveal.initialize({
+			history: true,
+			center: true,
+			// Transition style
+			transition: 'fade',
+		});
+	</script>
+
+
+</body>
+
+</html>
