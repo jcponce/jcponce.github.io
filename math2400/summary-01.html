@@ -70,6 +70,11 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Summary Weeks 1 & 2</p>
+			</section>
+
+			<section>
 				<h3>Field Axioms</h3>
 				<div class="left-txt size-60">
 					<p><strong>Definition:</strong> A set $F$ is called a
@@ -203,12 +208,176 @@
 
 			</section>
 
+			<section>
+				<h4>Convergence of sequences</h4>
+				<div class="size-70">
+					<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/convergence-1d.png" />
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Convergence of sequences</h4>
+				<div class="size-70">
+					<img style="width: 75%;" class="r-stretch" data-src="images/summary-01/convergence-2d.png" />
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Monotone sequences</h4>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong> A monotone sequence $\{ x_n \}$ is bounded if and only if it is convergent.
+
+						Furthermore, if $\{ x_n \}$ is monotone increasing and bounded, then
+						\begin{equation*}
+						\lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N \} .
+						\end{equation*}
+						If $\{ x_n \}$ is monotone decreasing and bounded, then
+						\begin{equation*}
+						\lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N \} .
+						\end{equation*}</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Monotone sequences</h4>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong> Let $\{ a_n \}$, 
+						$\{ b_n \}$, and 
+						$\{ x_n \}$ be sequences such that
+						\begin{equation*}
+						a_n \leq x_n \leq b_n \quad \text{for all } n \in \N.
+						\end{equation*}
+						Suppose $\{ a_n \}$ and $\{ b_n \}$ converge and
+						\begin{equation*}
+						\lim_{n\to \infty} a_n
+						=
+						\lim_{n\to \infty} b_n .
+						\end{equation*}
+						Then $\{ x_n \}$ converges and
+						\begin{equation*}
+						\lim_{n\to \infty} x_n
+						=
+						\lim_{n\to \infty} a_n
+						=
+						\lim_{n\to \infty} b_n .
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Monotone sequences</h4>
+				<div class="left-txt size-50">
+					<p><strong>Proposition:</strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
+					</p>
+					<ol class="r">
+						<li>The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
+							\begin{equation*}
+							\lim_{n \to \infty} (x_n \pm y_n) = 
+							\lim_{n \to \infty} z_n = 
+							\lim_{n \to \infty} x_n \pm 
+							\lim_{n \to \infty} y_n .
+							\end{equation*}
+						</li>
+						<li>
+							The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
+							\begin{equation*}
+							\lim_{n \to \infty} (x_n y_n) = 
+							\lim_{n \to \infty} z_n = 
+							\left( \lim_{n \to \infty} x_n \right)
+							\left( \lim_{n \to \infty} y_n \right) .
+							\end{equation*}
+						</li>
+						<li>
+							If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
+							the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
+							\begin{equation*}
+							\lim_{n \to \infty} \frac{x_n}{y_n} = 
+							\lim_{n \to \infty} z_n = 
+							%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
+							\frac{\lim\, x_n}{\lim\, y_n} .
+							\end{equation*}
+						</li>
+					</ol>
+				</div>
+
+			</section>
+
+			<section>
+				<h4>Some congergence tests</h4>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Proposition:</strong> Let $\{ x_n \}$ be a sequence. 
+						Suppose there is an $x \in \R$
+						and a convergent sequence $\{ a_n \}$
+						such that
+						\begin{equation*}
+						\lim_{n\to\infty} a_n = 0
+						
+						\text{ and }  
+						\abs{x_n - x} \leq a_n
+						\qquad
+						\text{for all $n \in \N$.}
+						\end{equation*}
+						Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
+					</p>
+					<p>
+						<strong>Proposition:</strong> Let $c > 0$.
+						
+						<ol class="r">
+							<li>
+								If $c < 1$, then
+								
+								$\lim_{n\to\infty} c^n = 0.$
+								
+							</li>
+							<li>
+								If $c > 1$, then $\{ c^n \}$ is unbounded.
+								
+							</li>
+						</ol>
+					
+					</p>
+					<p>Also check the <strong>Ratio test for sequences</strong>.</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Upper & lower limits</h4>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong> Let $\{ x_n \}$ be a bounded sequence.  Define the sequences $\{ a_n \}$
+						and $\{ b_n \}$ by
+						$a_n := \sup \{ x_k : k \geq n \}$ and
+						$b_n := \inf \{ x_k : k \geq n \}$.  
+						Define, if the limits exist,
+						\begin{align*}
+						\limsup_{n \to \infty} \, x_n & := \lim_{n \to \infty} a_n ,
+						\\
+						\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
+						\end{align*}
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Bolzano-Weierstrass Theorem</h4>
+				<div>
+					<p>
+
+					</p>
+				</div>
+			</section>
+
 		
 
 			<section>
 
 				<h4>Credits</h4>
-				<div include-html="credits.html"></div>
+				<div include-html="creditsb.html"></div>
 			</section>
 
 			<!-- Ends sections -->
