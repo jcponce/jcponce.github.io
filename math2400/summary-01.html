@@ -80,7 +80,7 @@
 					<p><strong>Definition:</strong> A set $F$ is called a
 						field if it has two operations
 						defined on it, addition $x+y$ and multiplication $xy$, and if it satisfies
-						the following axioms
+						the following axioms:
 					</p>
 					<p>(A1) If $x \in F$ and $y \in F$, then $x+y \in F$.
 					</p>
@@ -132,16 +132,20 @@
 						A field $F$ is said to be an ordered field if
 						$F$ together with a relation $\lt$ has the following properties:
 					</p>
-					<ol class="r">
-						<li>(trichotomy) For all $x, y \in S$, exactly one of
-							$x < y$, $x=y$, or $y < x$ holds.</li> <li>
-								(transitivity) If $x,y,z \in S$ are such that $x < y$ and $y < z$, then $x < z$. </li>
-									<li>
-									For $x,y,z \in F$, $x < y$ implies $x+z < y+z$. </li> <li>
-										For $x,y \in F$, $x > 0$ and $y > 0$ implies $xy > 0$.
-
-						</li>
-					</ol>
+					<p>
+						(O1) (trichotomy) For all $x, y \in F$, exactly one of
+						$x < y$, $x=y$, or $y < x$ holds.
+					</p>
+					<p>
+						(O2) (transitivity) If $x,y,z \in F$ are such that $x < y$ and $y < z$, then $x < z$. 
+					</p>
+					<p>
+						(O3) For $x,y,z \in F$, $x < y$ implies $x+z < y+z$.
+					</p>
+					<p>
+						(O4) For $x,y \in F$, $x > 0$ and $y > 0$ implies $xy > 0$.
+					</p>
+					
 
 				</div>
 			</section>
@@ -242,9 +246,9 @@
 			</section>
 
 			<section>
-				<h4>Monotone sequences</h4>
+				<h4>Squeeeze Theorem</h4>
 				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong> Let $\{ a_n \}$, 
+					<p><strong>Theorem:</strong> Let $\{ a_n \}$, 
 						$\{ b_n \}$, and 
 						$\{ x_n \}$ be sequences such that
 						\begin{equation*}
@@ -269,7 +273,7 @@
 			</section>
 
 			<section>
-				<h4>Monotone sequences</h4>
+				<h4>Algebraic properties</h4>
 				<div class="left-txt size-50">
 					<p><strong>Proposition:</strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
 					</p>
@@ -347,7 +351,7 @@
 
 			<section>
 				<h4>Upper & lower limits</h4>
-				<div class="left-txt size-60">
+				<div class="left-txt size-50">
 					<p>
 						<strong>Definition:</strong> Let $\{ x_n \}$ be a bounded sequence.  Define the sequences $\{ a_n \}$
 						and $\{ b_n \}$ by
@@ -360,19 +364,89 @@
 						\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
 						\end{align*}
 					</p>
+					<p>
+						<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence.  Let $a_n$ and $b_n$ be as in
+						the definition above.
+						<ol>
+							<li>
+								The
+								sequence $\{ a_n \}$ is bounded monotone decreasing
+								and $\{ b_n \}$ is bounded monotone increasing.  In particular,
+								$\liminf x_n$ and $\limsup x_n$ exist.
+							</li>
+							<li>
+								$\displaystyle \limsup_{n \to \infty} \, x_n = \inf \{ a_n : n \in \N \}$
+								and
+								$\displaystyle \liminf_{n \to \infty} \, x_n = \sup \{ b_n : n \in \N \}$.
+							</li>
+							<li>
+								$\displaystyle \liminf_{n \to \infty} \, x_n \leq
+								\limsup_{n \to \infty} \, x_n$.
+							</li>
+						</ol>
+						
+					
+					</p>
 				</div>
 			</section>
 
 			<section>
-				<h4>Bolzano-Weierstrass Theorem</h4>
-				<div>
+				<h4>Upper & lower limits</h4>
+				<div class="left-txt size-60">
+					
 					<p>
+						<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence.  Then $\{ x_n \}$ converges
+						if and only if
+						\begin{equation*}
+						\liminf_{n\to \infty} \, x_n = 
+						\limsup_{n\to \infty} \, x_n.
+						\end{equation*}
+						Furthermore, if $\{ x_n \}$ converges, then
+						\begin{equation*}
+						\lim_{n\to \infty} x_n = 
+						\liminf_{n\to \infty} \, x_n = 
+						\limsup_{n\to \infty} \, x_n.
+						\end{equation*}
+						
+						
+					
+					</p>
+				</div>
+			</section>
 
+
+
+			<section>
+				<h4>Bolzano-Weierstrass Theorem</h4>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Theorem:</strong> Suppose a sequence $\{ x_n \}$ of real numbers is bounded.
+						Then there exists a convergent subsequence $\{ x_{n_i} \}$.
 					</p>
 				</div>
 			</section>
 
 		
+			<section>
+				<h4>Cauchy sequences</h4>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong> A sequence $\{ x_n \}$ is a <em>Cauchy sequence</em>
+						 if
+						for every $\epsilon > 0$ there exists an $M \in \N$ such that
+						for all $n \geq M$ and all $k \geq M$, we have
+						\begin{equation*}
+						\abs{x_n - x_k} < \epsilon .
+						\end{equation*}
+					</p>
+					<p>
+						<strong>Theorem:</strong> A Cauchy sequence is bounded.
+					</p>
+					<p>
+						<strong>Theorem:</strong> A sequence of real numbers is Cauchy if and only if it converges.
+					</p>
+				</div>
+			</section>
 
 			<section>
 
