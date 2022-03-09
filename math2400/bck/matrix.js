@@ -36,7 +36,7 @@ function generateSymbls() {
     let stream = new Stream();
     stream.generateSymbols(x, random(-1000, 0));
     streams.push(stream);
-    x += symbolSize * 1.4;
+    x += symbolSize * 2;
   }
 }
 
@@ -96,9 +96,9 @@ class Stream {
   render() {
     this.symbols.forEach((symbol) => {
       if (symbol.first) {
-        fill(150, 150, 150, symbol.opacity);
+        fill(160, 160, 160, symbol.opacity);
       } else {
-        fill(155, 155, 155, symbol.opacity);
+        fill(165, 165, 165, symbol.opacity);
       }
       text(symbol.value, symbol.x, symbol.y);
       symbol.rain();
