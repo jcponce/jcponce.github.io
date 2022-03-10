@@ -368,6 +368,249 @@
 			</section>
 
 			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong>
+						Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Define
+						the <em>open ball</em>, or simply <em>ball</em>, of radius $\delta$
+						around $x$ as
+						\begin{equation*}
+						B(x,\delta) := \bigl\{ y \in X : d(x,y) \lt \delta \bigr\} .
+						\end{equation*}
+						Define the <em>closed ball</em> as
+						\begin{equation*}
+						C(x,\delta) := \bigl\{ y \in X : d(x,y) \leq \delta \bigr\} .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						Take the metric space $\R$ with the standard metric. For
+						$x \in \R$ and $\delta \gt 0$,
+						\begin{equation*}
+						B(x,\delta) = (x-\delta,x+\delta) \qquad \text{and} \qquad
+						C(x,\delta) = [x-\delta,x+\delta] .
+						\end{equation*}
+
+					</p>
+
+					<p><strong>Example:</strong>
+						Be careful when working on a subspace. Consider the
+						metric space $[0,1]$ as a subspace of $\R$. Then in $[0,1]$,
+						\begin{equation*}
+						B\left(0,\frac{1}{2}\right) = B_{[0,1]}\left(0,\frac{1}{2}\right)
+						= \left\{ y \in [0,1] : \abs{0-y} \lt \frac{1}{2} \right\}
+						= \left[0,\frac{1}{2}\right) .
+						\end{equation*}
+						This is different from $B_{\R}\left(0,\frac{1}{2}\right) =
+						\left(\frac{-1}{2},\frac{1}{2}\right)$.
+						The important thing to keep in mind is which metric space we are working
+						in.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $(X,d)$ be a metric space. A subset $V \subset X$
+						is <em>open</em>
+						if for every $x \in V$, there exists a $\delta \gt 0$ such that
+						$B(x,\delta) \subset V$. A subset $E \subset X$ is
+						<em>closed</em> if the complement $E^c = X \setminus E$ is open.
+						When the ambient space $X$ is not clear from context,
+						we say $V$ <em>is open in</em> $X$ and $E$ <em>is closed in</em> $X$.
+					</p>
+
+					<p>
+						If $x \in V$ and $V$ is open, then we say
+						$V$ is an <em>open neighborhood</em> of $x$ (or
+						sometimes just <em>neighborhood</em>).
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						The set $(0,\infty) \subset \R$ is open: Given any $x \in (0,\infty)$,
+						let $\delta := x$. Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
+
+
+					</p>
+
+					<p>
+						The set $[0,\infty) \subset \R$ is closed: Given $x \in (-\infty,0) =
+						[0,\infty)^c$,
+						let $\delta := -x$. Then $B(x,\delta) = (-2x,0) \subset
+						(-\infty,0) = [0,\infty)^c$.
+					</p>
+
+					<p>
+						The set $[0,1) \subset \R$ is neither open nor closed. First,
+						every ball in $\R$ around $0$, $B(0,\delta) = (-\delta,\delta)$, contains negative
+						numbers and hence is not contained in $[0,1)$. So $[0,1)$ is not open.
+						Second, every ball in $\R$ around $1$,
+						$B(1,\delta) = (1-\delta,1+\delta)$, contains
+						numbers strictly less than 1 and greater than 0
+						(e.g. $1-\frac{\delta}{2}$ as long as $\delta \lt 2$).
+						Thus $[0,1)^c = \R \setminus
+						[0,1)$ is not open, and $[0,1)$ is not closed.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong>
+						Let $(X,d)$ be a metric space.
+					</p>
+					<ol class="r">
+						<li>
+							$\emptyset$ and $X$ are open.
+
+						</li>
+						<li>
+							If $V_1, V_2, \ldots, V_k$ are open subset of $X$, then
+							\begin{equation*}
+							\bigcap_{j=1}^k V_j
+							\end{equation*}
+							is also open. That is, a finite intersection of open sets is open.
+
+						</li>
+						<li>
+							If $\{ V_\lambda \}_{\lambda \in I}$ is
+							an arbitrary collection of open subsets of $X$, then
+							\begin{equation*}
+							\bigcup_{\lambda \in I} V_\lambda
+							\end{equation*}
+							is also open. That is, a union of open sets is open.
+						</li>
+					</ol>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Proof:</strong>
+						The sets $\emptyset$ and $X$ are obviously open in $X$.
+					</p>
+
+					<p>
+						Let us prove (ii).
+						If $x \in \bigcap_{j=1}^k V_j$, then $x \in V_j$ for all $j$.
+						As $V_j$ are all open, for every $j$ there exists a $\delta_j \gt 0$
+						such that $B(x,\delta_j) \subset V_j$. Take $\delta := \min \{
+						\delta_1,\delta_2,\ldots,\delta_k \}$ and notice $\delta > 0$. We have
+						$B(x,\delta) \subset B(x,\delta_j) \subset V_j$ for every $j$ and so
+						$B(x,\delta) \subset \bigcap_{j=1}^k V_j$. Consequently the intersection is open.
+
+					</p>
+
+					<p>
+						Let us prove (iii).
+						If $x \in \bigcup_{\lambda \in I} V_\lambda$, then $x \in V_\lambda$ for some
+						$\lambda \in I$.
+						As $V_\lambda$ is open, there exists a $\delta \gt 0$
+						such that $B(x,\delta) \subset V_\lambda$. But then
+						$B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$,
+						and so the union is open.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						The main thing to notice is the difference between
+						items
+						(ii) and (iii).
+						In the case of item (ii) is not true for an arbitrary intersection.
+						For example, $$\bigcap_{n=1}^\infty \left(\frac{-1}{n},\frac{1}{n}\right) = \{ 0
+						\},$$ which is not open.
+					</p>
+
+					<p>
+						<br /><br />
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong>
+						Let $(X,d)$ be a metric space.
+					</p>
+					<ol class="r">
+						<li>
+							$\emptyset$ and $X$ are closed.
+
+						</li>
+						<li>
+							If $\{ E_\lambda \}_{\lambda \in I}$ is
+							an arbitrary collection of closed subsets of $X$, then
+							\begin{equation*}
+							\bigcap_{\lambda \in I} E_\lambda
+							\end{equation*}
+							is also closed. That is, an intersection of closed sets is closed.
+
+						</li>
+						<li>
+							If $E_1, E_2, \ldots, E_k$ are closed
+							subset of $X$, then
+							\begin{equation*}
+							\bigcup_{j=1}^k E_j
+							\end{equation*}
+							is also closed. That is, a finite union of closed sets is closed.
+						</li>
+					</ol>
+				</div>
+			</section>
+
+			<section>
+				<h3>Topology</h3>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong>
+						Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Then
+						$B(x,\delta)$ is open and
+						$C(x,\delta)$ is closed.
+					</p>
+					<p><strong>Proof:</strong>
+						Let $y \in B(x,\delta)$. Let $\alpha := \delta-d(x,y)$. As $\alpha
+						\gt 0$, consider $z \in B(y,\alpha)$. Then
+						\begin{equation*}
+						d(x,z) \leq d(x,y) + d(y,z) \lt d(x,y) + \alpha = d(x,y) + \delta-d(x,y) =
+						\delta .
+						\end{equation*}
+						Therefore, $z \in B(x,\delta)$ for every $z \in B(y,\alpha)$. So $B(y,\alpha) \subset
+						B(x,\delta)$ and
+						$B(x,\delta)$ is open.
+
+					</p>
+
+					<p>The proof that $C(x,\delta)$ is closed is left as an exercise.</p>
+
+				</div>
+			</section>
+
+			<section>
 				<h4>Credits</h4>
 				<div include-html="credits.html"></div>
 			</section>
