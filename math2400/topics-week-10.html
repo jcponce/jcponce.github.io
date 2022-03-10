@@ -70,10 +70,14 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
-				<h3>Metric spaces & Topology</h3>
+				<h2>Metric spaces <br/>&<br/> Topology</h2>
 				<div class="left-txt size-60">
 
 				</div>
+			</section>
+
+			<section>
+				<h2>Metric spaces</h2>
 			</section>
 
 			<section>
@@ -368,9 +372,14 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h2>Topology</h2>
+			</section>
+
+			<section>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong>
+					<p><strong>Definition:</strong>
 						Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Define
 						the <em>open ball</em>, or simply <em>ball</em>, of radius $\delta$
 						around $x$ as
@@ -387,7 +396,8 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Example:</strong>
 						Take the metric space $\R$ with the standard metric. For
@@ -417,7 +427,8 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Definition:</strong>
 						Let $(X,d)$ be a metric space. A subset $V \subset X$
@@ -438,7 +449,8 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Example:</strong>
 						The set $(0,\infty) \subset \R$ is open: Given any $x \in (0,\infty)$,
@@ -470,7 +482,8 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Proposition:</strong>
 						Let $(X,d)$ be a metric space.
@@ -503,7 +516,8 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Proof:</strong>
 						The sets $\emptyset$ and $X$ are obviously open in $X$.
@@ -527,14 +541,15 @@
 						As $V_\lambda$ is open, there exists a $\delta \gt 0$
 						such that $B(x,\delta) \subset V_\lambda$. But then
 						$B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$,
-						and so the union is open.
+						and so the union is open. $\blacksquare$
 					</p>
 
 				</div>
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Example:</strong>
 						The main thing to notice is the difference between
@@ -553,7 +568,8 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Proposition:</strong>
 						Let $(X,d)$ be a metric space.
@@ -585,7 +601,8 @@
 			</section>
 
 			<section>
-				<h3>Topology</h3>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Proposition:</strong>
 						Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Then
@@ -605,7 +622,100 @@
 
 					</p>
 
-					<p>The proof that $C(x,\delta)$ is closed is left as an exercise.</p>
+					<p>The proof that $C(x,\delta)$ is closed is left as an exercise. $\blacksquare$</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong>
+						Suppose $(X,d)$ is a metric space, and $Y \subset X$. Then $U \subset Y$
+						is open in $Y$ (in the subspace topology), if and only if
+						there exists an open set $V \subset X$ (so open in $X$), such that
+						$V \cap Y = U$.
+
+					</p>
+					<p>
+						For example, let $X := \R$, $Y:=[0,1]$, $U := [0,\frac{1}{2})$.
+						We saw that $U$ is an open set in $Y$.
+						We may take $V := (\frac{-1}{2},\frac{1}{2})$.
+					</p>
+					<p><strong>Proof:</strong>
+						Suppose $V \subset X$ is open and $x \in V \cap Y$.
+						Let $U := V \cap Y$.
+						As $V$ is open, there
+						exists a $\delta > 0$ such that $B_X(x,\delta) \subset V$.
+						Then
+						\begin{equation*}
+						B_Y(x,\delta) = B_X(x,\delta) \cap Y \subset V \cap Y = U .
+						\end{equation*}
+
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Proof (cont.):</strong>
+						For finshing the proof
+						a useful way to think about an open set is as
+						a union of open balls. If $U$ is
+						open, then for each $x \in U$, there is a $\delta_x > 0$
+						(depending on $x$) such that
+						$B(x,\delta_x) \subset U$. Then
+						$U = \bigcup_{x\in U} B(x,\delta_x)$.$\blacksquare$
+
+					</p>
+					<p><strong>Proposition:</strong>
+						Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
+						and $E \subset X$ is closed.
+					</p>
+
+					<ol>
+						<li>
+							$U \subset V$ is open in the subspace topology if and only if $U$ is open
+							in $X$.
+						</li>
+						<li>
+							$F \subset E$ is closed in the subspace topology if and only if $F$ is
+							closed in $X$.
+
+						</li>
+					</ol>
+
+					<p><strong>Proof:</strong> Left as an exercise.</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Close sets</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong>
+						Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
+						and $E \subset X$ is closed.
+					</p>
+
+					<ol>
+						<li>
+							$U \subset V$ is open in the subspace topology if and only if $U$ is open
+							in $X$.
+						</li>
+						<li>
+							$F \subset E$ is closed in the subspace topology if and only if $F$ is
+							closed in $X$.
+
+						</li>
+					</ol>
+
+					<p><strong>Proof:</strong> Left as an exercise.</p>
 
 				</div>
 			</section>
