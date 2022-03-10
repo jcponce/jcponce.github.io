@@ -72,7 +72,298 @@
 			<section>
 				<h3>Metric spaces & Topology</h3>
 				<div class="left-txt size-60">
-					
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $X$ be a set, and let
+						$d \colon X \times X \to \R$
+						be a function such that for all $x,y,z \in X$
+					</p>
+					<ol class="r">
+						<li>
+							$d(x,y) \geq 0$. (<em>nonnegativity</em>)
+						</li>
+						<li>
+							$d(x,y) = 0$ if and only if $x = y$. (<em>identity of indiscernibles</em>)
+						</li>
+						<li>
+							$d(x,y) = d(y,x)$. (<em>symmetry</em>)
+						</li>
+						<li>
+							$d(x,z) \leq d(x,y)+ d(y,z)$. (<em>triangle inequality</em>)
+						</li>
+					</ol>
+					<p>The pair $(X,d)$ is called a <em>metric space</em>. The
+						function $d$ is called the <em>metric</em> or the
+						<em>distance function</em>.
+						Sometimes we write just $X$ as the metric space instead of $(X,d)$
+						if the metric is clear from context.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						The set of real numbers $\R$ is a metric space with the metric
+						\begin{equation*}
+						d(x,y) := \abs{x-y} .
+						\end{equation*}
+						Items (i)-(iii) of the definition
+						are easy to verify. The
+						triangle inequality follows immediately
+						from the standard triangle inequality for real numbers:
+						\begin{equation*}
+						d(x,z) = \abs{x-z} =
+						\abs{x-y+y-z} \leq
+						\abs{x-y}+\abs{y-z} =
+						d(x,y)+ d(y,z) .
+						\end{equation*}
+						This metric is the <em>standard metric on</em> $\R$. If we talk
+						about $\R$ as a metric space without mentioning a specific metric, we
+						mean this particular metric.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p>An important metric space is the
+						$n$-dimensional <em>euclidean space</em>
+						$\R^n = \R \times \R \times \cdots \times \R$. We use the following
+						notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.
+					</p>
+					<p>We will not write
+						$\vec{x}$ nor $\mathbf{x}$ for a vector, we simply give it a name such as
+						$x$ and we will remember that $x$ is a vector.
+					</p>
+					<p>
+						We also
+						write simply $0 \in \R^n$ to mean the point $(0,0,\ldots,0)$. Before
+						making $\R^n$ a metric space, we prove an important inequality, the
+						so-called Cauchy-Schwarz inequality.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Lemma (Cauchy-Schwarz inequality):</strong> If $x =(x_1,x_2,\ldots,x_n) \in \R^n$ and $y
+						=(y_1,y_2,\ldots,y_n) \in
+						\R^n$, then
+						\begin{equation*}
+						{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
+						\leq
+						\biggl(\sum_{j=1}^n x_j^2 \biggr)
+						\biggl(\sum_{j=1}^n y_j^2 \biggr) .
+						\end{equation*}
+
+					</p>
+					<p><strong>Proof:</strong>
+						Any square of a real number is nonnegative. Hence any sum of squares is
+						nonnegative:
+						\begin{equation*}
+						\begin{split}
+						0 & \leq
+						\sum_{j=1}^n \sum_{k=1}^n {(x_j y_k - x_k y_j)}^2
+						=
+						\sum_{j=1}^n \sum_{k=1}^n \bigl( x_j^2 y_k^2 + x_k^2 y_j^2 - 2 x_j x_k y_j
+						y_k \bigr)
+						\\
+						& =
+						\biggl( \sum_{j=1}^n x_j^2 \biggr)
+						\biggl( \sum_{k=1}^n y_k^2 \biggr)
+						+
+						\biggl( \sum_{j=1}^n y_j^2 \biggr)
+						\biggl( \sum_{k=1}^n x_k^2 \biggr)
+						-
+						2
+						\biggl( \sum_{j=1}^n x_j y_j \biggr)
+						\biggl( \sum_{k=1}^n x_k y_k \biggr) .
+						\end{split}
+						\end{equation*}
+
+					</p>
+
+
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<p><br /></p>
+				<div class="left-txt size-60">
+					<p><strong>Proof (cont.):</strong>
+						We relabel and divide by 2 to obtain
+						\begin{equation*}
+						0 \leq
+						\biggl( \sum_{j=1}^n x_j^2 \biggr)
+						\biggl( \sum_{j=1}^n y_j^2 \biggr)
+						-
+						{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 ,
+						\end{equation*}
+						which is precisely what we wanted. $\blacksquare$
+					</p>
+				</div>
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						Using the previous result we can construct the
+						standard metric on $\R^n$ for $\R^n$. Define
+						\begin{equation*}
+						d(x,y) :=
+						\sqrt{
+						{(x_1-y_1)}^2 +
+						{(x_2-y_2)}^2 +
+						\cdots +
+						{(x_n-y_n)}^2
+						} =
+						\sqrt{
+						\sum_{j=1}^n
+						{(x_j-y_j)}^2
+						} .
+						\end{equation*}
+					</p>
+
+					<p>Using the Cauchy-Schwarz inequality we can determine the triangle inequality working with
+						the square of the metric:
+						\begin{equation*}
+						\begin{split}
+						{\bigl(d(x,z)\bigr)}^2 & =
+						\sum_{j=1}^n
+						{(x_j-z_j)}^2 =
+						\sum_{j=1}^n
+						{(x_j-y_j+y_j-z_j)}^2
+						\\
+						& =
+						\sum_{j=1}^n
+						{(x_j-y_j)}^2
+						+
+						\sum_{j=1}^n
+						{(y_j-z_j)}^2
+						+
+						2
+						\sum_{j=1}^n
+						(x_j-y_j)(y_j-z_j)
+
+						\end{split}
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+
+				<div class="left-txt size-60">
+					<p><strong>Example (cont.):</strong>
+						Thus
+						\begin{equation*}
+						\begin{split}
+						{\bigl(d(x,z)\bigr)}^2 &
+						\leq
+						\sum_{j=1}^n
+						{(x_j-y_j)}^2
+						+
+						\sum_{j=1}^n
+						{(y_j-z_j)}^2
+						+
+						2
+						\sqrt{
+						\sum_{j=1}^n
+						{(x_j-y_j)}^2
+						\sum_{j=1}^n
+						{(y_j-z_j)}^2
+						}
+						\\
+						& =
+						{\left(
+						\sqrt{
+						\sum_{j=1}^n
+						{(x_j-y_j)}^2
+						}
+						+
+						\sqrt{
+						\sum_{j=1}^n
+						{(y_j-z_j)}^2
+						}
+						\right)}^2
+						=
+						{\bigl( d(x,y) + d(y,z) \bigr)}^2 .
+						\end{split}
+						\end{equation*}
+					</p>
+
+				</div>
+
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						The set of complex numbers $\C$ is the set of numbers $z = x+iy$, where $x$
+						and $y$ are in $\R$. By imposing $i^2 = -1$, we make $\C$ into a
+						field.
+						For the purposes of taking limits,
+						the set $\C$ is regarded as the metric space $\R^2$, where $z=x+iy \in \C$
+						corresponds to $(x,y) \in \R^2$.
+						For $z=x+iy$ define the <em>complex modulus</em>
+						by $\abs{z} := \sqrt{x^2+y^2}$.
+						Then for two complex numbers
+						$z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$, the distance is
+						\begin{equation*}
+						d(z_1,z_2) = \sqrt{{(x_1-x_2)}^2+ {(y_1-y_2)}^2} = \abs{z_1-z_2}.
+						\end{equation*}
+						Furthermore, when working with complex numbers
+						it is often convenient to write the metric in terms of
+						the so-called
+						<em>complex conjugate</em>: The conjugate of $z=x+iy$
+						is $\bar{z} := x-iy$. Then
+						${\abs{z}}^2 = x^2 +y^2 = z\bar{z}$, and so ${\abs{z_1-z_2}}^2 =
+						(z_1-z_2)\overline{(z_1-z_2)}$.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong>
+						Let $(X,d)$ be a metric space and $Y \subset X$. Then the restriction
+						$d|_{Y \times Y}$ is a metric on $Y$.
+					</p>
+					<p><strong>Defintion:</strong>
+						If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
+						then $(Y,d')$ is said to be a <em>subspace</em> of $(X,d)$.
+					</p>
+					<p><strong>Defintion:</strong>
+						Let $(X,d)$ be a metric space. A subset $S \subset X$ is said to be
+						<em>bounded</em> if there exists a $p \in X$ and a
+						$B \in \R$ such that
+						\begin{equation*}
+						d(p,x) \leq B \quad \text{for all } x \in S.
+						\end{equation*}
+						We say $(X,d)$ is bounded if $X$ itself is a bounded subset.
+					</p>
+
 				</div>
 			</section>
 
