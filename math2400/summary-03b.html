@@ -297,6 +297,208 @@
 
 			</section>
 
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Squeeze Theorem</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $S \subset \R$ and let $c$ be a cluster point of $S$.
+						Suppose $f \colon S \to \R$,
+						$g \colon S \to \R$, and $h \colon S \to \R$ are functions such that
+						\begin{equation*}
+						f(x) \leq g(x) \leq h(x) \qquad \text{for all } x \in S.
+						\end{equation*}
+						Suppose the limits of $f(x)$ and $h(x)$ as $x$ goes to $c$ both exist, and
+						\begin{equation*}
+						\lim_{x\to c} f(x) = \lim_{x\to c} h(x) .
+						\end{equation*}
+						Then the limit of $g(x)$ as $x$ goes to $c$ exists and
+						\begin{equation*}
+						\lim_{x\to c} g(x) =
+						\lim_{x\to c} f(x) = \lim_{x\to c} h(x) .
+						\end{equation*}
+					</p>
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">One-sided limits</p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+						$S \cap (c,\infty)$. Then if the limit
+						of the restriction of $f$ to $S \cap (c,\infty)$
+						as $x \to c$ exists, define
+						\begin{equation*}
+						\lim_{x \to c^+} f(x) := \lim_{x\to c} f|_{S \cap (c,\infty)}(x) .
+						\end{equation*}
+						Similarly, if $c$ is a cluster point of
+						$S \cap (-\infty,c)$ and the limit of the restriction as $x \to c$
+						exists, define
+						\begin{equation*}
+						\lim_{x \to c^-} f(x) := \lim_{x\to c} f|_{S \cap (-\infty,c)}(x) .
+						\end{equation*}
+					</p>
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">One-sided limits</p>
+				<div class="left-txt size-50">
+					<p><strong>Definition:</strong>
+						Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+						$S \cap (c,\infty)$. Then we say that $L\in \R$ is a
+						<em>right-hand limit of $f$ at $c$</em> and we write
+						\[
+						\lim_{x \to c^+} f(x) = L
+						\]
+						if given any $\epsilon>0$ there exists a $\delta>0$
+						such that for all $x\in S$ with $0\lt \abs{x-c}\lt \delta$, then $\abs{\,f(x)-L\lt
+						\epsilon}$.<br />
+						Similarly, if $c$ is a cluster point of
+						$S \cap (-\infty,c)$ Then we say that $L\in \R$ is a
+						<em>left-hand limit of $f$ at $c$</em> and we write
+						\[
+						\lim_{x \to c^-} f(x) = L
+						\]
+						if given any $\epsilon>0$ there exists a $\delta>0$
+						such that for all $x\in S$ with $0\lt \abs{c-x} \lt \delta$, then $\abs{\,f(x)-L\lt \epsilon}$.
+					</p>
+				</div>
+
+			</section>
+
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">One-sided limits</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $S \subset \R$ be such that $c$ is a cluster point
+						of both $S \cap (-\infty,c)$ and $S \cap (c,\infty)$, let
+						$f \colon S \to \R$ be a function, and let $L \in \R$. Then $c$ is a cluster point of $S$ and
+						\begin{equation*}
+						\lim_{x \to c} f(x) = L
+						\qquad \text{if and only if} \qquad
+						\lim_{x \to c^-} f(x) =
+						\lim_{x \to c^+} f(x) =
+						L .
+						\end{equation*}
+					</p>
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
+				<div class="left-txt size-50">
+					<p><strong>Definition:</strong>
+						We say $\infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+						$M \in \R$, there exists an $x \in S$ such that $x \geq M$. Similarly,
+						$- \infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+						$M \in \R$, there exists an $x \in S$ such that $x \leq M$.
+					</p>
+
+					<p>
+						<strong>Definition:</strong>
+						Let $f \colon S \to \R$ be a function, where
+						$\infty$ is a cluster point of $S$.
+						If there exists an $L \in \R$
+						such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+						\begin{equation*}
+						\abs{f(x) - L} \lt \epsilon
+						\end{equation*}
+						whenever $x \in S$ and $x \geq M$, then we say $f(x)$
+						<em>converges</em> to $L$
+						as $x$ goes to $\infty$. We call $L$ the <em>limit</em>
+						and write
+						\begin{equation*}
+						\lim_{x \to \infty} f(x) := L .
+						\end{equation*}
+						Alternatively we write $f(x) \to L$ as $x \to \infty$.
+					</p>
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
+				<div class="left-txt size-50">
+					<p><strong>Definition:</strong>
+						If $-\infty$ is a cluster point of $S$
+						and
+						there exists an $L \in \R$
+						such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+						\begin{equation*}
+						\abs{f(x) - L} \lt \epsilon
+						\end{equation*}
+						whenever $x \in S$ and $x \leq M$, then we say $f(x)$ <em>converges</em> to $L$
+						as $x$ goes to $-\infty$. We call $L$ the <em>limit</em> and write
+						\begin{equation*}
+						\lim_{x \to -\infty} f(x) := L .
+						\end{equation*}
+						Alternatively we write $f(x) \to L$ as $x \to -\infty$.
+					</p>
+				</div>
+
+			</section>
+
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
+				<div class="left-txt size-50">
+					<p><strong>Theorem:</strong>
+						Suppose $f \colon S \to \R$ is a function, $\infty$ is a cluster
+						point of $S \subset \R$, and $L \in \R$. Then
+						\begin{equation*}
+						\lim_{x\to\infty} f(x) = L
+						\end{equation*}
+						if and only if
+						\begin{equation*}
+						\lim_{n\to\infty} f(x_n) = L
+						\end{equation*}
+						for all sequences $\{ x_n \}$ in $S$ such that $\lim\limits_{n\to\infty} x_n = \infty$.
+					</p>
+				</div>
+
+			</section>
+
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Infinite limit</p>
+				<div class="left-txt size-50">
+					<p><strong>Definition:</strong>
+						Let $f \colon S \to \R$ be a function and suppose
+						$S$ has $\infty$ as a cluster point.
+						We say $f(x)$
+						<em>diverges to infinity</em>
+						as $x$ goes to $\infty$,
+						if for every $N \in \R$
+						there exists an $M \in \R$ such that
+						\begin{equation*}
+						f(x) \gt N
+						\end{equation*}
+						whenever $x \in S$ and $x \geq M$.
+						We write
+						\begin{equation*}
+						\lim_{x \to \infty} f(x) := \infty ,
+						\end{equation*}
+						or we say that $f(x) \to \infty$ as $x \to \infty$.
+					</p>
+
+					
+				</div>
+
+			</section>
+
 
 
 
