@@ -77,7 +77,7 @@
 			<section>
 				<h3>Limits of functions</h3>
 				<p class="sbt">Cluster points</p>
-				<div class="left-txt size-60">
+				<div class="left-txt size-70">
 					<p><strong>Definition:</strong>
 						Let $S \subset \R$ be a set. A number $x \in \R$ is called
 						a <em>cluster point</em> of $S$
@@ -159,7 +159,7 @@
 			<section>
 				<h3>Limits of functions</h3>
 				<p class="sbt">Cluster points</p>
-				<div class="left-txt size-60">
+				<div class="left-txt size-70">
 					<p><strong>Theorem:</strong> Let $S \subset \R$. Then $x \in \R$ is a cluster point of $S$
 						if and only if
 						there exists a convergent sequence of numbers $\{ x_n \}$ such that
@@ -182,7 +182,7 @@
 						there exists a $\delta \gt 0$ such that whenever $x \in S \setminus \{ c \}$
 						and $\abs{x - c} \lt \delta$, we have
 						\begin{equation*}
-						\abs{f(x) - L} \lt \epsilon .
+						\abs{\,f(x) - L} \lt \epsilon .
 						\end{equation*}
 						We then say $f(x)$ <em>converges</em> to $L$ as $x$ goes
 						to $c$. We say $L$ is the <em>limit</em> of $f(x)$ as $x$
@@ -395,65 +395,116 @@
 
 			<section>
 				<h3>Limits of functions</h3>
-				<p class="sbt">Limits at infinity</p>
-				<div class="left-txt size-50">
-					<p><strong>Definition:</strong>
-						We say $\infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
-						$M \in \R$, there exists an $x \in S$ such that $x \geq M$. Similarly,
-						$- \infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
-						$M \in \R$, there exists an $x \in S$ such that $x \leq M$.
-					</p>
-
-					<p>
-						<strong>Definition:</strong>
-						Let $f \colon S \to \R$ be a function, where
-						$\infty$ is a cluster point of $S$.
-						If there exists an $L \in \R$
-						such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
-						\begin{equation*}
-						\abs{f(x) - L} \lt \epsilon
-						\end{equation*}
-						whenever $x \in S$ and $x \geq M$, then we say $f(x)$
-						<em>converges</em> to $L$
-						as $x$ goes to $\infty$. We call $L$ the <em>limit</em>
-						and write
-						\begin{equation*}
-						\lim_{x \to \infty} f(x) := L .
-						\end{equation*}
-						Alternatively we write $f(x) \to L$ as $x \to \infty$.
-					</p>
+				<div class="left-txt size-60">
+					<table style="width:100%;border:none">
+						<tr>
+							<th style="text-align:center">Limits at infinity</th>
+							<th style="text-align:center">Infinite limits</th>
+						</tr>
+					</table>
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="width:50%;">
+							<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-03/limit-infinity.svg" />
+							</td>
+							<td style="width:50%">
+							<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-03/infinite-limit.svg" />
+							</td>
+						</tr>
+					</table>
+					
 				</div>
-
 			</section>
 
 			<section>
 				<h3>Limits of functions</h3>
 				<p class="sbt">Limits at infinity</p>
-				<div class="left-txt size-50">
-					<p><strong>Definition:</strong>
-						If $-\infty$ is a cluster point of $S$
-						and
-						there exists an $L \in \R$
-						such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
-						\begin{equation*}
-						\abs{f(x) - L} \lt \epsilon
-						\end{equation*}
-						whenever $x \in S$ and $x \leq M$, then we say $f(x)$ <em>converges</em> to $L$
-						as $x$ goes to $-\infty$. We call $L$ the <em>limit</em> and write
-						\begin{equation*}
-						\lim_{x \to -\infty} f(x) := L .
-						\end{equation*}
-						Alternatively we write $f(x) \to L$ as $x \to -\infty$.
-					</p>
-				</div>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:65%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Definition:</strong>
+									We say $\infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+									$M \in \R$, there exists an $x \in S$ such that $x \geq M$. Similarly,
+									$- \infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+									$M \in \R$, there exists an $x \in S$ such that $x \leq M$.
+								</p>
+			
+								<p>
+									<strong>Definition:</strong>
+									Let $f \colon S \to \R$ be a function, where
+									$\infty$ is a cluster point of $S$.
+									If there exists an $L \in \R$
+									such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+									\begin{equation*}
+									\abs{\,f(x) - L} \lt \epsilon
+									\end{equation*}
+									whenever $x \in S$ and $x \geq M$, then we say $f(x)$
+									<em>converges</em> to $L$
+									as $x$ goes to $\infty$. We call $L$ the <em>limit</em>
+									and write
+									\begin{equation*}
+									\lim_{x \to \infty} f(x) := L .
+									\end{equation*}
+									Alternatively we write $f(x) \to L$ as $x \to \infty$.
+								</p>
+							</div>
+						</th>
+						<th style="width:35%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-03/limit-infinity.svg" />
+						</th>
+						
+					</tr>
+				</table>
+			</section>
 
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:65%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Definition:</strong>
+									If $-\infty$ is a cluster point of $S$
+									and
+									there exists an $L \in \R$
+									such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+									\begin{equation*}
+									\abs{\,f(x) - L} \lt \epsilon
+									\end{equation*}
+									whenever $x \in S$ and $x \leq M$, then we say $f(x)$ <em>converges</em> to $L$
+									as $x$ goes to $-\infty$. We call $L$ the <em>limit</em> and write
+									\begin{equation*}
+									\lim_{x \to -\infty} f(x) := L .
+									\end{equation*}
+									Alternatively we write $f(x) \to L$ as $x \to -\infty$.
+								</p>
+							</div>
+						</th>
+						<th style="width:35%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-03/limit-infinity.svg" />
+						</th>
+						
+					</tr>
+				</table>
 			</section>
 
 
 			<section>
 				<h3>Limits of functions</h3>
 				<p class="sbt">Limits at infinity</p>
-				<div class="left-txt size-50">
+				<div class="left-txt size-60">
 					<p><strong>Theorem:</strong>
 						Suppose $f \colon S \to \R$ is a function, $\infty$ is a cluster
 						point of $S \subset \R$, and $L \in \R$. Then
@@ -470,37 +521,42 @@
 
 			</section>
 
-
 			<section>
 				<h3>Limits of functions</h3>
-				<p class="sbt">Infinite limit</p>
-				<div class="left-txt size-50">
-					<p><strong>Definition:</strong>
-						Let $f \colon S \to \R$ be a function and suppose
-						$S$ has $\infty$ as a cluster point.
-						We say $f(x)$
-						<em>diverges to infinity</em>
-						as $x$ goes to $\infty$,
-						if for every $N \in \R$
-						there exists an $M \in \R$ such that
-						\begin{equation*}
-						f(x) \gt N
-						\end{equation*}
-						whenever $x \in S$ and $x \geq M$.
-						We write
-						\begin{equation*}
-						\lim_{x \to \infty} f(x) := \infty ,
-						\end{equation*}
-						or we say that $f(x) \to \infty$ as $x \to \infty$.
-					</p>
-
-					
-				</div>
-
+				<p class="sbt">Limits at infinity</p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:65%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Definition:</strong>
+									Let $f \colon S \to \R$ be a function and suppose
+									$S$ has $\infty$  as a cluster point.
+									We say $f(x)$
+									<em>diverges to infinity</em>
+									as $x$ goes to $\infty$,
+									if for every $N \in \R$
+									there exists an $M \in \R$ such that
+									\begin{equation*}
+									f(x) \gt N
+									\end{equation*}
+									whenever $x \in S$ and $x \geq M$.
+									We write
+									\begin{equation*}
+									\lim_{x \to \infty} f(x) := \infty ,
+									\end{equation*}
+									or we say that $f(x) \to \infty$ as $x \to \infty$.
+								</p>
+							</div>
+						</th>
+						<th style="width:35%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-03/infinite-limit.svg" />
+						</th>
+						
+					</tr>
+				</table>
 			</section>
-
-
-
 
 
 			<section>
