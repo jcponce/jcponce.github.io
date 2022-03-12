@@ -107,7 +107,7 @@
 
 			<section>
 				<h3>Series</h3>
-				<p class="size-60"><strong>Geometric series</strong></p>
+				<p class="size-60"><strong>Geometric series $\sum_{n=0}^\infty r^n = \frac{1}{1-r}$</strong></p>
 
 				<iframe scrolling="no" title="Conformal mapping"
 					src="https://www.geogebra.org/material/iframe/id/tw5t6shb/width/725/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
@@ -204,473 +204,114 @@
 					<p><strong>Theorem:</strong>
 						If the series $\sum x_n$ converges absolutely, then it converges.
 					</p>
-					
-				</div>
-			</section>
-
-			<section>
-				<h3>Real Numbers</h3>
-				<h6>Upper & Lower bound, Supremum & Infimum</h6>
-				<div class="left-txt size-70">
-
-					<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/upper-lower-bounds.png" />
-
-				</div>
-				<p><br /></p>
-			</section>
-
-			<section>
-				<h3>Real Numbers</h3>
-				<h6>The least-upper-bound property</h6>
-				<div class="left-txt size-70">
-					<br />
-					<p><strong>Definition:</strong>
-						An ordered set $S$ has the least-upper-bound property if every subset
-						$E\subset S$ that is bounded above has a least upper bound, that is
-						$\sup E$ exists in $S$.
-					</p>
-					<p><br /><br /><br /></p>
 
 				</div>
 			</section>
 
-
 			<section>
-				<h3>Real Numbers</h3>
-				<h6>Existence of $\R$</h6>
-				<div class="left-txt size-70">
-					<p><br /></p>
-					<p><strong>Theorem:</strong> There exists a unique
-						ordered field $\R$ with the least-upper-bound property
-						such that $\Q \subset \R$.</p>
-				</div>
-				<p><br /><br /><br /></p>
-			</section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Convergence tests</strong></p>
 
-			<section>
-				<h3>Real Numbers</h3>
-				<h6>Archimedean property &amp; Density of $\Q$</h6>
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong>
+				<div class="left-txt size-60">
+					<p><strong>Theorem (Comparison test):</strong>
+						Let $\sum x_n$ and $\sum y_n$ be series such that $0 \leq x_n \leq y_n$
+						for all $n \in \N$.
 					</p>
 					<ol class="r">
-						<li>(Archimedean property)
-							If $x, y \in \R$ and
-							$x \gt 0$, then there exists an $n \in \N$ such that
-							\begin{equation*}
-							nx \gt y .
-							\end{equation*}</li>
-						<li>($\Q$ is dense in $\R$) If $x, y \in \R$ and
-							$x \lt y$, then there exists an $r \in \Q$ such that $x \lt r \lt y$. </li>
+						<li>
+							If $\sum y_n$ converges, then so does $\sum x_n$.
+						</li>
+						<li>
+							If $\sum x_n$ diverges, then so does $\sum y_n$.
+						</li>
+
 					</ol>
-				</div>
-				<p><br /></p>
-			</section>
 
 
-			<section>
-				<h3>Real Numbers</h3>
-				<h6>Absolute value</h6>
-				<div class="left-txt size-70">
-					<p>The absolute value is defined as
+					<p><strong>Theorem (Ratio test):</strong>
+						Let $\sum x_n$ be a series, $x_n \not= 0$ for all $n$, and such that
 						\begin{equation*}
-						\abs{x} :=
-						\begin{cases}
-						x &amp; \text{if } x \geq 0, \\
-						-x &amp; \text{if } x \lt 0 . \end{cases} \end{equation*} </p>
-				</div>
-
-
-				<div class="left-txt size-70">
-
-					<p><strong>Triangle inequality:</strong>
-						$\abs{x+y} \leq \abs{x}+\abs{y}$
-						for all $x, y \in \R$.
+						L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
+						\qquad \text{exists.}
+						\end{equation*}
 					</p>
 
-				</div>
+					<ol class="r">
+						<li>
+							If $L \lt 1$, then $\sum x_n$ converges absolutely. </li>
+						<li>
+							If $L \gt 1$, then $\sum x_n$ diverges.
+						</li>
 
-				<p><br /></p>
+					</ol>
+
+				</div>
 			</section>
 
 			<section>
-				<h3>Sequences</h3>
-				<h6>Convergence of sequences</h6>
-				<div class="size-70">
-					<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/convergence-1d.png" />
-
-				</div>
-				<p><br /></p>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Convergence of sequences</h6>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Convergence tests for</strong> $\sum_{n=1}^\infty \frac{1}{n^p}$</p>
 
 				<iframe scrolling="no" title="Conformal mapping"
-					src="https://www.geogebra.org/material/iframe/id/rmx2ud6p/width/572/height/402/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-					width="572px" height="402px" style="border:0px;" data-preload> </iframe>
-
+					src="https://www.geogebra.org/material/iframe/id/hwty63jq/width/725/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="725px" height="400px" style="border:0px;" data-preload> </iframe>
 			</section>
 
 			<section>
-				<h3>Sequences</h3>
-				<h6>Bounded & Monotone</h6>
-				<br />
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong> A monotone sequence $\{ x_n \}$
-						is bounded if and only if it is convergent.
-					</p>
-				</div>
-				<p><br /><br /></p>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Bounded & Monotone</h6>
+				<h3>Series</h3>
+				<p class="size-70"><strong>Convergence tests</strong></p>
 				<div class="left-txt size-60">
-					<table style="width:100%;border:none">
-						<tr>
-							<th style="text-align:center">Increasing</th>
-							<th style="text-align:center">Decreasing</th>
-						</tr>
-					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="width:50%;">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-01.gif" />
-							</td>
-							<td style="width:50%">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-02.gif" />
-							</td>
-						</tr>
-					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N
-								\}$</td>
-							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N
-								\}$</td>
-						</tr>
-					</table>
-				</div>
-			</section>
 
-			<section>
-				<h3>Sequences</h3>
-				<h6>Squeeeze Theorem</h6>
-				<div class="size-70">
-					<img style="width: 65%;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
+					<p><strong>Theorem ($p$-test):</strong>
+						For $p \in \R$,
+						the series
+						\begin{equation*}
+						\sum_{n=1}^\infty \frac{1}{n^p}
+						\end{equation*}
+						converges if and only if $p \gt 1$.
+					</p>
+
 
 				</div>
-
+				<p><br /><br /><br></p>
 			</section>
-
 
 			<section>
 				<h3>Sequences</h3>
-				<h6>Squeeeze Theorem</h6>
-				<table style="width:100%;">
-					<tr>
+				<p class="size-60"><strong>Convergence tests</strong></p>
 
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Theorem:</strong> Let $\{ a_n \}$,
-									$\{ b_n \}$, and
-									$\{ x_n \}$ be sequences such that
-									\begin{equation*}
-									a_n \leq x_n \leq b_n \quad \text{for all } n \in \N.
-									\end{equation*}
-									Suppose $\{ a_n \}$ and $\{ b_n \}$ converge and
-									\begin{equation*}
-									\lim_{n\to \infty} a_n
-									=
-									\lim_{n\to \infty} b_n .
-									\end{equation*}
-									Then $\{ x_n \}$ converges and
-									\begin{equation*}
-									\lim_{n\to \infty} x_n
-									=
-									\lim_{n\to \infty} a_n
-									=
-									\lim_{n\to \infty} b_n .
-									\end{equation*}
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Algebraic properties</h6>
-				<div class="left-txt size-50">
-					<p><strong>Theorem:</strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
+				<div class="left-txt size-60">
+					<p><strong>Theorem (Root test):</strong>
+						Let $\sum x_n$ be a series and let
+						$
+						\displaystyle L := \limsup_{n\to\infty} \, {\abs{x_n}}^{1/n} .
+						$
 					</p>
 					<ol class="r">
-						<li>The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} (x_n \pm y_n) =
-							\lim_{n \to \infty} z_n =
-							\lim_{n \to \infty} x_n \pm
-							\lim_{n \to \infty} y_n .
-							\end{equation*}
+						<li>
+							If $L \lt 1$, then $\sum x_n$ converges absolutely.
 						</li>
 						<li>
-							The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} (x_n y_n) =
-							\lim_{n \to \infty} z_n =
-							\left( \lim_{n \to \infty} x_n \right)
-							\left( \lim_{n \to \infty} y_n \right) .
-							\end{equation*}
+							If $L \gt 1$, then $\sum x_n$ converges absolutely.
 						</li>
-						<li>
-							If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
-							the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} \frac{x_n}{y_n} =
-							\lim_{n \to \infty} z_n =
-							%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
-							\frac{\lim\, x_n}{\lim\, y_n} .
-							\end{equation*}
-						</li>
+
 					</ol>
-				</div>
 
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Some convergence tests</h6>
-				<div class="left-txt size-60">
-					<p>
-						<strong>Theorem:</strong> Let $\{ x_n \}$ be a sequence.
-						Suppose there is an $x \in \R$
-						and a convergent sequence $\{ a_n \}$
-						such that
+					<p><strong>Theorem (Alternating series):</strong>
+						Let $\{ x_n \}$ be a monotone decreasing sequence of positive real numbers such
+						that $\lim\, x_n = 0$. Then
 						\begin{equation*}
-						\lim_{n\to\infty} a_n = 0
-						\quad
-						\text{ and }
-						\quad
-						\abs{x_n - x} \leq a_n
-						\quad
-						\text{for all $n \in \N$.}
+						\sum_{n=1}^\infty {(-1)}^n x_n
 						\end{equation*}
-						Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
+						converges.
 					</p>
-					<p>
-						<strong>Theorem:</strong> Let $c > 0$.
 
-						<ol class="r">
-							<li>
-								If $c < 1$, then $\lim_{n\to\infty} c^n=0.$ </li> <li>
-									If $c > 1$, then $\{ c^n \}$ is unbounded.
 
-							</li>
-						</ol>
 
-					</p>
-					<p>Also check the <strong>Ratio test for sequences</strong>.</p>
 				</div>
 			</section>
 
-			<section>
-				<h3>Sequences</h3>
-				<h6>Upper & lower limits</h6>
-				<div class="left-txt size-70">
-					<p>
-						<strong>Definition:</strong> Let $\{ x_n \}$ be a bounded sequence. Define the sequences $\{ a_n
-						\}$
-						and $\{ b_n \}$ by
-						$a_n := \sup \{ x_k : k \geq n \}$ and
-						$b_n := \inf \{ x_k : k \geq n \}$.
-						Define, if the limits exist,
-						\begin{align*}
-						\limsup_{n \to \infty} \, x_n & := \lim_{n \to \infty} a_n ,
-						\\
-						\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
-						\end{align*}
-					</p>
-				</div>
-			</section>
 
-			<section>
-				<h3>Sequences</h3>
-				<h6>Upper & lower limits</h6>
-				<div class="size-60">
-					<img style="width: 70%;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-					<br />$x_n$ is bounded.
-				</div>
-
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Squeeeze Theorem</h6>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Let $a_n$ and $b_n$
-									be as in
-									the definition above.
-									<ol>
-										<li>
-											The
-											sequence $\{ a_n \}$ is bounded monotone decreasing
-											and $\{ b_n \}$ is bounded monotone increasing. In particular,
-											$\liminf x_n$ and $\limsup x_n$ exist.
-										</li>
-										<li>
-											$\displaystyle \limsup_{n \to \infty} \, x_n = \inf \{ a_n : n \in \N \}$
-											and
-											$\displaystyle \liminf_{n \to \infty} \, x_n = \sup \{ b_n : n \in \N \}$.
-										</li>
-										<li>
-											$\displaystyle \liminf_{n \to \infty} \, x_n \leq
-											\limsup_{n \to \infty} \, x_n$.
-										</li>
-									</ol>
-
-
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Upper & lower limits</h6>
-				<div class="size-70">
-					<img style="width: 65%;" class="r-stretch"
-						data-src="images/summary-01/suplim-inflim-convergent.gif" />
-					<br />$x_n$ is bounded and convergent.
-				</div>
-
-
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Squeeeze Theorem</h6>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Then $\{ x_n \}$
-									converges
-									if and only if
-									\begin{equation*}
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-									Furthermore, if $\{ x_n \}$ converges, then
-									\begin{equation*}
-									\lim_{n\to \infty} x_n =
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim-convergent.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Bolzano-Weierstrass Theorem</h6>
-				<div class="left-txt size-70">
-					<p><br /></p>
-					<p>
-						<strong>Theorem:</strong> Suppose a sequence $\{ x_n \}$ of real numbers is bounded.
-						Then there exists a convergent subsequence $\{ x_{n_i} \}$.
-					</p>
-				</div>
-				<p><br /><br /></p>
-			</section>
-
-
-			<section>
-				<h3>Sequences</h3>
-				<h6>Cauchy sequences</h6>
-				<div class="size-60">
-					<img style="width: 60%;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-					<br />if
-					for every $\epsilon > 0$ there exists an $M \in \N$ such that
-					for all $n \geq M$ and all $k \geq M$,
-					<br />we have
-					$\abs{x_n - x_k} < \epsilon .$ </div> </section> <section>
-						<h3>Sequences</h3>
-						<h6>Cauchy sequences</h6>
-
-
-						<table style="width:100%;">
-							<tr>
-
-								<th style="width:65%">
-									<div class="size-70"
-										style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-										<p>
-											<strong>Theorem:</strong> A Cauchy sequence is bounded.
-										</p>
-										<p>
-											<strong>Theorem:</strong> A sequence of real numbers is Cauchy if and only
-											if it converges.
-										</p>
-									</div>
-								</th>
-								<th style="width:35%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-								</th>
-
-							</tr>
-						</table>
-
-			</section>
 
 			<section>
 
