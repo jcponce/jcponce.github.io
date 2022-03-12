@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Summary Week 4</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!-- This script is to display Github buttons if you want them :)-->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Summary Week 4</p>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong> 
+						Let $S \subset \R$ be a set. A number $x \in \R$ is called
+						a <em>cluster point</em> of $S$
+						if for every $\epsilon \gt 0$, the set $(x-\epsilon,x+\epsilon) \cap S
+						\setminus \{ x \}$ is not empty.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="sbt">Cluster points</p>
+				
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-03/cluster-points-01.svg" />
+
+				
+
+				<div class="size-60">
+					<p  class="fragment" data-fragment-index="0">$0$ is the only cluster point.</p>
+				</div>
+				
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="sbt">Cluster points</p>
+			
+					<img style="width: 100%;" class="r-stretch" data-src="images/summary-03/cluster-points-02.svg" />
+
+				<div class="size-60">
+					<p  class="fragment" data-fragment-index="0">The cluster points are all points in the closed interval $\left[0,1\right]$.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="sbt">Cluster points</p>
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-03/cluster-points-03.svg" />
+
+				<div class="size-60">
+					<p  class="fragment" data-fragment-index="0">The set of cluster points is the interval $\left[0,1\right]$.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="sbt">Cluster points</p>
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-03/cluster-points-04-naturals.svg" />
+
+				<div class="size-60">
+					<p  class="fragment" data-fragment-index="0">No cluster points.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="sbt">Cluster points</p>
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-03/cluster-points-05-Q.svg" />
+
+				<div class="size-60">
+					<p  class="fragment" data-fragment-index="0">The set of cluster points is $\R$.</p>
+				</div>
+			</section>
+
+		
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Geometric series $\sum_{n=0}^\infty r^n = \frac{1}{1-r}$</strong></p>
+
+				<iframe scrolling="no" title="Conformal mapping"
+					src="https://www.geogebra.org/material/iframe/id/tw5t6shb/width/725/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="725px" height="400px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-70"><strong>Geometric series</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Proposition:</strong> Suppose
+						$-1 < r < 1$. Then the <em>geometric series</em>
+							$\sum_{n=0}^\infty r^n$ converges, and
+							\begin{equation*}
+							\sum_{n=0}^\infty r^n = \frac{1}{1-r} .
+							\end{equation*}
+
+					</p>
+
+				</div>
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Cauchy series</strong></p>
+
+
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>A series $\sum x_n$ is said to be <em>Cauchy</em> or a
+						<em>Cauchy series</em>
+						if the sequence of partial sums $\{ s_n \}$ is a Cauchy sequence.</p>
+				</div>
+
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Basic Properties</strong></p>
+
+				<div class="left-txt size-50">
+					<p><strong>Theorem:</strong>
+						Let $\sum x_n$ be a convergent series. Then
+						the sequence $\{ x_n \}$ is convergent and
+						\begin{equation*}
+						\lim_{n\to\infty} x_n = 0.
+						\end{equation*}
+					</p>
+					<p><strong>Theorem (Linearity of series):</strong>
+						Let $\alpha \in \R$ and $\sum x_n$ and $\sum y_n$ be
+						convergent series. Then
+					</p>
+					<ol class="r">
+						<li>
+							$\sum \alpha x_n$ is a convergent series and
+							\begin{equation*}
+							\qquad\qquad\qquad\qquad\qquad\sum_{n=1}^\infty \alpha x_n
+							=
+							\alpha \sum_{n=1}^\infty x_n .
+							\end{equation*}
+						</li>
+						<li>
+							$\sum ( x_n + y_n )$ is a convergent series and
+							\begin{equation*}
+							\qquad\qquad\qquad\qquad\qquad\sum_{n=1}^\infty ( x_n + y_n )
+							=
+							\left( \sum_{n=1}^\infty x_n \right)
+							+
+							\left( \sum_{n=1}^\infty y_n \right) .
+							\end{equation*}
+						</li>
+
+					</ol>
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Absolute convergence</strong></p>
+
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						If $x_n \geq 0$ for all $n$, then $\sum x_n$ converges if and only if
+						the sequence of partial sums is bounded above.
+					</p>
+					<p><strong>Definition:</strong>
+						A series $\sum x_n$
+						<em>converges absolutely</em> if
+						the series $\sum \abs{x_n}$ converges.
+						If a series converges, but does not converge absolutely, we say
+						it is <em>conditionally convergent</em>.
+					</p>
+
+					<p><strong>Theorem:</strong>
+						If the series $\sum x_n$ converges absolutely, then it converges.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Convergence tests</strong></p>
+
+				<div class="left-txt size-60">
+					<p><strong>Theorem (Comparison test):</strong>
+						Let $\sum x_n$ and $\sum y_n$ be series such that $0 \leq x_n \leq y_n$
+						for all $n \in \N$.
+					</p>
+					<ol class="r">
+						<li>
+							If $\sum y_n$ converges, then so does $\sum x_n$.
+						</li>
+						<li>
+							If $\sum x_n$ diverges, then so does $\sum y_n$.
+						</li>
+
+					</ol>
+
+
+					<p><strong>Theorem (Ratio test):</strong>
+						Let $\sum x_n$ be a series, $x_n \not= 0$ for all $n$, and such that
+						\begin{equation*}
+						L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
+						\qquad \text{exists.}
+						\end{equation*}
+					</p>
+
+					<ol class="r">
+						<li>
+							If $L \lt 1$, then $\sum x_n$ converges absolutely. </li>
+						<li>
+							If $L \gt 1$, then $\sum x_n$ diverges.
+						</li>
+
+					</ol>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Convergence tests for</strong> $\sum_{n=1}^\infty \frac{1}{n^p}$</p>
+
+				<iframe scrolling="no" title="Conformal mapping"
+					src="https://www.geogebra.org/material/iframe/id/hwty63jq/width/725/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="725px" height="400px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-70"><strong>Convergence tests</strong></p>
+				<div class="left-txt size-60">
+
+					<p><strong>Theorem ($p$-test):</strong>
+						For $p \in \R$,
+						the series
+						\begin{equation*}
+						\sum_{n=1}^\infty \frac{1}{n^p}
+						\end{equation*}
+						converges if and only if $p \gt 1$.
+					</p>
+				</div>
+				<p><br /><br /><br></p>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Convergence tests</p>
+
+
+				<div class="left-txt size-60">
+					<p><strong>Theorem (Root test):</strong>
+						Let $\sum x_n$ be a series and let
+						$
+						\displaystyle L := \limsup_{n\to\infty} \, {\abs{x_n}}^{1/n} .
+						$
+					</p>
+					<ol class="r">
+						<li>
+							If $L \lt 1$, then $\sum x_n$ converges absolutely.
+						</li>
+						<li>
+							If $L \gt 1$, then $\sum x_n$ converges absolutely.
+						</li>
+
+					</ol>
+
+					<p><strong>Theorem (Alternating series):</strong>
+						Let $\{ x_n \}$ be a monotone decreasing sequence of positive real numbers such
+						that $\lim\, x_n = 0$. Then
+						\begin{equation*}
+						\sum_{n=1}^\infty {(-1)}^n x_n
+						\end{equation*}
+						converges.
+					</p>
+
+
+
+				</div>
+			</section>
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
+
+	<script>
+		Reveal.initialize({
+			history: true,
+			center: true,
+			// Transition style
+			transition: 'fade',
+		});
+	</script>
+
+
+</body>
+
+</html>
