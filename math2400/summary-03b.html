@@ -237,13 +237,61 @@
 					<p><strong>Theorem:</strong>
 						Let $S \subset \R$, let $c$ be a cluster point of $S$, let $f \colon S \to
 						\R$ be a function, and let $L \in \R$.
+						<br /><br />
 
 						Then
-						$f(x) \to L$ as $x \to c$ if and only if for every sequence $\{ x_n \}$
-						of numbers such that $x_n \in S \setminus \{c\}$ for all $n$,
-						and such that $\lim\, x_n = c$,
-						we have that the sequence $\{ f(x_n) \}$ converges to $L$.
+						$f(x)$ <strong>does not have a limit</strong> at $c$ if and only if there exists a
+						sequence $\{ x_n \}$ in $S$ with $x_n\neq c$ for all $n\in \N$
+						sucht that the sequence $\{ x_n \}$ converges to $c$ but the
+						sequence $\{ f(x_n) \}$ <strong>does not converge</strong> in $\R$.
 					</p>
+
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Algebraic properties </p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $S \subset \R$ and let $c$ be a cluster point of $S$.
+						Suppose $f \colon S \to \R$ and
+						$g \colon S \to \R$ are functions
+						such that
+						the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist.
+						Then
+					</p>
+
+					<ol>
+						<li>
+							$\displaystyle
+							\lim_{x\to c} \bigl(f(x)+g(x)\bigr) = \left(\lim_{x\to c} f(x)\right) +
+							\left(\lim_{x\to c} g(x)\right) .
+							$
+						</li>
+						<li>
+							$\displaystyle
+							\lim_{x\to c} \bigl(f(x)-g(x)\bigr) = \left(\lim_{x\to c} f(x)\right) -
+							\left(\lim_{x\to c} g(x)\right) .
+							$
+						</li>
+						<li>
+							$\displaystyle
+							\lim_{x\to c} \bigl(f(x)g(x)\bigr) = \left(\lim_{x\to c} f(x)\right)
+							\left(\lim_{x\to c} g(x)\right) .
+							$
+						</li>
+						<li>
+							If
+							$\displaystyle \lim_{x\to c} g(x) \not= 0$,
+							and $g(x) \not= 0$ for all $x \in S \setminus \{ c \}$, then
+							\begin{equation*}
+							\lim_{x\to c} \frac{f(x)}{g(x)} =
+							\frac{\lim_{x\to c} f(x)}{\lim_{x\to c} g(x)} .
+							\end{equation*}
+						</li>
+					</ol>
 
 				</div>
 
