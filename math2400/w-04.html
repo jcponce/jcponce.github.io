@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Workshop 4</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
+				<div class="left-txt size-60">
+
+					<p>
+						Show that
+						\[
+						\lim_{x\ra 5}\left(x^2-3x\right)=10.
+						\]
+					</p>
+
+					<p>
+						<em>Scratch work:</em> We need
+						\[
+						\abs{x^2-3x-10}<\epsilon
+						\]
+						That is
+						\[
+						\abs{x+2}\abs{x-5}<\epsilon
+						\]
+					</p>
+
+					
+				</div>
+
+				
+				
+			</section>
+
+			<section>
+				<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
+				<div class="left-txt size-60">
+
+					<p><em>Scratch work (cont.):</em> Suppose $\abs{x-5}\lt 3$. Thus $0\lt x+2\lt 10$, that is $|x+2|\lt10$.
+					</p>
+
+					<p>
+						 If $\abs{x-5}\lt 3$, then $\abs{x+2}\lt 10$. Thus
+						\[
+						|x+2||x-5|\lt 10 |x+5|.
+						\]
+					</p>
+
+					<p>Note that I  just need $|x-5|\lt \frac{\epsilon}{10}$. So 
+						\[
+						10|x-5|\lt \epsilon.
+						\]
+					</p>
+				</div>
+
+				
+				
+			</section><section>
+				<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
+				<div class="left-txt size-60">
+
+					
+
+					<p>
+						<strong>Proof:</strong> Let $\epsilon>0$. Choose
+						\[
+						\delta =\min\left(3, \frac{\epsilon}{10}\right)
+						\]
+						such that $x\in \R\setminus\{5\}$ and $\abs{x-5}\lt \delta$, implies that
+						\[
+						|x^2-3x-10|=|x+2||x-5|\lt 10|x-5|\lt 10 \frac{\epsilon}{10}=\epsilon
+						\]
+					</p>
+
+				</div>
+
+				
+				
+			</section>
+
+			
+			
+
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
+
+	<script>
+		Reveal.initialize({
+			history: true,
+			center: true,
+			// Transition style
+			transition: 'fade',
+		});
+	</script>
+
+
+</body>
+
+</html>
