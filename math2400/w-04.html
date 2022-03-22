@@ -63,7 +63,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
-				<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
+				<h5>Example 1: $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
 				<div class="left-txt size-60">
 
 					<p>
@@ -76,35 +76,39 @@
 					<p>
 						<em>Scratch work:</em> We need
 						\[
-						\abs{x^2-3x-10}<\epsilon \] That is \[ \abs{x+2}\abs{x-5}<\epsilon \] </p> </div> </section>
-							<section>
-							<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
-							<div class="left-txt size-60">
+						\abs{x^2-3x-10}\lt\epsilon \] That is \[ \abs{x+2}\abs{x-5}\lt \epsilon \] </p>
+				</div>
+			</section>
 
-								<p><em>Scratch work (cont.):</em> Suppose $\abs{x-5}\lt 3$. Thus $0\lt x+2\lt 10$, that
-									is $|x+2|\lt10$.
-								</p>
 
-								<p>
-									If $\abs{x-5}\lt 3$, then $\abs{x+2}\lt 10$. Thus
-									\[
-									|x+2||x-5|\lt 10 |x+5|.
-									\]
-								</p>
+			<section>
+				<h5>Example 1: $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
+				<div class="left-txt size-60">
 
-								<p>Note that I just need $|x-5|\lt \frac{\epsilon}{10}$. So
-									\[
-									10|x-5|\lt \epsilon.
-									\]
-								</p>
-							</div>
+					<p><em>Scratch work (cont.):</em> Suppose $\abs{x-5}\lt 3$. Thus $0\lt x+2\lt 10$, that
+						is $|x+2|\lt10$.
+					</p>
 
-							<p><br/></p>
+					<p>
+						If $\abs{x-5}\lt 3$, then $\abs{x+2}\lt 10$. Thus
+						\[
+						|x+2||x-5|\lt 10 |x+5|.
+						\]
+					</p>
+
+					<p>Note that I just need $|x-5|\lt \frac{\epsilon}{10}$. So
+						\[
+						10|x-5|\lt \epsilon.
+						\]
+					</p>
+				</div>
+
+				<p><br /></p>
 
 			</section>
 
 			<section>
-				<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
+				<h5>Example 1: $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
 				<div class="left-txt size-60">
 
 
@@ -122,13 +126,13 @@
 
 				</div>
 
-				<p><br/></p>
+				<p><br /></p>
 
 			</section>
 
 
 			<section>
-				<h5>Example $\displaystyle\lim_{x\ra 1}\left(5x-3\right)=2$</h5>
+				<h5>Example 2: $\displaystyle\lim_{x\ra 1}\left(5x-3\right)=2$</h5>
 				<div class="left-txt size-60">
 
 
@@ -146,7 +150,7 @@
 						\]
 						such that $x\in \R\setminus\{1\}$ and $\abs{x-1}\lt \delta$, implies that
 						\[
-						|5x-3-2|=|5x-5|= 5|x-1|\lt 5 \frac{\epsilon}{5}=\epsilon \;\;\blacksquare
+						|5x-3-2|=|5x-5|= 5|x-1|\lt 5 \cdot \frac{\epsilon}{5}=\epsilon \;\;\blacksquare
 						\]
 					</p>
 
@@ -156,7 +160,7 @@
 
 
 			<section>
-				<h5>Example $\displaystyle\lim_{x\ra 7}\left(x^2+1\right)=50$</h5>
+				<h5>Example 3: $\displaystyle\lim_{x\ra 7}\left(x^2+1\right)=50$</h5>
 				<div class="left-txt size-60">
 
 
@@ -172,9 +176,9 @@
 						\[
 						\delta =\min\left(1, \frac{\epsilon}{15}\right)
 						\]
-						such that $x\in \R\setminus\{7\}$ and $\abs{x-7}\lt \delta$, implies that
+						such that $x\in \R\setminus\{7\}$ and $\abs{x-7}\lt \delta$, implies $|x+7|\lt 15$. Then
 						\[
-						|x^2+1-50|=|x^2-49|= |x+7||x-7| \lt 15 |x-7| \lt 15 \frac{\epsilon}{15}=\epsilon\;\;\blacksquare
+						|x^2+1-50|=|x^2-49|= |x+7||x-7| \lt 15 |x-7| \lt 15 \cdot \frac{\epsilon}{15}=\epsilon\;\;\blacksquare
 						\]
 					</p>
 
@@ -183,6 +187,42 @@
 			</section>
 
 
+			<section>
+				<h4>Some hints for workshop problems</h4>
+				<div class="left-txt size-50">
+					<p>
+						<strong>Problem 1a:</strong> 
+						Analise the case for $c>0$ and then for $c=0$. For the case $c\gt0$ use the identity 
+						\[
+						\sqrt{x}-\sqrt{c}=\frac{|x-c|}{\sqrt{x}+c}
+						\]
+					</p>
+					<p>
+						<strong>Problem 1c:</strong> 
+						It might be easier to use the fact that $|\cos z|\leq 1$ and apply the squeeze theorem.
+					</p>
+
+					<p>
+						<strong>Problem 2:</strong> 
+						For $c=0$ you can choose $\delta=\epsilon$ to prove that $\lim_{x\ra 0}f(x)=0$. 
+						For $c\neq 0$, if $c$ is rational, we can always find a sequence of irrational
+						numbers such that $x_n\ra c$.  If $c$ is irrational, we can always find a sequence of rational
+						numbers such that $r_n\ra c$.
+					</p>
+
+					<p>
+						<strong>Problem 3:</strong> 
+						Use sequential limits and Corollary 2.2.4
+					</p>
+
+					<p>
+						<strong>Problem 7:</strong> 
+						This is very similar to the proof of Proposition 3.1.4 but 
+						considering the limit to infinity.
+					</p>
+
+				</div>
+			</section>
 
 
 
