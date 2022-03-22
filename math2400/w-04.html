@@ -76,49 +76,38 @@
 					<p>
 						<em>Scratch work:</em> We need
 						\[
-						\abs{x^2-3x-10}<\epsilon
-						\]
-						That is
-						\[
-						\abs{x+2}\abs{x-5}<\epsilon
-						\]
-					</p>
+						\abs{x^2-3x-10}<\epsilon \] That is \[ \abs{x+2}\abs{x-5}<\epsilon \] </p> </div> </section>
+							<section>
+							<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
+							<div class="left-txt size-60">
 
-					
-				</div>
+								<p><em>Scratch work (cont.):</em> Suppose $\abs{x-5}\lt 3$. Thus $0\lt x+2\lt 10$, that
+									is $|x+2|\lt10$.
+								</p>
 
-				
-				
+								<p>
+									If $\abs{x-5}\lt 3$, then $\abs{x+2}\lt 10$. Thus
+									\[
+									|x+2||x-5|\lt 10 |x+5|.
+									\]
+								</p>
+
+								<p>Note that I just need $|x-5|\lt \frac{\epsilon}{10}$. So
+									\[
+									10|x-5|\lt \epsilon.
+									\]
+								</p>
+							</div>
+
+							<p><br/></p>
+
 			</section>
 
 			<section>
 				<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
 				<div class="left-txt size-60">
 
-					<p><em>Scratch work (cont.):</em> Suppose $\abs{x-5}\lt 3$. Thus $0\lt x+2\lt 10$, that is $|x+2|\lt10$.
-					</p>
 
-					<p>
-						 If $\abs{x-5}\lt 3$, then $\abs{x+2}\lt 10$. Thus
-						\[
-						|x+2||x-5|\lt 10 |x+5|.
-						\]
-					</p>
-
-					<p>Note that I  just need $|x-5|\lt \frac{\epsilon}{10}$. So 
-						\[
-						10|x-5|\lt \epsilon.
-						\]
-					</p>
-				</div>
-
-				
-				
-			</section><section>
-				<h5>Example $\displaystyle\lim_{x\ra 5}\left(x^2-3x\right)=10$</h5>
-				<div class="left-txt size-60">
-
-					
 
 					<p>
 						<strong>Proof:</strong> Let $\epsilon>0$. Choose
@@ -127,18 +116,74 @@
 						\]
 						such that $x\in \R\setminus\{5\}$ and $\abs{x-5}\lt \delta$, implies that
 						\[
-						|x^2-3x-10|=|x+2||x-5|\lt 10|x-5|\lt 10 \frac{\epsilon}{10}=\epsilon
+						|x^2-3x-10|=|x+2||x-5|\lt 10|x-5|\lt 10 \frac{\epsilon}{10}=\epsilon \;\;\blacksquare
 						\]
 					</p>
 
 				</div>
 
-				
-				
+				<p><br/></p>
+
 			</section>
 
-			
-			
+
+			<section>
+				<h5>Example $\displaystyle\lim_{x\ra 1}\left(5x-3\right)=2$</h5>
+				<div class="left-txt size-60">
+
+
+					<p>
+						Show that
+						\[
+						\lim_{x\ra 1}\left(5x-3\right)=2.
+						\]
+					</p>
+
+					<p>
+						<strong>Proof:</strong> Let $\epsilon>0$. Choose
+						\[
+						\delta =\frac{\epsilon}{5}
+						\]
+						such that $x\in \R\setminus\{1\}$ and $\abs{x-1}\lt \delta$, implies that
+						\[
+						|5x-3-2|=|5x-5|= 5|x-1|\lt 5 \frac{\epsilon}{5}=\epsilon \;\;\blacksquare
+						\]
+					</p>
+
+				</div>
+
+			</section>
+
+
+			<section>
+				<h5>Example $\displaystyle\lim_{x\ra 7}\left(x^2+1\right)=50$</h5>
+				<div class="left-txt size-60">
+
+
+					<p>
+						Show that
+						\[
+						\lim_{x\ra 7}\left(x^2+1\right)=50.
+						\]
+					</p>
+
+					<p>
+						<strong>Proof:</strong> Let $\epsilon>0$. Choose
+						\[
+						\delta =\min\left(1, \frac{\epsilon}{15}\right)
+						\]
+						such that $x\in \R\setminus\{7\}$ and $\abs{x-7}\lt \delta$, implies that
+						\[
+						|x^2+1-50|=|x^2-49|= |x+7||x-7| \lt 15 |x-7| \lt 15 \frac{\epsilon}{15}=\epsilon\;\;\blacksquare
+						\]
+					</p>
+
+				</div>
+
+			</section>
+
+
+
 
 
 
