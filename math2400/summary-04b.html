@@ -272,7 +272,7 @@
 
 			<section>
 				<h4>Continuous functions</h4>
-				<p class="sbt">Uniform continuity</p>
+				<p class="sbt">Uniform vs Nonuniform continuity</p>
 
 				<iframe scrolling="no" title="Uniform continuity"
 					src="https://www.geogebra.org/material/iframe/id/fjydugxa/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
@@ -282,32 +282,48 @@
 
 			<section>
 				<h4>Continuous functions</h4>
+				<p class="sbt">Uniform vs Nonuniform continuity</p>
+
+				<iframe scrolling="no" title="Uniform vs NonUniform continuity"
+					src="https://www.geogebra.org/material/iframe/id/sv5tazce/width/673/height/389/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="673px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 				
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Comparison between continuity and uniform continuity</p>
+				<p class="size-60" >Let $S \subset \R$ and let $f \colon S \to \R$ be a function.</p>
 				<table style="width:100%;">
 					<tr>
 						<th style="width:50%">
 							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Continuous function:</strong><br/><br/>
-									Let $S \subset \R$, $c \in S$, and let $f \colon S \to \R$ be a function.
+								<p><strong>Continuous function:</strong><br /><br />
 									We say
-									that $f$ is <em>continuous at</em> $c$
-									if for every $\epsilon \gt 0$
-									there is a $\delta \gt 0$ such that whenever $x \in S$ and $\abs{x-c} \lt
-									\delta$, then
+									that $f$ is <em>continuous</em>:<br/><br/>
+									if <span class="fragment highlight-red"  data-fragment-index="0">for every $s\in S$</span> and every $\epsilon \gt 0$<br/>
+									there exists a $\delta \gt 0$ such that 
+									<span  class="fragment highlight-red"  data-fragment-index="0">whenever $x \in S$</span> and $\abs{x-c} \lt
+									\delta$, <br/>then
 									\[\abs{\,f(x)-f(c)} \lt \epsilon.\]
-									
+
 								</p>
+							
+								
 							</div>
 						</th>
 						<th style="width:50%;">
 							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Uniform continuous:</strong><br/><br/>
-									Let $S \subset \R$, and let $f \colon S \to \R$ be a function.
-									We say $f$ is <em>uniformly continuous</em> if for 
-									every $\epsilon \gt 0$ there exists a $\delta > 0$
-									such that whenever $x, c \in S$ and
-									$\abs{x-c} \lt \delta$, then \[\abs{\,f(x)-f(c)} \lt \epsilon.\]
+								<p><strong>Uniform continuous:</strong><br /><br />
 									
+									We say that $f$ is <em>uniformly continuous</em>:<br/><br/>
+									if forevery $\epsilon \gt 0$ <br/>
+									there exists a $\delta > 0$
+									such that 
+									
+									<span class="fragment highlight-red"  data-fragment-index="0">whenever $x, c \in S$</span> and
+									$\abs{x-c} \lt \delta$, then \[\abs{\,f(x)-f(c)} \lt \epsilon.\]
+
 								</p>
 							</div>
 						</th>
@@ -335,7 +351,7 @@
 				<p class="sbt">Nonuniform continuity criteria</p>
 				<div class="left-txt size-60">
 					<p><strong>Theorem:</strong>
-						Let $S\subseteq R$ and let  $f \colon S \to \R$. Then the following statements
+						Let $S\subseteq R$ and let $f \colon S \to \R$. Then the following statements
 						are equivalent:
 					</p>
 
@@ -347,11 +363,10 @@
 							There exists an $\epsilon_0>0$ such that for every $\delta>0$
 							there are points $x_{\delta}$, $y_{\delta}$ in $S$ such that
 							$|x_{\delta} - y_{\delta}|<\delta$ and $|\,f(x_{\delta}) - f(y_{\delta})|\geq\epsilon_0$.
-						</li>
-						<li>
-							There exists an $\epsilon_0>0$ and two sequences $\{x_n\}$ and  $\{y_n\}$
-							in $S$ such that $\lim (x_n-y_n)=0$ and $|\,f(x_{n}) - f(y_{n})|\geq\epsilon_0$
-							for all $n\in N$.
+								</li> <li>
+								There exists an $\epsilon_0>0$ and two sequences $\{x_n\}$ and $\{y_n\}$
+								in $S$ such that $\lim (x_n-y_n)=0$ and $|\,f(x_{n}) - f(y_{n})|\geq\epsilon_0$
+								for all $n\in N$.
 						</li>
 					</ol>
 
@@ -364,13 +379,14 @@
 				<div class="left-txt size-60">
 					<p><strong>Example:</strong>
 						We can apply the previous result to show that $f(x)=1/x$ is not uniformly
-						continuous on $[0,\infty)$. 
+						continuous on $[0,\infty)$.
 					</p>
 
 					<p>
-						Consider $x_n=1/n$ and $y_n=1/(n+1)$. Then we have 
+						Consider $x_n=1/n$ and $y_n=1/(n+1)$. Then we have
 						\[
-						\lim_{n\ra \infty} (x_n-y_n)=\lim_{n\ra \infty} \left(\frac{1}{n}-\frac{1}{n+1}\right)=\lim_{n\ra \infty}\frac{1}{n(n+1)} =0
+						\lim_{n\ra \infty} (x_n-y_n)=\lim_{n\ra \infty}
+						\left(\frac{1}{n}-\frac{1}{n+1}\right)=\lim_{n\ra \infty}\frac{1}{n(n+1)} =0
 						\]
 						but $\abs{\,f(x_n)- f(y_n)}=1$ for all $n\in \N$.
 					</p>
