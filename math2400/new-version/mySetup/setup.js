@@ -1,3 +1,4 @@
+/*
 Reveal.initialize({
 	controls: true,
 	history: true,
@@ -110,6 +111,7 @@ function changeTheme(input) {
 	Reveal.getPlugin("RevealChalkboard").configure(config);
 	input.blur();
 }
+*/
 
 // This function allows you to toggle themes, I don't need it now :)
 // toggleMenu = () => {
@@ -118,6 +120,95 @@ function changeTheme(input) {
 //  };
 
 // Reveal.getPlugins(); // Not required now for v.4.0.2
+
+
+// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			history: true,
+			slideNumber: "c/t",
+			center: true,
+
+			// Transition style
+			transition: 'fade',
+
+			// PDF exporting properties
+			pdfSeparateFragments: false,
+			pdfMaxPagesPerSlide: 1,
+
+			// MathJax user-defined functions
+			math: {
+				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+				config: "TeX-AMS_HTML-full",
+				TeX: {
+					Macros: {
+						R: "\\mathbb{R}",
+						C: "\\mathbb{C}",
+						N: "\\mathbb{N}",
+						Z: "\\mathbb{Z}",
+						Q: "\\mathbb{Q}",
+						Re: "{\\mbox{Re}}\\,",
+						Im: "{\\mbox{Im}}\\,",
+						arg: "{\\mbox{arg}}\\,",
+						Arg: "{\\mbox{Arg}}\\,",
+						Log: "\\mbox{Log}\\,",
+						Int: "\\mbox{Int}\\,",
+						ra: "\\rightarrow",
+						ds: "\\displaystyle",
+						res: "\\mbox{res}\\,",
+						conj: ["{\\overline{#1}}", 1],
+						abs: ["{\\left|#1\\right|}", 1],
+						epsilon: "\\varepsilon"
+					}
+				}
+			},
+			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
+				themes: false,
+				transitions: false,
+				markers: true,
+				hideMissingTitles: true,
+				custom: [{
+					title: 'Info',
+					icon: '<i class="fa fa-info"></i>',
+					src: 'about.html'
+				}]
+			},
+
+
+			chalkboard: { // font-awesome.min.css must be available
+				//src: "chalkboard/chalkboard.json",
+				boardmarkerWidth: 4,
+				chalkWidth: 4,
+				//storage: "chalkboard-demo",
+				
+				colorButtons: 5
+			},
+
+			customcontrols: {
+				controls: [
+			  {
+					  id: 'toggle-overview',
+					  title: 'Toggle overview (O)',
+					  icon: '<i class="fa fa-th"></i>',
+					  action: 'Reveal.toggleOverview();'
+					},
+					{ icon: '<i class="fa fa-pen-square"></i>',
+					  title: 'Toggle chalkboard (B)',
+					  action: 'RevealChalkboard.toggleChalkboard();'
+					},
+					{ icon: '<i class="fa fa-pen"></i>',
+					  title: 'Toggle notes canvas (C)',
+					  action: 'RevealChalkboard.toggleNotesCanvas();'
+					}
+				]
+			},
+			// ...
+			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard],
+		});
+
+		
+
 
 /* 
 The follwing function is to include an HTML file in the slides
