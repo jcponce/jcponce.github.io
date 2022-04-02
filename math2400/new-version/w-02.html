@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Workshop 2</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6>proofs of limits of sequences</h6>
+				<div class="left-txt size-60">
+					<p>Let's see one more example of proof using the definition of the limit
+						of a sequence. With a little study and practice, you should be
+						able to do proofs of this sort yourself.</p>
+					<p class="fragment" data-fragment-index="0">
+						Show that
+						$$\lim_{n\ra \infty} \frac{n+1}{n} = 1.$$
+
+
+					</p>
+
+					<p class="fragment" data-fragment-index="1">
+
+
+						<strong>Discussion:</strong> Our task is to consider an arbitrary
+						$\epsilon$ and show that there exists a number $N\in \N$ (which will depend on $\epsilon$) such
+						that
+						$n\geq N$ implies
+						$$\abs{\frac{n+1}{n}-1} \lt \epsilon .$$ </p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6>proofs of limits of sequences</h6>
+				<div class="left-txt size-60">
+					<p>
+						So we expect our formal proof to begin with ''Let $\epsilon \gt 0
+						$ be arbitrary'' and to end with something like ''Hence $n \geq N$ implies
+						$\abs{\frac{n+1}{n}-1} \lt \epsilon .$'' In between the proof we should specify an
+						$N\in \N$
+						with <em>a particular property</em> and then verify that for every $n \geq N$
+						implies
+						$\abs{\frac{n+1}{n}-1} \lt \epsilon.$
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						We will initially work backward from our desired
+						conclusion, but in the formal proof we will have to be sure our steps are
+						reversible. In the
+						present example, we want $$\abs{\frac{n+1}{n}-1} \lt \epsilon$$ and we want to know
+						how big $n$
+						must be. So we will operate on this inequality algebraically and try to ''solve''
+						for $n$.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6>proofs of limits of sequences</h6>
+				<div class="left-txt size-60">
+
+					<p>
+						So, since $$\abs{\frac{n+1}{n}-1}=\frac{1}{n}\lt\epsilon,$$ we want $n \gt \frac{1}{\epsilon}$.
+						Thus, if our steps are reversible, choosing $N\in \N$ to be greater than
+						$\frac{1}{\epsilon}$ implies $$\abs{\frac{n+1}{n}-1} \lt \epsilon.$$
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						With this observation, we are
+						ready to write the formal argument.
+					</p>
+
+					<p><br /></p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6>proofs of limits of sequences</h6>
+				<div class="left-txt size-60">
+					<p><br /></p>
+					<p>
+						<strong>Proof:</strong>
+						<span class="fragment" data-fragment-index="0">Let $\epsilon \gt 0$ be arbitrary.</span>
+						<span class="fragment" data-fragment-index="1">Choose $N\in \N$ with $N>\frac{1}{\epsilon}$.
+						</span>
+						<span class="fragment" data-fragment-index="2">Then, $n\geq N$ implies
+							$$n > \frac{1}{\epsilon}\quad \text{or} \quad \epsilon \gt \frac{1}{n}.$$</span>
+						<span class="fragment" data-fragment-index="3">Therefore, for all $n \geq N$,
+							\begin{equation*}
+							\abs{\frac{n+1}{n} - 1} = \abs{\frac{1}{n}} = \frac{1}{n} \lt \epsilon .\qquad \blacksquare
+							\end{equation*}</span>
+
+					</p>
+					<p><br /><br /><br /></p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6>proofs of limits of sequences</h6>
+				<div class="left-txt size-60">
+
+					<p>
+						The definition of convergence is the result of hundreds
+						of years of refining the intuitive notion of limit into a mathematically
+						rigorous statement. The logic involved is complicated and is intimately
+						tied to the use of the <em>quantifiers</em> “for all” and “there exists.”
+						Learning to write a grammatically correct convergence proof goes hand
+						in hand with a deep understanding of why the quantifiers appear in the
+						order that they do.
+
+					</p>
+					<p class="fragment" data-fragment-index="0">
+						The definition begins with the phrase: <em>“For every $\epsilon\gt0$, there exists $N\in \N$
+							such that ...”</em><br /><br />
+
+						<span class="fragment" data-fragment-index="1">Looking at the previous example, we see that our
+							formal proof begins with, “Let $\epsilon\gt0$ be an
+							arbitrary number.” This is followed by a construction of $N$ and then a demonstration that
+							this
+							choice of $N$ has the desired property. This, in fact, is a basic outline for how every
+							convergence proof should be presented.</span>
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6>Template for a proof that $\lim {x_n} = L$</h6>
+				<div class="left-txt size-70">
+
+					<ul>
+						<li class="fragment" data-fragment-index="0">
+							“Let $\epsilon >0 $ be arbitrary.”
+						</li>
+						<li class="fragment" data-fragment-index="1">
+							Demonstrate a choice for $N \in \N$. This step usually requires the most work,
+							almost all of which is done prior to actually writing the formal proof.
+						</li>
+						<li class="fragment" data-fragment-index="2">
+							Now, show that $N$ actually works.
+						</li>
+						<li class="fragment" data-fragment-index="3">
+							Assume $n\geq N$.
+						</li>
+						<li class="fragment" data-fragment-index="4">
+							With $N$ well chosen, it should be possible to derive
+							the inequality $\abs{x_n - L}\lt\epsilon$.
+						</li>
+
+					</ul>
+
+					<p><br /><br /></p>
+				</div>
+			</section>
+
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
+
+	<script>
+		Reveal.initialize({
+			history: true,
+			center: true,
+			// Transition style
+			transition: 'fade',
+		});
+	</script>
+
+
+</body>
+
+</html>

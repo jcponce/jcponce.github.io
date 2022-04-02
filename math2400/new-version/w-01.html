@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Workshop 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3>Problem 1</h3>
+				<div class="left-txt size-70">
+					<p >Let \(F\) be an ordered field and $x,y,z \in F$.
+						Prove that
+						if \(x < 0\) and \(y < z\), then \(xy> xz\).</p>
+					<p class="fragment" data-fragment-index="0">
+						<strong>Proof:</strong> <br/>
+						If $x\lt 0$ and $y\lt z$, 
+						<span class="fragment" data-fragment-index="1">then $-x\gt 0$ and $0\lt z-y$.</span>
+						<span class="fragment" data-fragment-index="2">Here I am using <br/>Prop. 1.1.8 i), Def. 1.1.5 (A5), Def. 1.1.7 i)</span><br/><br/>
+						<span class="fragment" data-fragment-index="3">Then $0\lt -x(z-y)$,</span>
+						<span class="fragment" data-fragment-index="4">by Def. 1.1.7 ii).</span><br/><br/>
+						<span class="fragment" data-fragment-index="5">Implies $0\lt -xz+xy$, </span>
+						<span class="fragment" data-fragment-index="6">by Def. 1.1.5 (D).</span><br/><br/>
+						<span class="fragment" data-fragment-index="7">Then $xz\lt xy$, using Def. 1.1.5 (A5).</span>
+						<span class="fragment" data-fragment-index="8">$\blacksquare$</span>
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Problem 3</h3>
+				<div class="left-txt size-70">
+					<p >Let $S$ be an ordered set.  Let $B \subset S$ be bounded (above and
+						below).  Let $A \subset B$ be a nonempty subset.
+						Suppose all the $\inf$s and
+						$\sup$s exist. Show that
+						\begin{equation*}
+						\inf\, B \leq \inf\, A \leq \sup\, A \leq \sup\, B .
+						\end{equation*}</p>
+					<p class="fragment" data-fragment-index="0">
+						<strong>Proof:</strong> <br/>
+						<span class="fragment" data-fragment-index="1">Notice that $\inf A\leq \sup A$,</span>
+						<span class="fragment" data-fragment-index="2">since $A\subset B\subset S$, $B$ is bounded and $S$ is ordered. (Def. 1.1.3)</span><br/><br/>
+						<span class="fragment" data-fragment-index="3">I just need to prove that $\inf B\leq \inf A$ and $\sup A\leq \sup B$.</span><br/><br/>
+					</p>
+
+				</div>
+			</section>
+
+			<section  data-transition="fade-out">
+				<h3>Problem 3</h3>
+				<div class="left-txt size-70">
+					
+					<p>
+						<strong>Proof (cont.):</strong> <br/>
+						<span class="fragment" data-fragment-index="4">To prove $\inf B\leq \inf A$, let $x\in A$. </span>
+						<span class="fragment" data-fragment-index="5">This implies $x\in B$ because $A\subset B$.</span><br/><br/>
+						<span class="fragment" data-fragment-index="6">Then $\inf B\leq x$ by Def. 1.1.3.</span> 
+						<span class="fragment" data-fragment-index="7">So $\inf B$ is a lower bound of $A$, since $x$ was taken arbitrary in $A$.</span><br/><br/>
+						<span class="fragment" data-fragment-index="8">Since $\inf A$ is the greatest lower bound,</span>
+						<span class="fragment" data-fragment-index="9">then $\inf B\leq \inf A$.</span>
+						
+					</p>
+
+					<p><br/><br/><br/><br/></p><p></p>
+ 
+				</div>
+			</section>
+
+			<section  data-transition="fade-out">
+				<h3>Problem 3</h3>
+				<div class="left-txt size-70">
+					
+					<p>
+						<strong>Proof (cont.):</strong> <br/>
+						<span class="fragment" data-fragment-index="4">Finally, to prove that $\sup A\leq \sup B$, let $x\in A$. </span>
+						<span class="fragment" data-fragment-index="5">Again this implies $x\in B$ because $A\subset B$.</span><br/><br/>
+						<span class="fragment" data-fragment-index="6">Then $x\leq \sup B$ by Def. 1.1.3.</span> 
+						<span class="fragment" data-fragment-index="7">So $\sup B$ is an upper bound of $A$, since $x$ was taken arbitrary in $A$.</span><br/><br/>
+						<span class="fragment" data-fragment-index="8">Since $\sup A$ is the lowest upper bound,</span>
+						<span class="fragment" data-fragment-index="9">then $\sup A\leq \sup B$.</span>
+						<span class="fragment" data-fragment-index="10">$\blacksquare$</span>
+					</p>
+					
+					<p><br/><br/><br/></p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+	<script>
+		includeHTML();
+	</script>
+
+	<script>
+		Reveal.initialize({
+			history: true,
+			center: true,
+			// Transition style
+			transition: 'fade',
+		});
+	</script>
+
+
+</body>
+
+</html>

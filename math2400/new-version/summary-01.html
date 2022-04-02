@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Summary Weeks 1 & 2</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Summary Weeks 1 & 2</p>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Field Axioms</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong> A set $F$ is called a
+						field if it has two operations
+						defined on it, addition $x+y$ and multiplication $xy$, and if it satisfies
+						the following axioms:
+					</p>
+					<p>(A1) If $x \in F$ and $y \in F$, then $x+y \in F$.
+					</p>
+					<p>(A2) (commutativity of addition)
+						$x+y = y+x$ for all $x,y \in F$.
+					</p>
+					<p>(A3) (associativity of addition)}
+						$(x+y)+z = x+(y+z)$ for all $x,y,z \in F$.
+					</p>
+					<p>(A4) There exists an element $0 \in F$ such that
+						$0+x = x$ for all $x \in F$.
+					</p>
+					<p>(A5) For every element $x\in F$, there exists an element $-x \in F$
+						such that $x + (-x) = 0$.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Field Axioms</strong></p>
+				<div class="left-txt size-60">
+					<p>(M1) If $x \in F$ and $y \in F$, then $xy \in F$.
+					</p>
+					<p>(M2) (commutativity of multiplication)
+						$xy = yx$ for all $x,y \in F$.
+					</p>
+					<p>(M3) (associativity of multiplication)
+						$(xy)z = x(yz)$ for all $x,y,z \in F$.
+					</p>
+					<p>(M4) There exists an element $1 \in F$ (and $1 \not= 0$) such that
+						$1x = x$ for all $x \in F$.
+					</p>
+					<p>(M5) For every $x\in F$ such that $x \not= 0$ there exists an element
+						$\frac{1}{x} \in F$
+						such that $x\left(\frac{1}{x}\right) = 1$.
+					</p>
+					<p>(D) (distributive law) $x(y+z) = xy+xz$
+						for all $x,y,z \in F$.
+					</p>
+				</div>
+			</section>
+
+
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Ordered fields axioms</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						A field $F$ is said to be an ordered field if
+						$F$ together with a relation $\lt$ has the following properties:
+					</p>
+					<p>
+						(O1) (trichotomy) For all $x, y \in F$, exactly one of
+						$x < y$, $x=y$, or $y < x$ holds. </p> <p>
+							(O2) (transitivity) If $x,y,z \in F$ are such that $x < y$ and $y < z$, then $x < z$. </p>
+								<p>
+								(O3) For $x,y,z \in F$, $x < y$ implies $x+z < y+z$. </p> <p>
+									(O4) For $x,y \in F$, $x > 0$ and $y > 0$ implies $xy > 0$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Upper & Lower bound, Supremum & Infimum</strong></p>
+				<div class="left-txt size-60">
+
+					<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/upper-lower-bounds.png" />
+
+				</div>
+				<p><br /></p>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>The least-upper-bound property</strong></p>
+				<div class="left-txt size-70">
+					<br />
+					<p><strong>Definition:</strong>
+						An ordered set $S$ has the least-upper-bound property if every subset
+						$E\subset S$ that is bounded above has a least upper bound, that is
+						$\sup E$ exists in $S$.
+					</p>
+					<p><br /><br /><br /></p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Existence of $\R$</strong></p>
+				<div class="left-txt size-70">
+					<p><br /></p>
+					<p><strong>Theorem:</strong> There exists a unique
+						ordered field $\R$ with the least-upper-bound property
+						such that $\Q \subset \R$.</p>
+				</div>
+				<p><br /><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Archimedean property &amp; Density of $\Q$</strong></p>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+					</p>
+					<ol class="r">
+						<li>(Archimedean property)
+							If $x, y \in \R$ and
+							$x \gt 0$, then there exists an $n \in \N$ such that
+							\begin{equation*}
+							nx \gt y .
+							\end{equation*}</li>
+						<li>($\Q$ is dense in $\R$) If $x, y \in \R$ and
+							$x \lt y$, then there exists an $r \in \Q$ such that $x \lt r \lt y$. </li>
+					</ol>
+				</div>
+				<p><br /></p>
+			</section>
+
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Absolute value</strong></p>
+				<div class="left-txt size-70">
+					<p>The absolute value is defined as
+						\begin{equation*}
+						\abs{x} :=
+						\begin{cases}
+						x &amp; \text{if } x \geq 0, \\
+						-x &amp; \text{if } x \lt 0 . \end{cases} \end{equation*} </p>
+				</div>
+
+
+				<div class="left-txt size-70">
+
+					<p><strong>Triangle inequality:</strong>
+						$\abs{x+y} \leq \abs{x}+\abs{y}$
+						for all $x, y \in \R$.
+					</p>
+
+				</div>
+
+				<p><br /></p>
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Convergence of sequences</strong></p>
+				<div class="size-70">
+					<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/convergence-1d.png" />
+
+				</div>
+				<p><br /></p>
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Convergence of sequences</strong></p>
+
+				<iframe scrolling="no" title="Conformal mapping"
+					src="https://www.geogebra.org/material/iframe/id/rmx2ud6p/width/572/height/402/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="572px" height="402px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Bounded & Monotone</strong></p>
+				<br />
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong> A monotone sequence $\{ x_n \}$
+						is bounded if and only if it is convergent.
+					</p>
+				</div>
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Bounded & Monotone</strong></p>
+				<div class="left-txt size-60">
+					<table style="width:100%;border:none">
+						<tr>
+							<th style="text-align:center">Increasing</th>
+							<th style="text-align:center">Decreasing</th>
+						</tr>
+					</table>
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="width:50%;">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-01.gif" />
+							</td>
+							<td style="width:50%">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-02.gif" />
+							</td>
+						</tr>
+					</table>
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N
+								\}$</td>
+							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N
+								\}$</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Squeeze Theorem</strong></p>
+				<div class="size-70">
+					<img style="width: 65%;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
+
+				</div>
+
+			</section>
+
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Squeeze Theorem</strong></p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:60%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Theorem:</strong> Let $\{ a_n \}$,
+									$\{ b_n \}$, and
+									$\{ x_n \}$ be sequences such that
+									\begin{equation*}
+									a_n \leq x_n \leq b_n \quad \text{for all } n \in \N.
+									\end{equation*}
+									Suppose $\{ a_n \}$ and $\{ b_n \}$ converge and
+									\begin{equation*}
+									\lim_{n\to \infty} a_n
+									=
+									\lim_{n\to \infty} b_n .
+									\end{equation*}
+									Then $\{ x_n \}$ converges and
+									\begin{equation*}
+									\lim_{n\to \infty} x_n
+									=
+									\lim_{n\to \infty} a_n
+									=
+									\lim_{n\to \infty} b_n .
+									\end{equation*}
+								</p>
+							</div>
+						</th>
+						<th style="width:40%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Algebraic properties</strong></p>
+				<div class="left-txt size-50">
+					<p><strong>Theorem:</strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
+					</p>
+					<ol class="r">
+						<li>The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
+							\begin{equation*}
+							\lim_{n \to \infty} (x_n \pm y_n) =
+							\lim_{n \to \infty} z_n =
+							\lim_{n \to \infty} x_n \pm
+							\lim_{n \to \infty} y_n .
+							\end{equation*}
+						</li>
+						<li>
+							The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
+							\begin{equation*}
+							\lim_{n \to \infty} (x_n y_n) =
+							\lim_{n \to \infty} z_n =
+							\left( \lim_{n \to \infty} x_n \right)
+							\left( \lim_{n \to \infty} y_n \right) .
+							\end{equation*}
+						</li>
+						<li>
+							If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
+							the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
+							\begin{equation*}
+							\lim_{n \to \infty} \frac{x_n}{y_n} =
+							\lim_{n \to \infty} z_n =
+							%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
+							\frac{\lim\, x_n}{\lim\, y_n} .
+							\end{equation*}
+						</li>
+					</ol>
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Some convergence tests</strong></p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem:</strong> Let $\{ x_n \}$ be a sequence.
+						Suppose there is an $x \in \R$
+						and a convergent sequence $\{ a_n \}$
+						such that
+						\begin{equation*}
+						\lim_{n\to\infty} a_n = 0
+						\quad
+						\text{ and }
+						\quad
+						\abs{x_n - x} \leq a_n
+						\quad
+						\text{for all $n \in \N$.}
+						\end{equation*}
+						Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
+					</p>
+					<p>
+						<strong>Theorem:</strong> Let $c > 0$.
+
+						<ol class="r">
+							<li>
+								If $c \lt 1$, then
+
+								$\lim_{n\to\infty} c^n = 0.$
+
+							</li>
+							<li>
+								If $c \gt 1$, then $\{ c^n \}$ is unbounded.
+
+							</li>
+						</ol>
+
+					</p>
+					
+				</div>
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Some convergence tests</strong></p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem (Ratio test for sequences):</strong>
+
+						Let $\{ x_n \}$ be a sequence such that $x_n \not= 0$ for all $n$ and such that
+						the limit
+						\begin{equation*}
+						L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
+						\qquad
+						\text{exists.}
+						\end{equation*}
+
+						<ol class="r">
+							<li>
+								If $L < 1$, then $\{ x_n \}$ converges and $\lim\, x_n = 0$.
+							</li>
+							<li>
+								If $L > 1$, then $\{ x_n \}$ is unbounded (hence diverges).
+							</li>
+						</ol>
+
+					</p>
+					<p><br/><br/></p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Upper & lower limits</strong></p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Definition:</strong> Let $\{ x_n \}$ be a bounded sequence. Define the sequences $\{ a_n
+						\}$
+						and $\{ b_n \}$ by
+						$a_n := \sup \{ x_k : k \geq n \}$ and
+						$b_n := \inf \{ x_k : k \geq n \}$.
+						Define, if the limits exist,
+						\begin{align*}
+						\limsup_{n \to \infty} \, x_n & := \lim_{n \to \infty} a_n ,
+						\\
+						\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
+						\end{align*}
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Upper & lower limits</strong></p>
+				<div class="size-60">
+					<img style="width: 70%;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
+					<br />$x_n$ is bounded.
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Upper & lower limits</strong></p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:60%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Let $a_n$ and $b_n$
+									be as in
+									the definition above.
+									<ol>
+										<li>
+											The
+											sequence $\{ a_n \}$ is bounded monotone decreasing
+											and $\{ b_n \}$ is bounded monotone increasing. In particular,
+											$\liminf x_n$ and $\limsup x_n$ exist.
+										</li>
+										<li>
+											$\displaystyle \limsup_{n \to \infty} \, x_n = \inf \{ a_n : n \in \N \}$
+											and
+											$\displaystyle \liminf_{n \to \infty} \, x_n = \sup \{ b_n : n \in \N \}$.
+										</li>
+										<li>
+											$\displaystyle \liminf_{n \to \infty} \, x_n \leq
+											\limsup_{n \to \infty} \, x_n$.
+										</li>
+									</ol>
+
+
+								</p>
+							</div>
+						</th>
+						<th style="width:40%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Upper & lower limits</strong></p>
+				<div class="size-70">
+					<img style="width: 65%;" class="r-stretch"
+						data-src="images/summary-01/suplim-inflim-convergent.gif" />
+					<br />$x_n$ is bounded and convergent.
+				</div>
+
+
+			</section>
+
+
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Upper & lower limits</strong></p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:60%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Then $\{ x_n \}$
+									converges
+									if and only if
+									\begin{equation*}
+									\liminf_{n\to \infty} \, x_n =
+									\limsup_{n\to \infty} \, x_n.
+									\end{equation*}
+									Furthermore, if $\{ x_n \}$ converges, then
+									\begin{equation*}
+									\lim_{n\to \infty} x_n =
+									\liminf_{n\to \infty} \, x_n =
+									\limsup_{n\to \infty} \, x_n.
+									\end{equation*}
+								</p>
+							</div>
+						</th>
+						<th style="width:40%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim-convergent.gif" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Bolzano-Weierstrass Theorem</strong></p>
+				<div class="left-txt size-70">
+					<p><br /></p>
+					<p>
+						<strong>Theorem:</strong> Suppose a sequence $\{ x_n \}$ of real numbers is bounded.
+						Then there exists a convergent subsequence $\{ x_{n_i} \}$.
+					</p>
+				</div>
+				<p><br /><br /></p>
+			</section>
+
+
+			<section>
+				<h3>Sequences</h3>
+				<p class="size-60"><strong>Cauchy sequences</strong></p>
+				<div class="size-60">
+					<img style="width: 60%;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
+					<br />if
+					for every $\epsilon > 0$ there exists an $M \in \N$ such that
+					for all $n \geq M$ and all $k \geq M$,
+					<br />we have
+					$\abs{x_n - x_k} < \epsilon .$ </div> </section> <section>
+						<h3>Sequences</h3>
+						<p class="size-60"><strong>Cauchy sequences</strong></p>
+
+
+						<table style="width:100%;">
+							<tr>
+
+								<th style="width:65%">
+									<div class="size-70"
+										style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+										<p>
+											<strong>Theorem:</strong> A Cauchy sequence is bounded.
+										</p>
+										<p>
+											<strong>Theorem:</strong> A sequence of real numbers is Cauchy if and only
+											if it converges.
+										</p>
+									</div>
+								</th>
+								<th style="width:35%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
+								</th>
+
+							</tr>
+						</table>
+
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
