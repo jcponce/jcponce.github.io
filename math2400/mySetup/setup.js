@@ -38,7 +38,7 @@ Reveal.initialize({
 		}
 	},
 
-	plugins: [RevealMath, RevealHighlight, RevealMenu],
+	
 
 	menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
 		// Uncomment the following two lines, if you don't want to show the menu to toggle themes
@@ -66,7 +66,10 @@ Reveal.initialize({
 		},
 		toggleNotesButton: {
 			left: "130px"
-		}
+		},
+		colorButtons: 5,
+		storage: "chalkboard-demo",
+
 	},
 
 	dependencies: [
@@ -104,6 +107,7 @@ Reveal.initialize({
 		}, // cycle colors backward when 'y' is pressed
 	},
 	// ...
+	plugins: [RevealMath, RevealHighlight, RevealMenu],
 });
 
 // This function allows you to toggle themes, I don't need it now :)
