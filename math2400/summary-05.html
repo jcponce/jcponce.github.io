@@ -108,46 +108,175 @@
 
 				<iframe scrolling="no" title="Graphical interpretation of the derivative"
 					src="https://www.geogebra.org/material/iframe/id/ht4zykhk/width/593/height/415/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="593px" height="415px" style="border:0px;"  data-preload allowfullscreen=""> </iframe>
+					width="593px" height="415px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 
 			</section>
 
-
-
 			<section>
 				<h4>Continuous functions</h4>
-				<p class="sbt">Example: $\displaystyle f(x)=\sin\frac{1}{x}$, for $x\neq 0$ and $f(x)=0$ for $x=0$.</p>
-				<div class="left-txt size-60">
 
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="width:50%;">
-								<img style="width: 70%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01a.gif" />
-							</td>
-							<td style="width:50%">
-								<img style="width: 70%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01b.gif" />
-							</td>
-						</tr>
-					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="text-align:center">$x_n\ra 0$ as $n\ra \infty$.</td>
-							<td style="text-align:center">$\qquad\qquad f\left(x_n\right)$ does not converge to $0$.
-							</td>
-						</tr>
-					</table>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $f \colon I \to \R$ be differentiable at $c \in I$,
+						then it is continuous at $c$.
+					</p>
+
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c \in I$,
+						and let $\alpha \in \R$.
+					</p>
+					<ol class="r">
+						<li>
+							Define $h \colon I \to \R$ by $h(x) := \alpha f(x)$. Then
+							$h$ is differentiable at $c$ and
+							$h'(c) = \alpha f'(c)$.
+						</li>
+						<li>
+							Define $h \colon I \to \R$ by $h(x) := f(x) + g(x)$. Then
+							$h$ is differentiable at $c$ and
+							$h'(c) = f'(c) + g'(c)$.
+						</li>
+
+					</ol>
 
 				</div>
 			</section>
 
 
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Product rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be
+						functions differentiable at $c$. If $h \colon I \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := f(x) g(x) ,
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = f(c) g'(c) + f'(c) g(c) .
+						\end{equation*}
+					</p>
 
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Quotient rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c$
+						and $g(x) \not= 0$ for all $x \in I$.
+						If $h \colon I \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := \frac{f(x)}{g(x)},
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = \frac{f'(c) g(c) - f(c) g'(c)}{{\bigl(g(c)\bigr)}^2} .
+                        \end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Chain rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I_1, I_2$ be intervals, let
+						$g \colon I_1 \to I_2$ be differentiable at $c \in I_1$,
+						and
+						$f \colon I_2 \to \R$ be differentiable at $g(c)$.
+						If $h \colon I_1 \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := (f \circ g) (x) = f\bigl(g(x)\bigr) ,
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = f'\bigl(g(c)\bigr)g'(c) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Rolle's theorem</p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $f \colon [a,b] \to \R$ be continuous function
+						differentiable on $(a,b)$ such that $f(a) = f(b)$.
+						Then there exists a $c \in (a,b)$ such that $f'(c) = 0$.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Mean Value Theorem</p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
+						differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
+						such that
+						\begin{equation*}
+						f(b)-f(a) = f'(c)(b-a) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Inverse funciton Theorem</p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Theorem:</strong> Let $f \colon (a,b) \to \R$ be a continuously differentiable function,
+						$x_0 \in (a,b)$ a point where $f'(x_0) \not= 0$.  Then there exists
+						an open interval $I \subset (a,b)$ with $x_0 \in I$, the
+						restriction $f|_{I}$ is injective with a continuously differentiable inverse
+						$g \colon J \to I$ defined on an interval $J := f(I)$,
+						and
+						\begin{equation*}
+						g'(y) = \frac{1}{f'\bigl( g(y) \bigr)} \qquad \text{for all } y \in J.
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
 
 			<section>
 
