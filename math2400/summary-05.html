@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Summary Week 6</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Summary Week 6</p>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ be a function, and let $c \in I$. If
+						the limit
+						\begin{equation*}
+						L := \lim_{x \to c} \frac{f(x)-f(c)}{x-c}
+						\end{equation*}
+						exists, then we say $f$ is
+						<em>differentiable</em> at
+						$c$, that $L$ is the <em>derivative</em> of $f$ at $c$,
+						and write $f'(c) := L$.
+					</p>
+
+					<p>
+						If $f$ is differentiable at all $c \in I$, then we simply say that
+						$f$ is <em>differentiable</em>, and then we obtain a function
+						$f' \colon I \to \R$.
+					</p>
+
+					<p>
+						The expression $\displaystyle\frac{f(x)-f(c)}{x-c}$ is called the
+						<em>difference quotient</em>.
+					</p>
+
+				</div>
+
+
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Graphical interpretation of the derivative</p>
+
+				<iframe scrolling="no" title="Graphical interpretation of the derivative"
+					src="https://www.geogebra.org/material/iframe/id/ht4zykhk/width/593/height/415/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="593px" height="415px" style="border:0px;"  data-preload allowfullscreen=""> </iframe>
+
+			</section>
+
+
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Example: $\displaystyle f(x)=\sin\frac{1}{x}$, for $x\neq 0$ and $f(x)=0$ for $x=0$.</p>
+				<div class="left-txt size-60">
+
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="width:50%;">
+								<img style="width: 70%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01a.gif" />
+							</td>
+							<td style="width:50%">
+								<img style="width: 70%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01b.gif" />
+							</td>
+						</tr>
+					</table>
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="text-align:center">$x_n\ra 0$ as $n\ra \infty$.</td>
+							<td style="text-align:center">$\qquad\qquad f\left(x_n\right)$ does not converge to $0$.
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</section>
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
