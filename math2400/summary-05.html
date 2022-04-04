@@ -144,13 +144,16 @@
 						<tr>
 	
 							<td style="width:30%">
-								<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 	
 									<p>
 										$
 										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
 										$
-										where $0\lt a\lt 1$.
+										where $0\lt a\lt 1$, $b$ is a positive odd integer and 
+										\[
+										a\cdot b>1+\frac{3\pi}{2}.
+										\]
 									</p>
 	
 								</div>
@@ -168,7 +171,7 @@
 						MathCell( id, [ ]);
 
 					    
-						var a = .33, b = 2.2, direction = 1;
+						var a = .35, b = 3, direction = 1;
 
 						var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
 						
@@ -196,15 +199,15 @@
 						
 						  evaluate( id, data, config );
 
-						  b += .1 * direction;
+						  b += 2 * direction;
 
-                          if ( b < 2.2 || b > 5.9 ) direction *= -1;
+                          if ( b < 3.5 || b > 11 ) direction *= -1;
 						
 						}
 						
 						parent.update( id );
 						
-						setInterval( parent.update, 600, id );
+						setInterval( parent.update, 900, id );
 						
 						</script>
 						</div>
