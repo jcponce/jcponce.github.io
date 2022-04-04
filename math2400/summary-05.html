@@ -171,7 +171,7 @@
 						MathCell( id, [ ]);
 
 					    
-						var a = .35, b = 3, direction = 1;
+						var a = .35, b = 3.0, direction = 1;
 
 						var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
 						
@@ -201,13 +201,13 @@
 
 						  b += 2 * direction;
 
-                          if ( b < 3.5 || b > 11 ) direction *= -1;
+                          if ( b < 3.5 || b > 9 ) direction *= -1;
 						
 						}
 						
 						parent.update( id );
 						
-						setInterval( parent.update, 900, id );
+						setInterval( parent.update, 1100, id );
 						
 						</script>
 						</div>
@@ -219,6 +219,10 @@
 
 				
 			</section>
+
+
+			
+			
 
 			<section>
 				<h4>The Derivative</h4>
