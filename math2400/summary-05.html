@@ -160,7 +160,7 @@
 							</td>
 							<td class="size-40" style="width:70%;">
 								
-					<div class="mathcell" style="height: 4.5in">
+					<div class="mathcell" style="height: 4.3in">
 						<script>
 						
 						var parent = document.currentScript.parentNode;
@@ -171,7 +171,7 @@
 						MathCell( id, [ ]);
 
 					    
-						var a = .35, b = 3.0, direction = 1;
+						var a = .3, b = 3.0, direction = 1;
 
 						var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
 						
@@ -192,8 +192,8 @@
 						
 						  }
 						
-						  var data = [ plot( f, [ -Math.PI, Math.PI, 5000 ], { color: 'purple' } ),
-                                       text( 'b = ' + b.toFixed(1), [3,1.5] )];
+						  var data = [ plot( f, [ -2, 2, 5000 ], { color: 'black' } ),
+                                       text( 'b = ' + b.toFixed(1), [1.8,1.7] )];
 						
 						  var config = { type: 'svg', yMin: -1.6, yMax: 1.6 };
 						
@@ -211,6 +211,47 @@
 						
 						</script>
 						</div>
+							</td>
+	
+						</tr>
+					</table>
+					
+
+				
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Weierstrass function</p>
+				
+					<table style="width:100%;">
+						<tr>
+	
+							<td style="width:30%">
+								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+									<p>
+										$
+										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+										$
+										where $0\lt a\lt 1$, $b$ is a positive odd integer and 
+										\[
+										a\cdot b>1+\frac{3\pi}{2}.
+										\]
+									</p>
+	
+								</div>
+							</td>
+							<td class="size-40" style="width:70%;">
+
+								<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-05/weierstrass-function.png" />
+								
+					
 							</td>
 	
 						</tr>
