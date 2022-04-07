@@ -1,127 +1,3 @@
-/*
-Reveal.initialize({
-	controls: true,
-	history: true,
-	slideNumber: "c/t",
-	center: true,
-
-	// Transition style
-	transition: 'fade',
-
-	// PDF exporting properties
-	pdfSeparateFragments: false,
-	pdfMaxPagesPerSlide: 1,
-
-	// MathJax user-defined functions
-	math: {
-		//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-		config: "TeX-AMS_HTML-full",
-		TeX: {
-			Macros: {
-				R: "\\mathbb{R}",
-				C: "\\mathbb{C}",
-				N: "\\mathbb{N}",
-				Z: "\\mathbb{Z}",
-				Q: "\\mathbb{Q}",
-				Re: "{\\mbox{Re}}\\,",
-				Im: "{\\mbox{Im}}\\,",
-				arg: "{\\mbox{arg}}\\,",
-				Arg: "{\\mbox{Arg}}\\,",
-				Log: "\\mbox{Log}\\,",
-				Int: "\\mbox{Int}\\,",
-				ra: "\\rightarrow",
-				ds: "\\displaystyle",
-				res: "\\mbox{res}\\,",
-				conj: ["{\\overline{#1}}", 1],
-				abs: ["{\\left|#1\\right|}", 1],
-				epsilon: "\\varepsilon"
-			}
-		}
-	},
-
-	
-
-	menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
-		// Uncomment the following two lines, if you don't want to show the menu to toggle themes
-		//themes: true,
-		//themesPath: 'dist/theme/',
-		transitions: false,
-		markers: true,
-		hideMissingTitles: true,
-		custom: [{
-			title: 'Info',
-			icon: '<i class="fa fa-info"></i>',
-			src: 'about.html'
-		}]
-	},
-
-	// ...
-
-	chalkboard: {
-		// optionally load pre-recorded chalkboard drawing from file
-		//src: "chalkboard.json",
-		//src: "chalkboard/chalkboard.json",
-		storage: "chalkboard-demo",
-		boardmarkerWidth: 4,
-		chalkWidth: 4,
-		toggleChalkboardButton: {
-			left: "80px"
-		},
-		toggleNotesButton: {
-			left: "130px"
-		},
-		colorButtons: 5,
-
-	},
-
-	
-
-
-
-	keyboard: {
-		67: function () {
-			RevealChalkboard.toggleNotesCanvas()
-		}, // toggle notes canvas when 'c' is pressed
-		66: function () {
-			RevealChalkboard.toggleChalkboard()
-		}, // toggle chalkboard when 'b' is pressed
-		46: function () {
-			RevealChalkboard.clear()
-		}, // clear chalkboard when 'DEL' is pressed
-		8: function () {
-			RevealChalkboard.reset()
-		}, // reset chalkboard data on current slide when 'BACKSPACE' is pressed
-		//68: function () {
-		//	RevealChalkboard.download()
-		//}, // downlad recorded chalkboard drawing when 'd' is pressed
-		88: function () {
-			RevealChalkboard.colorNext()
-		}, // cycle colors forward when 'x' is pressed
-		89: function () {
-			RevealChalkboard.colorPrev()
-		}, // cycle colors backward when 'y' is pressed
-	},
-	// ...
-	plugins: [RevealMath, RevealHighlight, RevealMenu],
-});
-
-function changeTheme(input) {
-	var config = {};
-	config.theme = input.value;
-	Reveal.getPlugin("RevealChalkboard").configure(config);
-	input.blur();
-}
-*/
-
-// This function allows you to toggle themes, I don't need it now :)
-// toggleMenu = () => {
-//   let menu = Reveal.getPlugin('menu');
-//	 if (menu) menu.toggle();
-//  };
-
-// Reveal.getPlugins(); // Not required now for v.4.0.2
-
-
 // Full list of configuration options available here:
 		// https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
@@ -179,9 +55,11 @@ function changeTheme(input) {
 			chalkboard: { // font-awesome.min.css must be available
 				//src: "chalkboard/chalkboard.json",
 				boardmarkerWidth: 4,
-				chalkWidth: 4,
+				chalkWidth: 3,
 				//storage: "chalkboard-demo",
-				
+				grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 1},
+				//grid: false,
+				chalkEffect: 0.4,
 				colorButtons: 5
 			},
 
