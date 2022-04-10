@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Summary Week 7</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121691678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121691678-1');
+	</script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Summary Week 7</p>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Partitions</p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						A <em>partition</em> $P$ of the interval $[a,b]$ is
+						a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
+						\begin{equation*}
+						a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
+						\end{equation*}
+						We write
+						\begin{equation*}
+						\Delta x_i := x_i - x_{i-1} .
+						\end{equation*}
+					</p>
+
+				</div>
+
+
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux sums</p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
+						$[a,b]$.
+						Define
+						\begin{array}{cc}
+						& m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,
+						& M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} , \\
+						& L(P,f) :=
+						\sum_{i=1}^n m_i \Delta x_i ,
+						& U(P,f) :=
+						\sum_{i=1}^n M_i \Delta x_i .
+						\end{array}
+						We call $L(P,f)$ the <em>lower Darboux sum</em> and
+						$U(P,f)$ the <em>upper Darboux sum</em>.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux sums</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
+						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
+						of $[a,b]$,
+						\begin{equation}
+						\label{sumulbound:eq}
+						m(b-a) \leq
+						L(P,f) \leq U(P,f)
+						\leq M(b-a) .
+						\end{equation}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux Integrals</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						As the sets of lower and upper Darboux sums are bounded, we define
+						\begin{align*}
+						& \underline{\int_a^b} f(x)~dx :=
+						\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\} , \\
+						& \overline{\int_a^b} f(x)~dx :=
+						\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\} .
+						\end{align*}
+						We call $\underline{\int}$
+						the <em>lower Darboux integral</em> and
+						$\overline{\int}$ the
+						<em>upper Darboux integral</em>.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux Integrals</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
+						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then
+						\begin{equation}
+						\label{intulbound:eq}
+						m(b-a) \leq
+						\underline{\int_a^b} f \leq \overline{\int_a^b} f
+						\leq M(b-a) .
+						\end{equation}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function such that
+						\begin{equation*}
+						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+						\end{equation*}
+						Then $f$ is said to be <em>Riemann integrable</em>.
+						The set of Riemann integrable functions on $[a,b]$ is denoted
+						by $\mathcal R[a,b]$.
+						When $f \in \mathcal R[a,b]$, we define
+						\begin{equation*}
+						\int_a^b f(x)~dx :=
+						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+						\end{equation*}
+						The number $\int_a^b f$ is called the <em>Riemann integral</em>
+						of $f$, or sometimes simply the <em>integral</em> of $f$.
+					</p>
+
+				</div>
+			</section>
+
+
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a Riemann integrable function.
+						Let $m, M \in \R$ be
+						such that $m \leq f(x) \leq M$ for all $x \in [a,b]$. Then
+						\begin{equation*}
+						m(b-a) \leq
+						\int_a^b f
+						\leq M(b-a) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Then $f$ is Riemann
+						integrable if for every $\epsilon > 0$, there exists a partition $P$ of
+						$[a,b]$ such that
+						\begin{equation*}
+						U(P,f) - L(P,f) \lt \epsilon .
+						\end{equation*}
+
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Then $f$ is Riemann
+						integrable if for every $\epsilon > 0$, there exists a partition $P$ of
+						$[a,b]$ such that
+						\begin{equation*}
+						U(P,f) - L(P,f) \lt \epsilon .
+						\end{equation*}
+
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Properties</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f$ and $g$ be in $\mathcal R[a,b]$ and $\alpha \in \R$.
+					</p>
+
+					<ol>
+						<li>
+							$\alpha \,f$ is in $\mathcal R[a,b]$ and
+							\begin{equation*}
+							\int_a^b \alpha \,f(x) ~dx = \alpha \int_a^b f(x) ~dx .
+							\end{equation*}
+						</li>
+						<li>
+							$f+g$ is in $\mathcal R[a,b]$ and
+							\begin{equation*}
+							\int_a^b \bigl( f(x)+g(x) \bigr) ~dx =
+							\int_a^b f(x) ~dx
+							+
+							\int_a^b g(x) ~dx .
+							\end{equation*}
+						</li>
+					</ol>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Properties</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						If $f \colon [a,b] \to \R$ is a continuous function,
+						then $f \in \mathcal R[a,b]$.
+
+					</p>
+
+				</div>
+			</section>
+
+			<!--<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Graphical interpretation of the derivative</p>
+
+				<iframe scrolling="no" title="The Derivative: Geometrical interpretation"
+					src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="562px" height="390px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+		-->
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
