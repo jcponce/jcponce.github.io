@@ -65,44 +65,173 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
-				<h4>To be continuous or not be? 🧐</h4>
-				<div class="left-txt size-60">
-
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="width:33%;">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/w-05/continuous-function-01-c.png" />
-							</td>
-							<td style="width:33%">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/w-05/continuous-function-02-c.png" />
-							</td>
-
-							<td style="width:33%">
-								<img style="width: 100%; 
-							  display: block;
-							  margin-left: auto;
-							  margin-right: auto;" class="r-stretch" data-src="images/w-05/continuous-function-03-c.png" />
-							</td>
-						</tr>
-					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="text-align:center"><strong>Example A</strong></td>
-							<td style="text-align:center"><strong>Example B</strong></td>
-							<td style="text-align:center"><strong>Example C</strong></td>
-						</tr>
-					</table>
-
+				<h4>Problem 1</h4>
+				<div class="left-txt size-70">
+					<p>
+						Define $f \colon [0,1] \to \R$ by $f(x) := x^3$
+						and let $P := \{ 0, 0.1, 0.4, 1 \}$. Compute 
+						\[
+						L(P,f)\quad
+						\text{and} 
+						\quad
+						U(P,f).
+						\]
+					</p>
+					<p class="fragment" data-fragment-index="0">
+						<strong>Solution:</strong> 
+						We have that:
+						
+						$x_0= 0, \;x_1=0.1,\; x_2=0.4,  \;x_3=1.$
+						
+					</p>
+					
+					<p class="fragment" data-fragment-index="1">
+						Let's calculate $m_i$ and $M_i$. 
+						<span class="fragment" data-fragment-index="2">First, recall that 
+							\[
+							m_i=\inf\left\{f(x): x_{i-1}\leq x\leq x_{i} \right\}.
+							\]
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							Then
+						</span>
+					</p>
+					
 				</div>
+				<p class="size-70">
+					<span class="fragment" data-fragment-index="3">
+						
+						$m_1=\inf\left\{f(x): 0\leq x\leq 0.1 \right\} = 0$<br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="4">
+						
+						$\quad \quad \;m_2=\inf\left\{f(x): 0.1\leq x\leq 0.4 \right\} = 0.001$<br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="5">
+						
+						$\quad \;\;m_3=\inf\left\{f(x): 0.4\leq x\leq 1 \right\} = 0.064$
+						
+					</span>
+				</p>
 			</section>
 
-			
+			<section>
+				<h4>Problem 1</h4>
+				<div class="left-txt size-70">
+					
+					<p>
+						<strong>Solution (cont.):</strong> 
+						On the other hand, we have that 
+						\[
+						M_i=\sup\left\{f(x): x_{i-1}\leq x\leq x_{i} \right\}.
+						\]
+						
+					</p>
+					
+					<p>
+						
+						<span class="fragment" data-fragment-index="0">
+							Then
+						</span>
+					</p>
+					
+				</div>
+				<p class="size-70">
+					<span class="fragment" data-fragment-index="0">
+						
+						$M_1=\sup\left\{f(x): 0\leq x\leq 0.1 \right\} = 0.001$<br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="1">
+						
+						$\;\;\,M_2=\sup\left\{f(x): 0.1\leq x\leq 0.4 \right\} = 0.064$<br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="2">
+						
+						$M_3=\sup\left\{f(x): 0.4\leq x\leq 1 \right\} = 1\quad\;\,$
+						
+					</span>
+				</p>
+			</section>
+
+			<section>
+				<h4>Problem 1</h4>
+				<div class="left-txt size-70">
+					
+					<p>
+						<strong>Solution (cont.):</strong> 
+						Thus we have 
+						
+						
+					</p>
+					
+				</div>
+				<p class="size-70">
+					<span >
+						
+						$L(P,f ) = m_1(x_1-x_0)+m_2(x_2-x_1)+m_3(x_3-x_2) = \displaystyle\sum_{i=1}^{3}m_i\Delta x_i$<br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="0">
+						
+						$=0(0.1-0)+0.001(0.4-0.1)+0.064(1-0.4)$<br/><br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="1">
+						
+						$=0.001(0.3)+0.064(0.6)$
+						
+					</span>
+					<span class="fragment" data-fragment-index="2">
+						$=0.0003+0.0384\quad\,$<br/><br/>
+					</span>
+					<span class="fragment" data-fragment-index="3">
+						$=0.0387\qquad\qquad\qquad\qquad\qquad\qquad\qquad\,$
+					</span>
+				</p>
+			</section>
+
+			<section>
+				<h4>Problem 1</h4>
+				<div class="left-txt size-70">
+					
+					<p>
+						<strong>Solution (cont.):</strong> 
+						And
+						
+						
+					</p>
+					
+				</div>
+				<p class="size-70">
+					<span >
+						
+						$U(P,f ) = M_1(x_1-x_0)+M_2(x_2-x_1)+M_3(x_3-x_2) = \displaystyle\sum_{i=1}^{3}M_i\Delta x_i$<br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="0">
+						
+						$=0.001(0.1-0)+0.064(0.4-0.1)+(1-0.4)\;\;\,$<br/><br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="1">
+						
+						$=0.001(0.1)+0.064(0.3)+0.6\qquad\qquad\qquad\;\;$<br/><br/>
+						
+					</span>
+					<span class="fragment" data-fragment-index="2">
+						$=0.0001+0.0192+0.6$
+					</span>
+					<span class="fragment" data-fragment-index="3">
+						$=0.6193\qquad\qquad\quad\;\;$
+					</span>
+				</p>
+			</section>
+
+
 
 			<section>
 				<h4>Credits</h4>
@@ -118,7 +247,7 @@
 	<script src="plugin/math/math.js"></script>
 	<script src="plugin/highlight/highlight.js"></script>
 	<script src="plugin/chalkboard/plugin.js"></script>
-    <script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
 	<script src="plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
 
