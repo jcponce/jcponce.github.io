@@ -89,7 +89,7 @@
 							$d(x,z) \leq d(x,y)+ d(y,z)$. (<em>triangle inequality</em>)
 						</li>
 					</ol>
-					<p>The pair $(X,d)$ is called a <em>metric space</em>. The
+					<p  class="fragment" data-fragment-index="0">The pair $(X,d)$ is called a <em>metric space</em>. The
 						function $d$ is called the <em>metric</em> or the
 						<em>distance function</em>.
 						Sometimes we write just $X$ as the metric space instead of $(X,d)$
@@ -105,6 +105,10 @@
 						\begin{equation*}
 						d(x,y) := \abs{x-y} .
 						\end{equation*}
+						
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
 						Items (i)-(iii) of the definition
 						are easy to verify. The
 						triangle inequality follows immediately
@@ -115,6 +119,11 @@
 						\abs{x-y}+\abs{y-z} =
 						d(x,y)+ d(y,z) .
 						\end{equation*}
+						
+					</p>
+
+					<p class="fragment" data-fragment-index="1">
+						
 						This metric is the <em>standard metric on</em> $\R$. If we talk
 						about $\R$ as a metric space without mentioning a specific metric, we
 						mean this particular metric.
@@ -131,11 +140,11 @@
 						$\R^n = \R \times \R \times \cdots \times \R$. We use the following
 						notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.
 					</p>
-					<p>We will not write
+					<p class="fragment" data-fragment-index="0">We will not write
 						$\vec{x}$ nor $\mathbf{x}$ for a vector, we simply give it a name such as
 						$x$ and we will remember that $x$ is a vector.
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						We also
 						write simply $0 \in \R^n$ to mean the point $(0,0,\ldots,0)$. Before
 						making $\R^n$ a metric space, we prove an important inequality, the
@@ -159,7 +168,8 @@
 						\end{equation*}
 
 					</p>
-					<p><strong>Proof:</strong>
+					<p  class="fragment" data-fragment-index="0">
+						<strong>Proof:</strong>
 						Any square of a real number is nonnegative. Hence any sum of squares is
 						nonnegative:
 						\begin{equation*}
@@ -230,7 +240,7 @@
 						\end{equation*}
 					</p>
 
-					<p>Using the Cauchy-Schwarz inequality we can determine the triangle inequality working with
+					<p class="fragment" data-fragment-index="0">Using the Cauchy-Schwarz inequality we can determine the triangle inequality working with
 						the square of the metric:
 						\begin{equation*}
 						\begin{split}
@@ -312,23 +322,36 @@
 						The set of complex numbers $\C$ is the set of numbers $z = x+iy$, where $x$
 						and $y$ are in $\R$. By imposing $i^2 = -1$, we make $\C$ into a
 						field.
+						
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
 						For the purposes of taking limits,
 						the set $\C$ is regarded as the metric space $\R^2$, where $z=x+iy \in \C$
 						corresponds to $(x,y) \in \R^2$.
-						For $z=x+iy$ define the <em>complex modulus</em>
+						
+					</p>
+
+					<p class="fragment" data-fragment-index="1">For $z=x+iy$ define the <em>complex modulus</em>
 						by $\abs{z} := \sqrt{x^2+y^2}$.
 						Then for two complex numbers
 						$z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$, the distance is
 						\begin{equation*}
 						d(z_1,z_2) = \sqrt{{(x_1-x_2)}^2+ {(y_1-y_2)}^2} = \abs{z_1-z_2}.
 						\end{equation*}
-						Furthermore, when working with complex numbers
+						
+					</p>
+
+					<p class="fragment" data-fragment-index="2">Furthermore, when working with complex numbers
 						it is often convenient to write the metric in terms of
 						the so-called
 						<em>complex conjugate</em>: The conjugate of $z=x+iy$
-						is $\bar{z} := x-iy$. Then
-						${\abs{z}}^2 = x^2 +y^2 = z\bar{z}$, and so ${\abs{z_1-z_2}}^2 =
-						(z_1-z_2)\overline{(z_1-z_2)}$.
+						is $\bar{z} := x-iy$. 
+						<span class="fragment" data-fragment-index="3">
+							Then
+							${\abs{z}}^2 = x^2 +y^2 = z\bar{z}$, and so ${\abs{z_1-z_2}}^2 =
+							(z_1-z_2)\overline{(z_1-z_2)}$.
+						</span>
 					</p>
 
 				</div>
