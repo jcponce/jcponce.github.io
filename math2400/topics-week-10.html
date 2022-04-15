@@ -800,6 +800,10 @@
 			</section>
 
 			<section>
+				<h2>Sequences and convergence</h2>
+			</section>
+
+			<section>
 				<h4>Sequences and convergence</h4>
 
 				<div class="left-txt size-60">
@@ -835,6 +839,8 @@
 				</div>
 			</section>
 
+
+
 			<section>
 				<h4>Sequences and convergence</h4>
 
@@ -851,7 +857,7 @@
 						\lim_{n\to \infty} x_n := p .
 						\end{equation*}
 
-						
+
 					</p>
 
 					<p>
@@ -861,10 +867,498 @@
 						<em>divergent</em>.
 					</p>
 
-					
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+
+				<div class="left-txt size-60">
+
+					<p><strong>Theorem:</strong>
+						A convergent sequence in a metric space has a unique limit.
+
+
+					</p>
+
+					<p>
+						<strong>Proof:</strong>
+						Suppose the sequence $\{ x_n \}$ has limits $x$ and $y$.
+						Take an arbitrary $\epsilon \gt 0$.
+						From the definition find an $M_1$ such that for all $n \geq M_1$,
+						$d(x_n,x) \lt \frac{\epsilon}{2}$. Similarly find an $M_2$
+						such that for all $n \geq M_2$, we have
+						$d(x_n,y) \lt \frac{\epsilon}{2}$. Now take an $n$ such that
+						$n \geq M_1$ and also $n \geq M_2$, and estimate
+						\begin{equation*}
+						\begin{split}
+						d(y,x)
+						& \leq
+						d(y,x_n) + d(x_n,x) \\
+						& \lt
+						\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
+						\end{split}
+						\end{equation*}
+						As $d(y,x) \lt \epsilon$ for all $\epsilon \gt 0$, then $d(x,y) = 0$
+						and $y=x$. Hence the limit (if it exists) is unique.
+
+					</p>
 
 				</div>
 			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Theorem:</strong>
+						A convergent sequence in a metric space is bounded.
+					</p>
+
+					<p><strong>Theorem:</strong>
+						A sequence $\{ x_n \}$ in a metric space $(X,d)$ converges to $p \in X$
+						if and only
+						if there exists a sequence $\{ a_n \}$ of real numbers such that
+						\begin{equation*}
+						d(x_n,p) \leq a_n \quad \text{for all } n \in \N,
+						\end{equation*}
+						and
+						\begin{equation*}
+						\lim_{n\to\infty} a_n = 0.
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Example:</strong>
+						Take $C([0,1],\R)$ be the set of continuous functions with the metric being
+						the uniform metric. We saw that we obtain a metric space.
+						If we look at the definition of convergence, we notice that it is identical
+						to uniform convergence. That is, $\{ f_n \}$ converges uniformly if and only
+						if it converges in the metric space sense.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+				<p class="sbt">Convergence in euclidian space</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Theorem:</strong>
+						Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$,
+						where we write $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
+						Then $\{ x_j \}_{j=1}^\infty$ converges if and only if
+						$\{ x_{j,k} \}_{j=1}^\infty$ converges for every $k=1,2,\ldots,n$, in which case
+						\begin{equation*}
+						\lim_{j\to\infty}
+						x_j =
+						\Bigl(
+						\lim_{j\to\infty} x_{j,1},
+						\lim_{j\to\infty} x_{j,2},
+						\ldots,
+						\lim_{j\to\infty} x_{j,n}
+						\Bigr) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+				<p class="sbt">Convergence in euclidian space</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Example:</strong>
+						Recall that the set $\C$ of complex numbers $z = x+iy$ is considered
+						as the metric space $\R^2$. The previous theorem says that the
+						sequence $\{ z_j \}_{j=1}^\infty = \{ x_j + iy_j \}_{j=1}^\infty$ converges
+						to $z = x+iy$
+						if and only if $\{ x_j \}$ converges to $x$ and
+						$\{ y_j \}$ converges to $y$.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+				<p class="sbt">Convergence and Topology</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$. Then
+						$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
+						$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
+						we have $x_n \in U$.
+					</p>
+
+					<p>
+						<strong>Proof:</strong>
+						Suppose $\{ x_n \}$ converges to $x$. Let $U$ be an open neighborhood
+						of $x$, then there exists an $\epsilon \gt 0$ such that $B(x,\epsilon) \subset
+						U$. As the sequence converges, find an $M \in \N$ such that for all $n \geq
+						M$, we have $d(x,x_n) \lt \epsilon$, or in other words $x_n \in B(x,\epsilon)
+						\subset U$.
+
+					</p>
+
+					<p>
+						Let us prove the other direction. Given $\epsilon > 0$, let $U :=
+						B(x,\epsilon)$ be the neighborhood of $x$. Then there is an $M \in \N$
+						such that for $n \geq M$, we have $x_n \in U = B(x,\epsilon)$, or in other
+						words, $d(x,x_n) \lt \epsilon$.
+
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+				<p class="sbt">Convergence and Topology</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
+						and $\{ x_n \}$ a sequence in $E$ that converges to some $x \in X$.
+						Then $x \in E$.
+
+					</p>
+
+					<p>
+						<strong>Proof:</strong>
+						Let us prove the contrapositive.
+						Suppose $\{ x_n \}$ is a sequence in $X$ that converges to $x \in E^c$.
+						As $E^c$ is open, the previous Theorem says that there is
+						an $M$ such that for all $n \geq M$,
+						$x_n \in E^c$. So $\{ x_n \}$ is not a sequence in $E$.
+
+					</p>
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space and $A \subset X$.
+						Then $x \in \overline{A}$ if and only if there exists a sequence $\{ x_n \}$ of
+						elements in $A$ such that $\lim\, x_n = x$.
+
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+				<p class="sbt">Cauchy sequences and completeness</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Definition:</strong>
+						Let $(X,d)$ be a metric space.
+						A sequence $\{ x_n \}$ in $X$ is a <em>Cauchy sequence</em> if
+						for every $\epsilon \gt 0$, there exists an $M \in \N$ such that
+						for all $n \geq M$ and all $k \geq M$, we have
+						\begin{equation*}
+						d(x_n, x_k) \lt \epsilon .
+						\end{equation*}
+
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						A convergent sequence in a metric space is Cauchy.
+
+					</p>
+
+					<p><strong>Proof:</strong>
+						Suppose $\{ x_n \}$ converges to $x$.
+						Given $\epsilon > 0$, there is an $M$ such that for all $n \geq M$,
+						we have $d(x,x_n) \lt \frac{\epsilon}{2}$. Hence
+						for all $n,k \geq M$, we have
+						$d(x_n,x_k) \leq d(x_n,x) + d(x,x_k) \lt \frac{\epsilon}{2} +
+						\frac{\epsilon}{2} = \epsilon$.
+
+					</p>
+
+
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+				<p class="sbt">Cauchy sequences and completeness</p>
+
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Definition:</strong>
+						Let $(X,d)$ be a metric space. We say $X$ is
+						<em>complete</em> or <em>Cauchy-complete</em>
+						if every Cauchy sequence $\{ x_n \}$ in $X$
+						converges to an $x \in X$.
+
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						The space $\R^n$ with the standard metric is a complete metric space.
+
+					</p>
+
+					<p>
+						<strong>Remark:</strong>
+						A subset of $\R^n$ with the subspace metric need not be
+						complete. For example, $(0,1]$ with the subspace metric is not
+						complete as $\{ \frac{1}{n} \}$ is a Cauchy sequence in $(0,1]$
+						with no limit in $(0,1]$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences and convergence</h4>
+				<p class="sbt">Cauchy sequences and completeness</p>
+
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Theorem:</strong>
+						The space of continuous functions $C([a,b],\R)$ with the uniform
+						norm as metric is a complete metric space.
+
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						Suppose $(X,d)$ is a complete metric space and $E \subset X$
+						is closed, then $E$ is a complete metric space with the subspace topology.
+
+					</p>
+
+
+
+
+
+
+				</div>
+			</section>
+
+
+
+
+			<section>
+				<h2>Continuous functions</h2>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuity</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Definition:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+						Then $f \colon X \to Y$ is
+						<em>continuous at $c$</em>
+						if for every $\epsilon \gt 0$
+						there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
+						\delta$, then
+						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+					</p>
+
+					<p>
+						When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+						that $f$ is a <em>continuous function</em>.
+
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuity</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+						Then $f \colon X \to Y$ is
+						continuous at $c \in X$
+						if and only if for every sequence $\{ x_n \}$ in $X$
+						converging to $c$, the sequence $\bigl\{ f(x_n) \bigr\}$ converges
+						to $f(c)$.
+					</p>
+
+					<p>
+						<strong>Proof:</strong>
+
+						Suppose $f$ is continuous at $c$. Let $\{ x_n \}$ be a
+						sequence in $X$ converging to $c$. Given $\epsilon > 0$,
+						there is a $\delta > 0$ such that $d_X(x,c) \lt \delta$ implies
+						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$. So take $M$ such that
+						for all $n \geq M$, we have $d_X(x_n,c) \lt \delta$, then
+						$d_Y\bigl(f(x_n),f(c)\bigr) \lt \epsilon$. Hence $\{ f(x_n) \}$
+						converges to $f(c)$.
+					</p>
+
+					<p>
+						On the other hand, suppose $f$ is not continuous at $c$.
+						Then there exists an $\epsilon \gt 0$,
+						such that for every $n \in \N$ there exists an $x_n \in X$,
+						with
+						$d_X(x_n,c) \lt \frac{1}{n}$ such that $d_Y\bigl(f(x_n),f(c)\bigr) \geq
+						\epsilon$. Then $\{ x_n \}$ converges to $c$, but $\{ f(x_n) \}$
+						does not converge to $f(c)$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuity and Topology</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Lemma:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+						A function $f \colon X \to Y$ is continuous at $c \in X$
+						if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
+						$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
+					</p>
+
+					<p>
+						<strong>Proof:</strong>
+
+						First suppose that $f$ is continuous at $c$.
+						Let $U$ be an open neighborhood of $f(c)$
+						in $Y$, then $B_Y\bigl(f(c),\epsilon\bigr) \subset U$ for some $\epsilon >
+						0$. By continuity of $f$, there exists a $\delta > 0$
+						such that whenever $x$ is such that $d_X(x,c) \lt \delta$, then
+						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$. In other words,
+						\begin{equation*}
+						B_X(c,\delta) \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) \subset
+						f^{-1}(U) ,
+						\end{equation*}
+						and $B_X(c,\delta)$ is an open neighborhood of $c$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuity and Topology</p>
+
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Proof (cont.):</strong>
+
+						For the other direction,
+						let $\epsilon > 0$ be given. If
+						$f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr)$ contains an open
+						neighborhood $W$ of $c$, it contains a ball. That is, there is some $\delta > 0$
+						such that
+						\begin{equation*}
+						B_X(c,\delta) \subset W \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) .
+						\end{equation*}
+						That means precisely that if $d_X(x,c) \lt \delta$, then $d_Y\bigl(f(x),f(c)\bigr)
+						\lt \epsilon$, and so $f$ is continuous at $c$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuity and Topology</p>
+
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Theorem:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
+						\to Y$
+						is continuous if and only if
+						for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuity and Topology</p>
+
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Example:</strong>
+						Let $f \colon X \to Y$ be a continuous function.
+						The preevious Theorem tells us that if $E \subset Y$ is closed, then
+						\[
+						f^{-1}(E) = X \setminus f^{-1}(E^c)
+						\]
+						 is also closed. Therefore, if
+						we have a continuous
+						function $f \colon X \to \R$, then the
+						<em>zero set</em> of $f$, that is,
+						$f^{-1}(0) = \bigl\{ x \in X : f(x) = 0 \bigr\}$, is closed.
+						We have just proved the most basic result in
+						<em>algebraic geometry</em>, the study of
+						zero sets of polynomials: The zero set of a polynomial is closed.
+
+						
+					</p>
+					
+					<p>
+						Similarly the set where $f$ is nonnegative, that is,
+						$f^{-1}\bigl( [0,\infty) \bigr) = \bigl\{ x \in X : f(x) \geq 0 \bigr\}$,
+						is closed. On the other hand the
+						set where $f$ is positive,
+						$f^{-1}\bigl( (0,\infty) \bigr) = \bigl\{ x \in X : f(x) \gt 0 \bigr\}$,
+						is open.
+					</p>
+
+
+				</div>
+			</section>
+
+
 
 			<section>
 				<h4>Credits</h4>
@@ -880,7 +1374,7 @@
 	<script src="plugin/math/math.js"></script>
 	<script src="plugin/highlight/highlight.js"></script>
 	<script src="plugin/chalkboard/plugin.js"></script>
-    <script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
 	<script src="plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
 
