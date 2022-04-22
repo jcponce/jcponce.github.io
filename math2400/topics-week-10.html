@@ -89,7 +89,7 @@
 							$d(x,z) \leq d(x,y)+ d(y,z)$. (<em>triangle inequality</em>)
 						</li>
 					</ol>
-					<p  class="fragment" data-fragment-index="0">The pair $(X,d)$ is called a <em>metric space</em>. The
+					<p class="fragment" data-fragment-index="0">The pair $(X,d)$ is called a <em>metric space</em>. The
 						function $d$ is called the <em>metric</em> or the
 						<em>distance function</em>.
 						Sometimes we write just $X$ as the metric space instead of $(X,d)$
@@ -105,7 +105,7 @@
 						\begin{equation*}
 						d(x,y) := \abs{x-y} .
 						\end{equation*}
-						
+
 					</p>
 
 					<p class="fragment" data-fragment-index="0">
@@ -119,11 +119,11 @@
 						\abs{x-y}+\abs{y-z} =
 						d(x,y)+ d(y,z) .
 						\end{equation*}
-						
+
 					</p>
 
 					<p class="fragment" data-fragment-index="1">
-						
+
 						This metric is the <em>standard metric on</em> $\R$. If we talk
 						about $\R$ as a metric space without mentioning a specific metric, we
 						mean this particular metric.
@@ -168,7 +168,7 @@
 						\end{equation*}
 
 					</p>
-					<p  class="fragment" data-fragment-index="0">
+					<p class="fragment" data-fragment-index="0">
 						<strong>Proof:</strong>
 						Any square of a real number is nonnegative. Hence any sum of squares is
 						nonnegative:
@@ -224,26 +224,27 @@
 				<div class="left-txt size-60">
 					<p><strong>Example:</strong>
 						Using the previous result we can construct the
-						standard metric for $\R^n$. 
+						standard metric for $\R^n$.
 						<span class="fragment" data-fragment-index="0">
 							Define
-						\begin{equation*}
-						d(x,y) :=
-						\sqrt{
-						{(x_1-y_1)}^2 +
-						{(x_2-y_2)}^2 +
-						\cdots +
-						{(x_n-y_n)}^2
-						} =
-						\sqrt{
-						\sum_{j=1}^n
-						{(x_j-y_j)}^2
-						} .
-						\end{equation*}
+							\begin{equation*}
+							d(x,y) :=
+							\sqrt{
+							{(x_1-y_1)}^2 +
+							{(x_2-y_2)}^2 +
+							\cdots +
+							{(x_n-y_n)}^2
+							} =
+							\sqrt{
+							\sum_{j=1}^n
+							{(x_j-y_j)}^2
+							} .
+							\end{equation*}
 						</span>
 					</p>
 
-					<p class="fragment" data-fragment-index="1">Using the Cauchy-Schwarz inequality we can determine the triangle inequality working with
+					<p class="fragment" data-fragment-index="1">Using the Cauchy-Schwarz inequality we can determine the
+						triangle inequality working with
 						the square of the metric:
 						\begin{equation*}
 						\begin{split}
@@ -325,14 +326,14 @@
 						The set of complex numbers $\C$ is the set of numbers $z = x+iy$, where $x$
 						and $y$ are in $\R$. By imposing $i^2 = -1$, we make $\C$ into a
 						field.
-						
+
 					</p>
 
 					<p class="fragment" data-fragment-index="0">
 						For the purposes of taking limits,
 						the set $\C$ is regarded as the metric space $\R^2$, where $z=x+iy \in \C$
 						corresponds to $(x,y) \in \R^2$.
-						
+
 					</p>
 
 					<p class="fragment" data-fragment-index="1">For $z=x+iy$ define the <em>complex modulus</em>
@@ -353,7 +354,7 @@
 						<span class="fragment" data-fragment-index="3">
 							Then
 							${\abs{z}}^2 = x^2 +y^2 = z\bar{z}$, and so ${\abs{z_1-z_2}}^2 =
-							(z_1-z_2)\overline{(z_1-z_2)}$.
+						(z_1-z_2)\overline{(z_1-z_2)}$.
 						</span>
 					</p>
 
@@ -367,11 +368,11 @@
 						Let $(X,d)$ be a metric space and $Y \subset X$. Then the restriction
 						$d|_{Y \times Y}$ is a metric on $Y$.
 					</p>
-					<p class="fragment" data-fragment-index="1"><strong>Defintion:</strong>
+					<p class="fragment" data-fragment-index="1"><strong>Definition:</strong>
 						If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
 						then $(Y,d')$ is said to be a <em>subspace</em> of $(X,d)$.
 					</p>
-					<p class="fragment" data-fragment-index="2"><strong>Defintion:</strong>
+					<p class="fragment" data-fragment-index="2"><strong>Definition:</strong>
 						Let $(X,d)$ be a metric space. A subset $S \subset X$ is said to be
 						<em>bounded</em> if there exists a $p \in X$ and a
 						$B \in \R$ such that
@@ -399,6 +400,9 @@
 						\begin{equation*}
 						B(x,\delta) := \bigl\{ y \in X : d(x,y) \lt \delta \bigr\} .
 						\end{equation*}
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
 						Define the <em>closed ball</em> as
 						\begin{equation*}
 						C(x,\delta) := \bigl\{ y \in X : d(x,y) \leq \delta \bigr\} .
@@ -412,7 +416,7 @@
 				<h4>Topology</h4>
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
-					<p><strong>Example:</strong>
+					<p class="fragment" data-fragment-index="0"><strong>Example:</strong>
 						Take the metric space $\R$ with the standard metric. For
 						$x \in \R$ and $\delta \gt 0$,
 						\begin{equation*}
@@ -422,18 +426,30 @@
 
 					</p>
 
-					<p><strong>Example:</strong>
-						Be careful when working on a subspace. Consider the
-						metric space $[0,1]$ as a subspace of $\R$. Then in $[0,1]$,
-						\begin{equation*}
-						B\left(0,\frac{1}{2}\right) = B_{[0,1]}\left(0,\frac{1}{2}\right)
-						= \left\{ y \in [0,1] : \abs{0-y} \lt \frac{1}{2} \right\}
-						= \left[0,\frac{1}{2}\right) .
-						\end{equation*}
-						This is different from $B_{\R}\left(0,\frac{1}{2}\right) =
-						\left(\frac{-1}{2},\frac{1}{2}\right)$.
-						The important thing to keep in mind is which metric space we are working
-						in.
+					<p class="fragment" data-fragment-index="1"><strong>Example:</strong>
+						Be careful when working on a subspace.
+						<span>
+							Consider the
+							metric space $[0,1]$ as a subspace of $\R$.
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							Then in $[0,1]$,
+							\begin{equation*}
+							B\left(0,\frac{1}{2}\right) = B_{[0,1]}\left(0,\frac{1}{2}\right)
+							= \left\{ y \in [0,1] : \abs{0-y} \lt \frac{1}{2} \right\}
+							= \left[0,\frac{1}{2}\right) .
+							\end{equation*}
+
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							This is different from $B_{\R}\left(0,\frac{1}{2}\right) =
+							\left(\frac{-1}{2},\frac{1}{2}\right)$.
+
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							The important thing to keep in mind is which metric space we are working
+							in.
+						</span>
 					</p>
 
 				</div>
@@ -447,13 +463,18 @@
 						Let $(X,d)$ be a metric space. A subset $V \subset X$
 						is <em>open</em>
 						if for every $x \in V$, there exists a $\delta \gt 0$ such that
-						$B(x,\delta) \subset V$. A subset $E \subset X$ is
-						<em>closed</em> if the complement $E^c = X \setminus E$ is open.
-						When the ambient space $X$ is not clear from context,
-						we say $V$ <em>is open in</em> $X$ and $E$ <em>is closed in</em> $X$.
+						$B(x,\delta) \subset V$.
+						<span class="fragment" data-fragment-index="0">
+							A subset $E \subset X$ is
+							<em>closed</em> if the complement $E^c = X \setminus E$ is open.
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							When the ambient space $X$ is not clear from context,
+							we say $V$ <em>is open in</em> $X$ and $E$ <em>is closed in</em> $X$.
+						</span>
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						If $x \in V$ and $V$ is open, then we say
 						$V$ is an <em>open neighborhood</em> of $x$ (or
 						sometimes just <em>neighborhood</em>).
@@ -466,29 +487,49 @@
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Example:</strong>
-						The set $(0,\infty) \subset \R$ is open: Given any $x \in (0,\infty)$,
-						let $\delta := x$. Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
+						The set $(0,\infty) \subset \R$ is open:
+						<span class="fragment" data-fragment-index="0">
+							Given any $x \in (0,\infty)$,
+							let $\delta := x$.
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
+						</span>
 
 
 					</p>
 
-					<p>
-						The set $[0,\infty) \subset \R$ is closed: Given $x \in (-\infty,0) =
-						[0,\infty)^c$,
-						let $\delta := -x$. Then $B(x,\delta) = (-2x,0) \subset
-						(-\infty,0) = [0,\infty)^c$.
+					<p class="fragment" data-fragment-index="2">
+						The set $[0,\infty) \subset \R$ is closed:
+						<span class="fragment" data-fragment-index="3">
+							Given $x \in (-\infty,0) =
+							[0,\infty)^c$,
+							let $\delta := -x$.
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							Then $B(x,\delta) = (-2x,0) \subset
+							(-\infty,0) = [0,\infty)^c$.
+						</span>
 					</p>
 
-					<p>
-						The set $[0,1) \subset \R$ is neither open nor closed. First,
-						every ball in $\R$ around $0$, $B(0,\delta) = (-\delta,\delta)$, contains negative
-						numbers and hence is not contained in $[0,1)$. So $[0,1)$ is not open.
-						Second, every ball in $\R$ around $1$,
-						$B(1,\delta) = (1-\delta,1+\delta)$, contains
-						numbers strictly less than 1 and greater than 0
-						(e.g. $1-\frac{\delta}{2}$ as long as $\delta \lt 2$).
-						Thus $[0,1)^c = \R \setminus
-						[0,1)$ is not open, and $[0,1)$ is not closed.
+					<p class="fragment" data-fragment-index="5">
+						The set $[0,1) \subset \R$ is neither open nor closed.
+						<span class="fragment" data-fragment-index="6">
+							First,
+							every ball in $\R$ around $0$, $B(0,\delta) = (-\delta,\delta)$, contains negative
+							numbers and hence is not contained in $[0,1)$. So $[0,1)$ is not open.
+						</span>
+						<span class="fragment" data-fragment-index="7">
+							Second, every ball in $\R$ around $1$,
+							$B(1,\delta) = (1-\delta,1+\delta)$, contains
+							numbers strictly less than 1 and greater than 0
+							(e.g. $1-\frac{\delta}{2}$ as long as $\delta \lt 2$).
+
+						</span>
+						<span class="fragment" data-fragment-index="8">
+							Thus $[0,1)^c = \R \setminus
+							[0,1)$ is not open, and $[0,1)$ is not closed.
+						</span>
 					</p>
 
 				</div>
@@ -498,7 +539,7 @@
 				<h4>Topology</h4>
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong>
+					<p><strong>Theorem:</strong>
 						Let $(X,d)$ be a metric space.
 					</p>
 					<ol class="r">
@@ -536,25 +577,40 @@
 						The sets $\emptyset$ and $X$ are obviously open in $X$.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						Let us prove (ii).
-						If $x \in \bigcap_{j=1}^k V_j$, then $x \in V_j$ for all $j$.
-						As $V_j$ are all open, for every $j$ there exists a $\delta_j \gt 0$
-						such that $B(x,\delta_j) \subset V_j$. Take $\delta := \min \{
-						\delta_1,\delta_2,\ldots,\delta_k \}$ and notice $\delta > 0$. We have
-						$B(x,\delta) \subset B(x,\delta_j) \subset V_j$ for every $j$ and so
-						$B(x,\delta) \subset \bigcap_{j=1}^k V_j$. Consequently the intersection is open.
+						<span class="fragment" data-fragment-index="1">
+							If $x \in \bigcap_{j=1}^k V_j$, then $x \in V_j$ for all $j$.
+							As $V_j$ are all open, for every $j$ there exists a $\delta_j \gt 0$
+							such that $B(x,\delta_j) \subset V_j$.
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							Take $\delta := \min \{
+							\delta_1,\delta_2,\ldots,\delta_k \}$ and notice $\delta > 0$.
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							We have
+							$B(x,\delta) \subset B(x,\delta_j) \subset V_j$ for every $j$ and so
+							$B(x,\delta) \subset \bigcap_{j=1}^k V_j$. Consequently the intersection is open.
+						</span>
 
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="4">
 						Let us prove (iii).
-						If $x \in \bigcup_{\lambda \in I} V_\lambda$, then $x \in V_\lambda$ for some
-						$\lambda \in I$.
-						As $V_\lambda$ is open, there exists a $\delta \gt 0$
-						such that $B(x,\delta) \subset V_\lambda$. But then
-						$B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$,
-						and so the union is open. $\blacksquare$
+						<span class="fragment" data-fragment-index="5">
+							If $x \in \bigcup_{\lambda \in I} V_\lambda$, then $x \in V_\lambda$ for some
+							$\lambda \in I$.
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							As $V_\lambda$ is open, there exists a $\delta \gt 0$
+							such that $B(x,\delta) \subset V_\lambda$. 
+						</span>
+						<span class="fragment" data-fragment-index="7">
+							But then
+							$B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$,
+							and so the union is open. $\blacksquare$
+						</span>
 					</p>
 
 				</div>
@@ -584,7 +640,7 @@
 				<h4>Topology</h4>
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong>
+					<p><strong>Theorem:</strong>
 						Let $(X,d)$ be a metric space.
 					</p>
 					<ol class="r">
@@ -617,7 +673,7 @@
 				<h4>Topology</h4>
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong>
+					<p><strong>Theorem:</strong>
 						Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Then
 						$B(x,\delta)$ is open and
 						$C(x,\delta)$ is closed.
@@ -1359,7 +1415,7 @@
 						\[
 						f^{-1}(E) = X \setminus f^{-1}(E^c)
 						\]
-						 is also closed. Therefore, if
+						is also closed. Therefore, if
 						we have a continuous
 						function $f \colon X \to \R$, then the
 						<em>zero set</em> of $f$, that is,
@@ -1368,9 +1424,9 @@
 						<em>algebraic geometry</em>, the study of
 						zero sets of polynomials: The zero set of a polynomial is closed.
 
-						
+
 					</p>
-					
+
 					<p>
 						Similarly the set where $f$ is nonnegative, that is,
 						$f^{-1}\bigl( [0,\infty) \bigr) = \bigl\{ x \in X : f(x) \geq 0 \bigr\}$,
