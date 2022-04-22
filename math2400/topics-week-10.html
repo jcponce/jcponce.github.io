@@ -1032,7 +1032,7 @@
 
 					<p><strong>Example:</strong>
 						Take $C([0,1],\R)$ be the set of continuous functions with the metric being
-						the uniform metric. We saw that we obtain a metric space.
+						the uniform metric. We know that we obtain a metric space.
 						<span class="fragment" data-fragment-index="0">
 							If we look at the definition of convergence, we notice that it is identical
 							to uniform convergence.
@@ -1084,12 +1084,19 @@
 
 					<p><strong>Example:</strong>
 						Recall that the set $\C$ of complex numbers $z = x+iy$ is considered
-						as the metric space $\R^2$. The previous theorem says that the
+						as the metric space $\R^2$.
+
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						The previous theorem says that the
 						sequence $\{ z_j \}_{j=1}^\infty = \{ x_j + iy_j \}_{j=1}^\infty$ converges
 						to $z = x+iy$
 						if and only if $\{ x_j \}$ converges to $x$ and
 						$\{ y_j \}$ converges to $y$.
 					</p>
+
+					<p><br /><br /><br /></p>
 
 				</div>
 			</section>
@@ -1108,21 +1115,30 @@
 						we have $x_n \in U$.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						<strong>Proof:</strong>
 						Suppose $\{ x_n \}$ converges to $x$. Let $U$ be an open neighborhood
 						of $x$, then there exists an $\epsilon \gt 0$ such that $B(x,\epsilon) \subset
-						U$. As the sequence converges, find an $M \in \N$ such that for all $n \geq
-						M$, we have $d(x,x_n) \lt \epsilon$, or in other words $x_n \in B(x,\epsilon)
-						\subset U$.
+						U$.
+						<span class="fragment" data-fragment-index="1">
+							As the sequence converges, find an $M \in \N$ such that for all $n \geq
+							M$, we have $d(x,x_n) \lt \epsilon$, or in other words $x_n \in B(x,\epsilon)
+							\subset U$.
+						</span>
 
 					</p>
 
-					<p>
-						Let us prove the other direction. Given $\epsilon > 0$, let $U :=
-						B(x,\epsilon)$ be the neighborhood of $x$. Then there is an $M \in \N$
-						such that for $n \geq M$, we have $x_n \in U = B(x,\epsilon)$, or in other
-						words, $d(x,x_n) \lt \epsilon$.
+					<p class="fragment" data-fragment-index="2">
+						Let us prove the other direction.
+						<span class="fragment" data-fragment-index="3">
+							Given $\epsilon > 0$, let $U :=
+							B(x,\epsilon)$ be the neighborhood of $x$.
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							Then there is an $M \in \N$
+							such that for $n \geq M$, we have $x_n \in U = B(x,\epsilon)$, or in other
+							words, $d(x,x_n) \lt \epsilon$.
+						</span>
 
 					</p>
 
@@ -1143,17 +1159,25 @@
 
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						<strong>Proof:</strong>
 						Let us prove the contrapositive.
-						Suppose $\{ x_n \}$ is a sequence in $X$ that converges to $x \in E^c$.
-						As $E^c$ is open, the previous Theorem says that there is
-						an $M$ such that for all $n \geq M$,
-						$x_n \in E^c$. So $\{ x_n \}$ is not a sequence in $E$.
+						<span class="fragment" data-fragment-index="1">
+							Suppose $\{ x_n \}$ is a sequence in $X$ that converges to $x \in E^c$.
+
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							As $E^c$ is open, the previous Theorem says that there is
+							an $M$ such that for all $n \geq M$,
+							$x_n \in E^c$.
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							So $\{ x_n \}$ is not a sequence in $E$.
+						</span>
 
 					</p>
 
-					<p><strong>Theorem:</strong>
+					<p class="fragment" data-fragment-index="4"><strong>Theorem:</strong>
 						Let $(X,d)$ be a metric space and $A \subset X$.
 						Then $x \in \overline{A}$ if and only if there exists a sequence $\{ x_n \}$ of
 						elements in $A$ such that $\lim\, x_n = x$.
@@ -1182,21 +1206,28 @@
 
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						<strong>Theorem:</strong>
 						A convergent sequence in a metric space is Cauchy.
 
 					</p>
 
-					<p><strong>Proof:</strong>
+					<p class="fragment" data-fragment-index="1"><strong>Proof:</strong>
 						Suppose $\{ x_n \}$ converges to $x$.
-						Given $\epsilon > 0$, there is an $M$ such that for all $n \geq M$,
-						we have $d(x,x_n) \lt \frac{\epsilon}{2}$. Hence
-						for all $n,k \geq M$, we have
-						$d(x_n,x_k) \leq d(x_n,x) + d(x,x_k) \lt \frac{\epsilon}{2} +
-						\frac{\epsilon}{2} = \epsilon$.
+						<span class="fragment" data-fragment-index="2">
+							Given $\epsilon > 0$, there is an $M$ such that for all $n \geq M$,
+							we have $d(x,x_n) \lt \frac{\epsilon}{2}$.
+
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							Hence
+							for all $n,k \geq M$, we have
+							$d(x_n,x_k) \leq d(x_n,x) + d(x,x_k) \lt \frac{\epsilon}{2} +
+							\frac{\epsilon}{2} = \epsilon$.
+						</span>
 
 					</p>
+
 
 
 
@@ -1219,18 +1250,21 @@
 
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						<strong>Theorem:</strong>
 						The space $\R^n$ with the standard metric is a complete metric space.
 
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						<strong>Remark:</strong>
 						A subset of $\R^n$ with the subspace metric need not be
-						complete. For example, $(0,1]$ with the subspace metric is not
-						complete as $\{ \frac{1}{n} \}$ is a Cauchy sequence in $(0,1]$
-						with no limit in $(0,1]$.
+						complete.
+						<span class="fragment" data-fragment-index="3">
+							For example, $(0,1]$ with the subspace metric is not
+							complete as $\left\{ \frac{1}{n} \right\}$ is a Cauchy sequence in $(0,1]$
+							with no limit in $(0,1]$.
+						</span>
 					</p>
 
 
@@ -1250,6 +1284,8 @@
 
 					</p>
 
+					<p><br/></p>
+
 					<p>
 						<strong>Theorem:</strong>
 						Suppose $(X,d)$ is a complete metric space and $E \subset X$
@@ -1257,10 +1293,7 @@
 
 					</p>
 
-
-
-
-
+					<p><br/><br/></p>
 
 				</div>
 			</section>
