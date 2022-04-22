@@ -604,7 +604,7 @@
 						</span>
 						<span class="fragment" data-fragment-index="6">
 							As $V_\lambda$ is open, there exists a $\delta \gt 0$
-							such that $B(x,\delta) \subset V_\lambda$. 
+							such that $B(x,\delta) \subset V_\lambda$.
 						</span>
 						<span class="fragment" data-fragment-index="7">
 							But then
@@ -679,18 +679,18 @@
 						$C(x,\delta)$ is closed.
 					</p>
 					<p class="fragment" data-fragment-index="0"><strong>Proof:</strong>
-						Let $y \in B(x,\delta)$. Let $\alpha := \delta-d(x,y)$. 
+						Let $y \in B(x,\delta)$. Let $\alpha := \delta-d(x,y)$.
 						<span class="fragment" data-fragment-index="1">
 							As $\alpha
-						\gt 0$, consider $z \in B(y,\alpha)$. Then
-						\begin{equation*}
-						d(x,z) \leq d(x,y) + d(y,z) \lt d(x,y) + \alpha = d(x,y) + \delta-d(x,y) =
-						\delta .
-						\end{equation*}
-						
+							\gt 0$, consider $z \in B(y,\alpha)$. Then
+							\begin{equation*}
+							d(x,z) \leq d(x,y) + d(y,z) \lt d(x,y) + \alpha = d(x,y) + \delta-d(x,y) =
+							\delta .
+							\end{equation*}
+
 						</span>
 						<span class="fragment" data-fragment-index="2">
-							
+
 							Therefore, $z \in B(x,\delta)$ for every $z \in B(y,\alpha)$. So $B(y,\alpha) \subset
 							B(x,\delta)$ and
 							$B(x,\delta)$ is open.
@@ -698,7 +698,8 @@
 
 					</p>
 
-					<p>The proof that $C(x,\delta)$ is closed is left as an exercise. $\blacksquare$</p>
+					<p class="fragment" data-fragment-index="3">The proof that $C(x,\delta)$ is closed is left as an
+						exercise. $\blacksquare$</p>
 
 				</div>
 			</section>
@@ -707,27 +708,32 @@
 				<h4>Topology</h4>
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong>
+					<p><strong>Theorem:</strong>
 						Suppose $(X,d)$ is a metric space, and $Y \subset X$. Then $U \subset Y$
 						is open in $Y$ (in the subspace topology), if and only if
 						there exists an open set $V \subset X$ (so open in $X$), such that
 						$V \cap Y = U$.
 
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						For example, let $X := \R$, $Y:=[0,1]$, $U := \left[0,\frac{1}{2}\right)$.
 						We saw that $U$ is an open set in $Y$.
 						We may take $V := \left(\frac{-1}{2},\frac{1}{2}\right)$.
 					</p>
-					<p><strong>Proof:</strong>
+					<p class="fragment" data-fragment-index="1"><strong>Proof:</strong>
 						Suppose $V \subset X$ is open and $x \in V \cap Y$.
-						Let $U := V \cap Y$.
-						As $V$ is open, there
-						exists a $\delta > 0$ such that $B_X(x,\delta) \subset V$.
-						Then
-						\begin{equation*}
-						B_Y(x,\delta) = B_X(x,\delta) \cap Y \subset V \cap Y = U .
-						\end{equation*}
+						<span>
+							Let $U := V \cap Y$.
+							As $V$ is open, there
+							exists a $\delta > 0$ such that $B_X(x,\delta) \subset V$.
+							
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							Then
+							\begin{equation*}
+							B_Y(x,\delta) = B_X(x,\delta) \cap Y \subset V \cap Y = U .
+							\end{equation*}
+						</span>
 
 					</p>
 
