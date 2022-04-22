@@ -782,31 +782,7 @@
 				</div>
 			</section>
 
-			<section>
-				<h4>Topology</h4>
-				<p class="size-60"><strong>Open and Closed sets</strong></p>
-				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong>
-						Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
-						and $E \subset X$ is closed.
-					</p>
 
-					<ol>
-						<li>
-							$U \subset V$ is open in the subspace topology if and only if $U$ is open
-							in $X$.
-						</li>
-						<li>
-							$F \subset E$ is closed in the subspace topology if and only if $F$ is
-							closed in $X$.
-
-						</li>
-					</ol>
-
-					<p><strong>Proof:</strong> Left as an exercise.</p>
-
-				</div>
-			</section>
 
 			<section>
 				<h4>Topology</h4>
@@ -856,8 +832,8 @@
 						open in $S$ and $S = S_1 \cup S_2$.
 						<span class="fragment" data-fragment-index="1">
 							A previous <a href="#/21">result</a> says there exist $U_1$ and $U_2$
-						that are open in $X$ such that $U_1 \cap S = S_1$ and
-						$U_2 \cap S = S_2$.
+							that are open in $X$ such that $U_1 \cap S = S_1$ and
+							$U_2 \cap S = S_2$.
 						</span>
 					</p>
 
@@ -882,12 +858,12 @@
 
 						<span class="fragment" data-fragment-index="0">
 							To prove this notice
-						\begin{equation*}
-						\bigl( (-\infty,z) \cap S \bigr)
-						\cup
-						\bigl( (z,\infty) \cap S \bigr)
-						= S .
-						\end{equation*}
+							\begin{equation*}
+							\bigl( (-\infty,z) \cap S \bigr)
+							\cup
+							\bigl( (z,\infty) \cap S \bigr)
+							= S .
+							\end{equation*}
 						</span>
 					</p>
 					<p><br /></p>
@@ -921,7 +897,7 @@
 						\end{equation*}
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						A sequence $\{ x_n \}$ is <em>bounded</em> if
 						there exists a point $p \in X$ and $B \in \R$ such that
 						\begin{equation*}
@@ -932,7 +908,7 @@
 						is bounded.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						If $\{ n_j \}_{j=1}^\infty$ is a sequence of natural numbers
 						such that $n_{j+1} > n_j$ for all $j$, then
 						the sequence $\{ x_{n_j} \}_{j=1}^\infty$
@@ -964,7 +940,7 @@
 
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						A sequence
 						that converges is <em>convergent</em>.
 						Otherwise, the sequence is
@@ -985,27 +961,38 @@
 
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						<strong>Proof:</strong>
 						Suppose the sequence $\{ x_n \}$ has limits $x$ and $y$.
 						Take an arbitrary $\epsilon \gt 0$.
-						From the definition find an $M_1$ such that for all $n \geq M_1$,
-						$d(x_n,x) \lt \frac{\epsilon}{2}$. Similarly find an $M_2$
-						such that for all $n \geq M_2$, we have
-						$d(x_n,y) \lt \frac{\epsilon}{2}$. Now take an $n$ such that
-						$n \geq M_1$ and also $n \geq M_2$, and estimate
-						\begin{equation*}
-						\begin{split}
-						d(y,x)
-						& \leq
-						d(y,x_n) + d(x_n,x) \\
-						& \lt
-						\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
-						\end{split}
-						\end{equation*}
-						As $d(y,x) \lt \epsilon$ for all $\epsilon \gt 0$, then $d(x,y) = 0$
-						and $y=x$. Hence the limit (if it exists) is unique.
+						<span class="fragment" data-fragment-index="1">
+							From the definition find an $M_1$ such that for all $n \geq M_1$,
+							$d(x_n,x) \lt \frac{\epsilon}{2}$.
 
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							Similarly find an $M_2$
+							such that for all $n \geq M_2$, we have
+							$d(x_n,y) \lt \frac{\epsilon}{2}$.
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							Now take an $n$ such that
+							$n \geq M_1$ and also $n \geq M_2$, and estimate
+							\begin{equation*}
+							\begin{split}
+							d(y,x)
+							& \leq
+							d(y,x_n) + d(x_n,x) \\
+							& \lt
+							\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
+							\end{split}
+							\end{equation*}
+
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							As $d(y,x) \lt \epsilon$ for all $\epsilon \gt 0$, then $d(x,y) = 0$
+							and $y=x$. Hence the limit (if it exists) is unique.
+						</span>
 					</p>
 
 				</div>
@@ -1021,7 +1008,7 @@
 						A convergent sequence in a metric space is bounded.
 					</p>
 
-					<p><strong>Theorem:</strong>
+					<p class="fragment" data-fragment-index="0"><strong>Theorem:</strong>
 						A sequence $\{ x_n \}$ in a metric space $(X,d)$ converges to $p \in X$
 						if and only
 						if there exists a sequence $\{ a_n \}$ of real numbers such that
@@ -1046,17 +1033,24 @@
 					<p><strong>Example:</strong>
 						Take $C([0,1],\R)$ be the set of continuous functions with the metric being
 						the uniform metric. We saw that we obtain a metric space.
-						If we look at the definition of convergence, we notice that it is identical
-						to uniform convergence. That is, $\{ f_n \}$ converges uniformly if and only
-						if it converges in the metric space sense.
+						<span class="fragment" data-fragment-index="0">
+							If we look at the definition of convergence, we notice that it is identical
+							to uniform convergence.
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							That is, $\{ f_n \}$ converges uniformly if and only
+							if it converges in the metric space sense.
+						</span>
 					</p>
+
+					<p><br /><br /><br /></p>
 
 				</div>
 			</section>
 
 			<section>
 				<h4>Sequences and convergence</h4>
-				<p class="sbt">Convergence in euclidian space</p>
+				<p class="sbt">Convergence in euclidean space</p>
 
 				<div class="left-txt size-60">
 
