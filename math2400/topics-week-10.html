@@ -726,7 +726,7 @@
 							Let $U := V \cap Y$.
 							As $V$ is open, there
 							exists a $\delta > 0$ such that $B_X(x,\delta) \subset V$.
-							
+
 						</span>
 						<span class="fragment" data-fragment-index="2">
 							Then
@@ -747,19 +747,25 @@
 					<p><strong>Proof (cont.):</strong>
 						For finshing the proof
 						a useful way to think about an open set is as
-						a union of open balls. If $U$ is
-						open, then for each $x \in U$, there is a $\delta_x > 0$
-						(depending on $x$) such that
-						$B(x,\delta_x) \subset U$. Then
-						$U = \bigcup_{x\in U} B(x,\delta_x)$. $\blacksquare$
+						a union of open balls.
+						<span class="fragment" data-fragment-index="0">
+							If $U$ is
+							open, then for each $x \in U$, there is a $\delta_x > 0$
+							(depending on $x$) such that
+							$B(x,\delta_x) \subset U$.
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							Then
+							$U = \bigcup_{x\in U} B(x,\delta_x)$. $\blacksquare$
+						</span>
 
 					</p>
-					<p><strong>Proposition:</strong>
+					<p class="fragment" data-fragment-index="3"><strong>Theorem:</strong>
 						Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
 						and $E \subset X$ is closed.
 					</p>
 
-					<ol>
+					<ol class="fragment" data-fragment-index="3">
 						<li>
 							$U \subset V$ is open in the subspace topology if and only if $U$ is open
 							in $X$.
@@ -771,7 +777,7 @@
 						</li>
 					</ol>
 
-					<p><strong>Proof:</strong> Left as an exercise.</p>
+					<p class="fragment" data-fragment-index="4"><strong>Proof:</strong> Left as an exercise.</p>
 
 				</div>
 			</section>
@@ -812,12 +818,12 @@
 						<em>clopen</em> subsets) are $\emptyset$ and $X$ itself.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						If a nonempty $(X,d)$ is not connected we say it is
 						<em>disconnected</em>.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						When we apply the term <em>connected</em> to a nonempty subset $A \subset X$, we
 						mean that $A$ with the subspace topology is connected.
 					</p>
@@ -828,7 +834,7 @@
 				<h4>Topology</h4>
 				<p class="size-60"><strong>Connected sets</strong></p>
 				<div class="left-txt size-60">
-					<p><strong>Proposition:</strong>
+					<p><strong>Theorem:</strong>
 						Let $(X,d)$ be a metric space.
 						A nonempty set $S \subset X$ is disconnected if and only if
 						there exist open sets $U_1$ and
@@ -844,16 +850,18 @@
 
 					</p>
 
-					<p><strong>Proof:</strong>
+					<p class="fragment" data-fragment-index="0"><strong>Proof:</strong>
 						First suppose $S$ is disconnected: There are
 						nonempty disjoint $S_1$ and $S_2$ that are
 						open in $S$ and $S = S_1 \cup S_2$.
-						A previous <a href="#/21">result</a> says there exist $U_1$ and $U_2$
+						<span class="fragment" data-fragment-index="1">
+							A previous <a href="#/21">result</a> says there exist $U_1$ and $U_2$
 						that are open in $X$ such that $U_1 \cap S = S_1$ and
 						$U_2 \cap S = S_2$.
+						</span>
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						For the other direction start with the $U_1$ and $U_2$.
 						Then $U_1 \cap S$ and $U_2 \cap S$ are open in $S$ by
 						the same <a href="#/21">result</a> reference above.
@@ -872,19 +880,20 @@
 						Let $S \subset \R$ be such that $x \lt z \lt y$ with $x,y \in S$
 						and $z \notin S$. Claim: $S$ is disconnected.
 
-						To prove this notice
+						<span class="fragment" data-fragment-index="0">
+							To prove this notice
 						\begin{equation*}
 						\bigl( (-\infty,z) \cap S \bigr)
 						\cup
 						\bigl( (z,\infty) \cap S \bigr)
 						= S .
 						\end{equation*}
+						</span>
 					</p>
 					<p><br /></p>
-					<p><strong>Proposition:</strong>
+					<p class="fragment" data-fragment-index="2"><strong>Theorem:</strong>
 						A nonempty set $S \subset \R$ is connected if and only if it is
 						an interval or a single point.
-
 
 					</p>
 
