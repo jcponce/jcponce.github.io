@@ -1284,16 +1284,16 @@
 
 					</p>
 
-					<p><br/></p>
+					<p><br /></p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						<strong>Theorem:</strong>
 						Suppose $(X,d)$ is a complete metric space and $E \subset X$
 						is closed, then $E$ is a complete metric space with the subspace topology.
 
 					</p>
 
-					<p><br/><br/></p>
+					<p><br /><br /></p>
 
 				</div>
 			</section>
@@ -1322,7 +1322,7 @@
 						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
 						that $f$ is a <em>continuous function</em>.
 
@@ -1348,26 +1348,34 @@
 						to $f(c)$.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						<strong>Proof:</strong>
 
 						Suppose $f$ is continuous at $c$. Let $\{ x_n \}$ be a
 						sequence in $X$ converging to $c$. Given $\epsilon > 0$,
 						there is a $\delta > 0$ such that $d_X(x,c) \lt \delta$ implies
-						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$. So take $M$ such that
-						for all $n \geq M$, we have $d_X(x_n,c) \lt \delta$, then
-						$d_Y\bigl(f(x_n),f(c)\bigr) \lt \epsilon$. Hence $\{ f(x_n) \}$
-						converges to $f(c)$.
+						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+						<span class="fragment" data-fragment-index="1">
+							So take $M$ such that
+							for all $n \geq M$, we have $d_X(x_n,c) \lt \delta$, then
+							$d_Y\bigl(f(x_n),f(c)\bigr) \lt \epsilon$. Hence $\{ f(x_n) \}$
+							converges to $f(c)$.
+						</span>
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						On the other hand, suppose $f$ is not continuous at $c$.
-						Then there exists an $\epsilon \gt 0$,
-						such that for every $n \in \N$ there exists an $x_n \in X$,
-						with
-						$d_X(x_n,c) \lt \frac{1}{n}$ such that $d_Y\bigl(f(x_n),f(c)\bigr) \geq
-						\epsilon$. Then $\{ x_n \}$ converges to $c$, but $\{ f(x_n) \}$
-						does not converge to $f(c)$.
+						<span class="fragment" data-fragment-index="3">
+							Then there exists an $\epsilon \gt 0$,
+							such that for every $n \in \N$ there exists an $x_n \in X$,
+							with
+							$d_X(x_n,c) \lt \frac{1}{n}$ such that $d_Y\bigl(f(x_n),f(c)\bigr) \geq
+							\epsilon$.
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							Then $\{ x_n \}$ converges to $c$, but $\{ f(x_n) \}$
+							does not converge to $f(c)$.
+						</span>
 					</p>
 
 
@@ -1388,20 +1396,26 @@
 						$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
 					</p>
 
-					<p>
+					<p class="fragment" data-fragment-index="0">
 						<strong>Proof:</strong>
 
 						First suppose that $f$ is continuous at $c$.
 						Let $U$ be an open neighborhood of $f(c)$
 						in $Y$, then $B_Y\bigl(f(c),\epsilon\bigr) \subset U$ for some $\epsilon >
-						0$. By continuity of $f$, there exists a $\delta > 0$
-						such that whenever $x$ is such that $d_X(x,c) \lt \delta$, then
-						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$. In other words,
-						\begin{equation*}
-						B_X(c,\delta) \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) \subset
-						f^{-1}(U) ,
-						\end{equation*}
-						and $B_X(c,\delta)$ is an open neighborhood of $c$.
+						0$.
+						<span class="fragment" data-fragment-index="1">
+							By continuity of $f$, there exists a $\delta > 0$
+							such that whenever $x$ is such that $d_X(x,c) \lt \delta$, then
+							$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							In other words,
+							\begin{equation*}
+							B_X(c,\delta) \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) \subset
+							f^{-1}(U) ,
+							\end{equation*}
+							and $B_X(c,\delta)$ is an open neighborhood of $c$.
+						</span>
 					</p>
 
 
@@ -1418,15 +1432,24 @@
 						<strong>Proof (cont.):</strong>
 
 						For the other direction,
-						let $\epsilon > 0$ be given. If
-						$f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr)$ contains an open
-						neighborhood $W$ of $c$, it contains a ball. That is, there is some $\delta > 0$
-						such that
-						\begin{equation*}
-						B_X(c,\delta) \subset W \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) .
-						\end{equation*}
-						That means precisely that if $d_X(x,c) \lt \delta$, then $d_Y\bigl(f(x),f(c)\bigr)
-						\lt \epsilon$, and so $f$ is continuous at $c$.
+						let $\epsilon > 0$ be given.
+						<span class="fragment" data-fragment-index="1">
+							If
+							$f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr)$ contains an open
+							neighborhood $W$ of $c$, it contains a ball.
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							That is, there is some $\delta > 0$
+							such that
+							\begin{equation*}
+							B_X(c,\delta) \subset W \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) .
+							\end{equation*}
+
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							That means precisely that if $d_X(x,c) \lt \delta$, then $d_Y\bigl(f(x),f(c)\bigr)
+							\lt \epsilon$, and so $f$ is continuous at $c$.
+						</span>
 					</p>
 
 
@@ -1438,7 +1461,7 @@
 				<p class="sbt">Continuity and Topology</p>
 
 				<div class="left-txt size-60">
-
+					<p><br /></p>
 					<p>
 						<strong>Theorem:</strong>
 						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
@@ -1446,6 +1469,8 @@
 						is continuous if and only if
 						for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
 					</p>
+
+					<p><br /></p>
 
 
 				</div>
@@ -1460,30 +1485,41 @@
 					<p>
 						<strong>Example:</strong>
 						Let $f \colon X \to Y$ be a continuous function.
-						The preevious Theorem tells us that if $E \subset Y$ is closed, then
-						\[
-						f^{-1}(E) = X \setminus f^{-1}(E^c)
-						\]
-						is also closed. Therefore, if
-						we have a continuous
-						function $f \colon X \to \R$, then the
-						<em>zero set</em> of $f$, that is,
-						$f^{-1}(0) = \bigl\{ x \in X : f(x) = 0 \bigr\}$, is closed.
-						We have just proved the most basic result in
-						<em>algebraic geometry</em>, the study of
-						zero sets of polynomials: The zero set of a polynomial is closed.
+						<span class="fragment" data-fragment-index="0">
+							The previous Theorem tells us that if $E \subset Y$ is closed, then
+							\[
+							f^{-1}(E) = X \setminus f^{-1}(E^c)
+							\]
+							is also closed.
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							Therefore, if
+							we have a continuous
+							function $f \colon X \to \R$, then the
+							<em>zero set</em> of $f$, that is,
+							$f^{-1}(0) = \bigl\{ x \in X : f(x) = 0 \bigr\}$, is closed.
 
-
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							We have just proved the most basic result in
+							<em>algebraic geometry</em>, the study of
+							zero sets of polynomials: The zero set of a polynomial is closed.
+						</span>
 					</p>
 
-					<p>
+
+					<p class="fragment" data-fragment-index="3">
 						Similarly the set where $f$ is nonnegative, that is,
 						$f^{-1}\bigl( [0,\infty) \bigr) = \bigl\{ x \in X : f(x) \geq 0 \bigr\}$,
-						is closed. On the other hand the
-						set where $f$ is positive,
-						$f^{-1}\bigl( (0,\infty) \bigr) = \bigl\{ x \in X : f(x) \gt 0 \bigr\}$,
-						is open.
+						is closed.
+						<span class="fragment" data-fragment-index="4">
+							On the other hand the
+							set where $f$ is positive,
+							\[f^{-1}\bigl( (0,\infty) \bigr) = \bigl\{ x \in X : f(x) \gt 0 \bigr\},
+							\text{ is open.}\]
+						</span>
 					</p>
+
 
 
 				</div>
