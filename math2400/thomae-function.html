@@ -120,7 +120,7 @@
 			<section id="plot-zoom">
 				<h4>Plot</h4>
 				
-				<img style="width: 90%;"  data-src="images/thomae/thomae-zoom.png" />
+				<img style="width: 87%;"  data-src="images/thomae/thomae-zoom.png" />
 
 			</section>
 
@@ -143,18 +143,23 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 	
 	<div class="left-txt size-70">
 		<p>
-			<strong>
-				Claim 1:
-			</strong>
-			Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
+			Thomae's function is:
 		</p>
 
-		<p>
-			<strong>
-				Claim 2:
-			</strong>
-			Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
-		</p>
+		<ol style="width: 90%;line-height: 190%;">
+			<li class="fragment" data-fragment-index="0">
+				continuous at each irrational in $(0,1)$.
+			</li>
+			<li class="fragment" data-fragment-index="1">
+				discontinuous at each rational in $(0,1)$.
+			</li>
+			<li class="fragment" data-fragment-index="2">
+				Riemann integrable on $[0,1]$ and 
+			$\displaystyle \int_0^1 f = 0.$
+			
+			</li>
+		</ol>
+		
 
 	</div>
 
@@ -207,8 +212,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			</strong>
 			Because this collection is finite, we can find a  
 			$\delta>0$ small enough such that the interval $(a-\delta, a+\delta)$
-			lies within $(0,1)$ and contains none of these fractions,
-			expect possibly $a$ itself.
+			lies within $(0,1)$ and contains none of these fractions.
 			
 
 		</p>
@@ -234,11 +238,11 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 		</p>
 
 		<p class="fragment" data-fragment-index="0">
-			Case 1: If $x=p/q$ is a rational in lowest terms, 
+			<em>Case 1</em> - If $x=p/q$ is a rational in lowest terms, 
 			<span class="fragment" data-fragment-index="1">
 				then 
 			\[
-			|\,f(x)-0|=|\,f(p/q)|=\frac{1}{q}\lt \frac{1}{N}\lt \epsilon,
+			|\,f(x)-0|=|\,f\left(\,p/q\right)|=\frac{1}{q}\lt \frac{1}{N}\lt \epsilon,
 			\]
 			</span>
 			<span class="fragment" data-fragment-index="2">
@@ -263,7 +267,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 				Proof (cont):
 			</strong>
 			<br/><br/>
-			Case 2: If $x$ is a irrational, 
+			<em>Case 2</em> - If $x$ is a irrational, 
 			<span class="fragment" data-fragment-index="0">
 				then 
 			$|\,f(x)-0|=0\lt \epsilon$ as well.
@@ -338,7 +342,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<span class="fragment" data-fragment-index="3">
 				then
 				\[
-				f(a) = f(p/q) =\frac{1}{q} \neq  \lim_{x\ra a} f(x),
+				f(a) = f(\,p/q) =\frac{1}{q} \neq  \lim_{x\ra a} f(x),
 				\]
 			</span>
 			<span class="fragment" data-fragment-index="7">
@@ -357,7 +361,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<strong>
 				Claim 3:
 			</strong> 
-			Thomae's functions is Riemann integrable on $[0,1]$ and 
+			Thomae's functions <em>is Riemann integrable</em> on $[0,1]$ and 
 			\[
 			\displaystyle \int_0^1 f = 0.
 			\]
@@ -425,19 +429,22 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<strong>
 				Proof (cont):
 			</strong>
-			Choose a partition $P$ such that the intervals $[t_{i-1}, t_i]$ which contain
-			some $x_j$ have a total length  $\lt \epsilon/2$.
-		</p>
-	</div>
-
-	<img style="width: 90%;" class="r-stretch fragment"  data-fragment-index="1" data-src="images/thomae/thomae-line2.svg" />
-
-	<div class="left-txt size-70">
-		<p class="fragment" data-fragment-index="2">
-			On each of the other intervals we will have $M_i\leq 1/n\lt \epsilon/2$.
+			Choose a partition $P$ such that 
+			<span class="fragment" data-fragment-index="0">
+				 the intervals $[t_{i-1}, t_i]$ which contain
+			some $x_j$ have a total length  $\lt \epsilon/2$. 
+			</span>
+			<span class="fragment" data-fragment-index="1">
+				On each of the other intervals we have $M_i\leq 1/n\lt \epsilon/2$.
+			</span>
 		</p>
 
+		
 	</div>
+
+	<img style="width: 90%;" class="r-stretch fragment"  data-fragment-index="2" data-src="images/thomae/thomae-line2.svg" />
+
+	
 </section>
 
 
