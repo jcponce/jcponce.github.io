@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Thomae's function</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h4>Thomae's function</h4>
+				
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:60%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p>
+									In 1875, the German mathematician Carl Johannes Thomae (1840-1921) published
+									the book <em>Einleitung In Die Theorie Der Bestimmten Integrale</em>
+									where he presented a very simple but provocative example of a continuous
+									function on irrational numbers and discontinuous on rational numbers.
+								</p>
+
+							</div>
+						</th>
+						<th style="width:40%;">
+							<img style="width: 60%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="https://3.bp.blogspot.com/-0hvq7S6mpbI/Vs2cOxUGG3I/AAAAAAAAI6Y/gi4VFIrjD2M/s1600/thomae.jpeg" />
+
+							
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>Thomae's function</h4>
+				<p class="sbt">Definition</p>
+				<div class="left-txt size-70">
+					<p>
+						Define $f \colon [0,1] \to \R$ by
+						\begin{equation*}
+						f(x) :=
+						\begin{cases}
+						\dfrac{1}{q} & \text{if } x=\dfrac{p}{q} \text{ where }
+						p,q \in \N \text{ and } p \text{ and } q \text{ have no common divisors,} \\
+						0 & \text{if } x \text{ is irrational.}
+						\end{cases}
+						\end{equation*}
+						Show $\int_0^1 f = 0$.
+					</p>
+
+
+				</div>
+
+			</section>
+
+			<section>
+				<h4>Thomae's function</h4>
+				<p class="sbt">Plot</p>
+				<img style="width: 90%;" data-src="images/thomae.png" />
+
+			</section>
+
+			<section>
+				<h4>Thomae's function</h4>
+				<p class="sbt">Plot</p>
+				<img style="width: 90%;"  data-src="images/thomae-zoom.png" />
+
+			</section>
+
+			<section>
+				<h4>Thomae's function</h4>
+				<p><br/></p>
+				<p class="sbt">GeoGebra script</p>
+			
+<pre><code data-line-numbers="3,8-10">n := 400
+thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
+</code></pre>
+<p class="size-50"><code> GCD( number, number ):</code> Calculates the greatest common divisor of the two numbers.</p>
+<p>
+	<br/><br/>
+</p>			
+</section>
+
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
