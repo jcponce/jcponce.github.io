@@ -113,14 +113,14 @@
 			<section>
 				<h4>Thomae's function</h4>
 				<p class="sbt">Plot</p>
-				<img style="width: 90%;" data-src="images/thomae.png" />
+				<img style="width: 90%;" data-src="images/thomae/thomae.png" />
 
 			</section>
 
 			<section>
 				<h4>Thomae's function</h4>
 				<p class="sbt">Plot</p>
-				<img style="width: 90%;"  data-src="images/thomae-zoom.png" />
+				<img style="width: 90%;"  data-src="images/thomae/thomae-zoom.png" />
 
 			</section>
 
@@ -144,13 +144,82 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 	<div class="left-txt size-70">
 		<p>
 			<strong>
-				Claim:
+				Claim 1:
 			</strong>
-			The Thomae's function is continuous at all irrationals and discontinuous at all rationals
+			The Thomae's function <em>is continuous at all irrationals</em> on $(0,1)$.
 		</p>
 
+		<p>
+			<strong>
+				Claim 2:
+			</strong>
+			The Thomae's function <em>is discontinuous at all rationals</em> on $(0,1)$.
+		</p>
 
 	</div>
+
+</section>
+
+<section>
+	<h4>Thomae's function</h4>
+	
+	<div class="left-txt size-70">
+		<p>
+			<strong>
+				Lemma:
+			</strong>
+			If $a$ is a point in $(0,1)$, then $\displaystyle \lim_{x\ra a}f(x)=0$
+		</p>
+
+		<p  class="fragment" data-fragment-index="0">
+			<strong>
+				Proof:
+			</strong>
+			For every $\epsilon>0$ choose an $N\in \N$ such that $1/N<\epsilon$.
+			
+
+		</p>
+
+		<p class="fragment" data-fragment-index="1">
+				Note that there are only finitely many rationals in lowest terms whose 
+				denominators are $N$ or smaller.
+		</p>
+
+		<p class="fragment" data-fragment-index="2">
+			For example, the only fractions with denominator $5$ or smaller are
+			\[
+			  \left\{     \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4}, \frac{3}{4}, \frac{1}{5}, \frac{2}{5}, \frac{3}{5},  \frac{4}{5} \right\} 
+			\]
+		</p>
+
+	</div>
+
+</section>
+
+<section>
+	<h4>Thomae's function</h4>
+	
+	<div class="left-txt size-70">
+
+		<p>
+			<strong>
+				Proof (cont):
+			</strong>
+			Because this collection is finite, we can find a  
+			$\delta>0$ small enough such that the interval $(a-\delta, a+\delta)$
+			lies within $(0,1)$ and contains none of these fractions,
+			expect possibly $a$ itself.
+			
+
+		</p>
+
+		
+
+		
+
+	</div>
+
+	<img style="width: 90%;" class="r-stretch fragment"  data-src="images/thomae/thomae-line.svg"  data-fragment-index="0"/>
 
 </section>
 
