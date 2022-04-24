@@ -213,13 +213,79 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 
 		</p>
 
-		
+	</div>
+	
+	<img style="width: 90%;" class="r-stretch fragment"  data-src="images/thomae/thomae-line.svg"  data-fragment-index="0"/>
 
-		
+	
+</section>
+
+<section>
+	<h4>Thomae's function</h4>
+	
+	<div class="left-txt size-70">
+
+		<p>
+			<strong>
+				Proof (cont):
+			</strong>
+			Now we choose any $x$ with $0<|x-a|\lt \delta$ and consider
+			two cases.
+		</p>
+
+		<p class="fragment" data-fragment-index="0">
+			Case 1: If $x=p/q$ is a rational in lowest terms, 
+			<span class="fragment" data-fragment-index="1">
+				then 
+			\[
+			|f(x)-0|=|f(p/q)|=\frac{1}{q}\lt \frac{1}{N}\lt \epsilon
+			\]
+			</span>
+			<span class="fragment" data-fragment-index="2">
+				because $q$ must be greater than $N$ if $p/q \in (a-\delta, a+\delta)$.
+			</span>
+
+		</p>
 
 	</div>
 
-	<img style="width: 90%;" class="r-stretch fragment"  data-src="images/thomae/thomae-line.svg"  data-fragment-index="0"/>
+	
+
+</section>
+
+<section>
+	<h4>Thomae's function</h4>
+	
+	<div class="left-txt size-70">
+
+		<p>
+			<strong>
+				Proof (cont):
+			</strong>
+			
+			Case 2: If $x$ is a irrational, 
+			<span class="fragment" data-fragment-index="0">
+				then 
+			\[
+			|f(x)-0|=0\lt \epsilon
+			\]
+			as well.
+			</span>
+		</p>
+
+		<p class="fragment" data-fragment-index="1">
+			In either case, for $\epsilon \gt 0$, we have found a $\delta>0$
+			such that, 
+			\[
+			\text{if } 0<|x-a|<\delta, \text{ then } |f(x)-0|\lt \epsilon.
+			\]
+			
+			<span></span>
+		</p>
+
+	</div>
+
+	
 
 </section>
 
