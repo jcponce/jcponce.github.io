@@ -55,7 +55,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 
-			<section>
+			<section id="intro">
 				<h4>Thomae's function</h4>
 				
 				<table style="width:100%;">
@@ -88,9 +88,8 @@
 				</table>
 			</section>
 
-			<section>
-				<h4>Thomae's function</h4>
-				<p class="sbt">Definition</p>
+			<section id="definition">
+				<h4>Definition</h4>
 				<div class="left-txt size-70">
 					<p>
 						Define $f \colon [0,1] \to \R$ by
@@ -110,24 +109,24 @@
 
 			</section>
 
-			<section>
-				<h4>Thomae's function</h4>
-				<p class="sbt">Plot</p>
+			<section id="plot">
+				<h4>Plot</h4>
+				
 				<img style="width: 90%;" data-src="images/thomae/thomae.png" />
 
 			</section>
 
-			<section>
-				<h4>Thomae's function</h4>
-				<p class="sbt">Plot</p>
+			<section id="plot-zoom">
+				<h4>Plot</h4>
+				
 				<img style="width: 90%;"  data-src="images/thomae/thomae-zoom.png" />
 
 			</section>
 
-			<section>
-				<h4>Thomae's function</h4>
+			<section id="geogebra-script">
+				<h4>GeoGebra script</h4>
 				<p><br/></p>
-				<p class="sbt">GeoGebra script</p>
+				
 			
 <pre><code data-line-numbers="3,8-10">n := 400
 thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
@@ -138,30 +137,30 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 </p>			
 </section>
 
-<section>
-	<h4>Thomae's function</h4>
+<section id="properties">
+	<h4>Properties</h4>
 	
 	<div class="left-txt size-70">
 		<p>
 			<strong>
 				Claim 1:
 			</strong>
-			The Thomae's function <em>is continuous at all irrationals</em> on $(0,1)$.
+			The Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
 		</p>
 
 		<p>
 			<strong>
 				Claim 2:
 			</strong>
-			The Thomae's function <em>is discontinuous at all rationals</em> on $(0,1)$.
+			The Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
 		</p>
 
 	</div>
 
 </section>
 
-<section>
-	<h4>Thomae's function</h4>
+<section id="lemma">
+	<h4>Properties</h4>
 	
 	<div class="left-txt size-70">
 		<p>
@@ -197,7 +196,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 </section>
 
 <section>
-	<h4>Thomae's function</h4>
+	<h4>Properties</h4>
 	
 	<div class="left-txt size-70">
 
@@ -221,7 +220,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 </section>
 
 <section>
-	<h4>Thomae's function</h4>
+	<h4>Properties</h4>
 	
 	<div class="left-txt size-70">
 
@@ -238,7 +237,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<span class="fragment" data-fragment-index="1">
 				then 
 			\[
-			|f(x)-0|=|f(p/q)|=\frac{1}{q}\lt \frac{1}{N}\lt \epsilon
+			|\,f(x)-0|=|\,f(p/q)|=\frac{1}{q}\lt \frac{1}{N}\lt \epsilon,
 			\]
 			</span>
 			<span class="fragment" data-fragment-index="2">
@@ -254,7 +253,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 </section>
 
 <section>
-	<h4>Thomae's function</h4>
+	<h4>Properties</h4>
 	
 	<div class="left-txt size-70">
 
@@ -262,14 +261,11 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<strong>
 				Proof (cont):
 			</strong>
-			
+			<br/>
 			Case 2: If $x$ is a irrational, 
 			<span class="fragment" data-fragment-index="0">
 				then 
-			\[
-			|f(x)-0|=0\lt \epsilon
-			\]
-			as well.
+			$|\,f(x)-0|=0\lt \epsilon$ as well.
 			</span>
 		</p>
 
@@ -277,15 +273,79 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			In either case, for $\epsilon \gt 0$, we have found a $\delta>0$
 			such that, 
 			\[
-			\text{if } 0<|x-a|<\delta, \text{ then } |f(x)-0|\lt \epsilon.
+			\text{if }\, 0<|x-a|<\delta, \,\text{ then } \,|\,f(x)-0|\lt \epsilon.
 			\]
 			
-			<span></span>
+			<span class="fragment" data-fragment-index="2">That is
+				
+				$\displaystyle \lim_{x\ra a}f(x)=0.$
+			</span>
 		</p>
 
 	</div>
 
 	
+
+</section>
+
+<section>
+	<h4>Properties</h4>
+	
+	<div class="left-txt size-70">
+		<p>
+			<strong>
+				Claim 1:
+			</strong>
+			The Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
+		</p>
+
+		<p class="fragment" data-fragment-index="0">
+			<strong>
+				Proof:
+			</strong>
+			This follows inmediately because, if $a\in (0,1)$ is irrational,
+			<span class="fragment" data-fragment-index="1">
+				then 
+				\[
+				f(a) = 0 =  \lim_{x\ra a} f(x) \;\text{ by the lemma}.
+				\]
+			</span>
+		</p>
+
+		<p class="fragment" data-fragment-index="2">So $f$ is continuous at $a$.</p>
+
+	</div>
+
+</section>
+
+<section>
+	<h4>Properties</h4>
+	
+	<div class="left-txt size-70">
+		<p>
+			<strong>
+				Claim 2:
+			</strong>
+			The Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
+		</p>
+
+		<p class="fragment" data-fragment-index="0">
+			<strong>
+				Proof:
+			</strong>
+			If $a=p/q\in (0,1)$ in lowest terms,
+			<span class="fragment" data-fragment-index="3">
+				then
+				\[
+				f(a) = f(p/q) =\frac{1}{q} \neq  \lim_{x\ra a} f(x),
+				\]
+			</span>
+			<span class="fragment" data-fragment-index="7">
+				and so $f$ is discontinuous at $a$.
+			</span>
+		</p>
+
+	</div>
 
 </section>
 
