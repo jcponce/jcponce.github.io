@@ -65,10 +65,12 @@
 							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 
 								<p>
-									In 1875, the German mathematician Carl Johannes Thomae (1840-1921) published
-									the book <em>Einleitung In Die Theorie Der Bestimmten Integrale</em>
-									where he presented a very simple but provocative example of a continuous
-									function on irrational numbers and discontinuous on rational numbers.
+									In 1875, the German mathematician  Johannes Karl Thomae (1840-1921) published
+									the book 
+									<em><a target="_blank" href="https://archive.org/details/einleitungindie00neumgoog/page/n26/mode/2up">Einleitung In Die Theorie Der Bestimmten Integrale</a></em>
+									where he introduced a very simple but provocative example of a 
+									function continuous at each irrational in $(0,1)$ and discontinuous at each 
+									rational in $(0,1)$ .
 								</p>
 
 							</div>
@@ -101,7 +103,6 @@
 						0 & \text{if } x \text{ is irrational.}
 						\end{cases}
 						\end{equation*}
-						Show $\int_0^1 f = 0$.
 					</p>
 
 
@@ -128,7 +129,7 @@
 				<p><br/></p>
 				
 			
-<pre><code data-line-numbers="3,8-10">n := 400
+<pre><code data-line-numbers="1-2">n := 400
 thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 </code></pre>
 <p class="size-50"><code> GCD( number, number ):</code> Calculates the greatest common divisor of the two numbers.</p>
@@ -145,14 +146,14 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<strong>
 				Claim 1:
 			</strong>
-			The Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
+			Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
 		</p>
 
 		<p>
 			<strong>
 				Claim 2:
 			</strong>
-			The Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
+			Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
 		</p>
 
 	</div>
@@ -288,7 +289,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 
 </section>
 
-<section>
+<section id="continuous-at-irrationals">
 	<h4>Properties</h4>
 	
 	<div class="left-txt size-70">
@@ -296,7 +297,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<strong>
 				Claim 1:
 			</strong>
-			The Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
+			Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
 		</p>
 
 		<p class="fragment" data-fragment-index="0">
@@ -318,7 +319,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 
 </section>
 
-<section>
+<section  id="discontinuous-at-rationals">
 	<h4>Properties</h4>
 	
 	<div class="left-txt size-70">
@@ -326,7 +327,7 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<strong>
 				Claim 2:
 			</strong>
-			The Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
+			Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
 		</p>
 
 		<p class="fragment" data-fragment-index="0">
@@ -347,6 +348,24 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 
 	</div>
 
+</section>
+
+<section id="riemann-integrable">
+	<h4>Properties</h4>
+	<div class="left-txt size-70">
+		<p>
+			<strong>
+				Claim 3:
+			</strong> 
+			Thomaes's functions is Riemann integrable and $\displaystyle \int_0^1 f = 0$.
+		</p>
+
+		<p>
+			<strong>
+				Proof:
+			</strong>
+		</p>
+	</div>
 </section>
 
 
