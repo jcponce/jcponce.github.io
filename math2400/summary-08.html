@@ -64,24 +64,133 @@
 			</section>
 
 			<section>
-				<h3>Sequences of funcitons</h3>
+				<h4>Sequences of funcitons</h4>
 
-				<p class="sbt">First form</p>
-				<div class="left-txt size-70">
+				<p class="sbt">Pointwise convergence</p>
+				<div class="left-txt size-60">
 					<p><span>
-							<strong>Theorem:</strong>
+							<strong>Definition:</strong>
 						</span>
-						Let $F \colon [a,b] \to \R$ be a continuous function, differentiable
-						on $(a,b)$. Let $f \in \mathcal R[a,b]$ be such that $f(x) = F'(x)$ for $x \in
-						(a,b)$. Then
+						For every $n \in \N$,
+						let $f_n \colon S \to \R$ be a function. The sequence
+						$\{ f_n \}_{n=1}^\infty$
+						<em>converges pointwise</em> to $f \colon S \to \R$ if for every $x
+						\in S$,
+						we have
 						\begin{equation*}
-						\int_a^b f = F(b)-F(a) .
+						f(x) =
+						\lim_{n\to\infty} f_n(x) .
 						\end{equation*}
 					</p>
 				</div>
 			</section>
 
-			
+			<section>
+				<h4>Sequences of funcitons</h4>
+
+				<p class="sbt">Pointwise convergence</p>
+				<div class="left-txt size-60">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $f_n \colon S \to \R$ and $f \colon S \to \R$ be functions.
+						Then $\{ f_n \}$ converges pointwise to $f$ if and only if
+						for every $x \in S$, and every $\epsilon \gt 0$, there exists
+						an $N \in \N$ such that for all
+						$n \geq N$, we have
+						\begin{equation*}
+						\abs{\,f_n(x)-f(x)} \lt \epsilon .
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Sequences of funcitons</h4>
+
+				<p class="sbt">Uniform convergence</p>
+				<div class="left-txt size-60">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $f_n \colon S \to \R$
+						and $f \colon S \to \R$
+						be functions. The sequence $\{ f_n \}$
+						<em>converges uniformly</em> to $f$ if for
+						every $\epsilon > 0$, there exists an $N \in \N$ such that
+						for all $n \geq N$, we have
+						\begin{equation*}
+						\abs{\,f_n(x) - f(x)} \lt \epsilon \qquad \text{for all } x \in S.
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences of funcitons</h4>
+
+				<p class="sbt">Uniform convergence</p>
+				<div class="left-txt size-60">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $\{ f_n \}$ be a sequence of functions $f_n \colon S \to \R$.
+						If $\{ f_n \}$ converges
+						uniformly to $f \colon S \to \R$, then $\{ f_n \}$ converges pointwise to $f$.
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Sequences of funcitons</h4>
+
+				<p class="sbt">Convergence in uniform norm</p>
+				<div class="left-txt size-60">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $f \colon S \to \R$ be a bounded function. Define
+						\begin{equation*}
+						\norm{\,f}_u :=
+						\sup \bigl\{ \abs{\,f(x)} : x \in S \bigr\} .
+						\end{equation*}
+						We call $\norm{\cdot}_u$ the <em>uniform norm</em>.
+
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences of funcitons</h4>
+
+				<p class="sbt">Convergence in uniform norm</p>
+				<div class="left-txt size-60">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						A sequence of bounded functions $f_n \colon S \to \R$ converges
+						uniformly to $f \colon S \to \R$, if and only if
+						\begin{equation*}
+						\lim_{n\to\infty} \norm{\,f_n - f}_u = 0 .
+						\end{equation*}
+
+					</p>
+
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+				</div>
+			</section>
+
+
 
 
 			<section>
