@@ -118,14 +118,10 @@
 								
 								<iframe scrolling="no" title="Pointwise convergence" src="https://www.geogebra.org/material/iframe/id/tqawquk4/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="507px" height="459px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 					
-						   
 							</td>
 	
 						</tr>
 					</table>
-					
-
-				
 			</section>
 
 			<section>
@@ -185,6 +181,8 @@
 			</section>
 
 
+
+
 			<section>
 				<h4>Sequences of functions</h4>
 
@@ -200,8 +198,64 @@
 						every $\epsilon > 0$, there exists an $N \in \N$ such that
 						for all $n \geq N$, we have
 						\begin{equation*}
-						\abs{\,f_n(x) - f(x)} \lt \epsilon \qquad \text{for all } x \in S.
+						\abs{\,f_n(x) - f(x)} \lt \epsilon \quad \text{for all } x \in S.
 						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+				<p class="sbt">Pointwise convergence</p>
+				
+					<table style="width:100%;">
+						<tr>
+	
+							<td style="width:40%">
+								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+									<p>
+										<span>
+											<strong>Theorem:</strong>
+										</span>
+										Let $f_n \colon S \to \R$
+										and $f \colon S \to \R$
+										be functions. The sequence $\{ f_n \}$
+										<em>converges uniformly</em> to $f$ if for
+										every $\epsilon > 0$, there exists an $N \in \N$ such that
+										for all $n \geq N$, we have
+										\begin{equation*}
+										\abs{\,f_n(x) - f(x)} \lt \epsilon  \;\text{ for all } x \in S.
+										\end{equation*}
+									</p>
+
+	
+								</div>
+							</td>
+							<td class="size-40" style="width:60%;">
+								
+								
+								<iframe scrolling="no" title="Sequences of functions: Uniform convergence" src="https://www.geogebra.org/material/iframe/id/k8vhgx2b/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="507px" height="459px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					
+							</td>
+	
+						</tr>
+					</table>
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Uniform convergence</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $\{ f_n \}$ be a sequence of functions
+						$f_n \colon S \to \R$. 
+						If $\{ f_n \}$ converges uniformly to $f \colon S \to \R$, 
+						then converges pointwise to $f$.
 					</p>
 				</div>
 			</section>
@@ -236,22 +290,29 @@
 			</section>
 
 			<section>
-				<h4>Sequences of functions</h4>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Nonuniform convergence criterion</p>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						Let $f_n(x) := \dfrac{x}{n}$ defined on $\R$ for every $n\in \N$.
+						Then
+						\[
+						\lim f_n(x) = \lim \frac{x}{n} = x\lim\frac{1}{n}=0 
+						\]
+						for all $x\in \R$.
+					</p>
 
-				<p class="sbt">Uniform convergence</p>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-						</span>
-						Let $\{ f_n \}$ be a sequence of functions
-						$f_n \colon S \to \R$. 
-						If $\{ f_n \}$ converges uniformly to $f \colon S \to \R$, 
-						then converges pointwise to $f$.
+					<p>Now consider the sequence $x_k := k $ in $\R$. Then $f_n(x_k)=1$
+						so that
+						\[
+						\abs{\,f_n(x_k)-f(x_k)}= \abs{1-0}=1.
+						\]
+						Therefore the sequence $\{f_n\}$ does not converges uniformly
 					</p>
 				</div>
-			</section>
 
-			
+				
+			</section>
 
 
 			<section>
