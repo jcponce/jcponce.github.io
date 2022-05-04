@@ -144,6 +144,7 @@ function draw () {
   noStroke();
  
 
+
   var m4_torus = new p5.Matrix();
 
   // add pointlights
@@ -249,6 +250,23 @@ function draw () {
   }
 
 
+}
+
+
+function touchStarted() {
+  cursor('grabbing');
+}
+
+function touchEnded() {
+  cursor('grab');
+}
+
+function mousePressed() {
+  cursor('grabbing');
+} // mousePressed() 
+
+function mouseReleased() {
+  cursor('grab');
 }
 
 
