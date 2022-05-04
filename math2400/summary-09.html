@@ -171,7 +171,7 @@
 			</section>
 
 			<section>
-				<h4>Topology</h4>
+				<h3>Topology</h3>
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Definition:</strong>
@@ -199,73 +199,220 @@
 
 
 			<section>
-				<h4>Topology</h4>
+				<h3>Topology</h3>
 				<p class="size-60"><strong>Open and Closed sets</strong></p>
 				<div class="left-txt size-60">
 					<p><strong>Theorem:</strong>
-						Let $(X,d)$ be a metric space.
+						Suppose $(X,d)$ is a metric space, and $Y \subset X$. Then $U \subset Y$
+						is open in $Y$ (in the subspace topology), if and only if
+						there exists an open set $V \subset X$ (so open in $X$), such that
+						$V \cap Y = U$.
+
 					</p>
-					<ol class="r">
-						<li>
-							$\emptyset$ and $X$ are open.
 
-						</li>
-						<li>
-							If $V_1, V_2, \ldots, V_k$ are open subset of $X$, then
-							\begin{equation*}
-							\bigcap_{j=1}^k V_j
-							\end{equation*}
-							is also open. That is, a finite intersection of open sets is open.
+					<p><strong>Theorem:</strong>
+						Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
+						and $E \subset X$ is closed.
+					</p>
+					
 
-						</li>
-						<li>
-							If $\{ V_\lambda \}_{\lambda \in I}$ is
-							an arbitrary collection of open subsets of $X$, then
-							\begin{equation*}
-							\bigcup_{\lambda \in I} V_\lambda
-							\end{equation*}
-							is also open. That is, a union of open sets is open.
-						</li>
-					</ol>
+				</div>
+			</section>
 
+			<section>
+				<h3>Sequences and convergence</h3>
+
+				<div class="left-txt size-60">
+
+					<p><strong>Definition:</strong>
+						A <em>sequence</em> in a metric space $(X,d)$ is a function
+						$x \colon \N \to X$. As before we write $x_n$ for the $n$th element in
+						the sequence and use the notation $\{ x_n \}$, or more precisely
+						\begin{equation*}
+						\{ x_n \}_{n=1}^\infty .
+						\end{equation*}
+					</p>
+
+					<p>
+						A sequence $\{ x_n \}$ is <em>bounded</em> if
+						there exists a point $p \in X$ and $B \in \R$ such that
+						\begin{equation*}
+						d(p,x_n) \leq B \qquad \text{for all } n \in \N.
+						\end{equation*}
+						In other words, the sequence $\{x_n\}$ is bounded whenever
+						the set $\{ x_n : n \in \N \}$
+						is bounded.
+					</p>
 
 				</div>
 			</section>
 
 
 			<section>
-				<h4>Topology</h4>
-				<p class="size-60"><strong>Open and Closed sets</strong></p>
+				<h3>Sequences and convergence</h3>
+
 				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $(X,d)$ be a metric space.
+
+					<p><strong>Definition:</strong>
+						A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
+						to <em>converge</em> to a point
+						$p \in X$ if for every $\epsilon \gt 0$, there exists an $M \in \N$ such
+						that $d(x_n,p) \lt \epsilon$ for all $n \geq M$. The point $p$
+						is said to be the <em>limit</em>
+						of $\{ x_n \}$. We write
+						\begin{equation*}
+						\lim_{n\to \infty} x_n := p .
+						\end{equation*}
+
+
 					</p>
-					<ol class="r">
-						<li>
-							$\emptyset$ and $X$ are closed.
 
-						</li>
-						<li>
-							If $\{ E_\lambda \}_{\lambda \in I}$ is
-							an arbitrary collection of closed subsets of $X$, then
-							\begin{equation*}
-							\bigcap_{\lambda \in I} E_\lambda
-							\end{equation*}
-							is also closed. That is, an intersection of closed sets is closed.
+					<p>
+						A sequence
+						that converges is <em>convergent</em>.
+						Otherwise, the sequence is
+						<em>divergent</em>.
+					</p>
 
-						</li>
-						<li>
-							If $E_1, E_2, \ldots, E_k$ are closed
-							subset of $X$, then
-							\begin{equation*}
-							\bigcup_{j=1}^k E_j
-							\end{equation*}
-							is also closed. That is, a finite union of closed sets is closed.
-						</li>
-					</ol>
 				</div>
 			</section>
 
+
+			<section>
+				<h3>Sequences and convergence</h3>
+
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Theorem:</strong>
+						A convergent sequence in a metric space has a unique limit.
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						A convergent sequence in a metric space is bounded.
+					</p>
+
+					<p><strong>Theorem:</strong>
+						Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$,
+						where we write $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
+						Then $\{ x_j \}_{j=1}^\infty$ converges if and only if
+						$\{ x_{j,k} \}_{j=1}^\infty$ converges for every $k=1,2,\ldots,n$, in which case
+						\begin{equation*}
+						\lim_{j\to\infty}
+						x_j =
+						\Bigl(
+						\lim_{j\to\infty} x_{j,1},
+						\lim_{j\to\infty} x_{j,2},
+						\ldots,
+						\lim_{j\to\infty} x_{j,n}
+						\Bigr) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Sequences and convergence</h3>
+				<p class="sbt">Convergence and Topology</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$. Then
+						$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
+						$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
+						we have $x_n \in U$.
+					</p>
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
+						and $\{ x_n \}$ a sequence in $E$ that converges to some $x \in X$.
+						Then $x \in E$.
+
+					</p>
+
+				</div>
+			</section>
+
+		
+			<section>
+				<h3>Continuous functions</h3>
+				<p class="sbt">Continuity</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Definition:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+						Then $f \colon X \to Y$ is
+						<em>continuous at $c$</em>
+						if for every $\epsilon \gt 0$
+						there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
+						\delta$, then
+						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+					</p>
+
+					<p>
+						When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+						that $f$ is a <em>continuous function</em>.
+
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Continuous functions</h3>
+				<p class="sbt">Continuity</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+						Then $f \colon X \to Y$ is
+						continuous at $c \in X$
+						if and only if for every sequence $\{ x_n \}$ in $X$
+						converging to $c$, the sequence $\bigl\{ f(x_n) \bigr\}$ converges
+						to $f(c)$.
+					</p>
+
+					
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Continuous functions</h3>
+				<p class="sbt">Continuity and Topology</p>
+
+				<div class="left-txt size-60">
+
+
+					<p><strong>Lemma:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+						A function $f \colon X \to Y$ is continuous at $c \in X$
+						if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
+						$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
+						\to Y$
+						is continuous if and only if
+						for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
+					</p>
+
+
+				</div>
+			</section>
 
 
 			<section>
