@@ -60,25 +60,211 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 9</p>
+				<p>Summary Week 10</p>
 			</section>
 
-			<section data-background-iframe="https://acko.net/files/mathbox2/iframe-quat.html" >
-				
-				<h2>Metric spaces <br />&<br /> Topology</h2>
+			<section data-background-iframe="https://freshfork.github.io/p5.EasyCam/examples/AnimatedPointLights/" >
+				<br/><br/><br/><br/><br/><br/><br/>
+				<h3 style="color:white">Metric spaces <br />&<br /> Topology</h3>
 				
 
 
 			</section>
 
 			<section>
-				<iframe scrolling="no" 
-					data-src="sketches/window/index.html"
-					width="507px" height="459px" style="border:2px;" data-preload allowfullscreen=""> </iframe>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $X$ be a set, and let
+						$d \colon X \times X \to \R$
+						be a function such that for all $x,y,z \in X$
+					</p>
+					<ol class="r">
+						<li>
+							$d(x,y) \geq 0$. (<em>nonnegativity</em>)
+						</li>
+						<li>
+							$d(x,y) = 0$ if and only if $x = y$. (<em>identity of indiscernibles</em>)
+						</li>
+						<li>
+							$d(x,y) = d(y,x)$. (<em>symmetry</em>)
+						</li>
+						<li>
+							$d(x,z) \leq d(x,y)+ d(y,z)$. (<em>triangle inequality</em>)
+						</li>
+					</ol>
+					<p>The pair $(X,d)$ is called a <em>metric space</em>. The
+						function $d$ is called the <em>metric</em> or the
+						<em>distance function</em>.
+						Sometimes we write just $X$ as the metric space instead of $(X,d)$
+						if the metric is clear from context.</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Lemma (Cauchy-Schwarz inequality):</strong> If $x =(x_1,x_2,\ldots,x_n) \in \R^n$ and $y
+						=(y_1,y_2,\ldots,y_n) \in
+						\R^n$, then
+						\begin{equation*}
+						{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
+						\leq
+						\biggl(\sum_{j=1}^n x_j^2 \biggr)
+						\biggl(\sum_{j=1}^n y_j^2 \biggr) .
+						\end{equation*}
+
+					</p>
+
+
+				</div>
 
 			</section>
 
-			
+			<section>
+				<h3>Metric spaces </h3>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space and $Y \subset X$. Then the restriction
+						$d|_{Y \times Y}$ is a metric on $Y$.
+					</p>
+					<p><strong>Definition:</strong>
+						If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
+						then $(Y,d')$ is said to be a <em>subspace</em> of $(X,d)$.
+					</p>
+					<p><strong>Definition:</strong>
+						Let $(X,d)$ be a metric space. A subset $S \subset X$ is said to be
+						<em>bounded</em> if there exists a $p \in X$ and a
+						$B \in \R$ such that
+						\begin{equation*}
+						d(p,x) \leq B \quad \text{for all } x \in S.
+						\end{equation*}
+						We say $(X,d)$ is bounded if $X$ itself is a bounded subset.
+					</p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Topology</h3>
+				<p class="size-60"><strong>Open and Closed sets</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Define
+						the <em>open ball</em>, or simply <em>ball</em>, of radius $\delta$
+						around $x$ as
+						\begin{equation*}
+						B(x,\delta) := \bigl\{ y \in X : d(x,y) \lt \delta \bigr\} .
+						\end{equation*}
+					</p>
+
+					<p>
+						Define the <em>closed ball</em> as
+						\begin{equation*}
+						C(x,\delta) := \bigl\{ y \in X : d(x,y) \leq \delta \bigr\} .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Closed sets</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $(X,d)$ be a metric space. A subset $V \subset X$
+						is <em>open</em>
+						if for every $x \in V$, there exists a $\delta \gt 0$ such that
+						$B(x,\delta) \subset V$.
+						<span>
+							A subset $E \subset X$ is
+							<em>closed</em> if the complement $E^c = X \setminus E$ is open.
+						</span>
+						<span>
+							When the ambient space $X$ is not clear from context,
+							we say $V$ <em>is open in</em> $X$ and $E$ <em>is closed in</em> $X$.
+						</span>
+					</p>
+
+					<p>
+						If $x \in V$ and $V$ is open, then we say
+						$V$ is an <em>open neighborhood</em> of $x$ (or
+						sometimes just <em>neighborhood</em>).
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Closed sets</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space.
+					</p>
+					<ol class="r">
+						<li>
+							$\emptyset$ and $X$ are open.
+
+						</li>
+						<li>
+							If $V_1, V_2, \ldots, V_k$ are open subset of $X$, then
+							\begin{equation*}
+							\bigcap_{j=1}^k V_j
+							\end{equation*}
+							is also open. That is, a finite intersection of open sets is open.
+
+						</li>
+						<li>
+							If $\{ V_\lambda \}_{\lambda \in I}$ is
+							an arbitrary collection of open subsets of $X$, then
+							\begin{equation*}
+							\bigcup_{\lambda \in I} V_\lambda
+							\end{equation*}
+							is also open. That is, a union of open sets is open.
+						</li>
+					</ol>
+
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Topology</h4>
+				<p class="size-60"><strong>Open and Closed sets</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $(X,d)$ be a metric space.
+					</p>
+					<ol class="r">
+						<li>
+							$\emptyset$ and $X$ are closed.
+
+						</li>
+						<li>
+							If $\{ E_\lambda \}_{\lambda \in I}$ is
+							an arbitrary collection of closed subsets of $X$, then
+							\begin{equation*}
+							\bigcap_{\lambda \in I} E_\lambda
+							\end{equation*}
+							is also closed. That is, an intersection of closed sets is closed.
+
+						</li>
+						<li>
+							If $E_1, E_2, \ldots, E_k$ are closed
+							subset of $X$, then
+							\begin{equation*}
+							\bigcup_{j=1}^k E_j
+							\end{equation*}
+							is also closed. That is, a finite union of closed sets is closed.
+						</li>
+					</ol>
+				</div>
+			</section>
 
 
 
