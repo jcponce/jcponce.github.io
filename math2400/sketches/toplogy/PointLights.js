@@ -69,6 +69,8 @@ var torus_def = {
   r2 : 15,
 };
 
+var rand_rad;
+
 
 
 
@@ -101,6 +103,8 @@ function setup () {
     center  : [0, 0, 60],
     rotation: [0.81146751, 0.5188172, 0.127647, -0.2367598],
   };
+
+  rand_rad = floor(random(1,4))
   
   console.log(Dw.EasyCam.INFO);
   
@@ -235,7 +239,7 @@ function draw () {
   pop();
   
   // random spheres
-  randomSeed(2);
+  randomSeed(rand_rad);
   setMaterial(phongshader, matDark);
   for(var i = 0; i < 20; i++){
     push();
