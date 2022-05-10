@@ -1010,7 +1010,7 @@ view.grid({
 }).slice({
   width: [1, 2]
 }).format({
-  data: ["z"]
+  data: ["y"]
 }).label({
   color: 0x40A020,
   offset: [30, -30]
@@ -1022,7 +1022,7 @@ view.grid({
 }).slice({
   width: [1, 2]
 }).format({
-  data: ["y"]
+  data: ["z"]
 }).label({
   color: 0xC02050
 });
