@@ -1010,7 +1010,7 @@ view.grid({
 }).slice({
   width: [1, 2]
 }).format({
-  data: ["y"]
+  data: ["z"]
 }).label({
   color: 0x40A020,
   offset: [30, -30]
@@ -1022,7 +1022,7 @@ view.grid({
 }).slice({
   width: [1, 2]
 }).format({
-  data: ["z"]
+  data: ["y"]
 }).label({
   color: 0xC02050
 });
@@ -1096,7 +1096,7 @@ present.on('change', function(e) {
     el = ref1[k];
     el.remove();
   }
-  if (step === 21) {
+  /*if (step === 21) {
     surface = mathbox.select('vector')[0];
     if (surface != null) {
       surface.controller.objects[0].renders[0].material.fragmentGraph.inspect();
@@ -1107,8 +1107,8 @@ present.on('change', function(e) {
       enlarge(el, 2);
       enter(el, 2);
     }
-  }
-  if (step === 22) {
+  }*/
+  /*if (step === 22) {
     surface = mathbox.select('vector')[0];
     if (surface != null) {
       surface.controller.objects[0].renders[0].material.vertexGraph.inspect();
@@ -1121,7 +1121,7 @@ present.on('change', function(e) {
       results.push(enter(el, 0));
     }
     return results;
-  }
+  }*/
 });
 
 if (window === top) {
