@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>MathBox - 3D Grapher</title>
+	<script src="../mathbox/mathbox-bundle.min.js"></script>
+
+
+	<link rel="stylesheet" href="../mathbox/mathbox.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+	<script>
+		// Load mathbox with controls
+		var mathbox = mathBox({
+			plugins: ['core', 'cursor', 'controls'],
+			controls: {
+				klass: THREE.OrbitControls,
+			},
+		});
+		if (mathbox.fallback) throw "WebGL error";
+
+		// Set renderer background
+		var three = mathbox.three;
+		three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+		// Set mathbox units and place camera
+		mathbox.set({
+			scale: 720,
+			focus: 3
+		});
+		mathbox.camera({
+			proxy: true,
+			position: [0, 0, 3]
+		});
+
+		// Create cartesian view
+		var view = mathbox.cartesian({
+			range: [
+				[-10, 10],
+				[-5, 5],
+				[-1, 1]
+			],
+			scale: [6 / 4, 3 / 4, 3 / 4],
+		});
+
+		// 2D axes / grid
+		view.axis({
+			axis: 1,
+			width: 3
+		});
+		view.axis({
+			axis: 2,
+			width: 3
+		});
+		view.grid({
+			width: 1.5,
+			divideX: 20,
+			divideY: 10
+		});
+
+		// Sine Wave Curve
+		view
+			.interval({
+				width: 32,
+				channels: 2,
+				expr: function (emit, x, i, t) {
+					emit(x, 3.5 * Math.sin(x + t));
+				},
+			})
+			.line({
+				width: 5,
+				color: '#3090FF',
+			})
+			.point({
+				size: 10,
+				color: '#3090FF',
+			});
+	</script>
+</body>
+
+</html>
