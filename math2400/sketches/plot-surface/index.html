@@ -36,59 +36,86 @@
 			position: [0, -2.5, 0.4]
 		});
 
+		var xMin = -3,
+			xMax = 3,
+			yMin = -2,
+			yMax = 2,
+			zMin = -3,
+			zMax = 3;
+		var uMin = -3.14,
+			uMax = 3.14,
+			vMin = -1.5,
+			vMax = 1.5;
+
 		// Create cartesian view
-		var domain = mathbox.cartesian({
+		var view = mathbox.cartesian({
 			range: [
-				[-3.14, 3.14],
-				[-1.5, 1.5],
-				[-10, 10]
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
 			],
-			scale: [1.5, 1.5, 2.5],
+			scale: [0.8, 0.8, 0.8],
 		});
 
-		// 2D axes / grid
-		//domain.axis({
-		//	axis: 1,
-		//	width: 3
-		//});
-		//domain.axis({
-		//	axis: 2,
-		//	width: 3
-		//});
-		//domain.grid({
-		//	width: 1.5,
-		//	divideX: 20,
-		//	divideY: 10
-		//});
+		// Create u,v domain
+		var domain = mathbox.cartesian({
+			range: [
+				[uMin, uMax],
+				[vMin, vMax]
+			]
+		});
 
-		//var xFunctionText = "cos(t) * sinh(v) * sin(u) + sin(t) * cosh(v) * cos(u)";
-	    //var yFunctionText = "-cos(t) * sinh(v) * cos(u) + sin(t) * cosh(v) * sin(u)";
-	    //var zFunctionText = "u * cos(t) + v * sin(t)";
+		// 3D axes / grid
+		domain.axis({
+			axis: 1,
+			width: 3
+		});
+		domain.axis({
+			axis: 2,
+			width: 3
+		});
+		domain.axis({
+			axis: 3,
+			width: 3
+		});
+		domain.grid({
+			width: 1,
+			divideX: 20,
+			divideY: 20
+		});
 
-		// Sine Wave Curve
-		domain
-			.area({
-				axes: [1, 4],
-				width: 193,
-				height: 97,
+		
+		// Data for plotting
+		var resolution = 64;
+		var graphData = domain.area({
+				axes: [1, 2], // u, v
+				width: resolution,
+				height: resolution,
 				channels: 3,
 				expr: function (emit, u, v, i, j, t) {
 					//emit(x, 3.5 * Math.sin(x + t));
 					var spd = 0.35;
 					//emit(x, π / 2 + .6 * Math.sin(x + spd * t - y + 2 * Math.sin(y)) + .3 * Math.sin(x * 2 + y * 2 + spd * t *
-						//1.81) + .1825 * Math.sin(x * 3 - y * 2 + spd * t * 2.18), y);
-					emit(Math.cos(spd *t) * Math.sinh(v) * Math.sin(u) + Math.sin(spd *t) * Math.cosh(v) * Math.cos(u),
-					-Math.cos(spd *t) * Math.sinh(v) * Math.cos(u) + Math.sin(spd *t) * Math.cosh(v) * Math.sin(u),
-					u * Math.cos(spd *t) + v * Math.sin(spd *t)
+					//1.81) + .1825 * Math.sin(x * 3 - y * 2 + spd * t * 2.18), y);
+					emit(Math.cos(spd * t) * Math.sinh(v) * Math.sin(u) + Math.sin(spd * t) * Math.cosh(v) * Math.cos(
+							u),
+						-Math.cos(spd * t) * Math.sinh(v) * Math.cos(u) + Math.sin(spd * t) * Math.cosh(v) * Math
+						.sin(u),
+						u * Math.cos(spd * t) + v * Math.sin(spd * t)
 					)
 				},
-			})
-			.surface({
-				width: 5,
-				color: '#3090FF',
-				zBias: 3,
-				shaded: true
 			});
+		view.surface({
+			points: graphData,
+			fill: true,
+			lineX: true,
+			lineY: true,
+			width: 0.5,
+			color: '#3090FF',
+			zBias: 3,
+			shaded: true,
+			zBias: 7
+		});
 	</script>
 </body>
 
