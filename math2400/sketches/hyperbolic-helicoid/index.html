@@ -52,9 +52,6 @@
 
 		var updateGraph = function () {
 
-			//vMin = vminGUI;
-			//vMax = vmaxGUI;
-
 			view.set("range", [
 				[xMin, xMax],
 				[yMin, yMax],
@@ -65,8 +62,6 @@
 				[vMin, vMax]
 			]);
 
-			
-			
 			torsion = torsionGUI;
 
 		};
@@ -116,10 +111,10 @@
 		};
 		var Fy = function (x, y, t) {
 			return (Math.sinh(y) * Math.sin(t * x)) / (1 + Math.cosh(x) * Math.cosh(y));
-		}; 
+		};
 		var Fz = function (x, y, t) {
 			return (Math.cosh(y) * Math.sinh(x)) / (1 + Math.cosh(x) * Math.cosh(y));
-		}; 
+		};
 
 		// Data for plotting
 		var resolution = 696;
@@ -130,19 +125,19 @@
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
 				var spd = 0.35;
-				
-				if (play){
+
+				if (play) {
 					emit(
-					Fx(u, v, 7 * Math.cos(spd * t)),
-					Fy(u, v, 7 * Math.cos(spd * t)),
-					Fz(u, v, 0)
-				    )
+						Fx(u, v, 7 * Math.cos(spd * t)),
+						Fy(u, v, 7 * Math.cos(spd * t)),
+						Fz(u, v, 0)
+					)
 				} else {
 					emit(
 						Fx(u, v, torsion),
 						Fy(u, v, torsion),
 						Fz(u, v, torsion)
-				    )
+					)
 				}
 			},
 		});
@@ -162,8 +157,8 @@
 
 		var gui = new dat.GUI();
 
-		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange( updateGraph );
-		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange( updateGraph );
+		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange(updateGraph);
+		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange(updateGraph);
 		var torsionGUI = gui.add(this, 'torsion').min(-10).max(10).step(0.01).name('t = ');
 		var animateGUI = gui.add(this, 'play')
 
