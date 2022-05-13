@@ -34,7 +34,7 @@
 		});
 		mathbox.camera({
 			proxy: true,
-			position: [0, -2.5, 0.4]
+			position: [0.09, -2.9, 0.7]
 		});
 
 		var xMin = -3,
@@ -48,6 +48,7 @@
 			vMin = -2.5,
 			vMax = 2.5;
 		var play = true;
+		var torsion = 5;
 
 		var updateGraph = function () {
 			view.set("range", [
@@ -59,6 +60,7 @@
 				[uMin, uMax],
 				[vMin, vMax]
 			]);
+			torsion = torsionGUI;
 		};
 
 		// Create cartesian view
@@ -110,16 +112,19 @@
 			height: resolution,
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
-				var spd;
-				if (play) {
-					spd = 0.25;
-				} else {
-					spd = 0.0;
-				}
-				emit((Math.sinh(v) * Math.cos(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
+				var spd = 0.25;
+				
+				if (play){
+					emit((Math.sinh(v) * Math.cos(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
 					(Math.sinh(v) * Math.sin(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
 					(Math.cosh(v) * Math.sinh(u)) / (1 + Math.cosh(u) * Math.cosh(v))
 				)
+				} else {
+					emit((Math.sinh(v) * Math.cos( torsion * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
+					(Math.sinh(v) * Math.sin(torsion *  u)) / (1 + Math.cosh(u) * Math.cosh(v)),
+					(Math.cosh(v) * Math.sinh(u)) / (1 + Math.cosh(u) * Math.cosh(v))
+				)
+				}
 			},
 		});
 		view.surface({
@@ -138,13 +143,14 @@
 
 		var gui = new dat.GUI();
 
-		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('uMin = ');
-		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('uMax = ');
-		var animate = gui.add(this, 'play')
+		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ');
+		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ');
+		var torsionGUI = gui.add(this, 'torsion').min(0).max(10).step(0.01).name('t = ');
+		var animateGUI = gui.add(this, 'play')
 
 		gui.add(this, 'updateGraph').name("Update Graph");
 
-		gui.open();
+		//gui.close();
 	</script>
 </body>
 
