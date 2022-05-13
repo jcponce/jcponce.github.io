@@ -25,7 +25,7 @@
 
 		// Set renderer background
 		var three = mathbox.three;
-		three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+		three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
 
 		// Set mathbox units and place camera
 		mathbox.set({
@@ -51,6 +51,10 @@
 		var torsion = 5;
 
 		var updateGraph = function () {
+
+			//vMin = vminGUI;
+			//vMax = vmaxGUI;
+
 			view.set("range", [
 				[xMin, xMax],
 				[yMin, yMax],
@@ -60,7 +64,11 @@
 				[uMin, uMax],
 				[vMin, vMax]
 			]);
+
+			
+			
 			torsion = torsionGUI;
+
 		};
 
 		// Create cartesian view
@@ -105,14 +113,14 @@
 
 
 		// Data for plotting
-		var resolution = 720;
+		var resolution = 696;
 		var graphData = domain.area({
 			axes: [1, 2], // u, v
 			width: resolution,
 			height: resolution,
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
-				var spd = 0.25;
+				var spd = 0.35;
 				
 				if (play){
 					emit((Math.sinh(v) * Math.cos(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
@@ -143,14 +151,14 @@
 
 		var gui = new dat.GUI();
 
-		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ');
-		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ');
+		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange( updateGraph );
+		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange( updateGraph );
 		var torsionGUI = gui.add(this, 'torsion').min(0).max(10).step(0.01).name('t = ');
 		var animateGUI = gui.add(this, 'play')
 
-		gui.add(this, 'updateGraph').name("Update Graph");
+		//gui.add(this, 'updateGraph').name("Update Graph");
 
-		gui.close();
+		gui.open();
 	</script>
 </body>
 
