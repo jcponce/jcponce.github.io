@@ -52,6 +52,10 @@
 
 		var updateGraph = function () {
 
+			//torsion = torsionGUI;
+			//vMin = vminGUI;
+			//vMax = vmaxGUI
+
 			view.set("range", [
 				[xMin, xMax],
 				[yMin, yMax],
@@ -62,7 +66,7 @@
 				[vMin, vMax]
 			]);
 
-			torsion = torsionGUI;
+			
 
 		};
 
@@ -159,12 +163,12 @@
 
 		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange(updateGraph);
 		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange(updateGraph);
-		var torsionGUI = gui.add(this, 'torsion').min(-10).max(10).step(0.01).name('t = ');
+		var torsionGUI = gui.add(this, 'torsion').min(-10).max(10).step(0.01).name('t = ').onChange(updateGraph);
 		var animateGUI = gui.add(this, 'play')
 
 		//gui.add(this, 'updateGraph').name("Update Graph");
 
-		gui.open();
+		gui.close();
 	</script>
 </body>
 
