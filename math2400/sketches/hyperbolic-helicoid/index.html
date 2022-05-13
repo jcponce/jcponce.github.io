@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>MathBox - 3D Grapher</title>
 	<script src="../mathbox/mathbox-bundle.min.js"></script>
+	<script src="dat.gui.js"></script>
 
 
 	<link rel="stylesheet" href="../mathbox/mathbox.css">
@@ -46,6 +47,19 @@
 			uMax = 6,
 			vMin = -2.5,
 			vMax = 2.5;
+		var play = true;
+
+		var updateGraph = function () {
+			view.set("range", [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			]);
+			domain.set("range", [
+				[uMin, uMax],
+				[vMin, vMax]
+			]);
+		};
 
 		// Create cartesian view
 		var view = mathbox.cartesian({
@@ -96,10 +110,15 @@
 			height: resolution,
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
-				var spd = 0.25;
-				emit((Math.sinh(v) * Math.cos(7*Math.cos(spd*t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
-				(Math.sinh(v) * Math.sin(7*Math.cos(spd*t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
-				(Math.cosh(v) * Math.sinh(u)) / (1 + Math.cosh(u) * Math.cosh(v))
+				var spd;
+				if (play) {
+					spd = 0.25;
+				} else {
+					spd = 0.0;
+				}
+				emit((Math.sinh(v) * Math.cos(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
+					(Math.sinh(v) * Math.sin(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
+					(Math.cosh(v) * Math.sinh(u)) / (1 + Math.cosh(u) * Math.cosh(v))
 				)
 			},
 		});
@@ -114,6 +133,18 @@
 			shaded: true,
 
 		});
+
+		// GUI controls
+
+		var gui = new dat.GUI();
+
+		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('uMin = ');
+		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('uMax = ');
+		var animate = gui.add(this, 'play')
+
+		gui.add(this, 'updateGraph').name("Update Graph");
+
+		gui.open();
 	</script>
 </body>
 
