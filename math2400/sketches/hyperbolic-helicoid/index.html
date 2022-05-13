@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>MathBox - 3D Grapher</title>
+	<script src="../mathbox/mathbox-bundle.min.js"></script>
+
+
+	<link rel="stylesheet" href="../mathbox/mathbox.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+	<script>
+		// Load mathbox with controls
+		var mathbox = mathBox({
+			plugins: ['core', 'cursor', 'controls'],
+			controls: {
+				klass: THREE.OrbitControls,
+			},
+		});
+		if (mathbox.fallback) throw "WebGL error";
+
+		// Set renderer background
+		var three = mathbox.three;
+		three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+		// Set mathbox units and place camera
+		mathbox.set({
+			scale: 720,
+			focus: 3
+		});
+		mathbox.camera({
+			proxy: true,
+			position: [0, -2.5, 0.4]
+		});
+
+		var xMin = -3,
+			xMax = 3,
+			yMin = -3,
+			yMax = 3,
+			zMin = -3,
+			zMax = 3;
+		var uMin = -6,
+			uMax = 6,
+			vMin = -2.5,
+			vMax = 2.5;
+
+		// Create cartesian view
+		var view = mathbox.cartesian({
+			range: [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			],
+			scale: [2.5, 2.5, 2.5],
+		});
+
+		// Create u,v domain
+		var domain = mathbox.cartesian({
+			range: [
+				[uMin, uMax],
+				[vMin, vMax]
+			]
+		});
+
+		/*
+		// 3D axes / grid
+		domain.axis({
+			axis: 1,
+			width: 3
+		});
+		domain.axis({
+			axis: 2,
+			width: 3
+		});
+		domain.axis({
+			axis: 3,
+			width: 3
+		});
+		domain.grid({
+			width: 1,
+			divideX: 20,
+			divideY: 20
+		});
+		*/
+
+
+
+		// Data for plotting
+		var resolution = 720;
+		var graphData = domain.area({
+			axes: [1, 2], // u, v
+			width: resolution,
+			height: resolution,
+			channels: 3,
+			expr: function (emit, u, v, i, j, t) {
+				var spd = 0.25;
+				emit((Math.sinh(v) * Math.cos(7*Math.cos(spd*t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
+				(Math.sinh(v) * Math.sin(7*Math.cos(spd*t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
+				(Math.cosh(v) * Math.sinh(u)) / (1 + Math.cosh(u) * Math.cosh(v))
+				)
+			},
+		});
+		view.surface({
+			points: graphData,
+			fill: true,
+			lineX: false,
+			lineY: false,
+			width: 0.1,
+			color: '#3090FF',
+			zBias: 1,
+			shaded: true,
+
+		});
+	</script>
+</body>
+
+</html>
