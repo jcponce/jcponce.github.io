@@ -111,6 +111,15 @@
 		*/
 
 
+		var Fx = function (x, y, t) {
+			return (Math.sinh(y) * Math.cos(t * x)) / (1 + Math.cosh(x) * Math.cosh(y));
+		};
+		var Fy = function (x, y, t) {
+			return (Math.sinh(y) * Math.sin(t * x)) / (1 + Math.cosh(x) * Math.cosh(y));
+		}; 
+		var Fz = function (x, y, t) {
+			return (Math.cosh(y) * Math.sinh(x)) / (1 + Math.cosh(x) * Math.cosh(y));
+		}; 
 
 		// Data for plotting
 		var resolution = 696;
@@ -123,15 +132,17 @@
 				var spd = 0.35;
 				
 				if (play){
-					emit((Math.sinh(v) * Math.cos(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
-					(Math.sinh(v) * Math.sin(7 * Math.cos(spd * t) * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
-					(Math.cosh(v) * Math.sinh(u)) / (1 + Math.cosh(u) * Math.cosh(v))
-				)
+					emit(
+					Fx(u, v, 7 * Math.cos(spd * t)),
+					Fy(u, v, 7 * Math.cos(spd * t)),
+					Fz(u, v, 0)
+				    )
 				} else {
-					emit((Math.sinh(v) * Math.cos( torsion * u)) / (1 + Math.cosh(u) * Math.cosh(v)),
-					(Math.sinh(v) * Math.sin(torsion *  u)) / (1 + Math.cosh(u) * Math.cosh(v)),
-					(Math.cosh(v) * Math.sinh(u)) / (1 + Math.cosh(u) * Math.cosh(v))
-				)
+					emit(
+						Fx(u, v, torsion),
+						Fy(u, v, torsion),
+						Fz(u, v, torsion)
+				    )
 				}
 			},
 		});
@@ -153,7 +164,7 @@
 
 		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange( updateGraph );
 		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange( updateGraph );
-		var torsionGUI = gui.add(this, 'torsion').min(0).max(10).step(0.01).name('t = ');
+		var torsionGUI = gui.add(this, 'torsion').min(-10).max(10).step(0.01).name('t = ');
 		var animateGUI = gui.add(this, 'play')
 
 		//gui.add(this, 'updateGraph').name("Update Graph");
