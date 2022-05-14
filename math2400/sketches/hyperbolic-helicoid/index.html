@@ -123,12 +123,13 @@
 			height: resolution,
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
-				var spd = 0.35;
+				
+				var autoTorsion = 7 * Math.cos(0.35 * t)
 
 				if (play) {
 					emit(
-						Fx(u, v, 7 * Math.cos(spd * t)),
-						Fy(u, v, 7 * Math.cos(spd * t)),
+						Fx(u, v, autoTorsion),
+						Fy(u, v, autoTorsion),
 						Fz(u, v, 0)
 					)
 				} else {
