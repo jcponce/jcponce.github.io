@@ -390,11 +390,11 @@
 				<h3>Linear operators & Matrices</h3>
 
 				<div class="left-txt size-60">
-					
+
 
 					<p>
 						Consider the vector space $M_{m\times n}$ consisting of all $m\times n$ matrices.
-						
+
 					</p>
 
 					<p>If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y$, then for
@@ -413,12 +413,88 @@
 
 			<section>
 				<h4>Linear transformations in 2D</h4>
-				<iframe scrolling="no" title="Matrix transformations" src="https://www.geogebra.org/material/iframe/id/F8zyQgn4/width/697/height/443/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="697px" height="443px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				<iframe scrolling="no" title="Matrix transformations"
+					src="https://www.geogebra.org/material/iframe/id/F8zyQgn4/width/697/height/443/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="697px" height="443px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 			</section>
 
 			<section>
 				<h4>Linear transformations in 3D</h4>
-				<iframe scrolling="no" title="Matrix transformations 3D" src="https://www.geogebra.org/material/iframe/id/qhhzmd8v/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="930px" height="475px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				<iframe scrolling="no" title="Matrix transformations 3D"
+					src="https://www.geogebra.org/material/iframe/id/bpn32sxh/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="930px" height="475px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+
+			<section>
+				<h3>Determinants</h3>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong>
+
+						Let $S_n$ be the set of all permutations on $n$ elements.
+						Let $A= [a_{i,j}]$ be a square $n$-by-$n$ matrix.
+						Define the <em>determinant</em> of $A$
+						\begin{equation*}
+						\det(A) :=
+						\sum_{\sigma \in S_n}
+						\operatorname{sgn} (\sigma) \prod_{i=1}^n a_{i,\sigma_i} .
+						\end{equation*}
+						where
+						\begin{equation} \label{eq:sgndef}
+						\operatorname{sgn}(\sigma) = \operatorname{sgn}(\sigma_1,\ldots,\sigma_n) :=
+						\prod_{p \lt q} \operatorname{sgn}(\sigma_q-\sigma_p) .
+						\end{equation}
+					</p>
+
+					<p><strong>Remark:</strong>
+						The determinant is number assigned to square matrices that measures
+						how the corresponding linear mapping stretches the space. In particular,
+						this number, can be used to test for invertibility of a matrix.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Determinants</h3>
+				<div class="left-txt size-60">
+					<p>Some important facts about determinants:</p>
+
+					<ol class="r">
+						<li>
+							$\det(I) = 1$, where $I$ is the identity matrix.
+						</li>
+
+						<li>
+							If two columns of $A$ are equal, then $\det(A) = 0$.
+						</li>
+
+						<li>
+							If a column is zero, then $\det(A) = 0$.
+
+						</li>
+
+						<li>
+							$A \mapsto \det(A)$ is a continuous function on
+							$L(\R^n)$.
+
+						</li>
+
+						<li>
+							$\det\left( \left[\begin{smallmatrix} a & b \\ c
+							&d \end{smallmatrix}\right] \right)
+							= ad-bc$, and $\det \bigl( [a] \bigr) = a$.
+						</li>
+						<li>
+							If $A$ and $B$ are $n$-by-$n$ matrices, then $\det(AB) = \det(A)\det(B)$.
+							
+						</li>
+
+						<li>
+							$A$ is invertible if and only if $\det(A) \not= 0$ and in
+							this case, $\det\left(A^{-1}\right) = \frac{1}{\det(A)}$.
+						</li>
+					</ol>
+				</div>
 			</section>
 
 			<section>
