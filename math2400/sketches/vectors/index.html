@@ -29,7 +29,7 @@
     mathbox.set({ scale: 600, focus: 1 });
 
     var play = false;
-    var rotate = false;
+    var rotate = true;
     
     view = mathbox
     .camera({
@@ -42,7 +42,7 @@
     }, {
       quaternion: function (t) { 
         var c;
-        if(rotate) c = 0.015;
+        if(rotate) c = 0.0045;
         else c = 0.0;
         return [0, -Math.sin(t * c), 0, Math.cos(t * c)]; 
       }
@@ -131,6 +131,8 @@
 
     var animateGUI = gui.add(this, 'play');
     var rotateGUI = gui.add(this, 'rotate');
+
+    gui.close();
 
   </script>
 </body>
