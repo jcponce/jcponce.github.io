@@ -29,6 +29,7 @@
     mathbox.set({ scale: 600, focus: 1 });
 
     var play = false;
+    var rotate = false;
     
     view = mathbox
     .camera({
@@ -40,8 +41,10 @@
       scale: [1.2, 1.2, 1.2],
     }, {
       quaternion: function (t) { 
-        var rot = 0.0;
-        return [0, -Math.sin(t * rot), 0, Math.cos(t * rot)]; 
+        var c;
+        if(rotate) c = 0.015;
+        else c = 0.0;
+        return [0, -Math.sin(t * c), 0, Math.cos(t * c)]; 
       }
     });
 
@@ -126,7 +129,8 @@
 
 		var gui = new dat.GUI();
 
-    var animateGUI = gui.add(this, 'play')
+    var animateGUI = gui.add(this, 'play');
+    var rotateGUI = gui.add(this, 'rotate');
 
   </script>
 </body>
