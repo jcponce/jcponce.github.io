@@ -39,7 +39,10 @@
       range: [[-1, 1], [-1, 1], [-1, 1]],
       scale: [1.2, 1.2, 1.2],
     }, {
-      quaternion: function (t) { return [0, -Math.sin(t * 0), 0, Math.cos(t * 0)]; }
+      quaternion: function (t) { 
+        var rot = 0.0;
+        return [0, -Math.sin(t * rot), 0, Math.cos(t * rot)]; 
+      }
     });
 
     view
@@ -94,13 +97,12 @@
       depth:  20,
       expr: function (emit, x, y, z, i, j, k, t) {
         var spd;
-        if(play) spd = 0.4;
+        if(play) spd = 0.3;
         else spd = 0.0;
         var u = Math.cos((i + j*j + k*k*k) * 100.681 + spd * t) * .05;
         var v = Math.cos((i*i*i + j + k*k) * 120.681 + spd * t) * .05;
         var w = Math.cos((i*i + j*j*j + k) * 140.681 + spd * t) * .05;
         
-
         //var u = -i /(i*i + j*j + k*k) * .5;
         //var v = -j /(i*i + j*j + k*k) * .5;
         //var w = -k /(i*i + j*j + k*k) * .5;
