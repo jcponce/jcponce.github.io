@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="naked">
+  <head>
+    <meta charset="utf-8">
+    <title>Tools for Thought</title>
+
+    <meta name="viewport" content="width=1280">
+
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/slides.css" />
+    <link rel="stylesheet" href="css/transition.css" />
+    <link rel="stylesheet" href="css/controls.css" />
+
+    <link rel="stylesheet" href="katex/katex.min.css">
+    <script src="katex/katex.min.js"></script>
+    <script src="katex/contrib/auto-render.min.js"></script>
+
+    <script type="text/javascript" src="https://use.typekit.com/nde6wmn.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <script type="text/javascript" src="build/controller.js"></script>
+
+  </head>
+
+  <body class="naked">
+
+    <div class="squeeze">
+      <div class="slides">
+
+        <!-- ============================================= -->
+
+        <section class="slide first">
+
+          <div class="masthead middle"><div>
+            <h1 class="text-giant text-outline">MathBox</h1>
+            <p class="text-muted text-outline">Tools for Thought<br />Graphical Algebra and Fourier Analysis</p>
+          </div></div>
+
+          <div class="masthead footer"><div>
+
+            <div class="grid2 pad text-left text-outline">
+              <h2 class="text-brand">
+                <span class="text-muted text-normal">https://</span>
+                acko.net
+              </h2>
+            </div>
+
+            <div class="grid2 pad text-right text-outline">
+              <h3 class="text-muted">Steven Wittens</h3>
+            </div>
+
+          </div></div>
+
+        </section>
+
+        <!-- ============================================= -->
+
+        <section class="slide">
+
+          <iframe class="naked fill" data-src="https://acko.net/"></iframe>
+
+        </section>
+
+        <!-- ============================================= -->
+
+        <section class="slide">
+
+          <div class="masthead middle absolute text-background"><div>
+            <img src="img/william-thurston.jpg" alt="William Thurston" />
+            <h4 class="text-outline padding-b-2">William Thurston (1946-2012)</h4>
+          </div></div>
+
+        </section>
+
+        <section class="slide">
+
+          <div class="absolute text-small">
+<p style="margin-left: 60px; margin-right: 60px; padding-top: 40px; padding-bottom: 36px; font-size: 36px !important">"<strong>I think a lot of mathematics is really about how you understand things in your head.</strong> […]</p>
+<p style="margin-left: 60px; margin-right: 60px; padding-bottom: 36px; font-size: 36px !important">It may seem unimportant, but when I started out […] People drew pictures of surfaces one way and I started drawing them a different way. <strong>There's something significant about how the representation in your head profoundly changes how you think.</strong></p>
+<p style="margin-left: 60px; margin-right: 60px; padding-bottom: 36px; font-size: 36px !important">It's very hard to do a brain dump. … Words are one thing, […] There are many precise mathematical words that could be used, but they don't automatically convey a feeling for it. <strong>I probably can't convey a feeling for it either, but I want to try.</strong>"<br><br>- William Thurston, The Mystery of 3-Manifolds</p>
+          </div>
+
+        </section>
+
+        <!-- ============================================= -->
+
+        <section class="slide" style="background: #fff">
+
+          <div class="masthead middle"><div>
+            <h1 class="text-outline">Graphical Algebra</h1>
+          </div></div>
+
+        </section>
+
+        <!-- ============================================= -->
+
+        <section class="slide">
+
+          <iframe class="naked fill recessed" data-src="iframe/index.html#gralgebra"></iframe>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              f(x) = 2^x
+              $$
+            </p>
+          </div></div>
+
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              2 \cdot 2^x = 2^{1 + x}
+              $$
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              2^a \cdot 2^b = 2^{a + b}
+              $$
+            </p>
+          </div></div>
+
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              (2^x)^2 = 2^{2x}
+              $$
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              (2^a)^b = 2^{a \cdot b}
+              $$
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              y = 2^x \Leftrightarrow x = log_2 y
+              $$
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              f(x) = x^2
+              $$
+            </p>
+          </div></div>
+
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              x^2 + 2x = (x + 1)^2 - 1
+              $$
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              x^2 + \frac{b}{a}x + \frac{c}{a} = (x + \frac{b}{2a})^2 + C
+              $$
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              f(x) = \cos x
+              $$
+            </p>
+          </div></div>
+
+          <div class="slide"></div>
+          <div class="slide"></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              $$
+              \frac{1 + \cos 2x}{2} = \cos^2 x
+              $$
+            </p>
+          </div></div>
+
+        </section>
+
+        <!-- ============================================= -->
+
+        <section class="slide" style="background: #fff">
+
+          <div class="masthead middle"><div>
+            <h1 class="text-outline">Fourier Analysis</h1>
+          </div></div>
+
+        </section>
+
+        <!-- ============================================= -->
+
+        <section class="slide">
+
+          <iframe class="naked fill recessed" data-src="iframe/index.html#fourier"></iframe>
+
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              <small>71,592 triangles &nbsp;—&nbsp; 214,776 vertices</small>
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide slide-zoom-out"><div>
+            <p class="text-outline">
+              <small>833,472 triangles &nbsp;—&nbsp; 2,500,416 vertices</small>
+            </p>
+          </div></div>
+
+          <div class="masthead footer absolute slide"><div>
+            <p class="text-outline">
+              $$
+              \color{#409020}{X_k}\ = \sum_{n=0}^{N-1} \color{#3090FF}{x_n} \cdot e^{-2 \pi i  k n / N}
+              $$
+            </p>
+          </div></div>
+
+        </section>
+
+      </div>
+    </div>
+
+    <div class="controls text-center">
+      <button class="prev">‹</button>
+      <button class="next">›</button>
+    </div>
+
+    <div class="notes">
+      <p class="slide">
+        Presented at the <em>Tools for Thought</em> workshop, Recurse Center, NYC 2016
+      </p>
+      <p class="slide">
+        Hi, I'm Steven. I usually start with my website, aka <em>that site with that header</em>, as my defacto calling card. This effect is powered by WebGL, and consists of live geometry generated in JavaScript and streamed into the GPU. This way I can feed large amounts of data in very efficiently, in this case about 45,000 triangles.
+      </p>
+      <p class="slide">
+        The site's header is just a fun piece of live art, but really, I'm more interested in using this power for communication purposes. In particular, for a few years now, I've worked on visualizing mathematical concepts directly, with minimal fuss or fluff. William Thurston was a mathematician who did similar things, trying to illuminate difficult concepts.
+      </p>
+      <p class="slide">
+        In his case, it was 3-manifolds, aka <em>4 dimensional hypersurfaces</em>. I found this quote in one of his lectures, and it really resonated with me: if words are poor tools for doing a brain dump, maybe we should try to explain things without words altogether.
+      </p>
+      <p class="slide">
+        I've been coding ever since I could reach a keyboard. By playing around with computer graphics, I realized I could reason very intuitively about mathematics, by translating formulas to pictures. I built up a visual understanding of common topics, and found it much easier to remember and think about than formulas. For lack of a better term, let's call that <em>Graphical Algebra</em>.
+      </p>
+      <p class="slide">
+        (let's compile some WebGL shaders)
+      </p>
+      <p class="slide">
+        Take for example an exponential curve.
+      </p>
+      <p class="slide">
+        It has some really surprising properties.
+      </p>
+      <p class="slide">
+        On the left, we stretch the curve vertically by a factor of 2.
+      </p>
+      <p class="slide">
+        On the right, I simply shift it left by one unit.
+      </p>
+      <p class="slide">
+        Both curves are the same. We can express this symbolically, but this representation is not as satisfying to me.
+      </p>
+      <p class="slide">
+        It's a specific case of the formula for <em>adding up</em> exponents. We can memorize the formula, but I find it easier to remember it like this: <em>vertical scaling is equivalent to horizontal translation</em>. It's an inherent <em>freaky property</em> of the exponential curve.
+      </p>
+      <p class="slide">
+        It's not a particularly unique example either.
+      </p>
+      <p class="slide">
+        For example, when we <em>square</em> the values on the left vertically. Unlike before, this is a highly <em>non-linear</em> transformation. It seems like that would be much harder to map cleanly onto something else.
+      </p>
+      <p class="slide">
+        But no, all we do is scale the graph on the right <em>horizontally</em> by a factor of 2.
+      </p>
+      <p class="slide">
+        Once again, both curves are actually the same, and we can express this symbolically.
+      </p>
+      <p class="slide">
+        The general case is the formula for <em>multiplying</em> exponents: <em>vertical powers are equivalent to horizontal scaling</em>. Once again, it's an inherent property of the exponential curve. What's more, because (2<sup>2</sup>)<sup><sup>x</sup></sup> = 4<sup>x</sup>, it implies that really, there is only <em>one exponential curve to rule them all</em>. Every exponential curve of any base or offset can be drawn by scaling/ translating any other exponential curve, vertically/horizontally. I don't know about you, but this was never explained to me in school. I find this a very neat way to understand exactly what makes exponentials so special.
+      </p>
+      <p class="slide">
+        In fact, because the logarithmic function is the inverse of the exponential, all the same things apply there, and the <em>one true logarithmic curve</em> is the exact same one too. This is why powers of x turn into straight lines on a logarithmic plot.
+      </p>
+      <p class="slide">
+        But this sort of insight doesn't just apply to exponentials. Take for example a quadratic.
+      </p>
+      <p class="slide">
+        Once again we can play around and discover something neat.
+      </p>
+      <p class="slide">
+        On the left, we skew the parabola, i.e. applying an <em>affine</em> transformation <em>y ← y + 2x</em>.
+      </p>
+      <p class="slide">
+        On the right, we move the parabola down and to the left by one unit each.
+      </p>
+      <p class="slide">
+        Once again both curves are the same. When we <em>skew</em> a parabola, we're really <em>rolling</em> its center to the left or right, with an additional vertical shift applied. There is only <em>one true parabola</em>, which we can only translate and scale.
+      </p>
+      <p class="slide">
+        In the general case, this turns into the quadratic formula, where students are told to memorize the formula for the <em>discriminant</em>, often asked to solve a bunch of context-less quadratics one after the other. I find it much more important to remember that, in the standard form, the parabola's center is always at the point x = -b/2a. The rest can be derived as necessary, having been reduced to the form (…)<sup>2</sup> + Constant.
+      </p>
+      <p class="slide">
+        You can apply the same sort of thinking to more complicated situations rather than just elemental functions. For example, the cosine.
+      </p>
+      <p class="slide">
+        First, let's take the absolute value of the cosine, making all negative values positive. This effectively folds the bottom half onto the top.
+      </p>
+      <p class="slide">
+        Now, let's square the values again. As the cosine ranges from -1 to 1, the values get compressed down towards zero non-linearly. We end up with a cosine of twice the frequency, scaled and translated vertically.
+      </p>
+      <p class="slide">
+        This is commonly expressed as a trigonometric angle doubling formula, and students are sometimes asked to memorize a bunch of them. But I find the graphical representation both more satisfying and more useful. For example, each of the minima used to be a line of absolute slope 1, which was then squared. Also, a cosine has symmetric ups and downs. It tells us that a cosine (or sine) is essentially an approximate sequence of parabolas, alternating upside down. This tells you about the Taylor series expansion, and is not that surprising if you know that sine and cosine are solutions to a second order differential equation.
+      </p>
+      <p class="slide">
+        So what does it look like to apply this sort of graphical thinking and direct visualization to more complicated math, like Fourier Analysis? This is the art of finding particular <em>frequencies</em> in waves.<br><strong>Note: This part requires Web Audio API and only works in Chrome or Firefox.</strong>
+      </p>
+      <p class="slide">
+        (this one takes a little longer to compile... bear with me, you'll see why... if you're on a laptop, crotch beware, things are about to get toasty)<br><br>
+        I'm going to use live audio as the input. This is MP3 internet radio streamed from <a href="http://fm.acko.net/" target="_blank">fm.acko.net</a>. Or as I like to call it, a 24/7 rave party on the internet, complete with trippy visuals.
+      </p>
+      <p class="slide">
+        This is the sound wave visualized, 23 milliseconds at a time, i.e. the sound pressure emitted from the speakers. Click the button in the corner to toggle to microphone input instead.
+      </p>
+      <p class="slide">
+        If we find the average value of a (section of) wave, we get the "DC" value (direct current). The average level of a sound wave is actually zero, but the deviations here are due to the finite window we're sampling from, in this case, any frequency below 43Hz = 1/0.023s. If you're using tinny laptop speakers, you can't hear any of those by the way.
+      </p>
+      <p class="slide">
+        In Fourier Analysis, we want to take 2D averages though. This is typically done using complex numbers, which are 2D vectors that like to turn.
+      </p>
+      <p class="slide">
+        With complex numbers, it is trivial to <em>twist</em> the graph. In doing so, we tune the average to be biased towards a particular frequency. If the wave contains that frequency, then the average will be biased away from the center..
+      </p>
+      <p class="slide">
+        If we increase the twist, we tune the analyzer to a higher frequency.
+      </p>
+      <p class="slide">
+        The magnitude of the average tells us the <em>amplitude</em>, the angle of the average tells us the <em>phase</em>, i.e. the particular shift of the wave over time. That is, really, the <em>scaling and translation</em> of the frequency.
+      </p>
+      <p class="slide">
+        Let's twist it by a total factor of 16. It's now tuned to frequencies of about 650 Hz, roughly 5x the pitch of a human voice.
+      </p>
+      <p class="slide">
+        The diagram is now extremely twisted. As GPUs like to draw straight lines and triangles, I need to divide each curve very finely in order to get the appearance of smooth curves, for a total of 214k vertices and 71k triangles. That's quite a lot.
+      </p>
+      <p class="slide">
+        In fact, instead of just one frequency at a time, let's visualize the entire frequency axis at the same time, from DC up to here. Complexity only goes up. This is really the lesson I learned from building intricate explanatory visualizations: sometimes, in order to create an accurate and intuitive picture of a concept, you need to add an order or two of magnitude. Consider it a graphical version of the Curse of Multidimensionality.
+      </p>
+      <p class="slide">
+        So here it is, a live and (mostly) complete picture of the Discrete Fourier Transform, aka the DFT. In practice, we tend to cheat and use the Fast Fourier Transform (FFT) instead, but conceptually, this is what is happening underneath: we're taking the average of increasingly twisted versions of the same wave, creating a whole <span style="color: #60A010">new dimension</span>, while collapsing <span style="color: #3090FF">the old one</span> by summation. And if you've really been paying attention, it should be no surprise that there's an <em>exponential</em> function in the formula, connecting <em>powers and twisting</em> with <em>scaling and translation</em>. See if you can identify which frequency bands correspond to which sounds, and enjoy! (<a href="https://gitgud.io/unconed/toolsforthought/tree/master" target="_blank">Source code</a>)
+      </p>
+    </div>
+
+  </body>
+
+  <script>
+    renderMathInElement(document.body);
+  </script>
+
+  <script type="text/javascript">
+    var q = document.querySelector.bind(document);
+    App.mount(q('.slides'), q('.controls'), q('.notes'), location);
+  </script>
+
+</html>

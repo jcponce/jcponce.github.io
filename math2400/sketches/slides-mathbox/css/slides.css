@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+}
+
+.squeeze {
+  position: relative;
+  height: 720px;
+}
+
+.slides {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 1280px;
+  height: 720px;
+}
+
+.slides > .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.slides > .slide:not(.first) {
+  opacity: 0;
+}
+
+.slides > .slide > * {
+  position: absolute;
+}
+
+.slides > .slide .masthead > div {
+  height: 120px;
+}
+
+.slides > .slide .masthead.stack > div {
+  height: 184px;
+}
+
+.slides img {
+  max-width: 100%;
+}
+
+.slides .recessed {
+  transform: scale(1.1, 1.1) translate3d(0, 0, -128px);
+}

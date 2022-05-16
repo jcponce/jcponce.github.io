@@ -1096,6 +1096,7 @@ present.on('change', function(e) {
     el = ref1[k];
     el.remove();
   }
+  console.log(step)
   /*if (step === 21) {
     surface = mathbox.select('vector')[0];
     if (surface != null) {
@@ -1134,9 +1135,10 @@ if (window === top) {
       case 40:
         return present[0].set('index', present[0].get('index') + 1);
     }
+    
   };
 }
 
-
-
 },{}]},{},[1]);
+
+
