@@ -2,9 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MathBox - Voxel Buffer</title>
+  <title>MathBox - Vectors</title>
   <script src="../mathbox/mathbox-bundle.min.js?f4ee"></script>
   <link rel="stylesheet" href="../mathbox/mathbox.css">
+  <script src="../mathbox/dat.gui.js"></script>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 <body>
@@ -26,6 +27,8 @@
     three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
 
     mathbox.set({ scale: 600, focus: 1 });
+
+    var play = false;
     
     view = mathbox
     .camera({
@@ -34,7 +37,7 @@
     })
     .cartesian({
       range: [[-1, 1], [-1, 1], [-1, 1]],
-      scale: [1, 1, 1],
+      scale: [1.2, 1.2, 1.2],
     }, {
       quaternion: function (t) { return [0, -Math.sin(t * 0), 0, Math.cos(t * 0)]; }
     });
@@ -90,9 +93,12 @@
       height: 20,
       depth:  20,
       expr: function (emit, x, y, z, i, j, k, t) {
-        var u = Math.cos((i + j*j + k*k*k) * 100.681 + 0.0 * t) * .05;
-        var v = Math.cos((i*i*i + j + k*k) * 120.681 + 0.0 * t) * .05;
-        var w = Math.cos((i*i + j*j*j + k) * 140.681 + 0.0 * t) * .05;
+        var spd;
+        if(play) spd = 0.4;
+        else spd = 0.0;
+        var u = Math.cos((i + j*j + k*k*k) * 100.681 + spd * t) * .05;
+        var v = Math.cos((i*i*i + j + k*k) * 120.681 + spd * t) * .05;
+        var w = Math.cos((i*i + j*j*j + k) * 140.681 + spd * t) * .05;
         
 
         //var u = -i /(i*i + j*j + k*k) * .5;
@@ -113,6 +119,12 @@
       zWrite: false,
       blending: THREE.AdditiveBlending,
     });
+
+    // GUI controls
+
+		var gui = new dat.GUI();
+
+    var animateGUI = gui.add(this, 'play')
 
   </script>
 </body>
