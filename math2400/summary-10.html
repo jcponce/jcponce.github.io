@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Summary Week 11</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Summary Week 11</p>
+			</section>
+
+
+			<section>
+				<h3>Vector spaces</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $X$ be a set together with
+						the operations of addition, $+\, \colon X \times X \to X$,
+						and multiplication, $\cdot \,\colon \R \times X \to X$,
+						(we usually write $ax$ instead of $a
+						\cdot x$). $X$ is called a <em>vector space</em> (or a
+						<em>real vector space</em>)
+						if the following conditions are satisfied:
+					</p>
+					<ol class="r">
+						<li>
+							If $u, v, w \in X$, then $u+(v+w) = (u+v)+w$.
+						</li>
+						<li>
+							If $u, v \in X$, then $u+v = v+u$.
+						</li>
+						<li>
+							There is a $0 \in X$ such that $v+0=v$ for all $v \in X$.
+						</li>
+						<li>
+							For every $v \in X$, there is a $-v \in X$, such that $v+(-v)=0$.
+						</li>
+						<li>
+							If $a \in \R$, $u,v \in X$, then
+							$a(u+v) = au+av$.
+						</li>
+						<li>
+							If $a,b \in \R$, $v \in X$, then
+							$(a+b)v = av+bv$.
+						</li>
+						<li>
+							If $a,b \in \R$, $v \in X$, then
+							$(ab)v = a(bv)$.
+						</li>
+						<li>
+							$1v = v$ for all $v \in X$.
+						</li>
+					</ol>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Linear mappings</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong> A mapping $A \colon X \to Y$ of vector spaces $X$ and $Y$
+						is <em>linear</em> (we also say $A$ is a
+						<em>linear transformation</em>
+						or a <em>linear operator</em>)
+						if for all $a \in \R$ and all $x,y \in X$,
+						\begin{equation*}
+						A(a x) = a A(x), \qquad \text{and} \qquad A(x+y) = A(x)+A(y) .
+						\end{equation*}
+					</p>
+
+					<p>
+						We usually write $Ax$ instead of $A(x)$ if $A$ is linear.
+						If $A$ is one-to-one and onto, then we say $A$ is
+						<em>invertible</em>,
+						and we denote the inverse by $A^{-1}$.
+						If $A \colon X \to X$ is linear, then we say $A$ is a
+						<em>linear operator on $X$</em>.
+					</p>
+
+
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Linear mappings</h3>
+				<div class="left-txt size-60">
+
+					<p>
+						We write $L(X,Y)$ for the set of all linear transformations from $X$ to
+						$Y$, and just $L(X)$ for the set of linear operators on $X$.
+						If $a \in \R$ and $A,B \in L(X,Y)$, define
+						the transformations $aA$ and $A+B$ by
+						\begin{equation*}
+						(aA)(x) := aAx ,
+						\qquad
+						(A+B)(x) := Ax + Bx .
+						\end{equation*}
+						If $A \in L(Y,Z)$ and $B \in L(X,Y)$, define the
+						transformation $AB$ as the composition $A \circ B$, that is,
+						\begin{equation*}
+						ABx := A(Bx) .
+						\end{equation*}
+						Finally, denote by $I \in L(X)$ the <em>identity</em>:
+						the linear operator such that $Ix = x$ for all $x$.
+					</p>
+
+
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Linear mappings</h3>
+				<div class="left-txt size-60">
+
+					<p>
+						<strong>Theorem:</strong>
+						If $A \in L(X,Y)$ is invertible, then $A^{-1}$ is linear.
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						If $A \in L(X,Y)$ is linear, then it is completely determined
+						by its values on a basis of $X$.
+						Furthermore, if $B$ is a basis of $X$,
+						then every function $\widetilde{A} \colon B \to Y$ extends to a linear
+						function $A$ on $X$.
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						If $X$ is a finite-dimensional vector space and $A \in L(X)$, then $A$ is one-to-one if and only
+						if it is onto.
+					</p>
+
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						If $X$ and $Y$ are finite-dimensional vector spaces, then $L(X,Y)$
+						is also finite-dimensional.
+					</p>
+
+
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Convexity</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						A subset $U$ of a vector space is <em>convex</em>
+						if whenever $x,y \in U$, the line segment from
+						$x$ to $y$ lies in $U$. That is, if the <em>convex combination</em>
+						$(1-t)x+ty$ is in $U$ for all $t \in [0,1]$.
+						Sometimes we write $[x,y]$ for this line segment.
+					</p>
+
+					<p><strong>Theorem:</strong>
+						Let $x \in \R^n$ and $r \ge 0$. The ball $B(x,r) \subset \R^n$ (using the
+						standard metric on $\R^n$) is convex.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Convexity</h3>
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:65%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p><strong>Definition:</strong>
+									A subset $U$ of a vector space is <em>convex</em>
+									if whenever $x,y \in U$, the line segment from
+									$x$ to $y$ lies in $U$. That is, if the <em>convex combination</em>
+									$(1-t)x+ty$ is in $U$ for all $t \in [0,1]$.
+									Sometimes we write $[x,y]$ for this line segment.
+								</p>
+			
+								<p><strong>Theorem:</strong>
+									Let $x \in \R^n$ and $r \ge 0$. The ball $B(x,r) \subset \R^n$ (using the
+									standard metric on $\R^n$) is convex.
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:35%;">
+
+							<img style="width: 100%; 
+						   display: block;
+						   margin-left: auto;
+						   margin-right: auto;" class="r-stretch" data-src="images/summary-11/convex.gif" />
+							
+
+						</td>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h3>Norms</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						If $X$ is a vector space, then we say
+						a function $\snorm{\cdot} \colon X \to \R$ is a
+						<em>norm</em> if
+					</p>
+					<ol class="r">
+						<li>
+							$\snorm{x} \geq 0$, with $\snorm{x}=0$ if and only if $x=0$.
+
+						</li>
+						<li>
+							$\snorm{cx} = \sabs{c} \, \snorm{x}$ for all $c \in \R$ and $x \in X$.
+						</li>
+						<li>
+							$\snorm{x+y} \leq \snorm{x}+\snorm{y}$ for all
+							$x,y \in X$.
+
+						</li>
+
+					</ol>
+
+					<p>
+						A vector space equipped with a norm is called a
+						<em>normed vector space</em>.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Norms</h3>
+				<p class="sbt">Euclidean norm</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Definition:
+						</strong>
+						For two vectors
+						if $x=(x_1,x_2,\ldots,x_n) \in \R^n$
+						and $y=(y_1,y_2,\ldots,y_n) \in \R^n$, the <em>dot product</em>
+						is defined as
+						\begin{equation*}
+						x \cdot y := \sum_{j=1}^n x_j\, y_j .
+						\end{equation*}
+					</p>
+					<p><strong>Definition:</strong>
+						For $x=(x_1,x_2,\ldots,x_n) \in \R^n$,
+						the <em>euclidean norm</em> is defined as
+						\begin{equation*}
+						\snorm{x} := \snorm{x}_{\R^n} := \sqrt{x \cdot x} = \sqrt{(x_1)^2+(x_2)^2 + \cdots + (x_n)^2}.
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Norms</h3>
+				<p class="sbt">Cauchy-Schwarz inequality</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $x, y \in \R^n$, then
+						\begin{equation*}
+						\sabs{x \cdot y} \leq \snorm{x} \, \snorm{y} = \sqrt{x\cdot x}\, \sqrt{y\cdot y},
+						\end{equation*}
+						with equality if and only if $x = \lambda y$ or $y = \lambda x$ for some
+						$\lambda \in \R$.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Norms</h3>
+				<p class="sbt">Operator norm</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Definition:
+						</strong>
+						Let $A \in L(X,Y)$. Define
+						\begin{equation*}
+						\snorm{A} :=
+						\sup \bigl\{ \snorm{Ax} : x \in X \text{ with } \snorm{x} = 1 \bigr\} .
+						\end{equation*}
+						The number $\snorm{A}$ (possibly $\infty$)
+						is called the <em>operator norm</em>. We will see below
+						that it is indeed a norm for finite-dimensional spaces.
+						Again, when necessary to emphasize which norm we are talking about, we may
+						write it as $\snorm{A}_{L(X,Y)}$.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Norms</h3>
+				<p class="sbt">Operator norm</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $X$ and $Y$ be normed vector spaces.
+						Suppose that $X$ is finite-dimensional.
+						If $A \in L(X,Y)$, then $\snorm{A} \lt \infty$, and
+						$A$ is uniformly continuous (Lipschitz with constant $\snorm{A}$).
+					</p>
+
+
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $X$, $Y$, and $Z$ be finite-dimensional normed vector
+						spaces.
+					</p>
+
+					<ol class="r">
+						<li>
+							If $A,B \in L(X,Y)$ and $c \in \R$, then
+							\begin{equation*}
+							\snorm{A+B} \leq \snorm{A}+\snorm{B}, \qquad \snorm{cA} = \sabs{c} \, \snorm{A} .
+							\end{equation*}
+							In particular, the operator norm is a norm on the vector space $L(X,Y)$.
+						</li>
+						<li>
+							If $A \in L(X,Y)$ and $B \in L(Y,Z)$, then
+							$
+							\snorm{BA} \leq \snorm{B} \, \snorm{A} .
+							$
+						</li>
+
+
+					</ol>
+
+				</div>
+			</section>
+
+
+			
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
