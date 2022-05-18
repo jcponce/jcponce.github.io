@@ -140,7 +140,7 @@ slide.step({
   duration: 0,
   pace: 1,
   trigger: 4,
-  stops: [0, 1, 2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5],
+  stops: [0, 1, 1, 2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5],
   realtime: true,
   script: [
     [
@@ -970,7 +970,7 @@ view.grid({
 }).axis({
   axis: 2,
   detail: 256,
-  color: 0x40C020,
+  color: 0x3090FF,
   width: 5,
   zBias: 5,
   zOrder: 1,
@@ -978,7 +978,7 @@ view.grid({
 }).axis({
   axis: 1,
   detail: 512,
-  color: 0x3090FF,
+  color: 0x40C020,
   width: 5,
   zBias: 5,
   zOrder: 1,
@@ -999,9 +999,9 @@ view.grid({
 }).slice({
   width: [1, 2]
 }).format({
-  data: ["x"]
+  data: ["y"]
 }).label({
-  color: 0x3080FF
+  color: 0x40A020
 }).scale({
   axis: 2,
   divide: 1,
@@ -1010,9 +1010,9 @@ view.grid({
 }).slice({
   width: [1, 2]
 }).format({
-  data: ["y"]
+  data: ["z"]
 }).label({
-  color: 0x40A020,
+  color: 0x3080FF,
   offset: [30, -30]
 }).scale({
   axis: 3,
@@ -1022,7 +1022,7 @@ view.grid({
 }).slice({
   width: [1, 2]
 }).format({
-  data: ["z"]
+  data: ["x"]
 }).label({
   color: 0xC02050
 });
