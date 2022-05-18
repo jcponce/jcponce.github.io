@@ -130,8 +130,6 @@ emitSurface = function(emit, x, y, i, j, t) {
   return emit(x, π / 2 + .6 * Math.sin(x + t - y + 2 * Math.sin(y)) + .3 * Math.sin(x * 2 + y * 2 + t * 1.81) + .1825 * Math.sin(x * 3 - y * 2 + t * 2.18), y);
 };
 
-
-
 present.slide();
 
 slide = present.clock().slide({
