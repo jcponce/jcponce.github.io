@@ -48,13 +48,6 @@ three.renderer.setClearColor(new THREE.Color(0xFFFFFF), 1.0);
 
 formatNumber = MathBox.Util.Pretty.number();
 
-emitCurve = function(emit, x, i, t) {
-  return emit(x, π / 2 + .6 * Math.sin(x + t) + .3 * Math.sin(x * 2 + t * 1.81) + .1825 * Math.sin(x * 3 + t * 2.18));
-};
-
-emitSurface = function(emit, x, y, i, j, t) {
-  return emit(x, π / 2 + .6 * Math.sin(x + t - y + 2 * Math.sin(y)) + .3 * Math.sin(x * 2 + y * 2 + t * 1.81) + .1825 * Math.sin(x * 3 - y * 2 + t * 2.18), y);
-};
 
 intensitySteps = {
   stops: [0, 0, 1, 1, 1, 1, 3, 3, 4, 5, 6, 7],
@@ -128,6 +121,16 @@ mathbox.set({
 present = mathbox.present({
   index: 0
 });
+
+emitCurve = function(emit, x, i, t) {
+  return emit(x, π / 2 + .6 * Math.sin(x + t) + .3 * Math.sin(x * 2 + t * 1.81) + .1825 * Math.sin(x * 3 + t * 2.18));
+};
+
+emitSurface = function(emit, x, y, i, j, t) {
+  return emit(x, π / 2 + .6 * Math.sin(x + t - y + 2 * Math.sin(y)) + .3 * Math.sin(x * 2 + y * 2 + t * 1.81) + .1825 * Math.sin(x * 3 - y * 2 + t * 2.18), y);
+};
+
+
 
 present.slide();
 
@@ -1096,7 +1099,7 @@ present.on('change', function(e) {
     el = ref1[k];
     el.remove();
   }
-  console.log(step)
+  console.log(present[0].get('index'))
   /*if (step === 21) {
     surface = mathbox.select('vector')[0];
     if (surface != null) {
