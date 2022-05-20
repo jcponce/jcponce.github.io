@@ -64,7 +64,106 @@
 			</section>
 
 
-			
+			<section>
+				<h3>The Derivative in $\mathbb R^n$</h3>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong>
+						Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ a function. We
+						say $f$ is <em>differentiable</em> at $x \in U$ if there exists
+						an $A \in L(\R^n,\R^m)$ such that
+						\begin{equation*}
+						\lim_{\substack{h \to 0\\h\in \R^n}}
+						\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0 .
+						\end{equation*}
+						We write $Df(x) := A$, or $f'(x) := A$, and
+						we say $A$ is the <em>derivative</em> of $f$ at $x$.
+						When $f$ is differentiable at
+						every $x \in U$, we say simply that $f$ is <em>differentiable</em>.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>The Derivative in $\mathbb R^n$</h3>
+				<p class="sbt">Properties</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem:</strong>
+						Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ be
+						differentiable at $p \in U$. Then $f$ is continuous at $p$.
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						Suppose $U \subset \R^n$ is open,
+						$f \colon U \to \R^m$ and
+						$g \colon U \to \R^m$ are differentiable at $p$,
+						and $\alpha \in \R$. Then the functions $f+g$ and $\alpha f$
+						are differentiable at $p$ and
+						\begin{equation*}
+						(f+g)'(p) = f'(p) + g'(p) , \qquad \text{and} \qquad (\alpha f)'(p) = \alpha
+						f'(p) .
+						\end{equation*}
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>The Derivative in $\mathbb R^n$</h3>
+				<p class="sbt">Chain Rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem:</strong>
+						Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+						differentiable at $p \in U$. Let $V \subset \R^m$ be open,
+						$f(U) \subset V$ and let $g \colon V \to \R^\ell$ be differentiable
+						at $f(p)$. Then
+						\begin{equation*}
+						F(x) = g\bigl(f(x)\bigr)
+						\end{equation*}
+						is differentiable at $p$ and
+						\begin{equation*}
+						F'(p) = g'\bigl(f(p)\bigr) f'(p) .
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Partial derivatives</h3>
+
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong>
+						Let
+						$f \colon U \to \R$ be a function on an open set $U \subset \R^n$.
+						If the following limit exists, we write
+						
+						\begin{equation*}
+						\frac{\partial f}{\partial x_j} (x) :=
+						\lim_{h\to 0}\frac{f(x_1,\ldots,x_{j-1},x_j+h,x_{j+1},\ldots,x_n)-f(x)}{h}
+						=
+						\lim_{h\to 0}\frac{f(x+h e_j)-f(x)}{h} .
+						\end{equation*}
+						We call
+						$\frac{\partial f}{\partial x_j} (x)$ the <em>partial derivative</em>
+						of $f$
+						with respect to $x_j$. 
+						<strong>Here $h$ is a number not a vector.</strong>
+
+						For a mapping $f \colon U \to \R^m$ we write
+						$f = (f_1,f_2,\ldots,f_m)$, where $f_k$ are real-valued
+						functions. We then take partial derivatives of
+						the components,
+						$\frac{\partial f_k}{\partial x_j}$.
+
+					</p>
+				</div>
+			</section>
+
 
 			<section>
 
