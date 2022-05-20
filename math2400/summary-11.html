@@ -141,7 +141,7 @@
 						Let
 						$f \colon U \to \R$ be a function on an open set $U \subset \R^n$.
 						If the following limit exists, we write
-						
+
 						\begin{equation*}
 						\frac{\partial f}{\partial x_j} (x) :=
 						\lim_{h\to 0}\frac{f(x_1,\ldots,x_{j-1},x_j+h,x_{j+1},\ldots,x_n)-f(x)}{h}
@@ -151,7 +151,7 @@
 						We call
 						$\frac{\partial f}{\partial x_j} (x)$ the <em>partial derivative</em>
 						of $f$
-						with respect to $x_j$. 
+						with respect to $x_j$.
 						<strong>Here $h$ is a number not a vector.</strong>
 
 						For a mapping $f \colon U \to \R^m$ we write
@@ -160,6 +160,84 @@
 						the components,
 						$\frac{\partial f_k}{\partial x_j}$.
 
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Partial derivatives</h3>
+				<p class="sbt">Jacobian Matrix</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem:</strong>
+						Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+						differentiable at $p \in U$. Then all the partial derivatives at $p$
+						exist and, in terms of the standard bases of $\R^n$ and $\R^m$,
+						$f'(p)$ is represented by the matrix
+						\begin{equation*}
+						\begin{bmatrix}
+						\frac{\partial f_1}{\partial x_1}(p)
+						&
+						\frac{\partial f_1}{\partial x_2}(p)
+						& \ldots &
+						\frac{\partial f_1}{\partial x_n}(p)
+						\\[6pt]
+						\frac{\partial f_2}{\partial x_1}(p)
+						&
+						\frac{\partial f_2}{\partial x_2}(p)
+						& \ldots &
+						\frac{\partial f_2}{\partial x_n}(p)
+						\\
+						\vdots & \vdots & \ddots & \vdots
+						\\
+						\frac{\partial f_m}{\partial x_1}(p)
+						&
+						\frac{\partial f_m}{\partial x_2}(p)
+						& \ldots &
+						\frac{\partial f_m}{\partial x_n}(p)
+						\end{bmatrix} .
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Gradients</h3>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong>
+						Let $U \subset \R^n$ be open and $f \colon U \to \R$ a differentiable
+						function. We define
+						the <em>gradient</em> as
+						\begin{equation*}
+						\nabla f (x) := \sum_{j=1}^n \frac{\partial f}{\partial x_j} (x)\, e_j .
+						\end{equation*}
+						The gradient gives a way to represent the action of
+						the derivative as a dot product: $f'(x)\,v = \nabla f(x) \cdot v$.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Directional derivatives</h3>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong>
+						Pick a vector $u \in \R^n$
+						such that $\snorm{u} = 1$, and fix $x \in U$.
+						We define the
+						<em>directional derivative</em> as
+						\begin{equation*}
+						D_u f (x) := \frac{d}{dt}\Big|_{t=0} \bigl[ f(x+tu) \bigr] =
+						\lim_{h\to 0}
+						\frac{f(x+hu)-f(x)}{h} ,
+						\end{equation*}
+						where the notation
+						$\frac{d}{dt}\big|_{t=0}$ represents the derivative evaluated at $t=0$.
+						Taking the standard basis vector $e_j$ we find
+						$\frac{\partial f}{\partial x_j} = D_{e_j} f$.
+						For this reason, sometimes the notation $\frac{\partial f}{\partial u}$
+						is used instead of $D_u f$.
 					</p>
 				</div>
 			</section>
