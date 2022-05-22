@@ -44,7 +44,7 @@ MathBox.DOM.Types.latex = MathBox.DOM.createClass({
 
 mathbox = mathbox.v2();
 
-three.renderer.setClearColor(new THREE.Color(0xFFFFFF), 1.0);
+three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
 
 formatNumber = MathBox.Util.Pretty.number();
 
@@ -66,7 +66,7 @@ intensitySteps = {
     ],
     "1": [
       {
-        intensity: 2.5
+        intensity: 1.5
       }
     ],
     "3": [
