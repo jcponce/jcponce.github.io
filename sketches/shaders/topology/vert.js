@@ -1,3 +1,4 @@
+let vert = `
 precision highp float;
 
 attribute vec3 aPosition;
@@ -11,3 +12,4 @@ void main()
 
 	gl_Position = positionVec4;
 }
+`

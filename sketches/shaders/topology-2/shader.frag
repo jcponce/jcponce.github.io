@@ -1,4 +1,4 @@
-precision highp float;
+precision highp float; 
 
 uniform float iTime;
 uniform vec2 iResolution;
@@ -12,6 +12,8 @@ uniform float iTreble;
 uniform float iMid;
 
 uniform float iCam;
+
+varying vec2 vTexCoord;
 
 /////////////////////////////////
 // XBE
@@ -186,23 +188,36 @@ vec3 render(in vec3 ro, in vec3 rd)
 	return vec3(clamp(col,0.0,1.0));
 }
 
-void main()
-{
-	vec2 q = gl_FragCoord.xy/iResolution.xy;
-	vec2 p = -1.0+2.0*q;
-	p.x *= iResolution.x/iResolution.y;
+void main() {
 
-  spect.x = 1.;
+	// copy the vTexCoord
+    // vTexCoord is a value that goes from 0.0 - 1.0 depending on the pixels location
+    // we can use it to access every pixel on the screen
+    vec2 coord = vTexCoord;
+
+    float a = coord.x * 2.0 - 1.0;
+    float b = coord.y * 2.0 - 1.0;
+    const float scale = 1.0;
+
+    // Make sure pixels are square
+    a = a * scale * iResolution.x / iResolution.y;
+    b = b * scale;
+	
+	//vec2 q = gl_FragCoord.xy/iResolution.xy;
+	//vec2 p = -1.0+2.0*q;
+	//p.x *= iResolution.x/iResolution.y;
+
+    spect.x = 1.;
 
 	float Time = 0.45*(15.0 + iTime) - 2.*spect.w;  
 
 	// camera	
-  vec3 ro;
-  //if(iCam == 0.0){
+    vec3 ro;
+    //if(iCam == 0.0){
     //ro = vec3(7.0*cos(Time+45.), 0.5, 6.0*sin(Time));
-  //} else {
+    //} else {
     ro = vec3(3.0 * (1. + abs(cos(iTime * 0.2))), 0.5, 2.0);
-  //}
+    //}
 	//
 	
 	vec3 ta = vec3(0.0, 0.0, 0.0);
@@ -212,9 +227,10 @@ void main()
 	vec3 cp = vec3(0.0, 1.0, 0.0);
 	vec3 cu = normalize(cross(cw,cp));
 	vec3 cv = normalize(cross(cu,cw));
-	vec3 rd = normalize(p.x*cu + p.y*cv + 2.0*cw);
+	vec3 rd = normalize(a*cu + b*cv + 2.0*cw);
+	//vec3 rd = normalize(p.x*cu + p.y*cv + 2.0*cw);
 
-  vec3 col = render(ro, rd);
+    vec3 col = render(ro, rd);
 	col = sqrt(col);
 	
 	gl_FragColor = vec4(clamp(col,0.1,1.), 1.0);

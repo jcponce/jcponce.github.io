@@ -1,3 +1,4 @@
+let frag = `
 precision highp float;
 
 uniform float iTime;
@@ -10,8 +11,6 @@ uniform float iChannel0Ratio;
 uniform float iBass;
 uniform float iTreble;
 uniform float iMid;
-
-uniform float iCam;
 
 /////////////////////////////////
 // XBE
@@ -143,7 +142,7 @@ float calcAO(in vec3 pos, in vec3 nor)
 
 vec3 render(in vec3 ro, in vec3 rd)
 { 
-  vec3 col = vec3(0.0);
+    vec3 col = vec3(0.0);
 	float dist = 0.;
 	vec3 nor = vec3(0.,0.,0.);
 	//
@@ -159,23 +158,23 @@ vec3 render(in vec3 ro, in vec3 rd)
 
 		col = vec3(0.75);
 		
-    float ao = calcAO(pos, nor);
+        float ao = calcAO(pos, nor);
 
 		float amb = clamp(0.5+0.5*nor.y, 0.0, 1.0);
-    float dif = clamp(dot(nor, lig), 0.0, 1.0);
-    float bac = clamp(dot(nor, normalize(vec3(-lig.x,0.0,-lig.z))), 0.0, 1.0)*clamp(1.0-pos.y,0.0,1.0);
+        float dif = clamp(dot(nor, lig), 0.0, 1.0);
+        float bac = clamp(dot(nor, normalize(vec3(-lig.x,0.0,-lig.z))), 0.0, 1.0)*clamp(1.0-pos.y,0.0,1.0);
 
 		vec3 brdf = vec3(0.0);
-		//brdf += 1.20*amb*vec3(0.1176, 1.0, 0.0)*ao;
-		brdf += 1.20*amb*vec3(0.0118, 0.0259, 0.0863)*ao;
-    brdf += 0.20*bac*vec3(0.0086, 0.0588, 0.0588)*ao;
-    brdf += 1.00*dif*vec3(0.0176, 1.0, 0.99);
+		// brdf += 1.20*amb*vec3(0.1176, 1.0, 0.0)*ao;
+		brdf += 1.20*amb*vec3(0.0118, 0.3059, 0.8863)*ao;
+        brdf += 0.20*bac*vec3(0.9686, 0.0588, 0.0588)*ao;
+        brdf += 1.00*dif*vec3(0.1176, 1.0, 0.0);
 
 		float pp = clamp(dot(reflect(rd,nor), lig), 0.0, 1.0);
 		float spe = pow(pp,16.0);
 		float fre = ao*pow(clamp(1.0+dot(nor,rd),0.0,1.0), 2.0);
 
-		col = col*brdf + vec3(0.8)*vec3(1.0,0.0,0.0)*spe + 0.2*fre*(0.5+0.5*col);
+		col = col*brdf + vec3(0.8)*vec3(1.00,0.70,0.60)*spe + 0.2*fre*(0.5+0.5*col);
 		col = mix(col, sky, 1.0-exp(-0.0025*dist*dist*dist));
 	}
 	else
@@ -192,19 +191,13 @@ void main()
 	vec2 p = -1.0+2.0*q;
 	p.x *= iResolution.x/iResolution.y;
 
-  spect.x = 1.;
+    spect.x = 1.;
 
 	float Time = 0.45*(15.0 + iTime) - 2.*spect.w;  
 
 	// camera	
-  vec3 ro;
-  //if(iCam == 0.0){
-    //ro = vec3(7.0*cos(Time+45.), 0.5, 6.0*sin(Time));
-  //} else {
-    ro = vec3(3.0 * (1. + abs(cos(iTime * 0.2))), 0.5, 2.0);
-  //}
-	//
-	
+	// vec3 ro = vec3(4.0*cos(Time+45.), 0.5, 2.0*sin(Time));
+	vec3 ro = vec3(3.0 * (1. + abs(cos(iTime * 0.2))), 0.5, 2.0);
 	vec3 ta = vec3(0.0, 0.0, 0.0);
 	
 	// camera tx
@@ -212,10 +205,11 @@ void main()
 	vec3 cp = vec3(0.0, 1.0, 0.0);
 	vec3 cu = normalize(cross(cw,cp));
 	vec3 cv = normalize(cross(cu,cw));
-	vec3 rd = normalize(p.x*cu + p.y*cv + 2.0*cw);
+	vec3 rd = normalize(p.x*cu + p.y*cv + 2.5*cw);
 
-  vec3 col = render(ro, rd);
+    vec3 col = render(ro, rd);
 	col = sqrt(col);
 	
-	gl_FragColor = vec4(clamp(col,0.1,1.), 1.0);
+	gl_FragColor = vec4(clamp(col,0.,1.), 1.0);
 }
+`
