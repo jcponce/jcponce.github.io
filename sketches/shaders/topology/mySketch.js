@@ -5,19 +5,19 @@ let cam, inc;
 
 function preload() {
   inc = loadFont('inconsolata.otf');
-	img = loadImage('20210703_141403.jpg');
+  img = loadImage('20210703_141403.jpg');
   music = loadSound('Disco-Science.mp3');
   // load the shader
   s = loadShader("shader.vert", "shader.frag");
-  
+
 }
 
 function setup() {
-	pixelDensity(1);
+  pixelDensity(1);
   createCanvas(windowWidth, windowHeight, WEBGL);
-	noStroke();
+  noStroke();
 
-	img_ratio = img.width / img.height;
+  img_ratio = img.width / img.height;
   cam = 1.0;
   textFont(inc);
   textSize(width / 13);
@@ -26,8 +26,8 @@ function setup() {
   //s = createShader(vert, frag);
   // shaders require WEBGL mode to work
   shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
-	//shader(s);
-		
+  //shader(s);
+
   noLoop();
   fft = new p5.FFT();
   fft.setInput(music);
@@ -35,39 +35,39 @@ function setup() {
 }
 
 function draw() {
-  
-	fft.analyze();
-  
+
+  fft.analyze();
+
   const bass = fft.getEnergy("bass") / 255;
   const treble = fft.getEnergy("treble") / 255;
   const mid = fft.getEnergy("mid") / 255;
 
   shaderBg.shader(s);
-	
+
   s.setUniform("iResolution", [width, height]);
   s.setUniform("iMouse", [mouseX, mouseY]);
   s.setUniform("iTime", millis() * 0.001);
-	
+
   s.setUniform("iChannel0", img);
   s.setUniform("iChannel0Ratio", img_ratio);
-	
+
   s.setUniform('iBass', bass);
   s.setUniform('iTreble', treble);
   s.setUniform('iMid', mid);
 
   s.setUniform('iCam', cam);
-  
-  shaderBg.rect(0, 0, width, height);
-  image(shaderBg, -width/2, -height/2, width, height);
 
-  if(cam === 1){
+  shaderBg.rect(0, 0, width, height);
+  image(shaderBg, -width / 2, -height / 2, width, height);
+
+  if (cam === 1) {
     fill(0);
-    rect(-width/2, -height/2, width, height);
+    rect(-width / 2, -height / 2, width, height);
     fill(255);
     text("Click to play!", 0, 0);
   }
-  
-	//console.log(cam)
+
+  //console.log(cam)
 }
 
 function windowResized() {
@@ -77,13 +77,27 @@ function windowResized() {
 
 function mousePressed() {
   cursor('grab');
-  if (music.isPlaying())
-  {
+  if (music.isPlaying()) {
     music.pause();
     noLoop();
+  } else {
+    music.loop();
+    loop();
   }
-  else
-  {
+
+  if (cam == 0.0) {
+    cam = 1.0;
+  } else {
+    cam = 0.0;
+  }
+}
+
+function touchStarted() {
+  cursor('grab');
+  if (music.isPlaying()) {
+    music.pause();
+    noLoop();
+  } else {
     music.loop();
     loop();
   }
@@ -99,3 +113,6 @@ function mouseReleased() {
   cursor('pointer');
 }
 
+function touchEnedd() {
+  cursor('pointer');
+}
