@@ -52,6 +52,7 @@ function mousePressed() {
 }
 
 function draw() {
+  
 	fft.analyze();
   
   const bass = fft.getEnergy("bass") / 255;
@@ -73,6 +74,9 @@ function draw() {
   s.setUniform('iCam', cam);
   
   rect(0, 0, width, height);
-	console.log(cam)
+
+
+  
+	//console.log(cam)
 }
 
