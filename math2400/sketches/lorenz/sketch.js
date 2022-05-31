@@ -92,7 +92,7 @@ function draw() {
     beginShape();
     for (let k = 0; k < addPoints; k++) {
       stroke(41, 82, 163);
-      strokeWeight(2.5);
+      strokeWeight(0.1);
       vertex(points[k].x, points[k].y, points[k].z);
     }
     endShape();
