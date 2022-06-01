@@ -1,10 +1,3 @@
-const componentFX = (t, x, y, z) => parDef.Speed * (attractor.p * (-x + y)); //Change this function
-
-const componentFY = (t, x, y, z) => parDef.Speed * (-x * z + attractor.r * x - y); //Change this function
-
-const componentFZ = (t, x, y, z) => parDef.Speed * (x * y - attractor.b * z); //Change this function
-
-
 function backHome() {
   window.open(
     'https://jcponce.github.io/strange-attractors/',
