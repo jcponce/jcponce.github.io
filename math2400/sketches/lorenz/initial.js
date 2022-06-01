@@ -19,7 +19,7 @@ let parDef = {
   Curve: true,
   Animate: false,
   Preset: function() {
-    removeElements();
+    //removeElements();
     this.Speed = 0.35;
     this.Particles = true;
     this.Curve = true;

@@ -13,7 +13,7 @@ function backHome() {
 }
 
 function randomCurve() {
-  removeElements();
+  //removeElements();
   for (var i = points.length - 1; i >= 0; i -= 1) {
     points.splice(i, 1);
   }
