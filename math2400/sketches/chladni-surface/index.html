@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>MathBox - 3D Grapher</title>
+	<script src="../mathbox/mathbox-bundle.min.js"></script>
+
+
+	<link rel="stylesheet" href="../mathbox/mathbox.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+	<script>
+		// Load mathbox with controls
+		var mathbox = mathBox({
+			plugins: ['core', 'cursor', 'controls'],
+			controls: {
+				klass: THREE.OrbitControls,
+			},
+		});
+		if (mathbox.fallback) throw "WebGL error";
+
+		// Set renderer background
+		var three = mathbox.three;
+		three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+		// Set mathbox units and place camera
+		mathbox.set({
+			scale: 720,
+			focus: 3
+		});
+		mathbox.camera({
+			proxy: true,
+			position: [0, -2.5, 2.0]
+		});
+
+		var xMin = -3,
+			xMax = 3,
+			yMin = -3,
+			yMax = 3,
+			zMin = -3,
+			zMax = 3;
+		var uMin = -5,
+			uMax = 5,
+			vMin = -4,
+			vMax = 4;
+
+		// Create cartesian view
+		var view = mathbox.cartesian({
+			range: [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			],
+			scale: [0.8, 0.8, 0.8],
+		});
+
+		// Create u,v domain
+		var domain = mathbox.cartesian({
+			range: [
+				[uMin, uMax],
+				[vMin, vMax]
+			]
+		});
+
+		// 3D axes / grid
+		domain.axis({
+			axis: 1,
+			width: 3
+		});
+		domain.axis({
+			axis: 2,
+			width: 3
+		});
+		domain.axis({
+			axis: 3,
+			width: 3
+		});
+		domain.grid({
+			width: 1,
+			divideX: 20,
+			divideY: 20
+		});
+
+		var funC = (x, y, t, px, py) => {
+			var V = 0.5;
+			var F = 0.35;
+			var sqrt = Math.sqrt( Math.pow(x-px, 2) + Math.pow(y-py, 2) );
+			let val = 0.2 * Math.sin( 2 * Math.PI * F * (t - 1/V * sqrt) );
+
+			return val;
+		}
+		
+		// Data for plotting
+		var resolution = 128;
+		var graphData = domain.area({
+				axes: [1, 2], // u, v
+				width: resolution,
+				height: resolution,
+				channels: 3,
+				expr: function (emit, u, v, i, j, t) {
+					//emit(x, 3.5 * Math.sin(x + t));
+					var spd = 1.0;
+					//emit(x, π / 2 + .6 * Math.sin(x + spd * t - y + 2 * Math.sin(y)) + .3 * Math.sin(x * 2 + y * 2 + spd * t *
+					//1.81) + .1825 * Math.sin(x * 3 - y * 2 + spd * t * 2.18), y);
+					emit(
+						u,
+						v,
+						funC(u, v, spd * t, 2, 0) + funC(u, v, spd * t, -2, 0)//Math.cos(u + spd * t) +  Math.sin(v + spd * t )
+					)
+				},
+			});
+		view.surface({
+			points: graphData,
+			fill: true,
+			lineX: false,
+			lineY: false,
+			width: 0.5,
+			color: '#3090FF',
+			//zBias: 1,
+			shaded: true,
+			
+		});
+	</script>
+</body>
+
+</html>
