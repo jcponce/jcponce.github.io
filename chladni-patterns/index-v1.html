@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <!-- dublin core -->
+  <meta name="dc.title" CONTENT="Dynamic Mathematics">
+  <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+  <meta name="dc.date" CONTENT="01-Jul-2018">
+  <meta name="dc.type" CONTENT="Interactive Resource">
+  <meta name="dc.format" CONTENT="HTML">
+  <meta name="dc.language" CONTENT="en-US">
+  <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+  <!-- social media cards -->
+  <meta property="og:title" content="Dynamic Mathematics">
+  <meta property="og:description" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+  <meta property="og:url" content="https://jcponce.github.io/">
+  <meta name="twitter:card" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:site_name" content="Dynamic Mathematics">
+
+  <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+
+  <title>Dynamic Mathematics</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+
+  <!--MathJax starts-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+		  TeX: { equationNumbers: { autoNumber: "AMS" } }
+				});
+		   </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		   </script>
+  <!---<script type="text/x-mathjax-config">//left-side eq
+			 MathJax.Hub.Config({
+				   displayAlign: "left",
+				   displayIndent: "5em"
+				   });
+	    </script>--->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+  <!--MathJax Ends-->
+
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+ <script src="../assets/js/google-analytics-ga4.js"></script>
+
+ <script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+ <script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+</head>
+
+
+<body class="is-preload">
+  <!--Magicbook cotainer-->
+  <div class="container">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+		<header id="header">
+			<h1><a href="../">Dynamic Mathematics</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="#intro">Introduction</a></li>
+								<li><a href="#simulations">Simulations</a></li>
+								<li><a href="#references">References</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+      <!-- Main -->
+      <article id="main">
+
+        <header>
+  <h2>Chladni patterns</h2>
+  <p>Interactive simulations</p>
+</header>
+<section class="wrapper style5">
+  <div class="inner">
+
+    <header>
+      <p>By Juan Carlos Ponce Campuzano, 1/June/2022</p>
+    </header>
+
+    <div class="mathcell" style="height: 5in" id="ex-01">
+      <script>
+      
+        var parent = document.currentScript.parentNode;
+
+        var id = generateId();
+        parent.id = id;
+
+        MathCell( id, [] );
+
+        parent.update = function( id ) {
+
+        var A = 0.5;
+        var B = 2.0;
+        var C = 2.2;
+        var D = 1.5;
+        var E = 1.5;
+        var F = 0.5;
+        var u = 1;
+        var v = 1;
+        var w = 2;
+
+        var myFunc = (x, y, z) => {
+          var p1 =  A * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * z);
+          var p2 =  B * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * y);
+          var p3 =  C * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * z);
+          var p4 =  D * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * x);
+          var p5 =  E * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * y);
+          var p6 =  F * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * x);
+
+          return p1 + p2 + p3 + p4 + p5 + p6;
+        }
+  
+         //var sumAll = (x, y, z) = p1(x,y,z) + p2(x,y,z) + p3(x,y,z) + p4(x,y,z) + p5(x,y,z) + p6(x,y,z);
+
+        var size = 1;
+        var s = isosurface( (x,y,z) => myFunc(x,y,z),
+                      [-size,size], [-size,size], [-size,size],
+                      { material: 'normal' } );
+
+        var data = [ s ];
+
+        var config = { type: 'threejs', frame: false, viewpoint: [1,-1,0.5] };
+
+        evaluate( id, data, config );
+
+        }
+
+        parent.update( id );
+      
+      //setInterval( parent.update, 1100, id );
+      
+      </script>
+    </div>
+
+    <p>
+      <span class="fullscreen" onclick="fullScreen()">Click here</span>
+    </p>
+
+    <script>
+
+      function fullScreen() {
+      
+        var iframe = document.getElementsByTagName( 'iframe' )[0];
+        var w = window.open();
+        w.document.write( iframe.srcdoc );
+      
+      }
+      
+      </script>
+    <hr>
+    <div class="mathcell" style="height: 5in" id="ex-02">
+      <script>
+      
+        var parent = document.currentScript.parentNode;
+
+        var id = generateId();
+        parent.id = id;
+
+        MathCell( id, [] );
+
+        parent.update = function( id ) {
+
+        var A = 0.5;
+        var B = 2.0;
+        var C = 2.2;
+        var D = 1.5;
+        var E = 1.5;
+        var F = 0.5;
+        var u = 1;
+        var v = 1;
+        var w = 2;
+
+        var myFunc = (x, y, z) => {
+          var p1 =  A * Math.cos(u * Math.PI * x) * Math.cos(v * Math.PI * y) * Math.cos(w * Math.PI * z);
+          var p2 =  B * Math.cos(u * Math.PI * x) * Math.cos(v * Math.PI * z) * Math.cos(w * Math.PI * y);
+          var p3 =  C * Math.cos(u * Math.PI * y) * Math.cos(v * Math.PI * x) * Math.cos(w * Math.PI * z);
+          var p4 =  D * Math.cos(u * Math.PI * y) * Math.cos(v * Math.PI * z) * Math.cos(w * Math.PI * x);
+          var p5 =  E * Math.cos(u * Math.PI * z) * Math.cos(v * Math.PI * x) * Math.cos(w * Math.PI * y);
+          var p6 =  F * Math.cos(u * Math.PI * z) * Math.cos(v * Math.PI * y) * Math.cos(w * Math.PI * x);
+
+          return p1 + p2 + p3 + p4 + p5 + p6;
+        }
+  
+         //var sumAll = (x, y, z) = p1(x,y,z) + p2(x,y,z) + p3(x,y,z) + p4(x,y,z) + p5(x,y,z) + p6(x,y,z);
+
+        var size = 1;
+        var s = isosurface( (x,y,z) => myFunc(x,y,z),
+                      [-size,size], [-size,size], [-size,size],
+                      { material: 'normal' } );
+
+        var data = [ s ];
+
+        var config = { type: 'threejs', frame: false, viewpoint: [1,-1,0.5] };
+
+        evaluate( id, data, config );
+
+        }
+
+        parent.update( id );
+      
+      //setInterval( parent.update, 1100, id );
+      
+      </script>
+    </div>
+
+   
+
+    <hr>
+
+    <div class="mathcell" style="height: 5in">
+      <script>
+      
+        var parent = document.currentScript.parentNode;
+
+        var id = generateId();
+        parent.id = id;
+
+        MathCell( id, [] );
+
+        parent.update = function( id ) {
+
+        var A = 1;
+        var B = 1;
+        var C = 1;
+        var D = 1;
+        var E = 1;
+        var F = 1;
+        var u = 2;
+        var v = 4;
+        var w = 1;
+
+        var myFunc = (x, y, z) => {
+          var p1 =  A * Math.cos(u * Math.PI * x) * Math.cos(v * Math.PI * y) * Math.cos(w * Math.PI * z);
+          var p2 =  B * Math.cos(u * Math.PI * x) * Math.cos(v * Math.PI * z) * Math.cos(w * Math.PI * y);
+          var p3 =  C * Math.cos(u * Math.PI * y) * Math.cos(v * Math.PI * x) * Math.cos(w * Math.PI * z);
+          var p4 =  D * Math.cos(u * Math.PI * y) * Math.cos(v * Math.PI * z) * Math.cos(w * Math.PI * x);
+          var p5 =  E * Math.cos(u * Math.PI * z) * Math.cos(v * Math.PI * x) * Math.cos(w * Math.PI * y);
+          var p6 =  F * Math.cos(u * Math.PI * z) * Math.cos(v * Math.PI * y) * Math.cos(w * Math.PI * x);
+
+          return p1 + p2 + p3 + p4 + p5 + p6;
+        }
+  
+         //var sumAll = (x, y, z) = p1(x,y,z) + p2(x,y,z) + p3(x,y,z) + p4(x,y,z) + p5(x,y,z) + p6(x,y,z);
+
+        var size = 1;
+        var s = isosurface( (x,y,z) => myFunc(x,y,z),
+                      [-size,size], [-size,size], [-size,size],
+                      { material: 'normal' } );
+
+        var data = [ s ];
+
+        var config = { type: 'threejs', frame: false, viewpoint: [1,-1,0.5] };
+
+        evaluate( id, data, config );
+
+        }
+
+        parent.update( id );
+      
+      //setInterval( parent.update, 1100, id );
+      
+      </script>
+    </div>
+
+    <hr>
+
+    <div class="mathcell" style="height: 5in">
+      <script>
+      
+        var parent = document.currentScript.parentNode;
+
+        var id = generateId();
+        parent.id = id;
+
+        MathCell( id, [] );
+
+        parent.update = function( id ) {
+
+        var A = 0.5;
+        var B = -0.5;
+        var C = 2;
+        var D = 1.5;
+        var E = 1.5;
+        var F = -1.1;
+        var u = 2;
+        var v = 3;
+        var w = 1;
+
+        var myFunc = (x, y, z) => {
+          var p1 =  A * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * z);
+          var p2 =  B * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * y);
+          var p3 =  C * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * z);
+          var p4 =  D * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * x);
+          var p5 =  E * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * y);
+          var p6 =  F * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * x);
+
+          return p1 + p2 + p3 + p4 + p5 + p6;
+        }
+  
+         //var sumAll = (x, y, z) = p1(x,y,z) + p2(x,y,z) + p3(x,y,z) + p4(x,y,z) + p5(x,y,z) + p6(x,y,z);
+
+        var size = 1;
+        var s = isosurface( (x,y,z) => myFunc(x,y,z),
+                      [-size,size], [-size,size], [-size,size],
+                      { material: 'normal' } );
+
+        var data = [ s ];
+
+        var config = { type: 'threejs', frame: false, viewpoint: [1,-1,0.5] };
+
+        evaluate( id, data, config );
+
+        }
+
+        parent.update( id );
+      
+      //setInterval( parent.update, 1100, id );
+      
+      </script>
+    </div>
+    
+    <hr>
+
+    <div class="mathcell" style="height: 5in">
+      <script>
+      
+        var parent = document.currentScript.parentNode;
+
+        var id = generateId();
+        parent.id = id;
+
+        MathCell( id, [] );
+
+        parent.update = function( id ) {
+
+        var A = 0.2;
+        var B = 2;
+        var C = 2;
+        var D = 0.2;
+        var E = 0.2;
+        var F = 2;
+        var u = 4;
+        var v = 1;
+        var w = 2;
+
+        var myFunc = (x, y, z) => {
+          var p1 =  A * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * z);
+          var p2 =  B * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * y);
+          var p3 =  C * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * z);
+          var p4 =  D * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * x);
+          var p5 =  E * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * y);
+          var p6 =  F * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * x);
+
+          return p1 + p2 + p3 + p4 + p5 + p6;
+        }
+  
+         //var sumAll = (x, y, z) = p1(x,y,z) + p2(x,y,z) + p3(x,y,z) + p4(x,y,z) + p5(x,y,z) + p6(x,y,z);
+
+        var size = 1;
+        var s = isosurface( (x,y,z) => myFunc(x,y,z),
+                      [-size,size], [-size,size], [-size,size],
+                      { material: 'normal' } );
+
+        var data = [ s ];
+
+        var config = { type: 'threejs', frame: false, viewpoint: [1,-1,0.5] };
+
+        evaluate( id, data, config );
+
+        }
+
+        parent.update( id );
+      
+      //setInterval( parent.update, 1100, id );
+      
+      </script>
+    </div>
+
+
+    <hr>
+
+    <div class="mathcell" style="height: 5in">
+      <script>
+      
+        var parent = document.currentScript.parentNode;
+
+        var id = generateId();
+        parent.id = id;
+
+        MathCell( id, [] );
+
+        parent.update = function( id ) {
+
+        var A = 1;
+        var B = 1;
+        var C = 1;
+        var D = 1;
+        var E = 1;
+        var F = 1;
+        var u = 2;
+        var v = 4;
+        var w = 1;
+
+        var myFunc = (x, y, z) => {
+          var p1 =  A * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * z);
+          var p2 =  B * Math.sin(u * Math.PI * x) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * y);
+          var p3 =  C * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * z);
+          var p4 =  D * Math.sin(u * Math.PI * y) * Math.sin(v * Math.PI * z) * Math.sin(w * Math.PI * x);
+          var p5 =  E * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * x) * Math.sin(w * Math.PI * y);
+          var p6 =  F * Math.sin(u * Math.PI * z) * Math.sin(v * Math.PI * y) * Math.sin(w * Math.PI * x);
+
+          return p1 + p2 + p3 + p4 + p5 + p6;
+        }
+  
+         //var sumAll = (x, y, z) = p1(x,y,z) + p2(x,y,z) + p3(x,y,z) + p4(x,y,z) + p5(x,y,z) + p6(x,y,z);
+
+        var size = 1;
+        var s = isosurface( (x,y,z) => myFunc(x,y,z),
+                      [-size,size], [-size,size], [-size,size],
+                      { material: 'normal' } );
+
+        var data = [ s ];
+
+        var config = { type: 'threejs', frame: false, viewpoint: [1,-1,0.5] };
+
+        evaluate( id, data, config );
+
+        }
+
+        parent.update( id );
+      
+      //setInterval( parent.update, 1100, id );
+      
+      </script>
+    </div>
+
+    <!--
+    <h3 id="intro">Introduction</h3>
+
+    <p>The term <strong>&apos;Strange Attractor&apos;</strong> is used to
+      describe an attractor (a region or shape to which points
+      are &apos;pulled&apos; as the result of a certain process) that displays
+      sensitive dependence on initial conditions (that is, points
+      which are initially close on the attractor become
+      exponentially separated with time).
+      The most famous strange attractor is undoubtedly
+      the Lorenz attractor - a three dimensional object whose
+      body plan resembles a butterfly or a mask. The Lorenz
+      attractor, named for its discoverer Edward N. Lorenz,
+      arose from a mathematical model of the atmosphere [<a href="#lorenz1963">2</a>].</p>
+
+    <p>Imagine a rectangular slice of air heated from below and
+      cooled from above by edges kept at constant
+      temperatures. This is our atmosphere in its simplest
+      description. The bottom is heated by the earth and the top
+      is cooled by the void of outer space. Within this slice,
+      warm air rises and cool air sinks.
+      The state of the atmosphere in this model can be
+      described by three time-evolving variables
+      </p><ul>
+        <li>x = the convective flow</li>
+        <li>y = the horizontal temperature distribution</li>
+        <li>z = the vertical temperature distribution</li>
+      </ul>
+      with three parameters describing the character of the
+      model itself
+      <ul>
+        <li>$\sigma$ [sigma] = the ratio of viscosity to thermal conductivity</li>
+        <li>$\rho$ [rho] = the temperature difference between the top and
+          bottom of the slice</li>
+        <li>$\beta$ [beta] = the width to height ratio of the slice</li>
+      </ul>
+      and a system of three ordinary differential equations
+      describing the appropriate laws of fluid dynamics
+      $$\left\{ \begin{eqnarray*}
+      \frac{dx}{dt}&amp;=&amp;\sigma (-x + y)\\
+      \frac{dy}{dt}&amp;=&amp; -x z + \rho x - y \\
+      \frac{dz}{dt}&amp;=&amp; x y - \beta z
+      \end{eqnarray*}\right.
+      $$
+      When $\rho$ = 28, $\sigma$ = 10, and $\beta$ = 8/3, a solution curve of this
+      system has the shape of the iconic butterfly and the
+      position of particles will follow a similar path.<p></p>
+
+    
+      <iframe src="https://jcponce.github.io/calculus/velfields/Lorenz-Butterflies" scrolling="no" width="100%" height="500px" style="border:0px;border:1px solid black"></iframe>
+      <div class="row aln-center" style="font-size:16px">
+          <div class="col-4 col-6-medium">
+            <ul class="actions stacked">
+              <li><a href="https://editor.p5js.org/jcponce/present/WUmXSTPvr" target="_blank" class="button small fit">Full Screen</a></li>
+            </ul>
+          </div>
+      </div>
+      
+    
+
+    <p>The Lorenz attractor was the first strange attractor, but
+      there are many systems of equations that give rise to
+      strange attractors. In the next section you will find simulations
+      of strange attractors with particles moving based on
+      the given system of ordinary differential equations,
+      including one (or two) solution curve(s). Change the parameters
+      to observe the behaviour of the particles and the solution curve(s).
+      To access the simulation just click on the image.
+    </p>
+
+    
+
+    <hr>
+
+-->
+
+    <section id="simulations">
+      
+
+
+    </section>
+
+    <hr>
+
+    
+
+    <hr>
+
+    <h3 id="references">References</h3>
+
+    <ol>
+      <li>Martin Skrodzki, Ulrich Reitebuch, and Konrad Polthier (2016). Chladni Figures Revisited:
+        A Peek Into The Third Dimension <i>Bridges Finland Conference Proceedings</i> 
+         pp. 481-484. <a href="https://archive.bridgesmathart.org/2016/bridges2016-481.pdf" target="_blank" title="Open link"><i class="fas fa-external-link-alt"></i></a></li>
+      
+    </ol>
+
+  </div>
+</section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li><a href="https://twitter.com/jcponcemath" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/jcponce" class="icon brands fa-github"><span class="label">Dribbble</span></a></li>
+          <li><a href="mailto: jcponcemath@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Juan Carlos Ponce Campuzano</li>
+          <li><a href="licence.html"><i class="fab fa-creative-commons"></i></a></li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+
+    </div>
+
+
+  </div>
+
+  <!--Scripts-->
+  <script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/jsutil.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+
+
+</html>
