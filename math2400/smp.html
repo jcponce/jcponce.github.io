@@ -193,6 +193,7 @@
 
 
 				<script>
+					let delayed;
 					const ctx3 = document.getElementById('bar-chart-03').getContext('2d');
 					const myChart3 = new Chart(ctx3, {
 						type: 'bar',
@@ -205,7 +206,7 @@
 								},
 								{
 									label: 'MATH2400 External',
-									data:  [1, 2, 3, 16, 12, 12, 6],
+									data: [1, 2, 3, 16, 12, 12, 6],
 									backgroundColor: 'rgba(181, 73, 255, 0.85)',
 								},
 								{
@@ -223,6 +224,21 @@
 
 
 						options: {
+							/*
+								animation: {
+								onComplete: () => {
+									delayed = true;
+								},
+								delay: (context) => {
+									let delay = 0;
+									if (context.type === 'data' && context.mode === 'default' && !delayed) {
+										delay = context.dataIndex * 300 + context.datasetIndex * 100;
+									}
+									return delay;
+								},
+							},
+							*/
+
 							responsive: true,
 							scales: {
 								x: {
