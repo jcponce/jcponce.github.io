@@ -41,7 +41,16 @@
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>-->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/xlsx@0.14.3/dist/xlsx.full.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1.0.1"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
+
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>-->
+
+
 
 	<!-- This script is to display Github buttons -->
 	<script async defer src="js/buttons.js"></script>
@@ -93,9 +102,7 @@
 									</tr>
 
 								</table>
-								<p><br /></p>
-
-								<p><strong>Number sat exam:</strong> 199</p>
+								<p>Number sat exam: 199</p>
 							</div>
 						</td>
 						<td style="width:80%;">
@@ -106,30 +113,26 @@
 
 
 							<script>
-								const ctx1 = document.getElementById('bar-chart-01').getContext('2d');
-								const myChart = new Chart(ctx1, {
+								var ctx1 = document.getElementById('bar-chart-01').getContext('2d');
+								var chart1 = new Chart(ctx1, {
 									type: 'bar',
 									data: {
-										labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6',
-											'Q7', 'Q8', 'Q9',
-										],
 										datasets: [{
-											label: 'Average',
-											data: [0.12, 0.78, 0.48, 0.50, 0.23, 0.35, 0.32, 0.42, 0.55],
-											backgroundColor: [
-												'rgba(89, 0, 179, 0.85)',
-											],
-											barPercentage: 0.9,
-											borderColor: [
-												'rgba(89, 0, 179, 1)',
-											],
-											borderWidth: 1
+											backgroundColor: 'rgb(125, 99, 232, 0.85)',
 										}]
 									},
+									plugins: [ChartDataSource],
 									options: {
+										plugins: {
+											datasource: {
+												url: 'data-set/exam-questions.xlsx',
+											}
+										},
+										responsive: true,
 										scales: {
 											y: {
-												beginAtZero: true
+												min: 0,
+												max: 1,
 											}
 										}
 									}
@@ -146,32 +149,49 @@
 			<section>
 
 				<p style="padding:40px">
-					<span class="size-60"><strong>Math2400 Internal</strong></span>
+					<span class="size-60">Math2400 Internal</span>
 					<canvas id="bar-chart-02" width="800" height="450"></canvas>
 				</p>
 
 
 				<script>
-					const ctx2 = document.getElementById('bar-chart-02').getContext('2d');
-					const myChart2 = new Chart(ctx2, {
+					var ctx1 = document.getElementById('bar-chart-02').getContext('2d');
+					var chart1 = new Chart(ctx1, {
 						type: 'bar',
 						data: {
-							labels: ['1', '2', '3', '4', '5', '6', '7'],
 							datasets: [{
-								label: '# of Students',
-								data: [3, 9, 7, 56, 42, 32, 12],
-								backgroundColor: [
-									'rgba(51, 133, 255, 0.85)',
-								],
-								borderColor: [
-									'rgba(51, 133, 255, 1)',
-								],
-								borderWidth: 1
+								backgroundColor: 'rgb(25, 99, 232, 0.8)',
+								//'rgba(255, 99, 132, 0.8)',
+								//'rgba(54, 162, 235, 0.8)',
+								//'rgba(255, 206, 86, 0.8)',
+								//'rgba(75, 192, 192, 0.8)',
+								//'rgba(153, 102, 255, 0.8)',
+								//'rgba(255, 159, 64, 0.8)'
+								//]
+								//tension: 0,
+								//fill: false
 							}]
 						},
-
-
+						plugins: [ChartDataSource],
 						options: {
+							plugins: {
+								legend: {
+									display: false,
+									position: 'top',
+								},
+								title: {
+									display: true,
+									text: 'Chart.js Bar Chart'
+								},
+								datasource: {
+									url: 'data-set/test.xlsx',
+									//datasetLabels: 'Sheet1!A2:A3',
+									//indexLabels: 'Sheet1!D1:G1',
+									//data: 'Sheet1!A2:H2'
+								}
+							},
+							responsive: true,
+
 							scales: {
 								y: {
 									beginAtZero: true
@@ -182,58 +202,9 @@
 				</script>
 			</section>
 
-			<section>
-
-				<p style="padding:40px">
-					<span class="size-60"><strong>Math2400 Internal</strong></span>
-					<canvas id="bar-chart-03" width="800" height="450"></canvas>
-				</p>
 
 
-				<script>
-					const ctx3 = document.getElementById('bar-chart-03').getContext('2d');
-					const myChart3 = new Chart(ctx3, {
-						type: 'bar',
-						data: {
-							labels: ['1', '2', '3', '4', '5', '6', '7'],
-							datasets: [{
-									label: 'MATH2400 Internal',
-									data: [3, 9, 7, 46, 32, 22, 12],
-									backgroundColor: 'rgba(100, 153, 255, 0.85)',
-								},
-								{
-									label: 'MATH2400 External',
-									data:  [1, 2, 3, 16, 12, 12, 6],
-									backgroundColor: 'rgba(181, 73, 255, 0.85)',
-								},
-								{
-									label: 'MATH7400 Internal',
-									data: [0, 0, 0, 1, 0, 0, 0],
-									backgroundColor: 'rgba(255, 133, 85, 0.85)',
-								},
-								{
-									label: 'MATH7400 External',
-									data: [0, 0, 0, 1, 1, 0, 0],
-									backgroundColor: 'rgba(191, 190, 10, 0.85)',
-								},
-							]
-						},
 
-
-						options: {
-							responsive: true,
-							scales: {
-								x: {
-									stacked: true,
-								},
-								y: {
-									stacked: true
-								}
-							}
-						}
-					});
-				</script>
-			</section>
 
 
 			<!-- Ends sections -->
