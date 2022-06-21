@@ -12,7 +12,7 @@
   <script>
   
   // Number of samples on each 3D axis
-  var SAMPLES = 10;
+  var SAMPLES = 12;
   
   // Accuracy of integration steps
   var DIVIDE = 8;
@@ -40,16 +40,16 @@
   // Dat GUI
   var gui = new dat.GUI();
   var props = {
-    speed: 0.5,
+    speed: 2,
     x: 0,
     y: 0,
     z: 0,
     jitter: 1,
     steps: 8,
     respawn: 0.0005,
-    fixed: true,
+    fixed: false,
     field1: true,
-    field2: true,
+    field2: false,
     rotate: false,
   };
   gui.add(props, 'rotate')
@@ -71,7 +71,7 @@
     mathbox
     .camera({
       proxy: true,
-      position: [.5, 1, 1],
+      position: [.5, 3, 3],
     });
 
   var view =
@@ -95,11 +95,16 @@
     y += props.y;
     z += props.z;
     
-    var rad = Math.sqrt(x*x + z*z);
-    var offset = rad - 1;
-    var torus = 1/(.1 + offset*offset + y*y);
+    //var rad = Math.sqrt(x*x + z*z);
+    //var offset = rad - 1;
+    //var torus = 1/(.1 + offset*offset + y*y);
+
+    var b = 0.208186
+    var cx = x;
+    var cy = -y;
+    var cz = 0;
     
-    v.set(z * torus, 0, -x * torus);
+    v.set(cx, cy, cz);
     return v;
   };
 
