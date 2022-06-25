@@ -253,6 +253,19 @@
 
 			</section>
 
+			<section>
+				<p style="padding:4px">
+					<canvas id="myChart10" width="800" height="400"></canvas>
+				</p>
+
+				<script>
+
+
+
+
+
+				</script>
+			</section>
 
 			<!-- Ends sections -->
 
@@ -268,6 +281,67 @@
 	<script src="plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
 
+	<script>
+		//getData();
+		chartIt();
+
+		async function chartIt() {
+			const data = await getData();
+			const ctx = document.getElementById('myChart10').getContext('2d');
+			const myChart10 = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: data.xs,
+					datasets: [{
+						label: '# of Votes',
+						data: data.ys,
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+						],
+						borderColor: [
+							'rgba(255, 99, 132, 1)',
+						],
+						borderWidth: 1
+					}]
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true
+						}
+					}
+				}
+			});
+
+		}
+
+		async function getData() {
+
+			const xs = [];
+			const ys = [];
+
+			const response = await fetch('data-set/gc_MATH2400S_7220_20681_fullgc_2022-06-25-17-11-13.csv');
+			const data = await response.text();
+
+			//const rows = data.split('\n').slice(1);
+
+			const table = data.split('\n').slice(1);
+			table.forEach(row => {
+				const columns = row.split(',');
+				row.replace('"', '');
+				const name = columns[0];
+				xs.push(name);
+				const final = columns[37];
+				ys.push(final);
+				console.log(name, final);
+			});
+			console.log(xs, ys)
+			return {
+				xs,
+				ys
+			};
+		}
+	</script>
 
 	<script>
 		includeHTML();
