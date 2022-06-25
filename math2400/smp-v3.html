@@ -289,11 +289,11 @@
 			const data = await getData();
 			const ctx = document.getElementById('myChart10').getContext('2d');
 			const myChart10 = new Chart(ctx, {
-				type: 'bar',
+				type: 'line',
 				data: {
 					labels: data.xs,
 					datasets: [{
-						label: '# of Votes',
+						label: 'Final exam',
 						data: data.ys,
 						backgroundColor: [
 							'rgba(255, 99, 132, 0.2)',
@@ -327,15 +327,14 @@
 
 			const table = data.split('\n').slice(1);
 			table.forEach(row => {
-				const columns = row.split(',');
-				row.replace('"', '');
-				const name = columns[0];
+				const columns = row.split('","');
+				const name = columns[0].replace(/"/g, '');
 				xs.push(name);
-				const final = columns[37];
+				const final = columns[37].replace(/"/g, '');
 				ys.push(final);
 				console.log(name, final);
 			});
-			console.log(xs, ys)
+			console.log(ys)
 			return {
 				xs,
 				ys
