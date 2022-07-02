@@ -114,24 +114,23 @@
 
 						<th style="width:50%">
 							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p class="fragment" data-fragment-index="2">
+								<p class="fragment" data-fragment-index="1">
 									Divide $R$ into subrectangles by dividing $[a,b]$ into $m$ subintervals
 									$[x_{i-1},x_i]$, each of width $$\Delta x = \frac{b-a}{m}$$
-									<span class="fragment" data-fragment-index="3">
-										and
-										$[c,d]$ into $n$ subintervals $[y_{i-1},y_i]$ of equal width
-										$$\Delta y = \frac{d-c}{n}.$$
-									</span>
+									and
+									$[c,d]$ into $n$ subintervals $[y_{i-1},y_i]$ of equal width
+									$$\Delta y = \frac{d-c}{n}.$$
+
 								</p>
-								<p class="fragment" data-fragment-index="4">
+								<p class="fragment" data-fragment-index="2">
 									Combining these gives a rectangular grid $R_{ij}$ with subrectangles each
 									of area $\Delta A= \Delta x\Delta y$.
-									Each subrectangle take any point $P_{ij}$ with
+									In each subrectangle take any point $P_{ij}$ with
 									co-ordinates $(x_{ij}^*, y_{ij}^*)$.
 								</p>
 							</div>
 						</th>
-						<th style="width:50%;"  class="fragment" data-fragment-index="1"><img style="width: 100%; 
+						<th style="width:50%;" class="fragment" data-fragment-index="1"><img style="width: 100%; 
 					  display: block;
 					  margin-left: auto;
 					  margin-right: auto;" class="r-stretch" data-src="images/chapter-23/chapter-23-1-b-rec-area.svg" />
@@ -139,6 +138,63 @@
 
 					</tr>
 				</table>
+			</section>
+
+			<section>
+				<h4>23.1 Double integrals</h4>
+
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:40%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									The volume of the box with base the rectangle $\Delta A$
+									and height the value of the function $f(x,y)$ at the point
+									$P_{ij}$ (so the box touches the surface
+									at a point directly avobe $P_{ij}$) is
+									\[
+									V_{ij} = f\left(x_{ij}^*, y_{ij}^*\right)
+									\]
+								</p>
+								<p class="fragment" data-fragment-index="1">
+									Then for all the subrectangles we have an approximation to the required
+									volume $V$:
+									\[
+									V\approx \sum_{i=1}^m\sum_{j=1}^n f\left(x_{ij}^*, y_{ij}^*\right) \Delta A,
+									\]
+									the double Riemann sum.
+								</p>
+							</div>
+						</th>
+						<th style="width:60%;">
+							<iframe scrolling="no" title="Chapter 23-1: Surface & prisms"
+								src="https://www.geogebra.org/material/iframe/id/pvgjh8py/width/549/height/454/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+								width="549px" height="454px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+							
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>23.1 Double integrals</h4>
+				<div class="size-60 left-txt">
+					<p>
+						Let $\Delta x \to 0 $ and $\Delta  y \to 0$, i.e. $m\to \infty$ and $n\to \infty$,
+						then we define the volume to be 
+						\[
+						V= \lim_{m\to \infty} \lim_{n\to \infty} \sum_{i=1}^m\sum_{j=1}^n f\left(x_{ij}^*, y_{ij}^*\right) \Delta A,
+						\]
+						if the limits exist and we we write this as
+						\[
+						\int\int_Rf(x,y)dA.
+						\]
+						We call $f$ integrable if the limit exists. Note that every continuous function
+						is integrable.
+					</p>
+				</div>
 			</section>
 
 
