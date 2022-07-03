@@ -220,9 +220,25 @@
 
 			<section>
 				<h4>24.4 Non-rectangular region</h4>
-				<div class="left-txt size-70">
+				<div class="left-txt size-60">
 					<p>
-
+						To define a double integral over a non-rectangular region $D$, we consider a rectangular 
+						$R$ which encloses $D$ ad define
+						\[
+						F(x,y) = \left\{ 
+							\begin{array}{rl}
+							f(x,y) & \text{if }(x,y)\in D\\
+							0, &\text{if }(x,y)\in R \text{ but } \notin D
+							\end{array}
+							\right.
+						\]
+					</p>
+					<p>
+						Then we can define the double integral of $f(x,y)$ over $D$ by
+						\[
+						\iint_D f(x,y) dA= \iint_R F(x,y)dA
+						\]
+						and proceed as before:
 					</p>
 				</div>
 			</section>
