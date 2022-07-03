@@ -104,32 +104,29 @@
 			</section>
 
 			<section>
-				<h5>24.2 Example: evaluate <br/>$\displaystyle {\small \iint_R (x^2+y^2)dA}$ where
-					$R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq x\leq 1 \right\}$</h5>
+				<h5>24.2 Example: evaluate <br/>$\displaystyle {\small \iint_R \left(x^2+y^2\right)dA}$ where
+					$R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq y\leq 1 \right\}$</h5>
 				<p></p>
-				<div class="size-70 left-txt">
+				<div class="size-60">
 					<p>
 						
 						<span class="fragment" data-fragment-index="0">
-							$\displaystyle\int_0^2 \int_1^3 x^2y~dy~dx = \displaystyle \int_0^2 \left[  \int_1^3 x^2y~dy \right]dx$
+							$\displaystyle \iint_R  \left(x^2+y^2\right)dA = \displaystyle \int_{x=0}^{x=2} \left[  \int_{y=0}^{y=1} \left(x^2+y^2\right)dy \right]dx \qquad\qquad$
 						</span>
 						<span class="fragment" data-fragment-index="1">
-							$= \displaystyle \int_0^2 \left[  x^2 \frac{y^2}{2}\Bigg|_{y=1}^{y=3} \right]dx$
+							<br/><br/>$\quad \, = \displaystyle \int_0^2  \left[  \left( x^2 y + \frac{y^3}{3} \right) \Bigg|_{y=0}^{y=1}  \right] dx$
 						</span>
 						<span class="fragment" data-fragment-index="2">
-							<br/><br/>$\qquad \qquad \qquad \;\;\;= \displaystyle \int_0^2   \left( x^2 \cdot\frac{3^2}{2} - x^2 \cdot\frac{1^2}{2} \right)dx$
+							<br/><br/>$\qquad \qquad \qquad \quad= \displaystyle \int_0^2   \left[ x^2 (1) +  \frac{(1)^3}{3} - \left(x^2 (0) + x^2 \frac{(0)^3}{3}\right) \right]dx$
 						</span>
 						<span class="fragment" data-fragment-index="3">
-							$= \displaystyle \int_0^2 4x^2~dx$
+							<br/><br/>$\qquad \qquad \qquad \;\;\;= \displaystyle \int_0^2 \left( x^2+\frac{1}{3} \right) dx$
 						</span>
 						<span class="fragment" data-fragment-index="4">
-							<br/><br/>$\qquad \qquad \qquad \;\;\;= \displaystyle  \frac{4}{3}x^3\Bigg|_{x=0}^{x=2}$
+							$= \displaystyle  \left( \frac{x^3}{3}+\frac{1}{3}x \right)\Bigg|_{x=0}^{x=2}$
 						</span>
 						<span class="fragment" data-fragment-index="5">
-							$= \displaystyle \frac{4}{3} \left( 2^3 - 0^3 \right)$
-						</span>
-						<span class="fragment" data-fragment-index="6">
-							$= \displaystyle  \frac{32}{3}$
+							$= \displaystyle  \frac{10}{3}$
 						</span>
 						
 					</p>
@@ -139,33 +136,29 @@
 				
 			</section>
 
-
 			<section>
-				<h5>23.3.2 Example: evaluate $\displaystyle {\small \int_1^3 \int_0^2 x^2y~dx~dy}$</h5>
+				<h5>24.2 Example (cont.): by Fubini's theorem</h5>
 				<p></p>
-				<div class="size-70 left-txt">
+				<div class="size-60">
 					<p>
 						
-						<span class="fragment" data-fragment-index="0">
-							$\displaystyle\int_1^3 \int_0^2 x^2y~dx~dy = \displaystyle \int_1^3 \left[  \int_0^2 x^2y~dx \right]dy$
+						<span>
+							$\displaystyle \iint_R  \left(x^2+y^2\right)dA = \displaystyle \int_{y=0}^{y=1} \left[  \int_{x=0}^{x=2} \left(x^2+y^2\right)dx \right]dy \qquad\qquad$
 						</span>
 						<span class="fragment" data-fragment-index="1">
-							$= \displaystyle \int_1^3 \left[  y \frac{x^3}{3}\Bigg|_{x=0}^{x=2} \right]dy$
+							<br/><br/>$\quad \, = \displaystyle \int_0^1  \left[  \left(  \frac{x^3}{3} + y^2x \right) \Bigg|_{x=0}^{x=2}  \right] dy$
 						</span>
 						<span class="fragment" data-fragment-index="2">
-							<br/><br/>$\qquad \qquad \qquad \;\;\;= \displaystyle \int_0^2  \left( y\cdot \frac{2^3}{3} -  y \cdot\frac{0^3}{3} \right)dy$
+							<br/><br/>$\qquad \qquad \qquad \quad= \displaystyle \int_0^1   \left[ \frac{(2)^3}{3} + y^2(2) - \left(\frac{(0)^3}{3} + y^2(0)\right) \right]dy$
 						</span>
 						<span class="fragment" data-fragment-index="3">
-							$= \displaystyle \int_1^3 \frac{8}{3}y~dx$
+							<br/><br/>$\qquad \qquad \qquad \;\;\;= \displaystyle \int_0^1 \left( \frac{1}{8} + 2y^2 \right) dy$
 						</span>
 						<span class="fragment" data-fragment-index="4">
-							<br/><br/>$\qquad \qquad \qquad \;\;\;= \displaystyle  \frac{8}{3} \cdot \frac{1}{2}\cdot y^2\Bigg|_{x=1}^{x=3}$
+							$= \displaystyle  \left( \frac{1}{8}y + 2\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=1}$
 						</span>
 						<span class="fragment" data-fragment-index="5">
-							$= \displaystyle \frac{4}{3} \left(3^2 - 1^2 \right)$
-						</span>
-						<span class="fragment" data-fragment-index="6">
-							$= \displaystyle  \frac{32}{3}$
+							$= \displaystyle  \frac{10}{3}$
 						</span>
 						
 					</p>
@@ -173,6 +166,16 @@
 					
 				</div>
 				
+			</section>
+
+			
+
+			<section>
+				<h5>24.2 Example (cont.): by Fubini's theorem</h5>
+				
+				<iframe scrolling="no" title="Chapter-23-3-2: Example"
+					src="https://www.geogebra.org/material/iframe/id/qvjbxjrq/width/526/height/432/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="526px" height="432px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 			</section>
 
 
