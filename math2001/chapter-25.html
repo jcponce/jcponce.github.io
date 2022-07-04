@@ -92,60 +92,53 @@
 							$x$-$y$ plane.
 						</p>
 					</div>
-	
+
 					<iframe scrolling="no" title="Chapter 23-1: Surface"
 						src="https://www.geogebra.org/material/iframe/id/cd3r4n4v/width/574/height/463/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
 						width="574px" height="463px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 				</section>
-	
+
 				<section>
 					<h4>23.1 Double integrals</h4>
-					<div class="left-txt size-50">
-						<p>
-							Before moving onto general regions, we start by considering the case where
-							$R$ is a retangle. That is,
-							\[
-							R = \left\{ (x,y) \in \R | a\leq x \leq b, c\leq x \leq d \right\}
-							\]
-						</p>
-					</div>
 					<table style="width:100%;">
 						<tr>
-	
-							<th style="width:50%">
-								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+							<th style="width:60%">
+								<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 									<p class="fragment" data-fragment-index="1">
-										Divide $R$ into subrectangles by dividing $[a,b]$ into $m$ subintervals
-										$[x_{i-1},x_i]$, each of width $$\Delta x = \frac{b-a}{m}$$
-										and
-										$[c,d]$ into $n$ subintervals $[y_{i-1},y_i]$ of equal width
-										$$\Delta y = \frac{d-c}{n}.$$
-	
+										A plane region $D$ is of type I if it lies between
+										the graph of two continuous functions of $x$. That is
+										$$D=\left\{ (x,y) ~|~ a \leq x\leq b, g_1(x) \leq y \leq g_2(x) \right\}.$$
+
 									</p>
 									<p class="fragment" data-fragment-index="2">
-										Combining these gives a rectangular grid $R_{ij}$ with subrectangles each
-										of area $\Delta A= \Delta x\Delta y$.
-										In each subrectangle take any point $P_{ij}$ with
-										co-ordinates $(x_{ij}^*, y_{ij}^*)$.
+										In practice, to evaluate $\iint_D f(x,y)dA$ where $D$ is a region
+										of type I we have
+										\[
+										\iint_D f(x,y)dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) ~dy~dx
+										\]
 									</p>
 								</div>
 							</th>
-							<th style="width:50%;" class="fragment" data-fragment-index="1"><img style="width: 100%; 
+							<th style="width:40%;" class="fragment" data-fragment-index="1"><img style="width: 100%; 
 						  display: block;
 						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/chapter-23/chapter-23-1-b-rec-area.svg" />
+						  margin-right: auto;" class="r-stretch" data-src="images/chapter-25/chapter-25-1-type-Ia.svg" />
+								<p style="font-size:16px;font-weight:normal">Type I regions are generally bounded by two
+									constant values
+									of $x$ and two functions of $x$.</p>
 							</th>
-	
+
 						</tr>
 					</table>
 				</section>
-	
+
 				<section>
 					<h4>23.1 Double integrals</h4>
-	
+
 					<table style="width:100%;">
 						<tr>
-	
+
 							<th style="width:40%">
 								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 									<p>
@@ -171,22 +164,23 @@
 								<div style="height:454px;width:549px">
 									<iframe scrolling="no" title="Chapter 23-1: Surface & prisms"
 										src="https://www.geogebra.org/material/iframe/id/pvgjh8py/width/549/height/454/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-										width="549px" height="454px" style="border:0px;" data-preload allowfullscreen="">
+										width="549px" height="454px" style="border:0px;" data-preload
+										allowfullscreen="">
 									</iframe>
 								</div>
 							</th>
-	
+
 						</tr>
 					</table>
 				</section>
-	
+
 				<section>
 					<h4>23.1 Double integrals</h4>
 					<div class="size-60 left-txt">
 						<p>
-	
+
 							Let $\Delta x \to 0 $ and $\Delta y \to 0$,
-	
+
 							<span class="fragment" data-fragment-index="0">
 								i.e. $m\to \infty$ and $n\to \infty$,
 							</span>
