@@ -160,6 +160,75 @@
 					</div>
 				</section>
 
+				<section>
+					<h5>25.1.1 Example (cont.)</h5>
+					<div class="left-txt size-70">
+						<p>
+							Type I region with $x^2 \leq y \leq x+2.$
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							We need to find $a$ and $b$ by solving
+							\[
+							\left\{\begin{array}{ll}
+							y=x^2\\
+							y=x+2
+							\end{array}\right.
+							\]
+							for $x$. 
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Here we have $x^2=x+2$
+							<span class="fragment" data-fragment-index="2">
+								$\implies x = -1, x = 2$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\implies a = -1, b = 2.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Then $D= \left\{ (x,y) ~|~ -1\leq x\leq 2, ~x^2\leq y\leq x+2\right\}$.
+						</p>
+					</div>
+					
+				</section>
+
+				<section>
+					<h5>25.1.1 Example (cont.)</h5>
+					<div class="size-60">
+						<p>
+
+							<span class="fragment" data-fragment-index="0">
+								$\displaystyle \iint_D \left(4x+10y\right)dA = \displaystyle \int_{x=-1}^{x=2} \left[
+								\int_{y=x^2}^{y=x+2} \left(4x+10y\right)dy \right]dx \qquad\qquad\qquad\qquad$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								<br /><br />$ = \displaystyle \int_{x=-1}^{x=2} \left[ \left( 4xy + 10 \frac{y^2}{2}
+								\right)
+								\Bigg|_{y=x^2}^{y=x+2} \right] dx \quad$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								<br /><br />$\qquad\qquad\qquad= \displaystyle \int_{x=-1}^{x=2}  \left[ 
+								4x(x+2) + 5 (x+2)^2 -\left( 4x(x^2) + 5 (x^2)^2 \right)
+								\right]dx$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								<br /><br />$\qquad = \displaystyle \int_{x=-1}^{x=2} \left( 
+									-5 x^4 - 4 x^3 + 9 x^2 + 28 x + 20
+								\right) dx$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\qquad\;\;= \displaystyle \left( -x^5 - x^4 + 3 x^3 + 14 x^2 + 20 x\right)\Bigg|_{x=-1}^{x=2}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \displaystyle 81$
+							</span>
+						</p>
+
+
+					</div>
+					
+				</section>
+
 
 			</section>
 
@@ -247,6 +316,84 @@
 							width="472px" height="406px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 					</div>
 					-->
+				</section>
+
+				<section>
+					<h5>25.2.1 Example (cont.)</h5>
+					<div class="left-txt size-70">
+						<p>
+							Type II region. 
+							<span class="fragment" data-fragment-index="0">
+								We know that $y=x-1$ and $y^2=2x+6$.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								So $x=y+1$ and $x=\frac{1}{2}y^2-3$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Then $\frac{1}{2}y^2-3\leq x\leq y+1$.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							We need to find $c$ and $d$ by solving
+							\[
+							\left\{\begin{array}{ll}
+							x=\frac{1}{2}y^2-3\\
+							x=y+1
+							\end{array}\right.
+							\]
+							for $y$. 
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Here we have $\frac{1}{2}y^2-3=y+1$
+							<span class="fragment" data-fragment-index="5">
+								$\implies y = -2, y = 4$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\implies c = -2, d = 4.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							Then $D= \left\{ (x,y) ~|~ -2\leq y\leq 4, ~\frac{1}{2}y^2-3\leq x\leq y+1\right\}$.
+						</p>
+					</div>
+					
+				</section>
+
+				<section>
+					<h5>25.2.1 Example (cont.)</h5>
+					<div class="size-60">
+						<p>
+
+							<span class="fragment" data-fragment-index="0">
+								$\displaystyle \iint_D xy~dA = \displaystyle \int_{y=-2}^{y=4} \left[
+								\int_{x=\frac{1}{2}y^2-3}^{x=y+1} xy~ dx \right]dy \qquad\qquad$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								<br /><br />$ = \displaystyle \int_{y=-2}^{y=4} \left[ 
+								y\cdot \frac{x^2}{2}
+								\Bigg|_{x=\frac{1}{2}y^2-3}^{x=y+1} \right] dx \quad$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								<br /><br />$\qquad\quad\qquad= \displaystyle \int_{y=-2}^{y=4}  \left[ 
+								y\cdot \frac{(y+1)^2}{2} - y\cdot \frac{\left(\frac{1}{2}y^2-3\right)^2}{2}
+								\right]dx$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								<br /><br />$\qquad = \displaystyle \int_{y=-2}^{y=4} \left( 
+									-y^5/8 + 2 y^3 + y^2 - 4 y
+								\right) dx$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								<br />$\qquad\qquad\,= \displaystyle \left( -y^6/48 + y^4/2 + y^3/3 - 2 y^2 \right)\Bigg|_{y=-2}^{y=4}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \displaystyle 36$
+							</span>
+						</p>
+						
+
+					</div>
+					
 				</section>
 
 
