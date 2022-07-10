@@ -326,7 +326,8 @@
 							= 2\pi} \int_{r=0}^{r=R} e^{-r^2} \cdot r ~dr~d\theta \qquad\qquad\qquad\qquad\quad $
 						</p>
 						<p class="fragment" data-fragment-index="3">
-							$\qquad\qquad\;\;\displaystyle =\left( \int_{\theta=0}^{\theta = 2\pi} d \theta \right) \left(
+							$\qquad\qquad\;\;\displaystyle =\left( \int_{\theta=0}^{\theta = 2\pi} d \theta \right)
+							\left(
 							\int_{r=0}^{r=R} e^{-r^2}r~ d r\right)$
 							<span class="fragment" data-fragment-index="4">
 								$\displaystyle = \pi\left( 1- e^{-R^2}\right). $
@@ -359,13 +360,13 @@
 							Let's use polar coordinates: $x= r\cos\theta$, $y\sin \theta$.
 						</p>
 						<p class="fragment" data-fragment-index="1">
-							This implies that our surface is defined as $1-x^2-y^2 = 1-r^2$, 
+							This implies that our surface is defined as $1-x^2-y^2 = 1-r^2$,
 							<span class="fragment" data-fragment-index="2">
-								and the 
-							domain $D$ is the intersection of 
-							\[
-							z=0 \;\text{ and }\; z=1-x^2-y^2.
-							\]
+								and the
+								domain $D$ is the intersection of
+								\[
+								z=0 \;\text{ and }\; z=1-x^2-y^2.
+								\]
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="3">That is $x^2+y^2=1$.</p>
@@ -377,9 +378,9 @@
 				<section>
 					<h4>28.2 Example: Find the volume (cont.)</h4>
 					<div class="size-70 left-txt">
-						<p>Thus we have that 
+						<p>Thus we have that
 							$$0\leq r \leq 1 \;\text{ and } \;0 \leq \theta \leq 2\pi$$
-							
+
 						</p>
 
 						<p class="fragment" data-fragment-index="1">
@@ -426,6 +427,95 @@
 					<iframe scrolling="no" title="Chapter-28-2: Example"
 						src="https://www.geogebra.org/material/iframe/id/bgpthhze/width/489/height/431/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
 						width="489px" height="431px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				</section>
+
+
+				<section>
+					<h4>28.3 Example: Find the volume (cont.)</h4>
+					<div class="size-70 left-txt">
+						<p>First, we need to find the boundaries.</p>
+						<p class="fragment" data-fragment-index="0">
+							If we complete the square in $x^2+y^2=2x$, we obtain
+							\[
+							(x-1)^2+y^2=1.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							This is the cylinder centred at $(1,0)$ with radius $1$.
+							<span class="fragment" data-fragment-index="2">
+								In this example the domain is defined by the expression
+								\[
+								(x-1)^2+y^2=1.
+								\]
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">Again it is simpler to use polar coordinates.</p>
+
+					</div>
+
+				</section>
+
+				<section>
+					<h4>28.3 Example: Find the volume (cont.)</h4>
+					<div class="size-70 left-txt">
+						<p>Thus, substituing the values $x= r\cos\theta$, $y\sin \theta$ in 
+							$$x^2+y^2=2x,$$
+							<span class="fragment" data-fragment-index="0">
+								we get $r^2\cos ^2\theta +r^2\sin ^2\theta = 2r \cos \theta$ 
+								
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\Rightarrow r^2 = 2r \cos \theta$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\Rightarrow r = 2 \cos \theta$ with $r\neq  0$.
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							So
+							$$D = \left\{ \left( r, \theta \right) ~|~ 0\leq r \leq 2\cos \theta, -\pi/2 \leq \theta \leq \pi/2 \right\}.$$
+							
+						</p>
+					</div>
+
+					
+
+				</section>
+
+
+				<section>
+					<h4>28.3 Example: Find the volume (cont.)</h4>
+					<div class="size-70 left-txt">
+						
+
+						<p>
+							
+								Then 
+							
+						</p>
+					</div>
+
+					<div class="size-70">
+						<p class="fragment" data-fragment-index="2">
+							$\displaystyle \text{Volume}=\iint_{D} \left(x^2+y^2 \right)dA $
+							<span class="fragment" data-fragment-index="3">
+								$\displaystyle= \iint_{D} r^2r ~dr~d\theta \qquad \qquad$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							$\displaystyle =\int_{\theta=-\frac{\pi}{2}}^{\theta
+							= \frac{\pi}{2}} \int_{r=0}^{r=2\cos \theta} r^3 ~dr~d\theta \qquad \qquad\qquad$
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							$\displaystyle =\left( \int_{\theta=0}^{\theta = 2\pi} d \theta \right) \left(
+							\int_{r=0}^{r=1} \left(1-r^2 \right)r~ d r\right)$
+							<span class="fragment" data-fragment-index="6">
+								$\displaystyle = \frac{\pi}{2} . \quad$
+							</span>
+						</p>
+					</div>
+
 				</section>
 
 
