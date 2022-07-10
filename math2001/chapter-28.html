@@ -61,31 +61,197 @@
 			</section>
 
 			<section>
-				<h4>28 Double integrals in polar coordinates</h4>
-				<div class="left-txt size-60">
-					<p>
-						By the end of this section, you should be able to answer the following questions:
-					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">What is the relationship between polar coordinates
-							and rectangular coordinates?
-						</li>
-						<li class="fragment" data-fragment-index="1">How do you transform a double integral in
-							rectangular coordinates into one in terms of polar coordinates?
-						</li>
-						<li class="fragment" data-fragment-index="2">What is the Jacobian of the transformation?
-						</li>
-					</ul>
+				<section>
+					<h4>28 Double integrals in polar coordinates</h4>
+					<div class="left-txt size-70">
+						<p>
+							By the end of this section, you should be able to answer the following questions:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">What is the relationship between polar
+								coordinates
+								and rectangular coordinates?
+							</li>
+							<li class="fragment" data-fragment-index="1">How do you transform a double integral in
+								rectangular coordinates into one in terms of polar coordinates?
+							</li>
+							<li class="fragment" data-fragment-index="2">What is the Jacobian of the transformation?
+							</li>
+						</ul>
 
-					<p class="fragment" data-fragment-index="3">
-						For annular regions with circular symmetry, rectangular coordinates are difficult. It can be more convenient to use polar coordinates.
-						<span class="fragment" data-fragment-index="4">
-							The following diagram explains the relationship between the polar variables $r$, $\theta$
-							 and the usual rectangular ones $x, y$.
-						</span>
 						
-					</p>
-				</div>
+					</div>
+
+				</section>
+
+				<section>
+					<h4>28 Double integrals in polar coordinates</h4>
+					<table style="width:100%;">
+						<tr>
+
+							<td style="width:40%">
+								<div class="size-60" style="text-align: left; margin-left: 0.1em;">
+									<p>
+										For annular regions with circular symmetry, rectangular coordinates are difficult. It can be
+										more convenient to use polar coordinates.
+										<span class="fragment" data-fragment-index="0">
+											The following diagram explains the relationship between the polar variables $r$,
+											$\theta$
+											and the usual rectangular ones $x, y$.
+										</span>
+			
+									</p>
+								</div>
+							</td>
+
+							<td style="width:60%;">
+								<div class="fragment" data-fragment-index="0">
+									<iframe scrolling="no" title="Chapter-28: Polar plane"
+										src="https://www.geogebra.org/material/iframe/id/rtz5smgt/width/520/height/437/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+										width="520px" height="437px" style="border:0px;" data-preload
+										allowfullscreen=""> </iframe>
+								</div>
+							</td>
+
+						</tr>
+					</table>
+				</section>
+
+				<!--
+					<section>
+					<h4>28 Double integrals in polar coordinates</h4>
+					<iframe scrolling="no" title="Chapter-28: Polar plane"
+						src="https://www.geogebra.org/material/iframe/id/rtz5smgt/width/520/height/437/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="520px" height="437px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				</section>
+				-->
+
+				<section>
+					<h4>28 Double integrals in polar coordinates</h4>
+					<p><br /></p>
+					<div class="size-70 left-txt">
+						<p>
+							For polar coordinates, we have
+							\[
+							x = r\cos \theta, \quad y = r \sin \theta.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							Consider the volume of a solid
+							beneath a surface $z = f(x,y)$ and above a circular
+							region in the $x$-$y$ plane.
+						</p>
+
+					</div>
+
+					<p><br /></p>
+				</section>
+
+				<section>
+					<h4>28 Double integrals in polar coordinates</h4>
+					<table style="width:100%;">
+						<tr>
+
+							<td style="width:50%">
+								<div class="size-60" style="text-align: left; margin-left: 0.1em;">
+									<p class="fragment" data-fragment-index="1">
+										We first approximate the area of each polar
+										rectangle as a regular rectangle. We do this as
+										follows.
+										<span class="fragment" data-fragment-index="2">
+											Choose a point $P$ inside each polar rectangle in the polar grid.
+										</span>
+										<span class="fragment" data-fragment-index="3">
+											Let $P = (x^*, y^*)$ or
+											in polar coordinates $P = (r^*, \theta^*)$ , where
+											\[
+											x^* = r^*\cos \theta^*, \quad y^* = r^* \sin \theta^*.
+											\]
+										</span>
+
+									</p>
+									<p class="fragment" data-fragment-index="4">
+										The area of the polar rectangle containing P can be approximated
+										as $r^*\Delta \theta \Delta r$.
+									</p>
+								</div>
+							</td>
+
+							<td style="width:50%;">
+								<p style="font-size:20px;">We divide the region into a polar grid as in the following
+									diagram:</p>
+
+
+								<div class="r-stack">
+									<img style="width: 100%;" data-src="images/chapter-28/chapter-28b-sectorb.svg" />
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										data-src="images/chapter-28/chapter-28b-sector.svg" />
+								</div>
+
+							</td>
+
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h4>28 Double integrals in polar coordinates</h4>
+					<div class="size-70 left-txt">
+						<p>
+
+							Therefore the volume under the surface and above
+							each polar rectangle can be approximated as
+							\[
+							\text{vol. on box} \approx r^*\Delta \theta \Delta r ~f\left( r^*\cos \theta^*, r^* \sin
+							\theta^* \right).
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							Here $f\left( r^*\cos \theta^*, r^* \sin
+							\theta^* \right)$ is the value of the function at
+							the point $P$, which is also the
+							height of the box used in the approximation.
+						</p>
+
+					</div>
+				</section>
+
+				<section>
+					<h4>28 Double integrals in polar coordinates</h4>
+					<div class="size-60 left-txt">
+						<p>
+							To obtain an approximation for the entire
+							volume below the surface, we sum over the entire polar grid:
+						</p>
+					</div>
+					<div class="size-60">
+						<p>
+							$\text{vol.} \approx \displaystyle \sum_{(\text{polar grid})} r^*\Delta \theta \Delta r
+							~f\left( r^*\cos \theta^*, r^* \sin
+							\theta^* \right)\quad \;$
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							$\Rightarrow \text{vol.} = \displaystyle \lim_{\Delta r, \Delta \theta \to 0}
+							\sum_{(\text{polar grid})} r^*\Delta \theta \Delta r ~f\left( r^*\cos \theta^*, r^* \sin
+							\theta^* \right)$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							$= \displaystyle \iint_\limits{D} f\left( r \cos \theta , r \sin
+							\theta \right).\qquad \qquad \qquad \;\;$
+						</p>
+
+
+					</div>
+					<div class="size-60 left-txt">
+						<p class="fragment" data-fragment-index="2">
+							The double integral in rectangular coordinates is then transformed as follows:
+							\[
+							\iint_\limits{R} f(x,y)~dx~dy = \iint_\limits{S} f\left( r \cos \theta , r \sin
+							\theta \right) ~dr~d\theta.
+							\]
+						</p>
+					</div>
+				</section>
 
 			</section>
 
