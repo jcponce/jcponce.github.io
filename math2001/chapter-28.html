@@ -327,9 +327,9 @@
 						</p>
 						<p class="fragment" data-fragment-index="3">
 							$\qquad\qquad\;\;\displaystyle =\left( \int_{\theta=0}^{\theta = 2\pi} d \theta \right) \left(
-							\int_{r=0}^{r=R} e^{-r^2} d r\right)$
+							\int_{r=0}^{r=R} e^{-r^2}r~ d r\right)$
 							<span class="fragment" data-fragment-index="4">
-								$\displaystyle = \pi\left( 1-e^{-R^2}\right) .$
+								$\displaystyle = \pi\left( 1- e^{-R^2}\right). $
 							</span>
 						</p>
 					</div>
@@ -351,6 +351,65 @@
 						width="489px" height="431px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 				</section>
 
+				<section>
+					<h4>28.2 Example: Find the volume (cont.)</h4>
+					<div class="size-70 left-txt">
+						<p>😃 We can evaluate this integral in rectangular and polar coordinates.</p>
+						<p class="fragment" data-fragment-index="0">
+							Let's use polar coordinates: $x= r\cos\theta$, $y\sin \theta$.
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							This implies that our surface is defined as $1-x^2-y^2 = 1-r^2$, 
+							<span class="fragment" data-fragment-index="2">
+								and the 
+							domain $D$ is the intersection of 
+							\[
+							z=0 \;\text{ and }\; z=1-x^2-y^2.
+							\]
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">That is $x^2+y^2=1$.</p>
+
+					</div>
+
+				</section>
+
+				<section>
+					<h4>28.2 Example: Find the volume (cont.)</h4>
+					<div class="size-70 left-txt">
+						<p>Thus we have that 
+							$$0\leq r \leq 1 \;\text{ and } \;0 \leq \theta \leq 2\pi$$
+							
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							So
+							$D = \left\{ \left( r, \theta \right) ~|~ 0\leq r \leq 1,0 \leq \theta \leq 2\pi \right\}$.
+
+						</p>
+					</div>
+
+					<div class="size-70">
+						<p class="fragment" data-fragment-index="2">
+							$\displaystyle \text{Volume}=\iint_{D} \left(1-x^2-y^2 \right)dA $
+							<span class="fragment" data-fragment-index="3">
+								$\displaystyle= \iint_{D} \left(1-r^2 \right)r ~dr~d\theta \qquad \qquad$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							$\displaystyle =\int_{\theta=0}^{\theta
+							= 2\pi} \int_{r=0}^{r=1} \left(1-r^2 \right)r ~dr~d\theta \qquad \qquad\qquad$
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							$\displaystyle =\left( \int_{\theta=0}^{\theta = 2\pi} d \theta \right) \left(
+							\int_{r=0}^{r=1} \left(1-r^2 \right)r~ d r\right)$
+							<span class="fragment" data-fragment-index="6">
+								$\displaystyle = \frac{\pi}{2} . \quad$
+							</span>
+						</p>
+					</div>
+
+				</section>
 
 
 
