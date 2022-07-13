@@ -106,7 +106,8 @@
 			</section>
 
 			<section>
-				<section>
+				<!--
+					<section>
 					<h4>24.2 Example: evaluate </h4>
 					<p class="sbt">$\displaystyle {\small \iint_R \left(x^2+y^2\right)dA}$ where
 						$R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq y\leq 1 \right\}$</p>
@@ -143,8 +144,66 @@
 					</div>
 
 				</section>
+				-->
 
 				<section>
+						<h4>24.2 Example: evaluate </h4>
+						<p class="sbt">$\displaystyle {\small \iint_R \left(x^2+y^2\right)dA}$ where
+							$R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq y\leq 1 \right\}$</p>
+						<div class="size-60">
+							<table  id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
+								<tr>
+									<td>
+										$\displaystyle \iint_R \left(x^2+y^2\right)dA $
+									</td>
+									<td>
+										$= \displaystyle \int_{x=0}^{x=2} \left[
+								\int_{y=0}^{y=1} \left(x^2+y^2\right)dy \right]dx $
+									</td>
+								</tr>
+								<tr>
+									<td>
+	
+									</td>
+									<td class="fragment" data-fragment-index="0">
+										$ = \displaystyle \int_0^2 \left[ \left( x^2 y + \frac{y^3}{3}
+								\right)
+								\Bigg|_{y=0}^{y=1} \right] dx$
+									</td>
+								</tr>
+								<tr>
+									<td>
+	
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$= \displaystyle \int_0^2 \left[ x^2 (1) +
+								\frac{(1)^3}{3} - \left(x^2 (0) + x^2 \frac{(0)^3}{3}\right) \right]dx$
+									</td>
+								</tr>
+								<tr>
+									<td>
+	
+									</td>
+									<td class="fragment" data-fragment-index="2" >
+										$= \displaystyle \int_0^2 \left( x^2+\frac{1}{3}
+								\right) dx$
+									<span class="fragment" data-fragment-index="3">
+										$= \displaystyle \left( \frac{x^3}{3}+\frac{1}{3}x \right)\Bigg|_{x=0}^{x=2}$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$= \displaystyle \frac{10}{3}$
+									</span>
+									</td>
+								</tr>
+							</table>
+	
+	
+						</div>
+	
+					</section>
+
+				<!--
+					<section>
 					<h4>24.2 Example (cont.):</h4>
 					<p class="sbt">by Fubini's theorem</p>
 					<div class="size-60">
@@ -164,12 +223,12 @@
 								y^2(2) - \left(\frac{(0)^3}{3} + y^2(0)\right) \right]dy$
 							</span>
 							<span class="fragment" data-fragment-index="3">
-								<br /><br />$\qquad \qquad \qquad \;\;\;= \displaystyle \int_0^1 \left( \frac{1}{8} +
+								<br /><br />$\qquad \qquad \qquad \;\;\;= \displaystyle \int_0^1 \left( \frac{8}{3} +
 								2y^2
 								\right) dy$
 							</span>
 							<span class="fragment" data-fragment-index="4">
-								$= \displaystyle \left( \frac{1}{8}y + 2\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=1}$
+								$= \displaystyle \left( \frac{8}{3}y + 2\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=1}$
 							</span>
 							<span class="fragment" data-fragment-index="5">
 								$= \displaystyle \frac{10}{3}$
@@ -178,6 +237,61 @@
 						</p>
 
 
+					</div>
+
+				</section>
+				-->
+
+				<section>
+					<h4>24.2 Example (cont.):</h4>
+					<p class="sbt">by Fubini's theorem</p>
+					<div class="size-60">
+						<table  id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
+							<tr>
+								<td>
+									$\displaystyle \iint_R \left(x^2+y^2\right)dA $
+								</td>
+								<td>
+									$= \displaystyle \int_{y=0}^{y=1} \left[
+									\int_{x=0}^{x=2} \left(x^2+y^2\right)dx \right]dy $
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									$ = \displaystyle \int_0^1 \left[ \left( \frac{x^3}{3} + y^2x
+									\right)
+									\Bigg|_{x=0}^{x=2} \right] dy$
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									$= \displaystyle \int_0^1 \left[ \frac{(2)^3}{3} +
+								y^2(2) - \left(\frac{(0)^3}{3} + y^2(0)\right) \right]dy$
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="2" >
+									$= \displaystyle \int_0^1 \left( \frac{8}{3} +
+								2y^2
+								\right) dy$
+								<span class="fragment" data-fragment-index="3">
+									$= \displaystyle \left( \frac{8}{3}y + 2\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=1}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \displaystyle \frac{10}{3}$
+								</span>
+								</td>
+							</tr>
+						</table>
 					</div>
 
 				</section>
@@ -446,9 +560,9 @@
 					<iframe scrolling="no" title="Chapter-24-5: Vertical slabs"
 						src="https://www.geogebra.org/material/iframe/id/ukwnwgrg/width/510/height/424/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
 						width="510px" height="424px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-					
+
 				</section>
-				
+
 			</section>
 
 			<section>
