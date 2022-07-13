@@ -7,6 +7,9 @@
 			slideNumber: "c/t",
 			center: true,
 
+			// Global override for preloading lazy-loaded iframes
+			preloadIframes: true,
+
 			// Transition style
 			transition: 'fade',
 
@@ -58,9 +61,9 @@
 
 			chalkboard: { // font-awesome.min.css must be available
 				//src: "chalkboard/chalkboard.json",
+				//storage: "chalkboard-demo",
 				boardmarkerWidth: 4,
 				chalkWidth: 3,
-				//storage: "chalkboard-demo",
 				grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 1},
 				//grid: false,
 				chalkEffect: 0.4,
