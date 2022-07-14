@@ -142,15 +142,18 @@
 					</p>
 					<div class="left-txt size-65">
 						<p>
-							Consider a solid object that occupies a region $E$. Then the
-							density function of this solid is
-							\[
-							\rho (x,y,z) = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
-							\]
-							in units of mass per unit volume, at any given point $(x, y, z)$.
+							Consider a solid object that occupies a region $E$.
+							<span class="fragment" data-fragment-index="0">
+								Then the
+								density function of this solid is
+								\[
+								\rho (x,y,z) = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+								\]
+								in units of mass per unit volume, at any given point $(x, y, z)$.
+							</span>
 
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							Then it mass is
 							\[
 							m = \iiint_R \rho(x,y,z)dV.
@@ -166,7 +169,7 @@
 							$
 							R = \left\{ (x,y,z) ~|~ 0\leq x \leq L, 0\leq dy \leq W, 0\leq z\leq H \right\}.
 							$
-							<span  class="fragment" data-fragment-index="0">Then</span>
+							<span class="fragment" data-fragment-index="0">Then</span>
 						</p>
 					</div>
 					<table class="size-55" id="eqarray">
@@ -183,41 +186,47 @@
 						</tr>
 						<tr>
 							<td>
-								
+
 							</td>
 							<td class="fragment" data-fragment-index="2">
-								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \int_{x=0}^{x=L}\left( ~\rho_0 + \alpha xyz~\right)dx~dy~dz$
-								
+								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \int_{x=0}^{x=L}\left( ~\rho_0 +
+								\alpha xyz~\right)dx~dy~dz$
+
 							</td>
 						</tr>
 						<tr>
 							<td>
-								
+
 							</td>
 							<td class="fragment" data-fragment-index="3">
-								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \left( ~\rho_0x + \alpha \frac{x^2}{2}yz~\right)\Bigg|_{x=0}^{x=L} dy~dz$
+								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \left( ~\rho_0x + \alpha
+								\frac{x^2}{2}yz~\right)\Bigg|_{x=0}^{x=L} dy~dz$
 								<span class="fragment" data-fragment-index="4">
-									$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \left( ~\rho_0L + \alpha \frac{L^2}{2}yz~\right) dy~dz$
+									$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \left( ~\rho_0L + \alpha
+									\frac{L^2}{2}yz~\right) dy~dz$
 								</span>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								
+
 							</td>
 							<td class="fragment" data-fragment-index="5">
-								$\displaystyle =\int_{z=0}^{z=H}  \left( ~\rho_0Ly + \alpha \frac{L^2}{2}\frac{y^2}{2}z~\right)\Bigg|_{y=0}^{y=W} dz$
+								$\displaystyle =\int_{z=0}^{z=H} \left( ~\rho_0Ly + \alpha
+								\frac{L^2}{2}\frac{y^2}{2}z~\right)\Bigg|_{y=0}^{y=W} dz$
 								<span class="fragment" data-fragment-index="6">
-									$\displaystyle =\int_{z=0}^{z=H}  \left( ~\rho_0LW + \alpha \frac{L^2}{2}\frac{W^2}{2}z~\right) dz$
+									$\displaystyle =\int_{z=0}^{z=H} \left( ~\rho_0LW + \alpha
+									\frac{L^2}{2}\frac{W^2}{2}z~\right) dz$
 								</span>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								
+
 							</td>
 							<td class="fragment" data-fragment-index="7">
-								$\displaystyle =  \left( ~\rho_0LWz + \alpha \frac{L^2}{2}\frac{W^2}{2}\frac{z^2}{2}~\right)\Bigg|\int_{z=0}^{z=H} $
+								$\displaystyle = \left( ~\rho_0LWz + \alpha
+								\frac{L^2}{2}\frac{W^2}{2}\frac{z^2}{2}~\right)\Bigg|\int_{z=0}^{z=H} $
 								<span class="fragment" data-fragment-index="8">
 									$\displaystyle =\rho_0 LWH + \frac{\alpha}{8} L^2W^2H^2.$
 								</span>
