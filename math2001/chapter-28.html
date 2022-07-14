@@ -110,8 +110,7 @@
 								<div class="fragment" data-fragment-index="0">
 									<iframe scrolling="no" title="Chapter-28: Polar plane"
 										src="https://www.geogebra.org/material/iframe/id/rtz5smgt/width/520/height/437/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-										width="520px" height="437px" style="border:0px;" 
-										allowfullscreen=""> </iframe>
+										width="520px" height="437px" style="border:0px;" allowfullscreen=""> </iframe>
 								</div>
 							</td>
 
@@ -354,13 +353,13 @@
 					</div>
 
 					<div class="size-70">
-						<table>
+						<table id="eqarray">
 
 							<tr>
-								<td style="border:none;" class="fragment" data-fragment-index="2">
+								<td class="fragment" data-fragment-index="2">
 									$\displaystyle\iint_{D} e^{-r^2}\cdot r ~dr~d\theta $
 								</td>
-								<td style="border:none;" class="fragment" data-fragment-index="2">
+								<td class="fragment" data-fragment-index="2">
 									$\displaystyle= \int_{\theta=0}^{\theta
 									= 2\pi} \int_{r=0}^{r=R} e^{-r^2} \cdot r ~dr~d\theta $
 
@@ -373,7 +372,7 @@
 								<td>
 
 								</td>
-								<td class="fragment" data-fragment-index="3">
+								<td data-fragment-index="3">
 									$\displaystyle =\left( \int_{\theta=0}^{\theta = 2\pi} d \theta \right)
 									\left(
 									\int_{r=0}^{r=R} e^{-r^2}r~ d r\right)$
@@ -418,13 +417,13 @@
 								\[
 								x^2+y^2=1
 								\]
-								
+
 							</span>
 							<span class="fragment" data-fragment-index="3">
 								which is determine by intersecting $z=0$ and $z=1-x^2-y^2.$
 							</span>
 						</p>
-						
+
 
 					</div>
 
@@ -573,22 +572,21 @@
 				<section>
 					<h4>28.3 Example: Find the volume (cont.)</h4>
 					<div class="size-70 left-txt">
-						<p>Thus, substituing the values $x= r\cos\theta$, $y\sin \theta$ in
+						<p>Thus, substituing the values $x= r\cos\theta$ and $y\sin \theta$ in
 							$$x^2+y^2=2x,$$
 							<span class="fragment" data-fragment-index="0">
-								we get $r^2\cos ^2\theta +r^2\sin ^2\theta = 2r \cos \theta$
+								we get $r^2\cos ^2\theta +r^2\sin ^2\theta = 2r \cos \theta$.
 
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								$\Rightarrow r^2 = 2r \cos \theta$
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								$\Rightarrow r = 2 \cos \theta$ with $r\neq 0$.
+								That is
+								$$ r^2 = 2r \cos \theta
+								\Rightarrow r = 2 \cos \theta \qquad (r\neq 0).$$
 							</span>
 						</p>
 
 						<p class="fragment" data-fragment-index="3">
-							So
+							Thus
 							$$D = \left\{ \left( r, \theta \right) ~|~ 0\leq r \leq 2\cos \theta, -\pi/2 \leq \theta
 							\leq \pi/2 \right\}.$$
 
@@ -599,8 +597,81 @@
 
 				</section>
 
-
 				<section>
+					<h4>28.3 Example: Find the volume (cont.)</h4>
+					<div class="size-65 left-txt">
+						<p>
+							Then we have that
+						</p>
+					</div>
+					<div class="size-65">
+						<table id="eqarray">
+
+							<tr>
+								<td>
+									$\displaystyle\text{Volume}$
+								</td>
+								<td>
+									$\displaystyle =\iint_{D} \left(x^2+y^2 \right)dA $
+									<span class="fragment" data-fragment-index="0">
+										$\displaystyle= \iint_{D} r^2r ~dr~d\theta $
+									</span>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									$\displaystyle =\int_{\theta=-\frac{\pi}{2}}^{\theta
+									= \frac{\pi}{2}} \int_{r=0}^{r=2\cos \theta} r^3 ~dr~d\theta $
+									<span class="fragment" data-fragment-index="2">
+										$\displaystyle =\int_{\theta=-\frac{\pi}{2}}^{\theta
+										= \frac{\pi}{2}} \left[ \frac{r^4}{4} \Bigg|_{r=0}^{r=2\cos \theta} \right]
+										d\theta
+										$
+									</span>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="3">
+									$\displaystyle = 4 \int_{\theta=-\frac{\pi}{2}}^{\theta
+									= \frac{\pi}{2}} \cos^4 \theta~ d\theta $
+									<span class="fragment" data-fragment-index="4">
+										$\displaystyle = 4 \int_{\theta=-\frac{\pi}{2}}^{\theta
+										= \frac{\pi}{2}} \left( \frac{3}{8} + \frac{1}{2} \cos 2 \theta + \frac{1}{8}
+										\cos 4
+										\theta \right) d\theta $
+									</span>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="5">
+									$\displaystyle =4\left[ \left( \frac{3}{8}\theta + \frac{1}{4}\sin 2\theta
+									+\frac{1}{32}
+									\sin 4
+									\theta \right) \Bigg|_{\theta=-\frac{\pi}{2}}^{\theta = \frac{\pi}{2}} \right]$
+									<span class="fragment" data-fragment-index="6">
+										$\displaystyle = \frac{3\pi}{2} .$
+									</span>
+								</td>
+							</tr>
+
+						</table>
+					</div>
+				</section>
+
+				<!--
+					<section>
 					<h4>28.3 Example: Find the volume (cont.)</h4>
 					<div class="size-70 left-txt">
 						<p>
@@ -644,6 +715,7 @@
 					</div>
 
 				</section>
+				-->
 
 
 			</section>
