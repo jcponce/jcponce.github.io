@@ -97,7 +97,7 @@
 								where $R$ is a region in $\R^3$ and $dV$ is an element of volume.
 							</span>
 						</p>
-						
+
 
 					</div>
 
@@ -106,7 +106,7 @@
 				<section>
 					<h3>30 Introduction to triple integrals</h3>
 					<div class="left-txt size-70">
-						
+
 						<p>
 							If $R$ is a region in $\R^3$ specified by
 							\[
@@ -119,11 +119,13 @@
 							<span class="fragment" data-fragment-index="0">
 								then
 								\[
-								\iiint_\limits{R} f(x,y,z)dV = \int_a^b \left\{  \int_{p(x)}^{q(x)} \left[  \int_{r(x,y)}^{s(x,y)} f(x,y,z)dz \right]dy \right\}dx.
+								\iiint_\limits{R} f(x,y,z)dV = \int_a^b \left\{ \int_{p(x)}^{q(x)} \left[
+								\int_{r(x,y)}^{s(x,y)} f(x,y,z)dz \right]dy \right\}dx.
 								\]
 							</span>
 						</p>
-						<p class="fragment" data-fragment-index="1">In two dimensions, there are 2 possible orders of integration. In three dimensions, there are 6.</p>
+						<p class="fragment" data-fragment-index="1">In two dimensions, there are 2 possible orders of
+							integration. In three dimensions, there are 6.</p>
 
 					</div>
 
@@ -132,10 +134,94 @@
 
 
 			<section>
-				<h4>30.1 Find the mass of a rectangular block </h4>
-				<p class="sbt">with dimensions $0\leq x \leq L,$ $0\leq dy \leq W$ and $0\leq z\leq H$<br/>
-					if the density is $\rho = \rho_0 + \alpha xyz$.
-				</p>
+
+				<section>
+					<h4>30.1 Find the mass of a rectangular block </h4>
+					<p class="sbt">with dimensions $0\leq x \leq L,$ $0\leq dy \leq W$ and $0\leq z\leq H$<br />
+						if the density is $\rho = \rho_0 + \alpha xyz$.
+					</p>
+					<div class="left-txt size-65">
+						<p>
+							Consider a solid object that occupies a region $E$. Then the
+							density function of this solid is
+							\[
+							\rho (x,y,z) = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+							\]
+							in units of mass per unit volume, at any given point $(x, y, z)$.
+
+						</p>
+						<p>
+							Then it mass is
+							\[
+							m = \iiint_R \rho(x,y,z)dV.
+							\]
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>30.1 Find the mass of a rectangular block (cont.)</h4>
+					<div class="size-55 left-txt">
+						<p>In this case our region is
+							$
+							R = \left\{ (x,y,z) ~|~ 0\leq x \leq L, 0\leq dy \leq W, 0\leq z\leq H \right\}.
+							$
+						</p>
+					</div>
+					<table class="size-55" id="eqarray">
+						<tr>
+							<td>
+								$\text{Mass}$
+							</td>
+							<td>
+								$\displaystyle =\iiint_R \rho(x,y,z) dV$
+								<span>
+									$\displaystyle =\iiint_R \left( ~\rho_0 + \alpha xyz~\right) dV$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								
+							</td>
+							<td>
+								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \int_{x=0}^{x=L}\left( ~\rho_0 + \alpha xyz~\right)dx~dy~dz$
+								
+							</td>
+						</tr>
+						<tr>
+							<td>
+								
+							</td>
+							<td>
+								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \left( ~\rho_0x + \alpha \frac{x^2}{2}yz~\right)\Bigg|_{x=0}^{x=L} dy~dz$
+								
+							</td>
+						</tr>
+						<tr>
+							<td>
+								
+							</td>
+							<td>
+								$\displaystyle =\int_{z=0}^{z=H}  \left( ~\rho_0x + \alpha \frac{x^2}{2}yz~\right)\Bigg|_{y=0}^{y=W} dz$
+								
+							</td>
+						</tr>
+						<tr>
+							<td>
+								
+							</td>
+							<td>
+								$\displaystyle =  \left( ~\rho_0x + \alpha \frac{x^2}{2}yz~\right)\Bigg|\int_{z=0}^{z=H} $
+								<span>
+									$\displaystyle =\rho LWH + \frac{\alpha}{8} L^2W^2H^2.$
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+
 			</section>
 
 
