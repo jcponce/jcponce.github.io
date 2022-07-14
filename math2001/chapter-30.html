@@ -239,6 +239,102 @@
 			</section>
 
 
+			<section>
+				<section>
+					<h5>30.2 Evaluate $\iiint_R z~dV$ over the region $R$ bounded by </h5>
+					<p class="sbt">the surfaces $x=0$, $y=0$, $z=0$  and $x+y+z=1$.</p>
+					<div class="size-70 left-txt">
+						<p>There are different ways to compute the integral.
+							<span>First, let's integrate $z$.</span>
+							<span>Then $0\leq x \leq 1-x-y$.</span>
+							<span>Thus
+								\[
+								\iiint_R z~dV = \iint_{D_{xy}} \left[ \int_{z=0}^{z=1-x-y}z~dz\right]dA_{xy}
+								\]
+								where $D_{xy}$ is the projection of $R$ on the plane $xy$.
+							</span>
+						</p>
+						<p>It is bounded by $x=0$, $y=0$ and the intersection of $z=0$ with $z=1-x-y$,
+							i.e. $0=1-x-y$, or $x+y=1$
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h5>30.2 Evaluate $\iiint_R z~dV$ over the region $R$ bounded by </h5>
+					<p class="sbt">the surfaces $x=0$, $y=0$, $z=0$ and $x+y+z=1$.</p>
+					<div>
+						<iframe scrolling="no" title="Chapter-30-2: Example"
+							src="https://www.geogebra.org/material/iframe/id/g8xv84xu/width/604/height/432/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="604px" height="432px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h5>30.2 Evaluate $\iiint_R z~dV$ over the region $R$ bounded by </h5>
+					<p class="sbt">the surfaces $x=0$, $y=0$, $z=0$ and $x+y+z=1$.</p>
+					<div class="size-55 left-txt">
+						<p>This region $D_{xy}$ is of both types (I and II).
+							<span class="fragment" data-fragment-index="0">Consider $D_{xy}$ as a type I region.</span>
+							<span class="fragment" data-fragment-index="1">Then
+							</span>
+						</p>
+						
+					</div>
+					<table class="size-55" id="eqarray">
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle \iiint_R z~dV$
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = \iint_{D_{xy}} \left[ \int_{z=0}^{z=1-x-y}z~dz\right]dA_{xy}$
+								<span class="fragment" data-fragment-index="2">
+									$\displaystyle = \int _{x=0}^{x=1} \int_{y=0}^{y=1-x} \left[ \int_{z=0}^{z=1-x-y}z~dz \right]dy~dx$
+								</span>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = \int _{x=0}^{x=1} \int_{y=0}^{y=1-x} \left[ \frac{z^2}{2}\Bigg|_{z=0}^{z=1-x-y} \right]dy~dx$
+								<span class="fragment" data-fragment-index="4">
+									$\displaystyle = \int _{x=0}^{x=1} \int_{y=0}^{y=1-x}  \frac{(1-x-y)^2}{2} dy~dx$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\displaystyle = \int _{x=0}^{x=1}  \left[ -\frac{1}{6}\left( 1-y-x \right)^3 \Bigg|_{y=0}^{y=1-x} \right]dx$
+								<span class="fragment" data-fragment-index="6">
+									$\displaystyle = \int _{x=0}^{x=1}  \frac{1}{6}\left(1-x \right)^3dx$
+								</span>
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="7">
+								$\displaystyle =  -\frac{1}{24}\left(x-1\right)^4 \Bigg|_{x=0}^{x=1} $
+								
+								<span class="fragment" data-fragment-index="8">
+									$\displaystyle = \frac{1}{24}$
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+
 
 
 
