@@ -3,7 +3,7 @@ faces = Slider(0, 4, 1, 1, 100, false, true, false, false)
 SetVisibleInView(faces, 1, false)
 SetVisibleInView(faces, 2, false)
 
-u_1 = (1, 0, 0)
+u_1 = (-1, 0, 0)
 u_2 = (0, 1, 0)
 u_3 = (0, 0, -1)
 u_4 = (1; 120°; -20°)
