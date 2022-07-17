@@ -171,13 +171,13 @@
 							\text{Volume of } V = \iiint_V 1 ~dV.
 							\]
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							Here we are going to use cylindrical coordinates
 							\[
 							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z
 							\]
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							Here we have that
 							\[
 							0\leq r \leq R,\quad 0\leq \theta \leq 2\pi,\quad 0\leq z \leq H
@@ -206,7 +206,7 @@
 							</td>
 							<td>
 								$\displaystyle = \iiint_V 1 ~dV$
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									$\displaystyle = \int_{z=0}^{z=H} \int_{r=0}^{r=R} \int_{\theta=0}^{\theta=2\pi}
 									r~d\theta~ dr ~dz$
 								</span>
@@ -216,7 +216,7 @@
 							<td>
 
 							</td>
-							<td>
+							<td class="fragment" data-fragment-index="1">
 								$\displaystyle = \left( \int_{\theta=0}^{\theta=2\pi} ~d\theta \right) \left(
 								\int_{r=0}^{r=R} r~dr\right) \left(\int_{z=0}^{z=H} dz\right)$
 							</td>
@@ -225,9 +225,9 @@
 							<td>
 
 							</td>
-							<td>
+							<td class="fragment" data-fragment-index="2">
 								$\displaystyle = 2\pi ~\frac{R^2}{2} H $
-								<span>$\displaystyle = \pi ~R^2 H$</span>
+								<span class="fragment" data-fragment-index="3">$\displaystyle = \pi ~R^2 H$</span>
 							</td>
 						</tr>
 					</table>
@@ -239,21 +239,166 @@
 			</section>
 
 			<section>
-				<h4>31.2 Find the mass of the solid defined by</h4>
-				<div class="size-55 left-txt">
-					<p>
-						<strong> the region contained within the cylinder $x^2 + y^2 = 1$ below the
-							plane $z = 4$ and above the paraboloid $z = 1- x^2 y^2$. The
-							density at any given point in the region is proportional to
-							the distance from the axis of the cylinder.
-						</strong>
-					</p>
-				</div>
-				<div>
-					<iframe scrolling="no" title="Chapter-31-2: Example"
-						src="https://www.geogebra.org/material/iframe/id/gjjn22jd/width/565/height/407/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
-						width="565px" height="407px" style="border:0px;" allowfullscreen=""> </iframe>
-				</div>
+				<section>
+					<h4>31.2 Find the mass of the solid defined by</h4>
+					<div class="size-55 left-txt">
+						<p>
+							<strong>the region contained within the cylinder $x^2 + y^2 = 1$ below the
+								plane $z = 4$ and above the paraboloid $z = 1- x^2 y^2$. The
+								density at any given point in the region is proportional to
+								the distance from the axis of the cylinder.
+							</strong>
+						</p>
+					</div>
+					<div>
+						<iframe scrolling="no" title="Chapter-31-2: Example"
+							src="https://www.geogebra.org/material/iframe/id/gjjn22jd/width/565/height/407/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="565px" height="407px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h4>31.2 Find the mass of the solid defined by</h4>
+					<div class="size-55 left-txt">
+						<p>
+							<strong> the region contained within the cylinder $x^2 + y^2 = 1$ below the
+								plane $z = 4$ and above the paraboloid $z = 1- x^2 y^2$. The
+								density at any given point in the region is proportional to
+								the distance from the axis of the cylinder.
+							</strong>
+						</p>
+
+
+					</div>
+					<div class="size-60 left-txt">
+						<p>
+							It is given that
+							$\rho \propto \text{distance from }z \text{-axis}$.
+							<span class="fragment" data-fragment-index="0">
+								That is
+								\[
+								\rho \propto \sqrt{\left(x-0\right)^2+\left(z-0\right)^2+\left(z-z\right)^2} =
+								\sqrt{x^2+y^2}
+								\]
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								If we take $\rho = k \sqrt{x^2+y^2}$, with $k$ the constant of proportionality,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then
+								\[\text{Mass} = \iiint_V\rho ~dV = \iiint_V k \sqrt{x^2+y^2}dV\]
+							</span>
+						</p>
+					</div>
+				</section>
+
+
+				<section>
+					<h4>31.2 Find the mass of the solid (cont.)</h4>
+					<div class="size-60 left-txt">
+						<p>
+							It is easier to compute this integral usinf cylindrical coordinates
+							\[
+							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z.
+							\]
+						</p>
+
+						<p class="fragment" data-fragment-index="0">So we have that</p>
+
+					</div>
+					<div class="size-60 ">
+						<p class="fragment" data-fragment-index="1">
+							
+							
+							$z = 1-x^2-y^2 $
+							<span class="fragment" data-fragment-index="2">
+								$= 1 - r^2\cos ^2 \theta- r^2 \sin^2 \theta $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$= 1 - r^2$.
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-60 left-txt">
+						<p class="fragment" data-fragment-index="4">
+							Thus $1-r^2\leq z \leq 4$.
+							<span class="fragment" data-fragment-index="5">
+								On the other hand, the domain $D$ for $x,y$ is constrained by $x^2+y^2=1$.
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								So 
+								\[
+								0\leq r\leq 1,\quad 0\leq \theta \leq 2 \pi.
+								\]
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="7">Then 
+							\[
+							V = \left\{(r, \theta, z) ~|~ 1-r^2\leq z \leq 4 0\leq r\leq 1, 0\leq \theta \leq 2 \pi \right\}
+							\]
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>31.2 Find the mass of the solid (cont.)</h4>
+					<table id="eqarray" class="size-65">
+						<tr>
+							<td>
+								$\text{Mass} $
+							</td>
+							<td>
+								$\displaystyle = \iiint_V\rho ~dV= \iiint_V k \sqrt{x^2+y^2}dV$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$\displaystyle = \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=1} \int_{z=1-r^2}^{z=4} 
+								k~ r~ r ~dz~dr~d\theta$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=1} 
+								\left[ k~ r^2 ~z \Bigg|_{z=1-r^2}^{z=4}\right]  
+								dr~d\theta$
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=1} 
+								 k r^2 \left(4 - \left(1-r^2\right)\right) 
+								dr~d\theta$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = 
+								\left( \int_{\theta=0}^{\theta=2\pi}  d\theta \right)
+								\left( 
+								\int_{r=0}^{r=1} 
+								k r^2 \left(4 - \left(1-r^2\right)\right) dr\right)$
+								<span class="fragment" data-fragment-index="4">
+									$=\displaystyle  \frac{12 \pi k}{5}$
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
 			</section>
 
 
