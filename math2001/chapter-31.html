@@ -158,13 +158,89 @@
 
 
 			<section>
-				<h4>31.1 A simple example: Find the volume of a cylinder of
-					radius R and height H. (Ans. $\pi R^2 H$)</h4>
+				<section>
+					<h4>31.1 A simple example: Find the volume of a cylinder of
+						radius R and height H. (Ans. $\pi~ R^2 H$)
+					</h4>
+					<div class="left-txt size-70">
+						<p>
+							<strong>Note:</strong> Triple integral is hypervolume of $4D$
+							below the hyperspace defined by $f(x,y,z)$. If $f(x,y,z)=1$, then
+							the triple integral is the volume. That is
+							\[
+							\text{Volume of } V = \iiint_V 1 ~dV.
+							\]
+						</p>
+						<p>
+							Here we are going to use cylindrical coordinates
+							\[
+							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z
+							\]
+						</p>
+						<p>
+							Here we have that
+							\[
+							0\leq r \leq R,\quad 0\leq \theta \leq 2\pi,\quad 0\leq z \leq H
+							\]
+						</p>
+					</div>
+
+
+				</section>
+
+				<section>
+					<h4>31.1 A simple example: Find the volume of a cylinder of
+						radius R and height H. (Ans. $\pi ~R^2 H$)
+					</h4>
+					<div class="left-txt size-80">
+						<p>
+							Then
+						</p>
+
+					</div>
+
+					<table class="size-80" id="eqarray">
+						<tr>
+							<td>
+								$\text{Volume} $
+							</td>
+							<td>
+								$\displaystyle = \iiint_V 1 ~dV$
+								<span>
+									$\displaystyle = \int_{z=0}^{z=H} \int_{r=0}^{r=R} \int_{\theta=0}^{\theta=2\pi}
+									r~d\theta~ dr ~dz$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td>
+								$\displaystyle = \left( \int_{\theta=0}^{\theta=2\pi} ~d\theta \right) \left(
+								\int_{r=0}^{r=R} r~dr\right) \left(\int_{z=0}^{z=H} dz\right)$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td>
+								$\displaystyle = 2\pi ~\frac{R^2}{2} H $
+								<span>$\displaystyle = \pi ~R^2 H$</span>
+							</td>
+						</tr>
+					</table>
+
+
+				</section>
+
+
 			</section>
 
 			<section>
 				<h4>31.2 Find the mass of the solid defined by</h4>
-				<div class="size-60 left-txt">
+				<div class="size-55 left-txt">
 					<p>
 						<strong> the region contained within the cylinder $x^2 + y^2 = 1$ below the
 							plane $z = 4$ and above the paraboloid $z = 1- x^2 y^2$. The
@@ -172,6 +248,11 @@
 							the distance from the axis of the cylinder.
 						</strong>
 					</p>
+				</div>
+				<div>
+					<iframe scrolling="no" title="Chapter-31-2: Example"
+						src="https://www.geogebra.org/material/iframe/id/gjjn22jd/width/565/height/407/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+						width="565px" height="407px" style="border:0px;" allowfullscreen=""> </iframe>
 				</div>
 			</section>
 
