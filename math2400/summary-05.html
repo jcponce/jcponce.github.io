@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH2400/7400 - Summary Week 6</title>
+	<title>MATH2400/7400 - Summary Week 5</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -34,9 +34,6 @@
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 
-<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
-<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
-
 
 	<!-- This script is to display Github buttons -->
 	<script async defer src="js/buttons.js"></script>
@@ -60,35 +57,27 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 6</p>
+				<p>Summary Week 5</p>
 			</section>
 
 			<section>
-				<h4>The Derivative</h4>
+				<h4>Continuous functions</h4>
 
-				<div class="left-txt size-60">
+				<div class="left-txt size-70">
 					<p><strong>Definition:</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ be a function, and let $c \in I$. If
-						the limit
-						\begin{equation*}
-						L := \lim_{x \to c} \frac{f(x)-f(c)}{x-c}
-						\end{equation*}
-						exists, then we say $f$ is
-						<em>differentiable</em> at
-						$c$, that $L$ is the <em>derivative</em> of $f$ at $c$,
-						and write $f'(c) := L$.
-					</p>
+						Let $S \subset \R$, $c \in S$, and let $f \colon S \to \R$ be a function.
+						We say
+						that $f$ is <em>continuous at</em> $c$
+						if for every $\epsilon \gt 0$
+						there is a $\delta \gt 0$ such that whenever $x \in S$ and $\abs{x-c} \lt
+						\delta$, then
+						$\abs{\,f(x)-f(c)} \lt \epsilon$.
 
-					<p>
-						If $f$ is differentiable at all $c \in I$, then we simply say that
-						$f$ is <em>differentiable</em>, and then we obtain a function
-						$f' \colon I \to \R$.
-					</p>
+						<br /><br />
 
-					<p>
-						The expression $\displaystyle\frac{f(x)-f(c)}{x-c}$ is called the
-						<em>difference quotient</em>.
+
+						When $f \colon S \to \R$ is continuous at all $c \in S$, then we simply say
+						$f$ is a <em>continuous function</em>.
 					</p>
 
 				</div>
@@ -97,313 +86,461 @@
 			</section>
 
 			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Graphical interpretation of the derivative</p>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Example</p>
 
-					<iframe scrolling="no" title="The Derivative: Geometrical interpretation" src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="562px" height="390px" style="border:0px;"  data-preload allowfullscreen=""> </iframe>
-			</section>
+				<iframe scrolling="no" title="Definition of continuity"
+					src="https://www.geogebra.org/material/iframe/id/bxhpb99k/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="704px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 
-			<section>
-				<h4>The Derivative</h4>
-
-				<div class="left-txt size-80">
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $f \colon I \to \R$ be differentiable at $c \in I$,
-						then it is continuous at $c$.
-					</p>
-
-					<p>
-						<strong>
-							Note:
-						</strong>
-						There exists a continuous function that is not differentiable at <em>any</em> point. 
-						This is known as the <em>Weierstrass function</em>.
-					</p>
-					
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Weierstrass function</p>
-				
-					<table style="width:100%;">
-						<tr>
-	
-							<td style="width:30%">
-								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-	
-									<p>
-										$
-										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
-										$
-										where $0\lt a\lt 1$, $b$ is a positive odd integer.
-									</p>
-
-	
-								</div>
-							</td>
-							<td class="size-40" style="width:70%;">
-								
-					<div class="mathcell" style="height: 4.1in">
-						<script>
-						
-						var parent = document.currentScript.parentNode;
-						
-						var id = generateId();
-						parent.id = id;
-						
-						MathCell( id, [ ]);
-
-					    
-						var a = .3, b = 3.0, direction = 1;
-
-						var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
-						
-						
-						
-						parent.update = function( id ) {
-						  
-
-						
-						  function f( x ) {
-						
-							var s = 0;
-							for ( var k = 0 ; k < terms ; k++ ) {
-							   s += a**k * Math.cos( b**k * Math.PI * x );
-							}
-						
-							return s;
-						
-						  }
-						
-						  var data = [ plot( f, [ -2, 2, 5000 ], { color: 'black' } ),
-                                       text( 'b = ' + b.toFixed(1), [1.8,1.7] )];
-						
-						  var config = { type: 'svg', yMin: -1.6, yMax: 1.6 };
-						
-						  evaluate( id, data, config );
-
-						  b += 2 * direction;
-
-                          if ( b < 3.5 || b > 9 ) direction *= -1;
-						
-						}
-						
-						parent.update( id );
-						
-						setInterval( parent.update, 1100, id );
-						
-						</script>
-					</div>
-						<p style="font-size:14px;text-align:center">Plot made with <a href="https://mathcell.org/" target="_blank">MathCell</a></p>
-							</td>
-	
-						</tr>
-					</table>
-					
-
-				
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Weierstrass function</p>
-				
-					<table style="width:100%;">
-						<tr>
-	
-							<td style="width:30%">
-								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-	
-									<p>
-										$
-										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
-										$
-										where $0\lt a\lt 1$, $b$ is a positive odd integer.
-									</p>
-
-									
-	
-								</div>
-							</td>
-							<td class="size-40" style="width:70%;">
-
-								<img style="width: 96%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-05/weierstrass-function.png" />
-							   <p style="font-size:14px;text-align:center">Plot made with <a href="https://pgfplots.net/weierstrass-function/" target="_blank">PGFplts.net</a></p>
-					
-							</td>
-	
-						</tr>
-					</table>
-					
-
-				
 			</section>
 
 
 			<section>
-				<h4>The Derivative</h4>
+				<h4>Continuous functions</h4>
 
 				<div class="left-txt size-60">
-					
-
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c \in I$,
-						and let $\alpha \in \R$.
+					<p><strong>Theorem:</strong>
+						Consider a function $f \colon S \to \R$ defined on a set $S \subset \R$
+						and let $c \in S$.
+						Then:
 					</p>
+
 					<ol class="r">
 						<li>
-							Define $h \colon I \to \R$ by $h(x) := \alpha f(x)$. Then
-							$h$ is differentiable at $c$ and
-							\[h'(c) = \alpha f'(c).\]
+							If $c$ is not a cluster point of $S$, then $f$ is continuous at $c$.
 						</li>
 						<li>
-							Define $h \colon I \to \R$ by $h(x) := f(x) + g(x)$. Then
-							$h$ is differentiable at $c$ and
-							\[h'(c) = f'(c) + g'(c).\]
+							If $c$ is a cluster point of $S$, then $f$ is continuous at $c$
+							if and only if the limit of $f(x)$ as $x \to c$ exists and
+							\begin{equation*}
+							\lim_{x\to c} f(x) = f(c) .
+							\end{equation*}
 						</li>
+						<li>
+							The function $f$ is continuous at $c$ if and only if for every sequence $\{ x_n \}$
+							where $x_n \in S$ and $\lim\, x_n = c$, the sequence $\{ \,f(x_n) \}$ converges
+							to $f(c)$.
 
+						</li>
 					</ol>
 
 				</div>
+
+
 			</section>
 
 
 			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Product rule</p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ and $g \colon I \to \R$ be
-						functions differentiable at $c$. If $h \colon I \to \R$
-						is defined by
-						\begin{equation*}
-						h(x) := f(x) g(x) ,
-						\end{equation*}
-						then $h$ is differentiable at $c$ and
-						\begin{equation*}
-						h'(c) = f(c) g'(c) + f'(c) g(c) .
-						\end{equation*}
+				<h4>Continuous functions</h4>
+				<p class="sbt">Discontinuity criterion</p>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+						Let $S\subset \R$, let $f \colon S \to \R$ and let $c\in S$.
+
 					</p>
-
-
 				</div>
-			</section>
 
+				<div class="size-70">
+					Then $f$ is <strong>discontinuous</strong> at $c$
+					<br />
+					<p>if and only if</p>
+				</div>
 
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Quotient rule</p>
-				<div class="left-txt size-60">
+				<div class="left-txt size-70">
 					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c$
-						and $g(x) \not= 0$ for all $x \in I$.
-						If $h \colon I \to \R$
-						is defined by
-						\begin{equation*}
-						h(x) := \frac{f(x)}{g(x)},
-						\end{equation*}
-						then $h$ is differentiable at $c$ and
-						\begin{equation*}
-						h'(c) = \frac{f'(c) g(c) - f(c) g'(c)}{{\bigl(g(c)\bigr)}^2} .
-                        \end{equation*}
+						there exists a sequence $\{x_n\}$ in $S$
+						such that $\lim x_n = c$, <strong>but the sequence
+							$\left\{\,f(x_n)\right\}$ does not converge to $f(c)$</strong>.
 					</p>
 
 				</div>
 			</section>
 
 			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Chain rule</p>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Example: $\displaystyle f(x)=\sin\frac{1}{x}$, for $x\neq 0$ and $f(x)=0$ for $x=0$.</p>
 				<div class="left-txt size-60">
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I_1, I_2$ be intervals, let
-						$g \colon I_1 \to I_2$ be differentiable at $c \in I_1$,
-						and
-						$f \colon I_2 \to \R$ be differentiable at $g(c)$.
-						If $h \colon I_1 \to \R$
-						is defined by
-						\begin{equation*}
-						h(x) := (f \circ g) (x) = f\bigl(g(x)\bigr) ,
-						\end{equation*}
-						then $h$ is differentiable at $c$ and
-						\begin{equation*}
-						h'(c) = f'\bigl(g(c)\bigr)g'(c) .
-						\end{equation*}
-					</p>
 
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="width:50%;">
+								<img style="width: 70%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01a.gif" />
+							</td>
+							<td style="width:50%">
+								<img style="width: 70%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01b.gif" />
+							</td>
+						</tr>
+					</table>
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="text-align:center">$x_n\ra 0$ as $n\ra \infty$.</td>
+							<td style="text-align:center">$\qquad\qquad f\left(x_n\right)$ does not converge to $0$.
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Properties</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon S \to \R$ and $g \colon S \to \R$ be functions
+						continuous at $c \in S$.
+
+					</p>
+					<ol class="r">
+						<li>
+							The function $h \colon S \to \R$ defined by
+							$h(x) := f(x)+g(x)$ is continuous at $c$.
+						</li>
+						<li>
+							The function $h \colon S \to \R$ defined by
+							$h(x) := f(x)-g(x)$ is continuous at $c$.
+						</li>
+						<li>
+							The function $h \colon S \to \R$ defined by
+							$h(x) := f(x)g(x)$ is continuous at $c$.
+						</li>
+						<li>
+							If $g(x)\not=0$ for all $x \in S$, the function $h \colon S \to \R$
+							defined by $h(x) := \frac{f(x)}{g(x)}$ is continuous at $c$.
+						</li>
+					</ol>
 				</div>
 			</section>
 
 
 			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Rolle's Theorem</p>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Composition of functions</p>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+						Let $A, B \subset \R$ and $f \colon B \to \R$ and $g \colon A \to B$ be
+						functions. If $g$ is continuous at $c \in A$ and
+						$f$ is continuous at $g(c)$, then $f \circ g \colon A \to \R$ is continuous
+						at $c$.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Polynomials are continuous</p>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+						Let $f \colon \R \to \R$ be a <em>polynomial</em>. That is
+						\begin{equation*}
+						f(x) = a_d x^d + a_{d-1} x^{d-1} + \cdots + a_1 x + a_0 ,
+						\end{equation*}
+						for some constants $a_0, a_1, \ldots, a_d$.
+						Then $f$ is continuous.
+
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">More continuous functions</p>
+				<div class="left-txt size-70">
+					<ul>
+						<li>
+							Rational functions where they are defined.
+						</li>
+						<li>
+							$\sin x$, $\cos x$ are continuous.
+						</li>
+						<li>
+							The functions $\tan x$, $\cot x$, $\sec x$, $\csc x$ where they are defined.
+						</li>
+
+					</ul>
+					<p>
+						<br />
+					</p>
+				</div>
+			</section>
+
+
+
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuous functions on closed intervals</p>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+						A continuous function $f \colon [a,b] \to \R$ is bounded.
+					</p>
+
+					<p><strong>Theorem (Extreme value theorem):</strong>
+						A continuous function $f \colon [a,b] \to \R$ on a closed and bounded
+						interval $[a,b]$
+						achieves both an absolute minimum and an absolute maximum on $[a,b]$.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt"></p>
+				<div class="left-txt size-60">
+
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="width:55%;">
+								<p><strong>Lemma:</strong>
+									Let $f \colon [a,b] \to \R$ be a continuous function.
+									Suppose $f(a) \lt 0$ and $f(b) \gt 0$.
+									Then there exists a number $c \in (a,b)$
+									such that $f(c) = 0$.
+								</p>
+							</td>
+							<td style="width:45%">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/lemmaIVT.svg" />
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Bolzano's theorem / Intermediate Value Theorem</p>
+				<div class="left-txt size-60">
+
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="width:55%;">
+								<p><strong>Theorem (Intermediate Value Theorem):</strong><br />
+									Let $f \colon [a,b] \to \R$ be a continuous function.
+									Suppose $y \in \R$ is such that $f(a) \lt y \lt f(b)$
+									or $f(a) \gt y \gt f(b)$. Then there exists a $c \in (a,b)$
+									such that $f(c) = y$.
+								</p>
+							</td>
+							<td style="width:45%">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/IVT.svg" />
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</section>
+
+
+
+
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Uniform continuity</p>
+				<div class="left-txt size-70">
+					<p><strong>Definition:</strong>
+						Let $S \subset \R$, and let $f \colon S \to \R$ be a function.
+						Suppose for every $\epsilon \gt 0$ there exists a $\delta > 0$
+						such that whenever $x, c \in S$ and
+						$\abs{x-c} \lt \delta$, then $\abs{\,f(x)-f(c)} \lt \epsilon$.
+						Then we say $f$ is <em>uniformly continuous</em>.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Uniform vs Nonuniform continuity</p>
+
+				<iframe scrolling="no" title="Uniform continuity"
+					src="https://www.geogebra.org/material/iframe/id/fjydugxa/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="704px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					
+			
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Uniform vs Nonuniform continuity</p>
+
+				<iframe scrolling="no" title="Uniform vs NonUniform continuity"
+					src="https://www.geogebra.org/material/iframe/id/sv5tazce/width/673/height/389/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="673px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+
+				
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Comparison between continuity and uniform continuity</p>
+				<p class="size-60">Let $S \subset \R$ and let $f \colon S \to \R$ be a function.</p>
 				<table style="width:100%;">
 					<tr>
-
-						<th style="width:45%">
+						<th style="width:50%; border-right: solid 1px black;">
 							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Continuous function:</strong><br /><br />
+									We say
+									that $f$ is <em>continuous</em>:<br /><br />
+									if <span class="fragment highlight-red" data-fragment-index="0">for every $c\in
+										S$</span> and every $\epsilon \gt 0$<br />
+									there exists a $\delta \gt 0$ such that <br />
+									<span class="fragment highlight-red" data-fragment-index="0">whenever $x \in
+										S$</span> and $\abs{x-c} \lt
+									\delta$, <br />then
+									$\abs{\,f(x)-f(c)} \lt \epsilon.$
 
-								<p>
-									<strong>
-										Theorem:
-									</strong>
-									Let $f \colon [a,b] \to \R$ be continuous function
-									differentiable on $(a,b)$ such that $f(a) = f(b)$.
-									Then there exists a $c \in (a,b)$ such that $f'(c) = 0$.
 								</p>
+
 
 							</div>
 						</th>
-						<th style="width:56%;">
-							<img style="width: 100%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-05/rolle-s-theorem.svg" />
+						<th style="width:50%;">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Uniform continuous:</strong><br /><br />
+
+									We say that $f$ is <em>uniformly continuous</em>:<br /><br />
+									if for every $\epsilon \gt 0$ <br />
+									there exists a $\delta > 0$
+									such that
+									<br />
+									<span class="fragment highlight-red" data-fragment-index="0">whenever $x, c \in
+										S$</span> and
+									$\abs{x-c} \lt \delta$, <br />then $\abs{\,f(x)-f(c)} \lt \epsilon.$
+
+								</p>
+							</div>
 						</th>
 
 					</tr>
 				</table>
 			</section>
 
-			<!--<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Mean Value Theorem</p>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Uniform continuity</p>
 				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a continuous function. Then $f$
+						is uniformly continuous.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Nonuniform continuity criteria</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $S\subseteq \R$ and let $f \colon S \to \R$. Then the following statements
+						are equivalent:
+					</p>
+
+					<ol class="r">
+						<li>
+							$f$ is not uniformly continuous on $S$.
+						</li>
+						<li>
+							There exists an $\epsilon_0>0$ such that for every $\delta>0$
+							there are points $x_{\delta}$, $y_{\delta}$ in $S$ such that
+							$|x_{\delta} - y_{\delta}|\lt \delta$ and $|\,f(x_{\delta}) - f(y_{\delta})|\geq\epsilon_0$.
+						</li>
+						<li>
+							There exists an $\epsilon_0\gt 0$ and two sequences $\{x_n\}$ and $\{y_n\}$
+							in $S$ such that $\lim (x_n-y_n)=0$ and $|\,f(x_{n}) - f(y_{n})|\geq\epsilon_0$
+							for all $n\in \N$.
+						</li>
+					</ol>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Nonuniform continuity criteria</p>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						We can apply the previous result to show that $f(x)=1/x$ is not uniformly
+						continuous on $(0,\infty)$.
+					</p>
+
 					<p>
-						<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
-						differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
-						such that
+						Consider $x_n=1/n$ and $y_n=1/(n+1)$ in $(0,\infty)$. Then we have
+						\[
+						\lim_{n\ra \infty} (x_n-y_n)=\lim_{n\ra \infty}
+						\left(\frac{1}{n}-\frac{1}{n+1}\right)=\lim_{n\ra \infty}\frac{1}{n(n+1)} =0,
+						\]
+						but $\abs{\,f(x_n)- f(y_n)}=1$ for all $n\in \N$.
+					</p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Lipschitz continuous</p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						A function $f \colon S\subseteq \R \to \R$
+						is <em>Lipschitz continuous</em>,
+						if there exists a $K > 0$, such that
 						\begin{equation*}
-						f(b)-f(a) = f'(c)(b-a) .
+						\abs{\,f(x)-f(y)} \leq K \abs{x-y}
+						\qquad \text{for all } x \text{ and } y \text{ in } S.
+						\end{equation*}
+					</p>
+
+					<p><strong>Theorem:</strong>
+						A Lipschitz continuous function is uniformly continuous.
+					</p>
+
+					<p><strong>Remark:</strong> Not every uniformly continuous function
+						is Lipschitz continuous. For example $f(x)=\sqrt{x}$ defined on
+						$I=[0,2]$. $f$ is uniformly continuous on $I$ but there is no
+						number $K>0$  such that $|\,f(x)-f(0)|\lt K|x-0|$ for all $x\in I.$
+					</p>
+
+
+				</div>
+			</section>
+
+
+			<!--<section>
+				<h4>Continuity</h4>
+				<p class="sbt">Compositions</p>
+				<div class="left-txt size-70">
+					<p><strong>Definition:</strong>
+						Suppose $f \colon A \to B$, $g \colon B \to \R$, $A, B \subset \R$,
+						$a \in \R \cup \{ -\infty, \infty\}$ is a cluster point of $A$,
+						and $b \in \R \cup \{ -\infty, \infty\}$ is a cluster point of $B$.
+						Suppose
+						\begin{equation*}
+						\lim_{x \to a} f(x) = b\qquad \text{and} \qquad \lim_{y \to b} g(y) = c
+						\end{equation*}
+						for some $c \in \R \cup \{ -\infty, \infty \}$.
+						If $b \in B$, then suppose $g(b) = c$.
+						Then
+						\begin{equation*}
+						\lim_{x \to a} g\bigl(f(x)\bigr) = c .
 						\end{equation*}
 					</p>
 
@@ -411,220 +548,45 @@
 			</section>-->
 
 			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Mean Value Theorem</p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:45%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
-						differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
-						such that
-						\begin{equation*}
-						f(b)-f(a) = f'(c)(b-a) .
-						\end{equation*}
-
-							</div>
-						</th>
-						<th style="width:55%;">
-							<img style="width: 100%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-05/mean-value-theorem.svg" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Applications</p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:55%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<strong>Theorem:</strong> Let $I$ be an interval and
-								let $f \colon I \to \R$ be a differentiable function such that $f'(x) = 0$
-								for all $x \in I$.
-								Then $f$ is constant.
-
-							</div>
-						</th>
-						<th style="width:45%;">
-							<img style="width: 100%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-05/derivative-application-01.svg" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Applications</p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:55%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<strong>Theorem:</strong> Let $I$ be an interval and
-								let $f \colon I \to \R$ be a differentiable function.
-
-								<ol class="r">
-									<li>
-										$f$ is increasing if and only if $f'(x) \geq 0$ for all $x \in I$.
-									</li>
-									<li>
-										$f$ is decreasing if and only if $f'(x) \leq 0$ for all $x \in I$.
-									</li>
-
-								</ol>
-
-							</div>
-						</th>
-						<th style="width:45%;">
-							<img style="width: 100%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-05/derivative-application-02.svg" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Applications</p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:55%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<strong>Theorem:</strong> Let $I$ be an interval and
-								let $f \colon I \to \R$ be a differentiable function.
-
-								<ol class="r">
-									<li>
-										If $f'(x) > 0$ for all $x \in I$, then
-											$f$ is strictly increasing.
-									</li>
-									<li>
-										If $f'(x) < 0$ for all $x \in I$,
-									then $f$ is strictly decreasing.
-									</li>
-
-								</ol>
-
-							</div>
-						</th>
-						<th style="width:45%;">
-							<img style="width: 95%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-05/derivative-application-03.svg" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Taylor polynomial</p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>Definition:</strong> For an $n$ times differentiable function $f$ defined near a point $x_0 \in \R$, define the
-						$n$th order <em>Taylor polynomial</em>
-						for $f$ at $x_0$ as
-						\begin{equation*}
-						{\small
-						\begin{split}
-						P_n^{x_0}(x)
-						& :=
-						\sum_{k=0}^n
-						\frac{f^{(k)}(x_0)}{k!}{(x-x_0)}^k
-						\\
-						& =
-						f(x_0)
-						+ f'(x_0)(x-x_0)
-						+ \frac{f''(x_0)}{2}{(x-x_0)}^2
-						+ \cdots
-						+ \frac{f^{(n)}(x_0)}{n!}{(x-x_0)}^n .
-						\end{split}
-						}
-						\end{equation*}
-					</p>
-
-				</div>
-				
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Taylor's Theorem</p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>Theorem:</strong> Suppose $f \colon [a,b] \to \R$ is a function with $n$ continuous
-						derivatives on $[a,b]$ and such that $f^{(n+1)}$ exists on $(a,b)$.
-						Given distinct points $x_0$ and $x$ in $[a,b]$,
-						we can find a point $c$ between $x_0$
-						and $x$ such that
-						\begin{equation*}
-						f(x)=P_{n}^{x_0}(x)+\frac{f^{(n+1)}(c)}{(n+1)!}{(x-x_0)}^{n+1} .
-						\end{equation*}
-					</p>
-
-				</div>
-				
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Taylor's Theorem</p>
-
-				<iframe scrolling="no" title="Taylor polynomial" src="https://www.geogebra.org/material/iframe/id/xnwbwuqa/width/788/height/430/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="788px" height="430px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-				
-
-			</section>
-
-
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Inverse function Theorem</p>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Monotone functions</p>
 				<div class="left-txt size-70">
-					<p>
-						<strong>Theorem:</strong> Let $f \colon (a,b) \to \R$ be a continuously differentiable function,
-						$x_0 \in (a,b)$ a point where $f'(x_0) \not= 0$.  Then there exists
-						an open interval $I \subset (a,b)$ with $x_0 \in I$, the
-						restriction $f|_{I}$ is injective with a continuously differentiable inverse
-						$g \colon J \to I$ defined on an interval $J := f(I)$,
-						and
-						\begin{equation*}
-						g'(y) = \frac{1}{f'\bigl( g(y) \bigr)} \qquad \text{for all } y \in J.
-						\end{equation*}
+					<p><strong>Definition:</strong>
+						Let $S \subset \R$.
+						We say $f \colon S \to \R$ is <em>increasing</em>
+						(resp. <em>strictly increasing</em>) if $x,y \in S$ with
+						$x \lt y$ implies $f(x) \leq f(y)$ (resp. $f(x) \lt f(y)$).
+						We define
+						<em>decreasing</em> and
+						<em>strictly decreasing</em> in the same way by switching the
+						inequalities for $f$.
+
+						<br /><br />
+						If a function is either increasing or decreasing, we say it is
+						<em>monotone</em>. If it is
+						strictly increasing or strictly decreasing, we say it is
+						<em>strictly monotone</em>.
 					</p>
 
 				</div>
 			</section>
+
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Inverse functions</p>
+				<div class="left-txt size-70">
+
+					<p><strong>Theorem:</strong>
+						If $I \subset \R$ is an interval and $f \colon I \to \R$ is strictly
+						monotone, then the inverse $f^{-1} \colon f(I) \to I$ is continuous.
+					</p>
+
+
+				</div>
+			</section>
+
+
 
 			<section>
 
@@ -637,12 +599,11 @@
 		</div>
 	</div>
 
-	
 	<script src="dist/reveal.js"></script>
 	<script src="plugin/math/math.js"></script>
 	<script src="plugin/highlight/highlight.js"></script>
 	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
 	<script src="plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
 

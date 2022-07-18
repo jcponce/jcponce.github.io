@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH2400/7400 - Summary Week 7</title>
+	<title>MATH2400/7400 - Summary Week 6</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -34,8 +34,8 @@
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 
-	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
-	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
 
 
 	<!-- This script is to display Github buttons -->
@@ -60,23 +60,35 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 7</p>
+				<p>Summary Week 6</p>
 			</section>
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Partitions</p>
+				<h4>The Derivative</h4>
+
 				<div class="left-txt size-60">
 					<p><strong>Definition:</strong>
-						A <em>partition</em> $P$ of the interval $[a,b]$ is
-						a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ be a function, and let $c \in I$. If
+						the limit
 						\begin{equation*}
-						a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
+						L := \lim_{x \to c} \frac{f(x)-f(c)}{x-c}
 						\end{equation*}
-						We write
-						\begin{equation*}
-						\Delta x_i := x_i - x_{i-1} .
-						\end{equation*}
+						exists, then we say $f$ is
+						<em>differentiable</em> at
+						$c$, that $L$ is the <em>derivative</em> of $f$ at $c$,
+						and write $f'(c) := L$.
+					</p>
+
+					<p>
+						If $f$ is differentiable at all $c \in I$, then we simply say that
+						$f$ is <em>differentiable</em>, and then we obtain a function
+						$f' \colon I \to \R$.
+					</p>
+
+					<p>
+						The expression $\displaystyle\frac{f(x)-f(c)}{x-c}$ is called the
+						<em>difference quotient</em>.
 					</p>
 
 				</div>
@@ -85,173 +97,186 @@
 			</section>
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux sums</p>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
-						$[a,b]$.
-						Define
-						\begin{array}{cc}
-						& m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,
-						& M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} , \\
-						& L(P,f) :=
-						\sum_{i=1}^n m_i \Delta x_i ,
-						& U(P,f) :=
-						\sum_{i=1}^n M_i \Delta x_i .
-						\end{array}
-						We call $L(P,f)$ the <em>lower Darboux sum</em> and
-						$U(P,f)$ the <em>upper Darboux sum</em>.
+				<h4>The Derivative</h4>
+				<p class="sbt">Graphical interpretation of the derivative</p>
+
+					<iframe scrolling="no" title="The Derivative: Geometrical interpretation" src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="562px" height="390px" style="border:0px;"  data-preload allowfullscreen=""> </iframe>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+
+				<div class="left-txt size-80">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $f \colon I \to \R$ be differentiable at $c \in I$,
+						then it is continuous at $c$.
 					</p>
+
+					<p>
+						<strong>
+							Note:
+						</strong>
+						There exists a continuous function that is not differentiable at <em>any</em> point. 
+						This is known as the <em>Weierstrass function</em>.
+					</p>
+					
 
 				</div>
 			</section>
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux sums</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
-						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
-						of $[a,b]$,
-						\begin{equation}
-						\label{sumulbound:eq}
-						m(b-a) \leq
-						L(P,f) \leq U(P,f)
-						\leq M(b-a) .
-						\end{equation}
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux Integrals</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						As the sets of lower and upper Darboux sums are bounded, we define
-						\begin{align*}
-						& \underline{\int_a^b} f(x)~dx :=
-						\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\} , \\
-						& \overline{\int_a^b} f(x)~dx :=
-						\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\} .
-						\end{align*}
-						We call $\underline{\int}$
-						the <em>lower Darboux integral</em> and
-						$\overline{\int}$ the
-						<em>upper Darboux integral</em>.
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux Integrals</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
-						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then
-						\begin{equation}
-						\label{intulbound:eq}
-						m(b-a) \leq
-						\underline{\int_a^b} f \leq \overline{\int_a^b} f
-						\leq M(b-a) .
-						\end{equation}
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function such that
-						\begin{equation*}
-						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
-						\end{equation*}
-						Then $f$ is said to be <em>Riemann integrable</em>.
-						The set of Riemann integrable functions on $[a,b]$ is denoted
-						by $\mathcal R[a,b]$.
-						When $f \in \mathcal R[a,b]$, we define
-						\begin{equation*}
-						\int_a^b f(x)~dx :=
-						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
-						\end{equation*}
-						The number $\int_a^b f$ is called the <em>Riemann integral</em>
-						of $f$, or sometimes simply the <em>integral</em> of $f$.
-					</p>
-
-				</div>
-			</section>
-
-
-
-			<section>
-				<h4>The Riemann Integral</h4>
+				<h4>The Derivative</h4>
+				<p class="sbt">Weierstrass function</p>
 				
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a Riemann integrable function.
-						Let $m, M \in \R$ be
-						such that $m \leq f(x) \leq M$ for all $x \in [a,b]$. Then
-						\begin{equation*}
-						m(b-a) \leq
-						\int_a^b f
-						\leq M(b-a) .
-						\end{equation*}
-					</p>
+					<table style="width:100%;">
+						<tr>
+	
+							<td style="width:30%">
+								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+									<p>
+										$
+										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+										$
+										where $0\lt a\lt 1$, $b$ is a positive odd integer.
+									</p>
 
-				</div>
+	
+								</div>
+							</td>
+							<td class="size-40" style="width:70%;">
+								
+					<div class="mathcell" style="height: 4.1in">
+						<script>
+						
+						var parent = document.currentScript.parentNode;
+						
+						var id = generateId();
+						parent.id = id;
+						
+						MathCell( id, [ ]);
+
+					    
+						var a = .3, b = 3.0, direction = 1;
+
+						var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
+						
+						
+						
+						parent.update = function( id ) {
+						  
+
+						
+						  function f( x ) {
+						
+							var s = 0;
+							for ( var k = 0 ; k < terms ; k++ ) {
+							   s += a**k * Math.cos( b**k * Math.PI * x );
+							}
+						
+							return s;
+						
+						  }
+						
+						  var data = [ plot( f, [ -2, 2, 5000 ], { color: 'black' } ),
+                                       text( 'b = ' + b.toFixed(1), [1.8,1.7] )];
+						
+						  var config = { type: 'svg', yMin: -1.6, yMax: 1.6 };
+						
+						  evaluate( id, data, config );
+
+						  b += 2 * direction;
+
+                          if ( b < 3.5 || b > 9 ) direction *= -1;
+						
+						}
+						
+						parent.update( id );
+						
+						setInterval( parent.update, 1100, id );
+						
+						</script>
+					</div>
+						<p style="font-size:14px;text-align:center">Plot made with <a href="https://mathcell.org/" target="_blank">MathCell</a></p>
+							</td>
+	
+						</tr>
+					</table>
+					
+
+				
 			</section>
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Criterion for Riemann integrability</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. If for every $\epsilon > 0$, there exists a partition $P$ of
-						$[a,b]$ such that
-						\begin{equation*}
-						U(P,f) - L(P,f) \lt \epsilon  
-						\end{equation*}
-						then   $f$ is Riemann
-						integrable.
+				<h4>The Derivative</h4>
+				<p class="sbt">Weierstrass function</p>
+				
+					<table style="width:100%;">
+						<tr>
+	
+							<td style="width:30%">
+								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+									<p>
+										$
+										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+										$
+										where $0\lt a\lt 1$, $b$ is a positive odd integer.
+									</p>
 
-					</p>
+									
+	
+								</div>
+							</td>
+							<td class="size-40" style="width:70%;">
 
-				</div>
+								<img style="width: 96%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-05/weierstrass-function.png" />
+							   <p style="font-size:14px;text-align:center">Plot made with <a href="https://pgfplots.net/weierstrass-function/" target="_blank">PGFplts.net</a></p>
+					
+							</td>
+	
+						</tr>
+					</table>
+					
+
+				
 			</section>
 
 
-
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Properties</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f$ and $g$ be in $\mathcal R[a,b]$ and $\alpha \in \R$.
-					</p>
+				<h4>The Derivative</h4>
 
+				<div class="left-txt size-60">
+					
+
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c \in I$,
+						and let $\alpha \in \R$.
+					</p>
 					<ol class="r">
 						<li>
-							$\alpha \,f$ is in $\mathcal R[a,b]$ and
-							\begin{equation*}
-							\int_a^b \alpha \,f(x) ~dx = \alpha \int_a^b f(x) ~dx .
-							\end{equation*}
+							Define $h \colon I \to \R$ by $h(x) := \alpha f(x)$. Then
+							$h$ is differentiable at $c$ and
+							\[h'(c) = \alpha f'(c).\]
 						</li>
 						<li>
-							$f+g$ is in $\mathcal R[a,b]$ and
-							\begin{equation*}
-							\int_a^b \bigl( f(x)+g(x) \bigr) ~dx =
-							\int_a^b f(x) ~dx
-							+
-							\int_a^b g(x) ~dx .
-							\end{equation*}
+							Define $h \colon I \to \R$ by $h(x) := f(x) + g(x)$. Then
+							$h$ is differentiable at $c$ and
+							\[h'(c) = f'(c) + g'(c).\]
 						</li>
+
 					</ol>
 
 				</div>
@@ -259,277 +284,347 @@
 
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				
-				<p class="sbt">Continuous functions on closed intervals</p>
-				<table style="width:100%;">
-					<tr>
+				<h4>The Derivative</h4>
+				<p class="sbt">Product rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be
+						functions differentiable at $c$. If $h \colon I \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := f(x) g(x) ,
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = f(c) g'(c) + f'(c) g(c) .
+						\end{equation*}
+					</p>
 
-						<td style="width:50%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Theorem:</strong>
-									If $f \colon [a,b] \to \R$ is a continuous function,
-									then $f \in \mathcal R[a,b]$.
-								</p>
 
-							</div>
-						</td>
-						<td class="size-40" style="width:50%;">
-							<img style="width: 100%; 
-								display: block;
-								margin-left: auto;
-								margin-right: auto;" class="r-stretch" data-src="images/summary-06/continuous-closed-interval.svg" />
-						</td>
+				</div>
+			</section>
 
-					</tr>
-				</table>
 
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Quotient rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c$
+						and $g(x) \not= 0$ for all $x \in I$.
+						If $h \colon I \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := \frac{f(x)}{g(x)},
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = \frac{f'(c) g(c) - f(c) g'(c)}{{\bigl(g(c)\bigr)}^2} .
+                        \end{equation*}
+					</p>
+
+				</div>
 			</section>
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Bounded functions with finitely many discontinuities</p>
+				<h4>The Derivative</h4>
+				<p class="sbt">Chain rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I_1, I_2$ be intervals, let
+						$g \colon I_1 \to I_2$ be differentiable at $c \in I_1$,
+						and
+						$f \colon I_2 \to \R$ be differentiable at $g(c)$.
+						If $h \colon I_1 \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := (f \circ g) (x) = f\bigl(g(x)\bigr) ,
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = f'\bigl(g(c)\bigr)g'(c) .
+						\end{equation*}
+					</p>
 
+				</div>
+			</section>
+
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Rolle's Theorem</p>
 				<table style="width:100%;">
 					<tr>
 
-						<td style="width:50%">
+						<th style="width:45%">
 							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
 								<p>
 									<strong>
 										Theorem:
 									</strong>
-									Let $f \colon [a,b] \to \R$ be a bounded function with finitely
-									many discontinuities. Then $f \in \mathcal R[a,b]$.
+									Let $f \colon [a,b] \to \R$ be continuous function
+									differentiable on $(a,b)$ such that $f(a) = f(b)$.
+									Then there exists a $c \in (a,b)$ such that $f'(c) = 0$.
 								</p>
 
 							</div>
-						</td>
-						<td class="size-40" style="width:50%;">
+						</th>
+						<th style="width:56%;">
 							<img style="width: 100%; 
-								display: block;
-								margin-left: auto;
-								margin-right: auto;" class="r-stretch" data-src="images/summary-06/finite-discontinuities-integrable.svg" />
-						</td>
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-05/rolle-s-theorem.svg" />
+						</th>
 
 					</tr>
 				</table>
-
-			</section>
-
-			
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">An example of a bounded function with a dense set of discontinuities</p>
-				<div class="size-50" >
-					<p>
-						Thomae's function (Popcorn function): Riemann integrable.
-					</p>
-				</div>
-				
-
-				<img style="width: 60%; 
-								display: block;
-								margin-left: auto;
-								margin-right: auto;" data-src="images/summary-06/thomaeblack.png" />
-				<p style="font-size:14px" >More details here 🔗: <a href="https://en.wikipedia.org/wiki/Thomae%27s_function" target="_blank">Wiki: Thomae's function</a> or Thomae's book: <a href="https://archive.org/embed/einleitungindie00neumgoog" target="_blank">Einleitung in die Theorie der bestimmten Integrale</a></p>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Another example of a bounded function with a dense set of discontinuities</p>
-				<div class="size-50" >
-					<p>
-						Riemanns's example: 
-						$
-						\;\;\displaystyle f(x):=\sum_{n=1}^{\infty}\frac{(nx)}{n^2}
-						$
-						where $(nx)= nx -  \text{round} (nx) $.   
-					</p>
-				</div>
-
-				<img style="width: 75%; 
-								display: block;
-								margin-left: auto;
-								margin-right: auto;" data-src="images/summary-06/non-riemann-integrable.svg" />
-				<p style="font-size:14px" >Source 🔗: <a href="https://archive.org/details/bernardrgesamm00riemrich" target="_blank">Bernhard Riemann's Gesammelte mathematische Werke und Wissenschaftlicher Nachlass, p. 228</a></p>
-			</section>
-
-			
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Monotone functions</p>
-				<table style="width:100%;">
-					<tr>
-
-						<td style="width:50%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>
-										Theorem:
-									</strong>
-									Let $f:[a,b]\ra \R$ be a monotone function. Then
-									$f\in \mathcal R[a,b]$.
-								</p>
-
-							</div>
-						</td>
-						<td class="size-40" style="width:50%;">
-							<img style="width: 100%; 
-								display: block;
-								margin-left: auto;
-								margin-right: auto;" class="r-stretch" data-src="images/summary-06/monotone-integrable.svg" />
-						</td>
-
-					</tr>
-				</table>
-
-			</section>
-
-			<section>
-				<h4>The Integral: A Crux for Analysis</h4>
-				
-				<div class="left-txt size-60">
-					<p >There are many theories of the integral.
-						The Riemann integral 
-						is relatively simple, and it does the job nicely. It is 
-						certainly the most common and widely-used integral in 
-						the world today. Mathematicians, physicists, engineers,
-						 and many others use the Riemann integral regularly.
-					</p>
-
-					<p >
-						However, there exist examples of continuous function possessing 
-						a bounded derivative which is not Riemann integrable. 
-					</p>
-
-					<span >
-						<img style="width: 70%; 
-								display: block;
-								margin-left: auto;
-								margin-right: auto;" data-src="images/summary-06/volterra.png" />
-					</span>
-
-					<p >
-						This example was given by the italian
-						mathematician 
-						Vito Volterra in 1881. 
-					</p>
-
-					<p   style="font-size:14px" >More details here 🔗: <a href="https://doi.org/10.1080/17498430.2015.1010771" target="_blank">Vito Volterra's construction of a nonconstant function with a bounded, non-Riemann integrable derivative</a></p>
-
-				</div>
-			</section>
-
-			
-
-			<section>
-				<h4>The Integral: A Crux for Analysis</h4>
-				
-				<div class="left-txt size-60">
-					<p>
-						This example was surprising since it 
-						shows that within the context of Riemann's theory of 
-						integration the fundamental operations of differentiation 
-						and integration are not entirely reversible. 
-					</p>
-					<p >Thus, the 
-						process of differentiation could produce bounded functions
-						$F'$ which fails to be integrable in Riemann's sense. In this case, the formula:
-						\[
-						\int_{a}^{b}F'(x)~dx=F(b)-F(a)
-						\]
-						provided by the fundamental theorem of integral calculus, 
-						turns out to be meaningless.
-					</p>
-
-					
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Integral: A Crux for Analysis</h4>
-				
-				<div class="left-txt size-60">
-					
-
-					<p>
-						On the other hand, more advanced studies in analysis require an 
-						integral with better convergence properties. 
-						For example, if $f_n$ is a sequence of functions on 
-						a bounded interval $[a, b]$, then we would like to know that
-						\[
-						\lim_{n\ra \infty} \int_a^b f_n = \int_a^b \lim_{n\ra \infty} f_n \qquad (*)
-						\]
-						
-					</p>
-
-					<p >For the Riemann integral, the standard condition to 
-						guarantee (∗) is <em>uniform convergence</em> of the sequence 
-						of functions $\{f_n \}$. 
-					</p>
-
-					
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Garden of integrals</h4>
-				
-				<div class="left-txt size-60">
-					
-
-					<ol >
-						<li>
-							The <strong>Riemann integral</strong> is based on subdividing the domain of the function (by way of a partition). 
-						</li>
-						<li >
-							The <strong>Lebesgue integral</strong> is based on subdividing the range of the function (you need <em>measure theory</em>). 
-						</li>
-						<li>
-							The <strong>Riemann-Stieltjes</strong> integral where the partition of a closed interval $I$
-							is determined with a monotonically increasing function defined on $I$.
-						</li>
-						<li>
-							The <strong>Daniel integral</strong> which is equivalent to the 
-							Lebesgue integral but avoids the necessity of 
-							first developing measure theory. 
-						</li>
-						<li>
-							The <strong>Henstock-Kurzweil integral</strong> where a partition is measured in a more
-							general way using a function called <em>gauge.</em>
-						</li>
-					</ol>
-
-					<br/>
-					<br/>
-					<div style="font-size:14px" >
-						For more details consult: <br/>
-					<ul>
-						<li><a href="https://www.morganclaypool.com/doi/abs/10.2200/S00327ED1V01Y201101MAS009" target="_blank">The Integral: A Crux for Analysis</a> by Steven G. Krantz</li>
-						<li><a href="https://www.maa.org/press/maa-reviews/a-garden-of-integrals" target="_blank">A Garden of Integrals</a> by Frank E. Burk  </li>
-					</ul>
-					</div>
-					
-
-				</div>
 			</section>
 
 			<!--<section>
 				<h4>The Derivative</h4>
-				<p class="sbt">Graphical interpretation of the derivative</p>
+				<p class="sbt">Mean Value Theorem</p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
+						differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
+						such that
+						\begin{equation*}
+						f(b)-f(a) = f'(c)(b-a) .
+						\end{equation*}
+					</p>
 
-				<iframe scrolling="no" title="The Derivative: Geometrical interpretation"
-					src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="562px" height="390px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				</div>
+			</section>-->
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Mean Value Theorem</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:45%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
+						differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
+						such that
+						\begin{equation*}
+						f(b)-f(a) = f'(c)(b-a) .
+						\end{equation*}
+
+							</div>
+						</th>
+						<th style="width:55%;">
+							<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-05/mean-value-theorem.svg" />
+						</th>
+
+					</tr>
+				</table>
 			</section>
-		-->
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Applications</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:55%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $I$ be an interval and
+								let $f \colon I \to \R$ be a differentiable function such that $f'(x) = 0$
+								for all $x \in I$.
+								Then $f$ is constant.
+
+							</div>
+						</th>
+						<th style="width:45%;">
+							<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-05/derivative-application-01.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Applications</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:55%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $I$ be an interval and
+								let $f \colon I \to \R$ be a differentiable function.
+
+								<ol class="r">
+									<li>
+										$f$ is increasing if and only if $f'(x) \geq 0$ for all $x \in I$.
+									</li>
+									<li>
+										$f$ is decreasing if and only if $f'(x) \leq 0$ for all $x \in I$.
+									</li>
+
+								</ol>
+
+							</div>
+						</th>
+						<th style="width:45%;">
+							<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-05/derivative-application-02.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Applications</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:55%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $I$ be an interval and
+								let $f \colon I \to \R$ be a differentiable function.
+
+								<ol class="r">
+									<li>
+										If $f'(x) > 0$ for all $x \in I$, then
+											$f$ is strictly increasing.
+									</li>
+									<li>
+										If $f'(x) < 0$ for all $x \in I$,
+									then $f$ is strictly decreasing.
+									</li>
+
+								</ol>
+
+							</div>
+						</th>
+						<th style="width:45%;">
+							<img style="width: 95%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-05/derivative-application-03.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Taylor polynomial</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong> For an $n$ times differentiable function $f$ defined near a point $x_0 \in \R$, define the
+						$n$th order <em>Taylor polynomial</em>
+						for $f$ at $x_0$ as
+						\begin{equation*}
+						{\small
+						\begin{split}
+						P_n^{x_0}(x)
+						& :=
+						\sum_{k=0}^n
+						\frac{f^{(k)}(x_0)}{k!}{(x-x_0)}^k
+						\\
+						& =
+						f(x_0)
+						+ f'(x_0)(x-x_0)
+						+ \frac{f''(x_0)}{2}{(x-x_0)}^2
+						+ \cdots
+						+ \frac{f^{(n)}(x_0)}{n!}{(x-x_0)}^n .
+						\end{split}
+						}
+						\end{equation*}
+					</p>
+
+				</div>
+				
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Taylor's Theorem</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem:</strong> Suppose $f \colon [a,b] \to \R$ is a function with $n$ continuous
+						derivatives on $[a,b]$ and such that $f^{(n+1)}$ exists on $(a,b)$.
+						Given distinct points $x_0$ and $x$ in $[a,b]$,
+						we can find a point $c$ between $x_0$
+						and $x$ such that
+						\begin{equation*}
+						f(x)=P_{n}^{x_0}(x)+\frac{f^{(n+1)}(c)}{(n+1)!}{(x-x_0)}^{n+1} .
+						\end{equation*}
+					</p>
+
+				</div>
+				
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Taylor's Theorem</p>
+
+				<iframe scrolling="no" title="Taylor polynomial" src="https://www.geogebra.org/material/iframe/id/xnwbwuqa/width/788/height/430/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="788px" height="430px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				
+
+			</section>
 
 
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Inverse function Theorem</p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Theorem:</strong> Let $f \colon (a,b) \to \R$ be a continuously differentiable function,
+						$x_0 \in (a,b)$ a point where $f'(x_0) \not= 0$.  Then there exists
+						an open interval $I \subset (a,b)$ with $x_0 \in I$, the
+						restriction $f|_{I}$ is injective with a continuously differentiable inverse
+						$g \colon J \to I$ defined on an interval $J := f(I)$,
+						and
+						\begin{equation*}
+						g'(y) = \frac{1}{f'\bigl( g(y) \bigr)} \qquad \text{for all } y \in J.
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
 
 			<section>
 
@@ -542,7 +637,7 @@
 		</div>
 	</div>
 
-
+	
 	<script src="dist/reveal.js"></script>
 	<script src="plugin/math/math.js"></script>
 	<script src="plugin/highlight/highlight.js"></script>
