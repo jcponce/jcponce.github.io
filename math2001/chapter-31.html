@@ -162,27 +162,24 @@
 					<h4>31.1 A simple example: Find the volume of a cylinder of
 						radius R and height H. (Ans. $\pi~ R^2 H$)
 					</h4>
-					<div class="left-txt size-70">
-						<p>
-							<strong>Note:</strong> Triple integral is hypervolume of $4D$
-							below the hyperspace defined by $f(x,y,z)$. If $f(x,y,z)=1$, then
-							the triple integral is the volume. That is
-							\[
-							\text{Volume of } V = \iiint_V 1 ~dV.
-							\]
-						</p>
+					<div class="left-txt size-80">
 						<p class="fragment" data-fragment-index="0">
-							Here we are going to use cylindrical coordinates
-							\[
-							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z
-							\]
+							Recall that if $f(x,y)\geq 0$, then the double integral 
+							can be interpreted as the volume under the surface 
+							$z=f(x,y)$. 
+
 						</p>
 						<p class="fragment" data-fragment-index="1">
-							Here we have that
-							\[
-							0\leq r \leq R,\quad 0\leq \theta \leq 2\pi,\quad 0\leq z \leq H
-							\]
+							If $f(x,y,z)\geq 0$, then the triple integral 
+							can be interpreted as the "hypervolume" of a $4D$
+							object. 
+							
+
 						</p>
+						<p class="fragment" data-fragment-index="2">
+							This is very difficult to visualise. 😕</p>
+						
+						
 					</div>
 
 
@@ -192,20 +189,62 @@
 					<h4>31.1 A simple example: Find the volume of a cylinder of
 						radius R and height H. (Ans. $\pi ~R^2 H$)
 					</h4>
-					<div class="left-txt size-80">
+
+					<div class="left-txt size-70">
+						<p>
+							Consider the special case where $f(x,y,z)=1$
+							for every $(x,y,z)\in E$, the domain of $f$. 
+							<span class="fragment" data-fragment-index="1">
+								Then
+							the triple integral represents the volume of $E$. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+							That is
+							\[
+							\iiint_E 1 ~dV = \text{Volume of } E.
+							\]
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							Here we are going to use cylindrical coordinates
+							\[
+							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							So we have that
+							\[
+							0\leq r \leq R,\quad 0\leq \theta \leq 2\pi,\quad 0\leq z \leq H.
+							\]
+						</p>
+
+					</div>
+
+					
+
+
+				</section>
+
+				<section>
+					<h4>31.1 A simple example: Find the volume of a cylinder of
+						radius R and height H. (Ans. $\pi ~R^2 H$)
+					</h4>
+
+					<div class="left-txt size-70">
 						<p>
 							Then
 						</p>
 
 					</div>
 
-					<table class="size-80" id="eqarray">
+					<table class="size-70" id="eqarray">
 						<tr>
 							<td>
 								$\text{Volume} $
 							</td>
 							<td>
-								$\displaystyle = \iiint_V 1 ~dV$
+								$\displaystyle = \iiint_E  ~dV$
 								<span class="fragment" data-fragment-index="0">
 									$\displaystyle = \int_{z=0}^{z=H} \int_{r=0}^{r=R} \int_{\theta=0}^{\theta=2\pi}
 									r~d\theta~ dr ~dz$
