@@ -282,15 +282,15 @@
 					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$</p>
 				
 					<div class="left-txt size-70">
-						<p>
-							Recall that $$\displaystyle \iiint_V \rho(x,y,z) dV = \iiint_V e^{-\left(x^2+y^2+z^2\right)^{1/2}}dV$$
+						<p class="fragment" data-fragment-index="0">
+							Recall that $$\displaystyle \iiint_V \rho(x,y,z) dV = \iiint_V e^{-\left(x^2+y^2+z^2\right)^{1/2}}dV.$$
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							We can't compute this integral in rectangular coordinates! 😥
 						</p>
-						<p>Let's use spherical coordinates:
+						<p class="fragment" data-fragment-index="2">Let's use spherical coordinates:
 							\[
-							x= r\cos \theta \sin \phi ,\quad y=r\sin \theta \sin \phi , \quad z = r \cos \phi
+							x= r\cos \theta \sin \phi ,\quad y=r\sin \theta \sin \phi , \quad z = r \cos \phi.
 							\]
 						</p>
 					</div>
@@ -320,7 +320,7 @@
 							<td>
 								
 							</td>
-							<td>
+							<td class="fragment" data-fragment-index="0">
 								$= r^2 \left(\cos^2\theta  + \sin^\theta \right) \sin^2\phi + r^2 \cos^2 \phi$
 							</td>
 						</tr>
@@ -328,9 +328,9 @@
 							<td>
 								
 							</td>
-							<td>
+							<td class="fragment" data-fragment-index="1">
 								$= r^2  \sin^2\phi + r^2 \cos^2 \phi$
-								<span>
+								<span class="fragment" data-fragment-index="2">
 									$= r^2$.
 								</span>
 							</td>
@@ -338,10 +338,10 @@
 
 					</table>
 					<div class="left-txt size-70">
-						<p>
-							Thus$\rho(r,\theta, \phi) = e^{-r}$.
+						<p class="fragment" data-fragment-index="3">
+							Thus $\rho(r,\theta, \phi) = e^{-r}$.
 						</p>
-						<p>Finally, the region $V$ is described by:
+						<p class="fragment" data-fragment-index="4">Finally, the region $V$ is described by:
 							\[
 							0 \leq r \leq R, \; 0\leq \theta \leq 2 \pi, \; 0\leq \phi \leq \pi.
 							\]
@@ -353,7 +353,59 @@
 					<h4>32.2 Find the mass of a sphere of radius R</h4>
 					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$</p>
 
-					
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td>
+								$\text{Mass}$
+							</td>
+							<td>
+								$\displaystyle =\iiint_V \rho dV $
+								<span class="fragment" data-fragment-index="0">
+									$\displaystyle =\iiint_V e^{-r} dV $
+								</span>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle =\int_{\phi=0}^{\phi=\pi} \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=R} e^{-r}$
+								<span class="fragment highlight-red" data-fragment-index="2">
+									$r^2\sin\phi ~dr~d\theta~d\phi$
+								</span>
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = \left(\int_{\phi=0}^{\phi=\pi}\sin \phi~d\phi \right) \left(\int_{\theta=0}^{\theta=2\pi}~d\theta \right)\left(\int_{r=0}^{r=R}r^2e^{-r}~dr\right)  $
+								
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$\displaystyle = 2\cdot   2 \pi \cdot  \int_{r=0}^{r=R}r^2e^{-r}~dr  $
+								<span class="fragment" data-fragment-index="5">
+									$\displaystyle = 4 \pi \int_{r=0}^{r=R}r^2e^{-r}~dr  $
+								</span>
+								
+								
+							</td>
+						</tr>
+
+					</table>
+
 				</section>
 
 			</section>
