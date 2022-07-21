@@ -408,6 +408,182 @@
 
 				</section>
 
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius R</h4>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$</p>
+
+					<p class="left-txt size-70">
+						The challenge is now to compute: $\displaystyle I =  \int_{r=0}^{r=R}r^2e^{-r}~dr.$
+					</p>
+
+					<p class="left-txt size-70 fragment" data-fragment-index="0" >Recall the technique <strong>Integration by parts</strong>. 
+					<span  class="fragment" data-fragment-index="1">
+						Consider the functions $u$, $v$.
+					</span>
+					<span class="fragment" data-fragment-index="2">Using the product rule we have</span>
+					</p>
+					<p class=" size-70 fragment" data-fragment-index="3">
+						$d(uv) = u ~dv + v ~du $ 
+						<span class="fragment" data-fragment-index="4">$\implies u~dv = d(uv) - v~du$</span>
+						<span class="fragment" data-fragment-index="5">
+							$$\implies \int u~dv = uv - \int v~du$$
+						</span>
+					</p>
+					
+					
+
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius R</h4>
+					
+
+					<p class="size-70">
+						Take $u = r^2$ and $dv= e^{-r}~dr$.
+						<span  class="fragment" data-fragment-index="0">
+							So  $du = 2r ~dr$ and $v = -e^{-r}$.
+						</span>
+					</p>
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle \int_{r=0}^{r=R}\underbrace{r^2}_\text{$u$}\overbrace{e^{-r}~dr}^\text{$dv$}  $
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \underbrace{r^2}_\text{$u$}\overbrace{\left(-e^{-r}\right)}^\text{$v$}\Bigg|_{r=0}^{r=R} - \int_{r=0}^{r=R}\underbrace{\left(-e^{-r}\right)}_\text{$v$}\overbrace{(2r)~dr}^\text{$du$}$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = -R^2e^{-R} +2 \int_{r=0}^{r=R}re^{-r}~dr\qquad$  $($A$)$
+								
+							</td>
+						</tr>
+
+					</table>
+
+				
+
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius R</h4>
+
+					<p class="size-60" >
+						Now take $u = r$ and $dv= e^{-r}~dr$.
+						<span class="fragment" data-fragment-index="0">
+							So  $du = dr$ and $v = -e^{-r}$.
+						</span>
+					</p>
+
+					<table id="eqarray" class="size-60" >
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								$\quad\quad($A$)$
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = -R^2e^{-R} +2 \left[ -re^{-r}\Bigg|_{r=0}^{r=R} - \int_{r=0}^{r=R}\left(-e^{-r}\right)sr \right]$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = -R^2 e^{-R} - 2R e^{-R} + 2 \int_{r=0}^{r=R}e^{-r}~dr$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = -R^2 e^{-R} - 2R e^{-R} + 2 \left[ -e^{-r}\Bigg|_{r=0}^{r=R}\right]$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$\displaystyle =-R^2 e^{-R} - 2R e^{-R} + 2\left[ -e^{-R}+1 \right]$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\displaystyle = 2 - 2e^{-R} - 2Re^{-R} - R^2e^{-R}$
+								<span class="fragment" data-fragment-index="6">
+									$\displaystyle = 2 - e^{-R} \left( R^2+2R+2 \right)$.
+								</span>
+							</td>
+						</tr>
+
+					</table>
+
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius R</h4>
+					
+					<p class="size-70 left-txt">
+						Therefore
+					</p>
+
+
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td>
+								$\text{Mass}$
+							</td>
+							<td>
+								$\displaystyle =\iiint_V \rho dV $
+								
+									$\displaystyle =\iiint_V e^{-r} dV $
+								
+							</td>
+						</tr>
+
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$\displaystyle = 4 \pi \int_{r=0}^{r=R}r^2e^{-r}~dr $
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = 4 \pi \left[2 - e^{-R} \left( R^2+2R+2 \right)\right] $
+							</td>
+						</tr>
+
+					</table>
+
+				</section>
+
+
+
 			</section>
 
 
