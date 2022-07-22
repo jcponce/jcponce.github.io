@@ -62,26 +62,111 @@
 
 			<section>
 				<section>
-					<h3>33 Moments of inertia (second moments)</h3>
-				<div class="left-txt size-70">
-					<p>
-						By the end of this section, you should be able to answer the following questions:
-					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">
-							How do you locate the centre of mass of a solid object using a triple integral?
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							How do you calculate the moments of inertia about the three coordinate axes?
-						</li>
-						
-					</ul>
+					<h3>33 Moments of inertia </h3>
+					<p class="size-80"><strong>(second moments)</strong></p>
+					<div class="left-txt size-80">
+						<p>
+							By the end of this section, you should be able to answer the following questions:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								How do you locate the centre of mass of a solid object using a triple integral?
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								How do you calculate the moments of inertia about the three coordinate axes?
+							</li>
 
-					
-				</div>
+						</ul>
+
+
+					</div>
 				</section>
 
-				
+
+				<section>
+					<h3>33 Moments of inertia </h3>
+					<p class="size-80"><strong>(second moments)</strong></p>
+					<div class="size-70 left-txt">
+						<p>
+							The moment of inertia of a particle of mass m about an 
+							axis $(x, y, \text{ or } z)$ is defined to be $mr^2$ where $r$ 
+							is the distance from the particle to the axis.
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							It is sometimes referred to as rotational inertia and
+							can be thought of as the rotational analogue of mass for linear motion.
+							<span class="fragment" data-fragment-index="2">
+								For example, linear kinetic energy can be expressed 
+								as $\frac{1}{2}mv^2$, and the rotational kinetic energy as $\frac{1}{2}I\omega^2$. 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Linear momentum is determined by the formula $p= mv$, 
+								while angular momentum is given by $L=I\omega$. In these examples, 
+								$I$ is the moment of inertia and $\omega$ the angular velocity.
+							</span>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>33 Moments of inertia </h3>
+					<p class="size-80"><strong>(second moments)</strong></p>
+					<div class="size-70 left-txt">
+						<p>
+							As we have seen from previous examples, the mass of a 
+							solid with density $\rho(x, y, z)$ occupying a region $R$ in $\R^3$ is given by
+							\[
+							m = \iiint_R \rho(x,y,z)~dV.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							The moments about each of the three coordinate planes are
+						</p>
+					</div>
+					<div class="size-70 ">
+						<p class="fragment" data-fragment-index="1">
+							$\displaystyle M_{yz} = \iiint_R  x\rho(x,y,z)~dV,\quad $ 
+							<span class="fragment" data-fragment-index="2">
+								$ \displaystyle M_{xz} = \iiint_R  y\rho(x,y,z)~dV,$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							$\displaystyle M_{xy} = \iiint_R  z\rho(x,y,z)~dV$
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>33 Moments of inertia </h3>
+					<p class="size-80"><strong>(second moments)</strong></p>
+					<div class="size-65 left-txt">
+						<p>
+							The centre of mass is then located at the point 
+							$\left(\overline{x}, \overline{y}, \overline{z}\right)$ where
+							\[
+							\overline{x} = \frac{M_{yz}}{m}, \;\overline{y} = \frac{M_{xz}}{m}, \;\overline{z} = \frac{M_{xy}}{m}
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							The moments of inertia about each of the three coordinate axes work out to be
+						</p>
+					</div>
+
+					<div class="size-65">
+						<p>
+							$\displaystyle I_{x} = \iiint_R  \left(y^2+z^2\right) \rho(x,y,z)~dV,$
+							
+						</p>
+						<p>
+							$\displaystyle I_{y} = \iiint_R  \left(x^2+z^2\right) \rho(x,y,z)~dV,$
+						</p>
+						<p>
+							$\displaystyle I_{z} = \iiint_R  \left(x^2+y^2\right) \rho(x,y,z)~dV.$
+						</p>
+						
+					</div>
+				</section>
+
 
 			</section>
 
