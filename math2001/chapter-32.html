@@ -618,7 +618,159 @@
 
 				<section>
 					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
+					<div class="size-70 left-txt">
+						<p>
+							Let's use spherical coordinates
+							\[
+							x = r\cos \theta \sin \phi, \quad y = r \sin \theta \sin \phi, \quad z = r \cos \phi.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							First, the bounds for $r$ and $\theta$ are:
+							\[
+							0\leq r \leq a, \qquad 0 \leq \theta \leq 2 \pi.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							For the bounds for $\phi$ we need consider the cone $z= \sqrt{x^2+y^2}$.
+							<span class="fragment" data-fragment-index="2">
+								Then
+
+							</span>
+						</p>
+					</div>
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle \quad \quad z $
+							
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$= \sqrt{x^2+y^2}$
+								<span>$\displaystyle =\sqrt{ r^2\cos^2 \theta \sin^2 \phi +  r^2 \sin^2 \theta \sin^2 \phi }$</span>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="fragment" data-fragment-index="5">
+							$r \cos \phi$
+							
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle =\sqrt{ r^2\sin^2 \phi \left( \cos^2 \theta + \sin^2 \theta\right)  }$
+								<psan class="fragment" data-fragment-index="4">
+									$= r\sin \phi.$
+								</psan>
+							</td>
+						</tr>
+						
+					</table>
 				</section>
+
+				<section>
+					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
+					<div class="size-70 left-txt">
+						
+						<p>
+							The bounds for $r$ and $\theta$ are:
+							\[
+							0\leq r \leq a, \qquad 0 \leq \theta \leq 2 \pi.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							And 						
+						</p>
+					</div>
+					<table id="eqarray" class="size-70">
+						
+
+						<tr>
+							<td class="fragment" data-fragment-index="0">
+							$r \cos \phi$
+							
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$= r\sin \phi$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+							$\;\; \tan \phi$
+							
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$= 1$, with $r\neq 0.$
+								
+							</td>
+						</tr>
+						
+					</table>
+					<p class="size-70 left-txt fragment" data-fragment-index="2">
+					This implies that $\phi = \dfrac{\pi}{4}$.
+					<span class="fragment" data-fragment-index="3">
+					  Then $0\leq \phi \leq  \dfrac{\pi}{4}$. 
+					</span>
+					<span class="fragment" data-fragment-index="4">
+						Thus
+						\[
+						E = \left\{ \left(r, \theta, \phi\right) ~|~ 0\leq r \leq a, 0 \leq \theta \leq 2 \pi, 0\leq \phi \leq  \dfrac{\pi}{4}\right\}.
+						\]
+					</span>
+				    </p>
+				</section>
+
+				<section>
+					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
+					<table id="eqarray" class="size-80">
+						<tr>
+							<td>
+							$\text{Volume}$
+							
+							</td>
+							<td>
+								$\displaystyle = \iiint_E~ dV$
+								
+							</td>
+						</tr>
+						<tr>
+							<td>
+							
+							
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$\displaystyle = \int_{\phi=0}^{\phi =\pi/4} \int_{\theta=0}^{\theta =2\pi} \int_{r=0}^{r = a} r^2\sin\phi ~dr ~d\theta ~d\phi$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+							
+							
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = \left( \int_{\phi=0}^{\phi= \pi/4}  \sin\phi ~d\phi \right)  \left( \int_{\theta=0}^{\theta= 2\pi} ~d\theta  \right)  \left( \int_{r=0}^{r = a}r^2~dr \right)  $
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+							
+							
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \left( 1 - \frac{\sqrt{2}}{2} \right)  \left(2 \pi \right)  \left( \frac{a^3}{3} \right)  $
+								<span class="fragment" data-fragment-index="3">
+									$\displaystyle = \left( 1 - \frac{\sqrt{2}}{2} \right)    \frac{2 \pi a^3}{3} . $
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
+				
 			</section>
 
 
