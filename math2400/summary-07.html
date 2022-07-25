@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH2400/7400 - Summary Week 8</title>
+	<title>MATH2400/7400 - Summary Week 7</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -60,217 +60,475 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 8</p>
+				<p>Summary Week 7</p>
 			</section>
 
 			<section>
-				<h3>The Fundamental Theorem of Calculus</h3>
-
-				<p class="sbt">First form</p>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-						</span>
-						Let $F \colon [a,b] \to \R$ be a continuous function, differentiable
-						on $(a,b)$. Let $f \in \mathcal R[a,b]$ be such that $f(x) = F'(x)$ for $x \in
-						(a,b)$. Then
-						\begin{equation*}
-						\int_a^b f = F(b)-F(a) .
-						\end{equation*}
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h3>The Fundamental Theorem of Calculus</h3>
-
-				<p class="sbt">Second form</p>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-						</span>
-						Let $f \colon [a,b] \to \R$ be a Riemann integrable function. Define
-						\begin{equation*}
-						F(x) := \int_a^x f .
-						\end{equation*}
-						First, $F$ is continuous on $[a,b]$. Second,
-						if $f$ is continuous at $c \in [a,b]$, then $F$ is differentiable at $c$
-						and $F'(c) = f(c)$.
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h3>The Fundamental Theorem of Calculus</h3>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Partitions</p>
 				<div class="left-txt size-60">
-					<p>
-						In the following simulation (next slide), the top graph shows the function 
-						$f(t)$ and the value of the definite integral for each 
-						upper limit $x$, with lower limit $a$. The definite integral 
-						is represented with the shaded region between the graph of
-						 the function and the $x$-axis.</p>
-						
-						<p>The bottom graph shows the <b>accumulation function</b>
-						$$A(x)=\int_a^xf(t)dt$$
-						for each upper limit $x$, with lower limit $a$.
-						</p>
+					<p><strong>Definition:</strong>
+						A <em>partition</em> $P$ of the interval $[a,b]$ is
+						a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
+						\begin{equation*}
+						a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
+						\end{equation*}
+						We write
+						\begin{equation*}
+						\Delta x_i := x_i - x_{i-1} .
+						\end{equation*}
+					</p>
+
+				</div>
+
+
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux sums</p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
+						$[a,b]$.
+						Define
+						\begin{array}{cc}
+						& m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,
+						& M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} , \\
+						& L(P,f) :=
+						\sum_{i=1}^n m_i \Delta x_i ,
+						& U(P,f) :=
+						\sum_{i=1}^n M_i \Delta x_i .
+						\end{array}
+						We call $L(P,f)$ the <em>lower Darboux sum</em> and
+						$U(P,f)$ the <em>upper Darboux sum</em>.
+					</p>
+
 				</div>
 			</section>
 
 			<section>
-				<h5>The Fundamental Theorem of Calculus</h5>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux sums</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
+						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
+						of $[a,b]$,
+						\begin{equation}
+						\label{sumulbound:eq}
+						m(b-a) \leq
+						L(P,f) \leq U(P,f)
+						\leq M(b-a) .
+						\end{equation}
+					</p>
 
-				<div class="centerframe">
-					<iframe scrolling="no" title="Fundamental Theorem of Calculus" src="https://www.geogebra.org/material/iframe/id/NH3rgBKS/width/847/height/570/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="80%" height="480px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-					<br/><button onclick="alert('- Select an option, at the bottom, to explore the Accumulation function or the Derivative of the accumulation function.\n - Drag point x along the x-axis in the top graph to observe the relationship between the two graphs. \n - Drag the point \'a\' to change its value. \n - Change the function f(t). Remark: f must be continuous.')">Help?</button>
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux Integrals</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						As the sets of lower and upper Darboux sums are bounded, we define
+						\begin{align*}
+						& \underline{\int_a^b} f(x)~dx :=
+						\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\} , \\
+						& \overline{\int_a^b} f(x)~dx :=
+						\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\} .
+						\end{align*}
+						We call $\underline{\int}$
+						the <em>lower Darboux integral</em> and
+						$\overline{\int}$ the
+						<em>upper Darboux integral</em>.
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux Integrals</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
+						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then
+						\begin{equation}
+						\label{intulbound:eq}
+						m(b-a) \leq
+						\underline{\int_a^b} f \leq \overline{\int_a^b} f
+						\leq M(b-a) .
+						\end{equation}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function such that
+						\begin{equation*}
+						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+						\end{equation*}
+						Then $f$ is said to be <em>Riemann integrable</em>.
+						The set of Riemann integrable functions on $[a,b]$ is denoted
+						by $\mathcal R[a,b]$.
+						When $f \in \mathcal R[a,b]$, we define
+						\begin{equation*}
+						\int_a^b f(x)~dx :=
+						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+						\end{equation*}
+						The number $\int_a^b f$ is called the <em>Riemann integral</em>
+						of $f$, or sometimes simply the <em>integral</em> of $f$.
+					</p>
+
+				</div>
+			</section>
+
+
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a Riemann integrable function.
+						Let $m, M \in \R$ be
+						such that $m \leq f(x) \leq M$ for all $x \in [a,b]$. Then
+						\begin{equation*}
+						m(b-a) \leq
+						\int_a^b f
+						\leq M(b-a) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Criterion for Riemann integrability</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f \colon [a,b] \to \R$ be a bounded function. If for every $\epsilon > 0$, there exists a partition $P$ of
+						$[a,b]$ such that
+						\begin{equation*}
+						U(P,f) - L(P,f) \lt \epsilon  
+						\end{equation*}
+						then   $f$ is Riemann
+						integrable.
+
+					</p>
+
+				</div>
+			</section>
+
+
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Properties</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f$ and $g$ be in $\mathcal R[a,b]$ and $\alpha \in \R$.
+					</p>
+
+					<ol class="r">
+						<li>
+							$\alpha \,f$ is in $\mathcal R[a,b]$ and
+							\begin{equation*}
+							\int_a^b \alpha \,f(x) ~dx = \alpha \int_a^b f(x) ~dx .
+							\end{equation*}
+						</li>
+						<li>
+							$f+g$ is in $\mathcal R[a,b]$ and
+							\begin{equation*}
+							\int_a^b \bigl( f(x)+g(x) \bigr) ~dx =
+							\int_a^b f(x) ~dx
+							+
+							\int_a^b g(x) ~dx .
+							\end{equation*}
+						</li>
+					</ol>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				
+				<p class="sbt">Continuous functions on closed intervals</p>
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Theorem:</strong>
+									If $f \colon [a,b] \to \R$ is a continuous function,
+									then $f \in \mathcal R[a,b]$.
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:50%;">
+							<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-src="images/summary-07/continuous-closed-interval.svg" />
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Bounded functions with finitely many discontinuities</p>
+
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									<strong>
+										Theorem:
+									</strong>
+									Let $f \colon [a,b] \to \R$ be a bounded function with finitely
+									many discontinuities. Then $f \in \mathcal R[a,b]$.
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:50%;">
+							<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-src="images/summary-07/finite-discontinuities-integrable.svg" />
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">An example of a bounded function with a dense set of discontinuities</p>
+				<div class="size-50" >
+					<p>
+						Thomae's function (Popcorn function): Riemann integrable.
+					</p>
 				</div>
 				
+
+				<img style="width: 60%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/summary-07/thomaeblack.png" />
+				<p style="font-size:14px" >More details here 🔗: <a href="https://en.wikipedia.org/wiki/Thomae%27s_function" target="_blank">Wiki: Thomae's function</a> or Thomae's book: <a href="https://archive.org/embed/einleitungindie00neumgoog" target="_blank">Einleitung in die Theorie der bestimmten Integrale</a></p>
 			</section>
 
 			<section>
-				<h3>The Fundamental Theorem of Calculus</h3>
-
-				<p class="sbt">Change of variables</p>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-						</span>
-						Let $g \colon [a,b] \to \R$ be a continuously differentiable function,
-						let $f \colon [c,d] \to \R$ be continuous, and suppose
-						$g\bigl([a,b]\bigr) \subset [c,d]$. Then
-						\begin{equation*}
-						\int_a^b f\bigl(g(x)\bigr)\, g'(x)~ dx =
-						\int_{g(a)}^{g(b)} f(s)~ ds .
-						\end{equation*}
-
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Another example of a bounded function with a dense set of discontinuities</p>
+				<div class="size-50" >
+					<p>
+						Riemanns's example: 
+						$
+						\;\;\displaystyle f(x):=\sum_{n=1}^{\infty}\frac{(nx)}{n^2}
+						$
+						where $(nx)= nx -  \text{round} (nx) $.   
 					</p>
 				</div>
+
+				<img style="width: 75%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/summary-07/non-riemann-integrable.svg" />
+				<p style="font-size:14px" >Source 🔗: <a href="https://archive.org/details/bernardrgesamm00riemrich" target="_blank">Bernhard Riemann's Gesammelte mathematische Werke und Wissenschaftlicher Nachlass, p. 228</a></p>
 			</section>
 
+			
 
 			<section>
-				<h3>The logarithm</h3>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-							There exists a unique function $L \colon (0,\infty) \to \R$ such that
-						</span>
-						<ol class="r">
-							<li>$L(1) = 0$.</li>
-							<li>$L$ is differentiable and $L'(x) =
-								\frac{1}{x}$.</li>
-							<li>$L$ is strictly increasing, bijective, and
-								\begin{equation*}
-								\lim_{x\to 0} L(x) = -\infty , \qquad \text{and} \qquad
-								\lim_{x\to \infty} L(x) = \infty .
-								\end{equation*}</li>
-							<li>$L(xy) = L(x)+L(y)$ for all $x,y \in
-								(0,\infty)$.</li>
-							<li>If $q$ is a rational number and $x > 0$, then
-								$L(x^q) = q L(x)$.</li>
-						</ol>
-					</p>
-				</div>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Monotone functions</p>
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									<strong>
+										Theorem:
+									</strong>
+									Let $f:[a,b]\ra \R$ be a monotone function. Then
+									$f\in \mathcal R[a,b]$.
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:50%;">
+							<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-src="images/summary-07/monotone-integrable.svg" />
+						</td>
+
+					</tr>
+				</table>
+
 			</section>
 
-
 			<section>
-				<h3>The exponential</h3>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-							There exists a unique function $E \colon \R \to (0,\infty)$ such that
-						</span>
-						<ol class="r">
-							<li>$E(0) = 1$.</li>
-							<li>$E$ is differentiable and $E'(x) =
-								E(x)$.</li>
-							<li>$E$ is strictly increasing, bijective, and
-								\begin{equation*}
-								\lim_{x\to -\infty} E(x) = 0 , \qquad \text{and} \qquad
-								\lim_{x\to \infty} E(x) = \infty .
-								\end{equation*}</li>
-							<li>$E(x+y) = E(x)E(y)$ for all $x,y \in
-								\R$.</li>
-							<li>If $q$ is a rational number, then
-								$E(qx) = E(x)^q$.</li>
-						</ol>
-					</p>
-
-
-				</div>
-			</section>
-
-
-
-			<section>
-				<h3>The exponential</h3>
+				<h4>The Integral: A Crux for Analysis</h4>
+				
 				<div class="left-txt size-60">
-					<p>
-						Define the
-						<em>exponential</em> function as
-						\begin{equation*}
-						\exp(x) := E(x) .
-						\end{equation*}
+					<p >There are many theories of the integral.
+						The Riemann integral 
+						is relatively simple, and it does the job nicely. It is 
+						certainly the most common and widely-used integral in 
+						the world today. Mathematicians, physicists, engineers,
+						 and many others use the Riemann integral regularly.
 					</p>
 
-					<p>
-						If $y \in \Q$ and $x > 0$, then
-						\begin{equation*}
-						x^y = \exp\bigl(\ln(x^y)\bigr) = \exp\bigl(y\ln(x)\bigr) .
-						\end{equation*}
+					<p >
+						However, there exist examples of continuous function possessing 
+						a bounded derivative which is not Riemann integrable. 
 					</p>
 
-					<p>
-						We can now make sense of exponentiation $x^y$ for arbitrary $y \in \R$;
-						<span>
-							if $x > 0$ and $y$ is irrational, define
-							\begin{equation*}
-							x^y := \exp\bigl(y\ln(x)\bigr) .
-							\end{equation*}
-						</span>
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h3>The exponential</h3>
-				<div class="left-txt size-60">
-					<p>
-						Define the number $e$,
-						sometimes called <em>Euler's number</em> or
-						the <em>base of the natural logarithm</em>, as
-						\begin{equation*}
-						e := \exp(1) .
-						\end{equation*}
-
-					</p>
-
-					<p>
-						The notation $e^x$ for $\exp(x)$:
-						<span>
-							\begin{equation*}
-							e^x = \exp\bigl(x \ln(e) \bigr) = \exp(x) .
-							\end{equation*}
-						</span>
-					</p>
-
-					<span>
-						<p>
-							<strong>Theorem:</strong> Let $x, y \in \R$.
-							<ol class="r">
-								<li>
-									$\exp(xy) = {\bigl(\exp(x)\bigr)}^y$.
-								</li>
-								<li>
-									If $x > 0$, then $\ln(x^y) = y \ln (x)$.
-								</li>
-							</ol>
-						</p>
+					<span >
+						<img style="width: 70%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/summary-07/volterra.png" />
 					</span>
 
+					<p >
+						This example was given by the italian
+						mathematician 
+						Vito Volterra in 1881. 
+					</p>
+
+					<p   style="font-size:14px" >More details here 🔗: <a href="https://doi.org/10.1080/17498430.2015.1010771" target="_blank">Vito Volterra's construction of a nonconstant function with a bounded, non-Riemann integrable derivative</a></p>
+
 				</div>
 			</section>
+
+			
+
+			<section>
+				<h4>The Integral: A Crux for Analysis</h4>
+				
+				<div class="left-txt size-60">
+					<p>
+						This example was surprising since it 
+						shows that within the context of Riemann's theory of 
+						integration the fundamental operations of differentiation 
+						and integration are not entirely reversible. 
+					</p>
+					<p >Thus, the 
+						process of differentiation could produce bounded functions
+						$F'$ which fails to be integrable in Riemann's sense. In this case, the formula:
+						\[
+						\int_{a}^{b}F'(x)~dx=F(b)-F(a)
+						\]
+						provided by the fundamental theorem of integral calculus, 
+						turns out to be meaningless.
+					</p>
+
+					
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Integral: A Crux for Analysis</h4>
+				
+				<div class="left-txt size-60">
+					
+
+					<p>
+						On the other hand, more advanced studies in analysis require an 
+						integral with better convergence properties. 
+						For example, if $f_n$ is a sequence of functions on 
+						a bounded interval $[a, b]$, then we would like to know that
+						\[
+						\lim_{n\ra \infty} \int_a^b f_n = \int_a^b \lim_{n\ra \infty} f_n \qquad (*)
+						\]
+						
+					</p>
+
+					<p >For the Riemann integral, the standard condition to 
+						guarantee (∗) is <em>uniform convergence</em> of the sequence 
+						of functions $\{f_n \}$. 
+					</p>
+
+					
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Garden of integrals</h4>
+				
+				<div class="left-txt size-60">
+					
+
+					<ol >
+						<li>
+							The <strong>Riemann integral</strong> is based on subdividing the domain of the function (by way of a partition). 
+						</li>
+						<li >
+							The <strong>Lebesgue integral</strong> is based on subdividing the range of the function (you need <em>measure theory</em>). 
+						</li>
+						<li>
+							The <strong>Riemann-Stieltjes</strong> integral where the partition of a closed interval $I$
+							is determined with a monotonically increasing function defined on $I$.
+						</li>
+						<li>
+							The <strong>Daniel integral</strong> which is equivalent to the 
+							Lebesgue integral but avoids the necessity of 
+							first developing measure theory. 
+						</li>
+						<li>
+							The <strong>Henstock-Kurzweil integral</strong> where a partition is measured in a more
+							general way using a function called <em>gauge.</em>
+						</li>
+					</ol>
+
+					<br/>
+					<br/>
+					<div style="font-size:14px" >
+						For more details consult: <br/>
+					<ul>
+						<li><a href="https://www.morganclaypool.com/doi/abs/10.2200/S00327ED1V01Y201101MAS009" target="_blank">The Integral: A Crux for Analysis</a> by Steven G. Krantz</li>
+						<li><a href="https://www.maa.org/press/maa-reviews/a-garden-of-integrals" target="_blank">A Garden of Integrals</a> by Frank E. Burk  </li>
+					</ul>
+					</div>
+					
+
+				</div>
+			</section>
+
+			<!--<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Graphical interpretation of the derivative</p>
+
+				<iframe scrolling="no" title="The Derivative: Geometrical interpretation"
+					src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="562px" height="390px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+		-->
+
 
 
 			<section>

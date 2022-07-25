@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2001/7000 - Chapter 25</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Calculus & <br />Linear Algebra II</h2>
+				<p>Chapter 25</p>
+			</section>
+
+			<section>
+				<h3>25 Integrals over general regions</h3>
+				<div class="left-txt size-80">
+					<p>
+						By the end of this section, you should be able to answer the following questions:
+					</p>
+					<ul>
+						<li class="fragment" data-fragment-index="0">How can you identify type I and II regions?
+						</li>
+						<li class="fragment" data-fragment-index="1">How do you evaluate a double integral over type I
+							and II regions?
+						</li>
+						<li class="fragment" data-fragment-index="2">How can you evaluate a double integral over a more
+							general region comprising finitely many type I and II regions?
+						</li>
+						<li class="fragment" data-fragment-index="3">
+							What is meant by net volume below a surface?
+						</li>
+					</ul>
+				</div>
+				<p></p>
+			</section>
+
+			<section>
+
+
+				<section>
+					<h4>25.1 Type I regions</h4>
+					<table style="width:100%;">
+						<tr>
+
+							<td style="width:55%">
+								<div class="size-60" style="text-align: left; margin-left: 0.1em;">
+									<p class="fragment" data-fragment-index="1">
+										A plane region $D$ is of type I if it lies between
+										the graph of two continuous functions of $x$.
+										<span class="fragment" data-fragment-index="2">
+											That is
+											$$D=\left\{ (x,y) ~|~ a \leq x\leq b, g_1(x) \leq y \leq g_2(x) \right\}.$$
+										</span>
+
+									</p>
+									<p class="fragment" data-fragment-index="4">
+										In practice, to evaluate $\iint_D f(x,y)dA$ where $D$ is a region
+										of type I we have
+										\[
+										\iint_D f(x,y)dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) ~dy~dx
+										\]
+									</p>
+								</div>
+							</td>
+							<td style="width:45%;" class="fragment" data-fragment-index="3"><img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/chapter-25/chapter-25-1-type-Ia.svg" />
+								<p style="font-size:16px;">Type I regions are generally bounded by two
+									constant values
+									of $x$ and two functions of $x$.</p>
+							</td>
+
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h4>25.1 Type I regions</h4>
+					<table style="width:100%;">
+						<tr>
+
+							<th style="width:50%">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/chapter-25/chapter-25-1-type-Ib.svg" />
+							</th>
+							<th style="width:50%;">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/chapter-25/chapter-25-1-type-Ic.svg" />
+
+							</th>
+
+						</tr>
+					</table>
+					<p style="font-size:14px;font-weight:normal">Some more examples of type I regions.</p>
+				</section>
+
+				<section>
+					<h5>25.1.1 Example: find ${\small \iint_D \left(4x+10y\right)dA}$</h5>
+					<p style="font-size:28px">where $D$ is the region between the parabola $y=x^2$ and the line $y=x+2$.
+					</p>
+
+					<div>
+						<iframe scrolling="no" title="Chapter 25-1-1: Example"
+							src="https://www.geogebra.org/material/iframe/id/acsndanr/width/487/height/429/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/true"
+							width="487px" height="429px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h5>25.1.1 Example (cont.)</h5>
+					<div class="left-txt size-70">
+						<p>
+							Type I region with $x^2 \leq y \leq x+2.$
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							We need to find $a$ and $b$ by solving
+							\[
+							\left\{\begin{array}{ll}
+							y=x^2\\
+							y=x+2
+							\end{array}\right.
+							\]
+							for $x$.
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Here we have $x^2=x+2$
+							<span class="fragment" data-fragment-index="2">
+								$\implies x = -1, x = 2$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\implies a = -1, b = 2.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Then $D= \left\{ (x,y) ~|~ -1\leq x\leq 2, ~x^2\leq y\leq x+2\right\}$.
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h5>25.1.1 Example (cont.)</h5>
+					<div class="size-60">
+						<p>
+
+							<span>
+								$\displaystyle \iint_D \left(4x+10y\right)dA = \displaystyle \int_{x=-1}^{x=2} \left[
+								\int_{y=x^2}^{y=x+2} \left(4x+10y\right)dy \right]dx \qquad\qquad\qquad\qquad$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								<br /><br />$ = \displaystyle \int_{x=-1}^{x=2} \left[ \left( 4xy + 10 \frac{y^2}{2}
+								\right)
+								\Bigg|_{y=x^2}^{y=x+2} \right] dx \quad$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								<br /><br />$\qquad\qquad\qquad= \displaystyle \int_{x=-1}^{x=2} \left[
+								4x(x+2) + 5 (x+2)^2 -\left( 4x(x^2) + 5 (x^2)^2 \right)
+								\right]dx$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								<br /><br />$\qquad = \displaystyle \int_{x=-1}^{x=2} \left(
+								-5 x^4 - 4 x^3 + 9 x^2 + 28 x + 20
+								\right) dx$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								<br />$\qquad\;\;= \displaystyle \left( -x^5 - x^4 + 3 x^3 + 14 x^2 + 20
+								x\right)\Bigg|_{x=-1}^{x=2}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \displaystyle 81$
+							</span>
+						</p>
+
+
+					</div>
+
+				</section>
+
+
+			</section>
+
+
+			<section>
+
+
+				<section>
+					<h4>25.2 Type II regions</h4>
+					<table style="width:100%;">
+						<tr>
+
+							<td style="width:55%">
+								<div class="size-60" style="text-align: left; margin-left: 0.1em;">
+									<p class="fragment" data-fragment-index="1">
+										A plane region is of type II if it can be expressed by
+										$$D=\left\{ (x,y) ~|~ c \leq y\leq d, h_1(y) \leq x \leq h_2(y) \right\}.$$
+
+
+									</p>
+									<p class="fragment" data-fragment-index="3">
+										In practice, to evaluate $\iint_D f(x,y)dA$ where $D$ is a region
+										of type II we have
+										\[
+										\iint_D f(x,y)dA = \int_c^d \int_{h_1(y)}^{h_2(y)} f(x,y) ~dx~dy
+										\]
+									</p>
+								</div>
+							</td>
+							<td style="width:45%;" class="fragment" data-fragment-index="2"><img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/chapter-25/chapter-25-2-type-IIa.svg" />
+								<p style="font-size:16px;">Type II regions are generally bounded by
+									two
+									constant values
+									of $y$ and two functions of $y$.</p>
+							</td>
+
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h4>25.2 Type II regions</h4>
+					<table style="width:100%;">
+						<tr>
+
+							<td style="width:50%">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/chapter-25/chapter-25-2-type-IIb.svg" />
+							</td>
+							<td style="width:50%;">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/chapter-25/chapter-25-2-type-IIc.svg" />
+
+							</td>
+
+						</tr>
+					</table>
+					<p style="font-size:14px;font-weight:normal">Some more examples of type II regions.</p>
+				</section>
+
+				<section>
+					<h5>25.2.1 Example: find ${\small \iint_D xy ~dA}$</h5>
+					<p style="font-size:28px">where $D$ is the region between <br />the line $y=x-1$ and the parabola
+						$y^2=2x+6$.
+					</p>
+
+					<!--
+						<div class="r-stack">
+						<img class="fragment" data-fragment-index="0" src="images/chapter-25/chp-25-2-1a.png"
+							width="465" height="393">
+						<img class="fragment" data-fragment-index="1" src="images/chapter-25/chp-25-2-1b.png"
+							width="465" height="393">
+						<img class="fragment" data-fragment-index="2" src="images/chapter-25/chp-25-2-1c.png"
+							width="465" height="393">
+						<img class="fragment" data-fragment-index="3" src="images/chapter-25/chp-25-2-1d.png"
+							width="465" height="393">
+					</div>
+					-->
+
+
+					<div>
+						<iframe scrolling="no" title="Chapter-25-2-1: Example"
+							src="https://www.geogebra.org/material/iframe/id/bcyc4saj/width/473/height/421/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="473px" height="421px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+				</section>
+
+				<section>
+					<h5>25.2.1 Example (cont.)</h5>
+					<div class="left-txt size-70">
+						<p>
+							Type II region.
+							<span class="fragment" data-fragment-index="0">
+								We know that $y=x-1$ and $y^2=2x+6$.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								So $x=y+1$ and $x=\frac{1}{2}y^2-3$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Then $\frac{1}{2}y^2-3\leq x\leq y+1$.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							We need to find $c$ and $d$ by solving
+							\[
+							\left\{\begin{array}{ll}
+							x=\frac{1}{2}y^2-3\\
+							x=y+1
+							\end{array}\right.
+							\]
+							for $y$.
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Here we have $\frac{1}{2}y^2-3=y+1$
+							<span class="fragment" data-fragment-index="5">
+								$\implies y = -2, y = 4$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\implies c = -2, d = 4.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							Then $D= \left\{ (x,y) ~|~ -2\leq y\leq 4, ~\frac{1}{2}y^2-3\leq x\leq y+1\right\}$.
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h5>25.2.1 Example (cont.)</h5>
+					<div class="size-60">
+						<p>
+
+							<span>
+								$\displaystyle \iint_D xy~dA = \displaystyle \int_{y=-2}^{y=4} \left[
+								\int_{x=\frac{1}{2}y^2-3}^{x=y+1} xy~ dx \right]dy$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$ = \displaystyle \int_{y=-2}^{y=4} \left[
+								y\cdot \frac{x^2}{2}
+								\Bigg|_{x=\frac{1}{2}y^2-3}^{x=y+1} \right] dy $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								<br /><br />$= \displaystyle \int_{y=-2}^{y=4} \left[
+								y\cdot \frac{(y+1)^2}{2} - y\cdot \frac{\left(\frac{1}{2}y^2-3\right)^2}{2}
+								\right]dy \;$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								<br /><br />$= \displaystyle \int_{y=-2}^{y=4} \left(
+								-\frac{y^5}{8} + 2 y^3 + y^2 - 4 y
+								\right) dy \qquad \quad$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								<br /><br/>$\qquad\qquad\,= \displaystyle \left( -\frac{y^6}{48} + \frac{y^4}{2} + \frac{y^3}{3} - 2 y^2
+								\right)\Bigg|_{y=-2}^{y=4} $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \displaystyle 36\qquad \qquad\quad \,$
+							</span>
+						</p>
+
+
+					</div>
+
+				</section>
+
+
+			</section>
+
+
+			<section>
+
+
+				<section>
+					<h4>25.3 Express $D$ as a union of regions of type I or II</h4>
+
+					<img style="width: 50%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" data-src="images/chapter-25/chapter-25-3-composed-region.svg" />
+
+				</section>
+
+				<section>
+					<h5>25.3 Expand the integral $\iint_{D}f(x,y)dA,$ <br/>for some integrable function $f$</h5>
+
+					<div class="left-txt size-70">
+						<p class="fragment" data-fragment-index="0">
+							Upper region - Type I:
+							\[
+							\int_{-1}^1 \left[ \int_{y=1}^{y=x^2+1} f(x,y) dy\right]dx
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Lower region - Type II:
+							\[
+							\int_{-1}^1 \left[ \int_{x=-1}^{x=y^2} f(x,y) dx\right]dy
+							\]
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h5>25.3 Expand the integral $\iint_Df(x,y)dA,$ (cont.)</h5>
+
+					<div class="left-txt size-70">
+						<p>
+							Then 
+						</p>
+					</div>
+
+					<div class="size-70">
+						<p>
+							$\displaystyle \iint_\limits{D} f(x,y) dA$
+							<span  class="fragment" data-fragment-index="0">
+								$\displaystyle = \iint_\limits{\text{upper}} f(x,y) dA + \iint_\limits{\text{lower}} f(x,y) dA \qquad \qquad\qquad \qquad\quad$
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								$\qquad \qquad\;\; \displaystyle = \int_{-1}^1  \int_{y=1}^{y=x^2+1}  f(x,y)~ dy~dx + \int_{-1}^1 \int_{x=-1}^{x=y^2}  f(x,y) ~dx~dy $
+							</span>
+						</p>
+						
+					</div>	
+					
+					<p><br/></p>
+
+				</section>
+
+			</section>
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

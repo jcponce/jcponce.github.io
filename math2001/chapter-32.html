@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2001/7000 - Chapter 32</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Calculus & <br />Linear Algebra II</h2>
+				<p>Chapter 32</p>
+			</section>
+
+			<section>
+				<section>
+					<h3>32 Spherical coordinates</h3>
+					<div class="left-txt size-80">
+						<p>
+							By the end of this section, you should be able to answer the following questions:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								What is the relationship between rectangular coordinates and spherical coordinates?
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								How do you transform a triple integral in rectangular coordinates into one in terms of
+								spherical coordinates?
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								What is the Jacobian of the transformation?
+
+							</li>
+						</ul>
+
+
+					</div>
+				</section>
+
+				<section>
+					<h3>32 Spherical coordinates</h3>
+					<div class="left-txt size-80">
+						<p>Sometimes it is useful to use spherical coordinates in order to simplify
+							the integral. This involves the transformation
+							\[
+							x= r\cos \theta \sin \phi ,\quad y=r\sin \theta \sin \phi , \quad z = r \cos \phi. \qquad
+							(15)
+							\]
+						</p>
+						<p>
+							In this case $\theta$ is longitude, $\phi$ is co-latitude, and $r$ the distance from the
+							origin.
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>32 Spherical coordinates</h3>
+					<div class="size-50">
+						<p>
+							$x= r\cos \theta \sin \phi ,\quad y=r\sin \theta \sin \phi , \quad z = r \cos \phi. \qquad
+							(15)$
+						</p>
+					</div>
+					<div>
+						<iframe scrolling="no" title="Chapter-32: Spherical coordinates"
+							src="https://www.geogebra.org/material/iframe/id/yjnvedbc/width/638/height/455/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="638px" height="455px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h3>32 Spherical coordinates</h3>
+					<div class="left-txt size-70">
+						<p>We now aim to calculate a small element of volume of a spherical shell.
+							This will then show how in a triple integral we can transform
+							from rectangular coordinates to spherical coordinates by
+							substituting the transformation <a href="#/1/1">(15)</a> and by making the
+							change
+							\[
+							dx~dy~dz\rightarrow r^2\sin \phi ~dr~d\theta ~d\phi
+							\]
+						</p>
+						<p>
+							Consider the following diagram.
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>32 Spherical coordinates</h3>
+					<div>
+						<iframe scrolling="no" title="Chapter-32: Spherical region"
+							src="https://www.geogebra.org/material/iframe/id/tpewq9kt/width/560/height/432/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="560px" height="432px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>32 Spherical coordinates</h3>
+					<div class="left-txt size-80">
+						<p>The important result is that the triple integral
+							in rectangular coordinates transforms as follows:
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							$\displaystyle \iiint_\limits{R} f(x,y,z) ~dx~dy~dz =$
+						</p>
+					</div>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="1">
+							$\displaystyle \iiint_\limits{S} f\left(r\cos \theta \sin \phi, r \sin
+							\theta \sin \phi,
+							r\cos \phi \right) r^2\sin \phi ~dr~d\theta ~d\phi.$
+
+						</p>
+					</div>
+				</section>
+
+
+
+			</section>
+
+
+			<section>
+
+				<section>
+					<h4>32.1 A simple example: </h4>
+					<p class="sbt">Find the volume of a sphere of radius R.</p>
+
+					<div>
+						<iframe scrolling="no" title="Chapter-32-1: Simple example"
+							src="https://www.geogebra.org/material/iframe/id/ng9eykmg/width/572/height/386/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="572px" height="386px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+				</section>
+
+				<section>
+					<h4>32.1 A simple example: </h4>
+					<p class="sbt">Find the volume of a sphere of radius R.</p>
+
+					<div class="size-70 left-txt">
+						<p>
+							Recall that
+							\[
+							\text{Volume } = \iiint_V ~dV.
+							\]
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
+							We describe the sphere as:
+							\[
+							0 \leq r \leq R, \; 0\leq \theta \leq 2 \pi, \; 0\leq \phi \leq \pi.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Then
+							\[
+							V= \{(r,\theta, \phi), ~|~ 0 \leq r \leq R, \; 0\leq \theta \leq 2 \pi, \; 0\leq \phi \leq
+							\pi\}.
+							\]
+						</p>
+
+					</div>
+
+				</section>
+
+
+				<section>
+					<h4>32.1 A simple example: </h4>
+					<p class="sbt">Find the volume of a sphere of radius R.</p>
+
+
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td>
+								$\text{Volume } $
+							</td>
+							<td>
+								$\displaystyle = \iiint_V dV $
+								<span class="fragment" data-fragment-index="0">
+									$\displaystyle = \int_{\phi=0}^{\phi=\pi} \int_{\theta=0}^{\theta=2\pi}
+									\int_{r=0}^{r=R} $
+
+									<span class="fragment highlight-red" data-fragment-index="1">
+										$\displaystyle r^2\sin \phi ~dr~d\theta~ d\phi$
+									</span></span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \left( \int_{\phi=0}^{\phi=\pi} \sin\phi ~d\phi \right) \left(
+								\int_{\theta=0}^{\theta=2\pi}~d\theta \right)\left( \int_{r=0}^{r=R}r^2~dr\right)$
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = \left( -\cos\phi \Bigg|_{\phi=0}^{\phi=\pi} \right) \left(
+								\theta\Bigg|_{\theta=0}^{\theta=2\pi} \right)\left(
+								\frac{r^3}{3}\Bigg|_{r=0}^{r=R}\right)$
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$\displaystyle = 2\cdot 2 \pi \left( \frac{R^3}{3}\right)$
+								<span class="fragment" data-fragment-index="5">
+									$\displaystyle = \frac{4}{3} \pi R^3$
+								</span>
+							</td>
+						</tr>
+					</table>
+
+				</section>
+
+
+
+			</section>
+
+
+			<section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
+
+					<div class="left-txt size-70">
+						<p class="fragment" data-fragment-index="0">
+							Recall that $$\displaystyle \iiint_V \rho(x,y,z)~ dV = \iiint_V
+							e^{-\left(x^2+y^2+z^2\right)^{1/2}}~dV.$$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							We can't compute this integral in rectangular coordinates! 😥
+						</p>
+						<p class="fragment" data-fragment-index="2">Let's use spherical coordinates:
+							\[
+							x= r\cos \theta \sin \phi ,\quad y=r\sin \theta \sin \phi , \quad z = r \cos \phi.
+							\]
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
+
+					<div class="left-txt size-70">
+						<p>
+							Then we have that
+						</p>
+					</div>
+					<table id="eqarray" class="size-70">
+
+						<tr>
+							<td>
+								$x^2+y^2+z^2 $
+							</td>
+							<td>
+								$= r^2 \cos^2\theta \sin^2\phi + r^2 \sin^2\theta \sin^2\phi + r^2 \cos^2 \phi$
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$= r^2 \left(\cos^2\theta + \sin^2\theta \right) \sin^2\phi + r^2 \cos^2 \phi$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$= r^2 \sin^2\phi + r^2 \cos^2 \phi$
+								<span class="fragment" data-fragment-index="2">
+									$= r^2$.
+								</span>
+							</td>
+						</tr>
+
+					</table>
+					<div class="left-txt size-70">
+						<p class="fragment" data-fragment-index="3">
+							Thus $\rho(r,\theta, \phi) = e^{-r}$.
+						</p>
+						<p class="fragment" data-fragment-index="4">Finally, the region $V$ is described by:
+							\[
+							0 \leq r \leq R, \; 0\leq \theta \leq 2 \pi, \; 0\leq \phi \leq \pi.
+							\]
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
+
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td>
+								$\text{Mass}$
+							</td>
+							<td>
+								$\displaystyle =\iiint_V \rho~ dV $
+								<span class="fragment" data-fragment-index="0">
+									$\displaystyle =\iiint_V e^{-r} ~dV $
+								</span>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle =\int_{\phi=0}^{\phi=\pi} \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=R}
+								e^{-r}$
+								<span class="fragment highlight-red" data-fragment-index="2">
+									$r^2\sin\phi ~dr~d\theta~d\phi$
+								</span>
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = \left(\int_{\phi=0}^{\phi=\pi}\sin \phi~d\phi \right)
+								\left(\int_{\theta=0}^{\theta=2\pi}~d\theta
+								\right)\left(\int_{r=0}^{r=R}r^2e^{-r}~dr\right) $
+
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$\displaystyle = 2\cdot 2 \pi \cdot \int_{r=0}^{r=R}r^2e^{-r}~dr $
+								<span class="fragment" data-fragment-index="5">
+									$\displaystyle = 4 \pi \int_{r=0}^{r=R}r^2e^{-r}~dr $
+								</span>
+
+
+							</td>
+						</tr>
+
+					</table>
+
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
+
+
+					<p class="left-txt size-70">
+						The challenge is now to compute: $\displaystyle \int_{r=0}^{r=R}r^2e^{-r}~dr.$
+					</p>
+
+					<p class="left-txt size-70 fragment" data-fragment-index="0">Recall the technique
+						<strong>Integration by parts</strong>.
+						<span class="fragment" data-fragment-index="1">
+							Consider the functions $u$, $v$.
+						</span>
+						<span class="fragment" data-fragment-index="2">Using the product rule we have</span>
+					</p>
+					<p class=" size-70 fragment" data-fragment-index="3">
+						$d(uv) = u ~dv + v ~du $
+						<span class="fragment" data-fragment-index="4">$\implies u~dv = d(uv) - v~du$</span>
+						<span class="fragment" data-fragment-index="5">
+							$$\implies \int u~dv = uv - \int v~du$$
+						</span>
+					</p>
+
+
+
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
+
+
+					<p class="size-70">
+						Take $u = r^2$ and $dv= e^{-r}~dr$.
+						<span class="fragment" data-fragment-index="0">
+							So $du = 2r ~dr$ and $v = -e^{-r}$.
+						</span>
+					</p>
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle
+								\int_{r=0}^{r=R}\underbrace{r^2}_\text{$u$}\overbrace{e^{-r}~dr}^\text{$dv$} $
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle =
+								\underbrace{r^2}_\text{$u$}\overbrace{\left(-e^{-r}\right)}^\text{$v$}\Bigg|_{r=0}^{r=R}
+								-
+								\int_{r=0}^{r=R}\underbrace{\left(-e^{-r}\right)}_\text{$v$}\overbrace{(2r)~dr}^\text{$du$}$
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = -R^2e^{-R} +2 \int_{r=0}^{r=R}re^{-r}~dr\qquad$ $($A$)$
+
+							</td>
+						</tr>
+
+					</table>
+
+
+
+					<br />
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
+
+					<p class="size-65">
+						Now take $u = r$ and $dv= e^{-r}~dr$.
+						<span class="fragment" data-fragment-index="0">
+							So $du = dr$ and $v = -e^{-r}$.
+						</span>
+					</p>
+
+					<table id="eqarray" class="size-65">
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								<a href="#/3/4/3">$\quad\quad($A$)$</a>
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = -R^2e^{-R} +2 \left[ -re^{-r}\Bigg|_{r=0}^{r=R} -
+								\int_{r=0}^{r=R}\left(-e^{-r}\right)sr \right]$
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = -R^2 e^{-R} - 2R e^{-R} + 2 \int_{r=0}^{r=R}e^{-r}~dr$
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = -R^2 e^{-R} - 2R e^{-R} + 2 \left[ -e^{-r}\Bigg|_{r=0}^{r=R}\right]$
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$\displaystyle =-R^2 e^{-R} - 2R e^{-R} + 2\left[ -e^{-R}+1 \right]$
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\displaystyle = 2 - 2e^{-R} - 2Re^{-R} - R^2e^{-R}$
+								<span class="fragment" data-fragment-index="6">
+									$\displaystyle = 2 - e^{-R} \left( R^2+2R+2 \right)$.
+								</span>
+							</td>
+						</tr>
+
+					</table>
+
+				</section>
+
+				<section>
+					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
+					<p class="size-80 left-txt">
+						Therefore
+					</p>
+
+
+					<table id="eqarray" class="size-80">
+						<tr>
+							<td>
+								$\text{Mass}$
+							</td>
+							<td>
+								$\displaystyle =\iiint_V \rho ~dV $
+
+								$\displaystyle =\iiint_V e^{-r}~ dV $
+
+							</td>
+						</tr>
+
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$\displaystyle = 4 \pi \int_{r=0}^{r=R}r^2e^{-r}~dr $
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = 4 \pi \left[2 - e^{-R} \left( R^2+2R+2 \right)\right]. $
+							</td>
+						</tr>
+
+					</table>
+
+				</section>
+
+			</section>
+
+
+			<section>
+				<section>
+					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
+					<p class="sbt">
+						between a sphere of
+						radius a (centred at the origin) and
+						the cone $z=\sqrt{x^2+y^2}$.
+					</p>
+					<div>
+						<iframe scrolling="no" title="Chapter-32-3: Ice cream"
+							src="https://www.geogebra.org/material/iframe/id/gbpxwdfk/width/628/height/450/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="628px" height="450px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
+					<div class="size-70 left-txt">
+						<p>
+							Let's use spherical coordinates
+							\[
+							x = r\cos \theta \sin \phi, \quad y = r \sin \theta \sin \phi, \quad z = r \cos \phi.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							First, the bounds for $r$ and $\theta$ are:
+							\[
+							0\leq r \leq a, \qquad 0 \leq \theta \leq 2 \pi.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							For the bounds for $\phi$ we need consider the cone $z= \sqrt{x^2+y^2}$.
+							<span class="fragment" data-fragment-index="2">
+								Then
+
+							</span>
+						</p>
+					</div>
+					<table id="eqarray" class="size-70">
+						<tr>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle \quad \quad z $
+							
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$= \sqrt{x^2+y^2}$
+								<span>$\displaystyle =\sqrt{ r^2\cos^2 \theta \sin^2 \phi +  r^2 \sin^2 \theta \sin^2 \phi }$</span>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="fragment" data-fragment-index="5">
+							$r \cos \phi$
+							
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle =\sqrt{ r^2\sin^2 \phi \left( \cos^2 \theta + \sin^2 \theta\right)  }$
+								<psan class="fragment" data-fragment-index="4">
+									$= r\sin \phi$
+								</psan>
+							</td>
+						</tr>
+						
+					</table>
+				</section>
+
+				<section>
+					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
+					<div class="size-70 left-txt">
+						
+						<p>
+							The bounds for $r$ and $\theta$ are:
+							\[
+							0\leq r \leq a, \qquad 0 \leq \theta \leq 2 \pi.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							And 						
+						</p>
+					</div>
+					<table id="eqarray" class="size-70">
+						
+
+						<tr>
+							<td class="fragment" data-fragment-index="0">
+							$r \cos \phi$
+							
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$= r\sin \phi$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+							$\;\; \tan \phi$
+							
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$= 1$, with $r\neq 0.$
+								
+							</td>
+						</tr>
+						
+					</table>
+					<p class="size-70 left-txt fragment" data-fragment-index="2">
+					This implies that $\phi = \dfrac{\pi}{4}$.
+					<span class="fragment" data-fragment-index="3">
+					  Then $0\leq \phi \leq  \dfrac{\pi}{4}$. 
+					</span>
+					<span class="fragment" data-fragment-index="4">
+						Thus
+						\[
+						E = \left\{ \left(r, \theta, \phi\right) ~|~ 0\leq r \leq a, 0 \leq \theta \leq 2 \pi, 0\leq \phi \leq  \dfrac{\pi}{4}\right\}.
+						\]
+					</span>
+				    </p>
+				</section>
+
+				<section>
+					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
+					<table id="eqarray" class="size-80">
+						<tr>
+							<td>
+							$\text{Volume}$
+							
+							</td>
+							<td>
+								$\displaystyle = \iiint_E~ dV$
+								
+							</td>
+						</tr>
+						<tr>
+							<td>
+							
+							
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$\displaystyle = \int_{\phi=0}^{\phi =\pi/4} \int_{\theta=0}^{\theta =2\pi} \int_{r=0}^{r = a} r^2\sin\phi ~dr ~d\theta ~d\phi$
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+							
+							
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = \left( \int_{\phi=0}^{\phi= \pi/4}  \sin\phi ~d\phi \right)  \left( \int_{\theta=0}^{\theta= 2\pi} ~d\theta  \right)  \left( \int_{r=0}^{r = a}r^2~dr \right)  $
+								
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+							
+							
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \left( 1 - \frac{\sqrt{2}}{2} \right)  \left(2 \pi \right)  \left( \frac{a^3}{3} \right)  $
+								<span class="fragment" data-fragment-index="3">
+									$\displaystyle = \left( 1 - \frac{\sqrt{2}}{2} \right)    \frac{2 \pi a^3}{3} . $
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
+				
+			</section>
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

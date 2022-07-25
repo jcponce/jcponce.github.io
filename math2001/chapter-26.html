@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2001/7000 - Chapter 26</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Calculus & <br />Linear Algebra II</h2>
+				<p>Chapter 26</p>
+			</section>
+
+			<section>
+				<h3>26 Interchanging order of integration</h3>
+				<div class="left-txt size-70">
+					<p>
+						By the end of this section, you should be able to answer the following questions:
+					</p>
+					<ul>
+						<li class="fragment" data-fragment-index="0">How do you change the order of integration in a
+							double integral?
+						</li>
+						<li class="fragment" data-fragment-index="1">when might it be necessary to change the order of
+							integration in a double integral?
+						</li>
+					</ul>
+
+					<p class="fragment" data-fragment-index="2">
+						It is often possible to represent a type I region as a union
+						of type II regions, or a type II region
+						as a union of type I regions.
+						<span class="fragment" data-fragment-index="3">
+							Why would we want to do that?
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							In some cases, it may only be possible
+							to integrate a function one way but not the other. In this section, we investigate this idea
+							more
+							closely.
+						</span>
+					</p>
+				</div>
+
+			</section>
+
+			<section>
+				<section>
+					<h4>26.1 Find the volume </h4>
+					<div class="left-txt size-70">
+						<p><strong>under the paraboloid $z=x^2+y^2$ above the region $D$, where $D$ is bounded
+								by $y=x^2$ and $y=2x$. Do the problem twice, first by taking
+								$D$ to be a type I region, then by taking
+								$D$ to be a type II.</strong>
+						</p>
+					</div>
+					<p><br /><br /><br /><br /><br /></p>
+				</section>
+
+				<section>
+					<h4>26.1 Find the volume (cont.) </h4>
+					<div class="left-txt size-70">
+						<p>
+							Type I region with $x^2 \leq y \leq 2x.$
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							We need to find $a$ and $b$ by solving
+							\[
+							\left\{\begin{array}{ll}
+							y=x^2\\
+							y=2x
+							\end{array}\right.
+							\]
+							for $x$.
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Here we have $x^2=2x$
+							<span class="fragment" data-fragment-index="2">
+								$\implies x = 0, x = 2$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\implies a = 0, b = 2.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Then $D= \left\{ (x,y) ~|~ 0\leq x\leq 2, ~x^2\leq y\leq 2x\right\}$.
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>26.1 Find the volume (cont.)</h4>
+					<div class="size-60">
+						<p>
+
+							<span>
+								$\displaystyle \iint_D \left(x^2+y^2\right)dA = \displaystyle \int_{x=0}^{x=2} \left[
+								\int_{y=x^2}^{y=2x} \left(x^2+y^2\right)dy \right]dx \qquad\qquad\qquad\qquad$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								<br /><br />$ = \displaystyle \int_{x=0}^{x=2} \left[ \left(
+								x^2 y + \frac{y^3}{3}
+								\right)
+								\Bigg|_{y=x^2}^{y=2x} \right] dx \quad\quad$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								<br /><br />$\qquad \;\,\quad \qquad= \displaystyle \int_{x=0}^{x=2} \left[
+								x^2 (2x) + \frac{(2x)^3}{3} -\left( x^2 \left(x^2\right)+ \frac{\left(x^2\right)^3}{3}
+								\right)
+								\right]dx$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								<br /><br />$= \displaystyle \int_{x=0}^{x=2} \left(
+								-\frac{x^6}{3} - x^4 + \frac{14 x^3}{3}
+								\right) dx \quad \;\;$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								<br /><br />$= \displaystyle \left(
+								\frac{7 x^4}{6} - \frac{x^5}{5} - \frac{x^7}{21}
+								\right)\Bigg|_{x=-1}^{x=2} $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \displaystyle \frac{216}{35}\quad$
+							</span>
+						</p>
+
+
+					</div>
+
+				</section>
+
+
+				<section>
+					<h4>26.1 Find the volume (cont.)</h4>
+					<div class="left-txt size-70">
+						<p>
+							Type II region.
+							<span class="fragment" data-fragment-index="0">
+								We know that $y=2x$ and $y=x^2$.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								So $x= \frac{y}{2}$ and $x=\sqrt{y}$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Then $\frac{y}{2} \leq x\leq \sqrt{y}$.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							We need to find $c$ and $d$ by solving
+							\[
+							\left\{\begin{array}{ll}
+							x=\sqrt{y}\\
+							x=\frac{y}{2}
+							\end{array}\right.
+							\]
+							for $y$.
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Here we have $\sqrt{y}=\frac{y}{2}$
+							<span class="fragment" data-fragment-index="5">
+								$\implies y = 0, y = 4$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\implies c = 0, d = 4.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							Then $D= \left\{ (x,y) ~|~ 0\leq y\leq 4, ~ \frac{y}{2} \leq x\leq \sqrt{y} \right\}$.
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h4>26.1 Find the volume (cont.)</h4>
+					<div class="size-60">
+						<p>
+
+							<span>
+								$\displaystyle \iint_D \left(x^2+y^2\right)dA = \displaystyle \int_\limits{y=0}^{y=4}
+								\left[
+								\int_{x=\frac{y}{2}}^{x=\sqrt{y}} \left(x^2+y^2\right) dx \right]dy$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$ = \displaystyle \int_\limits{y=0}^{y=4} \left[
+								\left( \frac{x^3}{3}+y^2x \right)
+								\Bigg|_{x=\frac{y}{2}}^{x=\sqrt{y}}
+								\right] dy $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								<br /><br />$\qquad \quad = \displaystyle \int_\limits{y=0}^{y=4} \left[
+								\frac{\left(\sqrt{y}\right)^3}{3}+y^2\left(\sqrt{y}\right) - \left(
+								\frac{\left(\frac{y}{2}\right)^3}{3}+y^2\left(\frac{y}{2}\right) \right)
+								\right]dy \;$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								<br /><br />$= \displaystyle \int_\limits{y=0}^{y=4} \left(
+								y^{5/2} + \frac{y^{3/2}}{3} - 13 \frac{y^3}{24}
+								\right) dy \qquad \qquad \quad$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								<br /><br />$\qquad\quad= \displaystyle \left(
+								\frac{2 y^{5/2}}{15} + \frac{2 y^{7/2}}{7} - \frac{13 y^4}{96}
+								\right)\Bigg|_{y=0}^{y=4} $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \displaystyle \frac{216}{35}\qquad \qquad\quad \,$
+							</span>
+						</p>
+
+
+					</div>
+
+				</section>
+
+
+				<section>
+					<h4>26.1 Find the volume (cont.)</h4>
+					<iframe scrolling="no" title="Chapter-26-1: Find volume"
+						src="https://www.geogebra.org/material/iframe/id/nadyrzgf/width/489/height/431/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/true"
+						width="489px" height="431px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					<p style="font-size:18px">This volume can be calculated by treating the
+						region in the x-y plane as either type I or II as seen in example 26.1.</p>
+				</section>
+
+
+			</section>
+
+
+			<section>
+
+				<section>
+					<div class="left-txt size-50">
+						<p>
+							In the following example, we see how it is sometimes
+							necessary to change the order of integration in
+							order to evaluate the integral.
+						</p>
+					</div>
+					<h4>26.2 Example: Find $ \int_0^1 \int_x^1 \sin \left(y^2\right)dydx$</h4>
+					<iframe scrolling="no" title="Chapter-26-2: Example"
+						src="https://www.geogebra.org/material/iframe/id/cwcedwtw/width/489/height/431/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/true"
+						width="489px" height="431px" style="border:0px;" dara-preload allowfullscreen=""> </iframe>
+				</section>
+
+
+				<section>
+					<h4>26.2 Example (cont.)</h4>
+					<div class="size-60 left-txt">
+						<p>
+							$\displaystyle \int \sin \left(y^2\right)dy$ has no
+							anti-derivative in terms of elementary functions.
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							Then we must chante order of integration. That is
+							as type II integral:
+						</p>
+
+
+					</div>
+
+					<div class="size-60">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\displaystyle \int_\limits{x=0}^{x=1} \left[
+								\int_{y=x}^{y=1} \sin \left(y^2\right) dy \right]dx$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ = \displaystyle \int_\limits{y=0}^{y=1} \left[
+								\int_{x=0}^{x=y} \sin \left(y^2\right) dx \right]dy \qquad \qquad \qquad \qquad \qquad$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								<br /><br />$\qquad\qquad\quad= \displaystyle \int_\limits{y=0}^{y=4} \left[
+								\sin \left(y^2\right) x \Bigg|_{x=0}^{x=y}
+								\right]dy $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$= \displaystyle \int_\limits{y=0}^{y=1}
+								y\sin \left(y^2\right)
+								dy $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								<br /><br />$\qquad\quad= \displaystyle \left(
+								-\frac{1}{2} \cos \left(y^2\right)
+								\right)\Bigg|_{y=0}^{y=1} $
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$= \displaystyle \frac{1}{2} \big( 1 - \cos (1) \big).$
+							</span>
+						</p>
+					</div>
+				</section>
+
+
+
+			</section>
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

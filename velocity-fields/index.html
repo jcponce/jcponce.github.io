@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <!-- dublin core -->
+  <meta name="dc.title" CONTENT="Velocity Fields">
+  <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+  <meta name="dc.date" CONTENT="01-Jul-2018">
+  <meta name="dc.type" CONTENT="Interactive Resource">
+  <meta name="dc.format" CONTENT="HTML">
+  <meta name="dc.language" CONTENT="en-US">
+  <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+  <!-- social media cards -->
+  <meta property="og:title" content="Velocity Fields">
+  <meta property="og:description" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+  <meta property="og:url" content="https://jcponce.github.io/">
+  <meta name="twitter:card" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:site_name" content="Dynamic Mathematics">
+
+  <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+
+  <title>Dynamic Mathematics</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+
+  <!--MathJax starts-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+		  TeX: { equationNumbers: { autoNumber: "AMS" } }
+				});
+		   </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		   </script>
+  <!---<script type="text/x-mathjax-config">//left-side eq
+			 MathJax.Hub.Config({
+				   displayAlign: "left",
+				   displayIndent: "5em"
+				   });
+	    </script>--->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+  <!--MathJax Ends-->
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="../assets/js/google-analytics-ga4.js"></script>
+
+</head>
+
+
+<body class="is-preload">
+  <!--Magicbook cotainer-->
+  <div class="container">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <h1><a href="../">Dynamic Mathematics</a></h1>
+        <nav id="nav">
+          <ul>
+            <li class="special">
+              <a href="#menu" class="menuToggle"><span>Menu</span></a>
+              <div id="menu">
+                <!--
+                  <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="generic.html">Generic</a></li>
+                  <li><a href="elements.html">Elements</a></li>
+                  <li><a href="#">Sign Up</a></li>
+                  <li><a href="#">Log In</a></li>
+                </ul>
+                -->
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <article id="main">
+
+        <header>
+  <h2>Velocity fields</h2>
+  <p>Interactive simulations</p>
+</header>
+<section class="wrapper style5">
+  <div class="inner">
+
+    <header>
+      <p>By Juan Carlos Ponce Campuzano, 17/June/2022</p>
+    </header>
+
+    <hr>
+
+    <p>
+      Consider the velocity vector field $\mathbf{v}$ of a steady-state fluid flow. The vector $\mathbf{v}(x, y)$
+      measures the instantaneous velocity of the fluid particles (molecules or atoms) as they pass through the point
+      $(x, y)$. Steady-state means that the velocity at a point $(x, y)$ does not vary in time -even though the
+      individual fluid particles are in motion. If a fluid particle moves along the curve $\mathbf{x}(t) = (x(t),
+      y(t))$, then its velocity at time $t$ is the derivative
+      \[
+      \mathbf{v}= \frac{d\mathbf{x}}{dt}
+      \]
+      of its position with respect to $t$. Thus, for a time-independent velocity vector field
+      \[
+      \mathbf{v}(x, y) = ( v_1(x, y), v_2(x, y) )
+      \]
+      the fluid particles will move in accordance with an autonomous, first order system of ordinary differential
+      equations
+      \[
+      \frac{dx}{dt}= v_1(x, y),\qquad \frac{dy}{dt}= v_2(x, y).
+      \]
+      According to the basic theory of systems of ordinary differential equations, an individual particle&apos;s motion
+      $\mathbf{x}(t)$ will be uniquely determined solely by its initial position $\mathbf{x}(0) = \mathbf{x}_0$. In
+      fluid mechanics, the trajectories of particles are known as the streamlines of the flow. The velocity vector
+      $\mathbf{v}$ is everywhere tangent to the streamlines. When the flow is steady, the streamlines do not change in
+      time. Individual fluid particles experience the same motion as they successively pass through a given point in the
+      domain occupied by the fluid.
+    </p>
+
+    <h3 id="historical-background">Examples</h3>
+
+    <p>Some basic examples of velocity vector fields of steady-state fluids flow are the following:
+      </p><ul>
+        <li>Near a wall (Stagnation point): $\mathbf{v}(x,y)=(k\,x,-k\,y)$, with $k\in \mathbb R^{+}$.
+        </li>
+
+        <br>
+
+        
+          <div class="col-0"><span class="image fit">
+            <iframe name="NearWall" src="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/near-a-wall/index.html" width="100%" height="450px" style="border:none;"></iframe>
+            </span></div>
+        
+        <div class="row gtr-50 aln-center">
+          <div class="col-0"><span class="image fit">
+              <a onclick="var ifr=document.getElementsByName(&apos;NearWall&apos;)[0]; ifr.src=ifr.src;" class="button small primary">Reset</a>
+              <a href="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/near-a-wall/index.html" class="button small primary">Full screen</a>
+            </span></div>
+        </div>
+
+
+        <br>
+
+        <hr width="85%">
+
+        <br>
+
+        <li>Rigid body rotation: $\mathbf{v}(x,y)=(-k\,y,k\,x)$, where $k\in \mathbb R$ For $k&gt;0$, rotation is
+          anticlockwise, and for $k &lt; 0$ rotation is clockwise. </li>
+
+        <br>
+
+        <div class="col-0"><span class="image fit">
+          <iframe name="rotation" src="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/rigid-rotation/index.html" width="100%" height="450px" style="border:none;"></iframe>
+          </span></div>
+      
+      <div class="row gtr-50 aln-center">
+        <div class="col-0"><span class="image fit">
+            <a onclick="var ifr=document.getElementsByName(&apos;rotation&apos;)[0]; ifr.src=ifr.src;" class="button small primary">Reset</a>
+            <a href="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/rigid-rotation/index.html" class="button small primary">Full screen</a>
+          </span></div>
+      </div>
+
+
+        <br>
+
+        <hr width="85%">
+
+        <br>
+
+        <li>Vortex: $\mathbf{v}(x,y)=\left(\dfrac{-k\,y}{x^2+y^2},\dfrac{k\,x}{x^2+y^2}\right)$, with $k\in \mathbb R.$
+          For $k&gt;0$, rotation is anticlockwise, and for $k &lt; 0$ rotation is clockwise.</li>
+
+        <br>
+
+        <div class="col-0"><span class="image fit">
+          <iframe name="vortex" src="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/vortex/index.html" width="100%" height="450px" style="border:none;"></iframe>
+          </span></div>
+      
+      <div class="row gtr-50 aln-center">
+        <div class="col-0"><span class="image fit">
+            <a onclick="var ifr=document.getElementsByName(&apos;vortex&apos;)[0]; ifr.src=ifr.src;" class="button small primary">Reset</a>
+            <a href="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/vortex/index.html" class="button small primary">Full screen</a>
+          </span></div>
+      </div>
+
+
+        <br>
+
+        <hr width="85%">
+
+        <br>
+
+        <li>Source &amp; Sink: $\mathbf{v}(x,y)=\left(\dfrac{k\,x}{x^2+y^2},\dfrac{k\,y}{x^2+y^2}\right)$, with $k\in
+          \mathbb R.$ For $k&gt;0$, the flow is a source, and for $k &lt; 0$ the flow is a sink.</li>
+
+        <br>
+
+        <div class="col-0"><span class="image fit">
+          <iframe name="source-sink" src="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/source-sink/index.html" width="100%" height="450px" style="border:none;"></iframe>
+          </span></div>
+      
+      <div class="row gtr-50 aln-center">
+        <div class="col-0"><span class="image fit">
+            <a onclick="var ifr=document.getElementsByName(&apos;source-sink&apos;)[0]; ifr.src=ifr.src;" class="button small primary">Reset</a>
+            <a href="https://dynamicmath.xyz/calculus/mathbox/velocity-fields/source-sink/index.html" class="button small primary">Full screen</a>
+          </span></div>
+      </div>
+
+      </ul>
+    
+
+    <hr>
+    <div class="row gtr-50 aln-center">
+      <p>Click on the image below to open interactive applet</p><br/>
+    </div>
+    
+    <div class="box alt">
+      <div class="row gtr-50 aln-center">
+        <div class="col-5"><span class="image fit"><a href="https://dynamicmath.xyz/calculus/diff-equations"><img src="../images/vel-fields.png" alt></a></span>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <br>
+    <div class="row gtr-50 aln-center">
+      <p>If you like this project, you can support it with: &#xA0;
+        <strong><a href="https://www.patreon.com/jcponce"><i class="fab fa-patreon"></i>
+            Patreon</a></strong>
+        &#xA0; or &#xA0;
+        <strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=WTMTR7D8RYZ26&amp;item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+site.+Sincerely+appreciate+it%21&amp;currency_code=AUD&amp;source=url">&#x2764;&#xFE0F;
+            PayPal</a></strong>
+    </div>
+    <div class="row gtr-50 aln-center">
+      
+      <p>&#x221E; Thanks!</p>
+    </div>
+
+  </div>
+</section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li><a href="https://twitter.com/jcponcemath" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/jcponce" class="icon brands fa-github"><span class="label">Dribbble</span></a></li>
+          <li><a href="mailto: jcponcemath@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Juan Carlos Ponce Campuzano</li>
+          <li><a href="licence.html"><i class="fab fa-creative-commons"></i></a></li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+
+    </div>
+
+
+  </div>
+
+  <!--Scripts-->
+  <script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/google-analytics-ga4.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/jsutil.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+
+
+</html>

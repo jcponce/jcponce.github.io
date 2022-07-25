@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH2400/7400 - Summary Week 5</title>
+	<title>MATH2400/7400 - Summary Week 4</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -43,6 +43,7 @@
 		<![endif]-->
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
+	
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	<script src="js/google-analytics-ga4.js"></script>
 
@@ -57,121 +58,295 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 5</p>
+				<p>Summary Week 4</p>
 			</section>
 
 			<section>
-				<h4>Continuous functions</h4>
-
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
 				<div class="left-txt size-70">
 					<p><strong>Definition:</strong>
-						Let $S \subset \R$, $c \in S$, and let $f \colon S \to \R$ be a function.
-						We say
-						that $f$ is <em>continuous at</em> $c$
-						if for every $\epsilon \gt 0$
-						there is a $\delta \gt 0$ such that whenever $x \in S$ and $\abs{x-c} \lt
-						\delta$, then
-						$\abs{\,f(x)-f(c)} \lt \epsilon$.
-
-						<br /><br />
-
-
-						When $f \colon S \to \R$ is continuous at all $c \in S$, then we simply say
-						$f$ is a <em>continuous function</em>.
+						Let $S \subset \R$ be a set. A number $x \in \R$ is called
+						a <em>cluster point</em> of $S$
+						if for every $\epsilon \gt 0$, the set $(x-\epsilon,x+\epsilon) \cap S
+						\setminus \{ x \}$ is not empty.
 					</p>
 
 				</div>
 
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
+
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-04/cluster-points-01.svg" />
+
+
+
+				<div class="size-60">
+					<p class="fragment" data-fragment-index="0">$0$ is the only cluster point.</p>
+				</div>
 
 			</section>
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Example</p>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
 
-				<iframe scrolling="no" title="Definition of continuity"
-					src="https://www.geogebra.org/material/iframe/id/bxhpb99k/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="704px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-04/cluster-points-02.svg" />
+
+				<div class="size-60">
+					<p class="fragment" data-fragment-index="0">The cluster points are all points in the closed interval
+						$\left[0,1\right]$.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-04/cluster-points-03.svg" />
+
+				<div class="size-60">
+					<p class="fragment" data-fragment-index="0">The set of cluster points is the interval
+						$\left[0,1\right]$.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
+
+				<img style="width: 100%;" class="r-stretch"
+					data-src="images/summary-04/cluster-points-04-naturals.svg" />
+
+				<div class="size-60">
+					<p class="fragment" data-fragment-index="0">No cluster points.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-04/cluster-points-05-Q.svg" />
+
+				<div class="size-60">
+					<p class="fragment" data-fragment-index="0">The set of cluster points is $\R$.</p>
+				</div>
+			</section>
+
+
+
+
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Cluster points</p>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong> Let $S \subset \R$. Then $x \in \R$ is a cluster point of $S$
+						if and only if
+						there exists a convergent sequence of numbers $\{ x_n \}$ such that
+						$x_n \not= x$ and $x_n \in S$ for all $n$, and $\lim\, x_n = x$.
+
+					</p>
+
+				</div>
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Definition of limit</p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $f \colon S \to \R$ be a function and $c$ a cluster point of
+						$S \subset \R$.
+						Suppose there exists an $L \in \R$ and for every $\epsilon > 0$,
+						there exists a $\delta \gt 0$ such that whenever $x \in S \setminus \{ c \}$
+						and $\abs{x - c} \lt \delta$, we have
+						\begin{equation*}
+						\abs{\,f(x) - L} \lt \epsilon .
+						\end{equation*}
+						We then say $f(x)$ <em>converges</em> to $L$ as $x$ goes
+						to $c$. We say $L$ is the <em>limit</em> of $f(x)$ as $x$
+						goes to $c$. We write
+						\begin{equation*}
+						\lim_{x \to c} f(x) := L ,
+						\end{equation*}
+						or
+						
+						$f(x) \to L$ as $x \to c .$
+						
+						If no such $L$ exists, then we say that the limit does not exist or
+						that $f$ <em>diverges</em> at $c$.
+					</p>
+
+				</div>
 
 			</section>
 
 
 			<section>
-				<h4>Continuous functions</h4>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Definition of limit</p>
+
+				<img style="width: 100%;" class="r-stretch" data-src="images/summary-04/limits-definition.svg" />
+
+			</section>
+
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Definition of limit</p>
 
 				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Consider a function $f \colon S \to \R$ defined on a set $S \subset \R$
-						and let $c \in S$.
-						Then:
+					<p>Why do we need the concept of cluster point in the definition of limit? <span style="font-size:1.8em">🤔</span></p>
+
+					<p class="fragment" data-fragment-index="0">Suppose \(c\) is not a cluster point of \(S\).
+						<span class="fragment" data-fragment-index="1">
+							Then there exists some \(r\) such that the interval
+						\((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
+						</span>
 					</p>
 
-					<ol class="r">
-						<li>
-							If $c$ is not a cluster point of $S$, then $f$ is continuous at $c$.
-						</li>
-						<li>
-							If $c$ is a cluster point of $S$, then $f$ is continuous at $c$
-							if and only if the limit of $f(x)$ as $x \to c$ exists and
-							\begin{equation*}
-							\lim_{x\to c} f(x) = f(c) .
-							\end{equation*}
-						</li>
-						<li>
-							The function $f$ is continuous at $c$ if and only if for every sequence $\{ x_n \}$
-							where $x_n \in S$ and $\lim\, x_n = c$, the sequence $\{ \,f(x_n) \}$ converges
-							to $f(c)$.
+					<p class="fragment" data-fragment-index="2">
+						Then, for any function \(f\), choose any number \(L\).
+					</p>
 
-						</li>
-					</ol>
+					<p class="fragment" data-fragment-index="3">
+						Let \(\varepsilon\gt0\) be arbitrary and choose \(\delta = r.\)
+						<span class="fragment" data-fragment-index="4">
+							Since there are no points \(x\in S\setminus\{c\}\)
+							such that \(|x-c|\lt\delta=r\), then the statement:
+						</span>
+					</p>
 
+					
+
+					<p class="fragment" data-fragment-index="5">
+						<strong>For every \(\varepsilon>0\) there exists a \(\delta>0\) such that
+
+							if for every \(x\in S\setminus\{c\}\) and \(|x-c|\lt \delta\),
+							then \(|f(x)-L|\lt \varepsilon\).
+						</strong>
+					</p>
 				</div>
 
+				<p class="fragment size-90" data-fragment-index="6">is vacuously true!</p>
 
 			</section>
 
 
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Discontinuity criterion</p>
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong>
-						Let $S\subset \R$, let $f \colon S \to \R$ and let $c\in S$.
-
-					</p>
-				</div>
-
-				<div class="size-70">
-					Then $f$ is <strong>discontinuous</strong> at $c$
-					<br />
-					<p>if and only if</p>
-				</div>
-
-				<div class="left-txt size-70">
-					<p>
-						there exists a sequence $\{x_n\}$ in $S$
-						such that $\lim x_n = c$, <strong>but the sequence
-							$\left\{\,f(x_n)\right\}$ does not converge to $f(c)$</strong>.
-					</p>
-
-				</div>
-			</section>
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Example: $\displaystyle f(x)=\sin\frac{1}{x}$, for $x\neq 0$ and $f(x)=0$ for $x=0$.</p>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Sequential limits</p>
 				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $S \subset \R$, let $c$ be a cluster point of $S$, let $f \colon S \to
+						\R$ be a function, and let $L \in \R$.
 
+						Then
+						$f(x) \to L$ as $x \to c$ if and only if for every sequence $\{ x_n \}$
+						of numbers such that $x_n \in S \setminus \{c\}$ for all $n$,
+						and such that $\lim\, x_n = c$,
+						we have that the sequence $\{ f(x_n) \}$ converges to $L$.
+					</p>
+
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+
+				<p class="sbt">Sequential limits</p>
+
+				<iframe scrolling="no" title="Sequencial limits: Convergent"
+					src="https://www.geogebra.org/material/iframe/id/bvjhwafv/width/746/height/386/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="746px" height="386px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				<div class="left-txt size-60">
+					<table style="width:80%;border:none">
+						<tr>
+							<td style="text-align:center" class="fragment" data-fragment-index="0">Every $x_n\ra 0$ as
+								$n\ra \infty$.</td>
+							<td style="text-align:center" class="fragment" data-fragment-index="1">$f\left(x_n\right)$
+								converges to $0$.</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Sequential limits</p>
+
+
+
+				<table style="width:100%;">
+					<tr>
+						<th style="width:50%;">
+							<img style="width: 100%;" class="r-stretch" data-src="images/summary-04/seq-limits.svg" />
+						</th>
+						<th style="width:50%">
+							<div class="size-80" style="text-align: center; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									$\displaystyle \lim_{x\ra 0}f(x)$?
+								</p>
+								<p class="fragment" data-fragment-index="0">
+									<br />If $\displaystyle x_n:=\frac{1}{\pi n + \pi/2}$
+								</p>
+								<p class="fragment" data-fragment-index="1">
+									<br />what happens to $\displaystyle f(x_n)?$
+								</p>
+								<p><br /></p>
+							</div>
+						</th>
+
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+
+				<p class="sbt">Sequential limits</p>
+
+				<iframe scrolling="no" title="Sequenctial limits: divergent"
+					src="https://www.geogebra.org/material/iframe/id/hes77cgr/width/746/height/386/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="746px" height="386px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				<div class="left-txt size-60">
+					<table style="width:85%;border:none">
+						<tr>
+							<td style="text-align:center" class="fragment" data-fragment-index="0">Every $x_n\ra 0$ as
+								$n\ra \infty$.</td>
+							<td style="text-align:center" class="fragment" data-fragment-index="1">$f\left(x_n\right)$
+								converges or diverges?</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<!--<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Sequential limits</p>
+				<div class="left-txt size-60">
+					
 					<table style="width:100%;border:none">
 						<tr>
 							<td style="width:50%;">
-								<img style="width: 70%; 
+							<img style="width: 75%; 
 						  display: block;
 						  margin-left: auto;
 						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01a.gif" />
 							</td>
-							<td style="width:50%">
-								<img style="width: 70%; 
+							<td style="width:50%"  class="fragment" data-fragment-index="1">
+							<img style="width: 75%; 
 						  display: block;
 						  margin-left: auto;
 						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/seq-limits-01b.gif" />
@@ -181,250 +356,288 @@
 					<table style="width:100%;border:none">
 						<tr>
 							<td style="text-align:center">$x_n\ra 0$ as $n\ra \infty$.</td>
-							<td style="text-align:center">$\qquad\qquad f\left(x_n\right)$ does not converge to $0$.
-							</td>
+							<td style="text-align:center"  class="fragment" data-fragment-index="1">$f\left(x_n\right)$ diverges.</td>
 						</tr>
 					</table>
-
+					
 				</div>
-			</section>
+			</section>-->
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Properties</p>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Sequential limits: When a function does not have a limit? </p>
 				<div class="left-txt size-60">
 					<p><strong>Theorem:</strong>
-						Let $f \colon S \to \R$ and $g \colon S \to \R$ be functions
-						continuous at $c \in S$.
-
+						Let $S \subset \R$, let $c$ be a cluster point of $S$, let $f \colon S \to
+						\R$ be a function, and let $L \in \R$.
 					</p>
-					<ol class="r">
+
+				</div>
+
+				<div class="size-60">
+					Then
+					$f(x)$ <strong>does not have a limit</strong> at $c$
+					<br />
+					<p>if and only if</p>
+				</div>
+
+				<div class="left-txt size-60">
+					<p>
+						there exists a
+						sequence $\{ x_n \}$ in $S$ with $x_n\neq c$ for all $n\in \N$
+						sucht that the sequence $\{ x_n \}$ converges to $c$ <strong>but the
+							sequence</strong> $\{\, f(x_n) \}$ <strong>does not converge</strong> in $\R$.
+					</p>
+
+				</div>
+
+			</section>
+
+
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Algebraic properties </p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $S \subset \R$ and let $c$ be a cluster point of $S$.
+						Suppose $f \colon S \to \R$ and
+						$g \colon S \to \R$ are functions
+						such that
+						the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist.
+						Then
+					</p>
+
+					<ol>
 						<li>
-							The function $h \colon S \to \R$ defined by
-							$h(x) := f(x)+g(x)$ is continuous at $c$.
+							$\displaystyle
+							\lim_{x\to c} \bigl(f(x)+g(x)\bigr) = \lim_{x\to c} f(x) +
+							\lim_{x\to c} g(x).
+							$
 						</li>
 						<li>
-							The function $h \colon S \to \R$ defined by
-							$h(x) := f(x)-g(x)$ is continuous at $c$.
+							$\displaystyle
+							\lim_{x\to c} \bigl(f(x)-g(x)\bigr) = \lim_{x\to c} f(x) -
+							\lim_{x\to c} g(x).
+							$
 						</li>
 						<li>
-							The function $h \colon S \to \R$ defined by
-							$h(x) := f(x)g(x)$ is continuous at $c$.
+							$\displaystyle
+							\lim_{x\to c} \bigl(f(x)\cdot g(x)\bigr) = \lim_{x\to c} f(x)\cdot \lim_{x\to c} g(x).
+							$
 						</li>
 						<li>
-							If $g(x)\not=0$ for all $x \in S$, the function $h \colon S \to \R$
-							defined by $h(x) := \frac{f(x)}{g(x)}$ is continuous at $c$.
+							If
+							$\displaystyle \lim_{x\to c} g(x) \not= 0$,
+							and $g(x) \not= 0$ for all $x \in S \setminus \{ c \}$, then
+							\begin{equation*}
+							\lim_{x\to c} \frac{f(x)}{g(x)} =
+							\frac{\lim_{x\to c} f(x)}{\lim_{x\to c} g(x)} .
+							\end{equation*}
 						</li>
 					</ol>
-				</div>
-			</section>
 
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Composition of functions</p>
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong>
-						Let $A, B \subset \R$ and $f \colon B \to \R$ and $g \colon A \to B$ be
-						functions. If $g$ is continuous at $c \in A$ and
-						$f$ is continuous at $g(c)$, then $f \circ g \colon A \to \R$ is continuous
-						at $c$.
-					</p>
 				</div>
+
 			</section>
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Polynomials are continuous</p>
-				<div class="left-txt size-70">
+				<h3>Limits of functions</h3>
+				<p class="sbt">Squeeze Theorem</p>
+				<div class="left-txt size-60">
 					<p><strong>Theorem:</strong>
-						Let $f \colon \R \to \R$ be a <em>polynomial</em>. That is
+						Let $S \subset \R$ and let $c$ be a cluster point of $S$.
+						Suppose $f \colon S \to \R$,
+						$g \colon S \to \R$, and $h \colon S \to \R$ are functions such that
 						\begin{equation*}
-						f(x) = a_d x^d + a_{d-1} x^{d-1} + \cdots + a_1 x + a_0 ,
+						f(x) \leq g(x) \leq h(x) \qquad \text{for all } x \in S.
 						\end{equation*}
-						for some constants $a_0, a_1, \ldots, a_d$.
-						Then $f$ is continuous.
-
+						Suppose the limits of $f(x)$ and $h(x)$ as $x$ goes to $c$ both exist, and
+						\begin{equation*}
+						\lim_{x\to c} f(x) = \lim_{x\to c} h(x) .
+						\end{equation*}
+						Then the limit of $g(x)$ as $x$ goes to $c$ exists and
+						\begin{equation*}
+						\lim_{x\to c} g(x) =
+						\lim_{x\to c} f(x) = \lim_{x\to c} h(x) .
+						\end{equation*}
 					</p>
 				</div>
+
 			</section>
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">More continuous functions</p>
-				<div class="left-txt size-70">
-					<ul>
-						<li>
-							Rational functions where they are defined.
-						</li>
-						<li>
-							$\sin x$, $\cos x$ are continuous.
-						</li>
-						<li>
-							The functions $\tan x$, $\cot x$, $\sec x$, $\csc x$ where they are defined.
-						</li>
-
-					</ul>
-					<p>
-						<br />
-					</p>
-				</div>
-			</section>
-
-
-
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Continuous functions on closed intervals</p>
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong>
-						A continuous function $f \colon [a,b] \to \R$ is bounded.
-					</p>
-
-					<p><strong>Theorem (Extreme value theorem):</strong>
-						A continuous function $f \colon [a,b] \to \R$ on a closed and bounded
-						interval $[a,b]$
-						achieves both an absolute minimum and an absolute maximum on $[a,b]$.
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt"></p>
+				<h3>Limits of functions</h3>
+				<p class="sbt">One-sided limits</p>
 				<div class="left-txt size-60">
-
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="width:55%;">
-								<p><strong>Lemma:</strong>
-									Let $f \colon [a,b] \to \R$ be a continuous function.
-									Suppose $f(a) \lt 0$ and $f(b) \gt 0$.
-									Then there exists a number $c \in (a,b)$
-									such that $f(c) = 0$.
-								</p>
-							</td>
-							<td style="width:45%">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/lemmaIVT.svg" />
-							</td>
-						</tr>
-					</table>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Bolzano's theorem / Intermediate Value Theorem</p>
-				<div class="left-txt size-60">
-
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="width:55%;">
-								<p><strong>Theorem (Intermediate Value Theorem):</strong><br />
-									Let $f \colon [a,b] \to \R$ be a continuous function.
-									Suppose $y \in \R$ is such that $f(a) \lt y \lt f(b)$
-									or $f(a) \gt y \gt f(b)$. Then there exists a $c \in (a,b)$
-									such that $f(c) = y$.
-								</p>
-							</td>
-							<td style="width:45%">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/IVT.svg" />
-							</td>
-						</tr>
-					</table>
-
-				</div>
-			</section>
-
-
-
-
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Uniform continuity</p>
-				<div class="left-txt size-70">
 					<p><strong>Definition:</strong>
-						Let $S \subset \R$, and let $f \colon S \to \R$ be a function.
-						Suppose for every $\epsilon \gt 0$ there exists a $\delta > 0$
-						such that whenever $x, c \in S$ and
-						$\abs{x-c} \lt \delta$, then $\abs{\,f(x)-f(c)} \lt \epsilon$.
-						Then we say $f$ is <em>uniformly continuous</em>.
+						Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+						$S \cap (c,\infty)$. Then if the limit
+						of the restriction of $f$ to $S \cap (c,\infty)$
+						as $x \to c$ exists, define
+						\begin{equation*}
+						\lim_{x \to c^+} f(x) := \lim_{x\to c} f|_{S \cap (c,\infty)}(x) .
+						\end{equation*}
+						Similarly, if $c$ is a cluster point of
+						$S \cap (-\infty,c)$ and the limit of the restriction as $x \to c$
+						exists, define
+						\begin{equation*}
+						\lim_{x \to c^-} f(x) := \lim_{x\to c} f|_{S \cap (-\infty,c)}(x) .
+						\end{equation*}
 					</p>
+				</div>
 
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">One-sided limits</p>
+				<div class="left-txt size-50">
+					<p><strong>Definition:</strong>
+						Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+						$S \cap (c,\infty)=\{x\in S: x>c\}$. Then we say that $L\in \R$ is a
+						<em>right-hand limit of $f$ at $c$</em> and we write
+						\[
+						\lim_{x \to c^+} f(x) = L
+						\]
+						if given any $\epsilon>0$ there exists a $\delta>0$
+						such that for all $x\in S$ with $0 \lt x-c \lt \delta$, then $\abs{\,f(x)-L}\lt
+						\epsilon$.<br /><br />
+						Similarly, if $c$ is a cluster point of
+						$S \cap (-\infty,c)=\{x\in S:x\lt c\}$. Then we say that $L\in \R$ is a
+						<em>left-hand limit of $f$ at $c$</em> and we write
+						\[
+						\lim_{x \to c^-} f(x) = L
+						\]
+						if given any $\epsilon>0$ there exists a $\delta>0$
+						such that for all $x\in S$ with $0\lt c-x \lt \delta$, then $\abs{\,f(x)-L}\lt \epsilon$.
+					</p>
+				</div>
+
+			</section>
+
+
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">One-sided limits</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $S \subset \R$ be such that $c$ is a cluster point
+						of both $S \cap (-\infty,c)$ and $S \cap (c,\infty)$, let
+						$f \colon S \to \R$ be a function, and let $L \in \R$. Then $c$ is a cluster point of $S$ and
+						\begin{equation*}
+						\lim_{x \to c} f(x) = L
+						\qquad \text{if and only if} \qquad
+						\lim_{x \to c^-} f(x) =
+						\lim_{x \to c^+} f(x) =
+						L .
+						\end{equation*}
+					</p>
+				</div>
+
+			</section>
+
+			<section>
+				<h3>Limits of functions</h3>
+				<div class="left-txt size-60">
+					<table style="width:100%;border:none">
+						<tr>
+							<th style="text-align:center">Limits at infinity</th>
+							<th style="text-align:center">Infinite limits</th>
+						</tr>
+					</table>
+					<table style="width:100%;border:none">
+						<tr>
+							<td style="width:50%;">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/limit-infinity.svg" />
+							</td>
+							<td style="width:50%">
+								<img style="width: 100%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-04/infinite-limit.svg" />
+							</td>
+						</tr>
+					</table>
 
 				</div>
 			</section>
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Uniform vs Nonuniform continuity</p>
-
-				<iframe scrolling="no" title="Uniform continuity"
-					src="https://www.geogebra.org/material/iframe/id/fjydugxa/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="704px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-					
-			
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Uniform vs Nonuniform continuity</p>
-
-				<iframe scrolling="no" title="Uniform vs NonUniform continuity"
-					src="https://www.geogebra.org/material/iframe/id/sv5tazce/width/673/height/389/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="673px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-
-				
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Comparison between continuity and uniform continuity</p>
-				<p class="size-60">Let $S \subset \R$ and let $f \colon S \to \R$ be a function.</p>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
 				<table style="width:100%;">
 					<tr>
-						<th style="width:50%; border-right: solid 1px black;">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Continuous function:</strong><br /><br />
-									We say
-									that $f$ is <em>continuous</em>:<br /><br />
-									if <span class="fragment highlight-red" data-fragment-index="0">for every $c\in
-										S$</span> and every $\epsilon \gt 0$<br />
-									there exists a $\delta \gt 0$ such that <br />
-									<span class="fragment highlight-red" data-fragment-index="0">whenever $x \in
-										S$</span> and $\abs{x-c} \lt
-									\delta$, <br />then
-									$\abs{\,f(x)-f(c)} \lt \epsilon.$
-
+						<th style="width:65%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Definition:</strong>
+									We say $\infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+									$M \in \R$, there exists an $x \in S$ such that $x \geq M$. Similarly,
+									$- \infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+									$M \in \R$, there exists an $x \in S$ such that $x \leq M$.
 								</p>
 
-
+								<p>
+									<strong>Definition:</strong>
+									Let $f \colon S \to \R$ be a function, where
+									$\infty$ is a cluster point of $S$.
+									If there exists an $L \in \R$
+									such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+									\begin{equation*}
+									\abs{\,f(x) - L} \lt \epsilon
+									\end{equation*}
+									whenever $x \in S$ and $x \geq M$, then we say $f(x)$
+									<em>converges</em> to $L$
+									as $x$ goes to $\infty$. We call $L$ the <em>limit</em>
+									and write
+									\begin{equation*}
+									\lim_{x \to \infty} f(x) := L .
+									\end{equation*}
+									Alternatively we write $f(x) \to L$ as $x \to \infty$.
+								</p>
 							</div>
 						</th>
-						<th style="width:50%;">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Uniform continuous:</strong><br /><br />
+						<th style="width:35%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-04/limit-infinity.svg" />
+						</th>
 
-									We say that $f$ is <em>uniformly continuous</em>:<br /><br />
-									if for every $\epsilon \gt 0$ <br />
-									there exists a $\delta > 0$
-									such that
-									<br />
-									<span class="fragment highlight-red" data-fragment-index="0">whenever $x, c \in
-										S$</span> and
-									$\abs{x-c} \lt \delta$, <br />then $\abs{\,f(x)-f(c)} \lt \epsilon.$
+					</tr>
+				</table>
+			</section>
 
+			<section>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:65%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Definition:</strong>
+									If $-\infty$ is a cluster point of $S$
+									and
+									there exists an $L \in \R$
+									such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+									\begin{equation*}
+									\abs{\,f(x) - L} \lt \epsilon
+									\end{equation*}
+									whenever $x \in S$ and $x \leq M$, then we say $f(x)$ <em>converges</em> to $L$
+									as $x$ goes to $-\infty$. We call $L$ the <em>limit</em> and write
+									\begin{equation*}
+									\lim_{x \to -\infty} f(x) := L .
+									\end{equation*}
+									Alternatively we write $f(x) \to L$ as $x \to -\infty$.
 								</p>
 							</div>
+						</th>
+						<th style="width:35%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-04/limit-infinity.svg" />
 						</th>
 
 					</tr>
@@ -433,159 +646,61 @@
 
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Uniform continuity</p>
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a continuous function. Then $f$
-						is uniformly continuous.
-					</p>
-
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Nonuniform continuity criteria</p>
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
 				<div class="left-txt size-60">
 					<p><strong>Theorem:</strong>
-						Let $S\subseteq \R$ and let $f \colon S \to \R$. Then the following statements
-						are equivalent:
-					</p>
-
-					<ol class="r">
-						<li>
-							$f$ is not uniformly continuous on $S$.
-						</li>
-						<li>
-							There exists an $\epsilon_0>0$ such that for every $\delta>0$
-							there are points $x_{\delta}$, $y_{\delta}$ in $S$ such that
-							$|x_{\delta} - y_{\delta}|\lt \delta$ and $|\,f(x_{\delta}) - f(y_{\delta})|\geq\epsilon_0$.
-						</li>
-						<li>
-							There exists an $\epsilon_0\gt 0$ and two sequences $\{x_n\}$ and $\{y_n\}$
-							in $S$ such that $\lim (x_n-y_n)=0$ and $|\,f(x_{n}) - f(y_{n})|\geq\epsilon_0$
-							for all $n\in \N$.
-						</li>
-					</ol>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Nonuniform continuity criteria</p>
-				<div class="left-txt size-60">
-					<p><strong>Example:</strong>
-						We can apply the previous result to show that $f(x)=1/x$ is not uniformly
-						continuous on $(0,\infty)$.
-					</p>
-
-					<p>
-						Consider $x_n=1/n$ and $y_n=1/(n+1)$ in $(0,\infty)$. Then we have
-						\[
-						\lim_{n\ra \infty} (x_n-y_n)=\lim_{n\ra \infty}
-						\left(\frac{1}{n}-\frac{1}{n+1}\right)=\lim_{n\ra \infty}\frac{1}{n(n+1)} =0,
-						\]
-						but $\abs{\,f(x_n)- f(y_n)}=1$ for all $n\in \N$.
-					</p>
-
-				</div>
-			</section>
-
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Lipschitz continuous</p>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						A function $f \colon S\subseteq \R \to \R$
-						is <em>Lipschitz continuous</em>,
-						if there exists a $K > 0$, such that
+						Suppose $f \colon S \to \R$ is a function, $\infty$ is a cluster
+						point of $S \subset \R$, and $L \in \R$. Then
 						\begin{equation*}
-						\abs{\,f(x)-f(y)} \leq K \abs{x-y}
-						\qquad \text{for all } x \text{ and } y \text{ in } S.
+						\lim_{x\to\infty} f(x) = L
 						\end{equation*}
+						if and only if
+						\begin{equation*}
+						\lim_{n\to\infty} f(x_n) = L
+						\end{equation*}
+						for all sequences $\{ x_n \}$ in $S$ such that $\lim\limits_{n\to\infty} x_n = \infty$.
 					</p>
-
-					<p><strong>Theorem:</strong>
-						A Lipschitz continuous function is uniformly continuous.
-					</p>
-
-					<p><strong>Remark:</strong> Not every uniformly continuous function
-						is Lipschitz continuous. For example $f(x)=\sqrt{x}$ defined on
-						$I=[0,2]$. $f$ is uniformly continuous on $I$ but there is no
-						number $K>0$  such that $|\,f(x)-f(0)|\lt K|x-0|$ for all $x\in I.$
-					</p>
-
-
 				</div>
+
 			</section>
-
-
-			<!--<section>
-				<h4>Continuity</h4>
-				<p class="sbt">Compositions</p>
-				<div class="left-txt size-70">
-					<p><strong>Definition:</strong>
-						Suppose $f \colon A \to B$, $g \colon B \to \R$, $A, B \subset \R$,
-						$a \in \R \cup \{ -\infty, \infty\}$ is a cluster point of $A$,
-						and $b \in \R \cup \{ -\infty, \infty\}$ is a cluster point of $B$.
-						Suppose
-						\begin{equation*}
-						\lim_{x \to a} f(x) = b\qquad \text{and} \qquad \lim_{y \to b} g(y) = c
-						\end{equation*}
-						for some $c \in \R \cup \{ -\infty, \infty \}$.
-						If $b \in B$, then suppose $g(b) = c$.
-						Then
-						\begin{equation*}
-						\lim_{x \to a} g\bigl(f(x)\bigr) = c .
-						\end{equation*}
-					</p>
-
-				</div>
-			</section>-->
 
 			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Monotone functions</p>
-				<div class="left-txt size-70">
-					<p><strong>Definition:</strong>
-						Let $S \subset \R$.
-						We say $f \colon S \to \R$ is <em>increasing</em>
-						(resp. <em>strictly increasing</em>) if $x,y \in S$ with
-						$x \lt y$ implies $f(x) \leq f(y)$ (resp. $f(x) \lt f(y)$).
-						We define
-						<em>decreasing</em> and
-						<em>strictly decreasing</em> in the same way by switching the
-						inequalities for $f$.
+				<h3>Limits of functions</h3>
+				<p class="sbt">Limits at infinity</p>
+				<table style="width:100%;">
+					<tr>
+						<th style="width:65%">
+							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Definition:</strong>
+									Let $f \colon S \to \R$ be a function and suppose
+									$S$ has $\infty$ as a cluster point.
+									We say $f(x)$
+									<em>diverges to infinity</em>
+									as $x$ goes to $\infty$,
+									if for every $N \in \R$
+									there exists an $M \in \R$ such that
+									\begin{equation*}
+									f(x) \gt N
+									\end{equation*}
+									whenever $x \in S$ and $x \geq M$.
+									We write
+									\begin{equation*}
+									\lim_{x \to \infty} f(x) := \infty ,
+									\end{equation*}
+									or we say that $f(x) \to \infty$ as $x \to \infty$.
+								</p>
+							</div>
+						</th>
+						<th style="width:35%;"><img style="width: 100%; 
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;" class="r-stretch" data-src="images/summary-04/infinite-limit.svg" />
+						</th>
 
-						<br /><br />
-						If a function is either increasing or decreasing, we say it is
-						<em>monotone</em>. If it is
-						strictly increasing or strictly decreasing, we say it is
-						<em>strictly monotone</em>.
-					</p>
-
-				</div>
+					</tr>
+				</table>
 			</section>
-
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Inverse functions</p>
-				<div class="left-txt size-70">
-
-					<p><strong>Theorem:</strong>
-						If $I \subset \R$ is an interval and $f \colon I \to \R$ is strictly
-						monotone, then the inverse $f^{-1} \colon f(I) \to I$ is continuous.
-					</p>
-
-
-				</div>
-			</section>
-
 
 
 			<section>

@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2001/7000 - Chapter 31</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Calculus & <br />Linear Algebra II</h2>
+				<p>Chapter 31</p>
+			</section>
+
+			<section>
+				<section>
+					<h3>31 Cylindrical coordinates</h3>
+					<div class="left-txt size-80">
+						<p>
+							By the end of this section, you should be able to answer the following questions:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								What is the relationship between rectangular coordinates and cylindrical coordinates?
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								How do you transform a triple integral in rectangular coordinates into one in terms of
+								cylindrical coordinates?
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								What is the Jacobian of the transformation?
+
+							</li>
+						</ul>
+
+
+					</div>
+				</section>
+
+				<section>
+					<h3>31 Cylindrical coordinates</h3>
+					<div class="left-txt size-80">
+						<p>Sometimes it is useful to use cylindrical coordinates in order to
+							simplify the integral. This involves the transformation
+							\[
+							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z. \qquad (14)
+							\]
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>31 Cylindrical coordinates</h3>
+					<div class="size-50">
+						<p>
+							$x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z. \qquad (14)$
+						</p>
+					</div>
+					<div>
+						<iframe scrolling="no" title="Chapter-31-1: Cylindrical coordinates"
+							src="https://www.geogebra.org/material/iframe/id/dmwgd6ft/width/638/height/455/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="638px" height="455px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h3>31 Cylindrical coordinates</h3>
+					<div class="left-txt size-70">
+						<p>We now aim to calculate a small element of volume of a cylindrical
+							shell. This will then show how in a triple integral we can
+							transform from rectangular coordinates to cylindrical
+							coordinates by substituting the transformation <a href="#/1/1">(14)</a> and
+							by making the change
+							\[
+							dx~dy~dz\rightarrow r~dr~d\theta ~dz
+							\]
+						</p>
+						<p>
+							Consider the following diagram.
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>31 Cylindrical coordinates</h3>
+					<div>
+						<iframe scrolling="no" title="Chapter-31: Cylindrical region"
+							src="https://www.geogebra.org/material/iframe/id/gpurtggj/width/550/height/420/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="550px" height="420px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>31 Cylindrical coordinates</h3>
+					<div class="left-txt size-80">
+						<p>The important result is that the triple integral
+							in rectangular coordinates transforms as follows:
+							\[
+							\iiint_\limits{R} f(x,y,z) ~dx~dy~dz = \iiint_\limits{C} f\left(r\cos \theta , r \sin \theta,
+							z \right) r~dr~d\theta ~dz.
+							\]
+						</p>
+					</div>
+				</section>
+
+			</section>
+
+
+			<section>
+				<section>
+					<h4>31.1 A simple example: Find the volume of a cylinder of
+						radius R and height H. (Ans. $\pi~ R^2 H$)
+					</h4>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							Recall that if $f(x,y)\geq 0$, then the double integral 
+							can be interpreted as the volume under the surface 
+							$z=f(x,y)$. 
+
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							If $f(x,y,z)\geq 0$, then the triple integral 
+							can be interpreted as the "hypervolume" of a $4D$
+							object. 
+							
+
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							This is very difficult to visualise. 😕</p>
+						
+						
+					</div>
+
+
+				</section>
+
+				<section>
+					<h4>31.1 A simple example: Find the volume of a cylinder of
+						radius R and height H. (Ans. $\pi ~R^2 H$)
+					</h4>
+
+					<div class="left-txt size-70">
+						<p>
+							Consider the special case where $f(x,y,z)=1$
+							for every $(x,y,z)\in E$, the domain of $f$. 
+							<span class="fragment" data-fragment-index="1">
+								Then
+							the triple integral represents the volume of $E$. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+							That is
+							\[
+							\iiint_E 1 ~dV = \text{Volume of } E.
+							\]
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							Here we are going to use cylindrical coordinates
+							\[
+							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							So we have that
+							\[
+							0\leq r \leq R,\quad 0\leq \theta \leq 2\pi,\quad 0\leq z \leq H.
+							\]
+						</p>
+
+					</div>
+
+					
+
+
+				</section>
+
+				<section>
+					<h4>31.1 A simple example: Find the volume of a cylinder of
+						radius R and height H. (Ans. $\pi ~R^2 H$)
+					</h4>
+
+					<div class="left-txt size-70">
+						<p>
+							Then
+						</p>
+
+					</div>
+
+					<table class="size-70" id="eqarray">
+						<tr>
+							<td>
+								$\text{Volume} $
+							</td>
+							<td>
+								$\displaystyle = \iiint_E  ~dV$
+								<span class="fragment" data-fragment-index="0">
+									$\displaystyle = \int_{z=0}^{z=H} \int_{r=0}^{r=R} \int_{\theta=0}^{\theta=2\pi}
+									r~d\theta~ dr ~dz$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = \left( \int_{\theta=0}^{\theta=2\pi} ~d\theta \right) \left(
+								\int_{r=0}^{r=R} r~dr\right) \left(\int_{z=0}^{z=H} dz\right)$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = 2\pi ~\frac{R^2}{2} H $
+								<span class="fragment" data-fragment-index="3">$\displaystyle = \pi ~R^2 H$</span>
+							</td>
+						</tr>
+					</table>
+
+
+				</section>
+
+
+			</section>
+
+			<section>
+				<section>
+					<h4>31.2 Find the mass of the solid defined by</h4>
+					<div class="size-55 left-txt">
+						<p>
+							<strong>the region contained within the cylinder $x^2 + y^2 = 1$ below the
+								plane $z = 4$ and above the paraboloid $z = 1- x^2 y^2$. The
+								density at any given point in the region is proportional to
+								the distance from the axis of the cylinder.
+							</strong>
+						</p>
+					</div>
+					<div>
+						<iframe scrolling="no" title="Chapter-31-2: Example"
+							src="https://www.geogebra.org/material/iframe/id/gjjn22jd/width/565/height/407/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="565px" height="407px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h4>31.2 Find the mass of the solid defined by</h4>
+					<div class="size-55 left-txt">
+						<p>
+							<strong> the region contained within the cylinder $x^2 + y^2 = 1$ below the
+								plane $z = 4$ and above the paraboloid $z = 1- x^2 y^2$. The
+								density at any given point in the region is proportional to
+								the distance from the axis of the cylinder.
+							</strong>
+						</p>
+
+
+					</div>
+					<div class="size-60 left-txt">
+						<p>
+							It is given that
+							$\rho \propto \text{distance from }z \text{-axis}$.
+							<span class="fragment" data-fragment-index="0">
+								That is
+								\[
+								\rho \propto \sqrt{\left(x-0\right)^2+\left(y-0\right)^2+\left(z-z\right)^2} =
+								\sqrt{x^2+y^2}
+								\]
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								If we take $\rho = k \sqrt{x^2+y^2}$, with $k$ the constant of proportionality,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then
+								\[\text{Mass} = \iiint_V\rho ~dV = \iiint_V k \sqrt{x^2+y^2}dV\]
+							</span>
+						</p>
+					</div>
+				</section>
+
+
+				<section>
+					<h4>31.2 Find the mass of the solid (cont.)</h4>
+					<div class="size-60 left-txt">
+						<p>
+							It is easier to compute this integral using cylindrical coordinates
+							\[
+							x= r\cos \theta ,\quad y=r\sin \theta, \quad z =z.
+							\]
+						</p>
+
+						<p class="fragment" data-fragment-index="0">So we have that</p>
+
+					</div>
+					<div class="size-60 ">
+						<p class="fragment" data-fragment-index="1">
+							
+							
+							$z = 1-x^2-y^2 $
+							<span class="fragment" data-fragment-index="2">
+								$= 1 - r^2\cos ^2 \theta- r^2 \sin^2 \theta $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$= 1 - r^2$.
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-60 left-txt">
+						<p class="fragment" data-fragment-index="4">
+							Thus $1-r^2\leq z \leq 4$.
+							<span class="fragment" data-fragment-index="5">
+								On the other hand, the domain $D$ for $x,y$ is constrained by $x^2+y^2=1$.
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								So 
+								\[
+								0\leq r\leq 1,\quad 0\leq \theta \leq 2 \pi.
+								\]
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="7">Then 
+							\[
+							V = \left\{(r, \theta, z) ~|~ 1-r^2\leq z \leq 4, 0\leq r\leq 1, 0\leq \theta \leq 2 \pi \right\}
+							\]
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>31.2 Find the mass of the solid (cont.)</h4>
+					<table id="eqarray" class="size-65">
+						<tr>
+							<td>
+								$\text{Mass} $
+							</td>
+							<td>
+								$\displaystyle = \iiint_V\rho ~dV= \iiint_V k \sqrt{x^2+y^2}dV$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$\displaystyle = \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=1} \int_{z=1-r^2}^{z=4} 
+								k~ r~ r ~dz~dr~d\theta$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=1} 
+								\left[ k~ r^2 ~z \Bigg|_{z=1-r^2}^{z=4}\right]  
+								dr~d\theta$
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \int_{\theta=0}^{\theta=2\pi} \int_{r=0}^{r=1} 
+								 k r^2 \left(4 - \left(1-r^2\right)\right) 
+								dr~d\theta$
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = 
+								\left( \int_{\theta=0}^{\theta=2\pi}  d\theta \right)
+								\left( 
+								\int_{r=0}^{r=1} 
+								k r^2 \left(3 + r^2\right) dr\right)$
+								<span class="fragment" data-fragment-index="4">
+									$=\displaystyle  \frac{12 \pi k}{5}$
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

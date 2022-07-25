@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2001/7000 - Chapter 30</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Calculus & <br />Linear Algebra II</h2>
+				<p>Chapter 30</p>
+			</section>
+
+			<section>
+				<section>
+					<h3>30 Introduction to triple integrals</h3>
+					<div class="left-txt size-80">
+						<p>
+							By the end of this section, you should be able to answer the following questions:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								How do you evaluate a triple integral?
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								How do you use a triple integral to find the mass of a solid object with known density?
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								How do you change the order of integration in a triple integral?
+
+							</li>
+						</ul>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>30 Introduction to triple integrals</h3>
+					<div class="left-txt size-80">
+						<p>
+							We can extend the definition of a double integral to a triple integral
+							<span class="fragment" data-fragment-index="0">
+								\[
+								\iiint_R f(x,y,z)dV
+								\]
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								where $R$ is a region in $\R^3$ and $dV$ is an element of volume.
+							</span>
+						</p>
+
+
+					</div>
+
+				</section>
+
+				<section>
+					<h3>30 Introduction to triple integrals</h3>
+					<div class="left-txt size-70">
+
+						<p>
+							If $R$ is a region in $\R^3$ specified by
+							\[
+							\begin{array}{ccc}
+							r(x,y)\leq z \leq s(x,y)\\
+							p(x)\leq y \leq q(x)\\
+							a\leq x \leq b
+							\end{array}
+							\]
+							<span class="fragment" data-fragment-index="0">
+								then
+								\[
+								\iiint_\limits{R} f(x,y,z)dV = \int_a^b \left\{ \int_{p(x)}^{q(x)} \left[
+								\int_{r(x,y)}^{s(x,y)} f(x,y,z)dz \right]dy \right\}dx.
+								\]
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">In two dimensions, there are 2 possible orders of
+							integration. In three dimensions, there are 6.</p>
+
+					</div>
+
+				</section>
+			</section>
+
+
+			<section>
+
+				<section>
+					<h4>30.1 Find the mass of a rectangular block </h4>
+					<p class="sbt">with dimensions $0\leq x \leq L,$ $0\leq dy \leq W$ and $0\leq z\leq H$<br />
+						if the density is $\rho = \rho_0 + \alpha xyz$.
+					</p>
+					<div class="left-txt size-65">
+						<p class="fragment" data-fragment-index="0">
+							Consider a solid object that occupies a region $E$.
+							<span class="fragment" data-fragment-index="1">
+								Then the
+								density function of this solid is
+								\[
+								\rho (x,y,z) = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+								\]
+								in units of mass per unit volume, at any given point $(x, y, z)$.
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Then its mass is
+							\[
+							m = \iiint_R \rho(x,y,z)dV.
+							\]
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>30.1 Find the mass of a rectangular block (cont.)</h4>
+					<div class="size-55 left-txt">
+						<p>In this case our region is
+							$
+							R = \left\{ (x,y,z) ~|~ 0\leq x \leq L, 0\leq dy \leq W, 0\leq z\leq H \right\}.
+							$
+							<span class="fragment" data-fragment-index="0">Then</span>
+						</p>
+					</div>
+					<table class="size-55" id="eqarray">
+						<tr>
+							<td class="fragment" data-fragment-index="0">
+								$\text{Mass}$
+							</td>
+							<td class="fragment" data-fragment-index="0">
+								$\displaystyle =\iiint_R \rho(x,y,z) ~dV$
+								<span class="fragment" data-fragment-index="1">
+									$\displaystyle =\iiint_R \left( ~\rho_0 + \alpha xyz~\right) dV$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \int_{x=0}^{x=L}\left( ~\rho_0 +
+								\alpha xyz~\right)dx~dy~dz$
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \left( ~\rho_0x + \alpha
+								\frac{x^2}{2}yz~\right)\Bigg|_{x=0}^{x=L} dy~dz$
+								<span class="fragment" data-fragment-index="4">
+									$\displaystyle =\int_{z=0}^{z=H} \int_{y=0}^{y=W} \left( ~\rho_0L + \alpha
+									\frac{L^2}{2}yz~\right) dy~dz$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\displaystyle =\int_{z=0}^{z=H} \left( ~\rho_0Ly + \alpha
+								\frac{L^2}{2}\frac{y^2}{2}z~\right)\Bigg|_{y=0}^{y=W} dz$
+								<span class="fragment" data-fragment-index="6">
+									$\displaystyle =\int_{z=0}^{z=H} \left( ~\rho_0LW + \alpha
+									\frac{L^2}{2}\frac{W^2}{2}z~\right) dz$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="7">
+								$\displaystyle = \left( ~\rho_0LWz + \alpha
+								\frac{L^2}{2}\frac{W^2}{2}\frac{z^2}{2}~\right)\Bigg|\int_{z=0}^{z=H} $
+								<span class="fragment" data-fragment-index="8">
+									$\displaystyle =\rho_0 LWH + \frac{\alpha}{8} L^2W^2H^2.$
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+
+			</section>
+
+
+			<section>
+				<section>
+					<h5>30.2 Evaluate $\iiint_R z~dV$ over the region $R$ bounded by </h5>
+					<p class="sbt">the surfaces $x=0$, $y=0$, $z=0$ and $x+y+z=1$.</p>
+					<div class="size-70 left-txt">
+						<p class="fragment" data-fragment-index="0">There are different ways to compute the integral.
+							<span class="fragment" data-fragment-index="1">First, let's integrate with respect to
+								$z$.</span>
+							<span class="fragment" data-fragment-index="2">Then $0\leq z \leq 1-x-y$.</span>
+							<span class="fragment" data-fragment-index="3">Thus
+								\[
+								\iiint_R z~dV = \iint_{D_{xy}} \left[ \int_{z=0}^{z=1-x-y}z~dz\right]dA_{xy}
+								\]
+								where $D_{xy}$ is the projection of $R$ on the plane $xy$.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">The region $R$ is bounded by $x=0$, $y=0$ and the intersection
+							of $z=0$ with $z=1-x-y$,
+							i.e. $0=1-x-y$, or $x+y=1$.
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h5>30.2 Evaluate $\iiint_R z~dV$ over the region $R$ bounded by </h5>
+					<p class="sbt">the surfaces $x=0$, $y=0$, $z=0$ and $x+y+z=1$.</p>
+					<div>
+						<iframe scrolling="no" title="Chapter-30-2: Example"
+							src="https://www.geogebra.org/material/iframe/id/g8xv84xu/width/604/height/432/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="604px" height="432px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h5>30.2 Evaluate $\iiint_R z~dV$ (cont.) </h5>
+
+					<div class="size-60 left-txt">
+						<p>This region $D_{xy}$ is of both types (I and II).
+							<span class="fragment" data-fragment-index="0">Consider $D_{xy}$ as a type I region.</span>
+							<span class="fragment" data-fragment-index="1">Then
+							</span>
+						</p>
+
+					</div>
+					<table class="size-60" id="eqarray">
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle \iiint_R z~dV$
+							</td>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle = \iint_{D_{xy}} \left[ \int_{z=0}^{z=1-x-y}z~dz\right]dA_{xy}$
+								<span class="fragment" data-fragment-index="2">
+									$\displaystyle = \int _{x=0}^{x=1} \int_{y=0}^{y=1-x} \left[
+									\int_{z=0}^{z=1-x-y}z~dz \right]dy~dx$
+								</span>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = \int _{x=0}^{x=1} \int_{y=0}^{y=1-x} \left[
+								\frac{z^2}{2}\Bigg|_{z=0}^{z=1-x-y} \right]dy~dx$
+								<span class="fragment" data-fragment-index="4">
+									$\displaystyle = \int _{x=0}^{x=1} \int_{y=0}^{y=1-x} \frac{(1-x-y)^2}{2} dy~dx$
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\displaystyle = \int _{x=0}^{x=1} \left[ -\frac{1}{6}\left( 1-y-x \right)^3
+								\Bigg|_{y=0}^{y=1-x} \right]dx$
+								<span class="fragment" data-fragment-index="6">
+									$\displaystyle = \int _{x=0}^{x=1} \frac{1}{6}\left(1-x \right)^3dx$
+								</span>
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="7">
+								$\displaystyle = -\frac{1}{24}\left(1-x\right)^4 \Bigg|_{x=0}^{x=1} $
+
+								<span class="fragment" data-fragment-index="8">
+									$\displaystyle = \frac{1}{24}$
+								</span>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+
+
+
+			<section>
+
+				<section>
+					<h5>30.3 Changing the order of integration </h5>
+					<div class="size-70">
+						<p>Express $\int_{0}^{1}\int_{\sqrt{x}}^{1}\int_{0}^{1-y} f(x,y,z)~dz~dy~dx$
+							in the orders
+							$dz~dx~dy$ and $dy~dz~dx$.</p>
+					</div>
+					<div class="fragment" data-fragment-index="0">
+						<iframe scrolling="no" title="Chapter-30-3: Example"
+							src="https://www.geogebra.org/material/iframe/id/uwy9fuar/width/489/height/431/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="489px" height="431px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+				</section>
+
+				<section>
+					<h5>30.3 Changing the order of integration (cont.)</h5>
+					<div class="size-70">
+						<p>Express $\int_{0}^{1}\int_{\sqrt{x}}^{1}\int_{0}^{1-y} f(x,y,z)~dz~dy~dx$
+							in the order $\underline{dz~dx~dy}$.
+						</p>
+					</div>
+					<table class="size-70" id="eqarray">
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle \int_{x=0}^{x=1}\int_{y=\sqrt{x}}^{y=1}\left[ \int_{z=0}^{z=1-y} f
+								~dz
+								\right]dy~dx$
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \iint_{D}\left[ \int_{z=0}^{z=1-y} f ~dz \right]dy~dx$
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="size-65 fragment" data-fragment-index="3">
+									($D$ is the projection of the region on the plane $xy$)
+								</span>
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$\displaystyle = \iint_{D}\left[ \int_{z=0}^{z=1-y} f ~dz \right]$
+								<span class="fragment highlight-red" data-fragment-index="5">
+									$dx~dy$
+								</span>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="6">
+								<span style="color:red">
+									$\displaystyle = \int_{y=0}^{y=1}\int_{x=0}^{x=y^2}$ 
+								</span>
+								$\displaystyle
+								\left[ \int_{z=0}^{z=1-y} f ~dz
+								\right]$
+								<span style="color:red">
+									$dx~dy$
+								</span>
+							</td>
+						</tr>
+					</table>
+					<div class="size-70 left-txt">
+						<p class="fragment" data-fragment-index="8">
+							The original integral was of type I.
+							But when we change the order $dy~dx$ to
+							$dx~dy$, we have now a type II integral.
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h5>30.3 Changing the order of integration (cont.)</h5>
+					<div class="size-65">
+						<p>Express $\int_{0}^{1}\int_{\sqrt{x}}^{1}\int_{0}^{1-y} f(x,y,z)~dz~dy~dx$
+							in the order 
+								$\underline{dy~dz~dx}$.</p>
+					</div>
+					<table class="size-65" id="eqarray">
+						<tr>
+							<td class="fragment" data-fragment-index="1">
+								$\displaystyle \int_{x=0}^{x=1}\int_{y=\sqrt{x}}^{y=1}\left[ \int_{z=0}^{z=1-y} f
+								~dz
+								\right]dy~dx$
+							</td>
+							<td class="fragment" data-fragment-index="2">
+								$\displaystyle = \int_{x=0}^{x=1}\left[ \int_{y=\sqrt{x}}^{y=1} \int_{z=0}^{z=1-y} f
+								~dz~ dy\right]dx $
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="3">
+								$\displaystyle = \int_{x=0}^{x=1}\bigg[ \bigg.$
+								<span class="fragment highlight-red" data-fragment-index="4">
+									$\displaystyle\int_{z=0}^{z=1-\sqrt{x}} \int_{y=\sqrt{x}}^{y=1-z}$
+								</span>
+								$\displaystyle \,f$
+								<span class="fragment highlight-red" data-fragment-index="4">
+									$dy~ dz$
+								</span>
+								$\bigg.\bigg]dx $
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\displaystyle = \int_{x=0}^{x=1} \int_{z=0}^{z=1-\sqrt{x}}
+								\left[ \int_{y=\sqrt{x}}^{y=1-z}
+								f~dy
+								\right]
+								dz~dx $
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="6">
+								$\displaystyle = \iint_D
+								\left[ \int_{y=\sqrt{x}}^{y=1-z}
+								f~dy
+								\right]
+								dA$
+							</td>
+						</tr>
+					</table>
+					<div class="size-65 left-txt">
+						<p class="fragment" data-fragment-index="7">
+							Here $D$ is the projection of the region
+							onto the plane $xz$.
+						</p>
+					</div>
+				</section>
+			</section>
+
+
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

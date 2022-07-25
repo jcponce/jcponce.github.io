@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH2400/7400 - Summary Week 10</title>
+	<title>MATH2400/7400 - Summary Week 9</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -60,60 +60,51 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 10</p>
-			</section>
-
-			<section data-background-iframe="sketches/topology/index.html"
-				data-background-interactive>
-				<br /><br /><br /><br /><br /><br /><br />
-				<h3 style="line-height:0.89;color:white">Metric spaces <br />&<br /> Topology</h3>
-
+				<p>Summary Week 9</p>
 			</section>
 
 			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $X$ be a set, and let
-						$d \colon X \times X \to \R$
-						be a function such that for all $x,y,z \in X$
-					</p>
-					<ol class="r">
-						<li>
-							$d(x,y) \geq 0$. (<em>nonnegativity</em>)
-						</li>
-						<li>
-							$d(x,y) = 0$ if and only if $x = y$. (<em>identity of indiscernibles</em>)
-						</li>
-						<li>
-							$d(x,y) = d(y,x)$. (<em>symmetry</em>)
-						</li>
-						<li>
-							$d(x,z) \leq d(x,y)+ d(y,z)$. (<em>triangle inequality</em>)
-						</li>
-					</ol>
-					<p>The pair $(X,d)$ is called a <em>metric space</em>. The
-						function $d$ is called the <em>metric</em> or the
-						<em>distance function</em>.
-						Sometimes we write just $X$ as the metric space instead of $(X,d)$
-						if the metric is clear from context.</p>
-				</div>
-			</section>
+				<h4>Sequences of functions</h4>
 
-
-			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-60">
-					<p><strong>Lemma (Cauchy-Schwarz inequality):</strong> If $x =(x_1,x_2,\ldots,x_n) \in \R^n$ and $y
-						=(y_1,y_2,\ldots,y_n) \in
-						\R^n$, then
+				<p class="sbt">Pointwise convergence</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Definition:</strong>
+						</span>
+						For every $n \in \N$,
+						let $f_n \colon S \to \R$ be a function. The sequence
+						$\{ f_n \}_{n=1}^\infty$
+						<em>converges pointwise</em> to $f \colon S \to \R$ if for every $x
+						\in S$,
+						we have
 						\begin{equation*}
-						{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
-						\leq
-						\biggl(\sum_{j=1}^n x_j^2 \biggr)
-						\biggl(\sum_{j=1}^n y_j^2 \biggr) .
+						f(x) =
+						\lim_{n\to\infty} f_n(x) .
 						\end{equation*}
+					</p>
+				</div>
+			</section>
 
+			<section>
+				<h4>Sequences of functions</h4>
+				<p class="sbt">Pointwise convergence</p>
+
+				<div class="size-70" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+					<p>
+						<strong>Example: </strong>
+						Define $f_n$ on $[-1,1]$ as
+						\[
+						\displaystyle f_n(x):=x^{2n}.
+						\]
+						$f_n$ converges to $f:[-1,1]\ra \R$, where
+						\[
+						f(x)=\left\{\begin{array}{ll}
+						1 & \text{if }x=-1,1 \\
+						0 & \text{otherwise}
+						\end{array}
+						\right.
+						\]
 					</p>
 
 
@@ -122,119 +113,378 @@
 			</section>
 
 			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-60">
+				<h4>Sequences of functions</h4>
+
+
+				<p style="font-size:18px">
+					<strong>Pointwise convergence:</strong>
+					$\;x^{2n} \ra f(x)=\left\{\begin{array}{ll}
+					1 & \text{if }x=-1,1 \\
+					0 & \text{otherwise}
+					\end{array}
+					\right.$</p>
+
+				<iframe scrolling="no" title="Pointwise convergence"
+					src="https://www.geogebra.org/material/iframe/id/tqawquk4/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="507px" height="459px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+
+
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+				<p class="sbt">No Pointwise convergence</p>
+
+
+				<div class="size-70" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+					<p>
+						<strong>Example: </strong>
+						Define $f_n$ on $\R$ as
+						\[
+						\displaystyle f_n(x):=\sin(nx).
+						\]
+						Then $f_n$ does not converge to any function
+						on any interval.
+					</p>
+
+
+				</div>
+
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+
+				<p style="font-size:18px">
+					<strong>No Pointwise convergence: </strong>
+					$f_n(x)=\sin(nx)$ does not converge to any function
+					on any interval.
+				</p>
+
+				<iframe scrolling="no" title="No pointwise convergence"
+					src="https://www.geogebra.org/material/iframe/id/uvmzrkpg/width/505/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="505px" height="459px" style="border:0px;" data-preload allowfullscreen="">
+				</iframe>
+
+			</section>
+
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Pointwise convergence</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $f_n \colon S \to \R$ and $f \colon S \to \R$ be functions.
+						Then $\{ f_n \}$ converges pointwise to $f$ if and only if
+						for every $x \in S$, and every $\epsilon \gt 0$, there exists
+						an $N \in \N$ such that for all
+						$n \geq N$, we have
+						\begin{equation*}
+						\abs{\,f_n(x)-f(x)} \lt \epsilon .
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Uniform convergence</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $f_n \colon S \to \R$
+						and $f \colon S \to \R$
+						be functions. The sequence $\{ f_n \}$
+						<em>converges uniformly</em> to $f$ if for
+						every $\epsilon > 0$, there exists an $N \in \N$ such that
+						for all $n \geq N$, we have
+						\begin{equation*}
+						\abs{\,f_n(x) - f(x)} \lt \epsilon \quad \text{for all } x \in S.
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+				<p class="sbt">Uniform convergence</p>
+
+				<iframe scrolling="no" title="Sequences of functions: Uniform convergence"
+					src="https://www.geogebra.org/material/iframe/id/k8vhgx2b/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="507px" height="459px" style="border:0px;" data-preload allowfullscreen="">
+				</iframe>
+
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Uniform convergence</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $\{ f_n \}$ be a sequence of functions
+						$f_n \colon S \to \R$.
+						If $\{ f_n \}$ converges uniformly to $f \colon S \to \R$,
+						then converges pointwise to $f$.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+				<p class="sbt">Nonuniform convergence criterion</p>
+				<div class="left-txt size-70">
 					<p><strong>Theorem:</strong>
-						Let $(X,d)$ be a metric space and $Y \subset X$. Then the restriction
-						$d|_{Y \times Y}$ is a metric on $Y$.
+						Let $f_n \colon S \to \R$
+						and $f \colon S \to \R$
+						be functions.
 					</p>
-					<p><strong>Definition:</strong>
-						If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
-						then $(Y,d')$ is said to be a <em>subspace</em> of $(X,d)$.
-					</p>
-					<p><strong>Definition:</strong>
-						Let $(X,d)$ be a metric space. A subset $S \subset X$ is said to be
-						<em>bounded</em> if there exists a $p \in X$ and a
-						$B \in \R$ such that
-						\begin{equation*}
-						d(p,x) \leq B \quad \text{for all } x \in S.
-						\end{equation*}
-						We say $(X,d)$ is bounded if $X$ itself is a bounded subset.
+				</div>
+
+				<div class="size-70">
+					The sequence $\{ f_n \}$ <strong>does not converge uniformly</strong>
+					<br />
+					<p>if and only if</p>
+				</div>
+
+				<div class="left-txt size-70">
+					<p>
+						for some $\epsilon_0\gt 0$ there is a subsequence $\{ f_{n_k} \}$
+						of $\{ f_n \}$ and a sequence $\{ x_k \}$ in $S$ such that
+						\[
+						\abs{\,f_{n_k}\left(x_k\right)-f(x_k)}\geq \epsilon_0 \text{ for all } k\in \N.
+						\]
 					</p>
 
 				</div>
 			</section>
 
+			<section>
+				<h4>Sequences of functions</h4>
+				<p class="sbt">Nonuniform convergence criterion</p>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong>
+						Let $f_n(x) := \dfrac{x}{n}$ defined on $\R$ for every $n\in \N$.
+						Observe that $\{f_n\}$ converges to $f=0$, since
+						\[
+						\lim f_n(x) = \lim \frac{x}{n} = x\lim\frac{1}{n}=0 \;\text{ for all }\,x\in \R.
+						\]
+
+					</p>
+
+					<p>If we let $n_k:=k$ and $x_k := k $. Then $f_{n_k}(x_k)=1$
+						so that
+						\[
+						\abs{\,f_{n_k}(x_k)-f(x_k)}= \abs{1-0}=1.
+						\]
+						Therefore the sequence $\{f_n\}$ <strong>does not converges uniformly</strong> to $f$.
+					</p>
+				</div>
+
+
+			</section>
+
 
 			<section>
-				<h3>Topology</h3>
-				<p class="size-60"><strong>Open and Closed Balls</strong></p>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Convergence in uniform norm</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Definition:</strong>
+						</span>
+						Let $f \colon S \to \R$ be a bounded function. Define
+						\begin{equation*}
+						\norm{\,f}_u :=
+						\sup \bigl\{ \abs{\,f(x)} : x \in S \bigr\} .
+						\end{equation*}
+						We call $\norm{\cdot}_u$ the <em>uniform norm</em>.
+
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Convergence in uniform norm</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						A sequence of bounded functions $f_n \colon S \to \R$ converges
+						uniformly to $f \colon S \to \R$, if and only if
+						\begin{equation*}
+						\lim_{n\to\infty} \norm{\,f_n - f}_u = 0 .
+						\end{equation*}
+
+					</p>
+
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Interchange of limits</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $\{ f_n \}$ be
+						a sequence of continuous functions $f_n \colon S \to \R$ converging
+						uniformly to $f \colon S \to \R$. Then $f$ is continuous.
+
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Integral of the limit</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $\{ f_n \}$ be a sequence of Riemann integrable
+						functions
+						$f_n \colon [a,b] \to \R$
+						converging uniformly to $f \colon [a,b]
+						\to \R$. Then $f$ is Riemann integrable, and
+						\begin{equation*}
+						\int_a^b f = \lim_{n\to\infty} \int_a^b f_n .
+						\end{equation*}
+
+
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Derivative of the limit</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $I$ be a bounded interval and let
+						$f_n \colon I \to \R$ be continuously differentiable functions.
+						Suppose $\{ f_n' \}$ converges uniformly to $g \colon I \to \R$,
+						and suppose $\bigl\{ f_n(c) \bigr\}_{n=1}^\infty$ is a
+						convergent sequence for some $c \in I$. Then $\{ f_n \}$ converges uniformly to
+						a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
+
+					</p>
+				</div>
+			</section>
+
+			<section id="fourier-series">
+				<h5>Fourier series</h5>
+				<div class="left-txt size-60">
+					<p>The <b>Fourier series</b> of a real function $f$ defined on the interval $(-p,p)$ is given by
+						\[
+						f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\,\cos \left(\frac{n\, \pi}{p}x\right)+b_n\,\sin
+						\left(\frac{n\, \pi}{p}x\right) \right),
+						\]
+						<span class="fragment" data-fragment-index="0">
+							where
+						\begin{eqnarray*}
+						a_0&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,dx,\\
+						a_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\cos \left(\frac{n\, \pi}{p}x\right)\,dx,\\
+						b_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\sin \left(\frac{n\, \pi}{p}x\right)\,dx.
+						\end{eqnarray*}
+						</span>
+					</p>
+
+						<p style="font-size:18px"  class="fragment" data-fragment-index="0">The <em>Fourier series</em> is named in honor of <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
+							target="_blank">Jean Baptiste Joseph Fourier (1768-1830).</a></p>
+				</div>
+
+			</section>
+
+			<section id="fourier-example">
+				<h5>Fourier series</h5>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong> Consider the function
+						defined by $f(x)=x+\pi$ for $-\pi &lt; x &lt; \pi $
+						and $f(x)=f(x+2\pi)$ for $-\infty &lt; x &lt; \infty$.
+						<span class="fragment" data-fragment-index="0">Its Fourier series expansion is
+							\[
+							f(x)=\pi+2\sum_{n=1}^{\infty}\frac{\left(-1\right)^{n+1}}{n}\sin (n\,x).
+							\]
+						</span>
+					</p>
+				</div>
+
+				<img  class="fragment" data-fragment-index="1" width="72%" src="https://teaching.smp.uq.edu.au/scims/Num_analysis/images/fourierfunc.gif">
+
+			</section>
+
+			<section id="square-wave">
+				<h5>Fourier series</h5>
+				<p class="sbt">The square wave</p>
 				
+				<div  class="fourier" style="height:450px;width:700px">
+					<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-function" width="650px"
+					height="600px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				</div>
+						
+			</section>
+
+			<section id="fourier-square-wave">
+				<h5>Fourier series</h5>
+
 				<table style="width:100%;">
 					<tr>
 
-						<td style="width:65%">
+						<td style="width:40%">
 							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<p><strong>Definition:</strong>
-									Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Define
-									the <em>open ball</em>, or simply <em>ball</em>, of radius $\delta$
-									around $x$ as
-									\begin{equation*}
-									B(x,\delta) := \bigl\{ y \in X : d(x,y) \lt \delta \bigr\} .
-									\end{equation*}
-								</p>
-			
 								<p>
-									Define the <em>closed ball</em> as
-									\begin{equation*}
-									C(x,\delta) := \bigl\{ y \in X : d(x,y) \leq \delta \bigr\} .
-									\end{equation*}
+									<strong>The square wave</strong><br /><br />
+									The Fourier series expansion is given by
+									\[
+									f(x):=\frac{4}{\pi}\sum_{1,3,5\ldots}^{\infty} \frac{1}{n}\sin\left(\frac{n\pi
+									x}{L}\right)
+									\]
 								</p>
-
 							</div>
+
+							<br />
+							<p style="font-size:14px">Original Fourier applets by: <a href="https://www.jezzamon.com/fourier/"
+									target="_blank">Jez Swanson</a></p>
 						</td>
-						<td class="size-40" style="width:35%;">
-
-							<img style="width: 100%; 
-						   display: block;
-						   margin-left: auto;
-						   margin-right: auto;" 
-						   class="r-stretch" 
-						   data-src="images/summary-09/open-ball.svg" />
-						   <p style="font-size:14px;text-align:center">Open ball</p>
-				
-						</td>
-
-					</tr>
-				</table>
-			</section>
-
-			
-
-			<section>
-				<h3>Topology</h3>
-				<p class="size-60"><strong>Open and Closed Sets</strong></p>
-				
-				<table style="width:100%;">
-					<tr>
-
-						<td style="width:65%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<p><strong>Definition:</strong>
-									Let $(X,d)$ be a metric space. A subset $V \subset X$
-									is <em>open</em>
-									if for every $x \in V$, there exists a $\delta \gt 0$ such that
-									$B(x,\delta) \subset V$.
-									<span>
-										A subset $E \subset X$ is
-										<em>closed</em> if the complement $E^c = X \setminus E$ is open.
-									</span>
-									<span>
-										When the ambient space $X$ is not clear from context,
-										we say $V$ <em>is open in</em> $X$ and $E$ <em>is closed in</em> $X$.
-									</span>
-								</p>
-			
-								<p>
-									If $x \in V$ and $V$ is open, then we say
-									$V$ is an <em>open neighborhood</em> of $x$ (or
-									sometimes just <em>neighborhood</em>).
-								</p>
-
+						<td style="width:60%;">
+							<div  class="fourier" style="height: 450px;width:450px">
+								<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-wave" width="400px"
+								height="500px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 							</div>
-						</td>
-						<td class="size-40" style="width:35%;">
-
-							<img style="width: 100%; 
-						   display: block;
-						   margin-left: auto;
-						   margin-right: auto;" 
-						   class="r-stretch" 
-						   data-src="images/summary-09/open-nb.gif" />
-						   <p style="font-size:14px;text-align:center">Open neighborhood</p>
-				
 						</td>
 
 					</tr>
@@ -242,300 +492,14 @@
 			</section>
 
 
+			<section id="fourier-general-example" data-background-iframe="sketches/fourier/user-wave" data-preload>
 
-			<section>
-				<h3>Topology</h3>
-				<p class="size-60"><strong>Open and Closed Sets</strong></p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Suppose $(X,d)$ is a metric space, and $Y \subset X$. Then $U \subset Y$
-						is open in $Y$ (in the subspace topology), if and only if
-						there exists an open set $V \subset X$ (so open in $X$), such that
-						$V \cap Y = U$.
-
-					</p>
-
-					<p><strong>Theorem:</strong>
-						Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
-						and $E \subset X$ is closed.
-					</p>
-					<ol>
-						<li>
-							$U \subset V$ is open in the subspace topology if and only if $U$ is open
-							in $X$.
-						</li>
-						<li>
-							$F \subset E$ is closed in the subspace topology if and only if $F$ is
-							closed in $X$.
-
-						</li>
-					</ol>
+				<!--<p style="text-align:center;font-size:24px;font-weight: bold;">FOURIER SERIES: General example</p>-->
 
 
-				</div>
-			</section>
-
-			<section>
-				<h3>Sequences and convergence</h3>
-
-				<div class="left-txt size-60">
-
-					<p><strong>Definition:</strong>
-						A <em>sequence</em> in a metric space $(X,d)$ is a function
-						$x \colon \N \to X$. As before we write $x_n$ for the $n$th element in
-						the sequence and use the notation $\{ x_n \}$, or more precisely
-						\begin{equation*}
-						\{ x_n \}_{n=1}^\infty .
-						\end{equation*}
-					</p>
-
-					<p>
-						A sequence $\{ x_n \}$ is <em>bounded</em> if
-						there exists a point $p \in X$ and $B \in \R$ such that
-						\begin{equation*}
-						d(p,x_n) \leq B \qquad \text{for all } n \in \N.
-						\end{equation*}
-						In other words, the sequence $\{x_n\}$ is bounded whenever
-						the set $\{ x_n : n \in \N \}$
-						is bounded.
-					</p>
-
-				</div>
 			</section>
 
 
-			<section>
-				<h3>Sequences and convergence</h3>
-
-				<div class="left-txt size-60">
-
-					<p><strong>Definition:</strong>
-						A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
-						to <em>converge</em> to a point
-						$p \in X$ if for every $\epsilon \gt 0$, there exists an $M \in \N$ such
-						that $d(x_n,p) \lt \epsilon$ for all $n \geq M$. The point $p$
-						is said to be the <em>limit</em>
-						of $\{ x_n \}$. We write
-						\begin{equation*}
-						\lim_{n\to \infty} x_n := p .
-						\end{equation*}
-
-
-					</p>
-
-					<p>
-						A sequence
-						that converges is <em>convergent</em>.
-						Otherwise, the sequence is
-						<em>divergent</em>.
-					</p>
-
-					<p><strong>Note:</strong> Compare this with the definition of <a href="summary-01.html#/9" target="_blank">convergence in $\R$</a></p>
-
-				</div>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences and convergence</h3>
-
-				<div class="left-txt size-60">
-
-					<p>
-						<strong>Theorem:</strong>
-						A convergent sequence in a metric space has a unique limit.
-					</p>
-
-					<p>
-						<strong>Theorem:</strong>
-						A convergent sequence in a metric space is bounded.
-					</p>
-
-					<p><strong>Theorem:</strong>
-						Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$,
-						where we write $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
-						Then $\{ x_j \}_{j=1}^\infty$ converges if and only if
-						$\{ x_{j,k} \}_{j=1}^\infty$ converges for every $k=1,2,\ldots,n$, in which case
-						\begin{equation*}
-						\lim_{j\to\infty}
-						x_j =
-						\Bigl(
-						\lim_{j\to\infty} x_{j,1},
-						\lim_{j\to\infty} x_{j,2},
-						\ldots,
-						\lim_{j\to\infty} x_{j,n}
-						\Bigr) .
-						\end{equation*}
-					</p>
-
-				</div>
-			</section>
-
-
-			<section>
-				<h3>Sequences and convergence</h3>
-				
-				
-				<table style="width:100%;">
-					<tr>
-
-						<td style="width:50%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<p><strong>Theorem:</strong>
-									Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$. Then
-									$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
-									$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
-									we have $x_n \in U$.
-								</p>
-			
-								<p><strong>Theorem:</strong>
-									Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
-									and $\{ x_n \}$ a sequence in $E$ that converges to some $x \in X$.
-									Then $x \in E$.
-			
-								</p>
-
-							</div>
-						</td>
-						<td class="size-40" style="width:50%;">
-
-							<img style="width: 100%; 
-						   display: block;
-						   margin-left: auto;
-						   margin-right: auto;" 
-						   class="r-stretch" 
-						   data-src="images/summary-09/convergence.gif" />
-						   <p style="font-size:14px;text-align:center">Convergent sequence</p>
-				
-						</td>
-
-					</tr>
-				</table>
-			</section>
-
-
-			<section>
-				<h3>Continuous functions</h3>
-				<p class="sbt">Continuity in metric spaces</p>
-
-				<div class="left-txt size-60">
-
-
-					<p><strong>Definition:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
-						Then $f \colon X \to Y$ is
-						<em>continuous at $c$</em>
-						if for every $\epsilon \gt 0$
-						there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
-						\delta$, then
-						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
-					</p>
-
-					<p>
-						When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
-						that $f$ is a <em>continuous function</em>.
-
-					</p>
-
-					<p><strong>Note:</strong> Compare this with the definition of <a href="summary-04.html#/1" target="_blank">continuity in $\R$</a></p>
-
-
-				</div>
-			</section>
-
-			<section>
-				<h3>Continuous functions</h3>
-				<p class="sbt">Continuity in metric spaces and sequences</p>
-
-				<div class="left-txt size-60">
-
-
-					<p><strong>Theorem:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
-						Then $f \colon X \to Y$ is
-						continuous at $c \in X$
-						if and only if for every sequence $\{ x_n \}$ in $X$
-						converging to $c$, the sequence $\bigl\{ f(x_n) \bigr\}$ converges
-						to $f(c)$.
-					</p>
-
-					<p><strong>Note:</strong> Compare this Theorem with its <a href="summary-04.html#/3" target="_blank">version in $\R$</a></p>
-
-
-				</div>
-			</section>
-
-
-			<section>
-				<h3>Continuous functions</h3>
-				<p class="sbt">Continuity and Topology</p>
-
-				<div class="left-txt size-60">
-
-
-					<p><strong>Lemma:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
-						A function $f \colon X \to Y$ is continuous at $c \in X$
-						if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
-						$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
-					</p>
-
-					<p>
-						<strong>Theorem:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
-						\to Y$
-						is continuous if and only if
-						for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
-					</p>
-
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Continuity and Topology</p>
-
-				<div class="iframe">
-					<iframe scrolling="no" title="Topology: Continuous function" src="https://www.geogebra.org/material/iframe/id/tw5krmzn/width/616/height/433/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="616px" height="433px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-				</div>
-				<p style="font-size:18px">For every neighborhood $U$ of $f(c)$, the set $f^{-1}(U)$ contains an open neighborhood $W$ of $c$.</p>
-
-			</section>
-
-			<section>
-				<h3>The Essence of Topology</h3>
-
-				
-				<iframe scrolling="no" title="Helicoid transformation" src="https://www.geogebra.org/material/iframe/id/v7r4w8jg/width/431/height/433/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="380px" height="380px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-				<p style="font-size:12px;line-height:0.1">Source: <a href="https://www.geogebra.org/m/uxqktfym" target="_blank">Helicoid transformation</a></p>
-
-				<p style="font-size:24px">Geometric properties of subsets of metric spaces 
-					will be preserved when <br/>continuous transformations (functions or mappings) 
-					are applied.</p>
-
-			</section>
-
-			<section>
-				<h3>The Essence of Topology</h3>
-
-				<img style="width: 390px; 
-				display: block;
-				margin-left: auto;
-				margin-right: auto;" 
-				data-src="https://1.bp.blogspot.com/-u3ciN4CJGKU/YE1LkXWJ3VI/AAAAAAAAaRo/abkFniQGszUWe1n4QqZyhtn83ZHupoYvwCLcBGAsYHQ/w1152/topological-delight.gif" />
-				
-				<p style="font-size:12px;line-height:0.1">Source: <a href="https://www.geogebra.org/m/fcmt837m" target="_blank">A coffee cup and a doughnut</a></p>
-
-				<p style="font-size:24px">Geometric properties of subsets of metric spaces 
-					will be preserved when <br/>continuous transformations (functions or mappings) 
-					are applied.</p>
-
-			</section>
-
-			
 
 
 			<section>
