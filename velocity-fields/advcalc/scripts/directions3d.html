@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>3D Velocity and Force fields -  Directions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Paul Falstad (adapted by Juan Carlos Ponce Campuzano)">
+    
+<!--Style Stars-->
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/w3.css">
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans|Marcellus+SC" rel="stylesheet">
+    
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="icon"/>
+    <!--Style ends-->
+
+
+
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { equationNumbers: { autoNumber: "AMS" } }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+<script type="text/javascript" async src="https://teaching.smp.uq.edu.au/scims/MathJax/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+
+
+
+</head>
+<body>
+
+
+<!-- Navbar Stars-->
+<div class="w3-top">
+<div class="w3-bar w3-black w3-top w3-left-align">
+<a href="https://teaching.smp.uq.edu.au/scims" class="w3-bar-item w3-button w3-hover-deep-purple">SciMS - <i class="fa fa-home"></i></a>
+<a href="../3dVectorfield.html" class="w3-button w3-hover-deep-purple">3D simulation</a>
+<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-deep-purple serif"><img src="../../mathcss/uq-logo-only.png" width="21px" ></img> The University of Queensland</a>
+</div>
+</div>
+<!-- Navbar Ends-->
+                                
+                                
+
+                                
+<!-- Main content Stars-->
+<div class="w3-main" style="margin-top:45px">
+                                    
+
+ <div class="w3-container">
+ <h1>3D simulation - Directions</h1>
+ <hr>
+ <p>
+ The simulation demonstrates various properties of
+ vector fields. You can select from a number of <a href="../Vector_field.html" target="_blank" class="w3-hover-text-blue w3-text-indigo">vector fields</a> and see how
+ particles move in the field if it is treated as either a velocity
+ or a force field.  This helps you visualise the field.
+ <p>
+ When you start the simulation, you will see 500 particles moving in the
+ <tt>"1/r^2 single"</tt> field, which is a field that attracts
+ particles to the center.  By default the
+ particles are treating the field as a <b>velocity</b> field, which means
+ that the field vectors determine how fast the particles are moving and in
+ what direction.  In this case, the particles just move toward the center.
+ The velocity of all the particles at a certain point
+ on the grid is always the same.  If the field is a <b>force</b> field, then the
+ field vectors determine the acceleration of the particles, but their velocity
+ may vary depending on where they started.
+  <hr>
+</div>
+
+
+
+<div class="w3-container">
+<h2>Menu options</h2>
+<p>
+The <b>Field Selection</b> popup will allow you to select a
+vector field. Here is a list of possible vector
+fields: <a href="./functions3d.html" class="w3-btn w3-ripple w3-deep-purple" target="_blank">Functions (x,y,z)</a>
+
+<p>
+The <b>Display</b> popup will allow you to select how the field
+is displayed:
+<ul>
+    <li><b>Display: Particles (Vel.)</b> means particles will move through
+        the field, with the field vectors determining their velocity.
+        Note that the particles are only a educational device
+        intended to show what the field looks like; in real life, particles would not move in this manner.<p>
+        <li><b>Display: Particles (Force)</b> means particles will move through
+            the field, and the field vectors determine their acceleration.<p>
+            <li><b>Display: Field Vectors</b> shows you the field vectors at an array
+                of locations.<p>
+                <li><b>Display: Streamlines</b> shows you the streamlines.  The
+                    <b>Line Density</b> slider controls how many streamlines to draw.  The
+                    color indicates the field strength.<p>
+                    <li><b>Display: Equipotentials</b> shows you equipotential surfaces.
+                        By default slicing is turned on because the equipotentials are easier
+                        to see that way, and you can see more than one at a time.  <b><font color="red">Red</font></b> means
+                        negative potential, <b><font color="green">green</font></b> means positive, <b><font color="gray">grey</font></b> means ground.  If you
+                        turn slicing off, you can only see one equipotential at a time;
+                        the <b>Potential</b> slider allows you to determine which one to
+                        view.  If the slider is set too high or too low then the corresponding
+                        equipotential surface may not be visible or may not exist, so just
+                        play around with the slider a bit if you don't see anything.
+                        </ul>
+<p>
+The <b>Mouse</b> popup controls what happens when you click on the box.
+If you set it to <b>Adjust Angle</b> or <b>Adjust Zoom</b>, you can
+adjust the orientation or size of the 3-d view by clicking and
+dragging on the box.
+<p>
+The <b>Slice</b> popup allows you to look at planar slices of the box
+rather than looking at the contents of the entire box.
+If the popup is set to <b>No Slicing</b>, you view the entire
+box.  Otherwise you will see the box sliced in one of three
+directions.  The location of the slice can be adjusted by dragging
+the line running along the sides of box near the slice.
+<p>
+The <b>Stopped</b> checkbox will stop the particles.
+<p>
+The <b>Reverse</b> checkbox will reverse the direction of all the
+field vectors.
+<p>
+The <b>Reset</b> button can be used to reset the positions of
+all the particles to random values.
+<p>
+The <b>Kick</b> button can be used to give all the particles a
+random acceleration in some direction.
+This is only allowed if the particle movement is set
+to "Force".  It can be useful if none of the particles are moving,
+or if they are all moving in the same direction.
+<p>
+The <b>Field Strength</b> slider makes the field stronger or weaker,
+and also adjusts the brightness of the field vectors if you
+have <b>Display: Field Vectors</b> selected.
+<p>
+The <b>Vector Density</b> slider controls the number of vectors present
+if you have <b>Display: Field Vectors</b> selected.
+<p>
+The <b>Number of Particles</b> slider allows you to reduce the number
+of particles, which can be useful if you want to watch the behavior of
+just a few of them.  Also it might speed things up if you have fewer
+particles.
+<p>
+A few additional field-specific sliders may be present,
+depending on the field you have selected.
+<p>
+
+
+</div>
+
+
+
+
+
+<!--Footer-->
+<footer id="myFooter">
+<div class="w3-container w3-dark-grey">
+    <p><font size="2"> &emsp; <b>Note:</b> This  is an adaptation of the open-source  code <a href="https://sourceforge.net/p/swingjs/code/HEAD/tree/trunk/src/com/falstad/" target="_blank">Vec3Demo.java</a> written by  Paul Falstad: <a href="http://www.falstad.com/" target="_blank">www.falstad.com</a>.<font></p>
+</div>
+</footer>
+<!--Footer-->
+  
+
+</div>
+<!-- END MAIN -->
+
+
+                                
+</body>
+</html>

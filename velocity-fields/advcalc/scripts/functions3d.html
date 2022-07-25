@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Functions (x,y,z)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Paul Falstad (adapted by Juan Carlos Ponce Campuzano)">
+    
+<!--Style Stars-->
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/w3.css">
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans|Marcellus+SC" rel="stylesheet">
+    
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="icon"/>
+    <style>
+        .center {
+            margin-left:auto;
+            margin-right:auto;
+            width:1065px
+        }
+    </style>
+<!--Style ends-->
+
+<script>
+    function closeWindow() {
+        window.open('','_parent','');
+        window.close();
+    }
+</script>
+
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { equationNumbers: { autoNumber: "AMS" } }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+<script type="text/javascript" async src="https://teaching.smp.uq.edu.au/scims/MathJax/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+
+
+</head>
+<body>
+
+
+<!-- Navbar Stars-->
+<div class="w3-top">
+<div class="w3-bar w3-black w3-top w3-left-align">
+<a href="https://teaching.smp.uq.edu.au/scims" class="w3-bar-item w3-button w3-hover-deep-purple">SciMS - <i class="fa fa-home"></i></a>
+<a href="javascript:closeWindow();" title="Close" class="w3-button w3-hover-deep-purple"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-deep-purple serif"><img src="../../mathcss/uq-logo-only.png" width="21px" ></img> The University of Queensland</a>
+</div>
+</div>
+<!-- Navbar Ends-->
+                                
+                                
+
+                                
+<!-- Main content Stars-->
+<div class="w3-main" style="margin-top:45px">
+                                    
+
+ <div class="w3-container center">
+ <h1>3D Simulation - Functions</h1>
+ <hr>
+ <p>
+ First some basic definitions:
+ $\quad\quad\mathbf F=\left(F_1,F_2,F_3\right)=\nabla U$ </p>
+ <div class="w3-responsive">
+     <table style="width:75%" class="w3-table-all w3-centered">
+         <tr class="w3-dark-grey">
+             <th>Operation</th>
+             <th>Cartesian coordinates $(x,y,z)$</th>
+             <th>Cylindrical coordinates $(r,\theta,z)$</th>
+             <th>Spherical coordinates $(r,\theta,\phi)$, where $\theta$ is the polar and $\phi$ is the azimuthal angle</th>
+         </tr>
+         <tr >
+             <td>$\nabla U$</td>
+             <td>$\mathbf i\,\dfrac{\partial U}{\partial x}+\mathbf j\,\dfrac{\partial U}{\partial y}+\mathbf k\,\dfrac{\partial U}{\partial z}$</td>
+             <td>$\mathbf u_r\,\dfrac{\partial U}{\partial r}+\mathbf u_{\theta}\dfrac{1}{r}\,\dfrac{\partial U}{\partial \theta}+\mathbf u_z\,\dfrac{\partial U}{\partial z}$</td>
+             <td>$\dfrac{\partial U}{\partial r}\mathbf u_r
+                 + \dfrac{1}{r}\dfrac{\partial U}{\partial \theta}\mathbf u_{\theta}
+                 + \dfrac{1}{r\sin \theta}\dfrac{\partial U}{\partial \phi}\mathbf u_{\phi}$</td>
+         </tr>
+         <tr>
+             <td>$\text{div} \,\mathbf F=\nabla\cdot\mathbf F$</td>
+             <td>$\dfrac{\partial F_1}{\partial x}+\dfrac{\partial F_2}{\partial y}+\dfrac{\partial F_3}{\partial z}$</td>
+             <td>$\dfrac{1}{r}\dfrac{\partial (rF_{1})}{\partial r}+\dfrac{1}{r}\dfrac{\partial F_{2}}{\partial \theta}+\dfrac{\partial F_3}{\partial z}$</td>
+             <td>$\dfrac{1}{r^2}\dfrac{\partial \left( r^2 F_1 \right)}{\partial r}
+                 + \dfrac{1}{ r\sin\theta}\dfrac{\partial }{\partial \theta} \left(  F_2\sin\theta \right)
+                 + \dfrac{1 }{r\sin\theta}\dfrac{\partial F_3}{ \partial \phi}$</td>
+         </tr>
+         <tr>
+             <td>$\text{curl}\, \mathbf F=\nabla \times \mathbf F$</td>
+             <td>$\left| \begin{array}{ccc}
+                 \mathbf i &amp; \mathbf j  &amp; \mathbf k \\
+                 \frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y}&amp; \frac{\partial}{\partial z}\\
+                 F_1 &amp; F_2 &amp; F_3 \end{array} \right|$</td>
+             <td>$\dfrac{1}{r}
+                 \left| \begin{array}{ccc}
+                 \mathbf u_r &amp; r\mathbf u_{\theta} &amp; \mathbf u_z\\
+                 \frac{\partial}{\partial r} &amp; \frac{\partial}{\partial \theta} &amp; \frac{\partial}{\partial z} \\
+                 F_1 &amp; r F_{2}  &amp; F_3 \\
+                 \end{array}\right|$</td>
+             <td>$\dfrac{1}{r^2\sin \theta}
+                 \left| \begin{array}{ccc}
+                 \mathbf u_r &amp; r\mathbf u_{\theta} &amp; r\sin \theta\mathbf u_\phi\\
+                 \frac{\partial}{\partial r} &amp; \frac{\partial}{\partial \theta} &amp; \frac{\partial}{\partial \phi} \\
+                 F_1 &amp; r F_{2}  &amp; r\sin\theta F_3 \\
+                 \end{array}\right|$</td>
+         </tr>
+     </table>
+ </div>
+ <hr>
+ <p>
+Next, here is a list of all the vector fields in this simulation:</p>
+<ul>
+<li><b>1/r^2 single</b>:
+        This field is associated with gravity and electrostatic attraction.
+        The gravitational field around a planet and the electric field
+        around a single point charge are similar to this field.
+        The field points towards the origin and is inversely proportional
+        to the square of the distance from the origin.
+     <div class="w3-responsive">
+        \begin{align*}
+        &amp;\mathbf F=-\frac{\mathbf u_r}{r^2}=-\frac{\mathbf r}{r^3}=\left(\frac{-x}{(x^2+y^2+z^2)^{3/2}},\frac{-y}{(x^2+y^2+z^2)^{3/2}},\frac{-z}{(x^2+y^2+z^2)^{3/2}}\right)\quad(r\neq0)\\
+        &amp; U= \frac{1}{r}\quad(r\neq0)\\
+        &amp;\nabla \cdot \mathbf F=0\\
+        &amp; \nabla \times \mathbf F=0
+        \end{align*}
+     </div>
+<li><b>1/r^2 double</b>:
+         This field is associated with gravity and electrostatic attraction.
+         The gravitational field around two planets and the electric field
+         around two negative point charges are similar to this field.
+         The separation of the two centers is adjustable.
+<li><b>1/r single line</b>:
+    This field is associated with electrostatic attraction. If we calculate the electric field around an infinitely long conductor in a straight line with a uniform charge along its length, we find that the field strength is inversely related to the distance from the line.
+    <div class="w3-responsive">
+             \begin{align*}
+             &amp;\mathbf F=\left(-\frac{x}{x^2+y^2+z^2},-\frac{y}{x^2+y^2+z^2},0\right)
+             \end{align*}
+    </div>
+<li><b>1/r double lines</b>:
+        This is the field around two infinitely long conductors.  The distance
+        between them is adjustable.
+<li><b>1/r irrotational</b>:
+            In this field, the particle is being pulled in a circle around the center line. The speed of its motion is inversely proportional to its distance from the line. If we calculate the magnetic field around an infinitely long conductor in a straight line with a uniform current along its length, we find that the field strength is inversely related to the distance from the line.
+     <div class="w3-responsive">
+            \begin{align*}
+            &amp;\mathbf F=\left(-\frac{y}{x^2+y^2+z^2},\frac{x}{x^2+y^2+z^2},0\right)
+            \end{align*}
+    </div>
+<li><b>1/r irrotational double</b>:
+         Here we have two centers of rotation, with an adjustable distance
+         between them.
+<li><b>1/r irrotational double + ext</b>:
+             Same as above, but a constant external field is added in.
+             The strength and angle of the external field is adjustable.
+<li><b>1/r irrotational dipole</b>:
+                 Here we have two centers of rotation, with rotation in
+                 opposite directions, with an adjustable distance between them.
+<li><b>1/r irrotational dipole + ext</b>:
+        Same as above, but a constant external field is added in.
+        The strength and angle of the external field is adjustable.
+       (In fluid dynamics this field is called the
+       <a href="https://josvg.home.xs4all.nl/VDG/lamb-dip.html" class="w3-text-indigo w3-hover-text-blue">Lamb dipole</a>.)
+<li><b>one direction</b>:
+           This is a very simple field where the field vectors are pointing
+           in the same direction everywhere with the same magnitude.
+         <div class="w3-responsive">
+           \begin{align*}
+           &amp;\mathbf F=(a\,\sin\phi \cos\theta,a\,\sin \phi \sin \theta ,a\,\cos \phi)\\
+           &amp;\nabla \cdot \mathbf F=0\\
+           &amp; \nabla \times \mathbf F=0
+           \end{align*}
+        </div>
+<li><b>1/r^2 sphere</b>: This field is associated with gravitational attraction. Consider the gravitational field around a planet. Outside the planet, the field acts as if the planet were a point mass; the field is inversely proportional to the square of the distance from the center of the planet.
+    </br>
+             Outside the planet:
+             <div class="w3-responsive">
+             \begin{align*}
+             &amp;\mathbf F=-\frac{\mathbf r}{r^3}=\left(\frac{-x}{(x^2+y^2+z^2)^{3/2}},\frac{-y}{(x^2+y^2+z^2)^{3/2}},\frac{-z}{(x^2+y^2+z^2)^{3/2}}\right)\quad(r\neq 0)\\
+             &amp; U=\frac{1}{r}\quad(r\neq 0)\\
+             &amp;\nabla \cdot \mathbf F=0\\
+             &amp; \nabla \times \mathbf F=\frac{1}{r^3}
+             \end{align*}
+             </div>
+     Inside the planet (radius = <i>a</i>):
+     <div class="w3-responsive">
+             \begin{align*}
+             &amp;\mathbf F=-\frac{\mathbf r}{a^3}=\left(-\frac{x}{a^3},-\frac{y}{a^3},-\frac{z}{a^3}\right)\quad(a\neq 0)\\
+             &amp;\nabla \cdot \mathbf F=-\frac{2}{a^3}\\
+             &amp; \nabla \times \mathbf F=0
+             \end{align*}
+        </div>
+<li><b>1/r^2 irrotational</b>:
+         In this field, the particle is being pulled in a circle around the
+         center.  The speed of its motion is inversely proportional to the
+         square of the distance from the center.
+         <div class="w3-responsive">
+         \begin{align*}
+         &amp;\mathbf F=\left(-\frac{y}{(x^2+y^2+z^2)^{3/2}},\frac{x}{(x^2+y^2+z^2)^{3/2}},0\right)\\
+         &amp;\nabla \cdot \mathbf F=0
+         \end{align*}
+         </div>
+<li><b>linear irrotational</b>:
+             In this field, the particle is being pulled in a circle around the
+             center.  The speed of its motion is directly proportional to the
+             distance from the center.
+             \begin{align*}
+             &amp;\mathbf F=(-y,x,0)\\
+             &amp;\nabla \cdot \mathbf F=0\\
+             &amp; \nabla \times \mathbf F=\mathbf 2k
+             \end{align*}
+<li><b>helical</b>: here the particles move in a helix.
+    <div class="w3-responsive">
+                 \begin{align*}
+                 &amp;\mathbf F=(-y,x,a)\quad(a\neq0)\\
+                 &amp;\nabla \cdot \mathbf F=0\\
+                 &amp; \nabla \times \mathbf F=\mathbf 2k
+                 \end{align*}
+    </div>
+<li><b>R&ouml;ssler attractor</b>:
+        This is a <a href="http://mathworld.wolfram.com/RoesslerAttractor.html" class="w3-text-indigo w3-hover-text-blue">strange
+            attractor</a> discovered by Otto R&ouml;ssler [<a href="#rossler" class="w3-text-indigo w3-hover-text-blue">1</a>].
+         The parameter <b>c</b> (from the field equations)
+        is adjustable, as well as the scale in the z direction.
+<li><b>Lorenz attractor</b>: this is another <A href="https://www.encyclopediaofmath.org/index.php/Lorenz_attractor" class="w3-text-indigo w3-hover-text-blue">strange attractor</a>,
+    discovered by Edward Lorenz [<a href="#lorenz" class="w3-text-indigo w3-hover-text-blue">2</a>].  You can make
+       the attractor pattern larger or smaller by adjusting the scale.
+<li><b>user-defined potential</b>: this allows you to enter an arbitrary potential function into a text box.  The field vectors will be calculated from it.  A sample potential is <tt>x*x-z*z</tt>, which is a saddle potential.  Here are some other sample expressions, to give you an idea of the input format:
+<div class="w3-margin-left">
+<tt>
+x+y-z</br>
+-x^2+5.2*y</br>
+2*sin(x)+3*y</br>
+1000/(r^2)-5*z</br>
+abs(x)</br>
+exp(2*log(x+10))+sqrt(y+10)</br>
+</tt></br>
+</div>
+After entering a new potential, press return so that the change
+takes effect.  If nothing happens, then the field may be too weak; either
+increase the field strength, or multiply the field by a large constant.
+If particles jump around randomly with no apparent pattern, the field
+may be too strong.
+</br>
+Each coordinate ranges
+from -10 to 10, so the edges of the box are at (&plusmn;10,&plusmn;10,&plusmn;10).
+The center of the box is the origin.
+<li><b>user-defined field</b>: this allows you to enter
+               an arbitrary field into text boxes (one for each coordinate).
+               If you try to enter some of the predefined fields (like <tt>(yz,xz,0)</tt>)
+               into the text boxes so you can modify them, keep in mind that the
+               correct input format is <tt>y*z</tt>, not <tt>yz</tt>.  Also the field
+               will not appear exactly the same, because many of the predefined
+               fields have a constant scaling factor that isn't reflected in the name
+               of the field.
+</ul>
+  <hr>
+  
+</div>
+
+
+<div class="w3-container center">
+    <h2>References</h2>
+    <p id="rossler">[1] Rössler, Otto E. (1976). <i>An Equation for Continuous Chaos.</i> Physics Letters, 57<b>A</b> (5): 397–398. <a href="https://doi.org/10.1016/0375-9601(76)90101-8" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+    <p id="lorenz">[2] Lorenz Edward N. (1963).
+    <i>Deterministic Nonperiodic Flow.</i> Journal of the Atmospheric Sciences. <b>20</b>(2): 130–141. <a href="http://journals.ametsoc.org/doi/abs/10.1175/1520-0469%281963%29020%3C0130%3ADNF%3E2.0.CO%3B2" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+    <p>[3] Marsden, J. E.; Tromba. A. J. (2012). <i>Vector Calculus.</i> 6th ed. USA: W. H. Freeman and Company.</p>
+    <p>[4] Trench, W. F. (2013). <i>Elementary Differential Equations with Boundary Value Problems.</i> Books and Monographs. <a href="http://digitalcommons.trinity.edu/mono/9" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+</div>
+
+
+
+
+
+<!--Footer-->
+<footer id="myFooter">
+<div class="w3-container w3-dark-grey center">
+    <p><font size="2"> &emsp; <b>Note:</b> This  is an adaptation of the open-source  code <a href="https://sourceforge.net/p/swingjs/code/HEAD/tree/trunk/src/com/falstad/" target="_blank" >Vec3Demo.java</a> written by  Paul Falstad: <a href="http://www.falstad.com/" target="_blank">www.falstad.com</a>.</font.</p>
+</div>
+</footer>
+<!--Footer-->
+  
+
+</div>
+<!-- END MAIN -->
+
+
+                                
+</body>
+</html>

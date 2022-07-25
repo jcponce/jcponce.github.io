@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <title>Vector fields in 3d Full page</title>
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Paul Falstad (adapted by Juan Carlos Ponce Campuzano)">
+    
+    
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="icon"/>
+    
+   
+
+<script type="text/javascript" src="./jquery/jquery.js"></script>
+  <script type="text/javascript" src="./js/j2sJQueryExt.js"></script>
+  
+  <script type="text/javascript" src="./js/j2sApplet.js"></script>
+  <script type="text/javascript" src="./js/j2sSwingJS.js"></script>
+  <script type="text/javascript" src="./js/SJSApplet.js"></script>
+  
+  <script type="text/javascript">
+      
+      ////J2S._checkLoad = true;
+      
+      J2S._isAsync = false;
+      
+      J2S.getProfile() // records repeat calls to overridden or overloaded Java methods
+      
+      // use ?_USE=JAVA or _USE=SIGNED or _USE=HTML5
+      
+      var app ;
+      
+      jmol_isReady = function(applet) {
+          J2S._getElement(applet, "appletdiv").style.border="1px solid blue"
+          app = applet;
+      }
+  
+  Info = {
+      code: "com.falstad.Vec3Demo",
+      width: $(window).width()-20,
+      height: $(window).height()-20,
+      debug: false,
+      color: "#F0F0F0",
+      zIndexBase: 20000,
+      z:{monitorZIndex:100},
+      serverURL: "./jmol/jsmol/php/jsmol.php",
+      use: "HTML5",
+      j2sPath: "./j2s",
+      //jarPath: "http://www.falstad.com/swingjs/java",
+      //	jarFile: "JStest.jar",
+      isSigned: false,
+      disableJ2SLoadMonitor: false,
+      disableInitialConsole: false,
+      useFrame:"false",
+      readyFunction: jmol_isReady,
+      allowjavascript: true
+  }
+  
+  function dateTest() {
+      
+      Class.loadClass()
+      
+      Class.loadClass(
+                      "java.text.SimpleDateFormat",
+                      function() {
+                      alert(new java.text.SimpleDateFormat($("#date").val()).format(new Date))
+                      }
+                      );
+  }
+  
+  function resized() {
+      app._resizeApplet([$(window).width()-20,$(window).height()-20]);
+  }
+  
+  var tmout;
+  $(window).resize(function() {
+                   clearTimeout(tmout);
+                   tmout = setTimeout(resized, 200);
+                   });
+
+      </script>
+</head>
+ <body>
+<script>
+ SwingJS.getApplet("Vector", Info)
+</script>
+    </div>
+    </body>
+</html>
+

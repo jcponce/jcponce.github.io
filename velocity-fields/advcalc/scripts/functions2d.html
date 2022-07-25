@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Functions (x,y)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Paul Falstad (adapted by Juan Carlos Ponce Campuzano)">
+    
+<!--Style Stars-->
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/w3.css">
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans|Marcellus+SC" rel="stylesheet">
+    
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="icon"/>
+<!--Style ends-->
+
+<script>
+    function closeWindow() {
+        window.open('','_parent','');
+        window.close();
+    }
+</script>
+
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { equationNumbers: { autoNumber: "AMS" } }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+<script type="text/javascript" async src="https://teaching.smp.uq.edu.au/scims/MathJax/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+
+
+</head>
+<body>
+
+
+<!-- Navbar Stars-->
+<div class="w3-top">
+<div class="w3-bar w3-black w3-top w3-left-align">
+<a href="https://teaching.smp.uq.edu.au/scims" class="w3-bar-item w3-button w3-hover-deep-purple">SciMS - <i class="fa fa-home"></i></a>
+<a href="javascript:closeWindow();" title="Close" class="w3-button w3-hover-deep-purple"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-deep-purple serif"><img src="../../mathcss/uq-logo-only.png" width="21px" ></img> The University of Queensland</a>
+</div>
+</div>
+<!-- Navbar Ends-->
+                                
+                                
+
+                                
+<!-- Main content Stars-->
+<div class="w3-main" style="margin-top:45px">
+ <div class="w3-container">
+ <h1>2D simulation - Functions</h1>
+ <hr>
+ <p>
+ First some basic definitions: </p>
+ <div class="w3-responsive">
+ \begin{align*}
+ &amp;\mathbf F=\left(F_1,F_2\right)=\nabla U=\mathbf i\,\frac{\partial U}{\partial x}+\mathbf j\,\frac{\partial U}{\partial y}=\mathbf u_r\,\frac{\partial U}{\partial r}+\mathbf u_{\theta}\,\frac{1}{r}\frac{\partial U}{\partial \theta}\\
+ &amp; \text{div} \,\mathbf F=\nabla\cdot\mathbf F=\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y}=\frac{1}{r}\frac{\partial (rF_{1})}{\partial r}+\frac{1}{r}\frac{\partial F_{2}}{\partial_{\theta}}\\
+ &amp;\text{curl}\, \mathbf F=\nabla \times \mathbf F=\left(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y}\right)\mathbf k=\frac{1}{r}\left[\frac{\partial (rF_{2})}{\partial r}-\frac{\partial F_1}{\partial_{\theta}}\right]\mathbf k
+ \end{align*}
+ </div>
+ <hr>
+ <p>
+Next, here is a list of all the vector fields in this simulation: </p>
+<ul>
+<li><b>1/r single line</b>:
+         This field is the electric field around an infinitely long line of
+         charge.  It is inversely proportional to the distance from the line.
+    <div class="w3-responsive">
+         \begin{align*}
+         &amp;\mathbf F=-\frac{\mathbf u_r}{r}=-\frac{\mathbf r}{r^2}=\left(-\frac{x}{x^2+y^2},-\frac{y}{x^2+y^2}\right)\quad(r\neq0)\\
+         &amp; U= -\log r\quad(r\neq0)\\
+         &amp;\nabla \cdot \mathbf F=0\\
+         &amp; \nabla \times \mathbf F=0
+         \end{align*}
+    </div>
+         This is a two-dimensional cross section of a three-dimensional field.
+         In three dimensions, the divergence of this field is nonzero; but in
+         this cross section, the divergence is zero everywhere except the
+         origin.  (It is important to realize that the two-dimensional
+         divergence of a field can be different than its three-dimensional divergence.)<p>
+         
+<li><b>1/r double lines</b>:
+             This is the field around two infinitely long conductors.  The distance
+             between them is adjustable.
+
+<li><b>1/r^2 single</b>:
+                 This field is associated with gravity and electrostatic attraction.
+                 The gravitational field around a planet and the electric field
+                 around a single point charge are similar to this field.
+                 The field points towards the origin and is inversely proportional
+                 to the square of the distance from the origin.
+         <div class="w3-responsive">
+         \begin{align*}
+                 &amp;\mathbf F=-\frac{\mathbf u_r}{r^2}=-\frac{\mathbf r}{r^3}=\left(-\frac{x}{(x^2+y^2)^{3/2}},-\frac{y}{(x^2+y^2)^{3/2}}\right)\quad(r\neq0)\\
+                 &amp; U= \frac{1}{r}\quad(r\neq0)\\
+                 &amp;\nabla \cdot \mathbf F=\frac{1}{r^3}\\
+                 &amp; \nabla \times \mathbf F=0
+                 \end{align*}
+        </div>
+This is a two-dimensional cross section of a three-dimensional field.
+In three dimensions, the divergence of this field is zero except at
+the origin; but in this cross section, the divergence is positive everywhere (except at the origin, where it is negative).
+
+<li><b>1/r^2 double</b>:
+                     This field is associated with gravity and electrostatic attraction.
+                     The gravitational field around two planets and the electric field
+                     around two negative point charges are similar to this field.
+                     The separation of the two centers is adjustable.
+<li><b>1/r rotational</b>:
+         In this field, the particle is being pulled in a circle around the
+         center.  The speed of its motion is inversely proportional to its
+          distance from the line.  This is the magnetic field of an infinitely
+          long current-carrying wire.
+           </br>
+        The divergence of this field is zero everywhere as we would expect
+        for a magnetic field.  Surprisingly, the curl is also zero everywhere
+        except at the origin, even though the particles are clearly moving in a circle.
+         To see why, set the particle movement to "Curl Detectors".  You can see that even though the particles are moving in a circle, the particles themselves
+                         are not turning.  This is because the force on the far side of the
+                         particles (the side away from the center) is slightly weaker than
+                         the force on the near side; this is just enough to cause the particles
+                         to turn slightly in the opposite direction of the force.  This
+                         counterbalances the rotation caused by the circular motion of the
+                         particles.  So, the particles remain pointed in the same
+                         direction as they go around in a circle.
+                         </br>
+                         Since the curl is nonzero at the origin, we cannot come up with a potential
+                         function for this field.
+                  <div class="w3-responsive">
+                         \begin{align*}
+                         &amp;\mathbf F=-\frac{\mathbf u_{\theta}}{r}=\frac{1}{r^2}(-y,x)=\left(-\frac{y}{x^2+y^2},\frac{x}{x^2+y^2}\right)\quad(r\neq0)\\
+                         &amp;\nabla \cdot \mathbf F=0\\
+                         &amp; \nabla \times \mathbf F=0
+                         \end{align*}
+                    </div>
+<li><b>1/r rotational potential</b>:
+              This field is an attempt to represent the inverse rotational field
+              using a potential.  Because of the discontinuity at the center,
+              this is the best we can do.  We come close to the inverse rotational
+              field except that there is a line at the top which the particles
+              cannot cross.
+            <div class="w3-responsive">
+              \begin{align*}
+              &amp; U=\theta\quad(\theta\neq0)\\
+              &amp;\mathbf F=-\frac{\mathbf u_{\theta}}{r}=\frac{1}{r^2}(-y,x)=\left(-\frac{y}{x^2+y^2},\frac{x}{x^2+y^2}\right)\quad(r\neq0)\\
+              &amp;\nabla \cdot \mathbf F=0\\
+              &amp; \nabla \times \mathbf F=0
+               \end{align*}
+            </div>
+<li><b>1/r rotational double</b>:
+              Here we have two centers of rotation, with an adjustable distance
+              between them.
+<li><b>1/r rotational double + ext</b>:
+              Same as above, but a constant external field is added in.
+              The strength and angle of the external field is adjustable.
+<li><b>1/r rotational dipole</b>:
+              Here we have two centers of rotation, with rotation in
+              opposite directions, with an adjustable distance between them.
+<li><b>1/r rotational dipole + ext</b>:
+              Same as above, but a constant external field is added in.
+              The strength and angle of the external field is adjustable.
+              (In fluid dynamics this field is called the <a href="https://josvg.home.xs4all.nl/VDG/lamb-dip.html" target="_blank" class="w3-text-indigo w3-hover-text-blue">Lamb dipole</a>).
+<li><b>one direction</b>:
+              This is a very simple field where the field vectors are pointing
+              in the same direction everywhere with the same magnitude.
+              \begin{align*}
+              &amp;\mathbf F=a\,\mathbf i=(a,0)\\
+              &amp; U=a\,x\\
+              &amp;\nabla \cdot \mathbf F=0\\
+              &amp; \nabla \times \mathbf F=0
+              \end{align*}
+<li><b>1/r^2 sphere</b>:
+             This field is associated with gravitation.
+             Consider the gravitational field around a planet.
+             Outside the planet, the field acts as if the planet were a point
+             mass; the field is inversely proportional to the square of the
+             distance from the center of the planet.  Inside the planet, the
+             field is linear to the distance from the center of the planet.
+             </br>
+             Outside the planet:
+             <div class="w3-responsive">
+             \begin{align*}
+             &amp;\mathbf F=-\frac{\mathbf r}{r^3}=\left(-\frac{x}{(x^2+y^2)^{3/2}},-\frac{y}{(x^2+y^2)^{3/2}}\right)\quad(r\neq0)\\
+             &amp; U=\frac{1}{r}\quad(r\neq0)\\
+             &amp;\nabla \cdot \mathbf F=\frac{1}{r^3}\\
+             &amp; \nabla \times \mathbf F=0
+             \end{align*}
+            </div>
+             Inside the planet (radius = <i>a</i>):
+             <div class="w3-responsive">
+             \begin{align*}
+             &amp;\mathbf F=-\frac{\mathbf r}{a^3}=\left(-\frac{x}{a^3},-\frac{y}{a^3}\right)\quad(a\neq0)\\
+             &amp; U=\frac{3}{2a}-\frac{r^2}{2a^3}\quad(a\neq0)\\
+             &amp;\nabla \cdot \mathbf F=-\frac{2}{a^3}\\
+             &amp; \nabla \times \mathbf F=0
+             \end{align*}
+              </div>
+<li><b>const radial</b>:
+            In this field, the particle is being pulled towards the center
+            with a constant force no matter where it is.
+            <div class="w3-responsive">
+             \begin{align*}
+             &amp;\mathbf F=a\,\mathbf u_r\\
+             &amp; U=-a\,r\\
+             &amp;\nabla \cdot \mathbf F=-\frac{a}{r}\quad(r\neq0)\\
+             &amp; \nabla \times \mathbf F=0
+             \end{align*}
+             </div>
+<li><b>linear radial</b>:
+            In this field, the particle is being pulled towards the center
+            with a force proportional to its distance from the center, similar
+            to the force on an object attached to a spring.  This force
+            looks more interesting when <b>Display: Particles (Force)</b> is
+            used instead of a velocity field.
+            <div class="w3-responsive">
+\begin{align*}
+&amp;\mathbf F=-k\,r \,\mathbf u_r\\
+&amp; U=-\frac12 k\, r^2\\
+&amp;\nabla \cdot \mathbf F=-2kr\\
+&amp; \nabla \times \mathbf F=0
+\end{align*}
+</div>
+<li><b>inverse to y axis</b>:
+          There is a force
+          towards the y axis inversely proportional to the distance.
+          <div class="w3-responsive">
+          \begin{align*}
+          &amp;\mathbf F=-\frac{1}{x}\mathbf i\quad(x\neq0)\\
+          &amp; U=\frac{1}{2x^2}\quad(x\neq0)\\
+          &amp;\nabla \cdot \mathbf F=\frac{1}{x^2}\\
+          &amp; \nabla \times \mathbf F=0
+          \end{align*}
+          </div>
+<li><b>1/r^2 rotational</b>:
+    In this field, the particle is being pulled in a circle around the
+    center.  The speed of its motion is inversely proportional to the
+    square of the distance from the center.
+     </br>
+    The curl of this field is nonzero everywhere as we might
+    expect for a field that causes particles to rotate.  However,
+    note that the curl is <i>negative</i> everywhere (except at the center);
+    this means that the curl vector is in the negative z direction, which implies clockwise
+    movement.  This is surprising, since the particles are clearly
+    moving counter-clockwise.  To see why this is,
+    set the particle movement to "Curl Detectors".  You can see that even
+    though the particles are moving counter-clockwise, the particles themselves
+    are turning very slowly in a <i>clockwise</i> direction.
+    This is because the force on the far side of the
+    particles (the side away from the center) is weaker than
+    the force on the near side; this is enough to cause the particles
+    to turn slightly in the opposite direction of the force.  This
+    more than makes up for the counter-clockwise
+    rotation caused by the motion of the particles.
+    <div class="w3-responsive">
+    \begin{align*}
+    &amp;\mathbf F=-\frac{\mathbf u_{\theta}}{r^2}=\frac{1}{r^3}(-y,x)=\left(-\frac{y}{(x^2+y^2)^{3/2}},\frac{x}{(x^2+y^2)^{3/2}}\right)\\
+    &amp; \nabla \times \mathbf F=-\frac{\mathbf k}{r^3}\quad (r\neq 0)\\
+    &amp;\nabla \cdot \mathbf F=0
+    \end{align*}
+    </div>
+<li><b>pendulum potential</b>:
+              Consider a pendulum which is free to move in both the $x$ and $y$ direction.
+              We can describe its position using the angle it makes with the positive
+              $x$ axis (theta) and the angle it makes with the $xy$ plane (phi).
+              Its potential energy is determined by its height, which is equal to
+              $h-l \cos(\text{theta}) \cos(\text{phi})$ where $l$ is the length of the pendulum and
+              $h$ is the height of the support it is attached to.
+              </br>
+              If we replace theta with $x$ and phi with $y$, then we can graph the
+              potential energy, and we can treat the force on the pendulum
+              as a vector field, and see how particles act when placed in the
+              vector field.
+              </br>
+              In the simulation, the angles range from $-\pi$ to $\pi$ ($-180^{\circ}$ to $180^{\circ}$).  The
+              center of the graph is when both angles are zero and the pendulum
+              is at rest.  If you
+              set the particle movement to "Force", you can see the particles swing
+              back and forth like a pendulum would.  You can see this better if you
+              set the number of particles to a small number.
+              </br>
+              If you set the floor
+              colors to "Potential", you can see a white line around the center
+              red area; this is the point where one or both of the angles is at 90
+              degrees; in this case the pendulum is at the same height as its support
+              and it doesn't matter what the other angle is.  In the green areas,
+              the pendulum is actually above its support.
+              </br>
+              Sometimes the particles
+              manage to make it over the top of the hills on either side; this
+              corresponds to a pendulum swinging up and over the top.
+              <div class="w3-responsive">
+              \begin{align*}
+              &amp; U=\cos x\cos y\\
+              &amp;\mathbf F=(-\sin x\cos y,-\cos x \sin y)\\
+              &amp;\nabla \cdot \mathbf F=-2\cos x \cos y\\
+              &amp; \nabla \times \mathbf F=0
+              \end{align*}
+              </div>
+<li><b>user-defined potential</b>: this allows you to enter
+an arbitrary potential function into a text box.  The field vectors
+will be calculated from it.  A sample potential is <tt>x*x-y*y</tt>,
+which is a saddle potential.  Here are some other sample expressions,
+to give you an idea of the input format:
+<div class="w3-margin-left">
+<tt>
+x+y</br>
+-x^2+5.2*y</br>
+2*sin(x)+3*y</br>
+1000/(r^2)-5*y</br>
+abs(x)</br>
+exp(2*log(x+10))+sqrt(y+10)</br>
+</tt></br>
+</div>
+After entering a new potential, press return so that the change
+takes effect.  If nothing happens, then the field may be too weak; either
+increase the field strength, or multiply the field by a large constant.
+If particles jump around randomly with no apparent pattern, the field
+may be too strong.
+</br>
+Each coordinate ranges from -10 to 10, so the edges of the view are at (&plusmn;10,&plusmn;10). The center of the view is the origin.
+<li><b>user-defined field</b>: this allows you to enter
+     an arbitrary field into text boxes (one for each coordinate).
+    If you try to enter some of the predefined fields (like <tt>(x,x2)</tt>)
+    keep in mind that the fields will not appear exactly the same,
+    because many of the predefined
+    fields have a constant scaling factor that isn't reflected in the name
+    of the field.
+</ul>
+
+<hr>
+  
+</div>
+
+
+<div class="w3-container">
+    <h2>References</h2>
+    <p>[1] Marsden, J. E.; Tromba. A. J. (2012). <i>Vector Calculus.</i> 6th ed. USA: W. H. Freeman and Company.</p>
+    <p>[2] Trench, W. F. (2013). <i>Elementary Differential Equations with Boundary Value Problems.</i> Books and Monographs. <a href="http://digitalcommons.trinity.edu/mono/9" target="_blank" title="Open link" class="w3-text-indigo w3-hover-text-blue"><i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+</div>
+
+
+
+
+
+<!--Footer-->
+<footer id="myFooter">
+<div class="w3-container w3-dark-grey">
+    <p><font size="2"> &emsp; <b>Note:</b> This  is an adaptation of the open-source  code <a href="https://sourceforge.net/p/swingjs/code/HEAD/tree/trunk/src/com/falstad/" target="_blank" >VecDemo.java</a> written by  Paul Falstad: <a href="http://www.falstad.com/" target="_blank">www.falstad.com</a>.</font></p>
+</div>
+</footer>
+<!--Footer-->
+  
+
+</div>
+<!-- END MAIN -->
+
+
+                                
+</body>
+</html>

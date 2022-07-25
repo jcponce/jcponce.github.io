@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Vector fields</title>
+<meta charset="UTF-8">
+<meta name="description" content="Vector fields with simulation">
+<meta name="author" content="Juan Carlos Ponce Campuzano">
+<meta name="language" content="en"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<!--Style Stars-->
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/w3.css">
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans|Marcellus+SC" rel="stylesheet">
+    
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="icon"/>
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/loading.css"><!--this adds a loading spinner-->
+
+<!--Style ends-->
+        
+<script src="https://teaching.smp.uq.edu.au/scims/mathcss/jquery.min.js"></script><!--this is needed for  loading the spinner-->
+        
+<!--GeoGebra embeding-->
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+        
+<script>
+    var applet1 = new GGBApplet({material_id: "cXgNb58T", borderColor:"888888", enableShiftDragZoom: "true", playButton: "true", showFullscreenButton:"true"}, true);
+  var applet2 = new GGBApplet({material_id: "wfjp6q8g", borderColor:"888888", enableShiftDragZoom: "true", playButton: "true", showFullscreenButton:"true"}, true);
+      window.addEventListener("load", function() {
+        applet1.inject('applet_container1');
+        applet2.inject('applet_container2');
+         });
+</script>
+<!--GeoGebra embeding ends-->
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { equationNumbers: { autoNumber: "AMS" } }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+    MathJax.Hub.Config({
+                       displayAlign: "left",
+                       displayIndent: "5em"
+                       });
+    </script>--->
+<script type="text/javascript" async src="../MathJax/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+
+</head>
+<body>
+    
+<!-- Navbar Stars-->
+<div class="w3-top">
+<div class="w3-bar w3-black w3-top w3-left-align">
+<a href="https://teaching.smp.uq.edu.au/scims" class="w3-bar-item w3-button w3-hover-deep-purple">SciMS - <i class="fa fa-home"></i></a>
+<a href="https://teaching.smp.uq.edu.au/scims/#course=Adv_calculus&lecture=introduction" class="w3-button w3-hover-deep-purple">Advanced Calculus</a>
+<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-deep-purple serif"><img src="../mathcss/uq-logo-only.png" width="21px" ></img> The University of Queensland</a>
+</div>
+</div>
+<!-- Navbar Ends-->
+
+<!-- Main content Stars-->
+<div class="w3-main" style="margin-top:45px">
+        
+ <div class="w3-container">
+     <h1>Vector fields</h1>
+     <hr>
+     <p>
+     In vector calculus, a vector field is an assignment of a vector to each point in a subset of space. A vector field in the plane (for instance), can be visualised as: a collection of arrows with a given magnitude and direction, each attached to a point in the plane. Vector fields are often used to model, for example, the speed and direction of a moving fluid throughout space, or the strength and direction of some force, such as the magnetic or gravitational force, as it changes from point to point.
+     </p>
+     
+     <p>
+     The following simulations are designed to plot  vector fields  in 2D and 3D.
+     </p>
+     <hr>
+</div>
+ 
+<div class="w3-container">
+<h2>Vector Field Plotter in 2D</h2>
+     <p>
+     Instructions:
+     <ul>
+         <li>Change the <b>Scale</b>  or <b>Vectors</b> density to provide a better visualisation of the vector field.</li>
+         <li>Zoom In or Out (or drag the plane) to change the domain. </li>
+         <li>Change the components of the vector field $\mathbf F=F_1\,\mathbf i+F_2\,\mathbf j$.</br><p>
+             &emsp;<b>Example:</b> F<sub>1</sub>=<tt>x^2*sin(y)</tt> F<sub>2</sub>=<tt>sqrt(y^2+x)*exp(x/y)</tt></li>
+     </ul>
+     </p>
+    
+<div class="w3-hide-small">
+    <div style="width:539px;height:481px;display:block;z-index:0" id="applet_container1"></div>
+</div>
+<div class="w3-container w3-hide-large w3-hide-medium w3-panel w3-card w3-yellow">
+<p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Sorry, the simulation is  not supported for small screens.</p>
+</div>
+
+<br/>
+
+<a href="https://ggbm.at/cXgNb58T" target="_blank" title="Open tab" class="w3-btn w3-ripple w3-grey w3-hover-text-white w3-medium">Open separate tab <i class="fa fa-external-link w3-hover-text-blue" aria-hidden="true"></i></a>
+
+<a href="https://www.geogebra.org/material/show/id/cXgNb58T" target="_blank" title="Download" class="w3-btn w3-ripple w3-grey w3-hover-text-white w3-medium">Download <i class="fa fa-download w3-hover-text-white" aria-hidden="true"></i></a>
+
+<hr>
+
+</div>
+
+<div class="w3-container">
+<h2>Vector Field Plotter in 3D</h2>
+     
+<p>
+Instructions:
+     <ul>
+         <li>Change the <b>Scale</b> to provide a better visualisation of the vector field. </li>
+         <li>Use right click and drag the mouse to rotate the 3D view.</li>
+         <li>Change the components of the vector field defined as $\mathbf F=F_1\,\mathbf i+F_2\,\mathbf j+F_3\,\mathbf k$.</br><p>
+             &emsp;<b> Example:</b>  F<sub>1</sub>=<tt>x^2*sin(y)</tt> F<sub>2</sub>=<tt>sqrt(y^2+z)*exp(x/y)</tt> F<sub>3</sub>=<tt>log(x-y+z)</tt></li>
+     </ul>
+     </p>
+     
+<div class="w3-hide-small">
+    <div style="width:739px;height:481px;display:block;z-index:0" id="applet_container2"></div>
+</div>
+<div class="w3-container w3-hide-large w3-hide-medium w3-panel w3-card w3-yellow">
+    <p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Sorry, the simulation is  not supported for small screens.</p>
+</div>
+
+<br/>
+
+<a href="https://ggbm.at/KKB2Ndez" target="_blank" title="Open tab" class="w3-btn w3-ripple w3-grey w3-hover-text-white w3-medium">Open separate tab <i class="fa fa-external-link w3-hover-text-blue" aria-hidden="true"></i></a>
+
+<a href="https://www.geogebra.org/material/show/id/KKB2Ndez" target="_blank" title="Download" class="w3-btn w3-ripple w3-grey w3-hover-text-white w3-medium">Download <i class="fa fa-download w3-hover-text-white" aria-hidden="true"></i></a>
+
+<hr>
+
+</div>
+
+
+<div class="w3-container">
+    
+    <h2>Worksheet exemplar</h2>
+    <p>
+    The following file contains activities and problems associated with the simulations.
+    <ul>
+        <li><a href="../mathsexemplars/advancedcalculus/vectorfield/vectorfield.pdf" target="_blank" title="Worksheet exemplar pdf" class="w3-hover-text-blue">Vector fields (pdf) <i class="fa fa-download w3-hover-text-blue" aria-hidden="true"></i></a>  </li>
+        <li><a href="../mathsexemplars/advancedcalculus/vectorfield/vectorfieldtex.zip" target="_blank" title="Worksheet exemplar tex" class="w3-hover-text-blue" download>Vector fields (tex) <i class="fa fa-download w3-hover-text-blue" aria-hidden="true"></i></a>  </li>
+    </ul>
+    </p>
+    
+    
+</div>
+
+<!--Footer-->
+<footer id="myFooter">
+    <div class="w3-container w3-dark-grey">
+        <p></p>
+    </div>
+</footer>
+<!--Footer-->
+
+
+</div>
+<!-- END MAIN -->
+
+<script language="javascript" type="text/javascript">
+    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+    $(window).on('load', function(){
+                 setTimeout(removeLoader, 3000); //wait for page load PLUS two seconds.
+                 });
+    function removeLoader(){$( "#loadingDiv" ).fadeOut(600, function() {// fadeOut complete. Remove the loading div
+        $( "#loadingDiv" ).remove(); //makes page more lightweight
+         });
+       }
+</script>
+
+</body>
+</html>
+
+
+
+

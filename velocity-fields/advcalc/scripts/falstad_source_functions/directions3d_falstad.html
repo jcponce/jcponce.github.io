@@ -1,0 +1,295 @@
+
+<title>3-D Vector Field Applet Directions</title>
+<body>
+    <hr>
+    <a href="index.html">Click here to go to the applet.</a>
+    <p>
+    This applet demonstrates various properties of
+    <a href="http://www.barcodesinc.com/articles/resource-guide-to-vector-calculus.htm">vector fields</a>.
+    You can select from a number of vector fields and see how
+    particles move if it is treated as either a velocity
+    or a force field.  This helps you visualize the field.
+    <p>
+    When you start the applet, you will see 500 particles moving in the
+    <tt>"1/r^2 single"</tt> field, which is a field that attracts
+    particles to the center.  By default the
+    particles are treating the field as a <i>velocity</i> field, which means
+    that the field vectors determine how fast the particles are moving and in
+    what direction.  In this case, the particles just move toward the center.
+    The velocity of all the particles at a certain point
+    on the grid is always the same.  If the field is a <i>force</i> field, then the
+    field vectors determine the acceleration of the particles, but their velocity
+    may vary depending on where they started.
+    <p>
+    The <b>Field Selection</b> popup will allow you to select a
+    vector field.  The choices are:
+    <ul>
+        <li><b>1/r^2 single</b>:
+            This field is associated with gravity and electrostatic attraction.
+            The gravitational field around a planet and the electric field
+            around a single point charge are similar to this field.
+            The field points towards the origin and is inversely proportional
+            to the square of the distance from the origin.
+            <br><img src="http://www.falstad.com/vector3d/f1r2.gif" vspace=10>
+                <li><b>1/r^2 double</b>:
+                    This field is associated with gravity and electrostatic attraction.
+                    The gravitational field around two planets and the electric field
+                    around two negative point charges are similar to this field.
+                    The separation of the two centers is adjustable.
+                    <li><b>1/r single line</b>:
+                        This field is associated with electrostatic attraction.
+                        If we calculate the electric field around an infinitely long conductor
+                        in a straight line with a uniform charge along its length, we find that
+                        the field strength is
+                        inversely related to the distance from the line.
+                        <br><img src="f1r.gif" vspace=10>
+                            <li><b>1/r double lines</b>:
+                                This is the field around two infinitely long conductors.  The distance
+                                between them is adjustable.
+                                <li><b>1/r rotational</b>:
+                                    In this field, the particle is being pulled in a circle around the
+                                    center line.  The speed of its motion is inversely proportional to its
+                                    distance from the line.
+                                    If we calculate the magnetic field around an infinitely long conductor
+                                    in a straight line with a uniform current along its length, we find that
+                                    the field strength is
+                                    inversely related to the distance from the line.
+                                    <br><img src="fth1r.gif" vspace=10>
+                                        <li><b>1/r rotational double</b>:
+                                            Here we have two centers of rotation, with an adjustable distance
+                                            between them.
+                                            <li><b>1/r rotational double + ext</b>:
+                                                Same as above, but a constant external field is added in.
+                                                The strength and angle of the external field is adjustable.
+                                                <li><b>1/r rotational dipole</b>:
+                                                    Here we have two centers of rotation, with rotation in
+                                                    opposite directions, with an adjustable distance between them.
+                                                    <li><b>1/r rotational dipole + ext</b>:
+                                                        Same as above, but a constant external field is added in.
+                                                        The strength and angle of the external field is adjustable.
+                                                        (In fluid dynamics this field is called the
+                                                        <a href="http://www.fluid.tue.nl/users/jos/VDG/lamb-dip.html">Lamb
+                                                            dipole</a>.)
+                                                        <li><b>one direction</b>:
+                                                            This is a very simple field where the field vectors are pointing
+                                                            in the same direction everywhere with the same magnitude.
+                                                            <br><img src="fax.gif" vspace=10>
+                                                                <li><b>1/r^2 sphere</b>:
+                                                                    This field is associated with gravitational attraction.
+                                                                    Consider the gravitational field around a planet.
+                                                                    Outside the planet, the field acts as if the planet were a point
+                                                                    mass; the field is inversely proportional to the square of the
+                                                                    distance from the center of the planet.
+                                                                    <br><img src="fsphere.gif" vspace=10>
+                                                                        <li><b>const radial</b>:
+                                                                            In this field, the particle is being pulled towards the center
+                                                                            with a constant force no matter where it is.  I am not aware of
+                                                                            any real physical force that behaves like this, but if there were
+                                                                            one, this is what it would look like.
+                                                                            <br><img src="far.gif" vspace=10>
+                                                                                <li><b>linear radial</b>:
+                                                                                    In this field, the particle is being pulled towards the center
+                                                                                    with a force proportional to its distance from the center, similar
+                                                                                    to the force on an object attached to a spring.
+                                                                                    This force
+                                                                                    looks more interesting when <b>Display: Particles (Force)</b> is
+                                                                                    used instead of a velocity field.
+                                                                                    <br><img src="fkrr.gif" vspace=10>
+                                                                                        <li><b>constant to z axis</b>:
+                                                                                            In this field, the field vectors are pointing
+                                                                                            towards the z axis with the same magnitude everywhere.
+                                                                                            <li><b>constant to xy plane</b>:
+                                                                                                The field vectors are pointing
+                                                                                                towards the xy plane with the same magnitude everywhere.
+                                                                                                <br><img src="fabs.gif" vspace=10>
+                                                                                                    <li><b>linear to z axis</b>:
+                                                                                                        The field vectors are pointing
+                                                                                                        towards the z axis with a force proportional to the distance
+                                                                                                        to that axis.
+                                                                                                        This force
+                                                                                                        looks more interesting when <b>Display: Particles (Force)</b> is
+                                                                                                        used instead of a velocity field.
+                                                                                                        <li><b>linear to xy plane</b>:
+                                                                                                            The field vectors are pointing
+                                                                                                            towards the xy plane with a force proportional to the distance
+                                                                                                            to that plane.
+                                                                                                            This force
+                                                                                                            looks more interesting when <b>Display: Particles (Force)</b> is
+                                                                                                            used instead of a velocity field.
+                                                                                                            <br><img src="fkx.gif" vspace=10>
+                                                                                                                <li><b>linear to yz, xz plane</b>:
+                                                                                                                    There is a force
+                                                                                                                    towards the yz plane proportional to the distance
+                                                                                                                    to that plane, as well as a similar force
+                                                                                                                    towards the xz plane.  The relative strength of the two
+                                                                                                                    forces is adjustable.
+                                                                                                                    This force
+                                                                                                                    looks much more interesting when <b>Display: Particles (Force)</b> is
+                                                                                                                    used instead of a velocity field; in that case, the particles
+                                                                                                                    trace out
+                                                                                                                    <a href="http://members.aol.com/edhobbs/applets/lissajous/">Lissajous figures</a>.
+                                                                                                                    These are easier to see after hitting the <b>Reset</b> button, or when
+                                                                                                                    using a small number of particles.
+                                                                                                                    <br><img src="fkxky.gif" vspace=10><
+                                                                                                                        <li><b>linear to yz, xz, xy planes</b>:
+                                                                                                                        There is a force
+                                                                                                                        towards the yz plane proportional to the distance
+                                                                                                                        to that plane, as well as similar forces
+                                                                                                                        towards the xz and xy planes.  The relative strength of the three
+                                                                                                                        forces is adjustable.
+                                                                                                                        This force
+                                                                                                                        looks much more interesting when <b>Display: Particles (Force)</b> is
+                                                                                                                        used instead of a velocity field.
+                                                                                                                        <li><b>inverse to xy plane</b>:
+                                                                                                                            There is a force
+                                                                                                                            towards the yz plane inversely proportional to the distance
+                                                                                                                            to that plane.
+                                                                                                                            <br><img src="f1x.gif" vspace=10>
+                                                                                                                                <li><b>1/r^2 rotational</b>:
+                                                                                                                                    In this field, the particle is being pulled in a circle around the
+                                                                                                                                    center.  The speed of its motion is inversely proportional to the
+                                                                                                                                    square of the distance from the center.
+                                                                                                                                    <br><img src="fthr2.gif" vspace=10>
+                                                                                                                                        <li><b>linear rotational</b>:
+                                                                                                                                            In this field, the particle is being pulled in a circle around the
+                                                                                                                                            center.  The speed of its motion is directly proportional to the
+                                                                                                                                            distance from the center.
+                                                                                                                                            <br><img src="fthr.gif" vspace=10>
+                                                                                                                                                <li><b>fz=-(x^2+y^2)</b>: Here the force is
+                                                                                                                                                    equal to (0, 0, -(x^2+y^2)).  The curl of this field is the
+                                                                                                                                                    <b>linear rotational</b> field.
+                                                                                                                                                    <li><b>constant rotational</b>:
+                                                                                                                                                        The particle is being pulled in a circle around the
+                                                                                                                                                        center.  The speed of its motion is fixed.
+                                                                                                                                                        <br><img src="fkth.gif" vspace=10>
+                                                                                                                                                            <li><b>(0,0,-r)</b>:
+                                                                                                                                                                The curl of this field is the <b>constant rotational</b> field.
+                                                                                                                                                                <li><b>helical</b>: here the particles move in a helix.
+                                                                                                                                                                    <li><b>fx=y</b>
+                                                                                                                                                                        <br><img src="fy0.gif" vspace=10>
+                                                                                                                                                                            <li><b>fx=y^2</b>
+                                                                                                                                                                                <br><img src="fy2.gif" vspace=10>
+                                                                                                                                                                                    <li><b>(-yz,xz,0)</b>
+                                                                                                                                                                                        <br><img src="fmyzxz.gif" vspace=10>
+                                                                                                                                                                                            <li><b>(yz,xz,0)</b>
+                                                                                                                                                                                                <br><img src="fyzxz.gif" vspace=10>
+                                                                                                                                                                                                    <li><b>(-x,-y,2z)</b>: this is the curl of (-yz,xz,0).
+                                                                                                                                                                                                        <li><b>(-x,y,0)</b>: this is the curl of (yz,xz,0).
+                                                                                                                                                                                                            <br><img src="fsaddle.gif" vspace=10>
+                                                                                                                                                                                                                <li><b>(x-y,x+y,0)</b>
+                                                                                                                                                                                                                    <br><img src="frrth.gif" vspace=10>
+                                                                                                                                                                                                                        <li><b>(x-y,x+y,2z)</b>
+                                                                                                                                                                                                                            <li><b>R&ouml;ssler attractor</b>:
+                                                                                                                                                                                                                                This is a <a href="http://www.ocf.berkeley.edu/~trose/rossler.html">strange
+                                                                                                                                                                                                                                    attractor</a> discovered by Otto R&ouml;ssler.
+                                                                                                                                                                                                                                The parameter <b>c</b> (from the field equations)
+                                                                                                                                                                                                                                is adjustable, as well as the scale in the
+                                                                                                                                                                                                                                z direction.
+                                                                                                                                                                                                                                <li><b>Lorenz attractor</b>: this is another <A href="http://www.zeuscat.com/andrew/chaos/chaos.html">strange attractor</a>,
+                                                                                                                                                                                                                                    discovered by Edward Lorenz.  You can make
+                                                                                                                                                                                                                                    the attractor pattern larger or smaller by adjusting the scale.
+                                                                                                                                                                                                                                    <li><b>user-defined potential</b>: this allows you to enter
+                                                                                                                                                                                                                                        an arbitrary potential function into a text box.  The field vectors
+                                                                                                                                                                                                                                        will be calculated from it.  A sample potential is <tt>x*x-z*z</tt>,
+                                                                                                                                                                                                                                        which is a saddle potential.  Here are some other sample expressions,
+                                                                                                                                                                                                                                        to give you an idea of the input format:
+                                                                                                                                                                                                                                        <pre>
+                                                                                                                                                                                                                                            x+y-z
+                                                                                                                                                                                                                                            -x^2+5.2*y
+                                                                                                                                                                                                                                            2*sin(x)+3*y
+                                                                                                                                                                                                                                            1000/(r^2)-5*z
+                                                                                                                                                                                                                                            abs(x)
+                                                                                                                                                                                                                                            exp(2*log(x+10))+sqrt(y+10)
+                                                                                                                                                                                                                                        </pre>
+                                                                                                                                                                                                                                        After entering a new potential, press return so that the change
+                                                                                                                                                                                                                                        takes effect.  If nothing happens, then the field may be too weak; either
+                                                                                                                                                                                                                                        increase the field strength, or multiply the field by a large constant.
+                                                                                                                                                                                                                                        If particles jump around randomly with no apparent pattern, the field
+                                                                                                                                                                                                                                        may be too strong.
+                                                                                                                                                                                                                                        <p>
+                                                                                                                                                                                                                                        Each coordinate ranges
+                                                                                                                                                                                                                                        from -10 to 10, so the edges of the box are at (&plusmn;10,&plusmn;10,&plusmn;10).
+                                                                                                                                                                                                                                        The center of the box is the origin.
+                                                                                                                                                                                                                                        <li><b>user-defined field</b>: this allows you to enter
+                                                                                                                                                                                                                                            an arbitrary field into text boxes (one for each coordinate).
+                                                                                                                                                                                                                                            If you try to enter some of the predefined fields (like <tt>(yz,xz,0)</tt>)
+                                                                                                                                                                                                                                            into the text boxes so you can modify them, keep in mind that the
+                                                                                                                                                                                                                                            correct input format is <tt>y*z</tt>, not <tt>yz</tt>.  Also the field
+                                                                                                                                                                                                                                            will not appear exactly the same, because many of the predefined
+                                                                                                                                                                                                                                            fields have a constant scaling factor that isn't reflected in the name
+                                                                                                                                                                                                                                            of the field.
+    </ul>
+    <p>
+    The <b>Display</b> popup will allow you to select how the field
+    is displayed:
+    <ul>
+        <li><b>Display: Particles (Vel.)</b> means particles will move through
+            the field, with the field vectors determining their velocity.
+            Note that the particles are only a educational device
+            intended to show what the field looks like;
+            in real life, particles would not move in this manner.
+            <li><b>Display: Particles (Force)</b> means particles will move through
+                the field, and the field vectors determine their acceleration.
+                <li><b>Display: Field Vectors</b> shows you the field vectors at an array
+                    of locations.
+                    <li><b>Display: Streamlines</b> shows you the streamlines.  The
+                        <b>Line Density</b> slider controls how many streamlines to draw.  The
+                        color indicates the field strength.
+                        <li><b>Display: Equipotentials</b> shows you equipotential surfaces.
+                            By default slicing is turned on because the equipotentials are easier
+                            to see that way, and you can see more than one at a time.  Red means
+                            negative potential, green means positive, gray means ground.  If you
+                            turn slicing off, you can only see one equipotential at a time;
+                            the <b>Potential</b> slider allows you to determine which one to
+                            view.  If the slider is set too high or too low then the corresponding
+                            equipotential surface may not be visible or may not exist, so just
+                            play around with the slider a bit if you don't see anything.
+    </ul>
+    <p>
+    The <b>Mouse</b> popup controls what happens when you click on the box.
+    If you set it to <b>Adjust Angle</b> or <b>Adjust Zoom</b>, you can
+    adjust the orientation or size of the 3-d view by clicking and
+    dragging on the box.
+    <p>
+    The <b>Slice</b> popup allows you to look at planar slices of the box
+    rather than looking at the contents of the entire box.
+    If the popup is set to <b>No Slicing</b>, you view the entire
+    box.  Otherwise you will see the box sliced in one of three
+    directions.  The location of the slice can be adjusted by dragging
+    the line running along the sides of box near the slice.
+    <p>
+    The <b>Stopped</b> checkbox will stop the particles.
+    <p>
+    The <b>Reverse</b> checkbox will reverse the direction of all the
+    field vectors.
+    <p>
+    The <b>Reset</b> button can be used to reset the positions of
+    all the particles to random values.
+    <p>
+    The <b>Kick</b> button can be used to give all the particles a
+    random acceleration in some direction. 
+    This is only allowed if the particle movement is set
+    to "Force".  It can be useful if none of the particles are moving,
+    or if they are all moving in the same direction.
+    <p>
+    The <b>Field Strength</b> slider makes the field stronger or weaker,
+    and also adjusts the brightness of the field vectors if you
+    have <b>Display: Field Vectors</b> selected.
+    <p>
+    The <b>Vector Density</b> slider controls the number of vectors present
+    if you have <b>Display: Field Vectors</b> selected.
+    <p>
+    The <b>Number of Particles</b> slider allows you to reduce the number
+    of particles, which can be useful if you want to watch the behavior of
+    just a few of them.  Also it might speed things up if you have fewer
+    particles.
+    <p>
+    A few additional field-specific sliders may be present,
+    depending on the field you have selected.
+    <p>
+    <a href="index.html">Click here to go to the applet.</a>
+    <hr>
+    <a href="/mathphysics.html"><img src="/mathphysics_small.gif"></a>
+    <a href="/index.html"><img src="/me_small.gif"></a>
+    <br><i>java@</i><i>falstad.com</i>
+</body>

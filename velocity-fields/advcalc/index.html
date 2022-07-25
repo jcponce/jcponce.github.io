@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Velocity fields</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Velocity fields with simulation">
+<meta name="author" content="Juan Carlos Ponce Campuzano">
+<meta name="language" content="en"/>
+    
+<!--Style Stars-->
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/w3.css">
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans|Marcellus+SC" rel="stylesheet">
+<link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+<link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="icon"/>
+<!--Style ends-->
+
+
+
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { equationNumbers: { autoNumber: "AMS" } }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+<script type="text/javascript" async src="https://teaching.smp.uq.edu.au/scims/MathJax/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+</head>
+<body>
+
+
+<!-- Navbar Stars-->
+<div class="w3-top">
+<div class="w3-bar w3-black w3-top w3-left-align">
+<a href="https://teaching.smp.uq.edu.au/scims" class="w3-bar-item w3-button w3-hover-deep-purple">SciMS - <i class="fa fa-home"></i></a>
+<a href="https://teaching.smp.uq.edu.au/scims/#course=Adv_calculus&lecture=introduction" class="w3-bar-item w3-button w3-hover-deep-purple">Advanced Calculus</a>
+<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-deep-purple serif"><img src="https://teaching.smp.uq.edu.au/scims/mathcss/uq-logo-only.png" width="21px" ></img> The University of Queensland</a>
+</div>
+</div>
+<!-- Navbar Ends-->
+                                
+                                
+
+                                
+<!-- Main content Stars-->
+<div class="w3-main" style="margin-top:45px">
+                                    
+
+ <div class="w3-container">
+ <h1>Velocity fields</h1>
+ <hr>
+ <p>
+ Consider the velocity vector field $\mathbf{v}$ of a steady-state fluid flow. The vector $\mathbf{v}(x, y)$ measures the instantaneous velocity of the fluid particles (molecules or atoms) as they pass through the point $(x, y)$. Steady-state means that the velocity at a point $(x, y)$ does not vary in time -even though the individual fluid particles are in motion. If a fluid particle moves along the curve $\mathbf{x}(t) = (x(t), y(t))$, then its velocity at time $t$ is the derivative
+ \[
+ \mathbf{v}= \frac{d\mathbf{x}}{dt}
+ \]
+ of its position with respect to $t$. Thus, for a time-independent velocity vector field
+ \[
+ \mathbf{v}(x, y) = ( v_1(x, y), v_2(x, y) )
+ \]
+ the fluid particles will move in accordance with an autonomous, first order system of ordinary differential equations
+ \[
+ \frac{dx}{dt}= v_1(x, y),\qquad \frac{dy}{dt}= v_2(x, y).
+ \]
+ According to the basic theory of systems of ordinary differential equations, an individual particle's motion $\mathbf{x}(t)$ will be uniquely determined solely by its initial position $\mathbf{x}(0) = \mathbf{x}_0$. In fluid mechanics, the trajectories of particles are known as the streamlines of the flow. The velocity vector $\mathbf{v}$ is everywhere tangent to the streamlines. When the flow is steady, the streamlines do not change in time. Individual fluid particles experience the same motion as they successively pass through a given point in the domain occupied by the fluid.
+ </p>
+ 
+  <hr>
+</div>
+
+
+
+<div class="w3-container">
+<h2>Examples</h2>
+<p>Some basic examples of velocity vector fields of steady-state fluids flow are the following:
+<ul>
+    <li>Near a wall (Stagnation point): $\mathbf{v}(x,y)=(k\,x,-k\,y)$, with $k\in \mathbb R^{+}$.
+    </li>
+    
+    </br>
+    
+    <div class="w3-hide-small">
+        <iframe  name="NearWall" src="./nearawall/index.html" width="700px" height="500px" style="border:none;"></iframe>
+        
+    <div class="w3-container">
+        <button onclick="var ifr=document.getElementsByName('NearWall')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
+        
+        
+        <a href="nearawall.html" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">Open in a separate tab</a>
+        
+        <a href="nearawall.zip" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">  Download <i class="fa fa-download w3-hover-text-blue" aria-hidden="true"></i></a>
+        
+    </div>
+    </div>
+    
+    <div class="w3-container w3-hide-large w3-hide-medium w3-panel w3-card w3-yellow">
+        <p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Sorry, the simulation is  not supported for small screens.</p>
+    </div>
+    
+    <br>
+    
+    <hr width="85%" />
+    
+    </br>
+    
+    <li>Rigid body rotation: $\mathbf{v}(x,y)=(-w\,y,w\,x)$, where $w\in \mathbb R$ For $w>0$, rotation is anticlockwise, and for  $w &lt;  0$ rotation is clockwise. </li>
+    
+     </br>
+     
+     <div class="w3-hide-small">
+         <iframe  name="RigidBody" src="./rigidbody/index.html" width="700px" height="500px" style="border:none;"></iframe>
+         
+         <div class="w3-container">
+             <button onclick="var ifr=document.getElementsByName('RigidBody')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
+             
+             
+             <a href="rigidbody.html" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">Open in a separate tab</a>
+             
+            <a href="rigidbody.zip" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">  Download <i class="fa fa-download w3-hover-text-blue" aria-hidden="true"></i></a>
+         </div>
+     </div>
+     
+     <div class="w3-container w3-hide-large w3-hide-medium w3-panel w3-card w3-yellow">
+         <p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Sorry, the simulation is  not supported for small screens.</p>
+     </div>
+     
+ <br>
+     
+     <hr width="85%" />
+     
+     </br>
+     
+    <li>Vortex: $\mathbf{v}(x,y)=\left(\dfrac{-k\,y}{x^2+y^2},\dfrac{k\,x}{x^2+y^2}\right)$, with $k\in \mathbb R.$ For $k>0$, rotation is anticlockwise, and for  $k &lt; 0$ rotation is clockwise.</li>
+    
+      </br>
+      
+      <div class="w3-hide-small">
+          <iframe  name="Vortex" src="./vortex/index.html" width="700px" height="500px" style="border:none;"></iframe>
+          
+          <div class="w3-container">
+              <button onclick="var ifr=document.getElementsByName('Vortex')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
+              
+              
+              <a href="vortex.html" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">Open in a separate tab</a>
+              
+              <a href="vortex.zip" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">  Download <i class="fa fa-download w3-hover-text-blue" aria-hidden="true"></i></a>
+          </div>
+      </div>
+      
+      <div class="w3-container w3-hide-large w3-hide-medium w3-panel w3-card w3-yellow">
+          <p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Sorry, the simulation is  not supported for small screens.</p>
+      </div>
+      
+      <br>
+      
+      <hr width="85%" />
+      
+      </br>
+    
+    <li>Source &amp; Sink: $\mathbf{v}(x,y)=\left(\dfrac{k\,x}{x^2+y^2},\dfrac{k\,y}{x^2+y^2}\right)$,  with  $k\in \mathbb R.$ For $k>0$, the flow is a source, and for  $k &lt; 0$ the flow is a sink.</li>
+    
+     </br>
+     
+     <div class="w3-hide-small">
+         <iframe  name="SourceSink" src="./sourcesink/index.html" width="700px" height="500px" style="border:none;"></iframe>
+         
+         <div class="w3-container">
+             <button onclick="var ifr=document.getElementsByName('SourceSink')[0]; ifr.src=ifr.src;" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Reset</button>
+             
+             <a href="sourcesink.html" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">Open in a separate tab</a>
+             
+             <a href="sourcesink.zip" class="w3-btn w3-ripple w3-grey w3-hover-text-white" target="_blank">  Download <i class="fa fa-download w3-hover-text-blue" aria-hidden="true"></i></a>
+             
+         </div>
+     </div>
+     
+     <div class="w3-container w3-hide-large w3-hide-medium w3-panel w3-card w3-yellow">
+         <p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Sorry, the simulation is  not supported for small screens.</p>
+     </div>
+     
+     </br>
+     
+</ul>
+</p>
+
+<br>
+<hr>
+</div>
+
+
+
+
+<div class="w3-container">
+    <h2>Extra simulations</h2>
+    <p>The following simulations demonstrate more properties of vector
+        fields in two and three dimensions. You can select from 
+        a number of vector fields and see how particles move in 
+        the field if it is treated as either a velocity or a force field. </br>
+    </p>
+
+   <br/>
+
+    <div class="w3-row-padding w3-section w3-stretch">
+        <div class="w3-col s6 w3-center">
+            <a href="./2dVectorfield.html" target="_blank">
+            <img class="w3-hover-opacity" src="images/new-2d-fields.png" alt="2d fields" style="width:80%">
+            </a><br/>
+            <a href="./2dVectorfield.html" class="w3-hover-text-blue" target="_blank"> 2D Simulation</a></div>
+        <div class="w3-col s6 w3-center">
+            <a href="./3dVectorfield.html" target="_blank">
+            <img class="w3-hover-opacity" src="images/new-3d-fields.png" alt="3d fields" style="width:80%">
+            </a><br/>
+            <a href="./3dVectorfield.html" class="w3-hover-text-blue" target="_blank"> 3D Simulation</a>
+        </div>
+        
+    </div>
+
+    <br/><br/><br/>
+    
+</div>
+<br>
+
+
+
+<!--Footer-->
+<footer id="myFooter">
+<div class="w3-container w3-dark-grey">
+    <p><font size="2"> &emsp; <b>Note:</b> The simulations in this section were designed using  the  JavaScript library  <a href="https://p5js.org/" target="_blank">p5.js</a>.</font></p>
+</div>
+</footer>
+<!--Footer-->
+  
+
+</div>
+<!-- END MAIN -->
+
+
+                                
+</body>
+</html>
