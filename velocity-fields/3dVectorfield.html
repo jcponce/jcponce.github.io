@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>3D Velocity and Force fields</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="3D Velocity and Force fields with simulation">
+<meta name="author" content="Paul Falstad (adapted by Juan Carlos Ponce Campuzano)">
+
+    
+<!--Style Stars-->
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/w3.css">
+<link rel="stylesheet" href="https://teaching.smp.uq.edu.au/scims/mathcss/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans|Marcellus+SC" rel="stylesheet">
+    
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="https://teaching.smp.uq.edu.au/scims/favicon.ico" type="image/x-icon" rel="icon"/>
+<!--Style ends-->
+
+
+<!--MathJax starts-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       TeX: { equationNumbers: { autoNumber: "AMS" } }
+                       });
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<!---<script type="text/x-mathjax-config">//left-side eq
+ MathJax.Hub.Config({
+ displayAlign: "left",
+ displayIndent: "5em"
+ });
+ </script>--->
+<script type="text/javascript" async src="../MathJax/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+<!--MathJax Ends-->
+
+
+
+</head>
+<body>
+
+
+<!-- Navbar Stars-->
+<div class="w3-top">
+<div class="w3-bar w3-black w3-top w3-left-align">
+<a href="https://teaching.smp.uq.edu.au/scims" class="w3-bar-item w3-button w3-hover-deep-purple">SciMS - <i class="fa fa-home"></i></a>
+<a href="https://teaching.smp.uq.edu.au/scims/#course=Adv_calculus&lecture=introduction" class="w3-bar-item w3-button w3-hover-deep-purple">Advanced Calculus</a>
+<a href="https://teaching.smp.uq.edu.au/scims/Adv_calculus/Velocity_field.html" class="w3-bar-item w3-button w3-hover-deep-purple w3-hide-small w3-hide-medium">Velocity fields</a>
+<a class="w3-bar-item w3-right w3-hide-small w3-hide-medium w3-deep-purple serif"><img src="https://teaching.smp.uq.edu.au/scims/mathcss/uq-logo-only.png" width="21px" ></img> The University of Queensland</a>
+</div>
+</div>
+<!-- Navbar Ends-->
+                                
+                                
+
+                                
+<!-- Main content Stars-->
+<div class="w3-main" style="margin-top:45px">
+                                    
+
+ <div class="w3-container">
+ <h1>3D Velocity and Force fields</h1>
+ <hr>
+ <p>
+ The following simulation demonstrates various properties of
+ vector fields in three dimensions.  You can see how
+ particles move if the vector field is treated as either a velocity
+ or a force field.
+ </p>
+ 
+ 
+ <p>
+ The menu in the upper right has a variety of different fields to
+ choose from. Scroll to the bottom of the menu and select "user-defined field" or "user-defined
+ potential" to input your own vector field.</p>
+ 
+  <hr>
+</div>
+
+
+
+<div class="w3-container">
+    <script type="text/javascript" src="./scripts/jquery/jquery.js"></script>
+    <script type="text/javascript" src="./scripts/js/j2sJQueryExt.js"></script>
+    
+    <script type="text/javascript" src="./scripts/js/j2sApplet.js"></script>
+    <script type="text/javascript" src="./scripts/js/j2sSwingJS.js"></script>
+    <script type="text/javascript" src="./scripts/js/SJSApplet.js"></script>
+    
+<div class="w3-hide-small">
+    <script type="text/javascript">
+        
+        ////J2S._checkLoad = true;
+        
+        J2S._isAsync = false;
+        
+        J2S.getProfile() // records repeat calls to overridden or overloaded Java methods
+        
+        // use ?_USE=JAVA or _USE=SIGNED or _USE=HTML5
+        
+        var app ;
+        
+        jmol_isReady = function(applet) {
+            J2S._getElement(applet, "appletdiv").style.border="1px solid blue"
+            app = applet;
+        }
+    
+    Info = {
+        code: "com.falstad.Vec3Demo",
+        width: 660,
+        height: 500,
+        debug: false,
+        color: "#F0F0F0",
+        zIndexBase: 20000,
+        z:{monitorZIndex:100},
+        serverURL: "./scripts/jmol/jsmol/php/jsmol.php",
+        use: "HTML5",
+        j2sPath: "./scripts/j2s",
+        //jarPath: "http://www.falstad.com/swingjs/java",
+        //	jarFile: "JStest.jar",
+        isSigned: false,
+        disableJ2SLoadMonitor: false,
+        disableInitialConsole: false,
+        useFrame:"false",
+        readyFunction: jmol_isReady,
+        allowjavascript: true
+    }
+    
+    SwingJS.getApplet("Vector", Info)
+    
+        </script>
+</div>
+<div class="w3-container w3-hide-large w3-hide-medium w3-panel w3-card w3-yellow">
+    <p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Sorry, the simulation is  not supported for small screens.</p>
+</div>
+    
+    
+    <div class="w3-container">
+        <p>
+        <a href="./scripts/directions3d.html" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Detailed directions</a>
+        <a href="./scripts/3dVFfullscreen.html" class="w3-btn w3-ripple w3-grey w3-hover-text-white">Full screen</a>
+        </p>
+    </div>
+    
+ 
+
+    
+</div>
+
+
+
+
+<!--Footer-->
+<footer id="myFooter">
+<div class="w3-container w3-dark-grey">
+    <p><font size="2"> &emsp; <b>Note:</b> This  is an adaptation of the open-source java code <a href="https://sourceforge.net/p/swingjs/code/HEAD/tree/trunk/src/com/falstad/" target="_blank">Vec3Demo.java</a> written by  Paul Falstad: <a href="http://www.falstad.com/" target="_blank">www.falstad.com</a>.</font></p>
+</div>
+</footer>
+<!--Footer-->
+  
+
+</div>
+<!-- END MAIN -->
+
+
+                                
+</body>
+</html>
