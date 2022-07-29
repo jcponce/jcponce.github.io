@@ -63,44 +63,276 @@
 			<section>
 				<section>
 					<h3>34 Conservative vector fields</h3>
-				<div class="left-txt size-70">
-					<p>
-						By the end of this section, you should be able to answer the following questions:
-					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">
-							What is meant by a conservative vector field and a corresponding potential function?
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							Given a potential function, how do you determine the corresponding conservative vector field?
-						</li>
-						<li class="fragment" data-fragment-index="2">
-							Given a conservative vector field, how do you determine a corresponding potential function?
+					<div class="left-txt size-70">
+						<p>
+							By the end of this section, you should be able to answer the following questions:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								What is meant by a conservative vector field and a corresponding potential function?
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Given a potential function, how do you determine the corresponding conservative vector
+								field?
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Given a conservative vector field, how do you determine a corresponding potential
+								function?
 
-						</li>
-					</ul>
+							</li>
+						</ul>
 
-					
-				</div>
+
+					</div>
 				</section>
 
-				
+			</section>
+
+			<section>
+				<section>
+					<h4>34.1 Vector fields</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>In what follows, the notation is always
+								\[
+								\r = x \i + y \j \; \text{ or } \;x \i + y \j + z\k.
+								\]
+							</p>
+							<p>
+								A vector field in the x-y plane is a vector function of 2 variables
+							</p>
+
+						</div>
+						<div>
+							<p>
+								$\F\left(\r\right) $
+								<span>
+									$= \F(x,y) $
+								</span>
+								<span>
+									$= \left(F_1(x,y), F_2(x,y)\right)$
+								</span>
+							</p>
+							<p>
+								$=F_1(x,y)\i + F_2(x,y)\j$.
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								That is, associated to a point $(x, y)$ is the vector $\F (\r)$.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section>
+					<h5>34.1.1 Example: $\F (\r) = (-y, x) = -y\i + x\j$.</h5>
+					<div class="fragment" data-fragment-index="0">
+						<iframe scrolling="no" title="Vector Fields in 2D"
+							src="https://www.geogebra.org/material/iframe/id/k7tpzujj/width/739/height/481/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/true"
+							width="739px" height="481px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
+
+				<section>
+					<h5>34.1.1 Example: $\F (\r) = (-y, x) = -y\i + x\j$.</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Similarly a vector field in 3-D is a vector function of 3 variables
+							</p>
+						</div>
+						<table id="eqarray">
+							<tr>
+								<td>
+									$\F(\r)$
+								</td>
+								<td>
+									$=\F(x,y,z)$
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td>
+									$=\left( F_1(x,y,z),F_2(x,y,z),F_3(x,y,z) \right)$
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td>
+									$=F_1(x,y,z)\i+F_2(x,y,z)\j+F_3(x,y,z)\k$
+								</td>
+							</tr>
+						</table>
+					</div>
+
+				</section>
+
+				<section>
+					<h5>34.1.2 Example: Newtonian gravitational field</h5>
+					<div class="size-70">
+						<table id="eqarray">
+							<tr>
+								<td>
+									$\F(\r)$
+								</td>
+								<td>
+									$\displaystyle =-\frac{mMG}{||\r||^3}\r$
+									<span>
+										$\displaystyle =\F(x,y,z)$
+									</span>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+
+								</td>
+								<td>
+									$\displaystyle
+									=\frac{-mMGx}{\left(x^2+y^2+z^2\right)^{3/2}}\i+\frac{-mMGy}{\left(x^2+y^2+z^2\right)^{3/2}}\j+\frac{-mMGz}{\left(x^2+y^2+z^2\right)^{3/2}}\k$
+								</td>
+							</tr>
+						</table>
+					</div>
+				</section>
+
+				<section>
+					<h5>34.1.2 Example: Newtonian gravitational field</h5>
+					<div>
+						<iframe scrolling="no" title="Vector fields 3D"
+							src="https://www.geogebra.org/material/iframe/id/f98ed4su/width/739/height/481/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/true"
+							width="739px" height="481px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
 
 			</section>
 
 			<section>
-				<section data-background-iframe="https://teaching.smp.uq.edu.au/scims/Adv_calculus/scripts/3dVFfullscreen.html"
-				data-background-interactive>
+				<section>
+					<h5>34.2 Gradient of a scalar field, conservative vector fields</h5>
+					<div class="size-65">
+						<div class="left-txt">
+							<p>Recall for a differentiable scalar function $f(x,y)$
+								in two dimensions, we define
+								\[
+								\text{grad }f = \frac{\partial f}{\partial x}\i +  \frac{\partial f}{\partial y}\j.
+								\]
+							
+							</p>
 
-			    </section>
+							<p>
+								For a differentiable scalar function $f(x,y,z) $
+								in three dimensions, we define
+								\[
+								\text{grad }f = \frac{\partial f}{\partial x}\i +  \frac{\partial f}{\partial y}\j +\frac{\partial f}{\partial z}\k .
+								\]
+							</p>
+
+							<p>
+								Alternatively we define the differential operator 
+								$\displaystyle \nabla = \i \frac{\partial }{\partial x}+ \j \frac{\partial }{\partial y} + \k \frac{\partial }{\partial z}$,
+								
+								
+							</p>
+								
+						</div>
+						<div>
+							<p>so $\;\text{grad } f = \nabla f$.</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>
+						34.2.1 Example: find the gradient of $f(x, y, z) = x^2y^3z^4$.
+					</h5>
+
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Note $\nabla f$ is a vector. It's length and direction are 
+								independent of the choice of coordinates. $\nabla f$ (evaluated 
+								at a given point $P$) is in the direction of 
+								maximum increase of $f$ at $P$.
+							</p>
+							<p>
+								You may see the scalar function $f$ referred to as a 
+								scalar field. If a vector field $\v$ and a scalar field 
+								$f$ are related by $\v = \nabla f$, we call $f$ a potential function
+								 and $\v$ a conservative vector field.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>
+						34.2.2 Verify that the Newtonian gravitational field is conservative with potential function
+						$f(x,y,z)= \frac{mMG}{\sqrt{x^2+y^2+z^2}}$.
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Given a conservative vector field, how can we 
+								determine a corresponding potential function? 
+								The next example outlines this procedure.
+							</p>
+							
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>
+						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)\i + \left(x^2 - 3y^2\right)\j$ 
+						is conservative. Find a corresponding potential function.
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Can we still determine a potential function when the 
+								conservative vector field is in three dimensions?
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>
+						34.2.4 The vector field $F (x, y, z) = y^2\i + \left(2xy + e^{3z}\right)j + 3ye^{3z}\k$ is conservative.
+						 Find a corresponding potential function.
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Is there a way of determining whether or not a given vector field is conservative? 
+								To answer this question, we need to go back to the study of line integrals.
+							</p>
+						</div>
+					</div>
+				</section>
 
 			</section>
 
 			<section>
-				<section data-background-iframe="https://teaching.smp.uq.edu.au/scims/Adv_calculus/scripts/2dVFfullscreen.html"
-				data-background-interactive>
+				<section
+					data-background-iframe="https://teaching.smp.uq.edu.au/scims/Adv_calculus/scripts/2dVFfullscreen.html"
+					data-background-interactive >
+				</section>
 
-			    </section>
+			</section>
+
+
+			<section>
+				<section
+					data-background-iframe="https://teaching.smp.uq.edu.au/scims/Adv_calculus/scripts/3dVFfullscreen.html"
+					data-background-interactive >
+				</section>
 
 			</section>
 
