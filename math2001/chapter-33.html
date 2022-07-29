@@ -107,9 +107,13 @@
 							</span>
 							<span class="fragment" data-fragment-index="3">
 								Linear momentum is determined by the formula $p= mv$,
-								while angular momentum is given by $L=I\omega$. In these examples,
+								while angular momentum is given by $L=I\omega$. 
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								In these examples,
 								$I$ is the moment of inertia and $\omega$ the angular velocity.
 							</span>
+
 						</p>
 					</div>
 				</section>
@@ -190,11 +194,11 @@
 					<h4>33.1 Derive the integral formulas for $M_{xy}$ and $I_x$</h4>
 
 					<div class="size-70 left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							For $M_{xy}$, consider the following diagram:
 						</p>
 					</div>
-					<div>
+					<div class="fragment" data-fragment-index="1">
 						<iframe scrolling="no" title="chapter-33-1: Moment and Moment of inertia"
 							src="https://www.geogebra.org/material/iframe/id/fckrechd/width/657/height/440/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
 							width="657px" height="440px" style="border:0px;" allowfullscreen=""> </iframe>
@@ -241,14 +245,14 @@
 					</div>
 
 					<div class="size-70">
-						<p class="fragment" data-fragment-index="4">
+						<p class="fragment" data-fragment-index="3">
 							$
 							\displaystyle\sum z^*~\rho(x^*,y^*,z^*) ~\Delta V.\;\;
 							$
-							<span class="fragment" data-fragment-index="5">
+							<span class="fragment" data-fragment-index="4">
 								If $\displaystyle \Delta V \to 0,\,$
 							</span>
-							<span class="fragment" data-fragment-index="6">
+							<span class="fragment" data-fragment-index="5">
 								then $\displaystyle \iiint_R z~ \rho(x,y,z)~dV$.
 							</span>
 						</p>
@@ -283,7 +287,6 @@
 							the distance of the box to the $x$-axis.
 							<span class="fragment" data-fragment-index="0">
 								That is
-
 							</span>
 						</p>
 
@@ -301,17 +304,17 @@
 					</div>
 
 					<div class="size-60 left-txt">
-						<p class="fragment" data-fragment-index="1">
-							Then the moment of inertia of the box about the $x$-axis is appsoximately
+						<p class="fragment" data-fragment-index="3">
+							Then the moment of inertia of the box about the $x$-axis is approximately
 
 						</p>
 					</div>
 
 					<div class="size-60">
 
-						<p class="fragment" data-fragment-index="1">
+						<p class="fragment" data-fragment-index="3">
 							$\displaystyle \Delta m \times r^2$
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="4">
 								$\displaystyle = \rho(x^*,y^*,z^*) \times \Delta V\times
 								\left(\left(y^*\right)^2+\left(z^*\right)^2\right) $
 							</span>
@@ -319,14 +322,14 @@
 
 					</div>
 					<div class="size-60 left-txt">
-						<p class="fragment" data-fragment-index="3">
+						<p class="fragment" data-fragment-index="5">
 							Now the moment inertia of the solid about
 							the $x$-axis is approximately
 						</p>
 					</div>
 
 					<div class="size-60">
-						<p class="fragment" data-fragment-index="4">
+						<p class="fragment" data-fragment-index="5">
 							$
 							\displaystyle\sum \left(\left(y^*\right)^2+\left(z^*\right)^2\right) \rho(x^*,y^*,z^*)
 							~\Delta V.\;\;
@@ -334,10 +337,10 @@
 
 						</p>
 						<p>
-							<span class="fragment" data-fragment-index="5">
+							<span class="fragment" data-fragment-index="6">
 								If $\displaystyle \Delta V \to 0,\,$
 							</span>
-							<span class="fragment" data-fragment-index="6">
+							<span class="fragment" data-fragment-index="7">
 								then $\displaystyle \iiint_R \left(y^2+z^2\right) \rho(x,y,z)~dV$.
 							</span>
 						</p>
@@ -576,7 +579,7 @@
 								<td class="fragment" data-fragment-index="3">
 									$\displaystyle = k \left( \frac{a^5}{5} \right) \left(2\pi \right) \left( \frac{1}{2} \right)$
 									<span  class="fragment" data-fragment-index="4">
-										$\displaystyle = \frac{\pi k a^5}{5}$.
+										$\displaystyle = \frac{\pi ~k ~a^5}{5}$.
 									</span>
 								</td>
 							</tr>
@@ -610,6 +613,80 @@
 								\]
 							</p>
 						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>33.2 Example: Find the moment of inertia about the $z$-axis</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								We need to compute
+								\[
+								I_z = \iiint_V\left(x^2+y^2\right)\rho~ dV
+								\]
+							</p>
+							<p>
+								In spherical coordinates we have
+							</p>
+						</div>
+						<div>
+							<p>
+								$x^2+y^2$
+								<span>
+									$=r^2 \cos^2 \theta \sin^2 \phi + r^2 \sin^2 \theta \sin^2 \phi$
+								</span>
+								<span>
+									$=r^2  \sin^2 \phi$.
+								</span>
+							</p>
+						</div>
+					</div>
+					
+				</section>
+
+				<section>
+					<h5>33.2 Example: Find the moment of inertia about the $z$-axis</h5>
+
+					<div class="size-70">
+						<table id="eqarray">
+							<tr>
+								<td>
+									$\displaystyle I_z$
+								</td>
+								<td>
+									$\displaystyle =\iiint_V\left(x^2+y^2\right)\rho~ dV$
+									
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									$\displaystyle = \int_0^a \int_{0}^{2\pi} \int_0^{\pi/2}\left( r^2\sin^2 \phi \right) \left(\rho ~r\right) ~r^2\sin \phi ~d\phi ~d\theta ~dr$
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="2">
+									$\displaystyle =  k \left( \int_0^a r^5~dr \right) \left( \int_0^{2\pi} ~d\theta \right) \left( \int_0^{\pi/2} \sin^3 \phi~d\phi \right)$
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="3">
+									$\displaystyle = k \left( \frac{a^6}{6} \right) \left(2\pi \right) \left( \frac{2}{3} \right)$
+									<span  class="fragment" data-fragment-index="4">
+										$\displaystyle = \frac{2~\pi ~k ~a^6}{9}$.
+									</span>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</section>
 
