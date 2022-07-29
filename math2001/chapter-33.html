@@ -474,20 +474,143 @@
 							</p>
 							<p class="fragment" data-fragment-index="1">
 								So we just need to compute
-								\[
-								\overline{z} = \frac{\iiint_V z ~\rho ~dV}{\iiint_V \rho ~dV}
-								\]
+								
+								$\displaystyle \;\overline{z} = \frac{\iiint_V z ~\rho ~dV}{\iiint_V \rho ~dV}$.
+								
 							</p>
+							
 
 						</div>
 
 						<div>
 							<p class="fragment" data-fragment-index="2">
-								$\displaystyle V = \left\{ \left(r, \theta, \phi\right)~|~ 0 \leq r \leq a, 0\leq \theta \leq 2 \pi, 0 \leq \phi \leq \pi/2 \right\}$
+								$\displaystyle V = \left\{ \left(r, \theta, \phi\right)~|~ 0 \leq r \leq a, 0\leq \theta \leq 2 \pi, 0 \leq \phi \leq \pi/2 \right\}$.
 							</p>
 						</div>
 					</div>
 
+				</section>
+
+				
+
+				<section>
+					<h4>33.2 Example: locate the centre of mass</h4>
+
+					<div class="size-70">
+						<table id="eqarray">
+							<tr>
+								<td>
+									$\displaystyle m$
+								</td>
+								<td>
+									$\displaystyle = \iiint_V \rho ~dV $
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									$\displaystyle = \int_0^a \int_{0}^{2\pi} \int_0^{\pi/2} k~r ~ r^2\sin \phi ~d\phi ~d\theta ~dr$
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									$\displaystyle =  k \left( \int_0^a r^3~dr \right) \left( \int_0^{2\pi} ~d\theta \right) \left( \int_0^{\pi/2} \sin \phi~d\phi \right)$
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="2">
+									$\displaystyle = k \left( \frac{a^4}{4} \right) \left(2\pi \right) \left( 1 \right)$
+									<span  class="fragment" data-fragment-index="3">
+										$\displaystyle = \frac{\pi k a^4}{2}$.
+									</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</section>
+
+				<section>
+					<h4>33.2 Example: locate the centre of mass</h4>
+
+					<div class="size-70">
+						<table id="eqarray">
+							<tr>
+								<td>
+									$\displaystyle \iiint_V z ~\rho dV$
+								</td>
+								<td>
+									$\displaystyle = \iiint_V (r \cos \phi) ~ (k ~r) ~dV $
+									<span class="fragment" data-fragment-index="0">
+										$\displaystyle = \iiint_V k ~r^2 \cos \phi ~dV $
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									$\displaystyle = \int_0^a \int_{0}^{2\pi} \int_0^{\pi/2}k~r^2\cos \phi   ~ r^2\sin \phi ~d\phi ~d\theta ~dr$
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="2">
+									$\displaystyle =  k \left( \int_0^a r^4~dr \right) \left( \int_0^{2\pi} ~d\theta \right) \left( \int_0^{\pi/2} \cos \phi \sin \phi~d\phi \right)$
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+								<td class="fragment" data-fragment-index="3">
+									$\displaystyle = k \left( \frac{a^5}{5} \right) \left(2\pi \right) \left( \frac{1}{2} \right)$
+									<span  class="fragment" data-fragment-index="4">
+										$\displaystyle = \frac{\pi k a^5}{5}$.
+									</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</section>
+
+				<section>
+					<h4>33.2 Example: locate the centre of mass</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Then we have that 
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0">
+
+								$\displaystyle \overline{z}= \dfrac{\dfrac{\pi k a^5}{5}}{\dfrac{\pi k a^4}{2}}$
+								<span class="fragment" data-fragment-index="1">
+									$\displaystyle = \frac{2}{5}a$.
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="2">
+								Therefore
+								\[
+								\left(\overline{x}, \overline{y}, \overline{z}\right) = \left(0, 0, \frac{2}{5}a\right). 
+								\]
+							</p>
+						</div>
+					</div>
 				</section>
 
 			</section>
