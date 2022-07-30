@@ -148,7 +148,7 @@
 				</section>
 
 				<section>
-					
+
 					<div class="size-70">
 						<div class="left-txt">
 							<p>Similarly a vector field in 3-D is a vector function of 3 variables
@@ -156,7 +156,7 @@
 						</div>
 						<table id="eqarray">
 							<tr>
-								<td >
+								<td>
 									$\F(\r)$
 								</td>
 								<td>
@@ -182,7 +182,7 @@
 						</table>
 					</div>
 
-					<br/>
+					<br />
 
 				</section>
 
@@ -213,7 +213,7 @@
 							</tr>
 						</table>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
@@ -247,29 +247,32 @@
 					<h5>34.2 Gradient of a scalar field, conservative vector fields</h5>
 					<div class="size-65">
 						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">Recall for a differentiable scalar function $f(x,y)$
+							<p class="fragment" data-fragment-index="0">Recall for a differentiable scalar function
+								$f(x,y)$
 								in two dimensions, we define
 								\[
-								\text{grad }f = \frac{\partial f}{\partial x}\i +  \frac{\partial f}{\partial y}\j.
+								\text{grad }f = \frac{\partial f}{\partial x}\i + \frac{\partial f}{\partial y}\j.
 								\]
-							
+
 							</p>
 
 							<p class="fragment" data-fragment-index="1">
 								For a differentiable scalar function $f(x,y,z) $
 								in three dimensions, we define
 								\[
-								\text{grad }f = \frac{\partial f}{\partial x}\i +  \frac{\partial f}{\partial y}\j +\frac{\partial f}{\partial z}\k .
+								\text{grad }f = \frac{\partial f}{\partial x}\i + \frac{\partial f}{\partial y}\j
+								+\frac{\partial f}{\partial z}\k .
 								\]
 							</p>
 
 							<p class="fragment" data-fragment-index="2">
-								Alternatively we define the differential operator 
-								$\displaystyle \nabla = \i \frac{\partial }{\partial x}+ \j \frac{\partial }{\partial y} + \k \frac{\partial }{\partial z}$,
-								
-								
+								Alternatively we define the differential operator
+								$\displaystyle \nabla = \i \frac{\partial }{\partial x}+ \j \frac{\partial }{\partial y}
+								+ \k \frac{\partial }{\partial z}$,
+
+
 							</p>
-								
+
 						</div>
 						<div>
 							<p class="fragment" data-fragment-index="3">so $\;\text{grad } f = \nabla f$.</p>
@@ -284,17 +287,69 @@
 
 					<div class="size-70">
 						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								Note $\nabla f$ is a vector. It's length and direction are 
-								independent of the choice of coordinates. $\nabla f$ (evaluated 
-								at a given point $P$) is in the direction of 
-								maximum increase of $f$ at $P$.
+							<table id="eqarray">
+								<tr>
+									<td>
+										$\displaystyle \nabla f$
+									</td>
+									<td>
+										$\displaystyle = \i \frac{\partial}{\partial x}\left(x^2y^3x^4\right) + \j
+										\frac{\partial}{\partial x}\left(x^2y^3x^4\right) + \k \frac{\partial}{\partial
+										x}\left(x^2y^3x^4\right)$
+									</td>
+								</tr>
+								<tr>
+									<td>
+
+									</td>
+									<td>
+										$\displaystyle = 2x^3z^4\i $
+										<span>
+											$\displaystyle + 2x^2y^2z^4\j $
+										</span>
+										<span>
+											$\displaystyle + 4x^2y^3z^3\j $
+										</span>
+									</td>
+								</tr>
+							</table>
+							<p>
+								For example, at $(1,1,1)$, we have that
+								\[
+								\nabla f (1,1,1) = 2\i + 3 \j + 4\k.
+								\]
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>
+						34.2.1 Example: find the gradient of $f(x, y, z) = x^2y^3z^4$.
+					</h5>
+
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Note $\nabla f$ is a vector. It's length and direction are
+								independent of the choice of coordinates.
+								<span class="fragment" data-fragment-index="0">
+									$\nabla f$ (evaluated
+									at a given point $P$) is in the direction of
+									maximum increase of $f$ at $P$.
+								</span>
 							</p>
 							<p class="fragment" data-fragment-index="1">
-								You may see the scalar function $f$ referred to as a 
-								scalar field. If a vector field $\v$ and a scalar field 
-								$f$ are related by $\v = \nabla f$, we call $f$ a potential function
-								 and $\v$ a conservative vector field.
+								You may see the scalar function $f$ referred to as a
+								scalar field.
+								<span class="fragment" data-fragment-index="2">
+									If a vector field $\v$ and a scalar field
+									$f$ are related by $\v = \nabla f$,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									we call $f$ a potential function
+									and $\v$ a conservative vector field.
+								</span>
 							</p>
 						</div>
 					</div>
@@ -306,59 +361,298 @@
 						$f(x,y,z)= \frac{mMG}{\sqrt{x^2+y^2+z^2}}$.
 					</h5>
 					<div class="size-70">
-						<div class="left-txt">
+						<div>
 							<p class="fragment" data-fragment-index="0">
-								Given a conservative vector field, how can we 
-								determine a corresponding potential function? 
-								The next example outlines this procedure.
+								First, note that $\displaystyle f(x,y,z) = mMG\left(x^2+y^2+z^2\right)^{-1/2}$
 							</p>
-							
+							<p class="fragment" data-fragment-index="1">
+								$\displaystyle \frac{\partial f}{\partial x} $
+								<span class="fragment" data-fragment-index="2">
+									$\displaystyle =mMG$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\displaystyle \left(-\frac{1}{2}\right) \left(x^2+y^2+z^2\right)^{-3/2} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\displaystyle \left(2x\right)$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="5">
+								$\displaystyle \frac{\partial f}{\partial y} $
+								<span class="fragment" data-fragment-index="6">
+									$\displaystyle =mMG\left(-\frac{1}{2}\right)
+									\left(x^2+y^2+z^2\right)^{-3/2}\left(2y\right)$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="7">
+								$\displaystyle \frac{\partial f}{\partial z} $
+								<span class="fragment" data-fragment-index="8">
+									$\displaystyle =mMG\left(-\frac{1}{2}\right)
+									\left(x^2+y^2+z^2\right)^{-3/2}\left(2z\right)$
+								</span>
+							</p>
+
 						</div>
 					</div>
 				</section>
 
 				<section>
 					<h5>
-						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)\i + \left(x^2 - 3y^2\right)\j$ 
+						34.2.2 Verify that the Newtonian gravitational field is conservative with potential function
+						$f(x,y,z)= \frac{mMG}{\sqrt{x^2+y^2+z^2}}$.
+					</h5>
+					<div class="size-70">
+						<div>
+
+
+							<table id="eqarray">
+								<tr>
+									<td>
+										Then $\;\;\displaystyle \nabla f$
+									</td>
+									<td>
+										$\displaystyle = \frac{\partial f}{\partial x}\i +
+										\frac{\partial f}{\partial x}\j + \frac{\partial f}{\partial
+										x}\k$
+									</td>
+								</tr>
+								<tr>
+									<td>
+
+									</td>
+									<td class="fragment" data-fragment-index="0">
+										$\displaystyle = -\frac{mMG}{(x^2+y^2+z^2)^{3/2}} \left(x\i + y \j + z\k\right)$
+
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$\displaystyle = -\frac{mMG}{(x^2+y^2+z^2)^{3/2}}\r$
+										<span class="fragment" data-fragment-index="2">
+											$\displaystyle = \F(\r)$
+										</span>
+
+									</td>
+								</tr>
+							</table>
+
+							<p class="fragment" data-fragment-index="3">
+								Therefore, the graviational veltor field is a conservative vector field.
+							</p>
+
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>
+						34.2.2 Verify that the Newtonian gravitational field is conservative with potential function
+						$f(x,y,z)= \frac{mMG}{\sqrt{x^2+y^2+z^2}}$.
+					</h5>
+					<br />
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Given a conservative vector field, how can we
+								determine a corresponding potential function?
+								The next example outlines this procedure.
+							</p>
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section>
+					<h5>
+						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)\i + \left(x^2 - 3y^2\right)\j$
 						is conservative. Find a corresponding potential function.
 					</h5>
 					<div class="size-70">
 						<div class="left-txt">
+							<p>
+								Conservative means that there exists a function $f$ such that
+								\[
+								\F = \nabla f = \frac{\partial f}{\partial x}\i +
+								\frac{\partial f}{\partial x}\j
+								\]
+							</p>
 							<p class="fragment" data-fragment-index="0">
-								Can we still determine a potential function when the 
+								Then we have that
+								\[
+								\left\{
+								\begin{array}{rl}
+								\dfrac{\partial f}{\partial x} &= &3 + 2xy\\
+								\dfrac{\partial f}{\partial y}& = &x^2-3y^2
+								\end{array}
+								\right.
+								\]
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+
+				<section>
+					<h5>
+						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)\i + \left(x^2 - 3y^2\right)\j$
+						is conservative. Find a corresponding potential function.
+					</h5>
+					<table style="width:100%;" class="size-60">
+						<tr>
+
+							<th style="width:40%">
+								<div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+									<p>
+										\[
+										\left\{
+										\begin{array}{rl}
+										\dfrac{\partial f}{\partial x} &= &3 + 2xy\quad (1)\\
+										\dfrac{\partial f}{\partial y}& = &x^2-3y^2\;\; (2)
+										\end{array}
+										\right.
+										\]
+									</p>
+
+								</div>
+							</th>
+							<td style="width:60%;">
+								<p class="fragment" data-fragment-index="0">
+									Choose equation (1) and integrate
+									both sides with respect of $x$ to obtain
+									\[
+									f= 3x+x^2y+g(y)
+									\]
+								</p>
+								<p  class="fragment" data-fragment-index="1">
+									Now differentiate this function with respect of $y$:
+									\[
+									\dfrac{\partial f}{\partial y} = 0 + x^2 +\dfrac{\partial g(y)}{\partial y}
+									\]
+								</p>
+							</td>
+
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h5>
+						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)\i + \left(x^2 - 3y^2\right)\j$
+						is conservative. Find a corresponding potential function.
+					</h5>
+					<table style="width:100%;" class="size-60">
+						<tr>
+
+							<th style="width:40%">
+								<div style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+									<p>
+										\[
+										\left\{
+										\begin{array}{rl}
+										\dfrac{\partial f}{\partial x} &= &3 + 2xy\quad (1)\\
+										\dfrac{\partial f}{\partial y}& = &x^2-3y^2\;\; (2)
+										\end{array}
+										\right.
+										\]
+									</p>
+
+								</div>
+							</th>
+							<td style="width:60%;">
+								<p>
+									Compare $\dfrac{\partial f}{\partial y} = x^2 +\dfrac{\partial g(y)}{\partial y}$ with (2), 
+									<span class="fragment" data-fragment-index="1">
+										so
+									\[
+									x^2-3y^2 = x^2+ \dfrac{\partial g(y)}{\partial y}
+									\]
+									</span>
+								</p>
+								<p  class="fragment" data-fragment-index="2">
+									
+									\[
+									\dfrac{\partial g(y)}{\partial y} = -3y^2
+									\]
+								</p>
+								<p  class="fragment" data-fragment-index="3">
+									
+									\[
+									g(y) = -y^3 + C.
+									\]
+								</p>
+							</td>
+
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h5>
+						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)\i + \left(x^2 - 3y^2\right)\j$
+						is conservative. Find a corresponding potential function.
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Finally, we substitute into $f = 3x+x^2y+g(y)$ to obtain
+								\[
+								f(x,y) = 3x+x^2y-y^3+C.
+								\]
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								Can we still determine a potential function when the
 								conservative vector field is in three dimensions?
 							</p>
 						</div>
 					</div>
 				</section>
 
-				
+				<section>
+					<h5>
+						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)\i + \left(x^2 - 3y^2\right)\j$
+						is conservative. Find a corresponding potential function.
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							
+						</div>
+					</div>
+				</section>
+
+
 
 				<section>
 					<h5>
-						34.2.4 The vector field $ \,\F(x,y,z) = y^2\i + \left(2xy + e^{3z}\right)\j + 3ye^{3z}\k$ 
-						<br/>is conservative.
-						 Find a corresponding potential function.
+						34.2.4 The vector field $ \,\F(x,y,z) = y^2\i + \left(2xy + e^{3z}\right)\j + 3ye^{3z}\k$
+						<br />is conservative.
+						Find a corresponding potential function.
 					</h5>
 					<div class="size-70">
 						<div class="left-txt">
 							<p class="fragment" data-fragment-index="0">
-								Is there a way of determining whether or not a given vector field is conservative? 
+								Is there a way of determining whether or not a given vector field is conservative?
 								To answer this question, we need to go back to the study of line integrals.
 							</p>
 						</div>
 					</div>
 				</section>
 
-				
+
 
 			</section>
 
-			
+
 
 
 			<section>
-				
+
 
 			</section>
 
