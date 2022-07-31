@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Velocity field - Near a wall</title>
+  <script src="../mathbox/mathbox-bundle.min.js"></script>
+  <script src="../mathbox/dat.gui.min.js"></script>
+  <link rel="stylesheet" href="../mathbox/mathbox.css">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+  <script>
+
+    /*
+      Adapted from Steven Wittens' MathBox examples:
+
+      https://github.com/unconed/mathbox
+    */
+
+
+    // Number of samples on each 3D axis
+    const SAMPLES = 12;
+
+    // Accuracy of integration steps
+    const DIVIDE = 8;
+    const STEP = 1 / 32 / DIVIDE;
+
+    // Jitter range
+    const JITTER = 1 / SAMPLES;
+
+    // Maximum integration steps drawn
+    const MAX_STEPS = 16;
+
+    // Bootstrap MathBox
+    const mathbox = mathBox({
+      plugins: ['core', 'controls', 'cursor', 'mathbox'],
+      controls: {
+        // Trackball controls, i.e. Free quaternion rotation
+        klass: THREE.TrackballControls,
+      },
+    });
+    if (mathbox.fallback) throw "WebGL not supported"
+
+    let three = mathbox.three;
+    three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
+
+    // Dat GUI
+    let gui = new dat.GUI();
+    let props = {
+      k: 0.5,
+      speed: 1,
+      x: 0,
+      y: 0,
+      z: 0,
+      jitter: 1,
+      steps: 10,
+      respawn: 0.0005,
+      fixed: false,
+      //field1: true,
+      rotate: false,
+    };
+    //gui.add(props, 'rotate')
+    gui.add(props, 'k').min(0.1).max(3.0).step(.1)
+    //gui.add(props, 'speed').min(0.0).max(10).step(.1)
+    //gui.add(props, 'x').min(-1).max(1).step(.05)
+    //gui.add(props, 'y').min(-1).max(1).step(.05)
+    //gui.add(props, 'z').min(-1).max(1).step(.05)
+    //gui.add(props, 'steps').min(2).max(MAX_STEPS).step(1)
+    gui.add(props, 'fixed')
+    //gui.add(props, 'respawn').min(0).max(.01).step(.0005)
+    //gui.add(props, 'jitter').min(0).max(4).step(.05)
+
+
+
+    // DOM
+    mathbox.set('focus', 3);
+
+    let camera =
+      mathbox
+      .camera({
+        proxy: true,
+        position: [0, 1, 3],
+      });
+
+    let view =
+      mathbox
+      .set({
+        focus: 3,
+      })
+      .clock({}, {
+        speed: function () {
+          return props.rotate ? 1 / 16 : 0;
+        }
+      })
+      .cartesian({
+        range: [
+          [-3, 3],
+          [-3, 3],
+          [-3, 3]
+        ],
+        scale: [1, -1, 1],
+      }, {
+        quaternion: function (t) {
+          return [Math.cos(t), 0, 0, Math.sin(t)];
+        }
+      });
+
+    // Scratch vector
+    let v = new THREE.Vector3();
+
+    // Vector field
+    let field = (x, y, z) => {
+      x += props.x;
+      y += props.y;
+      z += props.z;
+
+      let cx = props.k * 4 * Math.sin(x) * Math.cos(x) * (Math.cos(x) * Math.cos(x)+ Math.cos(y) * Math.cos(y));
+      let cy = props.k * 4 * Math.sin(y) * Math.cos(y) * (Math.cos(x) * Math.cos(x)+ Math.cos(y) * Math.cos(y));
+      let cz = 4 * Math.sin(z) * Math.cos(z) ;
+
+      v.set(cx, cy, cz);
+      return v;
+    };
+
+    // Random deterministic jitter
+    let rand = (seed) => {
+      var seed = (Math.abs(Math.sin(seed * seed * seed * 319.1981313 +
+        seed * seed * 131.8455733 +
+        seed * 473.3914129)) * 10631.1318791821) % 1;
+      return seed * 2 - 1;
+    };
+
+    let jitter = (i) => {
+      v.set(rand(i), rand(i * i), rand(i * i * i));
+      v.multiplyScalar(props.jitter);
+      return v;
+    };
+
+    // RK4 scratch vectors
+    let va = new THREE.Vector3();
+    let vb = new THREE.Vector3();
+    let vc = new THREE.Vector3();
+    let vd = new THREE.Vector3();
+
+    // Compute a 3D volume of integrated field lines
+    let previous = new Float32Array(SAMPLES * SAMPLES * SAMPLES * 3);
+    let data =
+      view
+      .volume({
+        expr: function (emit, x, y, z, i, j, k, t) {
+          let f;
+
+          let x1, y1, z1, x2, y2, z2, x3, y3, z3;
+          let delta = STEP * props.speed;
+
+          // Point index
+          let l = (i + (j + k * SAMPLES) * SAMPLES) * 3;
+
+          if (props.speed <= 0) {
+            props.respawn = 0;
+          } else props.respawn = 0.0009;
+
+          if (!props.fixed && Math.random() > props.respawn) {
+            // Keep integrating along same field line with X% probability.
+            x = previous[l] || x;
+            y = previous[l + 1] || y;
+            z = previous[l + 2] || z;
+
+            // Take 1 step (Runge-Kutta 4)
+            f = field(x, y, z);
+            va.copy(f);
+
+            x1 = x + f.x * delta * .5;
+            y1 = y + f.y * delta * .5;
+            z1 = z + f.z * delta * .5;
+
+            f = field(x1, y1, z1);
+            vb.copy(f);
+
+            x2 = x + f.x * delta * .5;
+            y2 = y + f.y * delta * .5;
+            z2 = z + f.z * delta * .5;
+
+            f = field(x2, y2, z2);
+            vc.copy(f);
+
+            x3 = x + f.x * delta;
+            y3 = y + f.y * delta;
+            z3 = z + f.z * delta;
+
+            f = field(x3, y3, z3);
+            vd.copy(f);
+
+            va.multiplyScalar(1 / 6);
+            vb.multiplyScalar(2 / 6);
+            vc.multiplyScalar(2 / 6);
+            vd.multiplyScalar(1 / 6);
+
+            va.add(vb);
+            vc.add(vd);
+            f.addVectors(va, vc);
+
+            x += f.x * delta;
+            y += f.y * delta;
+            z += f.z * delta;
+          } else {
+            if (props.fixed) t = 0;
+
+            // Start at jittered home position
+            f = jitter(l + t);
+            x += f.x * JITTER;
+            y += f.y * JITTER;
+            z += f.z * JITTER;
+          }
+
+          previous[l] = x;
+          previous[l + 1] = y;
+          previous[l + 2] = z;
+
+          // Emit MAX_STEPS points ahead
+          for (let i = 0; i < MAX_STEPS; ++i) {
+            emit(x, y, z);
+
+            // Only take selected number of steps
+            delta = (i >= MAX_STEPS - props.steps) ? STEP : 0.0001;
+
+            // Take DIVIDE steps (Euler)
+            for (let j = 0; j < DIVIDE; ++j) {
+              f = field(x, y, z);
+              x += f.x * delta;
+              y += f.y * delta;
+              z += f.z * delta;
+            }
+          }
+
+        },
+        width: SAMPLES,
+        height: SAMPLES,
+        depth: SAMPLES,
+        items: MAX_STEPS,
+        channels: 3,
+      });
+
+    // Draw polyarrows
+    let vectors =
+      view
+      .vector({
+          color: 0x4098FF,
+          width: 1,
+          zBias: 3,
+          end: true,
+        }, //{
+        // visible: function () {
+        // return props.field1;
+        //}
+        //}
+      );
+
+    view.axis({
+      detail: 30,
+    });
+
+    view.axis({
+      axis: 2,
+    });
+
+    view.scale({
+      divide: 10,
+    });
+    view.ticks({
+      classes: ["foo", "bar"],
+      width: 2,
+    });
+
+    view.grid({
+      divideX: 30,
+      width: 1,
+      opacity: 0.5,
+      zBias: -5,
+    });
+  </script>
+</body>
+
+</html>
