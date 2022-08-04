@@ -79,29 +79,40 @@
 			</section>
 
 			<section>
-				<h4>24.1 Fubini's theorem</h4>
-				<div class="left-txt size-80">
-					<p class="fragment" data-fragment-index="0">
-						If $f(x,y)$ is integrable on the rectangle
-						\[
-						R = \left\{ (x,y)~|~a\leq x\leq b, c\leq x\leq d \right\},
-						\]
-						<span class="fragment" data-fragment-index="1">then</span>
-					</p>
-				</div>
-				<div class=" size-80">
-					<p>
-						<span class="fragment" data-fragment-index="1">
-							$\displaystyle \iint_R f(x,y) dA = \int_a^b \int_c^d f(x,y) ~dy~dx$
-						</span>
+				<section>
+					<h4>24.1 Fubini's theorem</h4>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							If $f(x,y)$ is integrable on the rectangle
+							\[
+							R = \left\{ (x,y)~|~a\leq x\leq b, c\leq x\leq d \right\},
+							\]
+							<span class="fragment" data-fragment-index="1">then</span>
+						</p>
+					</div>
+					<div class=" size-80">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\displaystyle \iint_R f(x,y) dA = \int_a^b \int_c^d f(x,y) ~dy~dx$
+							</span>
 
-					</p>
-					<p>
-						<span class="fragment" data-fragment-index="2">
-							$\displaystyle \qquad \qquad \;\;\;= \int_c^d \int_a^b f(x,y) ~dx~dy$
-						</span>
-					</p>
-				</div>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$\displaystyle \qquad \qquad \;\;\;= \int_c^d \int_a^b f(x,y) ~dx~dy$
+							</span>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>24.1 Fubini's theorem</h4>
+					<div>
+						<iframe scrolling="no" title="Fubini's theorem: Square regions"
+							src="https://www.geogebra.org/material/iframe/id/pkcqbzhy/width/637/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="637px" height="472px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+				</section>
 
 			</section>
 
@@ -147,60 +158,60 @@
 				-->
 
 				<section>
-						<h4>24.2 Example: evaluate ${\small \iint_R \left(x^2+y^2\right)dA}$</h4>
-						<p class="sbt">where
-							$R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq y\leq 1 \right\}$</p>
-						<div class="size-60">
-							<table  id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
-								<tr>
-									<td class="fragment" data-fragment-index="0">
-										$\displaystyle \iint_R \left(x^2+y^2\right)dA $
-									</td>
-									<td class="fragment" data-fragment-index="0">
-										$= \displaystyle \int_{x=0}^{x=2} \left[
-								\int_{y=0}^{y=1} \left(x^2+y^2\right)dy \right]dx $
-									</td>
-								</tr>
-								<tr>
-									<td>
-	
-									</td>
-									<td class="fragment" data-fragment-index="1">
-										$ = \displaystyle \int_0^2 \left[ \left( x^2 y + \frac{y^3}{3}
-								\right)
-								\Bigg|_{y=0}^{y=1} \right] dx$
-									</td>
-								</tr>
-								<tr>
-									<td>
-	
-									</td>
-									<td class="fragment" data-fragment-index="2">
-										$= \displaystyle \int_0^2 \left[ x^2 (1) +
-								\frac{(1)^3}{3} - \left(x^2 (0) + x^2 \frac{(0)^3}{3}\right) \right]dx$
-									</td>
-								</tr>
-								<tr>
-									<td>
-	
-									</td>
-									<td class="fragment" data-fragment-index="3" >
-										$= \displaystyle \int_0^2 \left( x^2+\frac{1}{3}
-								\right) dx$
+					<h4>24.2 Example: evaluate ${\small \iint_R \left(x^2+y^2\right)dA}$</h4>
+					<p class="sbt">where
+						$R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq y\leq 1 \right\}$</p>
+					<div class="size-60">
+						<table id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
+							<tr>
+								<td class="fragment" data-fragment-index="0">
+									$\displaystyle \iint_R \left(x^2+y^2\right)dA $
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									$= \displaystyle \int_{x=0}^{x=2} \left[
+									\int_{y=0}^{y=1} \left(x^2+y^2\right)dy \right]dx $
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									$ = \displaystyle \int_0^2 \left[ \left( x^2 y + \frac{y^3}{3}
+									\right)
+									\Bigg|_{y=0}^{y=1} \right] dx$
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="2">
+									$= \displaystyle \int_0^2 \left[ x^2 (1) +
+									\frac{(1)^3}{3} - \left(x^2 (0) + x^2 \frac{(0)^3}{3}\right) \right]dx$
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td class="fragment" data-fragment-index="3">
+									$= \displaystyle \int_0^2 \left( x^2+\frac{1}{3}
+									\right) dx$
 									<span class="fragment" data-fragment-index="4">
 										$= \displaystyle \left( \frac{x^3}{3}+\frac{1}{3}x \right)\Bigg|_{x=0}^{x=2}$
 									</span>
 									<span class="fragment" data-fragment-index="5">
 										$= \displaystyle \frac{10}{3}$
 									</span>
-									</td>
-								</tr>
-							</table>
-	
-	
-						</div>
-	
-					</section>
+								</td>
+							</tr>
+						</table>
+
+
+					</div>
+
+				</section>
 
 				<!--
 					<section>
@@ -246,7 +257,7 @@
 					<h4>24.2 Example (cont.):</h4>
 					<p class="sbt">by Fubini's theorem</p>
 					<div class="size-60">
-						<table  id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
+						<table id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
 							<tr>
 								<td>
 									$\displaystyle \iint_R \left(x^2+y^2\right)dA $
@@ -272,23 +283,23 @@
 								</td>
 								<td class="fragment" data-fragment-index="1">
 									$= \displaystyle \int_0^1 \left[ \frac{(2)^3}{3} +
-								y^2(2) - \left(\frac{(0)^3}{3} + y^2(0)\right) \right]dy$
+									y^2(2) - \left(\frac{(0)^3}{3} + y^2(0)\right) \right]dy$
 								</td>
 							</tr>
 							<tr>
 								<td>
 
 								</td>
-								<td class="fragment" data-fragment-index="2" >
+								<td class="fragment" data-fragment-index="2">
 									$= \displaystyle \int_0^1 \left( \frac{8}{3} +
-								2y^2
-								\right) dy$
-								<span class="fragment" data-fragment-index="3">
-									$= \displaystyle \left( \frac{8}{3}y + 2\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=1}$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									$= \displaystyle \frac{10}{3}$
-								</span>
+									2y^2
+									\right) dy$
+									<span class="fragment" data-fragment-index="3">
+										$= \displaystyle \left( \frac{8}{3}y + 2\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=1}$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$= \displaystyle \frac{10}{3}$
+									</span>
 								</td>
 							</tr>
 						</table>
