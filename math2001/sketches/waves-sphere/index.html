@@ -34,7 +34,7 @@
 		});
 		mathbox.camera({
 			proxy: true,
-			position: [0.09, -2.9, 0.7]
+			position: [0.9, 1.5, -0.3]
 		});
 
 		var PI = Math.PI;
@@ -52,6 +52,7 @@
 			vMax = PI;
 		var play = true;
 		var torsion = 5;
+		
 
 		var updateGraph = function () {
 
@@ -74,7 +75,7 @@
 				[yMin, yMax],
 				[zMin, zMax]
 			],
-			scale: [2.5, 2.5, 2.5],
+			scale: [1.5, 1.5, 1.5],
 		});
 
 		// Create u,v domain
@@ -108,9 +109,10 @@
 
 		var m = 6;
 		var n = 5;
+		var rho = 0.15;
 
 		var Rad = (x, y, t) => {
-			return 1 + 1/5 * Math.sin(m * x) * Math.sin(t * y);
+			return 1 + t * Math.sin(m * x) * Math.sin(n * y);
 		}
 
 
@@ -133,7 +135,7 @@
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
 				
-				var autoTorsion = 9 * Math.cos(0.25 * t)
+				var autoTorsion = 0.05 * Math.cos(2 * t)
 
 				if (play) {
 					emit(
@@ -143,9 +145,9 @@
 					)
 				} else {
 					emit(
-						Fx(u, v, torsion),
-						Fy(u, v, torsion),
-						Fz(u, v, torsion)
+						Fx(u, v, rho),
+						Fy(u, v, rho),
+						Fz(u, v, rho)
 					)
 				}
 			},
@@ -166,9 +168,9 @@
 
 		var gui = new dat.GUI();
 
-		var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange(updateGraph);
-		var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange(updateGraph);
-		var torsionGUI = gui.add(this, 'torsion').min(-10).max(10).step(0.01).name('torsion = ').onChange(updateGraph);
+		var mGUI = gui.add(this, 'm').min(0).max(30).step(1).name('m = ').onChange(updateGraph);
+		var nGUI = gui.add(this, 'n').min(0).max(30).step(1).name('n = ').onChange(updateGraph);
+		var rhoGUI = gui.add(this, 'rho').min(0).max(0.25).step(0.01).name('rho = ').onChange(updateGraph);
 		var animateGUI = gui.add(this, 'play')
 
 		//gui.add(this, 'updateGraph').name("Update Graph");
