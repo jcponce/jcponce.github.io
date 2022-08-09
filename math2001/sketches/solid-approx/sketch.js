@@ -36,7 +36,10 @@ function setup() {
   cursor('grab');
   
   // create gui (dat.gui)
-  let gui = new dat.GUI();
+  let gui = new dat.GUI({
+    width: 280,
+  });
+
   gui.add(param, 'Approx', 0, 1, 0.01).listen();
   
 }
