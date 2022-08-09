@@ -225,7 +225,7 @@ void main() {
 	    vec3 surfacePosition = camPos + rayDirection * t;
 
         col = model.col;
-        col = surfacePosition / 10.; // Adds color to the solid
+        //col = surfacePosition / 10.; // Adds color to the solid
         vec3 snor = calcNormal(surfacePosition);
         vec3 nor = calcNormal(closestPosition);
         vec3 vnor = -(mask * sign(rayDirection));
