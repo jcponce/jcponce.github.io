@@ -10,7 +10,7 @@ Date: 09/Aug/2022
 
 */
 
-// a shader variable
+// Shader variables
 let theShader;
 let shaderBg;
 
@@ -70,31 +70,33 @@ function draw() {
     shaderBg.rect(0, 0, width, height);
     image(shaderBg, 0, 0, width, height);
 
+
     /*
-  // flip coordinate information box
-  let flipX = 0;
-  let flipY = 0;
-  if (width - mouseX < 200) {
-    flipX = -130;
-  }
-  if (height - mouseY < 100) {
-    flipY = -35;
-  }
+    // I just need the following code to display
+    // information for position reference.
+    // flip coordinate information box
+    let flipX = 0;
+    let flipY = 0;
+    if (width - mouseX < 200) {
+        flipX = -130;
+    }
+    if (height - mouseY < 100) {
+        flipY = -35;
+    }
 
-  // draw coordinate information box if you want
+    // draw coordinate information box if you want
 
-  fill(255);
-  rect(mouseX + flipX, mouseY + flipY, 60, 40);
-  fill(0);
-  text("x: " + int(mouseX), mouseX + 15 + flipX, mouseY + 15 + flipY);
-  text("y: " + int(mouseY), mouseX + 15 + flipX, mouseY + 30 + flipY);
-  fill(0);
-  rect(mouseX + 60 + flipX, mouseY + flipY, 70, 40);
-  fill(255);
-  text("x: " + nfc(xMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 15 + flipY);
-  text("y: " + nfc(yMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 30 + flipY);
-
-*/
+    fill(255);
+    rect(mouseX + flipX, mouseY + flipY, 60, 40);
+    fill(0);
+    text("x: " + int(mouseX), mouseX + 15 + flipX, mouseY + 15 + flipY);
+    text("y: " + int(mouseY), mouseX + 15 + flipX, mouseY + 30 + flipY);
+    fill(0);
+    rect(mouseX + 60 + flipX, mouseY + flipY, 70, 40);
+    fill(255);
+    text("x: " + nfc(xMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 15 + flipY);
+    text("y: " + nfc(yMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 30 + flipY);
+    */
 
     //console.log(imView);
 }
