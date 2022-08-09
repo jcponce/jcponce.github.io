@@ -135,7 +135,7 @@ void main() {
   
     vec2 im = iMouse.xy * scale * iResolution.x / iResolution.y;
   
-    if (iView == false || (iMouse.y > 0.85) )
+    if (iView == false || iMouse.y < -0.81)
     {
         im = vec2(.6,.2);
     }
