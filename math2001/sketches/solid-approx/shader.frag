@@ -127,7 +127,7 @@ void main() {
   
     float smoothness = iParam;
     //float smoothness = sin(u_time * .15 - PI * .5) * .5 + .5; // This creates the animation
-    float voxelSize = mix(2.5, .2, smoothness);
+    float voxelSize = mix(5., .2, smoothness);
   
     vec2 p = vec2(u, v);
   
