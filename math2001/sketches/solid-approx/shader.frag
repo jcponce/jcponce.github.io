@@ -1,0 +1,244 @@
+// Original shader by
+// Thomas Hooper https://twitter.com/tdhooper
+// Linl: https://www.shadertoy.com/view/NtcyRB
+
+// These are necessary definitions that let you graphics card know how to render the shader
+#ifdef GL_ES
+precision highp float;
+#endif
+
+
+// These are our passed in information from the sketch.js
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+uniform bool u_view;
+uniform float u_param;
+
+varying vec2 vTexCoord;
+
+#define PI 3.14159265359
+
+// HG_SDF
+void pR(inout vec2 p, float a) {
+    p = cos(a)*p + sin(a)*vec2(p.y, -p.x);
+}
+
+float smin(float a, float b, float k){
+    float f = clamp(0.5 + 0.5 * ((a - b) / k), 0., 1.);
+    return (1. - f) * a + f  * b - f * (1. - f) * k;
+}
+
+struct Model {
+    float d;
+    vec3 col;
+};
+
+Model map(vec3 p) {
+    
+    vec3 col = normalize(p) * .5 + .5;
+    p -= vec3(6,-2,4);
+    float d = length(p) - 16.;
+    p += vec3(1.2,-.8,.8) * 12.;
+    d = smin(d, length(p) - 9., 4.);
+    p += vec3(2.,.5,-.6) * 5.;
+    d = smin(d, length(p) - 4., 3.);
+    col = vec3(.8);
+    return Model(d, col);
+}
+
+int RShift(int num, float shifts){
+    return int(floor(float(num) / pow(2.0, shifts)));
+}
+
+int AND(int n1, int n2){
+    
+    float v1 = float(n1);
+    float v2 = float(n2);
+    
+    int byteVal = 1;
+    int result = 0;
+    
+    for(int i = 0; i < 32; i++){
+        bool keepGoing = v1>0.0 || v2 > 0.0;
+        if(keepGoing){
+            
+            bool addOn = mod(v1, 2.0) > 0.0 && mod(v2, 2.0) > 0.0;
+            
+            if(addOn){
+                result += byteVal;
+            }
+            
+            v1 = floor(v1 / 2.0);
+            v2 = floor(v2 / 2.0);
+            byteVal *= 2;
+        } else {
+            return result;
+        }
+    }
+    return result;
+}
+
+// compile speed optim from IQ https://www.shadertoy.com/view/Xds3zN
+vec3 calcNormal(vec3 pos){
+    vec3 n = vec3(0.0);
+    for( int i=0; i<4; i++ )
+    {
+        vec3 e = 0.5773*(2.0*vec3( AND( RShift((i+3), 1.0), 1 ) ,
+                                  AND(RShift(i, 1.0), 1),
+                                  AND(i, 1) )-1.0
+                        );
+        n += e*map(pos+0.0005*e).d;
+    }
+    return normalize(n);
+}
+
+mat3 calcLookAtMatrix(vec3 ro, vec3 ta, vec3 up) {
+    vec3 ww = normalize(ta - ro);
+    vec3 uu = normalize(cross(ww,up));
+    vec3 vv = normalize(cross(uu,ww));
+    return mat3(uu, vv, ww);
+}
+
+
+void main() {
+    // copy the vTexCoord
+    // vTexCoord is a value that goes from 0.0 - 1.0 depending on the pixels location
+    // we can use it to access every pixel on the screen
+  
+    vec2 coord = vTexCoord;
+
+    float u = coord.x * 2.0 - 1.0;
+    float v = coord.y * 2.0 - 1.0;
+    const float scale = 1.5;
+
+    // Make sure pixels are square
+    u = u * scale * u_resolution.x / u_resolution.y;
+    v = v * scale;
+
+    //vec2 uv = vec2(u, v);
+  
+    float smoothness = u_param;//sin(u_time * .15 - PI * .5) * .5 + .5;
+    float voxelSize = mix(2.5, .2, smoothness);
+  
+    vec2 p = vec2(u, v);
+  
+    vec3 camPos = vec3(0,0,64);
+  
+    vec2 im = u_mouse.xy * scale * u_resolution.x / u_resolution.y;
+    //vec2 im = u_mouse.xy / u_resolution.xy;
+  
+    if (u_view == false || u_mouse.y > 0.85)
+    {
+        im = vec2(.6,.2);
+    }
+  
+    pR(camPos.yz, (.5 - im.y) * PI / 2.);
+    pR(camPos.xz, (.5 - im.x) * PI * 2.5);
+    
+    mat3 camMat = calcLookAtMatrix(camPos, vec3(0), vec3(0,1,0));
+
+    camPos = camPos;
+
+    float focalLength = 3.;
+    vec3 rayDirection = normalize(camMat * vec3(p.xy, focalLength));
+    
+    vec3 rayPosition = camPos;
+    float rayLength = 0.;
+    Model model;
+    float dist = 0.;
+    bool bg = true;
+    vec3 bgcol = vec3(.02);
+    vec3 col = bgcol;
+    bool hitVoxel = false;
+    vec3 voxelPosition;
+    vec3 closestPosition;
+    float closestDist = 1e12;
+
+    // Get close to surface
+    for (int i = 0; i < 100; i++) {
+        rayLength += dist;
+        rayPosition = camPos + rayDirection * rayLength;
+        model = map(rayPosition);
+        dist = model.d;
+        
+        if (dist < closestDist) {
+            closestPosition = rayPosition;
+            closestDist = dist;
+        }
+
+        if (!hitVoxel && abs(dist) < voxelSize) {
+            bg = false;
+            voxelPosition = rayPosition;
+            hitVoxel = true;
+        }
+        
+        if (rayLength > 100.) {
+            break;
+        }
+    }
+    
+    vec3 side, mask;
+    
+    // Intersect with voxel
+    // Shane https://shadertoy.com/view/MdVSDh
+    if (!bg)
+    {
+        bg = true;
+
+        vec3 rayOrigin = voxelPosition - rayDirection * voxelSize;
+        //rayOrigin = camPos;
+        voxelPosition = (floor(rayOrigin / voxelSize) + .5) * voxelSize;
+    
+    	vec3 dRd = 1. / abs(rayDirection); // 1./max(abs(rd), vec3(.0001));
+        vec3 voxelDirection = sign(rayDirection);
+        side = dRd * (voxelDirection * (voxelPosition - rayOrigin) + .5 * voxelSize);
+
+        mask = vec3(0);
+
+        for (int i = 0; i < 100; i++) {
+
+            model = map(voxelPosition);
+
+            if (model.d < 0.) {
+                bg = false;
+                break;
+            }
+            
+            mask = step(side, side.yzx)*(1. - step(side.zxy, side));
+            side += mask * dRd * voxelSize;
+            voxelPosition += mask * voxelDirection * voxelSize;
+        }
+    }
+        
+    if ( ! bg) {
+    
+    	vec3 tCube = (voxelPosition - camPos - .5 * sign(rayDirection) * voxelSize) / rayDirection;
+        float t = max(max(tCube.x, tCube.y), tCube.z);
+	    vec3 surfacePosition = camPos + rayDirection * t;
+
+        col = model.col;
+        //col = surfacePosition / 10.;
+        vec3 snor = calcNormal(surfacePosition);
+        vec3 nor = calcNormal(closestPosition);
+        vec3 vnor = -(mask * sign(rayDirection));
+                
+        float blendSmooth = smoothstep(.8, 1., smoothness);
+        nor = mix(snor, nor, blendSmooth);
+        
+        vec3 lp = normalize(vec3(0,2,-1));
+        col *= mix(clamp(dot(lp, vnor) * .8 + .6, 0., 1.), .5, blendSmooth);
+        col *= clamp(dot(lp, nor) * .5 + .5, 0., 1.);
+        col *= sqrt(clamp(.5 + .5 * nor.y, 0., 1.));
+        float fog = 1. - exp((rayLength - 6.) * -.5);
+    }
+  
+    col = pow(col, vec3(1./2.2));
+  
+    //
+      
+
+  // gl_FragColor is a built in shader variable, and your .frag file must contain it
+  // We are setting the vec3 color into a new vec4, with a transparency of 1 (no opacity)
+	gl_FragColor = vec4(col,1.0);
+}
