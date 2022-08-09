@@ -64,11 +64,11 @@ function draw() {
     yMouse = yMouse;
 
     // pass the interactive information to the shader
-    theShader.setUniform("u_resolution", [width, height]);
-    theShader.setUniform("u_time", millis() / 1000.0);
-    theShader.setUniform("u_mouse", [xMouse, yMouse]);
-    theShader.setUniform("u_view", imView);
-    theShader.setUniform("u_param", param.Approx);
+    theShader.setUniform("iResolution", [width, height]);
+    theShader.setUniform("iTime", millis() / 1000.0);
+    theShader.setUniform("iMouse", [xMouse, yMouse]);
+    theShader.setUniform("iView", imView);
+    theShader.setUniform("iParam", param.Approx);
 
     // rect gives us some geometry on the screen to draw the shader on
     shaderBg.rect(0, 0, width, height);

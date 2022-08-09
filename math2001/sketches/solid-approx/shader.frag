@@ -8,13 +8,13 @@ precision highp float;
 #endif
 
 // These are our passed in information from the sketch.js
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
+uniform vec2 iResolution;
+uniform vec2 iMouse;
 
-uniform float u_time;
-uniform float u_param;
+uniform float iTime;
+uniform float iParam;
 
-uniform bool u_view;
+uniform bool iView;
 //*******************//
 
 varying vec2 vTexCoord;
@@ -122,10 +122,10 @@ void main() {
     const float scale = 1.5;
 
     // Make sure pixels are square
-    u = u * scale * u_resolution.x / u_resolution.y;
+    u = u * scale * iResolution.x / iResolution.y;
     v = v * scale;
   
-    float smoothness = u_param;
+    float smoothness = iParam;
     //float smoothness = sin(u_time * .15 - PI * .5) * .5 + .5; // This creates the animation
     float voxelSize = mix(2.5, .2, smoothness);
   
@@ -133,9 +133,9 @@ void main() {
   
     vec3 camPos = vec3(0,0,64);
   
-    vec2 im = u_mouse.xy * scale * u_resolution.x / u_resolution.y;
+    vec2 im = iMouse.xy * scale * iResolution.x / iResolution.y;
   
-    if (u_view == false || u_mouse.y > 0.85)
+    if (iView == false || iMouse.y > 0.85)
     {
         im = vec2(.6,.2);
     }
