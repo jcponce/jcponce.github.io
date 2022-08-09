@@ -1,19 +1,21 @@
 // Original shader by
 // Thomas Hooper https://twitter.com/tdhooper
-// Linl: https://www.shadertoy.com/view/NtcyRB
+// Link: https://www.shadertoy.com/view/NtcyRB
 
 // These are necessary definitions that let you graphics card know how to render the shader
 #ifdef GL_ES
 precision highp float;
 #endif
 
-
 // These are our passed in information from the sketch.js
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
+
 uniform float u_time;
-uniform bool u_view;
 uniform float u_param;
+
+uniform bool u_view;
+//*******************//
 
 varying vec2 vTexCoord;
 
@@ -47,6 +49,12 @@ Model map(vec3 p) {
     return Model(d, col);
 }
 
+// In absence of bitwise operators in WebGL 1.0, 
+// I used these methods as substitute
+// by Elu Davis https://github.com/EliCDavis
+// Source code: 
+// https://gist.github.com/EliCDavis/f35a9e4afb8e1c9ae94cce8f3c2c9b9a
+
 int RShift(int num, float shifts){
     return int(floor(float(num) / pow(2.0, shifts)));
 }
@@ -60,7 +68,7 @@ int AND(int n1, int n2){
     int result = 0;
     
     for(int i = 0; i < 32; i++){
-        bool keepGoing = v1>0.0 || v2 > 0.0;
+        bool keepGoing = v1 > 0.0 || v2 > 0.0;
         if(keepGoing){
             
             bool addOn = mod(v1, 2.0) > 0.0 && mod(v2, 2.0) > 0.0;
@@ -78,6 +86,7 @@ int AND(int n1, int n2){
     }
     return result;
 }
+//**************************//
 
 // compile speed optim from IQ https://www.shadertoy.com/view/Xds3zN
 vec3 calcNormal(vec3 pos){
@@ -115,10 +124,9 @@ void main() {
     // Make sure pixels are square
     u = u * scale * u_resolution.x / u_resolution.y;
     v = v * scale;
-
-    //vec2 uv = vec2(u, v);
   
-    float smoothness = u_param;//sin(u_time * .15 - PI * .5) * .5 + .5;
+    float smoothness = u_param;
+    //float smoothness = sin(u_time * .15 - PI * .5) * .5 + .5; // This creates the animation
     float voxelSize = mix(2.5, .2, smoothness);
   
     vec2 p = vec2(u, v);
@@ -126,7 +134,6 @@ void main() {
     vec3 camPos = vec3(0,0,64);
   
     vec2 im = u_mouse.xy * scale * u_resolution.x / u_resolution.y;
-    //vec2 im = u_mouse.xy / u_resolution.xy;
   
     if (u_view == false || u_mouse.y > 0.85)
     {
@@ -218,7 +225,7 @@ void main() {
 	    vec3 surfacePosition = camPos + rayDirection * t;
 
         col = model.col;
-        //col = surfacePosition / 10.;
+        col = surfacePosition / 10.; // Adds color to the solid
         vec3 snor = calcNormal(surfacePosition);
         vec3 nor = calcNormal(closestPosition);
         vec3 vnor = -(mask * sign(rayDirection));
@@ -233,12 +240,9 @@ void main() {
         float fog = 1. - exp((rayLength - 6.) * -.5);
     }
   
-    col = pow(col, vec3(1./2.2));
-  
-    //
-      
+    col = pow(col, vec3(1.0/2.2));
 
   // gl_FragColor is a built in shader variable, and your .frag file must contain it
   // We are setting the vec3 color into a new vec4, with a transparency of 1 (no opacity)
-	gl_FragColor = vec4(col,1.0);
+	gl_FragColor = vec4(col, 1.0);
 }
