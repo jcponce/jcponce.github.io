@@ -4,7 +4,7 @@ Original shader by
 Thomas Hooper https://twitter.com/tdhooper
 Link: https://www.shadertoy.com/view/NtcyRB
 
-Author: Juan Carlos Ponce Campuzano
+This version by Juan Carlos Ponce Campuzano
 Website: https://jcponce.github.io
 Date: 09/Aug/2022
 
