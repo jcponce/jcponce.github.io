@@ -218,7 +218,7 @@ void main() {
         }
     }
         
-    if ( ! bg) {
+    if (!bg) {
     
     	vec3 tCube = (voxelPosition - camPos - .5 * sign(rayDirection) * voxelSize) / rayDirection;
         float t = max(max(tCube.x, tCube.y), tCube.z);
