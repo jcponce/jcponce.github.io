@@ -18,9 +18,7 @@ let shaderBg;
 let xMouse;
 let yMouse;
 let imView = false;
-let param = {
-    Approx: 0,
-};
+let slider;
 
 function preload() {
     // load the shader
@@ -38,12 +36,15 @@ function setup() {
     shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
     cursor('grab');
 
-    // create gui (dat.gui)
-    let gui = new dat.GUI({
-        width: 280,
-    });
+    // create gui (dat.gui), not needed anymore
+    //let gui = new dat.GUI({
+    //    width: 280,
+    //});
+    //gui.add(param, 'Approx', 0, 1, 0.01).listen();
 
-    gui.add(param, 'Approx', 0, 1, 0.01).listen();
+    slider = createSlider(0, 1, 0, 0.01);
+    slider.position(windowWidth/2-150, windowHeight-70);
+    slider.style('width', '300px');
 
 }
 
@@ -68,7 +69,8 @@ function draw() {
     theShader.setUniform("iTime", millis() / 1000.0);
     theShader.setUniform("iMouse", [xMouse, yMouse]);
     theShader.setUniform("iView", imView);
-    theShader.setUniform("iParam", param.Approx);
+    theShader.setUniform("iParam", slider.value());
+
 
     // rect gives us some geometry on the screen to draw the shader on
     shaderBg.rect(0, 0, width, height);
@@ -106,6 +108,7 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    slider.position(windowWidth/2-150, windowHeight-70);
 }
 
 function mousePressed() {
