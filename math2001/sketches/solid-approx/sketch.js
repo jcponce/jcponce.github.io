@@ -14,6 +14,11 @@ Date: 09/Aug/2022
 let theShader;
 let shaderBg;
 
+// For uniform variables
+let xMouse;
+let yMouse;
+let imView = false;
+
 let param = {
     Approx: 0,
 };
@@ -52,8 +57,8 @@ function draw() {
     shaderBg.shader(theShader);
 
     // get the mouse coordinates, map them to values between 0-1 space
-    let yMouse = (map(mouseY, 0, height, height, 0) / height) * 2 - 1;
-    let xMouse = (mouseX / width) * 2 - 1;
+    yMouse = (map(mouseY, 0, height, height, 0) / height) * 2 - 1;
+    xMouse = (mouseX / width) * 2 - 1;
 
     // Make sure pixels are square
     xMouse = (xMouse * width) / height;
@@ -104,8 +109,6 @@ function draw() {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
-
-let imView = false;
 
 function mousePressed() {
     if (imView === false) {
