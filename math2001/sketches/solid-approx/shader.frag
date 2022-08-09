@@ -23,7 +23,7 @@ varying vec2 vTexCoord;
 
 // HG_SDF
 void pR(inout vec2 p, float a) {
-    p = cos(a)*p + sin(a)*vec2(p.y, -p.x);
+    p = cos(a) * p + sin(a) * vec2(p.y, -p.x);
 }
 
 float smin(float a, float b, float k){
@@ -140,8 +140,8 @@ void main() {
         im = vec2(.6,.2);
     }
   
-    pR(camPos.yz, (.5 - im.y) * PI / 2.);
-    pR(camPos.xz, (.5 - im.x) * PI * 2.5);
+    pR(camPos.yz, (0.5 - im.y) * PI / 2.);
+    pR(camPos.xz, (0.5 - im.x) * PI * 2.5);
     
     mat3 camMat = calcLookAtMatrix(camPos, vec3(0), vec3(0,1,0));
 
