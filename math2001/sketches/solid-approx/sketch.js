@@ -18,7 +18,6 @@ let shaderBg;
 let xMouse;
 let yMouse;
 let imView = false;
-
 let param = {
     Approx: 0,
 };
@@ -74,7 +73,6 @@ function draw() {
     // rect gives us some geometry on the screen to draw the shader on
     shaderBg.rect(0, 0, width, height);
     image(shaderBg, 0, 0, width, height);
-
 
     /*
     // I just need the following code to display
