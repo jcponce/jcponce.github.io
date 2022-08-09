@@ -1,15 +1,12 @@
 /*
 
-// Original shader by
-// Thomas Hooper https://twitter.com/tdhooper
-// Link: https://www.shadertoy.com/view/NtcyRB
+Original shader by
+Thomas Hooper https://twitter.com/tdhooper
+Link: https://www.shadertoy.com/view/NtcyRB
 
 Author: Juan Carlos Ponce Campuzano
 Website: https://jcponce.github.io
-Date: 05/May/2022
-
-Following the tutorial from the Art of code:
-https://youtu.be/u5HAYVHsasc
+Date: 09/Aug/2022
 
 */
 
