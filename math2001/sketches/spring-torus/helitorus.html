@@ -2,204 +2,453 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <title>MathBox - Helitoroidal Surface</title>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.min.js"></script>
-  <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/controls/TrackballControls.js"></script>
-  <!--
-       - a minified version mathbox.min.js is also available;
-       - recommend using a specific version (not @latest) in public sites
-    -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathbox@latest/build/bundle/mathbox.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dat.gui@latest/build/dat.gui.min.js"></script>
-  <link rel="stylesheet" href="../../build/mathbox.css" />
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+  <meta charset="utf-8">
+  <title>MathBox - 3D Grapher</title>
+  <script src="../mathbox/mathbox-bundle.min.js"></script>
+  <script src="../mathbox/dat.gui.js"></script>
+
+  <!-- http://silentmatt.com/javascript-expression-evaluator/ -->
+  <script src="../mathbox/parser.js"></script>
+
+  <link rel="stylesheet" href="mathbox.css">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 
 <body>
   <script>
-    var mathbox = MathBox.mathBox({
-      plugins: ["core", "controls", "cursor", "mathbox"],
+    var mathbox = mathBox({
+      plugins: ['core', 'controls', 'cursor', 'mathbox'],
       controls: {
-        // Trackball controls, i.e. Free quaternion rotation
-        klass: THREE.TrackballControls,
+        klass: THREE.OrbitControls
       },
+
     });
-    if (mathbox.fallback) throw "WebGL not supported";
+    if (mathbox.fallback) throw "WebGL not supported"
 
     var three = mathbox.three;
-    three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+    three.renderer.setClearColor(new THREE.Color(0xFFFFFF), 1.0);
 
-    // Dat GUI
-    var gui = new dat.GUI();
-    var props = {
-      n: 10,
-      r1: 1.2,
-      r2: 0.3,
-      r3: 0.1,
-    };
-    gui.add(props, "n").min(0).max(32).step(1);
-    gui.add(props, "r1").min(0).max(3).step(0.01);
-    gui.add(props, "r2").min(0.01).max(0.5).step(0.01);
-    gui.add(props, "r3").min(0.01).max(0.2).step(0.01);
+    var graphData, view;
 
-    // DOM
-    mathbox.set("focus", 3);
+    var xFunctionText = "0.25*(7+2 *cos( t + 9 * sin(t / 12 + 0) - 0 * 9 )) * cos(t / 12 / 1)";
+    var yFunctionText = "0.25*(7+2 *cos( t + 9 * sin(t / 12 + 0) - 0 * 9 )) * sin(t / 12 / 1)";
+    var zFunctionText = "0.25*2 * sin(  t + 9 * sin(t / 12 + 0) - 0 * 9 )";
 
-    var camera = mathbox.camera({
-      proxy: true,
-      position: [1, 1, 3],
-    });
+    var a = 1,
+      b = 0.5;
+    var xMin = -3,
+      xMax = 3,
+      yMin = -2,
+      yMax = 2,
+      zMin = -3,
+      zMax = 3;
 
-    var view = mathbox.clock({
-      speed: 1 / 16
-    }).cartesian({
-      range: [
-        [-1, 1],
-        [-1, 1],
-        [-1, 1],
-      ],
-      scale: [1, 1, 1],
-      quaternion: [0.7, 0, 0, 0.7],
-    });
+    // extrusion segments -- how many sample points to take along curve.
+    var segments = 128*4;
+    // how many sides the tube cross-section has
+    var radiusSegments = 8;
+    var tubeRadius = 0.12;
 
-    var vs = new THREE.Vector3();
+    var tMin = 0,
+      tMax = 2 * Math.PI * 12,
+      tRange = tMax - tMin;
 
-    var radd = (x) => {
-      x + r2 * Math.sin(x / n + t) - t * r2;
-    } 
+    function xXFunc(x, t){
+      return 0.25*(7+2 *Math.cos( x + 9 * Math.sin(x / 12 + t) - t * 9 )) * Math.cos(x / 12 / 1)
+    }
+    function yYFunc(x, t){
+      return 0.25*(7+2 *Math.cos( x + 9 * Math.sin(x / 12 + t) - t * 9 )) * Math.sin(x / 12 / 1)
+    }
+    function zZFunc(x, t){
+      return 0.25*2*Math.sin( x + 9 * Math.sin(x / 12 + t) - t * 9 )
+    }
 
-    var spine = function (θ) {
-      var s, c, x, y, z, x2, y2, z2, r;
+    // start of updateGraph function ==============================================================
+    var updateGraphFunc = function () {
+      var xFunc = Parser.parse(xFunctionText).toJSFunction(['t']);
+      var yFunc = Parser.parse(yFunctionText).toJSFunction(['t']);
+      var zFunc = Parser.parse(zFunctionText).toJSFunction(['t']);
 
-      var a = θ * props.n;
-      var b = θ;
+      
 
-      s = Math.sin(a);
-      c = Math.cos(a);
+      curveDomain.set("range", [
+        [tMin, tMax]
+      ]);
+      tubeDomain.set("range", [
+        [tMin, tMax],
+        [0, 6.282]
+      ]);
 
-      r = props.r2 + props.r3;
-      x = 1 + c * r;
-      y = 0;
-      z = s * r;
+      var dt = (tMax - tMin) / segments;
+      var epsilon = 0.000001;
 
-      s = Math.sin(b);
-      c = Math.cos(b);
-
-      r = props.r1;
-      x2 = x * c * r;
-      y2 = x * s * r;
-      z2 = z * r;
-
-      return vs.set(x2, y2, z2);
-    };
-
-    var circle = function (θ) {
-      var s, c, x, y, z;
-
-      var b = θ;
-
-      s = Math.sin(b);
-      c = Math.cos(b);
-
-      x = c * props.r1;
-      y = s * props.r1;
-      z = 0;
-
-      return vs.set(x, y, z);
-    };
-
-    // Compute TBN matrix
-    var vo = new THREE.Vector3();
-    var vt = new THREE.Vector3();
-    var vb = new THREE.Vector3();
-    var vn = new THREE.Vector3();
-    var mtbn = new THREE.Matrix4();
-    var e = 0.001;
-    var tbn = function (θ) {
-      var f;
-
-      vt.copy(vo.copy(spine(θ)));
-      vt.sub(spine(θ + e));
-      vt.multiplyScalar(1 / e);
-      vt.normalize();
-
-      if (props.n) {
-        vb.copy(circle(θ));
-        vb.sub(circle(θ + e));
-        vb.multiplyScalar(1 / e);
-      } else {
-        vb.copy(vo);
-      }
-      vb.normalize();
-
-      vn.crossVectors(vt, vb);
-      vn.normalize();
-
-      vb.crossVectors(vt, vn);
-      vb.normalize();
-
-      mtbn.set(
-        vt.x,
-        vb.x,
-        vn.x,
-        vo.x,
-        vt.y,
-        vb.y,
-        vn.y,
-        vo.y,
-        vt.z,
-        vb.z,
-        vn.z,
-        vo.z,
-        0,
-        0,
-        0,
-        1
+      curveData.set("expr",
+        function (emit, t, i, time) {
+          // head, then tail.
+          //emit(xFunc(t), zFunc(t), yFunc(t));
+          //emit(xFunc(t - dt), zFunc(t - dt), yFunc(t - dt));
+          var s = 0.35; 
+          emit(xXFunc(t, time * s), zZFunc(t, time * s), yYFunc(t, time * s));
+          emit(xXFunc(t - dt, (time  - dt)*s), zZFunc(t - dt, (time  - dt)*s), yYFunc(t - dt, (time  - dt)*s));
+        }
       );
 
-      return mtbn;
+
+      var position = function (x, t) {
+        //return new THREE.Vector3(xFunc(t), zFunc(t), yFunc(t));
+        return new THREE.Vector3(xXFunc(x, t), zZFunc(x, t), yYFunc(x, t));
+      }
+
+      var tangent = function (x, t) {
+        return new THREE.Vector3().subVectors(position(x + epsilon, t), position(x, t)).normalize();
+      }
+
+      var normal = function (x, t) {
+        return new THREE.Vector3().subVectors(tangent(x + epsilon, t), tangent(x, t)).normalize();
+      }
+
+      var binormal = function (x, t) {
+        return new THREE.Vector3().crossVectors(tangent(x, t), normal(x,t));
+      }
+
+
+      tubeData.set("expr",
+        function (emit, u, v, i, j, time) {
+          var s = 0.45;
+          var P = position(u,time*s);
+          var N = normal(u,time*s).multiplyScalar(tubeRadius);
+          var B = binormal(u,time*s).multiplyScalar(tubeRadius);
+
+          var M = P.add(N.multiplyScalar(Math.cos(v))).add(B.multiplyScalar(Math.sin(v)));
+
+          emit(M.x, M.y, M.z);
+        }
+      );
+
+      view.set("range", [
+        [xMin, xMax],
+        [yMin, yMax],
+        [zMin, zMax]
+      ]);
+
+      // start of color options =============================================
+      if (graphColorStyle == "Solid Blue") {
+        // just a solid blue color			
+        tubeColors.set("expr",
+          function (emit, u, v, i, j, t) {
+            emit(0.5, 0.5, 1.0, 1.0);
+          }
+        );
+      } else if (graphColorStyle == "Rainbow Along T") {
+        // 		
+        tubeColors.set("expr",
+          function (emit, u, v, i, j, t) {
+            var percent = (u - tMin) / (tMax - tMin);
+            var color = new THREE.Color(0xffffff);
+            color.setHSL(percent, 1, 0.5);
+            emit(color.r, color.g, color.b, 1.0);
+          }
+        );
+      }
+
+      // end of color options =============================================
+
+    }
+    // end of updateGraph function ==============================================================
+
+    var updateGraph = function () {
+      updateGraphFunc();
     };
 
-    // Compute helitoroidal surface
-    var data = view.area({
-      rangeX: [-MathBox.π, MathBox.π],
-      rangeY: [-MathBox.π, MathBox.π],
-      expr: function (emit, θ, φ, i, j, t) {
-        var f = spine(θ);
-        var m = tbn(θ);
 
-        var c = Math.cos(φ);
-        var s = Math.sin(φ);
 
-        vs.set(0, c * props.r3, s * props.r3);
-        vs.applyMatrix4(m);
+    // setting proxy:true allows interactive controls to override base position
+    var camera = mathbox.camera({
+      proxy: true,
+      position: [2, 1, 2],
 
-        emit(vs.x, vs.y, vs.z);
+    });
+
+    // save as variable to adjust later
+    view = mathbox.cartesian({
+      range: [
+        [xMin, xMax],
+        [yMin, yMax],
+        [zMin, zMax]
+      ],
+      scale: [2, 1, 2],
+    });
+
+    // axes
+    /*
+    var xAxis = view.axis({
+      axis: 1,
+      width: 8,
+      detail: 40,
+      color: "red"
+    });
+    var xScale = view.scale({
+      axis: 1,
+      divide: 10,
+      nice: true,
+      zero: true
+    });
+    var xTicks = view.ticks({
+      width: 5,
+      size: 15,
+      color: "red",
+      zBias: 2
+    });
+    var xFormat = view.format({
+      digits: 2,
+      font: "Arial",
+      weight: "bold",
+      style: "normal",
+      source: xScale
+    });
+    var xTicksLabel = view.label({
+      color: "red",
+      zIndex: 0,
+      offset: [0, -20],
+      points: xScale,
+      text: xFormat
+    });
+
+    var yAxis = view.axis({
+      axis: 3,
+      width: 8,
+      detail: 40,
+      color: "green"
+    });
+    var yScale = view.scale({
+      axis: 3,
+      divide: 5,
+      nice: true,
+      zero: false
+    });
+    var yTicks = view.ticks({
+      width: 5,
+      size: 15,
+      color: "green",
+      zBias: 2
+    });
+    var yFormat = view.format({
+      digits: 2,
+      font: "Arial",
+      weight: "bold",
+      style: "normal",
+      source: yScale
+    });
+    var yTicksLabel = view.label({
+      color: "green",
+      zIndex: 0,
+      offset: [0, 0],
+      points: yScale,
+      text: yFormat
+    });
+
+    var zAxis = view.axis({
+      axis: 2,
+      width: 8,
+      detail: 40,
+      color: "blue"
+    });
+    var zScale = view.scale({
+      axis: 2,
+      divide: 5,
+      nice: true,
+      zero: false
+    });
+    var zTicks = view.ticks({
+      width: 5,
+      size: 15,
+      color: "blue",
+      zBias: 2
+    });
+    var zFormat = view.format({
+      digits: 2,
+      font: "Arial",
+      weight: "bold",
+      style: "normal",
+      source: zScale
+    });
+    var zTicksLabel = view.label({
+      color: "blue",
+      zIndex: 0,
+      offset: [0, 0],
+      points: zScale,
+      text: zFormat
+    });
+
+    view.grid({
+      axes: [1, 3],
+      width: 2,
+      divideX: 20,
+      divideY: 20,
+      opacity: 0.25
+    });*/
+
+    // need separate range for surface domain values. can't use values from view.
+
+
+    // curveData, curveView
+
+    var curveDomain = mathbox.cartesian({
+      range: [
+        [tMin, tMax]
+      ] // t
+    });
+
+    var curveData = curveDomain.interval({
+      width: segments,
+      expr: function (emit, t, i, time) {
+        var dt = (tMax - tMin) / segments;
+        // head, then tail.
+        emit(Math.cos(t), t, Math.sin(t));
+        emit(Math.cos(t - dt), t - dt, Math.sin(t - dt));
       },
-      width: 512,
-      height: 16,
-      channels: 3,
+      channels: 3, // 3D space
+      items: 2, // emit two vertices per line segment; required by view.
+
     });
 
-    // Draw spine curve
-    var helitoroidalSurface = view.surface({
+    /*
+    var curveView = view.vector({
+      points: curveData,
+      width: 4,
+      // expr: set later
+      color: "purple",
+      start: false
+
+    });
+    */
+
+    // tubeData, tubeView
+    var tubeDomain = mathbox.cartesian({
+      range: [
+        [tMin, tMax],
+        [0, 6.282]
+      ] // u and v
+    });
+
+    var tubeData = tubeDomain.area({
+      width: segments,
+      height: radiusSegments,
+      expr: function (emit, u, v, i, j, time) {
+        emit(u, v, u + v);
+      },
+      axes: [1, 2], // u,v
+      channels: 3, // 3D space
+    });
+
+
+    var tubeColors = tubeDomain.area({
+      width: segments,
+      height: radiusSegments,
+      // expr: set later
+      channels: 4, // RGBA
+    });
+
+    var tubeViewFill = view.surface({
+      points: tubeData,
+      fill: true,
       shaded: true,
-      color: 0xcc0040,
-      lineY: true,
-      width: 1,
+      lineX: false,
+      lineY: false,
+      color: "white",
+      colors: tubeColors,
     });
 
-    var curves1 = view
-      .resample({
-        height: 5,
-      })
-      .line({
-        color: 0xffffff,
-        width: 2,
-      });
+    var tubeViewLine = view.surface({
+      points: tubeData,
+      fill: false,
+      shaded: false,
+      lineX: true,
+      lineY: true,
+      width: 0,
+      color: "black",
+    });
+
+    // GUI controls
+
+    var gui = new dat.GUI({
+      width: 320,
+    });
+
+    var xFuncGUI = gui.add(this, 'xFunctionText').name('x = f(t) = ').onChange(updateGraphFunc);
+    var yFuncGUI = gui.add(this, 'yFunctionText').name('y = g(t) = ').onChange(updateGraphFunc);
+    var zFuncGUI = gui.add(this, 'zFunctionText').name('z = h(t) = ').onChange(updateGraphFunc);
+
+    var folderP = gui.addFolder("Preset Equations");
+    folderP.open();
+
+    var presetFunc1 = function () {
+      xFuncGUI.setValue("cos(t)");
+      yFuncGUI.setValue("sin(t)");
+      zFuncGUI.setValue("t / 4");
+      tMinGUI.setValue(-6);
+      tMaxGUI.setValue(6);
+      updateGraph();
+    };
+    var preset1GUI = folderP.add(this, "presetFunc1").name("Helix");
+
+    var presetFunc2 = function () {
+      xFuncGUI.setValue("t^3 - 3*t");
+      yFuncGUI.setValue("t^4 - 4*t^2");
+      zFuncGUI.setValue("(t^5 - 10*t)/5");
+      tMinGUI.setValue(-2.1);
+      tMaxGUI.setValue(2.1);
+      updateGraph();
+    };
+    var preset2GUI = folderP.add(this, "presetFunc2").name("Trefoil&nbsp;Knot&nbsp;(Poly)");
+
+    var presetFunc3 = function () {
+      xFuncGUI.setValue("cos(2*t) * (2 + cos(5*t))");
+      yFuncGUI.setValue("sin(2*t) * (2 + cos(5*t))");
+      zFuncGUI.setValue("sin(5*t)");
+      tMinGUI.setValue(0);
+      tMaxGUI.setValue(6.282);
+      updateGraph();
+    };
+    var preset3GUI = folderP.add(this, "presetFunc3").name("Trefoil&nbsp;Knot&nbsp;(Torus)");
+
+    var folder0 = gui.addFolder('Parameters');
+    var aGUI = folder0.add(this, 'a').min(0).max(5).step(0.01).name('a = ');
+    var bGUI = folder0.add(this, 'b').min(0).max(5).step(0.01).name('b = ');
+    folder0.open();
+
+    var folder2 = gui.addFolder('Parameter (T) Range');
+    var tMinGUI = folder2.add(this, 'tMin').onChange(updateGraphFunc);
+    var tMaxGUI = folder2.add(this, 'tMax').onChange(updateGraphFunc);
+    folder2.open();
+
+    var folder1 = gui.addFolder('Window (X,Y,Z) Range');
+    var xMinGUI = folder1.add(this, 'xMin').name("x Min");
+    var xMaxGUI = folder1.add(this, 'xMax').name("x Max");
+    var zMinGUI = folder1.add(this, 'zMin').name("y Min");
+    var zMaxGUI = folder1.add(this, 'zMax').name("y Max");
+    var yMinGUI = folder1.add(this, 'yMin').name("z Min");
+    var yMaxGUI = folder1.add(this, 'yMax').name("z Max");
+    folder1.close();
+
+    var folderA = gui.addFolder('Appearance');
+
+    folderA.add(this, 'tubeRadius').min(0.01).max(0.51).step(0.01).name('Tube Radius');
+
+    var graphColorStyle = "Rainbow Along T";
+    var graphColorStyleList = ["Solid Blue", "Rainbow Along T"];
+    var graphColorGUI = folderA.add(this, "graphColorStyle", graphColorStyleList).name('Graph style').onChange(
+      updateGraphFunc);
+
+    folderA.open();
+
+    gui.add(this, 'updateGraph').name("Update Graph");
+
+    gui.close();
+
+    updateGraph();
   </script>
+
 </body>
 
 </html>
