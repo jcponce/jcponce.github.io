@@ -169,7 +169,7 @@
 								how to determine the work done by $\F$ in moving a particle along
 								a curve $C$. First recall
 							</p>
-							<ol>
+							<ol style="line-height: 2em;">
 								<li>
 									Constant $F$ in 1D over a distance $d$, the work done is given by $W = F d$.
 								</li>
@@ -193,16 +193,100 @@
 									\[
 									W = \int_C \F(x,y)\cdot \T(x,y)~dS
 									\]
-									where $\T (x, y)$ is a unit tangent vector to $C$ at a given point 
+									where $\T (x, y)$ is a unit tangent vector to $C$ at a given point
 									$(x, y)$ on $C$.
 								</span>
 							</p>
-							
+
 						</div>
 					</div>
 				</section>
 			</section>
 
+			<section>
+				<section data-auto-animate>
+					<h4>35.3 Common notation</h4>
+					<div class="size-65">
+						<div class="left-txt">
+							<p>
+								Let $C$ be a piecewise continuous smooth curve in the x-y plane connecting points
+								$A$ and $B$.
+								<span>
+									Let $\F(x,y)= F_1(x,y)\i + F_2(x,y)\j$ be a dvector field.
+								</span>
+								<span>
+									The line integral $\int_C \F(x,y) \cdot \T(x,y) ~dS$ is often expressed as
+									\[
+									\int_C \F(r)\cdot d\r \quad \text{or}\quad \int_C F_1(x,y)dx+F_2(x,y)dy.
+									\]
+								</span>
+							</p>
+							<p>
+								The expressions use the notation $\r = x\i + y\j,$ $d\r = dx\i + dy\j$.
+								<span>
+									Note: In this notation,
+									\[
+									\text{work done by } \F \text{ along curve } C: W = \int_C\F(\r)\cdot d\r.
+									\]
+								</span>
+							</p>
+
+						</div>
+					</div>
+				</section>
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>35.4 Evaluating line integrals of vector fields</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								To evaluate
+								$\displaystyle \int_C\F(\r)\cdot d\r$
+
+								<span>
+									the strategy is to parameterise $C$ and express all
+									quantities in the line integral in terms of this parameterisation.
+								</span>
+								<span>
+									Namely
+								</span>
+							</p>
+							<ol style="line-height: 2em;">
+								<li>
+									Parameterise $C$ by fining a $\r(t) = x(t)\i + y(t)\j$ with $t \in [a, b]$
+									that describes $C$.
+								</li>
+								<li>
+									Write $\F (\r)$ restricted to $C$ as $\F (\r(t)) = \F (x(t), y(t))$.
+								</li>
+								<li>
+									Write $d\r=\r'(t)dt$.
+								</li>
+								<li>
+									Convert the line integral into an ordinary integral in terms of the parameter t:
+									\[
+									\int_C\F(\r)\cdot d\r = \int_a^b \F(\r(t))\cdot \r'(t)dt.
+									\]
+								</li>
+							</ol>
+
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>35.4.1 Example: Evaluate</h5>
+					<p class="sbt">$\displaystyle \int_C \left( \left(x^2-y \right)dx  + \left(y^2+x \right)dy \right) $
+						along the curve $C$ given by: (i) the straight line from $A$ to $B$; 
+						(ii) the parabola $y=x^2+1$ from $A$ to $B$. Here $A=
+						(0,1)$, $B=(1,2)$.
+					</p>
+
+				</section>
+			</section>
 
 
 			<section>
