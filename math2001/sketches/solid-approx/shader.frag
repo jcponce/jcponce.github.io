@@ -155,7 +155,7 @@ void main() {
     Model model;
     float dist = 0.;
     bool bg = true;
-    vec3 bgcol = vec3(.08, 0.21, 0.96);
+    vec3 bgcol = vec3(.015, 0.015, 0.035); //.08, 0.21, 0.96
     vec3 col = bgcol;
     bool hitVoxel = false;
     vec3 voxelPosition;
