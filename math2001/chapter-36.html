@@ -89,13 +89,296 @@
 			<section>
 				<section>
 					<h4>36.1 The story so far</h4>
-					<div class="size-60 left-txt">
+					<div class="size-65 left-txt">
 						<p>
 							The following diagram summarises the relationships between conservative vector fields, path
 							independent line integrals and closed line integrals we have seen so far.
 						</p>
+
+						<img style="width: 70%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" data-src="images/chapter-36/chapter-36-diagram.svg" />
 					</div>
 				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>36.2 Clairaut's theorem and consequences</h4>
+					<div class="size-70 left-txt">
+						<p>
+							Suppose a function of two variables $f$ is defined
+							on a disc $D$ that contains the point $(a,b)$. If the functions
+							$\displaystyle \frac{\partial^2 f}{\partial x\partial y}$ and
+							$\displaystyle \frac{\partial^2 f}{\partial y\partial x}$ are
+							both continuous on $D$,
+							<span>
+								then
+								\[
+								\frac{\partial^2 f}{\partial x\partial y}(a,b) =
+								\frac{\partial^2 f}{\partial y\partial x}(a,b)
+								\]
+							</span>
+						</p>
+
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>36.2 Clairaut's theorem and consequences</h4>
+					<div class="size-70 left-txt">
+						<p>
+							Say we have a conservative vector field $\F = F_1~\i+F_2~\j$.
+							<span>
+								This means that there exists an f(x,y) such that
+								\[
+								F_1 = \frac{\partial f}{\partial x}, \quad
+								F_2 = \frac{\partial f}{\partial y}.
+								\]
+							</span>
+						</p>
+						<p>
+							An immediate consequence of Clairaut's theorem is that
+							\[
+							\frac{F_1}{\partial y} = \frac{\partial^2 f}{\partial x\partial y}
+							= \frac{\partial^2 f}{\partial y\partial x} = \frac{F_2}{\partial x}.
+							\]
+						</p>
+
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>36.2 Clairaut's theorem and consequences</h4>
+					<div class="size-70 left-txt">
+						<p>
+							In otherwords, we have the following:
+
+						</p>
+						<div id="theorem">
+							<p>
+								If $\F = F_1~\i + F_2~\j$ is a conservative vector field, then
+								\[
+								\frac{F_1}{\partial y} = \frac{F_2}{\partial x}.
+								\]
+							</p>
+						</div>
+
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>36.2 Clairaut's theorem and consequences</h4>
+					<div class="size-65 left-txt">
+						<p>
+							Let's add this to our diagram:
+						</p>
+
+						<img style="width: 75%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" data-src="images/chapter-36/chapter-36-2-diagram.svg" />
+						<p>
+							If we can reverse the new arrow, then we would have the criterion that we need!
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>36.2 Clairaut's theorem and consequences</h4>
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:65%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" class="r-stretch" data-src="images/chapter-36/chapter-36-2-diagram.svg" />
+								</td>
+
+								<td style="width:35%">
+									<p>
+
+										<span>
+											That is, the condition
+											\[
+											\frac{F_1}{\partial y} = \frac{F_2}{\partial x}
+											\]
+											would be a test for a conservative vector field.
+											<span>
+												To do this,
+												we require one more piece of the puzzle.
+												That is Green's theorem.
+											</span>
+										</span>
+									</p>
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>36.3 Green's theorem</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Let $D$ be a region in the $x$-$y$ plane bounded by
+								a piecewise-smooth, simple closed curve $C$,
+								which is traversed with $D$ always on the left.
+								<span>
+									Let $F_1(x,y)$, $F_2(x,y)$, $\displaystyle \frac{\partial F_1}{\partial y}$
+									and $\displaystyle \frac{\partial F_2}{\partial x}$
+									be continuous in $D$. Then
+								</span>
+
+							</p>
+							<div id="theorem">
+								<p>
+									\[
+									\iint_D\left( \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial
+									y}\right) ~dx~dy = \oint_C\left(F_1 dx + F_2 dy\right)
+									\]
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>36.3 Green's theorem</h4>
+					<div>
+						<table style="width:100%;">
+							<tr>
+								<td style="width:40%">
+
+									<div >
+										<p class="size-40">
+											\[
+											\iint_D\left( \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial
+											y}\right) ~dx~dy = \oint_C\left(F_1 dx + F_2 dy\right)
+											\]
+										</p>
+									</div>
+
+								</td>
+
+								<td style="width:60%">
+									<p class="size-70">
+										This theorem relates a double integral to a line integral over a
+										closed curve.
+										<span>
+											For example, we can use Green's theorem to
+											evaluate complicated line integrals by treating them as
+											double integrals, or vice versa.
+										</span>
+									</p>
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>36.3 Green's theorem</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Regarding our discussion on conservative vector fields,
+								we have the following corollary to Green's theorem:
+								<span>
+									\[
+									\text{If } \frac{\partial F_1}{\partial y}= \frac{\partial F_2}{\partial x},
+									\text{ then } \oint_C \F \cdot d\r = 0.
+									\]
+								</span>
+
+							</p>
+
+							<p>
+								Note that $\F = F_1~ \i + F_2 ~\j$.
+							</p>
+
+
+						</div>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>36.3 Green's theorem</h4>
+					<div class="size-65 left-txt">
+						<p>
+							If we add this to our diagram, we can now link
+							any four statements via the arrows.
+							In other words all four statements are equivalent.
+						</p>
+
+						<img style="width: 75%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" data-src="images/chapter-36/chapter-36-3-diagram.svg" />
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>36.3 Green's theorem</h4>
+					<div class="size-65 left-txt">
+						<p>
+							If we add this to our diagram, we can now link
+							any four statements via the arrows.
+							In other words all four statements are equivalent.
+						</p>
+					</div>
+					
+					<div class="size-65">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:50%">
+	
+									<img style="width: 100%; 
+									  display: block;
+									  margin-left: auto;
+									  margin-right: auto;" class="r-stretch" data-src="images/chapter-36/chapter-36-3-diagram.svg" />
+	
+								</td>
+	
+								<td style="width:50%">
+									<p>
+										In particular, we now have a test to determine
+										whether or not a given two dimensional
+										vector field is conservative:
+										
+									</p>
+									<p style="text-align:center">The vector fied  $\F$ is conservative <br/>
+										if and only if <br/>
+										$$\displaystyle \frac{\partial F_1}{\partial y}= \frac{\partial F_2}{\partial x}.$$
+									</p>
+								</td>
+							</tr>
+	
+						</table>
+					</div>
+				</section>
+
+				
+
 			</section>
 
 
