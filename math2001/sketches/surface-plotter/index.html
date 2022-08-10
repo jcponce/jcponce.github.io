@@ -163,15 +163,17 @@
  		channels: 4, // RGBA
     });
 	
+  var graphShaded = false;	
 	var surfaceViewFill = view.surface({
 	  points: graphData,
-	  fill: true, shaded: true, lineX: false, lineY: false,
+	  fill: true, shaded: graphShaded, lineX: false, lineY: false,
       color: "white", colors: domainColors,
     });
 	
+  var graphWireVisible = true;
 	var surfaceViewLine = view.surface({
 	  points: graphData,
-	  fill: false, shaded: false, lineX: true, lineY: true,
+	  fill: false, shaded: false, lineX: graphWireVisible, lineY: graphWireVisible,
       color: "black",
     });
 	  
@@ -276,15 +278,37 @@
 	folder1.close();
 	
 	var graphColorStyle = "Solid Blue";
-  //var graphStyle = gui.addFolder('Graph style');
+  var graphStyle = gui.addFolder('Graph style');
   //var gphColorStyleList = graphStyle.add(this, ["Solid Blue", "Red U, Green V", "Rainbow Along U", "Rainbow Along V"]);
 	var graphColorStyleList = ["Solid Blue", "Red U, Green V", "Rainbow Along U", "Rainbow Along V"];
-  //var gphColorStyleList = graphStyle.add( this, "graphColorStyle", graphColorStyleList ).name('Graph style').onChange( updateGraphFunc );
-	var graphColorGUI = gui.add( this, "graphColorStyle", graphColorStyleList ).name('Graph style').onChange( updateGraphFunc );
+  var gphColorStyleList = graphStyle.add( this, "graphColorStyle", graphColorStyleList ).name('Graph style').onChange( updateGraphFunc );
+	//var graphColorGUI = gui.add( this, "graphColorStyle", graphColorStyleList ).name('Graph style').onChange( updateGraphFunc );
   
   //var bShade = true;
   //var boolShade = graphStyle.add( this, "bShade", bShade).name('Shaded');
 	//console.log( boolShade.value());
+
+  var graphWireVisibleGUI = graphStyle.add( this, "graphWireVisible" ).name("View wireframe").onChange(
+		function()
+		{
+			surfaceViewLine.set("visible", graphWireVisible);
+		}
+	);
+	var graphShadedGUI = graphStyle.add( this, "graphShaded" ).name("View shading").onChange(
+		function()
+		{
+			surfaceViewFill.set("shaded", graphShaded);
+		}
+	);
+  //var resList = [32, 64, 128];
+  //var graphResGUI = graphStyle.add( this, "resolution", resList ).name("Resolution").onChange(
+	//	function()
+	//	{
+	//		graphData.set("width", resolution);
+  //    domainColors.set("width", resolution);
+	//	}
+	//);
+  //console.log(graphShaded)
 
 	gui.add( this, 'updateGraph' ).name("Update Graph");
 	
