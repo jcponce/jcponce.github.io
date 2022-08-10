@@ -204,7 +204,7 @@
 			</section>
 
 			<section>
-				<section data-auto-animate>
+				<section>
 					<h4>35.3 Common notation</h4>
 					<div class="size-65">
 						<div class="left-txt">
@@ -238,7 +238,7 @@
 
 
 			<section>
-				<section data-auto-animate>
+				<section>
 					<h4>35.4 Evaluating line integrals of vector fields</h4>
 					<div class="size-60">
 						<div class="left-txt">
@@ -279,12 +279,88 @@
 
 				<section>
 					<h5>35.4.1 Example: Evaluate</h5>
-					<p class="sbt">$\displaystyle \int_C \left( \left(x^2-y \right)dx  + \left(y^2+x \right)dy \right) $
-						along the curve $C$ given by: (i) the straight line from $A$ to $B$; 
+					<p class="sbt">$\displaystyle \int_C \left( \left(x^2-y \right)dx + \left(y^2+x \right)dy \right) $
+						along the curve $C$ given by: (i) the straight line from $A$ to $B$;
 						(ii) the parabola $y=x^2+1$ from $A$ to $B$. Here $A=
 						(0,1)$, $B=(1,2)$.
 					</p>
 
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h4>
+						35.5 Line integrals of conservative vector fields, path independence
+					</h4>
+					<div class="size-70 left-txt">
+						<p>If $\F$ is a continuous vector field with domain $D$, we say the line integral
+							$\displaystyle \int_C \F\cdot d\r$ is
+							<em>
+								path independent
+							</em>
+							if
+							\[
+							\int_{C_1}\F\cdot d\r = \int_{C_2}\F\cdot d\r
+							\]
+							for any two paths $C_1$ and $C_2$ in $D$ that have the same end points.
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						35.5.1 The fundamental theorem for line integrals
+					</h5>
+					<div class="size-70 left-txt">
+						<p>If $C$ is a smooth curve determined by $r(t)$ for
+							$t \in [a,b]$ and $f(x,y)$ is differentiable with
+							$\nabla f$ being continuous on $C$, then
+							\[
+							\int_C \nabla f\cdot d\r = f\left(\r(b)\right)- f\left(\r(a)\right).
+							\]
+
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						35.5.1 The fundamental theorem for line integrals
+					</h5>
+					<div class="size-65 left-txt">
+						<p>One consequence of this result is that the line integrable
+							of a vector field of the form $∇f$ is path independent, i.e.
+							\[
+							\int_{C_1}\nabla f \cdot d\r = \int_{C_2}\nabla f \cdot d\r
+							\]
+						</p>
+						<p>
+							That is, the line integral of a conservative vector field is path independent.
+						</p>
+						<p>
+							It turns out, the converse is also true. 
+							<span>
+								Namely, if $\displaystyle \int_C \F\cdot d\r$ is 
+							path independet in 
+							some region $D$, then $\F$ is conservative.
+							</span>
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						35.5.1 The fundamental theorem for line integrals
+					</h5>
+					<div class="size-65 left-txt">
+						<p>Equivalently,$\displaystyle \int_C \F \cdot d\r$ is path independent in some 
+							region $D$ if and only if $\displaystyle \oint_C\F\cdot d\R = 0$
+							for every closed path $C'$ in$D$. Here $\displaystyle "\oint"$ indicates
+							 the line integral over a <em>closed</em> curve.
+						</p>
+						
+					</div>
 				</section>
 			</section>
 
