@@ -11,6 +11,8 @@
   <script src="../mathbox/parser.js"></script>
 
   <link rel="stylesheet" href="../mathbox/mathbox.css">
+
+  <link rel="stylesheet" href="../mathbox/dat-gui-light-theme.css">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 
@@ -278,10 +280,10 @@
 	folder1.close();
 	
 	var graphColorStyle = "Solid Blue";
-  var graphStyle = gui.addFolder('Graph style');
-  //var gphColorStyleList = graphStyle.add(this, ["Solid Blue", "Red U, Green V", "Rainbow Along U", "Rainbow Along V"]);
-	var graphColorStyleList = ["Solid Blue", "Red U, Green V", "Rainbow Along U", "Rainbow Along V"];
-  var gphColorStyleList = graphStyle.add( this, "graphColorStyle", graphColorStyleList ).name('Graph style').onChange( updateGraphFunc );
+    var graphStyle = gui.addFolder('Graph style');
+    //var gphColorStyleList = graphStyle.add(this, ["Solid Blue", "Red U, Green V", "Rainbow Along U", "Rainbow Along V"]);
+    var graphColorStyleList = ["Solid Blue", "Red U, Green V", "Rainbow Along U", "Rainbow Along V"];
+    var gphColorStyleList = graphStyle.add( this, "graphColorStyle", graphColorStyleList ).name('Color style').onChange( updateGraphFunc );
 	//var graphColorGUI = gui.add( this, "graphColorStyle", graphColorStyleList ).name('Graph style').onChange( updateGraphFunc );
   
   //var bShade = true;
