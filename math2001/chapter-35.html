@@ -235,7 +235,7 @@
 										</span>
 									</p>
 									<p class="fragment" data-fragment-index="2">
-										We divide $C$ into subarcs $P_{i-1}-P_i$ with lengths $\Delta s_i$
+										We divide $C$ into subarcs $P_{i-1}-P_i$ with lengths $\Delta S_i$
 										by dividing the parameter interval $[a, b]$
 										into subintervals of equal width.
 									</p>
@@ -286,7 +286,7 @@
 										Thus the work done by the force $\F$ in moving the
 										particle from $P_{i-1}$ to $P_i$ is approximately
 										\[
-										\F^* \cdot \T^* \Delta s_i
+										\F^* \cdot \T^* \Delta S_i
 										\]
 									</p>
 
@@ -319,7 +319,7 @@
 										Thus the work done by the force $\F$ in moving the
 										particle from $P_{i-1}$ to $P_i$ is approximately
 										\[
-										\F^* \cdot \T^* \Delta s_i
+										\F^* \cdot \T^* \Delta S_i
 										\]
 
 
@@ -328,7 +328,7 @@
 										and the total work done in moving
 										the particle along $C$ is approximately
 										\[
-										\sum_{i=1}^n \F^* \cdot \T^* \Delta s_i
+										\sum_{i=1}^n \F^* \cdot \T^* \Delta S_i
 										\]
 
 									</p>
@@ -374,13 +374,13 @@
 										<span class="fragment" data-fragment-index="1">
 											Therefore we define the work $W$ done 
 										by the force field $\F$ as the
-										limit of the Riemann sums in $\sum_{i=1}^n \F^* \cdot \T^* \Delta s_i$.
+										limit of the Riemann sums in $\sum_{i=1}^n \F^* \cdot \T^* \Delta S_i$.
 										</span>
 									</p>
 									<p  class="fragment" data-fragment-index="2">
 										That is
 										\[
-										W = \int_C\F\cdot \T~ds
+										W = \int_C\F\cdot \T~dS
 										\]
 									</p>
 
@@ -395,7 +395,7 @@
 			</section>
 
 			<section>
-				<section>
+				<section  data-auto-animate>
 					<h4>35.3 Common notation</h4>
 					<div class="size-65">
 						<div class="left-txt">
@@ -403,7 +403,7 @@
 								Let $C$ be a piecewise continuous smooth curve in the $x$-$y$ plane connecting points
 								$A$ and $B$.
 								<span class="fragment" data-fragment-index="0">
-									Let $\F(x,y)= F_1(x,y)~\i + F_2(x,y)~\j$ be a dvector field.
+									Let $\F(x,y)= F_1(x,y)~\i + F_2(x,y)~\j$ be a vector field.
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									The line integral $\int_C \F(x,y) \cdot \T(x,y) ~dS$ is often expressed as
@@ -424,6 +424,65 @@
 								</span>
 							</p>
 
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>35.3 Common notation</h4>
+					<div class="size-60">
+						<div>
+							<p>Need to prove $\displaystyle \int_C \F(x,y) \cdot \T(x,y) ~dS = \int_C \F(r)\cdot d\r$.</p>
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								Let $\r(t) =x(t)~\i+y(t)~\j$ be a parametrisation of
+								the curve $C$ with $t\in[a,b]$. 
+								<span class="fragment" data-fragment-index="1">
+									Then the unit tangent vector  to $C$ is
+								</span>
+							</p>
+							
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="1">
+								$\displaystyle \T=\frac{\r'(t)}{\norm{\r'(t)}}\;\;$ 
+								and $\displaystyle\;\; dS = \norm{\r'(t)}dt$
+							</p>
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="2">
+								Then
+							</p>
+						</div>
+						<div>
+							<table id="eqarray">
+								<tr>
+									<td class="fragment" data-fragment-index="2">
+										$\displaystyle  \int_C \F\cdot \T ~dS $
+									</td>
+									<td class="fragment" data-fragment-index="3">
+										$\displaystyle = \int_a^b \F(\r) \cdot \frac{\r'(t)}{\norm{\r'(t)}} \left(\norm{\r'(t)}dt\right) $
+										<span class="fragment" data-fragment-index="4">
+											$\displaystyle = \int_a^b \F(\r) \cdot  \r'(t)~dt $
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="5">
+										$\displaystyle = \int_C \F(\r) \cdot  d\r $
+										<span class="fragment" data-fragment-index="6">
+											$\displaystyle = \int_C F_1(x,y)dx+F_2(x,y)dy$.
+
+										</span>
+									</td>
+								</tr>
+							</table>
+							
 						</div>
 					</div>
 				</section>
@@ -449,7 +508,7 @@
 							</p>
 							<ol style="line-height: 2em;">
 								<li class="fragment" data-fragment-index="0">
-									Parameterise $C$ by fining a $\r(t) = x(t)~\i + y(t)~\j$ with $t \in [a, b]$
+									Parameterise $C$ by defining a $\r(t) = x(t)~\i + y(t)~\j$ with $t \in [a, b]$
 									that describes $C$.
 								</li>
 								<li class="fragment" data-fragment-index="2">
