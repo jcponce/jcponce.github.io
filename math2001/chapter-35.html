@@ -101,7 +101,7 @@
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							Consider the following problem: How do we calculate the area of the region between
-							the curve C in the $x$-$y$ plane and its image on the surface $z = f(x,y)$?
+							the curve $C$ in the $x$-$y$ plane and its image on the surface $z = f(x,y)$?
 
 						</p>
 					</div>
@@ -126,22 +126,22 @@
 								This divide the area into strips of base length $\Delta S$
 								and height $f(x^*,y^*)$, where $(x^*, y^*)$ is a representative
 								point in an arc.
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									Then
 									\[
 									\text{the area in question} = \int_C f(x,y)~ dS,
 									\]
 								</span>
-								<span>
-									where $dS$ is the infinitesilma element of
+								<span class="fragment" data-fragment-index="0">
+									where $dS$ is the infinitesimal element of
 									arclength of $C$.
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="2">
 									If the curve $C$ can be parametrised by
 									$\r(t) = x(t)~\i + y(t) ~\j\;$ for
 									$a\leq t\leq b$,
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="3">
 									then $dS = ||\r'(t)||dt$, and the area can be expressed by
 									the formula
 									\[
@@ -163,17 +163,20 @@
 							<p>
 								We can also consider integrating a vector field over a curve in the plane.
 							</p>
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								In the case $\F$ is a field of force you should already have an
 								idea (from MATH1052/1072)
 								how to determine the work done by $\F$ in moving a particle along
-								a curve $C$. First recall
+								a curve $C$.
+								<span class="fragment" data-fragment-index="1">
+									First recall
+								</span>
 							</p>
 							<ol style="line-height: 2em;">
-								<li>
+								<li class="fragment" data-fragment-index="1">
 									Constant $F$ in 1D over a distance $d$, the work done is given by $W = F d$.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="2">
 									Constant $\F$ in 2D over a straight line between points $P$ and $Q$, $W=\F\cdot
 									\overrightarrow{PQ}.$
 								</li>
@@ -189,10 +192,11 @@
 							<p>
 								We can use these straightforward cases to derive the more general expression for work
 								done by a variable force $F(x,y)$ over a piecewise continuous smooth curve $C$:
-								<span>
-									\[
-									W = \int_C \F(x,y)\cdot \T(x,y)~dS
-									\]
+								\[
+								W = \int_C \F(x,y)\cdot \T(x,y)~dS
+								\]
+								<span class="fragment" data-fragment-index="0">
+
 									where $\T (x, y)$ is a unit tangent vector to $C$ at a given point
 									$(x, y)$ on $C$.
 								</span>
@@ -211,19 +215,21 @@
 							<p>
 								Let $C$ be a piecewise continuous smooth curve in the $x$-$y$ plane connecting points
 								$A$ and $B$.
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									Let $\F(x,y)= F_1(x,y)~\i + F_2(x,y)~\j$ be a dvector field.
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									The line integral $\int_C \F(x,y) \cdot \T(x,y) ~dS$ is often expressed as
 									\[
 									\int_C \F(r)\cdot d\r \quad \text{or}\quad \int_C F_1(x,y)dx+F_2(x,y)dy.
 									\]
 								</span>
 							</p>
-							<p>
+							<p class="fragment" data-fragment-index="2">
 								The expressions use the notation $\r = x~\i + y~\j,$ $d\r = dx~\i + dy~\j$.
-								<span>
+								<br/>
+								<br/>
+								<span class="fragment" data-fragment-index="3">
 									Note: In this notation,
 									\[
 									\text{work done by } \F \text{ along curve } C: W = \int_C\F(\r)\cdot d\r.
@@ -250,22 +256,22 @@
 									the strategy is to parameterise $C$ and express all
 									quantities in the line integral in terms of this parameterisation.
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									Namely
 								</span>
 							</p>
 							<ol style="line-height: 2em;">
-								<li>
-									Parameterise $C$ by fining a $\r(t) = x(t)\i + y(t)\j$ with $t \in [a, b]$
+								<li class="fragment" data-fragment-index="0">
+									Parameterise $C$ by fining a $\r(t) = x(t)~\i + y(t)~\j$ with $t \in [a, b]$
 									that describes $C$.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="2">
 									Write $\F (\r)$ restricted to $C$ as $\F (\r(t)) = \F (x(t), y(t))$.
 								</li>
-								<li>
-									Write $d\r=\r'(t)dt$.
+								<li class="fragment" data-fragment-index="3">
+									Write $d\r=\r'(t)~dt$.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="4">
 									Convert the line integral into an ordinary integral in terms of the parameter t:
 									\[
 									\int_C\F(\r)\cdot d\r = \int_a^b \F(\r(t))\cdot \r'(t)~dt.
@@ -279,7 +285,8 @@
 
 				<section>
 					<h5>35.4.1 Example: Evaluate</h5>
-					<p class="sbt">$\displaystyle \int_C \left( \left(x^2-y \right)dx + \left(y^2+x \right)dy \right) $ along the curve $C$ given by: (i) the straight line from $A$ to $B$;
+					<p class="sbt">$\displaystyle \int_C \left( \left(x^2-y \right)dx + \left(y^2+x \right)dy \right) $
+						along the curve $C$ given by: (i) the straight line from $A$ to $B$;
 						(ii) the parabola $y=x^2+1$ from $A$ to $B$. Here $A=
 						(0,1)$, $B=(1,2)$.
 					</p>
@@ -338,11 +345,11 @@
 							That is, the line integral of a conservative vector field is path independent.
 						</p>
 						<p>
-							It turns out, the converse is also true. 
+							It turns out, the converse is also true.
 							<span>
-								Namely, if $\displaystyle \int_C \F\cdot d\r$ is 
-							path independet in 
-							some region $D$, then $\F$ is conservative.
+								Namely, if $\displaystyle \int_C \F\cdot d\r$ is
+								path independet in
+								some region $D$, then $\F$ is conservative.
 							</span>
 						</p>
 					</div>
@@ -353,12 +360,12 @@
 						35.5.1 The fundamental theorem for line integrals
 					</h5>
 					<div class="size-65 left-txt">
-						<p>Equivalently,$\displaystyle \int_C \F \cdot d\r$ is path independent in some 
+						<p>Equivalently,$\displaystyle \int_C \F \cdot d\r$ is path independent in some
 							region $D$ if and only if $\displaystyle \oint_C\F\cdot d\r = 0$
 							for every closed path $C'$ in$D$. Here $\displaystyle "\oint"$ indicates
-							 the line integral over a <em>closed</em> curve.
+							the line integral over a <em>closed</em> curve.
 						</p>
-						
+
 					</div>
 				</section>
 			</section>
