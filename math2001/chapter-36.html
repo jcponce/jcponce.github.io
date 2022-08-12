@@ -94,7 +94,6 @@
 							The following diagram summarises the relationships between conservative vector fields, path
 							independent line integrals and closed line integrals we have seen so far.
 						</p>
-
 						<img style="width: 70%; 
 						  display: block;
 						  margin-left: auto;
@@ -109,15 +108,18 @@
 					<div class="size-70 left-txt">
 						<p>
 							Suppose a function of two variables $f$ is defined
-							on a disc $D$ that contains the point $(a,b)$. If the functions
-							$\displaystyle \frac{\partial^2 f}{\partial x\partial y}$ and
-							$\displaystyle \frac{\partial^2 f}{\partial y\partial x}$ are
+							on a disc $D$ that contains the point $(a,b)$.
+							<span class="fragment" data-fragment-index="0">
+								If the functions
+							$$\displaystyle \frac{\partial^2 f}{\partial x\partial y} \text{ and }
+							\displaystyle \frac{\partial^2 f}{\partial y\partial x}$$ are
 							both continuous on $D$,
-							<span>
+							</span> 
+							<span class="fragment" data-fragment-index="1">
 								then
 								\[
 								\frac{\partial^2 f}{\partial x\partial y}(a,b) =
-								\frac{\partial^2 f}{\partial y\partial x}(a,b)
+								\frac{\partial^2 f}{\partial y\partial x}(a,b).
 								\]
 							</span>
 						</p>
@@ -131,7 +133,7 @@
 					<div class="size-70 left-txt">
 						<p>
 							Say we have a conservative vector field $\F = F_1~\i+F_2~\j$.
-							<span>
+							<span class="fragment" data-fragment-index="0">
 								This means that there exists an f(x,y) such that
 								\[
 								F_1 = \frac{\partial f}{\partial x}, \quad
@@ -139,11 +141,11 @@
 								\]
 							</span>
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							An immediate consequence of Clairaut's theorem is that
 							\[
-							\frac{F_1}{\partial y} = \frac{\partial^2 f}{\partial x\partial y}
-							= \frac{\partial^2 f}{\partial y\partial x} = \frac{F_2}{\partial x}.
+							\frac{\partial F_1}{\partial y} = \frac{\partial^2 f}{\partial x\partial y}
+							= \frac{\partial^2 f}{\partial y\partial x} = \frac{\partial F_2}{\partial x}.
 							\]
 						</p>
 
