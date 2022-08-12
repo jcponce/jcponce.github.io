@@ -122,7 +122,7 @@
 					<div class="size-65">
 						<div class="left-txt">
 							<p>
-								Dive $C$ into small arcs of length $\Delta S$.
+								Divide $C$ into small arcs of length $\Delta S$.
 								This divide the area into strips of base length $\Delta S$
 								and height $f(x^*,y^*)$, where $(x^*, y^*)$ is a representative
 								point in an arc.
@@ -196,7 +196,6 @@
 								W = \int_C \F(x,y)\cdot \T(x,y)~dS
 								\]
 								<span class="fragment" data-fragment-index="0">
-
 									where $\T (x, y)$ is a unit tangent vector to $C$ at a given point
 									$(x, y)$ on $C$.
 								</span>
@@ -232,14 +231,15 @@
 								<td style="width:43%">
 									<p>
 										Consider a force field $\F(x,y)$ and a piecewiese continuous smooth curve $C$.
-										<span class="fragment" data-fragment-index="1">
+										
+									</p>
+									<p class="fragment" data-fragment-index="1">
 											We wish to compute the work done by
 											this force in moving a particle along a
 											smooth curve $C$.
-										</span>
 									</p>
 									<p class="fragment" data-fragment-index="2">
-										We divide $C$ into subarcs $P_{i-1}-P_i$ with lengths $\Delta S_i$
+										We divide $C$ into subarcs $P_{i-1}$-$P_i$ with lengths $\Delta S_i$
 										by dividing the parameter interval $[a, b]$
 										into subintervals of equal width.
 									</p>
@@ -278,7 +278,7 @@
 										subarc corresponding to the parameter value $t_i^*$.
 
 										<span class="fragment" data-fragment-index="1">
-											If $\Delta s_i$ is small, then as the particle moves from
+											If $\Delta S_i$ is small, then as the particle moves from
 											$P_{i-1}$ to $P_i$ along the curve, it proceeds approximately
 											in the direction of $\T(t_i^*)$, the unit tangent vector at
 											$P_i^*$.
@@ -318,15 +318,11 @@
 
 								<td style="width:43%">
 									<p>
-
-
 										Thus the work done by the force $\F$ in moving the
 										particle from $P_{i-1}$ to $P_i$ is approximately
 										\[
 										\F^* \cdot \T^* \Delta S_i
 										\]
-
-
 									</p>
 									<p>
 										and the total work done in moving
@@ -374,12 +370,13 @@
 								<td style="width:43%">
 									<p>
 										Intuitively, we see that these approximations
-										have to become better as $n\to \infty$ ($\Delta S\to 0$).
-										<span class="fragment" data-fragment-index="1">
+										have to become better as $n\to \infty$ ($\Delta S_i\to 0$).
+										
+									</p>
+									<p class="fragment" data-fragment-index="1">
 											Therefore we define the work $W$ done
 											by the force field $\F$ as the
 											limit of the Riemann sums in $\sum_{i=1}^n \F^* \cdot \T^* \Delta S_i$.
-										</span>
 									</p>
 									<p class="fragment" data-fragment-index="2">
 										That is
@@ -407,7 +404,7 @@
 								Let $C$ be a piecewise continuous smooth curve in the $x$-$y$ plane connecting points
 								$A$ and $B$.
 								<span class="fragment" data-fragment-index="0">
-									Let $\F(x,y)= F_1(x,y)~\i + F_2(x,y)~\j$ be a vector field.
+									Let $\,\F(x,y)= F_1(x,y)~\i + F_2(x,y)~\j\,$ be a vector field.
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									The line integral $\int_C \F(x,y) \cdot \T(x,y) ~dS$ is often expressed as
@@ -423,7 +420,7 @@
 								<span class="fragment" data-fragment-index="3">
 									Note: In this notation,
 									\[
-									\text{work done by } \F \text{ along curve the } C: W = \int_C\F(\r)\cdot d\r.
+									\text{work done by } \F \text{ along the curve } C: W = \int_C\F(\r)\cdot d\r.
 									\]
 								</span>
 							</p>
