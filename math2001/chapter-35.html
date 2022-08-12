@@ -1032,25 +1032,84 @@
 
 						</p>
 					</div>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
 					<h5>
 						35.5.1 The fundamental theorem for line integrals
 					</h5>
-					<div class="size-65 left-txt">
+					<div class="size-70 left-txt">
+						<div class="left-txt">
+							<p>
+								<strong>Proof:</strong> Consider the vector function $\r(t)$ with $a \leq t \leq b$.
+	
+								<span class="fragment" data-fragment-index="0">
+									Then we have that
+								</span>
+							</p>
+							<table id="eqarray">
+								<tr>
+									<td class="fragment" data-fragment-index="0">
+										$\displaystyle \int_C\nabla f\cdot d\r$
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$\displaystyle =\int_{t=a}^{t=b} \nabla f \left(\r(t)\right)\cdot \r'(t)~dt$
+									</td>
+								</tr>
+								<tr>
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="2">
+										$\displaystyle =\int_{a}^{b} \left(
+											\frac{\partial f}{\partial x} \frac{d x}{d t}+
+											\frac{\partial f}{\partial y} \frac{dy}{d t}
+											\right)dt$
+									</td>
+								</tr>
+								<tr>
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="3">
+										$\displaystyle =\int_{a}^{b}
+										\frac{d}{dt}~f\left(\r(t)\right)
+										dt$
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$\displaystyle = f\left(\r(b)\right) - f\left(\r(a)\right)$.
+									</td>
+								</tr>
+							</table>
+						</div>
+						<p class="fragment" data-fragment-index="5">The last step follows from the Fundamental Theorem of Calculus.</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						35.5.1 The fundamental theorem for line integrals
+					</h5>
+					<div class="size-70 left-txt">
 						<p>One consequence of this result is that the line integrable
 							of a vector field of the form $∇f$ is path independent, i.e.
 							\[
 							\int_{C_1}\nabla f \cdot d\r = \int_{C_2}\nabla f \cdot d\r
 							\]
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							That is, the line integral of a conservative vector field is path independent.
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							It turns out, the converse is also true.
-							<span>
+							<span class="fragment" data-fragment-index="2">
 								Namely, if $\displaystyle \int_C \F\cdot d\r$ is
 								path independet in
 								some region $D$, then $\F$ is conservative.
