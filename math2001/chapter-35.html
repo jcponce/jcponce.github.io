@@ -971,16 +971,17 @@
 									<p>
 										Note the line integrals in this example are <em>path dependent</em>.
 
-										
+
 									</p>
 									<p class="fragment" data-fragment-index="0">
 										In other words, they have different values
 										for different paths.
-										
+
 										\[
-										\int_{C_1} \F\cdot d\r = \frac{5}{3} \;\; \text{and}\;\;\int_{C_2} \F\cdot d\r = 2.
+										\int_{C_1} \F\cdot d\r = \frac{5}{3} \;\; \text{and}\;\;\int_{C_2} \F\cdot d\r =
+										2.
 										\]
-										
+
 										<span class="fragment" data-fragment-index="1">
 											We will now investigate path independent line integrals.
 										</span>
@@ -1032,7 +1033,7 @@
 
 						</p>
 					</div>
-					<br/><br/>
+					<br /><br />
 				</section>
 
 				<section data-auto-animate>
@@ -1042,11 +1043,11 @@
 					<div class="size-70">
 						<div class="left-txt">
 							<p>
-								<strong>Proof:</strong> Recall that 
-								$\nabla f = \frac{\partial f}{\partial x}~\i + 
-								\frac{\partial f}{\partial y}~\j$ and consider 
+								<strong>Proof:</strong> Recall that
+								$\nabla f = \frac{\partial f}{\partial x}~\i +
+								\frac{\partial f}{\partial y}~\j$ and consider
 								the vector function $\r(t)$ with $a \leq t \leq b$. So $d\r = dx~\i+ dy~\j$.
-	
+
 								<span class="fragment" data-fragment-index="0">
 									Then we have that
 								</span>
@@ -1066,10 +1067,10 @@
 										</span>
 									</td>
 								</tr>
-								
+
 								<tr>
 									<td>
-										
+
 									</td>
 									<td class="fragment" data-fragment-index="3">
 										$\displaystyle =\int_{a}^{b}
@@ -1080,16 +1081,17 @@
 
 								<tr>
 									<td>
-										
+
 									</td>
 									<td class="fragment" data-fragment-index="4">
 										$\displaystyle = f\left(\r(b)\right) - f\left(\r(a)\right)$.
 									</td>
 								</tr>
 							</table>
-							<p class="fragment" data-fragment-index="5">The last step follows from the Fundamental Theorem of Calculus.</p>
+							<p class="fragment" data-fragment-index="5">The last step follows from the Fundamental
+								Theorem of Calculus.</p>
 						</div>
-						
+
 					</div>
 				</section>
 
@@ -1139,28 +1141,114 @@
 						35.5.1 The fundamental theorem for line integrals
 					</h5>
 					<div class="size-60 left-txt">
-						
+
 						<p><strong>Proof:</strong> First, recall some properties:</span></p>
 						<table style="width:100%;">
 							<tr>
-								<td style="width:50%"  class="fragment" data-fragment-index="0">
+								<td style="width:50%" class="fragment" data-fragment-index="0">
 									<div class="r-stack">
 										<img style="width: 100%; 
 										display: block;
 										margin-left: auto;
 										margin-right: auto;" data-src="images/chapter-35/chapter-35-5-properties-01.svg" />
-										
+
 									</div>
 								</td>
 
-								<td style="width:50%"  class="fragment" data-fragment-index="1">
+								<td style="width:50%" class="fragment" data-fragment-index="1">
 									<div class="r-stack">
 										<img style="width: 100%; 
 										display: block;
 										margin-left: auto;
 										margin-right: auto;" data-src="images/chapter-35/chapter-35-5-properties-02.svg" />
-										
+
 									</div>
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						35.5.1 The fundamental theorem for line integrals
+					</h5>
+					<div class="size-60 left-txt">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:48%">
+									<div class="r-stack">
+										<img  class="fragment fade-out" data-fragment-index="2" style="width: 100%; 
+										display: block;
+										margin-left: auto;
+										margin-right: auto;" data-src="images/chapter-35/chapter-35-5-properties-03.svg" />
+										<img class="fragment" data-fragment-index="2" style="width: 100%; 
+										display: block;
+										margin-left: auto;
+										margin-right: auto;" data-src="images/chapter-35/chapter-35-5-properties-04.svg" />
+
+									</div>
+								</td>
+
+								<td style="width:52%">
+									<p><strong>Proof:</strong> "$\Rightarrow$" $\int_C \F\cdot d\r $ is path
+										independent.
+										<span class="fragment" data-fragment-index="1">
+											Then
+											\[
+											\int_{C_1} \F\cdot d\r = \int_{C_2} \F\cdot d\r
+											\]
+											for any $C_1$ and $C_2$ in $D$ with the same end points $A$ and $B$.
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="2">
+										But $\displaystyle \int_{C_2} \F\cdot d\r =- \int_{-C_2} \F\cdot d\r$.
+									</p>
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						35.5.1 The fundamental theorem for line integrals
+					</h5>
+					<div class="size-60 left-txt">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:48%" >
+									<div class="r-stack">
+										<img style="width: 100%; 
+										display: block;
+										margin-left: auto;
+										margin-right: auto;" data-src="images/chapter-35/chapter-35-5-properties-04.svg" />
+
+									</div>
+								</td>
+
+								<td style="width:52%">
+									<p><strong>Proof:</strong> "$\Rightarrow$"
+										 $$\displaystyle \int_{C_2} \F\cdot d\r =- \int_{-C_2} \F\cdot d\r$$
+										 Here $-C_2$ is the same path as $C_2$ but with opposite orientation.
+										 <span class="fragment" data-fragment-index="0">
+											Then 
+										 </span>
+									</p>
+									<p class="fragment" data-fragment-index="0">
+										<span>$\displaystyle 0=$</span>
+										<span>
+											$\displaystyle \int_{C_1} \F\cdot d\r + \int_{-C_2} \F\cdot d\r $ 
+										</span>
+										<span class="fragment" data-fragment-index="1">$\displaystyle = \int_{C} \F\cdot d\r$</span>
+										
+										<span class="fragment" data-fragment-index="3">where $C$ is any closed path such that $C = C_1 + (-C_2)$ in $D$. $\blacksquare$</span>
+										
+									</p>
 								</td>
 							</tr>
 
