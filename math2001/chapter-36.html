@@ -111,10 +111,10 @@
 							on a disc $D$ that contains the point $(a,b)$.
 							<span class="fragment" data-fragment-index="0">
 								If the functions
-							$$\displaystyle \frac{\partial^2 f}{\partial x\partial y} \text{ and }
-							\displaystyle \frac{\partial^2 f}{\partial y\partial x}$$ are
-							both continuous on $D$,
-							</span> 
+								$$\displaystyle \frac{\partial^2 f}{\partial x\partial y} \text{ and }
+								\displaystyle \frac{\partial^2 f}{\partial y\partial x}$$ are
+								both continuous on $D$,
+							</span>
 							<span class="fragment" data-fragment-index="1">
 								then
 								\[
@@ -180,11 +180,17 @@
 							Let's add this to our diagram:
 						</p>
 
-						<img style="width: 75%; 
+						<div class="r-stack">
+							<img style="width: 75%; 
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;" data-src="images/chapter-36/chapter-36-2b-diagram.svg" />
+							<img class="fragment" data-fragment-index="1" style="width: 75%; 
 						  display: block;
 						  margin-left: auto;
 						  margin-right: auto;" data-src="images/chapter-36/chapter-36-2-diagram.svg" />
-						<p>
+						</div>
+						<p class="fragment" data-fragment-index="2">
 							If we can reverse the new arrow, then we would have the criterion that we need!
 						</p>
 					</div>
@@ -211,9 +217,12 @@
 											\frac{\partial F_1}{\partial y} = \frac{ \partial F_2}{\partial x}
 											\]
 											would be a test for a conservative vector field.
-											<span>
+											<span class="fragment" data-fragment-index="0">
 												To do this,
 												we require one more piece of the puzzle.
+
+											</span>
+											<span class="fragment" data-fragment-index="1">
 												That is Green's theorem.
 											</span>
 										</span>
@@ -238,14 +247,17 @@
 								Let $D$ be a region in the $x$-$y$ plane bounded by
 								a piecewise-smooth, simple closed curve $C$,
 								which is traversed with $D$ always on the left.
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									Let $F_1(x,y)$, $F_2(x,y)$, $\displaystyle \frac{\partial F_1}{\partial y}$
 									and $\displaystyle \frac{\partial F_2}{\partial x}$
-									be continuous in $D$. Then
+									be continuous in $D$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then
 								</span>
 
 							</p>
-							<div id="theorem">
+							<div id="theorem" class="fragment" data-fragment-index="1">
 								<p>
 									\[
 									\iint_D\left( \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial
@@ -262,35 +274,25 @@
 				<section data-auto-animate>
 					<h4>36.3 Green's theorem</h4>
 					<div>
-						<table style="width:100%;">
-							<tr>
-								<td style="width:40%">
+						<p class="size-60">
+							\[
+							\iint_D\left( \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial
+							y}\right) ~dx~dy = \oint_C\left(F_1 dx + F_2 dy\right)
+							\]
+						</p>
+					</div>
 
-									<div>
-										<p class="size-40">
-											\[
-											\iint_D\left( \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial
-											y}\right) ~dx~dy = \oint_C\left(F_1 dx + F_2 dy\right)
-											\]
-										</p>
-									</div>
+					<div class="fragment left-txt" data-fragment-index="0">
 
-								</td>
-
-								<td style="width:60%">
-									<p class="size-70">
-										This theorem relates a double integral to a line integral over a
-										closed curve.
-										<span>
-											For example, we can use Green's theorem to
-											evaluate complicated line integrals by treating them as
-											double integrals, or vice versa.
-										</span>
-									</p>
-								</td>
-							</tr>
-
-						</table>
+						<p class="size-70">
+							This theorem relates a double integral to a line integral over a
+							closed curve.
+							<span class="fragment" data-fragment-index="1">
+								For example, we can use Green's theorem to
+								evaluate complicated line integrals by treating them as
+								double integrals, or vice versa.
+							</span>
+						</p>
 					</div>
 
 				</section>
@@ -303,16 +305,16 @@
 							<p>
 								Regarding our discussion on conservative vector fields,
 								we have the following corollary to Green's theorem:
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									\[
-									\text{If } \frac{\partial F_1}{\partial y}= \frac{\partial F_2}{\partial x},
-									\text{ then } \oint_C \F \cdot d\r = 0.
+									\text{If } \;\frac{\partial F_1}{\partial y}= \frac{\partial F_2}{\partial x},
+									\;\text{ then } \;\oint_C \F \cdot d\r = 0.
 									\]
 								</span>
 
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								Note that $\F = F_1~ \i + F_2 ~\j$.
 							</p>
 
@@ -328,82 +330,77 @@
 						<p>
 							If we add this to our diagram, we can now link
 							any four statements via the arrows.
-							In other words all four statements are equivalent.
+							
 						</p>
 
 						<img style="width: 75%; 
 						  display: block;
 						  margin-left: auto;
 						  margin-right: auto;" data-src="images/chapter-36/chapter-36-3-diagram.svg" />
-
+						<p class="fragment" data-fragment-index="0">In other words all four statements are equivalent.</p>
 					</div>
 				</section>
 
 				<section data-auto-animate>
 					<h4>36.3 Green's theorem</h4>
-					<div class="size-65 left-txt">
-						<p>
-							If we add this to our diagram, we can now link
-							any four statements via the arrows.
-							In other words all four statements are equivalent.
-						</p>
-					</div>
 					
 					<div class="size-65">
 						<table style="width:100%;">
 							<tr>
-								<td style="width:50%">
-	
+								<td style="width:55%">
+
 									<img style="width: 100%; 
 									  display: block;
 									  margin-left: auto;
 									  margin-right: auto;" class="r-stretch" data-src="images/chapter-36/chapter-36-3-diagram.svg" />
-	
+
 								</td>
-	
-								<td style="width:50%">
+
+								<td style="width:45%">
 									<p>
 										In particular, we now have a test to determine
 										whether or not a given two dimensional
 										vector field is conservative:
-										
+
 									</p>
-									<p style="text-align:center">The vector fied  $\F$ is conservative <br/>
-										if and only if <br/>
-										$$\displaystyle \frac{\partial F_1}{\partial y}= \frac{\partial F_2}{\partial x}.$$
+									<p style="text-align:center">The vector fied $\F$ is conservative <br />
+										if and only if <br />
+										$$\displaystyle \frac{\partial F_1}{\partial y}= \frac{\partial F_2}{\partial
+										x}.$$
 									</p>
 								</td>
 							</tr>
-	
+
 						</table>
 					</div>
 				</section>
 
 				<section>
-					<h6>36.3.1 Find the work done by the force $\F = x^2y~\i+xy^22~\j$ 
-						anticlockwise around the circle with centre at the 
+					<h6>36.3.1 Find the work done by the force $\F = x^2y~\i+xy^22~\j$
+						anticlockwise around the circle with centre at the
 						origin and radius $a$.</h6>
 				</section>
 
 				<section>
 					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
 					<p class="sbt">
-						where $C$ is the 
-						path from $(0,1)$ to $(1,0)$ along $y = (x-1)^2$ 
-						<br/>and then from 
+						where $C$ is the
+						path from $(0,1)$ to $(1,0)$ along $y = (x-1)^2$
+						<br />and then from
 						$(1,0)$ to $(2, 1)$ along $y = x - 1$.</p>
 				</section>
 
 				<section>
-					<h6>36.3.3 Evaluate  $\displaystyle \int_C \left(3+2xy\right) dx + \left(x^2-3y^2\right)dy$ where $C$ is </h6>
+					<h6>36.3.3 Evaluate $\displaystyle \int_C \left(3+2xy\right) dx + \left(x^2-3y^2\right)dy$ where $C$
+						is </h6>
 					<p class="sbt">
-						the 
-						curve given by 
+						the
+						curve given by
 						$\r(t) = \left(1-\cos(\pi t)\right)\i + \left(1+\sin^3(\pi t)\right)\j$
-						 for $0\leq t\leq 1/2$.</p>
+						for $0\leq t\leq 1/2$.</p>
 				</section>
 
-				
+
 
 			</section>
 
