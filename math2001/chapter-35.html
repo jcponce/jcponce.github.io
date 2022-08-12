@@ -1039,10 +1039,13 @@
 					<h5>
 						35.5.1 The fundamental theorem for line integrals
 					</h5>
-					<div class="size-70 left-txt">
+					<div class="size-70">
 						<div class="left-txt">
 							<p>
-								<strong>Proof:</strong> Consider the vector function $\r(t)$ with $a \leq t \leq b$.
+								<strong>Proof:</strong> Recall that 
+								$\nabla f = \frac{\partial f}{\partial x}~\i + 
+								\frac{\partial f}{\partial y}~\j$ and consider 
+								the vector function $\r(t)$ with $a \leq t \leq b$. So $d\r = dx~\i+ dy~\j$.
 	
 								<span class="fragment" data-fragment-index="0">
 									Then we have that
@@ -1055,19 +1058,15 @@
 									</td>
 									<td class="fragment" data-fragment-index="1">
 										$\displaystyle =\int_{t=a}^{t=b} \nabla f \left(\r(t)\right)\cdot \r'(t)~dt$
-									</td>
-								</tr>
-								<tr>
-									<td>
-										
-									</td>
-									<td class="fragment" data-fragment-index="2">
-										$\displaystyle =\int_{a}^{b} \left(
+										<span class="fragment" data-fragment-index="2">
+											$\displaystyle =\int_{a}^{b} \left(
 											\frac{\partial f}{\partial x} \frac{d x}{d t}+
 											\frac{\partial f}{\partial y} \frac{dy}{d t}
 											\right)dt$
+										</span>
 									</td>
 								</tr>
+								
 								<tr>
 									<td>
 										
@@ -1088,8 +1087,9 @@
 									</td>
 								</tr>
 							</table>
+							<p class="fragment" data-fragment-index="5">The last step follows from the Fundamental Theorem of Calculus.</p>
 						</div>
-						<p class="fragment" data-fragment-index="5">The last step follows from the Fundamental Theorem of Calculus.</p>
+						
 					</div>
 				</section>
 
