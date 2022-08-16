@@ -1003,21 +1003,21 @@
 
 				<section>
 					<h4>More vector fields: Fluid Simulation</h4>
-					<h6>Example 1</h6>
+					<h6>Example 1 - No pressure</h6>
 					<canvas id="advection1" width="450" height="450"></canvas>
 					
 				</section>
 
 				<section>
 					<h4>More vector fields: Fluid Simulation</h4>
-					<h6>Example 2</h6>
+					<h6>Example 2 - No pressure</h6>
 					<canvas id="advection2" width="450" height="450"></canvas>
 					
 				</section>
 
 				<section>
 					<h4>More vector fields: Fluid Simulation</h4>
-					<h6>Example 3</h6>
+					<h6>Example 3 - More realistic</h6>
 					<canvas id="demo" width="450" height="450"></canvas>
 					
 				</section>
@@ -1031,7 +1031,7 @@
 							threshold: false,
 							advectV: true,
 							applyPressure: true,
-							showArrows: false,
+							showArrows: true,
 							initCFn: [
 								'step(1.0, mod(floor((x + 1.0) / 0.2) + floor((y + 1.0) / 0.2), 2.0))',
 								'step(1.0, mod(floor((x + 1.0) / 0.3) + floor((y + 1.0) / 0.3), 2.0))',
@@ -1044,7 +1044,7 @@
 						new FluidSim("advection1", {
 							threshold: false,
 							advectV: false,
-							initVFn: ['1.0', '0.0'],
+							initVFn: ['0.9', '0.0'],
 							size: 450,
 						});
 	
