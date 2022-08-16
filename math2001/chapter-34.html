@@ -268,7 +268,8 @@
 
 							<p class="fragment" data-fragment-index="2">
 								Alternatively we define the differential operator
-								$\displaystyle \nabla = ~\i \frac{\partial }{\partial x}+ ~\j \frac{\partial }{\partial y}
+								$\displaystyle \nabla = ~\i \frac{\partial }{\partial x}+ ~\j \frac{\partial }{\partial
+								y}
 								+ ~\k \frac{\partial }{\partial z}$,
 
 
@@ -296,10 +297,10 @@
 									<td class="fragment" data-fragment-index="1">
 										$\displaystyle = ~\i \frac{\partial}{\partial x}\left(x^2y^3x^4\right)$
 										<span class="fragment" data-fragment-index="2">
-										$\displaystyle + \,~\j \frac{\partial}{\partial y}\left(x^2y^3x^4\right) $
+											$\displaystyle + \,~\j \frac{\partial}{\partial y}\left(x^2y^3x^4\right) $
 										</span>
 										<span class="fragment" data-fragment-index="3">
-										$\displaystyle+ \,~\k \frac{\partial}{\partial z}\left(x^2y^3x^4\right)$
+											$\displaystyle+ \,~\k \frac{\partial}{\partial z}\left(x^2y^3x^4\right)$
 										</span>
 									</td>
 								</tr>
@@ -343,7 +344,7 @@
 					</div>
 				</section>
 
-				
+
 
 
 				<section>
@@ -360,10 +361,10 @@
 					<h5>
 						34.2.1 Example: find the gradient of $f(x, y, z) = x^2y^3z^4$.
 					</h5>
-					<br/>
+					<br />
 					<div class="size-80">
 						<div class="left-txt">
-							
+
 							<p>
 								You may see the scalar function $f$ referred to as a
 								scalar field.
@@ -378,7 +379,7 @@
 							</p>
 						</div>
 					</div>
-					<br/><br/>
+					<br /><br />
 				</section>
 
 				<section data-auto-animate>
@@ -676,10 +677,10 @@
 
 				<section data-auto-animate>
 					<h5>
-						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)~\i + \left(x^2 - 3y^2\right)~\j$<br/>
+						34.2.3 The vector field $\F (x, y) = \left(3 + 2xy\right)~\i + \left(x^2 - 3y^2\right)~\j$<br />
 						is conservative. Find a corresponding potential function.
 					</h5>
-					<br/>
+					<br />
 					<div class="size-70">
 						<div class="left-txt">
 							<p>Finally, we substitute into $f = 3x+x^2y+g(y)$ to obtain
@@ -693,7 +694,7 @@
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 
@@ -943,13 +944,13 @@
 					</table>
 				</section>
 
-				<section  data-auto-animate>
+				<section data-auto-animate>
 					<h6>
 						34.2.4 The vector field $ \,\F(x,y,z) = y^2~\i + \left(2xy + e^{3z}\right)~\j + 3ye^{3z}~\k$
 						is conservative.
 						Find a corresponding potential function.
 					</h6>
-					<br/>
+					<br />
 					<div class="size-70">
 						<div class="left-txt">
 							<p>Therefore the function
@@ -958,9 +959,9 @@
 								\]
 								<span class="fragment" data-fragment-index="0">
 									is the scalar potential such that
-								\[
-								\F = \nabla f.
-								\]
+									\[
+									\F = \nabla f.
+									\]
 								</span>
 							</p>
 						</div>
@@ -974,7 +975,7 @@
 
 
 
-				<section  data-auto-animate>
+				<section data-auto-animate>
 					<h6>
 						34.2.4 The vector field $ \,\F(x,y,z) = y^2~\i + \left(2xy + e^{3z}\right)~\j + 3ye^{3z}~\k$
 						is conservative.
@@ -995,6 +996,94 @@
 					<br /><br />
 				</section>
 
+
+			</section>
+
+			<section>
+
+				<section>
+					<h4>More vector fields: Fluid Simulation</h4>
+					<h6>Example 1</h6>
+					<canvas id="advection1" width="450" height="450"></canvas>
+					
+				</section>
+
+				<section>
+					<h4>More vector fields: Fluid Simulation</h4>
+					<h6>Example 2</h6>
+					<canvas id="advection2" width="450" height="450"></canvas>
+					
+				</section>
+
+				<section>
+					<h4>More vector fields: Fluid Simulation</h4>
+					<h6>Example 3</h6>
+					<canvas id="demo" width="450" height="450"></canvas>
+					
+				</section>
+
+				<script src="sketches/javascripts/lightgl.js"></script>
+	
+					<script src="sketches/javascripts/fluid-sim.js"></script>
+	
+					<script>
+						new FluidSim("demo", {
+							threshold: false,
+							advectV: true,
+							applyPressure: true,
+							showArrows: false,
+							initCFn: [
+								'step(1.0, mod(floor((x + 1.0) / 0.2) + floor((y + 1.0) / 0.2), 2.0))',
+								'step(1.0, mod(floor((x + 1.0) / 0.3) + floor((y + 1.0) / 0.3), 2.0))',
+								'step(1.0, mod(floor((x + 1.0) / 0.4) + floor((y + 1.0) / 0.4), 2.0))'
+							],
+							dyeSpots: true,
+							size: 450,
+						});
+	
+						new FluidSim("advection1", {
+							threshold: false,
+							advectV: false,
+							initVFn: ['1.0', '0.0'],
+							size: 450,
+						});
+	
+						new FluidSim("advection2", {
+							threshold: false,
+							advectV: false,
+							size: 450,
+						});
+	
+						new FluidSim("advectV1", {
+							threshold: false,
+							advectV: true,
+							initVFn: ['1.0', 'sin(2.0 * 3.1415 * x)']
+						});
+	
+						new FluidSim("divergent1", {
+							threshold: false,
+							advectV: false,
+							initVFn: ['x', 'y']
+						});
+	
+						new FluidSim("divergent2", {
+							threshold: false,
+							advectV: false,
+							initVFn: ['sin(2.0 * 3.1415 * x)', '0.0']
+						});
+	
+						new FluidSim("divergent3", {
+							threshold: false,
+							advectV: true
+						});
+	
+						new FluidSim("implementation1", {
+							threshold: false,
+							advectV: true,
+							applyPressure: true,
+							showArrows: false
+						});
+					</script>
 
 			</section>
 
