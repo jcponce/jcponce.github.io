@@ -24,6 +24,10 @@
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
 
+	<script type="text/javascript" src="sketches/cindyjs/v0.7.11/Cindy.js"></script>
+	<script type="text/javascript" src="sketches/cindyjs/v0.7.11/CindyGL.js"></script>
+	<script type="text/javascript" src="sketches/cindyjs/symbolic.js"></script>
+
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
@@ -61,30 +65,181 @@
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h3>38 Flux of a vector field</h3>
-				<div class="left-txt size-70">
-					<p>
-						By the end of this section, you should be able to answer the following questions:
-					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">
-							What is the flux of a constant vector field across a flat surface in 3D?
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							What is the flux of a vector field across a plane curve in 2D?
-						</li>
-					</ul>
+					<div class="left-txt size-70">
+						<p>
+							By the end of this section, you should be able to answer the following questions:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								What is the flux of a constant vector field across a flat surface in 3D?
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								What is the flux of a vector field across a plane curve in 2D?
+							</li>
+						</ul>
 
-					
-				</div>
+						<p>
+							In this section we introduce the concept of <em>flux</em>:
+							In three dimensions, the flux of a vector field
+							across a given surface is defined to be the "flow rate"
+							of the vector field through the surface.
+						</p>
+
+					</div>
 				</section>
 
-				
+				<section data-auto-animate>
+					<h3>38 Flux of a vector field</h3>
+					<div class="left-txt size-70">
+						
+
+						<p>
+							Since many vector fields involve no motion (e.g., electric fields, magnetic fields), this
+							definition can be very difficult to comprehend at first. 
+						</p>
+
+						<div>
+							<script id="csinit" type="text/x-cindyscript">
+								use("CindyGL");
+								
+								width = 500;
+								height = 500;
+								
+								L = [0, 0]; //bottom left corner
+								R = [height, 0]; //bottom right corner
+								
+								createimage("Cfract", width, height);
+								createimage("N", width, height);
+								createimage("Nb", width, height);
+								createimage("Show", width, height);
+								
+								colorplot(L, R, "Cfract", (random(), random(), 0));
+								colorplot(L, R, "N", round(random()));
+												  
+									  //Component
+									  //ff(x,p):= (
+									  //  tt=(x-p)/abs(x-p)^3;
+									  //  (tt.y,-tt.x);
+									  //);
+									  
+									  gg(x,p):= (
+										tt=(x-p)/abs(x-p)^3;
+										(tt.x,tt.y);
+									  );
+									  
+									  
+									//Function to define smoothness on change of color
+									  pg(xx,pp):= (
+										tt=1/abs(xx-pp)^1;
+										tt;
+									  );
+						  
+									  /*This function is useless ???
+									  v(x) := (
+										x1=A.x;
+										x2=B.x;
+										
+										f1=ff(x,(x1,1));
+										f2=ff(x,(x1,.75));
+										f3=ff(x,(x1,.5));
+										f4=ff(x,(x1,.25));
+										f5=ff(x,(x1,0));
+										f6=ff(x,(x1,-.25));
+										f7=ff(x,(x1,-.5));
+										f8=ff(x,(x1,-.75));
+										f9=ff(x,(x1,-1));
+										g1=ff(x,(x2,1));
+										g2=ff(x,(x2,.75));
+										g3=ff(x,(x2,.5));
+										g4=ff(x,(x2,.25));
+										g5=ff(x,(x2,0));
+										g6=ff(x,(x2,-.25));
+										g7=ff(x,(x2,-.5));
+										g8=ff(x,(x2,-.75));
+										g9=ff(x,(x2,-1));
+										 
+										  res=f1+f2+f3+f4+f5+f6+f7+f8+f9+(-g1-g2-g3-g4-g5-g6-g7-g8-g9);
+										res=if(|res|>2,res/|res|*2,res);
+													  res
+						  
+												  );
+									   */
+											   
+									  //Function that defines the size of the arrows in the vector field
+									  v(x) := (
+						  
+										x1=A.x;
+										x2=B.x;
+										y1=A.y;
+										y2=B.y;
+										f1=gg(x,(x1,y1));
+									   
+										g1=gg(x,(x2,y2));
+										
+										res=f1-g1;
+										res=if(|res|>2,res/|res|*2.5,res);
+										res
+									  );
+						  
+								  //Function that defines the brightness
+											   
+									  h(x) := (
+						  
+										x1=A.x;
+										x2=B.x;
+										y1=A.y;
+										y2=B.y;
+										f1=pg(x,(x1,y1));
+										g1=pg(x,(x2,y2));
+										
+										(f1-g1)*.9;
+						  
+									  );
+						  
+									  
+									  //vector field ends
+												  
+												  h = 1;
+												  getNewC(pc) := (
+													  col = imagergb(L, R, "Cfract", pc);
+													  curC = (floor(pc.x)+col.x, floor(pc.y)+col.y);
+													  curC - h*v(pixel2coord(curC));  //euler step in the past
+												  )
+							  </script>
+							  
+							  
+						</div>
+
+
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h3>38 Flux of a vector field</h3>
+					<div class="left-txt size-70">
+						
+
+						<p>
+							 A nice context for working with flux
+							in order to understand its definition is by considering the velocity vector of a fluid (so
+							now we do have motion). In three dimensions, the flux of a fluid across a surface is given
+							in units of volume per unit time. In other words, the flux tells us how much of the fluid
+							(volume) passes through a given surface in one second.
+						</p>
+
+
+
+					</div>
+				</section>
+
+
 			</section>
 
-			
-			
+
+
 			<section>
 
 				<h4>Credits</h4>
