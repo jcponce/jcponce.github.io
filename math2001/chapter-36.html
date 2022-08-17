@@ -475,7 +475,7 @@
 											</td>
 											<td class="fragment" data-fragment-index="0">
 												$\displaystyle =\int_{r=0}^{r=a} \int_{\theta=0}^{\theta=2\pi}
-												\left(-r^2\cos\left(2\theta\right)\right)r d\theta dr$
+												\left(-r^2\cos\left(2\theta\right)\right)r ~d\theta ~dr$
 											</td>
 										</tr>
 										<tr>
@@ -508,271 +508,7 @@
 
 				</section>
 
-				<section data-auto-animate>
-					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
-					<p class="sbt">
-						where $C$ is the
-						path from $(0,1)$ to $(1,0)$ along $y = (x-1)^2$
-						<br />and then from
-						$(1,0)$ to $(2, 1)$ along $y = x - 1$.</p>
-
-					<div class="fragment" data-fragment-index="0">
-						<img style="width: 40%; 
-							display: block;
-							margin-left: auto;
-							margin-right: auto;" data-src="images/chapter-36/chapter-36-3-2-example-2a.svg" />
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
-
-
-					<div class="size-60">
-						<table style="width:100%;">
-							<tr>
-								<td style="width:50%">
-									<div class="r-stack">
-										<img style="width: 100%;" class="fragment fade-out" data-fragment-index="1"
-											display: block; margin-left: auto; margin-right: auto;"
-											data-src="images/chapter-36/chapter-36-3-2-example-2a.svg" />
-										<img style="width: 100%;" class="fragment" data-fragment-index="1" display:
-											block; margin-left: auto; margin-right: auto;"
-											data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
-									</div>
-								</td>
-
-								<td style="width:50%">
-									<p>
-										Can we use Green's theorem here?
-									</p>
-
-									<p class="fragment" data-fragment-index="0">Yes, but we need a closed curve. </p>
-									<p class="fragment" data-fragment-index="1">
-										For example consider $C_3$ the segment from $(2,1)$ to
-										$(0,1)$.
-									</p>
-
-								</td>
-							</tr>
-
-						</table>
-					</div>
-
-
-				</section>
-
-				<section data-auto-animate>
-					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
-
-
-					<div class="size-55">
-						<table style="width:100%;">
-							<tr>
-								<td style="width:35%">
-									<div>
-										<img style="width: 100%;" display: block; margin-left: auto; margin-right:
-											auto;" data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
-									</div>
-								</td>
-
-								<td style="width:65%">
-									<p>
-										Then by Green's theorem we have
-									</p>
-
-									<table>
-										<tr>
-											<td>
-												$\displaystyle \oint_{C+C_3} \F \cdot d\r$
-											</td>
-											<td>
-												$\displaystyle = \int_{C} \F \cdot d\r + \int_{C_3} \F \cdot d\r$
-											</td>
-										</tr>
-										<tr>
-											<td>
-
-											</td>
-											<td class="fragment" data-fragment-index="1">
-												$\displaystyle = \iint_D \left( \frac{\partial F_2}{\partial x} -
-												\frac{\partial F_1}{\partial y} \right)dx~dy$
-											</td>
-										</tr>
-										<tr>
-											<td>
-
-											</td>
-											<td class="fragment" data-fragment-index="2">
-												$\displaystyle = \iint_D \left( \frac{\partial }{\partial
-												x}\left(x^2+3y^2\right) - \frac{\partial }{\partial y}\left(2xy\right)
-												\right)dx~dy$
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-
-											</td>
-											<td class="fragment" data-fragment-index="3">
-												$\displaystyle = 0$.
-											</td>
-										</tr>
-									</table>
-
-
-									
-										<p class="fragment" data-fragment-index="4">
-											\[
-											\text{Thus }\;\;\int_C \F \cdot d\r = -\int_{C_3}\F \cdot d\r.
-											\]
-										</p>
-										
-									
-								</td>
-							</tr>
-
-
-						</table>
-
-
-					</div>
-
-
-				</section>
-
-				<section data-auto-animate>
-					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
-
-
-					<div class="size-60">
-						<table style="width:100%;">
-							<tr>
-								<td style="width:35%">
-									<div>
-										<img style="width: 100%;" display: block; margin-left: auto; margin-right:
-											auto;" data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
-									</div>
-								</td>
-
-								<td style="width:65%">
-
-									<p>
-										\[
-										\int_{C_3}\F \cdot d\r = \;?
-										\]
-									</p>
-
-
-									<p class="fragment" data-fragment-index="0">
-										On $C_3$ we have that $y=1$ and $x$ varies.
-										<span class="fragment" data-fragment-index="1">
-											A parametrisation of $C_3$ is:
-											\[
-											\r(t) = 2(1-t)~\i+\j,\quad t\in[0,1].
-											\]
-										</span>
-
-
-									</p>
-
-									<p class="fragment" data-fragment-index="2">
-										Then 
-										\[
-										\F\left(\r(t)\right) = 4(1-t)~\i + 4\left(1-t\right)^2\j\; \text{ and } \;d\r = (-2~\i)~dt.
-										\]
-									</p>
-
-
-								</td>
-							</tr>
-
-
-						</table>
-
-
-					</div>
-
-
-				</section>
-
-				<section data-auto-animate>
-					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
-
-
-					<div class="size-60">
-						<table style="width:100%;">
-							<tr>
-								<td style="width:35%">
-									<div>
-										<img style="width: 100%;" display: block; margin-left: auto; margin-right:
-											auto;" data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
-									</div>
-								</td>
-
-								<td style="width:65%">
-
-									<p>
-										\[
-										\F\left(\r(t)\right) = 4(1-t)~\i + 4\left(1-t\right)^2\j\; \text{ and } \;d\r = (-2~\i)~dt.
-										\]
-									</p>
-									<p class="fragment" data-fragment-index="0">So</p>
-
-									<table>
-										<tr class="fragment" data-fragment-index="0">
-											<td>
-												$\displaystyle \int_{C_3} \F \cdot d\r$
-											</td>
-											<td>
-												$\displaystyle =  \int_{0}^1 \big[-8(1-t)\big]dt$
-											</td>
-										</tr>
-										<tr>
-											<td>
-
-											</td>
-											<td class="fragment" data-fragment-index="1">
-												$\displaystyle = -4$.
-											</td>
-										</tr>
-										
-
-									</table>
-
-
-										<div style="text-align:center">
-											<p class="fragment" data-fragment-index="2">
-												
-												$\text{Hence }\;\;\displaystyle \int_C \F \cdot d\r = -\int_{C_3}\F \cdot d\r  $
-												<span class="fragment" data-fragment-index="3">
-													$=4$.
-												</span>
-											</p>
-											
-										</div>
-									
-								</td>
-							</tr>
-
-
-						</table>
-
-
-					</div>
-
-
-				</section>
-
-				<section>
-					<h6>36.3.3 Evaluate $\displaystyle \int_C \left(3+2xy\right) dx + \left(x^2-3y^2\right)dy$ where $C$
-						is </h6>
-					<p class="sbt">
-						the
-						curve given by
-						$\r(t) = \big(1-\cos(\pi t)\big)\i + \left(1+\sin^3(\pi t)\right)\j$
-						for $0\leq t\leq 1/2$.</p>
-				</section>
+				
 
 			</section>
 
@@ -907,6 +643,480 @@
 				</section>
 
 
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
+					<p class="sbt">
+						where $C$ is the
+						path from $(0,1)$ to $(1,0)$ along $y = (x-1)^2$
+						<br />and then from
+						$(1,0)$ to $(2, 1)$ along $y = x - 1$.</p>
+
+					<div class="fragment" data-fragment-index="0">
+						<img style="width: 40%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-36/chapter-36-3-2-example-2a.svg" />
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
+
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:50%">
+									<div class="r-stack">
+										<img class="fragment fade-out" data-fragment-index="1" style="width: 100%; 
+											display: block; margin-left: auto; margin-right: auto;"
+											data-src="images/chapter-36/chapter-36-3-2-example-2a.svg" />
+										<img class="fragment fade-in" data-fragment-index="1" style="width: 100%; display:
+											block; margin-left: auto; margin-right: auto;" data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
+									</div>
+								</td>
+
+								<td style="width:50%">
+									<p>
+										Can we use Green's theorem here?
+									</p>
+
+									<p class="fragment" data-fragment-index="0">Yes, but we need a closed curve. </p>
+									<p class="fragment" data-fragment-index="1">
+										For example consider $C_3$ the segment from $(2,1)$ to
+										$(0,1)$.
+									</p>
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
+
+
+					<div class="size-55">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:35%">
+									<div>
+										<img style="width: 100%; display: block; margin-left: auto; margin-right:
+											auto;" data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
+									</div>
+								</td>
+
+								<td style="width:65%">
+									<p>
+										Then by Green's theorem we have
+									</p>
+
+									<table>
+										<tr>
+											<td>
+												$\displaystyle \oint_{C+C_3} \F \cdot d\r$
+											</td>
+											<td>
+												$\displaystyle = \int_{C} \F \cdot d\r + \int_{C_3} \F \cdot d\r$
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment" data-fragment-index="1">
+												$\displaystyle = \iint_D \left( \frac{\partial F_2}{\partial x} -
+												\frac{\partial F_1}{\partial y} \right)dx~dy$
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment" data-fragment-index="2">
+												$\displaystyle = \iint_D \left( \frac{\partial }{\partial
+												x}\left(x^2+3y^2\right) - \frac{\partial }{\partial y}\left(2xy\right)
+												\right)dx~dy$
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment" data-fragment-index="3">
+												$\displaystyle = 0$.
+											</td>
+										</tr>
+									</table>
+
+
+
+									<p class="fragment" data-fragment-index="4">
+										\[
+										\text{Thus }\;\;\int_C \F \cdot d\r = -\int_{C_3}\F \cdot d\r.
+										\]
+									</p>
+
+
+								</td>
+							</tr>
+
+
+						</table>
+
+
+					</div>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
+
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:35%">
+									<div>
+										<img style="width: 100%; display: block; margin-left: auto; margin-right:
+											auto;" data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
+									</div>
+								</td>
+
+								<td style="width:65%">
+
+									<p>
+										\[
+										\int_{C_3}\F \cdot d\r = \;?
+										\]
+									</p>
+
+
+									<p class="fragment" data-fragment-index="0">
+										On $C_3$ we have that $y=1$ and $x$ varies.
+										<span class="fragment" data-fragment-index="1">
+											A parametrisation of $C_3$ is:
+											\[
+											\r(t) = 2(1-t)~\i+\j,\quad t\in[0,1].
+											\]
+										</span>
+
+
+									</p>
+
+									<p class="fragment" data-fragment-index="2">Then</p>
+									<p class="fragment" data-fragment-index="2">
+										\[
+										\F\left(\r(t)\right) = 4(1-t)~\i + 4\left(1-t\right)^2\j\; \text{ and } \;d\r =
+										(-2~\i)~dt.
+										\]
+									</p>
+
+
+								</td>
+							</tr>
+
+
+						</table>
+
+
+					</div>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.2 Evaluate the line integral $\displaystyle \int_C 2xy ~dx + \left(x^2+3y^2\right)dy$</h6>
+
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:35%">
+									<div>
+										<img style="width: 100%; display: block; margin-left: auto; margin-right:
+											auto;" data-src="images/chapter-36/chapter-36-3-2-example-2b.svg" />
+									</div>
+								</td>
+
+								<td style="width:65%">
+
+									<p>
+										\[
+										\F\left(\r(t)\right) = 4(1-t)~\i + 4\left(1-t\right)^2\j\; \text{ and } \;d\r =
+										(-2~\i)~dt.
+										\]
+									</p>
+									<p class="fragment" data-fragment-index="0">So</p>
+
+									<table>
+										<tr class="fragment" data-fragment-index="0">
+											<td>
+												$\displaystyle \int_{C_3} \F \cdot d\r$
+											</td>
+											<td>
+												$\displaystyle = \int_{0}^1 \big[-8(1-t)\big]dt$
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment" data-fragment-index="1">
+												$\displaystyle = -4$.
+											</td>
+										</tr>
+
+
+									</table>
+
+
+									<div style="text-align:center">
+										<p class="fragment" data-fragment-index="2">
+
+											$\text{Hence }\;\;\displaystyle \int_C \F \cdot d\r = -\int_{C_3}\F \cdot
+											d\r $
+											<span class="fragment" data-fragment-index="3">
+												$=4$.
+											</span>
+										</p>
+
+									</div>
+
+								</td>
+							</tr>
+
+
+						</table>
+
+
+					</div>
+
+
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h6>36.3.3 Evaluate $\displaystyle \int_C \left(3+2xy\right) dx + \left(x^2-3y^2\right)dy$ where $C$
+						is </h6>
+					<p class="sbt">
+						the
+						curve given by
+						$\r(t) = \big(1-\cos(\pi t)\big)\i + \left(1+\sin^3(\pi t)\right)\j$
+						for $0\leq t\leq 1/2$.</p>
+
+					<div class="fragment" data-fragment-index="0">
+						<img style="width: 40%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/chapter-36/chapter-36-3-3-example-3.svg" />
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.3 Evaluate $\displaystyle \int_C \left(3+2xy\right) dx + \left(x^2-3y^2\right)dy$ where $C$
+						is </h6>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:50%">
+									<div class="r-stack">
+										<img class="fragment fade-out" data-fragment-index="3"
+											style="width: 100%; display: block; margin-left: auto; margin-right: auto;"
+											data-src="images/chapter-36/chapter-36-3-3-example-3a.svg" />
+										<img class="fragment fade-in" data-fragment-index="3" style="width: 100%; display:
+											block; margin-left: auto; margin-right: auto;" data-src="images/chapter-36/chapter-36-3-3-example-3b.svg" />
+									</div>
+								</td>
+
+								<td style="width:50%">
+									<p>
+										Direct computation using
+										$
+										\r(t)
+										$
+										is complicated.
+
+									</p>
+
+									<p class="fragment" data-fragment-index="0">But notice that
+										\[
+										\frac{\partial F_1 }{\partial y} = 2x =\frac{\partial F_2 }{\partial x}
+										\]
+									</p>
+
+
+									<p class="fragment" data-fragment-index="1">
+										This implies that $\F$ is conservative.
+										<span class="fragment" data-fragment-index="2">
+											In other words,
+										</span>
+									</p>
+									<div class="r-stack">
+										<p class="fragment fade-in-then-out" data-fragment-index="2">
+											$\displaystyle \int_C \F \cdot d\r\;$ is path independent.
+
+										</p>
+										<p class="fragment" data-fragment-index="3">
+
+											$\displaystyle \int_C \F \cdot d\r = \int_{C_1} \F \cdot d\r $
+
+										</p>
+									</div>
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.3 Evaluate $\displaystyle \int_C \left(3+2xy\right) dx + \left(x^2-3y^2\right)dy$ where $C$
+						is </h6>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:50%">
+									<div class="r-stack">
+										<img style="width: 100%; display:
+											block; margin-left: auto; margin-right: auto;" data-src="images/chapter-36/chapter-36-3-3-example-3c.svg" />
+									</div>
+								</td>
+
+								<td style="width:50%">
+									<p>
+										Let's use a simpler path:
+										\[
+										C_1:= \r(t) = t~\i + (t+1)~\j
+										\]
+										with $0\leq t\leq 1.$
+										<span class="fragment" data-fragment-index="0">Then</span>
+									</p>
+
+									<table>
+										<tr class="fragment" data-fragment-index="0">
+											<td>
+												$\displaystyle \int_C \F \cdot d\r $
+											</td>
+											<td>
+												$\displaystyle =\int_{C_1} \F \cdot d\r $
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment" data-fragment-index="1">
+												$\displaystyle =\int_0^1 \big(-4t\big)dt $
+												<span class="fragment" data-fragment-index="2">
+													$=-2$.
+												</span>
+											</td>
+										</tr>
+									</table>
+									<p class="fragment" data-fragment-index="3">
+										You should check this! 📝
+									</p>
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.3 Evaluate $\displaystyle \int_C \left(3+2xy\right) dx + \left(x^2-3y^2\right)dy$ where $C$
+						is </h6>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:50%">
+									<div class="r-stack">
+										<img style="width: 100%; display:
+											block; margin-left: auto; margin-right: auto;" data-src="images/chapter-36/chapter-36-3-3-example-3a.svg" />
+									</div>
+								</td>
+
+								<td style="width:50%">
+									<p>
+										We can also use the
+										<a href="chapter-35.html#/6/1" target="_blank">Fundamental Theorem for Line
+											Integrals.</a>
+									</p>
+
+									<p class="fragment" data-fragment-index="0">
+										Note that $\F= \nabla f$, where
+										\[
+										f = 3x+x^2y-y^3 + \text{constant}.
+										\]
+										<span class="fragment" data-fragment-index="1">Then</span>
+									</p>
+
+									<table>
+										<tr class="fragment" data-fragment-index="1">
+											<td>
+												$\displaystyle \int_C \F \cdot d\r $
+											</td>
+											<td>
+												$\displaystyle =\int_{C} \nabla f \cdot d\r $
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment" data-fragment-index="2">
+												$\displaystyle
+												=f\left(\r\left(\frac{1}{2}\right)\right)-f\left(\r\left(0\right)\right)$
+
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment" data-fragment-index="3">
+												$=-2$.
+												<span class="fragment" data-fragment-index="4">
+													&nbsp; &nbsp; Check it! 📝
+												</span>
+
+											</td>
+										</tr>
+									</table>
+
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+
+				</section>
 
 			</section>
 
