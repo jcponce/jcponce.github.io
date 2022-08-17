@@ -418,6 +418,85 @@
 											\]
 										</span>
 									</p>
+									<p>
+										Here we can use polar coordinates: $x= r \cos \theta$, $y = \sin \theta$.
+										<span class="fragment" data-fragment-index="1">
+											So we have
+											\[
+											D = \left\{ (r, \theta) ~|~ 0\leq r\leq a, 0 \leq \theta \leq 2 \pi \right
+											\}
+											\]
+
+										</span>
+										<span class="fragment" data-fragment-index="2">
+											and $y^2-x^2 = r^2\left(\sin^2\theta -\cos^2\theta \right)= - r^2 \cos
+											\left(2\theta\right)$.
+										</span>
+									</p>
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h6>36.3.1 Find the work done by the force $\F = x^2y~\i+xy^2~\j$
+						anticlockwise around the circle with centre at the
+						origin and radius $a$.</h6>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:35%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-36/chapter-36-6-1-example-1.svg" />
+								</td>
+
+								<td style="width:75%">
+									<p>Then</p>
+
+									<table id="eqarray">
+										<tr>
+											<td>
+												$\text{Work done }$
+											</td>
+											<td>
+												$\displaystyle =\iint_D\left( y^2- x^2\right) ~dx~dy$
+											</td>
+										</tr>
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="0">
+												$\displaystyle =\int_{r=0}^{r=a} \int_{\theta=0}^{\theta=2\pi}
+												\left(-r^2\cos\left(2\theta\right)\right)r d\theta dr$
+											</td>
+										</tr>
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="1">
+												$\displaystyle =-\left(\int_0^ar^3~dr\right)\left(\int_0^{2\pi}\cos\left(2\theta\right)~d\theta\right)$
+											</td>
+										</tr>
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="2">
+												$\displaystyle =0$
+											</td>
+										</tr>
+									</table>
+
+									
 								</td>
 							</tr>
 
@@ -458,9 +537,10 @@
 
 					<div class="r-stack">
 						<div>
-							<p class="size-90 fragment fade-out"  data-fragment-index="1">
+							<p class="size-90 fragment fade-out" data-fragment-index="1">
 								\[
-								\oint_C\left(F_1 dx + F_2 dy\right) =\iint_D\left( \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial
+								\oint_C\left(F_1 dx + F_2 dy\right) =\iint_D\left( \frac{\partial F_2}{\partial x} -
+								\frac{\partial F_1}{\partial
 								y}\right) ~dx~dy
 								\]
 							</p>
