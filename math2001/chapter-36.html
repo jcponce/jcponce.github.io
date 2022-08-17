@@ -679,7 +679,7 @@
 									<p class="fragment" data-fragment-index="2">
 										Then 
 										\[
-										\F\left(\r(t)\right) = 2t~\i + \left(t^2+3\right)\j\; \text{ and } \;d\r = -2t~dt.
+										\F\left(\r(t)\right) = 4(1-t)~\i + 4\left(1-t\right)^2\j\; \text{ and } \;d\r = (-2~\i)~dt.
 										\]
 									</p>
 
@@ -714,17 +714,18 @@
 
 									<p>
 										\[
-										\F\left(\r(t)\right) = 2t~\i + \left(t^2+3\right)\j\; \text{ and } \;d\r = -2t~dt.
+										\F\left(\r(t)\right) = 4(1-t)~\i + 4\left(1-t\right)^2\j\; \text{ and } \;d\r = (-2~\i)~dt.
 										\]
 									</p>
+									<p class="fragment" data-fragment-index="0">So</p>
 
 									<table>
-										<tr>
+										<tr class="fragment" data-fragment-index="0">
 											<td>
-												$\displaystyle \oint_{CC_3} \F \cdot d\r$
+												$\displaystyle \int_{C_3} \F \cdot d\r$
 											</td>
 											<td>
-												$\displaystyle =  \int_{C_3} \F \cdot d\r$
+												$\displaystyle =  \int_{0}^1 \big[-8(1-t)\big]dt$
 											</td>
 										</tr>
 										<tr>
@@ -732,44 +733,25 @@
 
 											</td>
 											<td class="fragment" data-fragment-index="1">
-												$\displaystyle = \iint_D \left( \frac{\partial F_2}{\partial x} -
-												\frac{\partial F_1}{\partial y} \right)dx~dy$
+												$\displaystyle = -4$.
 											</td>
 										</tr>
-										<tr>
-											<td>
+										
 
-											</td>
-											<td class="fragment" data-fragment-index="2">
-												$\displaystyle = \iint_D \left( \frac{\partial }{\partial
-												x}\left(x^2+3y^2\right) - \frac{\partial }{\partial y}\left(2xy\right)
-												\right)dx~dy$
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-
-											</td>
-											<td class="fragment" data-fragment-index="3">
-												$\displaystyle = 0$.
-											</td>
-										</tr>
 									</table>
 
 
-									<div class="r-stack">
-										<p class="fragment fade-in-then-out" data-fragment-index="4">
-											\[
-											\text{Thus }\;\;\int_C \F \cdot d\r = 0 -\int_{C_3}\F \cdot d\r.
-											\]
-										</p>
-										<p class="fragment fade-in-then-out" data-fragment-index="5">
-											\[
-											\text{Or }\;\;\int_C \F \cdot d\r = \int_{C_3}\F \cdot d\r.
-											\]
-										</p>
-									</div>
+										<div style="text-align:center">
+											<p class="fragment" data-fragment-index="2">
+												
+												$\text{Hence }\;\;\displaystyle \int_C \F \cdot d\r = -\int_{C_3}\F \cdot d\r  $
+												<span class="fragment" data-fragment-index="3">
+													$=4$.
+												</span>
+											</p>
+											
+										</div>
+									
 								</td>
 							</tr>
 
