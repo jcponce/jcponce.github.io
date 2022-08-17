@@ -41,9 +41,9 @@ Model map(vec3 p) {
     vec3 col = normalize(p) * .5 + .5;
     p -= vec3(6,-2,4);
     float d = length(p) - 16.;
-    p += vec3(1.2,-.8,.8) * 12.;
+    p += vec3(1.2,-.8,.8) * 12.; // Medium sphere
     d = smin(d, length(p) - 9., 4.);
-    p += vec3(2.,.5,-.6) * 5.;
+    p += vec3(2.1,.4,.6) * 5.; // Small sphere
     d = smin(d, length(p) - 4., 3.);
     col = vec3(.8);
     return Model(d, col);
@@ -117,6 +117,8 @@ void main() {
   
     vec2 coord = vTexCoord;
 
+    // vec2 uv = ( fragCoord -.5* iResolution.xy ) / iResolution.y;
+
     float u = coord.x * 2.0 - 1.0;
     float v = coord.y * 2.0 - 1.0;
     const float scale = 1.5;
@@ -135,13 +137,13 @@ void main() {
   
     vec2 im = iMouse.xy * scale * iResolution.x / iResolution.y;
   
-    if (iView == false || iMouse.y < -0.8)
+    if (iView == false || iMouse.y < -0.79)
     {
         im = vec2(.6,.2);
     }
-  
+
     pR(camPos.yz, (0.5 - im.y) * PI / 2.);
-    pR(camPos.xz, (0.5 - im.x) * PI * 2.5);
+    pR(camPos.xz, (0.5 - sin(iTime * .08 - PI * .5) * .5 + .5) * PI * 2.5);
     
     mat3 camMat = calcLookAtMatrix(camPos, vec3(0), vec3(0,1,0));
 
@@ -155,7 +157,7 @@ void main() {
     Model model;
     float dist = 0.;
     bool bg = true;
-    vec3 bgcol = vec3(.015, 0.015, 0.035); //.08, 0.21, 0.96
+    vec3 bgcol = vec3(.415, 0.415, 0.635); //.08, 0.21, 0.96
     vec3 col = bgcol;
     bool hitVoxel = false;
     vec3 voxelPosition;
