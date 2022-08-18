@@ -615,7 +615,7 @@
 								where $\n$ is a unit vector normal to $C$.
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								We use this expression as a definition of
 								flux of any two dimensional vector field $\v$
 								across a plane curve $C$. Note then that
@@ -628,6 +628,85 @@
 					</div>
 				</section>
 
+				<section data-auto-animate>
+					<h5>
+						38.1.1 Evaluating flux in 2D
+					</h5>
+					<div class="size-60">
+
+						<div class="left-txt">
+
+							<p>
+								To evaluate the $2$D flux integral 
+								\[
+								\int_C \v\cdot \n ~dS,
+								\]
+								we need to parameterise $C$ and express all quantities in the line integral in terms of
+								this parameterisation (similar to the computation of line integral in the definition of
+								work done).
+							</p>
+
+							
+						</div>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						38.1.1 Evaluating flux in 2D
+					</h5>
+					<div class="size-50">
+
+						<div class="left-txt">
+
+							<p>
+								Steps to evaluate the $2$D flux integral 
+								
+								$\int_C \v\cdot \n ~dS$:
+							</p>
+
+							<ol style="line-height: 2em;">
+								<li class="fragment" data-fragment-index="0">
+									Parameterise $C$ by finding a $\r(t) = x(t)~\i + y(t)~\j$ with $t \in[a, b]$ that describes $C$.
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									Write $\v(x,y)$ restricted to $C$ as $\v(\r(t))= \v(x(t),y(t))$.
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									Compute a unit tangent vector to $C$ by using $\T(x,y) = \dfrac{\r'(t)}{\norm{\r'(t)}}$, where 
+									$\r'(t) = x'(t)~\i + y'(t)~\j$ is a tangent vector to $C$.
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									Be careful of the direction of $\n$. By the definition of vector cross product, 
+									and since $\k$ is a unit vector normal to the $x$-$y$ plane, we can take $\n = \T \times \k$.
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									Write $dS = \norm{\r'(t)}dt$.
+								</li>
+								<li class="fragment" data-fragment-index="5">
+									Evaluate the $2$D flux integral as a definite integral in terms of the parameter $t$:
+									<div style="text-align:center"  class="fragment" data-fragment-index="6">
+ 									$\displaystyle \int_C \v \cdot \n ~dS= \int_a^b \left[ \v\left(\r(t)\right)\cdot   \dfrac{\r'(t)}{\norm{\r'(t)}}\right]\norm{\r'(t)}~dt$<br/>
+									<span class="fragment" data-fragment-index="7">
+										$\displaystyle \qquad \;\;\;= \int_a^b \left( \v\left(\r(t)\right)\cdot   \left( \r'(t) \times \k\right) \right) dt$
+									</span>
+									</div>
+								</li>
+							</ol>
+							
+						</div>
+
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section>
+
+				</section>
 			</section>
 
 
