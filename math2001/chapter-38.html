@@ -550,7 +550,7 @@
 								vector $\v(x,y)$ in the $x$-$y$ plane through a curve $C$.
 								<span class="fragment" data-fragment-index="1">
 									We first divide $C$ up into arcs of length $\Delta S$,
-									and approximate $\v$ as constant over each arc.
+									and <em>approximate</em> $\v$ as constant over each arc.
 								</span>
 							</p>
 						</div>
@@ -579,7 +579,7 @@
 
 				<section data-auto-animate>
 					<h4>38.1 Flux in 2D</h4>
-					<div class="size-60">
+					<div class="size-55">
 						<div class="left-txt">
 
 							<p>
@@ -587,19 +587,30 @@
 								a representative point in each arc, say $P^* = (x^*, y^*)$.
 
 
-								<span class="fragment" data-fragment-index="0">
-									We also approximate the arc as a straight line, so that
-									\[
-									\Delta S \approx \sqrt{(\Delta x)^2+ (\Delta y)^2} \approx \norm{\r'(t)}\Delta t
-									\]
-								</span>
+
 							</p>
 						</div>
 
-						<img style="width: 30%; 
+						
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="0" style="width: 45%; 
 									display: block;
 									margin-left: auto;
-									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-flux-const.svg" />
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-005.svg" />
+							
+							<img class="fragment fade-in" data-fragment-index="0" style="width: 45%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-38/chapter-38-1-006.svg" />
+						</div>
+
+
+						<p class="fragment left-txt" data-fragment-index="0">
+							We also approximate the arc as a straight line, so that
+							\[
+							\Delta S \approx \sqrt{(\Delta x)^2+ (\Delta y)^2} \approx \norm{\r'(t)}\Delta t
+							\]
+						</p>
 					</div>
 				</section>
 
@@ -652,7 +663,7 @@
 								where $\n$ is a unit vector normal to $C$.
 							</p>
 
-							<p class="fragment" data-fragment-index="0">
+							<p>
 								We use this expression as a definition of
 								flux of any two dimensional vector field $\v$
 								across a plane curve $C$. Note then that
@@ -675,7 +686,7 @@
 					<h5>
 						38.1.1 Evaluating flux in 2D
 					</h5>
-					<div class="size-60">
+					<div class="size-65">
 
 						<div class="left-txt">
 
@@ -699,18 +710,12 @@
 					<h5>
 						38.1.1 Evaluating flux in 2D
 					</h5>
-					<div class="size-55">
+					<div class="size-60">
 
 						<div class="left-txt">
 
-							<p>
-								Steps to evaluate the $2$D flux integral
-
-								$\int_C \v\cdot \n ~dS$:
-							</p>
-
 							<ol style="line-height: 1.8em;">
-								<li class="fragment" data-fragment-index="0">
+								<li>
 									Parameterise $C$ by finding a $\r(t) = x(t)~\i + y(t)~\j$ with $t \in[a, b]$ that
 									describes $C$.
 								</li>
@@ -795,7 +800,7 @@
 								conditions of Green's theorem!)
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								The net outward flux of $\v = v_1~\i + v_2~\j$ across $C$ is given by
 								\[
 								\text{Net outward flux} = \oint_C \v \cdot ~dS,
