@@ -381,10 +381,10 @@
 							<span>
 								Now imagine placing
 								a
-								$3m$ square fishing net into the river so that it somehow stays 
+								$3m$ square fishing net into the river so that it somehow stays
 								perpendicular
 								to the flow of the
-								river. 
+								river.
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								What is the flux of the water through the net?
@@ -393,8 +393,8 @@
 					</div>
 
 					<div style="text-align:center">
-						<iframe scrolling="no" title="3D Flow" src="sketches/flow3d/example.html"
-							width="100%" height="370px" style="border:0px;" allowfullscreen=""> </iframe>
+						<iframe scrolling="no" title="3D Flow" src="sketches/flow3d/example.html" width="100%"
+							height="370px" style="border:0px;" allowfullscreen=""> </iframe>
 					</div>
 				</section>
 
@@ -473,17 +473,18 @@
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h4>38.1 Flux in 2D</h4>
 					<div class="size-70">
 						<div class="left-txt">
 							<p>Before we look at the flux of a vector field through more general surfaces, let's look at
 								flux in two dimensions, by considering the flow of a two dimensional fluid through a
-								curve in the $x$-$y$ plane. Note that in this context of a fluid in $2$D, flux has dimensions
+								curve in the $x$-$y$ plane. Note that in this context of a fluid in $2$D, flux has
+								dimensions
 								area per unit time.</p>
 							<p class="fragment" data-fragment-index="0">
-								To start, consider the problem of calculating the 
-								flux of a fluid with constant velocity $v = 2~\i$ 
+								To start, consider the problem of calculating the
+								flux of a fluid with constant velocity $\v = 2~\i$
 								through a line segment $C$ perpendicular to the flow, where $C$ is given by
 								\[
 								C = \left\{(x,y)~|~ x = 2, 2\leq y \leq 6\right\}.
@@ -493,6 +494,140 @@
 						</div>
 					</div>
 				</section>
+
+				<section data-auto-animate>
+					<h4>38.1 Flux in 2D</h4>
+					<div class="size-60">
+						<div class="left-txt">
+
+							<p>
+								Constant velocity $\v = 2~\i$
+								through a line segment $C$ perpendicular to the flow, where $C$ is given by
+
+								$C = \left\{(x,y)~|~ x = 2, 2\leq y \leq 6\right\}.$
+
+
+							</p>
+						</div>
+
+						<img style="width: 40%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-flux-const.svg" />
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>38.1 Flux in 2D</h4>
+					<div class="size-60">
+						<div class="left-txt">
+
+							<p>
+								Now consider calculating the flux of the velocity
+								vector $\v(x,y)$ in the $x$-$y$ plane through a curve $C$.
+								<span class="fragment" data-fragment-index="0">
+									We first divide $C$ up into arcs of length $\Delta S$,
+									and approximate $\v$ as constant over each arc.
+								</span>
+							</p>
+						</div>
+
+						<img style="width: 30%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-flux-const.svg" />
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>38.1 Flux in 2D</h4>
+					<div class="size-60">
+						<div class="left-txt">
+
+							<p>
+								This constant vector over each arc shall be evaluated at
+								a representative point in each arc, say $P^* = (x^*, y^*)$.
+
+
+								<span class="fragment" data-fragment-index="0">
+									We also approximate the arc as a straight line, so that
+									\[
+									\Delta S \approx \sqrt{(\Delta x)^2+ (\Delta y)^2} \approx \norm{\r'(t)}\Delta t
+									\]
+								</span>
+							</p>
+						</div>
+
+						<img style="width: 30%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-flux-const.svg" />
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>38.1 Flux in 2D</h4>
+					<div class="size-60">
+						<div class="left-txt">
+
+							<p>
+								The component of $\v$ which is perpendicular to $C$ (over
+								$\Delta S$) is $\approx \v(P^*)\cdot \n (P^*)$.
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="0">
+							flux through one arc $\approx \v(P^*)\cdot \n (P^*)\Delta S$.
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							$\Rightarrow $ total flux through $C$ $\approx \displaystyle \sum_{i}\v(P_i^*)\cdot \n
+							(P_i^*)\Delta S_i$.
+						</p>
+
+						<div class="left-txt">
+
+							<p class="fragment" data-fragment-index="2">
+								If we take the limit as $\Delta S$, we obtain an exact expression for the flux over the
+								entire curve C as a line integral:
+								\[
+								\text{Flux}= \int_C \v\cdot \n ~dS
+								\]
+								where $\n$ is a unit vector normal to $C$.
+							</p>
+						</div>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>38.1 Flux in 2D</h4>
+					<div class="size-60">
+
+						<div class="left-txt">
+
+							<p>
+								If we take the limit as $\Delta S$, we obtain an exact expression for the flux over the
+								entire curve C as a line integral:
+								\[
+								\text{Flux}= \int_C \v\cdot \n ~dS
+								\]
+								where $\n$ is a unit vector normal to $C$.
+							</p>
+
+							<p>
+								We use this expression as a definition of
+								flux of any two dimensional vector field $\v$
+								across a plane curve $C$. Note then that
+								\[
+								\text{dimensions of flux (in 2D)} = (\text{dimensions of }\v) \times (\text{distance}).
+								\]
+							</p>
+						</div>
+
+					</div>
+				</section>
+
 			</section>
 
 

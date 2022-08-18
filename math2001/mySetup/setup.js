@@ -34,6 +34,7 @@
 						k: "{\\mathbf{k}}",
 						u: "{\\mathbf{u}}",
 						v: "{\\mathbf{v}}",
+						n: "{\\mathbf{n}}",
 						F: "{\\mathbf{F}}",
 						T: "{\\mathbf{T}}",
 						Re: "{\\mbox{Re}}\\,",
