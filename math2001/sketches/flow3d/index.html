@@ -265,24 +265,20 @@
       return y;
     };
     var Fz = (x, y, t) => {
-      return 0;
+      return 1.5;
     };
 
     // Data for plotting
-    var resolution = 600;
+    var resolution = 100;
     var graphData = domain.area({
       axes: [1, 2], // u, v
       width: resolution,
       height: resolution,
       channels: 3,
       expr: function (emit, u, v, i, j, t) {
-
-        var autoTorsion = 7 * Math.cos(0.35 * t)
-
-        
           emit(
-            Fx(u, v, autoTorsion),
-            Fy(u, v, autoTorsion),
+            Fx(u, v, 0),
+            Fy(u, v, 0),
             Fz(u, v, 0)
           )
         
@@ -294,11 +290,11 @@
       lineX: false,
       lineY: false,
       width: 1,
-      color: '#3090FF',
+      color: '#D9EAD3',
       zBias: 1,
       shaded: false,
       opacity: 0.5,
-      //blending: THREE.AdditiveBlending,
+      blending: THREE.AdditiveBlending,
     });
 
 
@@ -312,17 +308,14 @@
           end: true,
           zWrite: false,
           blending: THREE.AdditiveBlending,
-        }, //{
-        // visible: function () {
-        // return props.field1;
-        //}
-        //}
+        },
       );
 
     view.axis({
       detail: 30,
     });
 
+    
     view.axis({
       axis: 2,
     });
@@ -334,15 +327,16 @@
       classes: ["foo", "bar"],
       width: 2,
     });
-
+  /*
     view.grid({
       divideX: 30,
       width: 1,
-      opacity: 0.5,
-      color: 0x00000,
+      opacity: 0.25,
+      color: 0xffffff,
       zBias: -5,
-      blending: THREE.AdditiveBlending,
+      //blending: THREE.AdditiveBlending,
     });
+    */
   </script>
 </body>
 
