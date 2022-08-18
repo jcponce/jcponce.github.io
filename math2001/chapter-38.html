@@ -343,8 +343,9 @@
 						</p>
 
 						<div style="text-align:center">
-							
-							<iframe width="850" height="400" frameborder="0" src="https://apps.amandaghassaei.com/VortexShedding/" allowfullscreen></iframe>
+
+							<iframe width="850" height="400" frameborder="0"
+								src="https://apps.amandaghassaei.com/VortexShedding/" allowfullscreen></iframe>
 						</div>
 
 
@@ -372,7 +373,7 @@
 					</div>
 				</section>
 
-				
+
 
 				<section data-auto-animate>
 					<h3>38 Flux of a vector field</h3>
@@ -547,17 +548,31 @@
 							<p>
 								Now consider calculating the flux of the velocity
 								vector $\v(x,y)$ in the $x$-$y$ plane through a curve $C$.
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="1">
 									We first divide $C$ up into arcs of length $\Delta S$,
 									and approximate $\v$ as constant over each arc.
 								</span>
 							</p>
 						</div>
 
-						<img style="width: 30%; 
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="1" style="width: 40%; 
 									display: block;
 									margin-left: auto;
-									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-flux-const.svg" />
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-001.svg" />
+							<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 40%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-002.svg" />
+							<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 50%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-38/chapter-38-1-003.svg" />
+							<img class="fragment fade-in" data-fragment-index="3" style="width: 50%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-38/chapter-38-1-004.svg" />
+						</div>
 					</div>
 				</section>
 
@@ -650,7 +665,7 @@
 					</div>
 				</section>
 
-				
+
 
 			</section>
 
@@ -665,7 +680,7 @@
 						<div class="left-txt">
 
 							<p>
-								To evaluate the $2$D flux integral 
+								To evaluate the $2$D flux integral
 								\[
 								\int_C \v\cdot \n ~dS,
 								\]
@@ -674,7 +689,7 @@
 								work done).
 							</p>
 
-							
+
 						</div>
 
 					</div>
@@ -689,40 +704,46 @@
 						<div class="left-txt">
 
 							<p>
-								Steps to evaluate the $2$D flux integral 
-								
+								Steps to evaluate the $2$D flux integral
+
 								$\int_C \v\cdot \n ~dS$:
 							</p>
 
 							<ol style="line-height: 1.8em;">
 								<li class="fragment" data-fragment-index="0">
-									Parameterise $C$ by finding a $\r(t) = x(t)~\i + y(t)~\j$ with $t \in[a, b]$ that describes $C$.
+									Parameterise $C$ by finding a $\r(t) = x(t)~\i + y(t)~\j$ with $t \in[a, b]$ that
+									describes $C$.
 								</li>
 								<li class="fragment" data-fragment-index="1">
 									Write $\v(x,y)$ restricted to $C$ as $\v(\r(t))= \v(x(t),y(t))$.
 								</li>
 								<li class="fragment" data-fragment-index="2">
-									Compute a unit tangent vector to $C$ by using $\T(x,y) = \dfrac{\r'(t)}{\norm{\r'(t)}}$, where 
+									Compute a unit tangent vector to $C$ by using $\T(x,y) =
+									\dfrac{\r'(t)}{\norm{\r'(t)}}$, where
 									$\r'(t) = x'(t)~\i + y'(t)~\j$ is a tangent vector to $C$.
 								</li>
 								<li class="fragment" data-fragment-index="3">
-									Be careful of the direction of $\n$. By the definition of vector cross product, 
-									and since $\k$ is a unit vector normal to the $x$-$y$ plane, we can take $\n = \T \times \k$.
+									Be careful of the direction of $\n$. By the definition of vector cross product,
+									and since $\k$ is a unit vector normal to the $x$-$y$ plane, we can take $\n = \T
+									\times \k$.
 								</li>
 								<li class="fragment" data-fragment-index="4">
 									Write $dS = \norm{\r'(t)}dt$.
 								</li>
 								<li class="fragment" data-fragment-index="5">
-									Evaluate the $2$D flux integral as a definite integral in terms of the parameter $t$:
-									<div style="text-align:center"  class="fragment" data-fragment-index="6">
- 									$\displaystyle \int_C \v \cdot \n ~dS= \int_a^b \left[ \v\left(\r(t)\right)\cdot   \dfrac{\r'(t)}{\norm{\r'(t)}}\right]\norm{\r'(t)}~dt$<br/>
-									<span class="fragment" data-fragment-index="7">
-										$\displaystyle \qquad \;\;\;= \int_a^b \left( \v\left(\r(t)\right)\cdot   \left( \r'(t) \times \k\right) \right) dt$.
-									</span>
+									Evaluate the $2$D flux integral as a definite integral in terms of the parameter
+									$t$:
+									<div style="text-align:center" class="fragment" data-fragment-index="6">
+										$\displaystyle \int_C \v \cdot \n ~dS= \int_a^b \left[ \v\left(\r(t)\right)\cdot
+										\dfrac{\r'(t)}{\norm{\r'(t)}}\right]\norm{\r'(t)}~dt$<br />
+										<span class="fragment" data-fragment-index="7">
+											$\displaystyle \qquad \;\;\;= \int_a^b \left( \v\left(\r(t)\right)\cdot
+											\left( \r'(t) \times \k\right) \right) dt$.
+										</span>
 									</div>
 								</li>
 							</ol>
-							
+
 						</div>
 
 					</div>
@@ -734,22 +755,22 @@
 
 				<section data-auto-animate>
 					<h5>
-						38.1.2 Calculate the flux of $\v = -y~\i+x~\j$ 
-						(in the positive x direction) across the 
-						line $x = 2$  (for$ 2 \leq y \leq 6$).
+						38.1.2 Calculate the flux of $\v = -y~\i+x~\j$
+						(in the positive x direction) across the
+						line $x = 2$ (for$ 2 \leq y \leq 6$).
 					</h5>
 					<div class="size-55">
 
 						<div class="left-txt">
 
 							<p>
-								Steps to evaluate the $2$D flux integral 
-								
+								Steps to evaluate the $2$D flux integral
+
 								$\int_C \v\cdot \n ~dS$:
 							</p>
 
-							
-							
+
+
 						</div>
 
 					</div>
@@ -761,7 +782,7 @@
 
 				<section data-auto-animate>
 					<h4>
-						38.2 Outward flux across a closed curve <br/>in the plane
+						38.2 Outward flux across a closed curve <br />in the plane
 					</h4>
 					<div class="size-65">
 
@@ -769,9 +790,9 @@
 
 							<p>
 								Let C be a piecewise-smooth, simple closed curve.
-								 Let $v_1(x, y)$, $v_2(x, y)$ be continuous in the region
-								  bounded by $C$. (Note that these are some of the 
-								  conditions of Green's theorem!)
+								Let $v_1(x, y)$, $v_2(x, y)$ be continuous in the region
+								bounded by $C$. (Note that these are some of the
+								conditions of Green's theorem!)
 							</p>
 
 							<p>
@@ -783,8 +804,8 @@
 								directed outward from the region bounded by $C$.
 							</p>
 
-							
-							
+
+
 						</div>
 
 					</div>
@@ -792,11 +813,11 @@
 
 				<section data-auto-animate>
 					<h5>
-						38.1.2 Calculate the flux of $\v = xy~\i+xy~\j$ across the 
+						38.1.2 Calculate the flux of $\v = xy~\i+xy~\j$ across the
 					</h5>
-					<p class="sbt">curve from $(2,0)$ to $(-2,0)$ via the semicircle of radius 
-						$2$ centred at the origin <br/>
-						(for $y \geq 0$) followed by 
+					<p class="sbt">curve from $(2,0)$ to $(-2,0)$ via the semicircle of radius
+						$2$ centred at the origin <br />
+						(for $y \geq 0$) followed by
 						the straight line from $(-2,0)$ to $(2,0)$.</p>
 
 					<div class="size-55">
@@ -804,13 +825,13 @@
 						<div class="left-txt">
 
 							<p>
-								Steps to evaluate the $2$D flux integral 
-								
+								Steps to evaluate the $2$D flux integral
+
 								$\int_C \v\cdot \n ~dS$:
 							</p>
 
-							
-							
+
+
 						</div>
 
 					</div>
