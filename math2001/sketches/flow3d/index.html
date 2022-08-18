@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Velocity field - Near a wall</title>
+  <title>Velocity field - Flow 3D</title>
   <script src="../mathbox/mathbox-bundle.min.js"></script>
   <script src="../mathbox/dat.gui.min.js"></script>
   <link rel="stylesheet" href="../mathbox/mathbox.css">
@@ -12,7 +12,6 @@
 
 <body>
   <script>
-
     /*
       Adapted from Steven Wittens' MathBox examples:
 
@@ -76,6 +75,17 @@
     gui.close();
 
 
+    var uMin = -3,
+			uMax = 3,
+			vMin = -3,
+			vMax = 3;
+    // Create u,v domain
+		var domain = mathbox.cartesian({
+			range: [
+				[uMin, uMax],
+				[vMin, vMax]
+			]
+		});
 
     // DOM
     mathbox.set('focus', 3);
@@ -121,7 +131,7 @@
 
       let cx = props.k * (0);
       let cy = props.k * (0);
-      let cz = props.k * (2) ;
+      let cz = props.k * (2);
 
       v.set(cx, cy, cz);
       return v;
@@ -246,6 +256,52 @@
         channels: 3,
       });
 
+
+
+    var Fx = (x, y, t) => {
+      return x;
+    };
+    var Fy = (x, y, t) => {
+      return y;
+    };
+    var Fz = (x, y, t) => {
+      return 0;
+    };
+
+    // Data for plotting
+    var resolution = 600;
+    var graphData = domain.area({
+      axes: [1, 2], // u, v
+      width: resolution,
+      height: resolution,
+      channels: 3,
+      expr: function (emit, u, v, i, j, t) {
+
+        var autoTorsion = 7 * Math.cos(0.35 * t)
+
+        
+          emit(
+            Fx(u, v, autoTorsion),
+            Fy(u, v, autoTorsion),
+            Fz(u, v, 0)
+          )
+        
+      },
+    });
+    view.surface({
+      points: graphData,
+      fill: true,
+      lineX: false,
+      lineY: false,
+      width: 1,
+      color: '#3090FF',
+      zBias: 1,
+      shaded: false,
+      opacity: 0.5,
+      //blending: THREE.AdditiveBlending,
+    });
+
+
     // Draw polyarrows
     let vectors =
       view
@@ -283,7 +339,9 @@
       divideX: 30,
       width: 1,
       opacity: 0.5,
+      color: 0x00000,
       zBias: -5,
+      blending: THREE.AdditiveBlending,
     });
   </script>
 </body>
