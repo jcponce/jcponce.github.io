@@ -108,10 +108,10 @@ Flow around a circle simulation designed with p5.js (https://p5js.org/)
    for (let j = 0; j < 1; j++) {
      if (bover && whichImage == j) {
        noStroke();
-       fill(0); // white
+       fill(190); // white
      } else {
        noStroke();
-       fill(90);
+       fill(80);
      }
      ellipse(positions[j * 2], positions[j * 2 + 1], (sliderRadius.value()) * 2, (sliderRadius.value()) * 2);
    }
