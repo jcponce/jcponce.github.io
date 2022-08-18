@@ -71,21 +71,28 @@
     gui.add(props, 'rotate').name("Rotate");
     //gui.add(props, 'respawn').min(0).max(.01).step(.0005)
     //gui.add(props, 'jitter').min(0).max(4).step(.05)
+    gui.add(this, 'full').name("Full Screen");
 
     gui.close();
 
+    function full() {
+      window.open(
+        './',
+        '_blank' // <- This is what makes it open in a new window.
+      );
+    }
 
     var uMin = -3,
-			uMax = 3,
-			vMin = -3,
-			vMax = 3;
+      uMax = 3,
+      vMin = -3,
+      vMax = 3;
     // Create u,v domain
-		var domain = mathbox.cartesian({
-			range: [
-				[uMin, uMax],
-				[vMin, vMax]
-			]
-		});
+    var domain = mathbox.cartesian({
+      range: [
+        [uMin, uMax],
+        [vMin, vMax]
+      ]
+    });
 
     // DOM
     mathbox.set('focus', 3);
@@ -265,7 +272,7 @@
       return y;
     };
     var Fz = (x, y, t) => {
-      return 1.5;
+      return 1.8;
     };
 
     // Data for plotting
@@ -276,12 +283,12 @@
       height: resolution,
       channels: 3,
       expr: function (emit, u, v, i, j, t) {
-          emit(
-            Fx(u, v, 0),
-            Fy(u, v, 0),
-            Fz(u, v, 0)
-          )
-        
+        emit(
+          Fx(u, v, 0),
+          Fy(u, v, 0),
+          Fz(u, v, 0)
+        )
+
       },
     });
     view.surface({
@@ -289,11 +296,11 @@
       fill: true,
       lineX: false,
       lineY: false,
-      width: 1,
-      color: '#D9EAD3',
+      width: 0.5,
+      color: '#e6005c',
       zBias: 1,
       shaded: false,
-      opacity: 0.5,
+      opacity: 0.7,
       blending: THREE.AdditiveBlending,
     });
 
@@ -302,20 +309,19 @@
     let vectors =
       view
       .vector({
-          color: 0x4098FF,
-          width: 1.2,
-          zBias: 3,
-          end: true,
-          zWrite: false,
-          blending: THREE.AdditiveBlending,
-        },
-      );
+        color: 0x4098FF,
+        width: 1.2,
+        zBias: 3,
+        end: true,
+        zWrite: false,
+        blending: THREE.AdditiveBlending,
+      }, );
 
     view.axis({
       detail: 30,
     });
 
-    
+
     view.axis({
       axis: 2,
     });
@@ -327,16 +333,16 @@
       classes: ["foo", "bar"],
       width: 2,
     });
-  /*
-    view.grid({
-      divideX: 30,
-      width: 1,
-      opacity: 0.25,
-      color: 0xffffff,
-      zBias: -5,
-      //blending: THREE.AdditiveBlending,
-    });
-    */
+    /*
+      view.grid({
+        divideX: 30,
+        width: 1,
+        opacity: 0.25,
+        color: 0xffffff,
+        zBias: -5,
+        //blending: THREE.AdditiveBlending,
+      });
+      */
   </script>
 </body>
 
