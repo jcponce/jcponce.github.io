@@ -459,7 +459,7 @@
 									margin-right: auto;" data-src="images/chapter-38/net.png" />
 
 
-							<table>
+							<table id="eqarray">
 								<tr>
 									<td class="fragment" data-fragment-index="0">
 										$\text{Vol. through net surface after 1 second}$
@@ -972,25 +972,115 @@
 				<section data-auto-animate>
 					<h5>
 						38.1.2 Calculate the flux of $\v = -y~\i+x~\j$
-						(in the positive x direction) across the
-						line $x = 2$ (for$ 2 \leq y \leq 6$).
+						(in the positive $x$ direction) across the
+						line $x = 2$ (for $ 2 \leq y \leq 6$).
 					</h5>
-					<div class="size-55">
+					
 
-						<div class="left-txt">
+					<div class="fragment" data-fragment-index="0">
 
-							<p>
-								Steps to evaluate the $2$D flux integral
-
-								$\int_C \v\cdot \n ~dS$:
-							</p>
-
+							<img style="width: 40%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-2-example.svg" />
 
 
-						</div>
 
 					</div>
+
+					
 				</section>
+
+
+				<section data-auto-animate>
+					<h5>
+						38.1.2 Calculate the flux of $\v = -y~\i+x~\j$
+						(in the positive $x$ direction) across the
+						line $x = 2$ (for $ 2 \leq y \leq 6$).
+					</h5>
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:35%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-2-example.svg" />
+
+
+								</td>
+
+								<td style="width:75%">
+
+									<p>
+										Flux $\displaystyle =\int_C\v \cdot  \n ~dS=\;?\;\;$ 
+										<span class="fragment" data-fragment-index="0">
+											Parametrise the curve $C$:
+											\[
+											\r(t) = 2~\i + t~\j,\;\;2\leq t\leq 6.
+											\]
+										</span>
+										
+									</p>
+
+									
+									<p class="fragment" data-fragment-index="1">
+										So $\r'(t) =  \j$, $dS = \norm{\r'(t)}~dt=dt$ 
+										and 
+									</p>
+									<table id="eqarray">
+										<tr class="fragment" data-fragment-index="2">
+											<td>
+												$\v\cdot \n $
+											</td>
+											<td>
+												$=\left(-y~\i + x~\j\right)\cdot \i$
+												<span class="fragment" data-fragment-index="3">
+													$=\left(-t~\i+2~\j\right)\cdot \i$ 
+												</span>
+												<span class="fragment" data-fragment-index="4">$= -t$.</span>
+											</td>
+										</tr>
+										
+										
+									</table>
+
+
+									<table id="eqarray">
+										<tr class="fragment" data-fragment-index="5">
+											<td>
+												$\Rightarrow \text{Flux} $
+											</td>
+											<td>
+												$=\displaystyle \int_C \v\cdot \n~dS$
+												<span class="fragment" data-fragment-index="6">
+													$=\displaystyle \int_2^6 \v\cdot \n  ~\norm{\r'(t)}~dt$
+												   </span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="7">
+												$=\displaystyle \int_2^6 (-t)~dt$
+												<span class="fragment" data-fragment-index="8">
+													$=-16$.
+												   </span>
+												
+											</td>
+										</tr>
+										
+									</table>
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+				</section>
+
 			</section>
 
 
