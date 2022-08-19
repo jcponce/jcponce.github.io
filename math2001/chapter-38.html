@@ -24,13 +24,13 @@
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
 
-	
+
 	<!--
 	<script type="text/javascript" src="sketches/cindyjs/v0.7.11/Cindy.js"></script>
 	<script type="text/javascript" src="sketches/cindyjs/v0.7.11/CindyGL.js"></script>
 	<script type="text/javascript" src="sketches/cindyjs/symbolic.js"></script>
 	-->
-	
+
 
 	<!-- Printing and PDF exports -->
 	<script>
@@ -348,14 +348,16 @@
 
 							<iframe width="850" height="400" frameborder="0" name="simulation"
 								src="https://apps.amandaghassaei.com/VortexShedding/" allowfullscreen></iframe>
-								
+
 						</div>
 
-						<p style="font-size:14px;text-align:center">Fluid simulation by <a href="https://apps.amandaghassaei.com/" target="_blank">Amanda Ghassaei</a>
-						&nbsp;&nbsp;&nbsp;
+						<p style="font-size:14px;text-align:center">Fluid simulation by <a
+								href="https://apps.amandaghassaei.com/" target="_blank">Amanda Ghassaei</a>
+							&nbsp;&nbsp;&nbsp;
 							<span>
-								<a style="font-size:20px;"onclick="var ifr=document.getElementsByName(&apos;simulation&apos;)[0]; ifr.src=ifr.src;" >🔄</a>
-							</span>	
+								<a style="font-size:20px;"
+									onclick="var ifr=document.getElementsByName(&apos;simulation&apos;)[0]; ifr.src=ifr.src;">🔄</a>
+							</span>
 						</p>
 
 
@@ -375,13 +377,16 @@
 						</p>
 
 						<div style="text-align:center">
-							<iframe scrolling="no" name="Flow" src="sketches/flow2d/" width="850px"
-								height="400px" style="border:0px;"> </iframe>
-								<p style="font-size:14px;text-align:center">More here <a href="https://www.dynamicmath.xyz/velocity-fields/" target="_blank">dynamicmath.xyz</a> &nbsp;&nbsp;&nbsp;  
+							<iframe scrolling="no" name="Flow" src="sketches/flow2d/" width="850px" height="400px"
+								style="border:0px;"> </iframe>
+							<p style="font-size:14px;text-align:center">More here <a
+									href="https://www.dynamicmath.xyz/velocity-fields/"
+									target="_blank">dynamicmath.xyz</a> &nbsp;&nbsp;&nbsp;
 								<span>
-									<a style="font-size:20px;"onclick="var ifr=document.getElementsByName(&apos;Flow&apos;)[0]; ifr.src=ifr.src;" >🔄</a>
-								</span>	
-								</p>
+									<a style="font-size:20px;"
+										onclick="var ifr=document.getElementsByName(&apos;Flow&apos;)[0]; ifr.src=ifr.src;">🔄</a>
+								</span>
+							</p>
 						</div>
 
 
@@ -453,7 +458,7 @@
 									margin-left: auto;
 									margin-right: auto;" data-src="images/chapter-38/net.png" />
 
-							
+
 							<table>
 								<tr>
 									<td class="fragment" data-fragment-index="0">
@@ -468,7 +473,7 @@
 								</tr>
 							</table>
 
-						
+
 
 						</div>
 						<p class="fragment" data-fragment-index="3">
@@ -502,11 +507,122 @@
 
 						<div>
 							<iframe scrolling="no" title="Chapter-38: The net with angle"
-							src="https://www.geogebra.org/material/iframe/id/e6ukbarf/width/666/height/430/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="666px" height="430px" style="border:0px;" allowfullscreen=""> </iframe>
+								src="https://www.geogebra.org/material/iframe/id/e6ukbarf/width/666/height/430/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+								width="666px" height="430px" style="border:0px;" allowfullscreen=""> </iframe>
 						</div>
 
 
 					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>38 Flux of a vector field</h3>
+					<div class="size-60">
+
+						<div class="left-txt">
+							<p>
+
+								Now if we rotate the net through an angle $\theta$, what is the flux through the net?
+
+							</p>
+
+							<img style="width: 40%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-38/net-diagram.png" />
+
+
+						</div>
+
+
+					</div>
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>38 Flux of a vector field</h3>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:35%">
+									<img style="width: 100%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-38/net-diagram.png" />
+
+
+								</td>
+
+								<td style="width:75%">
+
+									<p>
+										Consider component of the flow
+										perpendicular to the net $\v\cdot \n = \norm{\v}\norm{\n}\cos\theta$, where $\n$ us the unit vector
+										perpendicular to the surface. 
+										
+									</p>
+									<table id="eqarray">
+										<tr class="fragment" data-fragment-index="1">
+											<td>
+												$\Rightarrow \text{Flux}$
+											</td>
+											<td>
+												$=(\v \cdot \n) \times (\text{area of net})$
+											</td>
+										</tr>
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="2">
+												$=\norm{\v}\norm{\n}\cos\theta \times (3\times 3)$
+												
+											</td>
+										</tr>
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="3">
+												$=2\cos\theta  \times (3\times 3) $
+												<span class="fragment" data-fragment-index="4">
+ 												$= 18 \cos\theta ~m^3/s$.
+												</span>
+											</td>
+										</tr>
+									</table>
+
+									<p class="fragment" data-fragment-index="5">
+										<strong>Another method:</strong> In 1 second, the same volume
+										passes through this net as a net
+										perpendicular to the motion with dimensions
+										$3\times 3\cos \theta $. 
+										
+									</p>
+									<p class="fragment" data-fragment-index="6">
+										\[
+										\Rightarrow \text{Flux} = 
+										\underbrace{ 3\times 3 \cos \theta}_{\text{Perpendicular net}} 
+										\times \underbrace{2}_{\text{velocity}} = 18 \cos\theta ~m^3/s.
+										\]
+									</p>
+									
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+					
+
+							
+						
+
+
+				
 
 				</section>
 
@@ -611,13 +727,13 @@
 							</p>
 						</div>
 
-						
+
 						<div class="r-stack">
 							<img class="fragment fade-out" data-fragment-index="0" style="width: 45%; 
 									display: block;
 									margin-left: auto;
 									margin-right: auto;" data-src="images/chapter-38/chapter-38-1-005.svg" />
-							
+
 							<img class="fragment fade-in" data-fragment-index="0" style="width: 45%; 
 							display: block;
 							margin-left: auto;
