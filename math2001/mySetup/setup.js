@@ -8,7 +8,7 @@
 			center: true,
 
 			// Global override for preloading lazy-loaded iframes
-			preloadIframes: true,
+			//preloadIframes: true,
 
 			// Transition style
 			transition: 'fade',
