@@ -10,6 +10,9 @@
 			// Global override for preloading lazy-loaded iframes
 			//preloadIframes: true,
 
+			// Enables touch navigation on devices with touch input
+  			touch: true,
+
 			// Transition style
 			transition: 'fade',
 
