@@ -1200,7 +1200,7 @@
 									<p>
 										Net Outward Flux $\displaystyle =\oint_C\v \cdot \n ~dS=\;?\;\;$
 										<span class="fragment" data-fragment-index="0">
-											Where 
+											Where
 											$
 											C = C_1 + C_2.
 											$
@@ -1216,8 +1216,9 @@
 												$\displaystyle \oint_C\v \cdot \n ~dS$
 											</td>
 											<td>
-												$\displaystyle =\int_{C_1}\v \cdot \n_1 ~dS+\int_{C_2}\v \cdot \n_2 ~dS$.
-												
+												$\displaystyle =\int_{C_1}\v \cdot \n_1 ~dS+\int_{C_2}\v \cdot \n_2
+												~dS$.
+
 											</td>
 										</tr>
 
@@ -1225,7 +1226,7 @@
 									</table>
 
 
-									
+
 
 								</td>
 							</tr>
@@ -1267,7 +1268,7 @@
 										\r (t) = 2 \cos t~\i+ 2 \sin t~\j, \;\; 0\leq t \leq \pi.
 										\]
 									</p>
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										So $\r'(t) = -2 \sin t~\i+ 2 \cos t~\j$, $\norm{\r'(t)} = 2$ and
 										$dS = \norm{\r'(t)} ~dt = 2~dt$.
 									</p>
@@ -1278,21 +1279,21 @@
 											</td>
 											<td>
 												$\displaystyle = \T \times \k$
-												<span>
+												<span class="fragment" data-fragment-index="2">
 													$\displaystyle = \frac{\r'(t)}{\norm{\r'(t)}} \times \k$
 												</span>
-												<span>
+												<span class="fragment" data-fragment-index="3">
 													$\displaystyle = \cos t ~\i + \sin t~\j$
 												</span>
-												
+
 											</td>
 										</tr>
 
 
 									</table>
 
-									<p>
-										$$\Rightarrow \v \cdot \n_1 = 4 c\cos^2 t \sin t + 4 \cos t \sin^2 t$$
+									<p class="fragment" data-fragment-index="4">
+										$$\Rightarrow \v(\r(t)) = 4 \cos t \sin t~\i + 4 \cos t \sin t~\j.$$
 									</p>
 
 								</td>
@@ -1330,44 +1331,175 @@
 								<td style="width:70%">
 
 									<p>
-										$$\v \cdot \n_1 = 4 \cos^2 t \sin t + 4 \cos t \sin^2 t, \quad dS = 2 ~dt$$
+										$$\Rightarrow \v \cdot \n_1 = 4 \cos^2 t \sin t + 4 \cos t \sin^2 t, \quad dS =
+										2 ~dt$$
 									</p>
-									
+
 									<table id="eqarray">
-										<tr class="fragment" data-fragment-index="1">
+										<tr class="fragment" data-fragment-index="0">
 											<td>
-												$\Rightarrow \displaystyle \int_{C_1} \v\cdot \n_1~dS $
+												$ \displaystyle \int_{C_1} \v\cdot \n_1~dS $
 											</td>
 											<td>
-												$\displaystyle = \int_0^{\pi} \big( 4 \cos^2 t \sin t + 4 \cos t \sin^2 t \big)2~dt$
-												
+												$\displaystyle = \int_0^{\pi} \big( 4 \cos^2 t \sin t + 4 \cos t \sin^2
+												t \big)2~dt$
+
 											</td>
 										</tr>
 										<tr class="fragment" data-fragment-index="1">
 											<td>
-												
+
 											</td>
 											<td>
-												$\displaystyle = \bigg. \left(2 \sin(t) - \frac{2}{3} \sin(3 t)\right.\bigg.$<br/>
-												$ \displaystyle \qquad \bigg. \left. - 2 \cos(t) - \frac{2}{3} \cos(3 t)\right)\bigg|_0^{\pi}$
-												
+												$\displaystyle = \bigg. \left(2 \sin(t) - \frac{2}{3} \sin(3
+												t)\right.\bigg.$<br />
+												$ \displaystyle \qquad \bigg. \left. - 2 \cos(t) - \frac{2}{3} \cos(3
+												t)\right)\bigg|_0^{\pi}$
+
 											</td>
 										</tr>
 
-										<tr class="fragment" data-fragment-index="1">
+										<tr class="fragment" data-fragment-index="2">
 											<td>
-												
+
 											</td>
 											<td>
 												$\displaystyle =\frac{16}{3}$.
-												
-												
+
+
 											</td>
 										</tr>
 
 									</table>
 
-									
+
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						38.2.1 Calculate the flux of $\v = xy~\i+xy~\j$
+						across the curve
+					</h5>
+					<p class="sbt">from $(2,0)$ to $(-2,0)$ via the semicircle of radius
+						$2$ centred at the origin
+						(for $y \geq 0$)
+						followed by
+						the straight line from $(-2,0)$ to $(2,0)$.
+					</p>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:30%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-2-1-example-d.svg" />
+
+
+								</td>
+
+								<td style="width:70%">
+
+									<p>
+										Parametrisation of $C_2$:
+										\[
+										\r (t) = t~\i+ 0~\j, \;\; -2\leq t \leq 2.
+										\]
+									</p>
+									<p class="fragment" data-fragment-index="0">
+										So $\r'(t) = \i$, $\norm{\r'(t)} = 1$ and
+										$dS = \norm{\r'(t)} ~dt = dt$.
+									</p>
+									<table id="eqarray">
+										<tr class="fragment" data-fragment-index="1">
+											<td>
+												$\Rightarrow \displaystyle \n_2 $
+											</td>
+											<td>
+												$\displaystyle = \T \times \k$
+												<span class="fragment" data-fragment-index="2">
+													$\displaystyle = \frac{\r'(t)}{\norm{\r'(t)}} \times \k$
+												</span>
+												<span class="fragment" data-fragment-index="3">
+													$\displaystyle = - \j$
+												</span>
+
+											</td>
+										</tr>
+
+
+									</table>
+
+									<p class="fragment" data-fragment-index="4">
+										$$\Rightarrow \v(\r(t)) = 0~\i + 0~\j.$$
+									</p>
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						38.2.1 Calculate the flux of $\v = xy~\i+xy~\j$
+						across the curve
+					</h5>
+					<p class="sbt">from $(2,0)$ to $(-2,0)$ via the semicircle of radius
+						$2$ centred at the origin
+						(for $y \geq 0$)
+						followed by
+						the straight line from $(-2,0)$ to $(2,0)$.
+					</p>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:30%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-2-1-example-d.svg" />
+
+
+								</td>
+
+								<td style="width:70%">
+
+									<p>
+										$$\Rightarrow \v \cdot \n_2 = \left( 0~\i + 0~\j\right)(-\j)=0, \quad dS =
+										dt$$
+									</p>
+
+									<table id="eqarray">
+										<tr class="fragment" data-fragment-index="0">
+											<td>
+												$ \displaystyle \int_{C_2} \v\cdot \n_2~dS $
+											</td>
+											<td>
+												$\displaystyle = 0$
+
+											</td>
+										</tr>
+										
+
+									</table>
+
+									<p class="fragment" data-fragment-index="1">
+										$$\Rightarrow \text{Net Outward Flux} = \int_{C_1} \v\cdot \n_2+ \int_{C_2} \v\cdot \n_2 = \frac{16}{3}.$$
+									</p>
+
+
 
 								</td>
 							</tr>
