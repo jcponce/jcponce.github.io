@@ -40,6 +40,7 @@
 						n: "{\\mathbf{n}}",
 						F: "{\\mathbf{F}}",
 						T: "{\\mathbf{T}}",
+						div: "{\\mbox{div}}\\,",
 						Re: "{\\mbox{Re}}\\,",
 						Im: "{\\mbox{Im}}\\,",
 						arg: "{\\mbox{arg}}\\,",
