@@ -132,18 +132,18 @@
 			<section>
 				<section data-auto-animate>
 
-					<h4>39.2 Understanding div in two dimensions.</h4>
+					<h4>39.2 Understanding div in two dimensions</h4>
 					<div class="size-60">
 						<div class="left-txt">
 							<p>
 								Consider the flow of a two dimensional
 								fluid with continuous velocity field
-								$\v(x,y) = v_1(x, y)~\i + v_2(x, y)~\j$. 
+								$\v(x,y) = v_1(x, y)~\i + v_2(x, y)~\j$.
 								<span class="fragment" data-fragment-index="0">
 									Our aim is
-								to calculate the outward flux from a small
-								rectangle in the plane of area $\Delta x\Delta y$ as in
-								the diagram below.
+									to calculate the outward flux from a small
+									rectangle in the plane of area $\Delta x\Delta y$ as in
+									the diagram below.
 								</span>
 							</p>
 						</div>
@@ -151,7 +151,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>39.2 Understanding div in two dimensions.</h4>
+					<h4>39.2 Understanding div in two dimensions</h4>
 					<div class="size-60">
 						<table style="width:100%;">
 							<tr>
@@ -193,11 +193,11 @@
 
 
 				<section data-auto-animate>
-					<h4>39.2 Understanding div in two dimensions.</h4>
+					<h4>39.2 Understanding div in two dimensions</h4>
 					<div class="size-50">
 						<table style="width:100%;">
 							<tr>
-								<td style="width:30%">
+								<td style="width:25%">
 									<img style="width: 100%; 
 									display: block;
 									margin-left: auto;
@@ -206,7 +206,7 @@
 
 								</td>
 
-								<td style="width:70%">
+								<td style="width:75%">
 
 									<p>
 										Edge 1: we evaluate $\v$ at $(x^*,y)$
@@ -222,7 +222,8 @@
 										and assume it is constant across the entire
 										edge. An outwardly pointing unit normal vector is $\i$.
 										\[
-										\text{flux} \approx \v\left(x+\Delta x,y^*\right)\cdot \left(~\i~\right)\Delta y.
+										\text{flux} \approx \v\left(x+\Delta x,y^*\right)\cdot \left(~\i~\right)\Delta
+										y.
 										\]
 									</p>
 
@@ -231,7 +232,8 @@
 										and assume it is constant across the entire edge.
 										An outwardly pointing unit normal vector is $\j$.
 										\[
-										\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\cdot \left(~\j~\right)\Delta x.
+										\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\cdot \left(~\j~\right)\Delta
+										x.
 										\]
 									</p>
 
@@ -252,92 +254,231 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>39.2 Understanding div in two dimensions.</h4>
+					<h4>39.2 Understanding div in two dimensions</h4>
 
 
 
 					<div class="size-60">
-						
 
-									<div class="left-txt">
-										<p>
-											Combining all four terms gives an approximation
-											 to the net outward flux: 
-											 <br/>
-											 <br/>
-											 <span class="fragment" data-fragment-index="0">
-												net outward flux
-											 </span>
-										</p>
-										<!--\left(  \right)-->
-										<table id="eqarray">
-											<tr class="fragment" data-fragment-index="0">
-												<td>
-													$\displaystyle \text{} $
-												</td>
-												<td>
-													$\displaystyle  \approx \left( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right) \right)
-													\cdot \i ~\Delta y 
-													\left( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \right)
-													\cdot \j ~\Delta x $
-												</td>
-											</tr>
 
-											<tr>
-												<td>
-													
-												</td>
-												<td class="fragment" data-fragment-index="2">
-													$\displaystyle  =
-													\left( \frac{\v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right)}{\Delta x} \right)
-													\cdot \i ~ \Delta x~\Delta y + 
-													\left( \frac{ \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right)}{\Delta y} \right)
-													\cdot \j ~ \Delta x~\Delta y$
-												</td>
-											</tr>
+						<div class="left-txt">
+							<p>
+								Combining all four terms gives an approximation
+								to the net outward flux:
+								<br />
+								<br />
+								<span class="fragment" data-fragment-index="0">
+									net outward flux
+								</span>
+							</p>
+							<!--\left(  \right)-->
+							<table id="eqarray">
+								<tr class="fragment" data-fragment-index="0">
+									<td>
+										$\displaystyle \text{} $
+									</td>
+									<td>
+										$\displaystyle \approx \left( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^*
+										\right) \right)
+										\cdot \i ~\Delta y
+										\left( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \right)
+										\cdot \j ~\Delta x $
+									</td>
+								</tr>
 
-											<tr>
-												<td>
-													
-												</td>
-												<td class="fragment" data-fragment-index="3">
-													$\displaystyle  =
-													\left(  \frac{v_1\left( x+\Delta x, y^* \right) - v_1\left( x, y^* \right)}{\Delta x} +
-													\frac{ v_2\left( x^* , y + \Delta y \right) - v_2\left( x^*, y \right)}{\Delta y}
-													\right)
-													\Delta x~\Delta y$
-												</td>
-											</tr>
+								<tr>
+									<td>
 
-											<tr>
-												<td>
-													
-												</td>
-												<td class="fragment" data-fragment-index="4">
-													$\displaystyle  \approx
-													\left(  
-														\frac{\partial v_1}{\partial x} +
-														\frac{\partial v_2}{\partial y}
-													\right)
-													\Delta x~\Delta y$
-												</td>
-											</tr>
+									</td>
+									<td class="fragment" data-fragment-index="2">
+										$\displaystyle =
+										\left( \frac{\v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right)}{\Delta
+										x} \right)
+										\cdot \i ~ \Delta x~\Delta y +
+										\left( \frac{ \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y
+										\right)}{\Delta y} \right)
+										\cdot \j ~ \Delta x~\Delta y$
+									</td>
+								</tr>
 
-											<tr>
-												<td>
-													
-												</td>
-												<td class="fragment" data-fragment-index="5">
-													$\displaystyle  =
-													\div(\v)~ \Delta x~\Delta y$.
-												</td>
-											</tr>
+								<tr>
+									<td>
 
-										</table>
-									</div>
+									</td>
+									<td class="fragment" data-fragment-index="3">
+										$\displaystyle =
+										\left( \frac{v_1\left( x+\Delta x, y^* \right) - v_1\left( x, y^*
+										\right)}{\Delta x} +
+										\frac{ v_2\left( x^* , y + \Delta y \right) - v_2\left( x^*, y \right)}{\Delta
+										y}
+										\right)
+										\Delta x~\Delta y$
+									</td>
+								</tr>
 
-							
+								<tr>
+									<td>
+
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$\displaystyle \approx
+										\left(
+										\frac{\partial v_1}{\partial x} +
+										\frac{\partial v_2}{\partial y}
+										\right)
+										\Delta x~\Delta y$
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+
+									</td>
+									<td class="fragment" data-fragment-index="5">
+										$\displaystyle =
+										\div(\v)~ \Delta x~\Delta y$.
+									</td>
+								</tr>
+
+							</table>
+						</div>
+
+
 					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.2 Understanding div in two dimensions</h4>
+					<div class="size-70">
+
+
+						<div class="left-txt">
+							<p>
+								Hence, we have
+								\[
+								\frac{\text{flux out of a rectangle}}{\text{area of rectangle}}\approx \div(\v).
+								\]
+							</p>
+							<!--\left(  \right)-->
+							<p class="fragment" data-fragment-index="0">
+								If we take the limit as the dimensions of the rectangle appproach 0,
+								<span class="fragment" data-fragment-index="1">
+									we have
+									\[
+									\div(\v)=\lim_{\Delta A\to 0}\frac{\text{flux out of } \Delta A}{\Delta A}.
+									\]
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									In other words, $\div(\v)$ is the "outward flux density"
+									of $\v$ at a given point.
+								</span>
+							</p>
+
+
+
+						</div>
+
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.2 Understanding div in two dimensions</h4>
+					<div class="size-70">
+
+
+						<br /><br />
+						<div class="left-txt">
+
+
+							<p>
+								This concept generalises quite naturally to three dimensions:
+								\[
+								\div(\v(x,y,z))= \lim_{\Delta V\to 0}\frac{\text{flux out of } \Delta V}{\Delta V}
+								\]
+								<span class="fragment" data-fragment-index="0">
+									In the context of fluids (our main focus so far) we
+									can say $\div(\v(x, y, z))$ measures the tendency of the
+									fluid to "diverge" from the point $(x, y, z)$.
+								</span>
+							</p>
+
+						</div>
+
+						<br />
+						<br />
+
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+
+
+				<section data-auto-animate>
+					<h4>39.3 Outward flux across a closed curve <br />in the plane (revisited)</h4>
+					<div class="size-70">
+
+						<div class="left-txt">
+							<p>
+								One can use the divergence to calculate the net outward flux
+								of v across a closed curve.
+								We have already seen that we can evaluate this quatity by
+								calculating $\displaystyle \oint_C \v\cdot \n ~dS.$
+
+							</p>
+
+							<p>
+								Now let $D$ be a region in the $x$-$y$ plane bounded by a
+								piecewise-smooth, simple closed curve $C$, which is
+								traversed with D always on the left. Let $v_1(x, y)$, $v_2(x, y) $
+								have continuous derivatives in $D$ (again the conditions
+								of Green's theorem!).
+							</p>
+
+						</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.3 Outward flux across a closed curve <br />in the plane (revisited)</h4>
+					<div class="size-70">
+
+						<div class="left-txt">
+							<p>
+								By the previous calculation involving divergence,
+								we can also approximate the outward
+								flux from the region by dividing $D$ up into
+								small rectangles and approximating the net
+								outward flux across each rectangle.
+								<span>
+									We know that for one rectangle,
+									\[
+									\text{outward flux of one rectangle}\approx \div(\v(x^*,y^*))\Delta x \Delta y ,
+									\]
+									where $(x^*,y^*)$ is some point inside the rectangle.
+								</span>
+								<span>
+									Adding up contributions from all
+									rectangles in $D$, the summation of the left hand 
+									side gives net outward flux across
+									$C$.
+								</span>
+
+
+							</p>
+
+							<p>
+								Now let $D$ be a region in the $x$-$y$ plane bounded by a
+								piecewise-smooth, simple closed curve $C$, which is
+								traversed with D always on the left. Let $v_1(x, y)$, $v_2(x, y) $
+								have continuous derivatives in $D$ (again the conditions
+								of Green's theorem!).
+							</p>
+
+						</div>
+
 				</section>
 
 			</section>
