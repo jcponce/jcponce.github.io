@@ -130,20 +130,216 @@
 
 
 			<section>
+				<section data-auto-animate>
 
-				<h4>39.2 Understanding div in two dimensions.</h4>
-				<div class="size-60">
-					<div class="left-txt">
-						<p>
-							Consider the flow of a two dimensional 
-							fluid with continuous velocity field 
-							$\v(x,y) = v_1(x, y)~\i + v_2(x, y)~\j$. Our aim is 
-							to calculate the outward flux from a small 
-							rectangle in the plane of area  $\Delta x\Delta y$ as in 
-							the diagram below.
-						</p>
+					<h4>39.2 Understanding div in two dimensions.</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								Consider the flow of a two dimensional
+								fluid with continuous velocity field
+								$\v(x,y) = v_1(x, y)~\i + v_2(x, y)~\j$. 
+								<span class="fragment" data-fragment-index="0">
+									Our aim is
+								to calculate the outward flux from a small
+								rectangle in the plane of area $\Delta x\Delta y$ as in
+								the diagram below.
+								</span>
+							</p>
+						</div>
 					</div>
-				</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.2 Understanding div in two dimensions.</h4>
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:30%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-2-1-example-d.svg" />
+
+
+								</td>
+
+								<td style="width:70%">
+
+									<p>
+										We first approximate the flux across each of the four sides of the rectangle. In
+										each case the approximation will be $\v\cdot \n ~\Delta S$,
+										where we assume $\v$ is constant over
+										each edge. Also let $x^*\in [x, x + \Delta x]$ and
+										$y^*\in [y, y + \Delta y]$ represent chosen
+										points in each interval.
+
+									</p>
+									<p class="fragment" data-fragment-index="0">
+										Edge 1: we evaluate $\v$ at $(x^*,y)$
+										and assume it is constant across the entire
+										edge. An outwardly pointing unit normal vector is $-\j$.
+										\[
+										\text{flux} \approx \v\left(x^*,y\right)\cdot (-\j)~\Delta x
+										\]
+									</p>
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>39.2 Understanding div in two dimensions.</h4>
+					<div class="size-50">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:30%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-38/chapter-38-2-1-example-d.svg" />
+
+
+								</td>
+
+								<td style="width:70%">
+
+									<p>
+										Edge 1: we evaluate $\v$ at $(x^*,y)$
+										and assume it is constant across the entire
+										edge. An outwardly pointing unit normal vector is $-\j$.
+										\[
+										\text{flux} \approx \v\left(x^*,y\right)\cdot (-\j)~\Delta x.
+										\]
+									</p>
+
+									<p class="fragment" data-fragment-index="0">
+										Edge 2: we evaluate $\v$ at $(x+\Delta x,y^*)$
+										and assume it is constant across the entire
+										edge. An outwardly pointing unit normal vector is $\i$.
+										\[
+										\text{flux} \approx \v\left(x+\Delta x,y^*\right)\cdot \left(~\i~\right)\Delta y.
+										\]
+									</p>
+
+									<p class="fragment" data-fragment-index="1">
+										Edge 3: we evaluate $\v$ at $(x^*,y+ \Delta y)$
+										and assume it is constant across the entire edge.
+										An outwardly pointing unit normal vector is $\j$.
+										\[
+										\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\cdot \left(~\j~\right)\Delta x.
+										\]
+									</p>
+
+									<p class="fragment" data-fragment-index="2">
+										Edge 4: we evaluate $\v$ at $(x,y^*)$
+										and assume it is constant across the entire edge.
+										An outwardly pointing unit normal vector is $-\i$.
+										\[
+										\text{flux} \approx \v\left(x,y^*\right)\cdot (-\i)~\Delta y.
+										\]
+									</p>
+
+								</td>
+							</tr>
+
+						</table>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.2 Understanding div in two dimensions.</h4>
+
+
+
+					<div class="size-60">
+						
+
+									<div class="left-txt">
+										<p>
+											Combining all four terms gives an approximation
+											 to the net outward flux: 
+											 <br/>
+											 <br/>
+											 <span class="fragment" data-fragment-index="0">
+												net outward flux
+											 </span>
+										</p>
+										<!--\left(  \right)-->
+										<table id="eqarray">
+											<tr class="fragment" data-fragment-index="0">
+												<td>
+													$\displaystyle \text{} $
+												</td>
+												<td>
+													$\displaystyle  \approx \left( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right) \right)
+													\cdot \i ~\Delta y 
+													\left( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \right)
+													\cdot \j ~\Delta x $
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													
+												</td>
+												<td class="fragment" data-fragment-index="2">
+													$\displaystyle  =
+													\left( \frac{\v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right)}{\Delta x} \right)
+													\cdot \i ~ \Delta x~\Delta y + 
+													\left( \frac{ \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right)}{\Delta y} \right)
+													\cdot \j ~ \Delta x~\Delta y$
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													
+												</td>
+												<td class="fragment" data-fragment-index="3">
+													$\displaystyle  =
+													\left(  \frac{v_1\left( x+\Delta x, y^* \right) - v_1\left( x, y^* \right)}{\Delta x} +
+													\frac{ v_2\left( x^* , y + \Delta y \right) - v_2\left( x^*, y \right)}{\Delta y}
+													\right)
+													\Delta x~\Delta y$
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													
+												</td>
+												<td class="fragment" data-fragment-index="4">
+													$\displaystyle  \approx
+													\left(  
+														\frac{\partial v_1}{\partial x} +
+														\frac{\partial v_2}{\partial y}
+													\right)
+													\Delta x~\Delta y$
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													
+												</td>
+												<td class="fragment" data-fragment-index="5">
+													$\displaystyle  =
+													\div(\v)~ \Delta x~\Delta y$.
+												</td>
+											</tr>
+
+										</table>
+									</div>
+
+							
+					</div>
+				</section>
+
 			</section>
 
 
