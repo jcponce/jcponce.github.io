@@ -429,12 +429,199 @@
 
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								Now let $D$ be a region in the $x$-$y$ plane bounded by a
 								piecewise-smooth, simple closed curve $C$, which is
-								traversed with D always on the left. Let $v_1(x, y)$, $v_2(x, y) $
-								have continuous derivatives in $D$ (again the conditions
-								of Green's theorem!).
+								traversed with $D$ always on the left.
+							</p>
+
+						</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.3 Outward flux across a closed curve <br />in the plane (revisited)</h4>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:40%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.svg" />
+
+
+								</td>
+
+								<td style="width:60%">
+
+									<p>
+										Now let $D$ be a region in the $x$-$y$ plane bounded by a
+										piecewise-smooth, simple closed curve $C$, which is
+										traversed with $D$ always on the left.
+
+									</p>
+									<span class="fragment" data-fragment-index="0">
+										Let $v_1(x, y)$, $v_2(x, y) $
+										have continuous derivatives in $D$ (again the conditions
+										of Green's theorem!).
+									</span>
+
+									<p class="fragment" data-fragment-index="1">
+										By the previous calculation involving divergence,
+										we can also approximate the outward
+										flux from the region by dividing $D$ up into
+										small rectangles and approximating the net
+										outward flux across each rectangle.
+
+									</p>
+
+
+
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.3 Outward flux across a closed curve <br />in the plane (revisited)</h4>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:40%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.svg" />
+
+
+								</td>
+
+								<td style="width:60%">
+
+									<p>
+										By the previous calculation involving divergence,
+										we can also approximate the outward
+										flux from the region by dividing $D$ up into
+										small rectangles and approximating the net
+										outward flux across each rectangle.
+
+
+
+									</p>
+
+									<div class="fragment" data-fragment-index="0">
+										<p>
+											We know that for one rectangle,
+											<table>
+												<tr>
+													<td>
+														outward flux <br />of one rectangle
+													</td>
+													<td>
+														$\approx ~\div(\v(x^*,y^*))\Delta x \Delta y ,$
+													</td>
+												</tr>
+											</table><br />
+											where $(x^*,y^*)$ is some point inside the rectangle.
+										</p>
+									</div>
+
+
+
+
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.3 Outward flux across a closed curve <br />in the plane (revisited)</h4>
+
+					<div class="size-60">
+						<table style="width:100%;">
+							<tr>
+								<td style="width:40%">
+									<img style="width: 100%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.svg" />
+
+
+								</td>
+
+								<td style="width:60%">
+
+									<div>
+										<p>
+											We know that for one rectangle,
+											<table>
+												<tr>
+													<td>
+														outward flux <br />of one rectangle
+													</td>
+													<td>
+														$\approx ~\div(\v(x^*,y^*))\Delta x \Delta y ,$
+													</td>
+												</tr>
+											</table><br />
+											where $(x^*,y^*)$ is some point inside the rectangle.
+										</p>
+									</div>
+									<p>
+										Adding up contributions from all
+										rectangles in $D$, the summation of the left hand
+										side gives net outward flux across
+										$C$.
+									</p>
+
+
+
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>39.3 Outward flux across a closed curve <br />in the plane (revisited)</h4>
+					<div class="size-70">
+
+						<div class="left-txt">
+							<p>
+								So
+								\[
+								\text{net outward flux across }C \approx \sum \div(\v(x^*, y^*))\Delta x \Delta y.
+								\]
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								Taking the lint as$ \Delta x \Delta y\to 0$, we have
+								\[
+								\text{net outward flux across }C = \iint_D \div(\v(x^*, y^*))~dA.
+								\]
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								To obtain the flux, we integrate the flux density over the region.
+								<span class="fragment" data-fragment-index="2">
+									Compare this with
+									the context of mass density: to obtain the mass, we integrate the mass density over
+									the
+									region.
+								</span>
 							</p>
 
 						</div>
@@ -447,40 +634,43 @@
 
 						<div class="left-txt">
 							<p>
-								By the previous calculation involving divergence,
-								we can also approximate the outward
-								flux from the region by dividing $D$ up into
-								small rectangles and approximating the net
-								outward flux across each rectangle.
-								<span>
-									We know that for one rectangle,
-									\[
-									\text{outward flux of one rectangle}\approx \div(\v(x^*,y^*))\Delta x \Delta y ,
-									\]
-									where $(x^*,y^*)$ is some point inside the rectangle.
-								</span>
-								<span>
-									Adding up contributions from all
-									rectangles in $D$, the summation of the left hand 
-									side gives net outward flux across
-									$C$.
-								</span>
-
-
+								Finally, the two ways of calculating the same
+								quantity must obviously be equal:
+								\[
+								\oint_C \v(x,y)\cdot \n ~dS = \iint_D \div(\v(x^*, y^*))~dA.
+								\]
 							</p>
 
-							<p>
-								Now let $D$ be a region in the $x$-$y$ plane bounded by a
-								piecewise-smooth, simple closed curve $C$, which is
-								traversed with D always on the left. Let $v_1(x, y)$, $v_2(x, y) $
-								have continuous derivatives in $D$ (again the conditions
-								of Green's theorem!).
+							<p class="fragment" data-fragment-index="0">
+								This will be called the flux form of
+								Green's theorem (in fact it is the 2D
+								version of Gauss' Divergence Theorem - see later).
 							</p>
+
 
 						</div>
 
 				</section>
 
+			</section>
+
+			<section>
+				<h5>39.3.1 Use the flux form of Green's theorem to calculate
+					the outward flux of $\v = xy~\i+xy~\j$</h5> 
+				<p class="sbt">
+					across the
+				curve from $(2,0)$ to $(-2,0)$ via the semicircle of radius
+				 2 centred at the origin (for $y\geq 0$) followed by
+				the straight line from $(-2,0)$ to $(2,0)$.
+				</p>
+			</section>
+
+
+			<section>
+				<h5>39.3.2 For the following graphs of vector fields, 
+					determine whether the divergence is positive, 
+					negative or zero.</h5> 
+				
 			</section>
 
 
