@@ -57,6 +57,8 @@
 						norm: ["{\\|#1\\|}", 1],
 						epsilon: "\\varepsilon",
 						//cdot: "\\bullet",
+						//cdot: "{\\textstyle \\,\\bullet\\,}",
+						//cdot: "{\\scriptstyle \\,\\bullet\\,}",
 					}
 				}
 			},
