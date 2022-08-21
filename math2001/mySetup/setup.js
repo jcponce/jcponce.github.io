@@ -11,7 +11,7 @@
 			//preloadIframes: true,
 
 			// Enables touch navigation on devices with touch input
-  			touch: true,
+  			touch: false,
 
 			// Transition style
 			transition: 'fade',
