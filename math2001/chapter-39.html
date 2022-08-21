@@ -465,10 +465,9 @@
 										$\displaystyle \text{} $
 									</td>
 									<td>
-										$\displaystyle \approx \left( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^*
-										\right) \right)
-										\cdot \i ~\Delta y
-										\left( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \right)
+										$\displaystyle \approx \big( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^*
+										\right) \big) \cdot \i ~\Delta y +
+										\big( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \big)
 										\cdot \j ~\Delta x $
 									</td>
 								</tr>
@@ -581,11 +580,11 @@
 							<p>
 								This concept generalises quite naturally to three dimensions:
 								\[
-								\div(\v(x,y,z))= \lim_{\Delta V\to 0}\frac{\text{flux out of } \Delta V}{\Delta V}.
+								\div\big(\v(x,y,z)\big)= \lim_{\Delta V\to 0}\frac{\text{flux out of } \Delta V}{\Delta V}.
 								\]
 								<span class="fragment" data-fragment-index="0">
 									In the context of fluids (our main focus so far) we
-									can say $\div(\v(x, y, z))$ measures the tendency of the
+									can say $\div\big(\v(x,y,z)\big)$ measures the tendency of the
 									fluid to "diverge" from the point $(x, y, z)$.
 								</span>
 							</p>
@@ -716,7 +715,7 @@
 														outward flux <br />of one rectangle
 													</td>
 													<td>
-														$\approx ~\div(\v(x^*,y^*))\Delta x \Delta y ,$
+														$\approx ~\div\big(\v(x,y,z)\big)\Delta x \Delta y ,$
 													</td>
 												</tr>
 	
@@ -762,7 +761,7 @@
 														outward flux <br />of one rectangle
 													</td>
 													<td>
-														$\approx ~\div(\v(x^*,y^*))\Delta x \Delta y .$
+														$\approx ~\div\big(\v(x,y,z)\big)\Delta x \Delta y .$
 													</td>
 												</tr>
 	
@@ -797,14 +796,14 @@
 							<p>
 								So
 								\[
-								\text{net outward flux across }C \approx \sum \div(\v(x^*, y^*))\Delta x \Delta y.
+								\text{net outward flux across }C \approx \sum \div\big(\v(x,y,z)\big)\Delta x \Delta y.
 								\]
 							</p>
 
 							<p class="fragment" data-fragment-index="0">
 								Taking the lint as $ \Delta x \Delta y\to 0$, we have
 								\[
-								\text{net outward flux across }C = \iint_D \div(\v(x^*, y^*))~dA.
+								\text{net outward flux across }C = \iint_D \div\big(\v(x,y,z)\big)dA.
 								\]
 							</p>
 							<p class="fragment" data-fragment-index="1">
@@ -830,7 +829,7 @@
 								Finally, the two ways of calculating the same
 								quantity must obviously be equal:
 								\[
-								\oint_C \v(x,y)\cdot \n ~dS = \iint_D \div(\v(x^*, y^*))~dA.
+								\oint_C \v(x,y)\cdot \n ~dS = \iint_D \div\big(\v(x^*, y^*)\big)dA.
 								\]
 							</p>
 
