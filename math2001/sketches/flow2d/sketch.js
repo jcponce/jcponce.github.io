@@ -97,7 +97,7 @@ Flow around a circle simulation designed with p5.js (https://p5js.org/)
      if (p.x > width / 2 || p.y > height / 2 || p.x < -width / 2 || p.y < -height / 2 || (pow(p.x + positions[0], 2) + pow(p.y - positions[1], 2)) < sliderRadius.value()) {
        particles.splice(i, 1);
        currentParticle--;
-       particles.push(new Particle(-width / 2, random(-height / 2, height / 2), t, h));
+       particles.push(new Particle(width / 2, random(-height / 2, height / 2), t, h));
      }
    }
  
@@ -129,9 +129,9 @@ Flow around a circle simulation designed with p5.js (https://p5js.org/)
  
  }
  
- let P = (t, x, y) => Strength * (sliderSpeed.value() - (sliderSpeed.value() * (sliderRadius.value() * sliderRadius.value()) * (pow(x + positions[0], 2) - pow(y - positions[1], 2))) / ((pow(x + positions[0], 2) + pow(y - positions[1], 2)) * (pow(x + positions[0], 2) + pow(y - positions[1], 2))));
+ let P = (t, x, y) => -Strength * (sliderSpeed.value() - (sliderSpeed.value() * (sliderRadius.value() * sliderRadius.value()) * (pow(x + positions[0], 2) - pow(y - positions[1], 2))) / ((pow(x + positions[0], 2) + pow(y - positions[1], 2)) * (pow(x + positions[0], 2) + pow(y - positions[1], 2))));
  
- let Q = (t, x, y) => Strength * ((-2 * sliderSpeed.value() * (sliderRadius.value() * sliderRadius.value()) * (x + positions[0]) * (y - positions[1])) / ((pow(x + positions[0], 2) + pow(y - positions[1], 2)) * (pow(x + positions[0], 2) + pow(y - positions[1], 2))));
+ let Q = (t, x, y) => -Strength * ((-2 * sliderSpeed.value() * (sliderRadius.value() * sliderRadius.value()) * (x + positions[0]) * (y - positions[1])) / ((pow(x + positions[0], 2) + pow(y - positions[1], 2)) * (pow(x + positions[0], 2) + pow(y - positions[1], 2))));
  
  //Define particles and how they are moved with Runge–Kutta method of 4th degree.
  class Particle {
