@@ -103,7 +103,10 @@
 									\div \v = \frac{\partial v_1}{\partial x}+\frac{\partial v_2}{\partial
 									y}+\frac{\partial v_2}{\partial z}= \nabla \cdot \v
 									\]
-									is called the divergence of $\v$. Note that $\div\v$ is a scalar quantity.
+									is called the divergence of $\v$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Note that $\div\v$ is a scalar quantity.
 								</span>
 							</p>
 
@@ -161,7 +164,7 @@
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="2">
 									$\displaystyle =\frac{\partial}{\partial x}\left(x^2 y\right)+
@@ -172,7 +175,7 @@
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="3">
 									$=y^2+xz+2yz$.
@@ -192,7 +195,7 @@
 
 					<h4>39.2 Understanding div in two dimensions</h4>
 
-					<div >
+					<div>
 						<table style="width:100%;">
 							<tr>
 								<td style="width:60%">
@@ -201,7 +204,7 @@
 											Consider the flow of a two dimensional
 											fluid with continuous velocity field
 											$$\v(x,y) = v_1(x, y)~\i + v_2(x, y)~\j.$$
-	
+
 											<span class="fragment" data-fragment-index="0">
 												Our aim is
 												to calculate the outward flux from a small
@@ -309,7 +312,7 @@
 										\]
 									</p>
 
-									
+
 
 								</td>
 
@@ -319,7 +322,7 @@
 										display: block;
 										margin-left: auto;
 										margin-right: auto;" data-src="images/chapter-39/chapter-39-2-b.svg" />
-										
+
 										<img class="fragment fade-in" data-fragment-index="0" style="width: 100%; 
 										display: block;
 										margin-left: auto;
@@ -368,7 +371,7 @@
 										display: block;
 										margin-left: auto;
 										margin-right: auto;" data-src="images/chapter-39/chapter-39-2-d.svg" />
-										
+
 										<img class="fragment fade-in" data-fragment-index="0" style="width: 100%; 
 										display: block;
 										margin-left: auto;
@@ -392,33 +395,35 @@
 
 									<div style="margin-left:60px">
 										<p>
-											<strong>Edge 1:</strong> 
-											
+											<strong>Edge 1:</strong>
+
 											$\;\;\text{flux} \approx \v\left(x^*,y\right)\cdot (-\j)~\Delta x.$
-											
+
 										</p>
-	
-										<p >
-											<strong>Edge 2:</strong> 
-											
-											$\;\;\text{flux} \approx \v\left(x+\Delta x,y^*\right)\cdot \left(~\i~\right)\Delta
-											y.$
-											
-										</p>
-	
+
 										<p>
-											<strong>Edge 3:</strong> 
-											
-											$\;\;\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\cdot \left(~\j~\right)\Delta
+											<strong>Edge 2:</strong>
+
+											$\;\;\text{flux} \approx \v\left(x+\Delta x,y^*\right)\cdot
+											\left(~\i~\right)\Delta
+											y.$
+
+										</p>
+
+										<p>
+											<strong>Edge 3:</strong>
+
+											$\;\;\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\cdot
+											\left(~\j~\right)\Delta
 											x.
 											$
 										</p>
-	
+
 										<p>
-											<strong>Edge 4:</strong> 
-											
+											<strong>Edge 4:</strong>
+
 											$\;\;\text{flux} \approx \v\left(x,y^*\right)\cdot (-\i)~\Delta y.$
-											
+
 										</p>
 									</div>
 
@@ -426,8 +431,8 @@
 
 								<td style="width:40%">
 									<div class="r-stack">
-										
-										
+
+
 										<img style="width: 100%; 
 										display: block;
 										margin-left: auto;
@@ -580,7 +585,8 @@
 							<p>
 								This concept generalises quite naturally to three dimensions:
 								\[
-								\div\big(\v(x,y,z)\big)= \lim_{\Delta V\to 0}\frac{\text{flux out of } \Delta V}{\Delta V}.
+								\div\big(\v(x,y,z)\big)= \lim_{\Delta V\to 0}\frac{\text{flux out of } \Delta V}{\Delta
+								V}.
 								\]
 								<span class="fragment" data-fragment-index="0">
 									In the context of fluids (our main focus so far) we
@@ -628,7 +634,7 @@
 				<section data-auto-animate>
 					<h4>39.3 Outward flux across a closed curve <br />in the plane (revisited)</h4>
 
-					<div >
+					<div>
 						<table style="width:100%;">
 							<tr>
 								<td style="width:40%">
@@ -644,26 +650,26 @@
 
 									<div class="size-60">
 
-									<p>
-										Now let $D$ be a region in the $x$-$y$ plane bounded by a
-										piecewise-smooth, simple closed curve $C$, which is
-										traversed with $D$ always on the left.
+										<p>
+											Now let $D$ be a region in the $x$-$y$ plane bounded by a
+											piecewise-smooth, simple closed curve $C$, which is
+											traversed with $D$ always on the left.
 
-									</p>
-									<p class="fragment" data-fragment-index="0">
-										Let $v_1(x, y)$, $v_2(x, y) $
-										have continuous derivatives in $D$ (again the conditions
-										of Green's theorem!).
-									</p>
+										</p>
+										<p class="fragment" data-fragment-index="0">
+											Let $v_1(x, y)$, $v_2(x, y) $
+											have continuous derivatives in $D$ (again the conditions
+											of Green's theorem!).
+										</p>
 
-									<p class="fragment" data-fragment-index="1">
-										By the previous calculation involving divergence,
-										we can also approximate the outward
-										flux from the region by dividing $D$ up into
-										small rectangles and approximating the net
-										outward flux across each rectangle.
+										<p class="fragment" data-fragment-index="1">
+											By the previous calculation involving divergence,
+											we can also approximate the outward
+											flux from the region by dividing $D$ up into
+											small rectangles and approximating the net
+											outward flux across each rectangle.
 
-									</p>
+										</p>
 									</div>
 
 
@@ -701,12 +707,12 @@
 											flux from the region by dividing $D$ up into
 											small rectangles and approximating the net
 											outward flux across each rectangle.
-	
-	
-	
+
+
+
 										</p>
-	
-	
+
+
 										<p>
 											We know that for one rectangle,
 											<table>
@@ -718,10 +724,10 @@
 														$\approx ~\div\big(\v(x,y,z)\big)\Delta x \Delta y ,$
 													</td>
 												</tr>
-	
+
 											</table>
 											where $(x^*,y^*)$ is some point inside the rectangle.
-	
+
 										</p>
 									</div>
 
@@ -764,12 +770,12 @@
 														$\approx ~\div\big(\v(x,y,z)\big)\Delta x \Delta y .$
 													</td>
 												</tr>
-	
+
 											</table>
 										</p>
-	
+
 										<br />
-	
+
 										<p>
 											Adding up contributions from all
 											rectangles in $D$, the summation of the left hand
@@ -847,14 +853,244 @@
 			</section>
 
 			<section>
-				<h5>39.3.1 Use the flux form of Green's theorem to calculate
-					the outward flux of $\v = xy~\i+xy~\j$</h5>
-				<p class="sbt">
-					across the
-					curve from $(2,0)$ to $(-2,0)$ via the semicircle of radius
-					2 centred at the origin (for $y\geq 0$) followed by
-					the straight line from $(-2,0)$ to $(2,0)$.
-				</p>
+
+				<section data-auto-animate>
+					<h5>39.3.1 Use the flux form of Green's theorem to calculate<br />
+						the outward flux of $\v = xy~\i+xy~\j$</h5>
+					<p class="sbt">
+						across the
+						curve from $(2,0)$ to $(-2,0)$ via the semicircle of radius
+						2 centred at the origin (for $y\geq 0$) followed by
+						the straight line from $(-2,0)$ to $(2,0)$.
+					</p>
+
+					<div class="r-stack">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 40%; 
+						display: block;
+						margin-left: auto;
+						margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-a.svg" />
+						<img class="fragment fade-in" data-fragment-index="1" style="width: 40%; 
+						display: block;
+						margin-left: auto;
+						margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>39.3.1 Use the flux form of Green's theorem to calculate<br />
+						the outward flux of $\v = xy~\i+xy~\j$</h5>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:40%">
+								<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+							</td>
+
+							<td style="width:60%">
+
+
+								
+								<div class="size-60">
+									<p>
+										Here we are going to use the flux form of Green's theorem:
+										<table>
+											<tr>
+												<td>
+													$\text{Outward flux across $C$}$
+												</td>
+												<td>
+													$\displaystyle =\;\oint_C \v \cdot n~dS $
+
+												</td>
+											</tr>
+											<tr>
+												<td>
+													
+												</td>
+												<td>
+													$\displaystyle =\;\iint_D \nabla \cdot \v~dA $
+												</td>
+											</tr>
+										</table>
+										
+									</p>
+									<p class="fragment" data-fragment-index="0">
+										First we have that
+										\[
+										\nabla \cdot \n = \displaystyle \frac{\partial }{\partial x} (xy) + \frac{\partial }{\partial y} (xy) = x+y
+										\]
+									</p>
+								</div>
+
+							</td>
+						</tr>
+
+					</table>
+
+					
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h5>39.3.1 Use the flux form of Green's theorem to calculate<br />
+						the outward flux of $\v = xy~\i+xy~\j$</h5>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:23%">
+								<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+							</td>
+
+							<td style="width:77%">
+
+
+								
+								<div class="size-60">
+									<p>
+										Then 
+										<table>
+											<tr>
+												<td>
+													$\displaystyle \text{Outward flux}$
+												</td>
+												<td>
+													$\displaystyle =  \iint_D \nabla \cdot \v ~dA = \iint_D(x+y)~dA$.
+
+												</td>
+											</tr>
+											
+										</table>
+										
+										
+									</p>
+									<p class="fragment" data-fragment-index="0">
+										Using polar coordinates $x=r\cos \theta$, 
+										$y= r\sin \theta$ with $0\leq r \leq 2$ and 
+										$0\leq \theta \leq 2 \pi$, 
+										<span class="fragment" data-fragment-index="1">
+											we have
+										</span>
+										<table>
+											<tr class="fragment" data-fragment-index="1">
+												<td>
+													$\displaystyle\iint_D(x+y)~dA$
+												</td>
+												<td>
+													$\displaystyle =  \int_0^2\int_0^{2\pi} \left(r\cos \theta + r \sin \theta\right)r ~dr~d\theta$
+
+												</td>
+											</tr>
+											<tr>
+												<td>
+													
+												</td>
+												<td class="fragment" data-fragment-index="2">
+													$\displaystyle =\left(\int_0^2 r^2~dr \right)\left(\int_0^{2\pi} \left(\cos \theta +  \sin \theta\right)d\theta \right)$
+												</td>
+											</tr>
+											<tr>
+												<td>
+													
+												</td>
+												<td class="fragment" data-fragment-index="3">
+													$\displaystyle =\frac{16}{3}$.
+												</td>
+											</tr>
+										</table>
+									</p>
+								</div>
+
+							</td>
+						</tr>
+
+					</table>
+
+					
+				</section>
+
+				<section data-auto-animate>
+					<h5>39.3.1 Use the flux form of Green's theorem to calculate<br />
+						the outward flux of $\v = xy~\i+xy~\j$</h5>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:40%">
+								<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+							</td>
+
+							<td style="width:60%">
+
+
+								
+								<div class="size-60">
+									<p>
+										Therefore 
+										<table>
+											<tr>
+												<td>
+													$\displaystyle \text{Outward flux}$
+												</td>
+												<td>
+													$\displaystyle = \oint_C \v \cdot n~dS $
+												
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													
+												</td>
+												<td>
+													$\displaystyle =   \iint_D \nabla \cdot \v ~dA $
+												
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													
+												</td>
+												<td>
+													$\displaystyle =  \iint_D(x+y)~dA $
+												
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													
+												</td>
+												<td>
+													$\displaystyle =  \frac{16}{3}.$
+												
+												</td>
+											</tr>
+											
+										</table>
+										
+										
+									</p>
+									
+								</div>
+
+							</td>
+						</tr>
+
+					</table>
+
+					
+				</section>
+
 			</section>
 
 
