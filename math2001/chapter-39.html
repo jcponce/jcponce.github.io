@@ -191,7 +191,7 @@
 
 
 			<section>
-				<section data-auto-animate>
+				<section>
 
 					<h4>39.2 Understanding div in two dimensions</h4>
 
@@ -233,7 +233,7 @@
 
 				</section>
 
-				<section data-auto-animate>
+				<section>
 					<h4>39.2 Understanding div in two dimensions</h4>
 					<div class="size-60">
 						<table style="width:100%;">
@@ -252,7 +252,7 @@
 
 									</p>
 									<p class="fragment" data-fragment-index="0">
-										Edge 1: we evaluate $\v$ at $(x^*,y)$
+										<strong>Edge 1:</strong> we evaluate $\v$ at $(x^*,y)$
 										and assume it is constant across the entire
 										edge. An outwardly pointing unit normal vector is $-\j$.
 										\[
@@ -450,7 +450,7 @@
 
 
 
-					<div class="size-60">
+					<div class="size-65">
 
 
 						<div class="left-txt">
@@ -481,29 +481,26 @@
 									<td>
 
 									</td>
-									<td class="fragment" data-fragment-index="2">
-										$\displaystyle =
-										\left( \frac{\v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right)}{\Delta
-										x} \right)
-										\cdot \i ~ \Delta x~\Delta y +
-										\left( \frac{ \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y
-										\right)}{\Delta y} \right)
-										\cdot \j ~ \Delta x~\Delta y$
-									</td>
-								</tr>
-
-								<tr>
 									<td>
-
-									</td>
-									<td class="fragment" data-fragment-index="3">
-										$\displaystyle =
-										\left( \frac{v_1\left( x+\Delta x, y^* \right) - v_1\left( x, y^*
-										\right)}{\Delta x} +
-										\frac{ v_2\left( x^* , y + \Delta y \right) - v_2\left( x^*, y \right)}{\Delta
-										y}
-										\right)
-										\Delta x~\Delta y$
+										<div class="r-stack">
+											<span class="fragment fade-in-then-out" data-fragment-index="2">
+												$\displaystyle =
+												\left( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right) \right)
+												\cdot \i ~ \frac{\Delta x}{\Delta x}~\Delta y +
+												\left( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \right)
+												\cdot \j ~ \Delta x~\frac{\Delta y}{\Delta y}$
+											</span>
+											<span class="fragment fade-in" data-fragment-index="3">
+												$\displaystyle =
+												\left( \frac{\v\left( x+\Delta x, y^* \right) - \v\left( x, y^*
+												\right)}{\Delta
+												x} \right)
+												\cdot \i ~ \Delta x~\Delta y +
+												\left( \frac{ \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y
+												\right)}{\Delta y} \right)
+												\cdot \j ~ \Delta x~\Delta y$
+											</span>
+										</div>
 									</td>
 								</tr>
 
@@ -512,12 +509,14 @@
 
 									</td>
 									<td class="fragment" data-fragment-index="4">
-										$\displaystyle \approx
-										\left(
-										\frac{\partial v_1}{\partial x} +
-										\frac{\partial v_2}{\partial y}
+										$\displaystyle \,=
+										\left( \frac{v_1\left( x+\Delta x, y^* \right) - v_1\left( x, y^*
+										\right)}{\Delta x} +
+										\frac{ v_2\left( x^* , y + \Delta y \right) - v_2\left( x^*, y
+										\right)}{\Delta
+										y}
 										\right)
-										\Delta x~\Delta y$
+										\Delta x~\Delta y $
 									</td>
 								</tr>
 
@@ -526,10 +525,20 @@
 
 									</td>
 									<td class="fragment" data-fragment-index="5">
-										$\displaystyle =
-										\div(\v)~ \Delta x~\Delta y$.
+										$\displaystyle \,\approx
+										\left(
+										\frac{\partial v_1}{\partial x} +
+										\frac{\partial v_2}{\partial y}
+										\right)
+										\Delta x~\Delta y\;$
+										<span class="fragment" data-fragment-index="6">
+											$\displaystyle =\,
+											\div(\v)~ \Delta x~\Delta y$.
+										</span>
 									</td>
 								</tr>
+
+
 
 							</table>
 						</div>
@@ -615,7 +624,7 @@
 						<div class="left-txt">
 							<p>
 								One can use the divergence to calculate the net outward flux
-								of v across a closed curve.
+								of $\v$ across a closed curve.
 								We have already seen that we can evaluate this quatity by
 								calculating $\displaystyle \oint_C \v \cdot \n ~dS.$
 
@@ -638,10 +647,16 @@
 						<table style="width:100%;">
 							<tr>
 								<td style="width:40%">
-									<img style="width: 100%; 
-									display: block;
-									margin-left: auto;
-									margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.png" />
+									<div class="r-stack">
+										<img class="fragment fade-out" data-fragment-index="1" style="width: 100%; 
+									    display: block;
+									    margin-left: auto;
+									    margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region-a.png" />
+										<img class="fragment fade-in" data-fragment-index="1" style="width: 100%; 
+									    display: block;
+									    margin-left: auto;
+									    margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.png" />
+									</div>
 
 
 								</td>
@@ -690,10 +705,12 @@
 						<table style="width:100%;">
 							<tr>
 								<td style="width:40%">
-									<img style="width: 100%; 
+									<div class="r-stack">
+										<img style="width: 100%; 
 									display: block;
 									margin-left: auto;
 									margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.png" />
+									</div>
 
 
 								</td>
@@ -748,11 +765,12 @@
 						<table style="width:100%;">
 							<tr>
 								<td style="width:40%">
-									<img style="width: 100%; 
-									display: block;
-									margin-left: auto;
-									margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.png" />
-
+									<div class="r-stack">
+										<img style="width: 100%; 
+										display: block;
+										margin-left: auto;
+										margin-right: auto;" data-src="images/chapter-39/chapter-39-3-region.png" />
+									</div>
 
 								</td>
 
@@ -868,11 +886,11 @@
 						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 40%; 
 						display: block;
 						margin-left: auto;
-						margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-a.svg" />
+						margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-a.png" />
 						<img class="fragment fade-in" data-fragment-index="1" style="width: 40%; 
 						display: block;
 						margin-left: auto;
-						margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+						margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.png" />
 					</div>
 				</section>
 
@@ -886,13 +904,13 @@
 								<img style="width: 100%; 
 								display: block;
 								margin-left: auto;
-								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.png" />
 							</td>
 
 							<td style="width:60%">
 
 
-								
+
 								<div class="size-60">
 									<p>
 										Here we are going to use the flux form of Green's theorem:
@@ -908,19 +926,20 @@
 											</tr>
 											<tr>
 												<td>
-													
+
 												</td>
 												<td>
 													$\displaystyle =\;\iint_D \nabla \cdot \v~dA $
 												</td>
 											</tr>
 										</table>
-										
+
 									</p>
 									<p class="fragment" data-fragment-index="0">
 										First we have that
 										\[
-										\nabla \cdot \n = \displaystyle \frac{\partial }{\partial x} (xy) + \frac{\partial }{\partial y} (xy) = x+y
+										\nabla \cdot \n = \displaystyle \frac{\partial }{\partial x} (xy) +
+										\frac{\partial }{\partial y} (xy) = x+y
 										\]
 									</p>
 								</div>
@@ -930,10 +949,10 @@
 
 					</table>
 
-					
+
 				</section>
 
-				
+
 
 				<section data-auto-animate>
 					<h5>39.3.1 Use the flux form of Green's theorem to calculate<br />
@@ -945,35 +964,35 @@
 								<img style="width: 100%; 
 								display: block;
 								margin-left: auto;
-								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.png" />
 							</td>
 
 							<td style="width:77%">
 
 
-								
+
 								<div class="size-60">
 									<p>
-										Then 
+										Then
 										<table>
 											<tr>
 												<td>
 													$\displaystyle \text{Outward flux}$
 												</td>
 												<td>
-													$\displaystyle =  \iint_D \nabla \cdot \v ~dA = \iint_D(x+y)~dA$.
+													$\displaystyle = \iint_D \nabla \cdot \v ~dA = \iint_D(x+y)~dA$.
 
 												</td>
 											</tr>
-											
+
 										</table>
-										
-										
+
+
 									</p>
 									<p class="fragment" data-fragment-index="0">
-										Using polar coordinates $x=r\cos \theta$, 
-										$y= r\sin \theta$ with $0\leq r \leq 2$ and 
-										$0\leq \theta \leq 2 \pi$, 
+										Using polar coordinates $x=r\cos \theta$,
+										$y= r\sin \theta$ with $0\leq r \leq 2$ and
+										$0\leq \theta \leq 2 \pi$,
 										<span class="fragment" data-fragment-index="1">
 											we have
 										</span>
@@ -983,21 +1002,23 @@
 													$\displaystyle\iint_D(x+y)~dA$
 												</td>
 												<td>
-													$\displaystyle =  \int_0^2\int_0^{2\pi} \left(r\cos \theta + r \sin \theta\right)r ~dr~d\theta$
+													$\displaystyle = \int_0^2\int_0^{2\pi} \left(r\cos \theta + r \sin
+													\theta\right)r ~dr~d\theta$
 
 												</td>
 											</tr>
 											<tr>
 												<td>
-													
+
 												</td>
 												<td class="fragment" data-fragment-index="2">
-													$\displaystyle =\left(\int_0^2 r^2~dr \right)\left(\int_0^{2\pi} \left(\cos \theta +  \sin \theta\right)d\theta \right)$
+													$\displaystyle =\left(\int_0^2 r^2~dr \right)\left(\int_0^{2\pi}
+													\left(\cos \theta + \sin \theta\right)d\theta \right)$
 												</td>
 											</tr>
 											<tr>
 												<td>
-													
+
 												</td>
 												<td class="fragment" data-fragment-index="3">
 													$\displaystyle =\frac{16}{3}$.
@@ -1012,7 +1033,7 @@
 
 					</table>
 
-					
+
 				</section>
 
 				<section data-auto-animate>
@@ -1025,16 +1046,16 @@
 								<img style="width: 100%; 
 								display: block;
 								margin-left: auto;
-								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.svg" />
+								margin-right: auto;" data-src="images/chapter-39/chapter-39-3-1-example-b.png" />
 							</td>
 
 							<td style="width:60%">
 
 
-								
+
 								<div class="size-60">
 									<p>
-										Therefore 
+										Therefore
 										<table>
 											<tr>
 												<td>
@@ -1042,45 +1063,45 @@
 												</td>
 												<td>
 													$\displaystyle = \oint_C \v \cdot n~dS $
-												
+
 												</td>
 											</tr>
 
 											<tr>
 												<td>
-													
+
 												</td>
 												<td>
-													$\displaystyle =   \iint_D \nabla \cdot \v ~dA $
-												
+													$\displaystyle = \iint_D \nabla \cdot \v ~dA $
+
 												</td>
 											</tr>
 
 											<tr>
 												<td>
-													
+
 												</td>
 												<td>
-													$\displaystyle =  \iint_D(x+y)~dA $
-												
+													$\displaystyle = \iint_D(x+y)~dA $
+
 												</td>
 											</tr>
 
 											<tr>
 												<td>
-													
+
 												</td>
 												<td>
-													$\displaystyle =  \frac{16}{3}.$
-												
+													$\displaystyle = \frac{16}{3}.$
+
 												</td>
 											</tr>
-											
+
 										</table>
-										
-										
+
+
 									</p>
-									
+
 								</div>
 
 							</td>
@@ -1088,7 +1109,7 @@
 
 					</table>
 
-					
+
 				</section>
 
 			</section>
