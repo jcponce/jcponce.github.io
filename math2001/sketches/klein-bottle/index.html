@@ -50,9 +50,9 @@
 			uMax = TWOPI,
 			vMin = 0,
 			vMax = TWOPI;
-		var play = true;
-		var torsion = 5;
-		
+		var rot = true; //Rotation
+		var sha = true; // Shading
+
 
 		var updateGraph = function () {
 
@@ -70,14 +70,24 @@
 
 		var sc = 1.85;
 		// Create cartesian view
-		var view = mathbox.cartesian({
-			range: [
-				[xMin, xMax],
-				[yMin, yMax],
-				[zMin, zMax]
-			],
-			scale: [sc, sc, sc],
-		});
+		var view = mathbox.clock({}, {
+				speed: function () {
+					return rot ? 1 / 40 : 0;
+				},
+			})
+			.cartesian({
+				range: [
+					[xMin, xMax],
+					[yMin, yMax],
+					[zMin, zMax]
+				],
+				scale: [sc, sc, sc],
+
+			}, {
+				quaternion: function (t) {
+					return [Math.cos(t), 0, Math.sin(-t), 0];
+				},
+			});
 
 		// Create u,v domain
 		var domain = mathbox.cartesian({
@@ -87,7 +97,7 @@
 			]
 		});
 
-		///* 
+		/* 
 		// 3D axes / grid
 		domain.axis({
 			axis: 1,
@@ -106,7 +116,7 @@
 		//	divideX: 20,
 		//	divideY: 20
 		//});
-		//*/
+		*/
 
 		var m = 6;
 		var n = 5;
@@ -141,54 +151,48 @@
 		var b = 1.2;
 		var c = 0.4;
 
-		function Fx (u, v, t) {
-			if( u < PI) {
+		function Fx(u, v, t) {
+			if (u < PI) {
 				return a * Math.cos(u) * (1.0 + Math.sin(u)) + c * (1.0 - Math.cos(u) / 2.0) * Math.cos(u) * Math.cos(v);
 			} else {
 				return a * Math.cos(u) * (1.0 + Math.sin(u)) + c * (1.0 - Math.cos(u) / 2.0) * Math.cos(v + PI);
 			}
 			//return Math.cos(u) * Math.sin(v);
 		}
-		function Fy (u, v, t) {
-			if( u < PI) {
-				return b * Math.sin(u) + c * (1.0 -  Math.cos(u) / 2.0) * Math.sin(u) * Math.cos(v);
+
+		function Fy(u, v, t) {
+			if (u < PI) {
+				return b * Math.sin(u) + c * (1.0 - Math.cos(u) / 2.0) * Math.sin(u) * Math.cos(v);
 			} else {
 				return b * Math.sin(u);
 			}
 			//return Math.sin(u) * Math.sin(v);
 		}
-		function Fz (u, v, t) {
+
+		function Fz(u, v, t) {
 			return c * (1 - Math.cos(u) / 2) * Math.sin(v);
 			//return Math.cos(v);
 		}
 
 		// Data for plotting
-		var resolution = 40;
+		var resolution = 60;
 		var graphData = domain.area({
 			axes: [1, 2], // u, v
 			width: resolution,
 			height: resolution,
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
-				
-				var autoTorsion = 0.05 * Math.cos(2 * t)
 
-				if (play) {
-					emit(
-						Fx(u, v, autoTorsion),
-						Fz(u, v, autoTorsion),
-						Fy(u, v, 0)
-					)
-				} else {
-					emit(
-						Fx(u, v, 0),
-						Fz(u, v, 0),
-						Fy(u, v, 0)
-					)
-				}
+
+				emit(
+					Fx(u, v, 0),
+					Fz(u, v, 0),
+					Fy(u, v, 0)
+				)
+
 			},
 		});
-		view.surface({
+		var surfaceFill = view.surface({
 			points: graphData,
 			fill: true,
 			lineX: false,
@@ -196,14 +200,16 @@
 			width: 0.5,
 			color: '#3090FF',
 			zBias: 1,
-			shaded: true,
+			shaded: sha,
 		});
 
-		view.surface({
+		var gr = true;
+
+		var surfaceGrid = view.surface({
 			points: graphData,
 			fill: false,
-			lineX: true,
-			lineY: true,
+			lineX: gr,
+			lineY: gr,
 			width: 1,
 			color: '#0f0f0f',
 			zBias: 1,
@@ -212,14 +218,27 @@
 
 		// GUI controls
 
+		
+
 		var gui = new dat.GUI();
 
 		var aGUI = gui.add(this, 'a').min(-2).max(2).step(0.1).name('a = ').onChange(updateGraph);
 		var bGUI = gui.add(this, 'b').min(-2).max(2).step(0.1).name('b = ').onChange(updateGraph);
 		var cGUI = gui.add(this, 'c').min(-2).max(2).step(0.1).name('c = ').onChange(updateGraph);
-		var uGUI = gui.add(this, 'uMax').min(0).max(TWOPI).step(PI/100).name('u = ').onChange(updateGraph);
-		var vGUI = gui.add(this, 'vMax').min(0).max(TWOPI).step(PI/100).name('v = ').onChange(updateGraph);
-		var animateGUI = gui.add(this, 'play')
+		var uGUI = gui.add(this, 'uMax').min(0).max(TWOPI).step(PI / 100).name('u = ').onChange(updateGraph);
+		var vGUI = gui.add(this, 'vMax').min(0).max(TWOPI).step(PI / 100).name('v = ').onChange(updateGraph);
+		var rotGUI = gui.add(this, 'rot').name('Rotate');
+		var shaGUI = gui.add(this, 'sha').name('Shaded').onChange(
+			function () {
+				surfaceFill.set("shaded", sha);
+			}
+		);
+		var griGUI = gui.add(this, 'gr').name('Grid').onChange(
+			function () {
+				surfaceGrid.set("lineX", gr);
+				surfaceGrid.set("lineY", gr);
+			}
+		);
 
 		//gui.add(this, 'updateGraph').name("Update Graph");
 
