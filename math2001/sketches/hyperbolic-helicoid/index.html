@@ -34,7 +34,7 @@
 		});
 		mathbox.camera({
 			proxy: true,
-			position: [0.09, -2.9, 0.7]
+			position: [1.9, -1.5, 2.2]
 		});
 
 		var xMin = -3,
@@ -71,7 +71,7 @@
 				[yMin, yMax],
 				[zMin, zMax]
 			],
-			scale: [2.5, 2.5, 2.5],
+			scale: [3.5, 3.5, 3.5],
 		});
 
 		// Create u,v domain
@@ -115,7 +115,7 @@
 		};
 
 		// Data for plotting
-		var resolution = 600;
+		var resolution = 500;
 		var graphData = domain.area({
 			axes: [1, 2], // u, v
 			width: resolution,
@@ -123,7 +123,7 @@
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
 				
-				var autoTorsion = 7 * Math.cos(0.35 * t)
+				var autoTorsion = 7 * Math.cos(0.25 * t)
 
 				if (play) {
 					emit(
