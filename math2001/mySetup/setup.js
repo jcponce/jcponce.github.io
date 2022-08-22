@@ -56,7 +56,7 @@
 						snorm: ["{\\|#1\\|}", 1],
 						norm: ["{\\|#1\\|}", 1],
 						epsilon: "\\varepsilon",
-						cdot: "\\bullet",
+						//cdot: "\\small\\bullet",
 						//cdot: "{\\textstyle \\,\\bullet\\,}",
 						//cdot: "{\\scriptstyle \\,\\bullet\\,}",
 					}
