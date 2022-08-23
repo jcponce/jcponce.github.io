@@ -267,6 +267,24 @@
 		updateGraph(); 
 		};
 	var preset7GUI = folderP.add( this, "presetFunc7" ).name("Astroid");
+
+	var presetFunc8 = function() { 
+		xFuncGUI.setValue("cos(u) * cosh(v/2)"); yFuncGUI.setValue("sin(u) * cosh(v/2)"); zFuncGUI.setValue("v/2");
+		uMinGUI.setValue(0); uMaxGUI.setValue(6.282); 
+		vMinGUI.setValue(-3.141); vMaxGUI.setValue(3.141);
+		updateGraph(); 
+		};
+	var preset8GUI = folderP.add( this, "presetFunc8" ).name("Catenoid");
+
+	var presetFunc9 = function() { 
+		xFuncGUI.setValue("2 * (exp(u/22) - 1) * cos(u) * (cos(v/2))^2"); yFuncGUI.setValue("2 * (1 - exp(u/22)) * sin(u) * (cos(v/2))^2"); zFuncGUI.setValue("exp(u/22)* sin(v) - exp(u/16) - sin(v) + 3");
+		uMinGUI.setValue(0); uMaxGUI.setValue(18.812); 
+		vMinGUI.setValue(0); vMaxGUI.setValue(6.282);
+		updateGraph(); 
+		};
+	var preset9GUI = folderP.add( this, "presetFunc9" ).name("Shell");
+
+
 	
 	
 	
