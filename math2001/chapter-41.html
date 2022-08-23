@@ -344,7 +344,7 @@
 												we
 												can define the two vectors $\r_u\Delta u$ and $\r_v\Delta v$ which form
 												two sides of a
-												parallelogram, 
+												parallelogram,
 												the side lengths of which coincide with our
 												approximations to the lengths of the edges of the patch.
 											</p>
@@ -389,14 +389,14 @@
 												The vector $\left(\r_u~\Delta\right) u \times \left(\r_v~\Delta
 												v\right)$ is normal to the surface (and hence the
 												tangent plane) at that point. Its magnitude gives the area of the
-												parallelogram we use to approximate the area of the patch $\Delta S$. 
+												parallelogram we use to approximate the area of the patch $\Delta S$.
 												<span class="fragment" data-fragment-index="0">
 													We
-												then
-												have
-												\[
-												\Delta S \approx \norm{\r_u \times \r_v} ~\Delta u ~\Delta v.
-												\]
+													then
+													have
+													\[
+													\Delta S \approx \norm{\r_u \times \r_v} ~\Delta u ~\Delta v.
+													\]
 												</span>
 											</p>
 											<p class="fragment" data-fragment-index="1">
@@ -408,7 +408,7 @@
 											<table>
 												<tr class="fragment" data-fragment-index="1">
 													<td>
-														area of $S$<br/><br/>
+														area of $S$<br /><br />
 													</td>
 													<td>
 														$\displaystyle\approx \sum _i \Delta S_i$
@@ -419,15 +419,16 @@
 
 													</td>
 													<td class="fragment" data-fragment-index="2">
-														$\displaystyle= \sum_i \norm{\r_{u_i} \times \r_{v_i}} ~\Delta u_i ~\Delta v_i.$
+														$\displaystyle= \sum_i \norm{\r_{u_i} \times \r_{v_i}} ~\Delta
+														u_i ~\Delta v_i.$
 													</td>
 												</tr>
 											</table>
-											
+
 
 										</div>
 
-										
+
 
 
 
@@ -441,7 +442,9 @@
 					</div>
 				</section>
 
-				
+
+
+
 
 				<section data-auto-animate>
 					<h4>41.1 Area of a parametric surface</h4>
@@ -466,10 +469,137 @@
 			</section>
 
 
+			<section>
+				<h5>
+					41.1.1 Application: find the surface area of the paraboloid $z=1-x^2-y^2$
+					for $z\geq 0 $
+				</h5>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>
+						41.2 More on calculating surface integrals, applications
+					</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								Let $f(x,y,z)$ be a scalar function in $\R^3$.
+								<span class="fragment" data-fragment-index="0">
+									We can define the surface integral of f over a
+									smooth parametric surface $S$ in $\R^3$ as
+									\[
+									\iint_S f(x,y,z)~dS = \iint_D f\left(\r(u,v)\right)\norm{\r_u\times \r_v}~du~dv.
+									\]
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="1">
+								Surface integrals and double integrals have
+								similar applications. Indeed, a double integral
+								is merely a special case of a surface integral
+								where the surface lies entirely in the $x$-$y$ plane.
+
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						41.2 More on calculating surface integrals, applications
+					</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								For example, if a thin sheet has the shape of a surface $S$ and the mass density at the
+								point $(x, y, z)$ is $\rho(x, y, z)$,
+								<span class="fragment" data-fragment-index="0">
+									then the mass of the sheet is given by a surface
+									integral:
+									\[
+									\text{mass of sheet} = \iint_D \rho (x,y,z)~dS.
+									\]
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="1">
+								Another application is in calculating the average
+								value of a function over a surface.
+								<span class="fragment" data-fragment-index="2">
+									Let $S$ be a
+									smooth surface in $\R^3$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Then the average value of
+									the function $f(x,y,z)$ over that surface is given by
+									\[
+									\text{average value over surface} = \frac{1}{\text{area of } S}\iint_S f (x,y,z)~dS.
+									\]
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						41.2 More on calculating surface integrals, applications
+					</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								If the surface $S$ is a closed surface, it is convention to write
+								<img style="width: 21%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-41/double-int-circ.png" />
+								to represent the surface integral.
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								If $S$ is a finite union of smooth surfaces
+								$S_1, S_2,\ldots, S_n$ that intersect only at their
+								boundaries,
+								<span class="fragment" data-fragment-index="1">
+									then
+									\[
+									\iint_S f (x,y,z)~dS =\iint_{S_1} f (x,y,z)~dS + \iint_{S_2} f (x,y,z)~dS + \cdots +
+									\iint_{S_n} f (x,y,z)~dS.
+									\]
+
+								</span>
+								<span class="fragment" data-fragment-index="2">
+
+									Closed surfaces are often unions of
+									smooth surfaces as demonstrated in the following example.
+
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
 
 
+			</section>
 
+			<section>
+				<h5>
+					41.2.1 The function $T (x, y, z) = x^2 + y^2 + z^2 + 4 $
+					
 
+				</h5>
+				<p class="left-txt" style="font-size:26px;"><strong>
+					gives the temperature
+					at
+					any point $(x, y, z)$ on the surface
+						of a solid hemisphere of radius
+						1 centred at the origin, defined for $z\geq 0$. Find the
+						average temperature over the surface
+					</strong></p>
+
+			</section>
 
 
 			<section>
