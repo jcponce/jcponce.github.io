@@ -159,6 +159,8 @@
         channels: 3,  // 3D space
     });
 
+	
+
 	var domainColors = domain.area({
 		width: resolution, height: resolution,
 		// expr: set later
@@ -269,7 +271,7 @@
 	var preset7GUI = folderP.add( this, "presetFunc7" ).name("Astroid");
 
 	var presetFunc8 = function() { 
-		xFuncGUI.setValue("cos(u) * cosh(v/2)"); yFuncGUI.setValue("sin(u) * cosh(v/2)"); zFuncGUI.setValue("v/2");
+		xFuncGUI.setValue("0.8 * cos(u) * cosh(v/2)"); yFuncGUI.setValue("0.8 * sin(u) * cosh(v/2)"); zFuncGUI.setValue("0.8 * v/2");
 		uMinGUI.setValue(0); uMaxGUI.setValue(6.282); 
 		vMinGUI.setValue(-3.141); vMaxGUI.setValue(3.141);
 		updateGraph(); 
@@ -277,12 +279,31 @@
 	var preset8GUI = folderP.add( this, "presetFunc8" ).name("Catenoid");
 
 	var presetFunc9 = function() { 
-		xFuncGUI.setValue("2 * (exp(u/22) - 1) * cos(u) * (cos(v/2))^2"); yFuncGUI.setValue("2 * (1 - exp(u/22)) * sin(u) * (cos(v/2))^2"); zFuncGUI.setValue("exp(u/22)* sin(v) - exp(u/16) - sin(v) + 3");
+		xFuncGUI.setValue("0.7 * 2 * (exp(u/22) - 1) * cos(u) * (cos(v/2))^2"); yFuncGUI.setValue("0.7 * 2 * (1 - exp(u/22)) * sin(u) * (cos(v/2))^2"); zFuncGUI.setValue("0.7 * (exp(u/22)* sin(v) - exp(u/16) - sin(v) + 3)");
 		uMinGUI.setValue(0); uMaxGUI.setValue(18.812); 
 		vMinGUI.setValue(0); vMaxGUI.setValue(6.282);
 		updateGraph(); 
 		};
 	var preset9GUI = folderP.add( this, "presetFunc9" ).name("Shell");
+
+	var presetFunc10 = function() { 
+		xFuncGUI.setValue("0.7 * cos(u) * (2 + cos(u/2) * sin(v) - sin(u/2) * sin(2 * v))"); yFuncGUI.setValue("0.7 * sin(u) * (2 + cos(u/2) * sin(v) - sin(u/2) * sin(2 * v))"); zFuncGUI.setValue("0.7 * (sin(u/2) * sin(v) + cos(u/2) * sin(2 * v))");
+		uMinGUI.setValue(0); uMaxGUI.setValue(6.282); 
+		vMinGUI.setValue(0); vMaxGUI.setValue(6.282);
+		updateGraph(); 
+		};
+	var preset10GUI = folderP.add( this, "presetFunc10" ).name("Figure-8");
+
+	/*
+	var TWOPI = 2 * Math.PI;
+	var presetFunc11 = function() { 
+		xFuncGUI.setValue("0.7 * 2 * (cos(u) + v * cos(u/2) * cos(v))"); yFuncGUI.setValue("0.7 * 2 * (sin(u) + v * cos(u/2) * sin(v))"); zFuncGUI.setValue("0.7 * 2 * v * sin(u/2)");
+		uMinGUI.setValue(0); uMaxGUI.setValue(2 * TWOPI); 
+		vMinGUI.setValue(0); vMaxGUI.setValue(0.5);
+		updateGraph(); 
+		};
+	var preset11GUI = folderP.add( this, "presetFunc11" ).name("Mobius-Band");
+	*/
 
 
 	
@@ -308,13 +329,13 @@
   //var boolShade = graphStyle.add( this, "bShade", bShade).name('Shaded');
 	//console.log( boolShade.value());
 
-  var graphWireVisibleGUI = graphStyle.add( this, "graphWireVisible" ).name("View wireframe").onChange(
+  var graphWireVisibleGUI = graphStyle.add( this, "graphWireVisible" ).name("Grid").onChange(
 		function()
 		{
 			surfaceViewLine.set("visible", graphWireVisible);
 		}
 	);
-	var graphShadedGUI = graphStyle.add( this, "graphShaded" ).name("View shading").onChange(
+	var graphShadedGUI = graphStyle.add( this, "graphShaded" ).name("Shaded").onChange(
 		function()
 		{
 			surfaceViewFill.set("shaded", graphShaded);
