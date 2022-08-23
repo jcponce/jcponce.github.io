@@ -298,9 +298,9 @@
 												$$\Delta x = x(u + \Delta u, v) -x(u, v)$$
 												etc (i.e., the change is only in $u$).
 												<span>
-													Similarly, for an edge of patch running from 
+													Similarly, for an edge of patch running from
 													parameter values $(u, v)$ to $(u, v + \Delta v)$
-													the length of that edge will be approximately 
+													the length of that edge will be approximately
 													$||\r_v||\Delta v$.
 												</span>
 											</p>
@@ -314,6 +314,49 @@
 							</table>
 
 
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>41.1 Area of a parametric surface</h4>
+					<div>
+						<div>
+
+
+							<table style="width:100%;">
+								<tr>
+									<td style="width:50%">
+
+										<img style="width: 100%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-41/chapter-41-004.png" />
+
+
+									</td>
+
+									<td style="width:50%">
+
+										<div class="size-60">
+
+											<p>
+												At the corner of the patch corresponding to parameter values $(u, v)$,
+												we
+												can define the two vectors $\r_u\Delta u$ and $\r_v\Delta v$ which form
+												two sides of a
+												parallelogram, the side lengths of which coincide with our
+												approximations to the lengths of the edges of the patch.
+											</p>
+
+										</div>
+
+
+
+									</td>
+								</tr>
+
+							</table>
 
 
 						</div>
@@ -322,24 +365,77 @@
 
 				<section data-auto-animate>
 					<h4>41.1 Area of a parametric surface</h4>
+					<div>
+						<div>
+
+
+							<table style="width:100%;">
+								<tr>
+									<td style="width:50%">
+
+										<img style="width: 100%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-41/chapter-41-005.png" />
+
+
+									</td>
+
+									<td style="width:50%">
+
+										<div class="size-60">
+
+											<p>
+												The vector $\left(\r_u~\Delta\right) u \times \left(\r_v~\Delta
+												v\right)$ is normal to the surface (and hence the
+												tangent plane) at that point. Its magnitude gives the area of the
+												parallelogram we use to approximate the area of the patch $\Delta S$. We
+												then
+												have
+												\[
+												\Delta S \approx \norm{\r_u \times \r_v} ~\Delta u ~\Delta v.
+												\]
+											</p>
+											<p>
+												Adding these approximations for each patch in S gives us an
+												approximation to
+												the area of $S$:
+												\[
+												\text{area of }S \approx \sum _i \Delta S_i = \sum_i \norm{\r_{u_i} \times \r_{v_i}} ~\Delta u_i ~\Delta v_i.
+												\]
+											</p>
+
+										</div>
+
+
+
+									</td>
+								</tr>
+
+							</table>
+
+
+						</div>
+					</div>
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h4>41.1 Area of a parametric surface</h4>
 					<div class="size-60">
 						<div class="left-txt">
 
-							<p>
-								3. The vector
+							<p>4. Finally taking the limit as $\Delta u, \Delta v \to 0$ we obtain
+								\[
+								\text{surface area} = \iint_S dS = \iint_D \norm{\r_u \times \r_v} ~du ~dv
+								\]
 							</p>
 
-							</ol>
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>41.1 Area of a parametric surface</h4>
-					<div class="size-60">
-						<div class="left-txt">
-
-							<p>4. Finally taking the limit as</p>
+							<img style="width: 40%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-41/chapter-41-step-01-surf.png" />
 						</div>
 					</div>
 				</section>
