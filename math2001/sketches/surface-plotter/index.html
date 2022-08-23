@@ -270,7 +270,6 @@
 		});
 
 
-
 		var domainColors = domain.area({
 			width: resolution,
 			height: resolution,
@@ -412,9 +411,9 @@
 		var preset6GUI = folderP.add(this, "presetFunc6").name("Helical");
 
 		var presetFunc7 = function () {
-			xFuncGUI.setValue("cos(u)^3 * cos(v)^3");
-			yFuncGUI.setValue("sin(u)^3 * cos(v)^3");
-			zFuncGUI.setValue("sin(v)^3");
+			xFuncGUI.setValue("2 * cos(u)^3 * cos(v)^3");
+			yFuncGUI.setValue("2 * sin(u)^3 * cos(v)^3");
+			zFuncGUI.setValue("2 * sin(v)^3");
 			uMinGUI.setValue(0);
 			uMaxGUI.setValue(3.141);
 			vMinGUI.setValue(0);
@@ -459,6 +458,20 @@
 		};
 		var preset10GUI = folderP.add(this, "presetFunc10").name("Figure-8");
 
+		var presetFunc11 = function () {
+			xFuncGUI.setValue("2 * (sinh(v) * cos(4 * u)) / (1 + cosh(u) * cosh(v))");
+			yFuncGUI.setValue("2 * (sinh(v) * sin(4 * u)) / (1 + cosh(u) * cosh(v))");
+			zFuncGUI.setValue("2 * (cosh(v) * sinh(u)) / (1 + cosh(u) * cosh(v))");
+			uMinGUI.setValue(-6);
+			uMaxGUI.setValue(6);
+			vMinGUI.setValue(-2.5);
+			vMaxGUI.setValue(2.5);
+			updateGraph();
+		};
+		var preset11GUI = folderP.add(this, "presetFunc11").name("Hyperbolic-Helicoid");
+
+		
+
 		/*
 		var TWOPI = 2 * Math.PI;
 		var presetFunc11 = function() { 
@@ -481,7 +494,10 @@
 		var zMaxGUI = folder1.add(this, 'zMax').name("yMax");
 		var yMinGUI = folder1.add(this, 'yMin').name("zMin");
 		var yMaxGUI = folder1.add(this, 'yMax').name("zMax");
+		var upGRUI =  folder1.add(this, 'updateGraph').name("Update Graph");
 		folder1.close();
+
+		//gui.add(this, 'updateGraph').name("Update Graph");
 
 		var graphColorStyle = "Solid Blue";
 		var graphStyle = gui.addFolder('Graph style');
@@ -495,7 +511,7 @@
 		//var boolShade = graphStyle.add( this, "bShade", bShade).name('Shaded');
 		//console.log( boolShade.value());
 
-		var graphWireVisibleGUI = graphStyle.add(this, "graphWireVisible").name("Grid").onChange(
+		var graphWireVisibleGUI = graphStyle.add(this, "graphWireVisible").name("Mesh").onChange(
 			function () {
 				surfaceViewLine.set("visible", graphWireVisible);
 			}
@@ -515,7 +531,7 @@
 		//);
 		//console.log(graphShaded)
 
-		gui.add(this, 'updateGraph').name("Update Graph");
+		
 
 		gui.close();
 
