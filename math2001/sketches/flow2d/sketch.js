@@ -118,7 +118,7 @@ Flow around a circle simulation designed with p5.js (https://p5js.org/)
  
    translate(-width / 2, -height / 2);
    fill(220);
-   rect(0, 0, 135, 155);
+   rect(3, 3, 135, 155, 10);
    fill(0);
    stroke(0);
    strokeWeight(0.3);
