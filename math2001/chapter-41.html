@@ -194,12 +194,21 @@
 
 
 							<p>
-								1. A partition of S into patches will correspond to a partition of D (in the u-v plane)
+								1. A partition of $S$ into patches will correspond to a partition of $D$ (in the $u$-$v$
+								plane)
 								into small rectangles.
 							</p>
 
-							<p>
-								The dimensions of the rectangles in D will be $\Delta u\Delta v$.
+
+							<img class="fragment fade-in" data-fragment-index="0" style="width: 90%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-41/chapter-41-001.png" />
+
+
+
+							<p class="fragment" data-fragment-index="1">
+								The dimensions of the rectangles in $D$ will be $\Delta u\Delta v$.
 							</p>
 						</div>
 					</div>
@@ -210,13 +219,103 @@
 					<div class="size-60">
 						<div class="left-txt">
 
-							
-								<p>
-									2. Let one of the edges of a single patch be defined from parameter values $(u, v)$ to
-									$(u+ \Delta u, v)$.
-								</p>
 
-							
+							<p>
+								2. Let one of the edges of a single patch be defined from parameter values $(u, v)$ to
+								$(u+ \Delta u, v)$.
+							</p>
+
+							<img style="width: 50%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-41/chapter-41-003.png" />
+
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>41.1 Area of a parametric surface</h4>
+					<div>
+						<div>
+
+
+							<table style="width:100%;">
+								<tr>
+									<td style="width:40%">
+
+										<img style="width: 100%; 
+							display: block;
+							margin-left: auto;
+							margin-right: auto;" data-src="images/chapter-41/chapter-41-003.png" />
+
+
+									</td>
+
+									<td style="width:60%">
+
+										<div class="size-55">
+
+											<p>
+												Using Pythagoras' law in three dimensions,
+												we can approximate the length of this edge as
+											</p>
+											<table>
+												<tr>
+													<td>
+														$\text{length}$
+													</td>
+													<td>
+														$\approx \sqrt{\left(\Delta x\right)^2 + \left(\Delta y\right)^2
+														+ \left(\Delta z\right)^2}$
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+
+													</td>
+													<td>
+														$\displaystyle = \left(\sqrt{\left(\frac{\Delta x}{\Delta
+														u}\right)^2 + \left(\frac{\Delta y}{\Delta u}\right)^2 +
+														\left(\frac{\Delta z}{\Delta u}\right)^2} \right) \Delta u$
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+
+													</td>
+													<td>
+														$\approx \sqrt{\left(\Delta x\right)^2 + \left(\Delta y\right)^2
+														+ \left(\Delta z\right)^2}$
+													</td>
+												</tr>
+											</table>
+											<p>
+												where in this case we have used
+												$$\Delta x = x(u + \Delta u, v) -x(u, v)$$
+												etc (i.e., the change is only in $u$).
+												<span>
+													Similarly, for an edge of patch running from 
+													parameter values $(u, v)$ to $(u, v + \Delta v)$
+													the length of that edge will be approximately 
+													$||\r_v||\Delta v$.
+												</span>
+											</p>
+										</div>
+
+
+
+									</td>
+								</tr>
+
+							</table>
+
+
+
+
 						</div>
 					</div>
 				</section>
@@ -227,7 +326,7 @@
 						<div class="left-txt">
 
 							<p>
-								3. The vector 
+								3. The vector
 							</p>
 
 							</ol>
