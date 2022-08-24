@@ -470,10 +470,263 @@
 
 
 			<section>
-				<h5>
-					41.1.1 Application: find the surface area of the paraboloid $z=1-x^2-y^2$
-					for $z\geq 0 $
-				</h5>
+
+				<section data-auto-animate>
+					<h5>
+						41.1.1 Application: find the surface area of the paraboloid $z=1-x^2-y^2$
+						for $z\geq 0 $
+					</h5>
+
+					<div class="fragment" data-fragment-index="0">
+						<img style="width: 55%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1.png" />
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						41.1.1 Application: find the surface area of the paraboloid $z=1-x^2-y^2$
+						for $z\geq 0 $
+					</h5>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:35%">
+
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="2" style="width: 100%; 
+											display: block;
+											margin-left: auto;
+											margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1.png" />
+									<img class="fragment fade-in" data-fragment-index="2" style="width: 100%; 
+											display: block;
+											margin-left: auto;
+											margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1a.png" />
+								</div>
+
+							</td>
+
+							<td style="width:65%">
+
+								<div class="size-60">
+									<div class="left-txt">
+										<p>
+											Let's begin with the parametrisation of $S$.
+											<span class="fragment" data-fragment-index="0">
+												Consider $x$ and $y$ as parameters, so
+												\[
+												\r(x,y) = x~\i + y~\j + \left(1-x^2-y^2\right)~\k
+												\]
+											</span>
+										</p>
+										<p class="fragment" data-fragment-index="1">
+											$x$ and $y$ are bounded by intersection curve of
+											\[
+											z=1-x^2-y^2\quad \text{and} \quad z=0.
+											\]
+											That is, $x^2+y^2=1$.
+										</p>
+										<p class="fragment" data-fragment-index="2">
+											So the domain for $x$ and $y$ is given by $x^2+y^2\leq 1$.
+										</p>
+
+									</div>
+								</div>
+
+
+
+
+							</td>
+						</tr>
+
+					</table>
+
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						41.1.1 Application: find the surface area of the paraboloid $z=1-x^2-y^2$
+						for $z\geq 0 $
+					</h5>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:35%">
+
+								<div class="r-stack">
+									<img style="width: 100%; 
+											display: block;
+											margin-left: auto;
+											margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1a.png" />
+								</div>
+
+							</td>
+
+							<td style="width:65%">
+
+								<div class="size-60">
+									<div class="left-txt">
+										<p>
+											Thus
+											\[
+											\r_x = \i-2x~\k, \quad \r_y = \j-2y~\k,
+											\]
+											<span class="fragment" data-fragment-index="0">
+												and
+											</span>
+										</p>
+									</div>
+									<div style="text-align:center" class="fragment" data-fragment-index="0">
+										<p>
+											$
+											\r_x\times\r_y =
+											\left|
+											\begin{array}{ccc}
+											\i & \j & \k\\
+											1 & 0 & -2x \\
+											0 & 1 & -2 y
+											\end{array}
+											\right|
+											$
+											<span class="fragment" data-fragment-index="1">
+												$= 2x~\i + 2y ~\j + \k$.
+											</span>
+										</p>
+									</div>
+									<p class="fragment" data-fragment-index="2">
+										Since $||\r_x\times\r_y||=\sqrt{4x^2+4y^2+1}$, then
+										\[
+										dS = ||\r_x\times\r_y|| ~dx~dy = \sqrt{4x^2+4y^2+1}~dx~dy.
+										\]
+									</p>
+								</div>
+
+
+
+
+							</td>
+						</tr>
+
+					</table>
+
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						41.1.1 Application: find the surface area of the paraboloid $z=1-x^2-y^2$
+						for $z\geq 0 $
+					</h5>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:35%">
+
+								<div class="r-stack">
+									<img style="width: 100%; 
+											display: block;
+											margin-left: auto;
+											margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1a.png" />
+								</div>
+
+							</td>
+
+							<td style="width:65%">
+
+								<div class="size-60">
+									
+
+									<table>
+										<tr>
+											<td>
+												 $\Rightarrow \text{Area}$<br/><br/>
+											</td>
+											<td>	
+												$\displaystyle = \iint_S dS$
+												<span>
+												$\displaystyle = \iint\limits_{x^2+y^2\leq 1} ||\r_x\times\r_y|| ~dx~dy$
+												</span>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="1">	
+												$\displaystyle = \iint\limits_{x^2+y^2\leq 1}  \sqrt{4x^2+4y^2+1}~dx~dy$
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="2">	
+												$\displaystyle = \int_0^{2\pi} \int_0^1 \sqrt{4r^2+1}~r~dr~d\theta$
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="3">	
+												$\displaystyle = \int_0^{2\pi}  
+												\left[ 
+												\bigg. 
+												\frac{1}{8}~\frac{2}{3} \left(4r^2+1\right)^{3/2} 
+												\bigg|_0^1
+												\right] 
+												d\theta$
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												
+											</td>
+											<td class="fragment" data-fragment-index="4">	
+												$\displaystyle = \int_0^{2\pi}  
+												\left[ 
+												\frac{5 \sqrt{5} -1}{12}
+												\right] 
+												d\theta$
+												<span class="fragment" data-fragment-index="5">
+													$\displaystyle =\frac{\pi}{6} \left(5 \sqrt{5} - 1\right) $.
+												</span>
+
+											</td>
+										</tr>
+
+									</table>
+
+									
+								</div>
+
+
+
+
+							</td>
+						</tr>
+
+					</table>
+
+
+
+				</section>
+
+
 			</section>
 
 			<section>
@@ -587,13 +840,13 @@
 			<section>
 				<h5>
 					41.2.1 The function $T (x, y, z) = x^2 + y^2 + z^2 + 4 $
-					
+
 
 				</h5>
 				<p class="left-txt" style="font-size:26px;"><strong>
-					gives the temperature
-					at
-					any point $(x, y, z)$ on the surface
+						gives the temperature
+						at
+						any point $(x, y, z)$ on the surface
 						of a solid hemisphere of radius
 						1 centred at the origin, defined for $z\geq 0$. Find the
 						average temperature over the surface
