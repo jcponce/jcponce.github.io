@@ -843,8 +843,8 @@
 				<section data-auto-animate>
 					<h5>
 						41.2.1 The function $T (x, y, z) = x^2 + y^2 + z^2 + 4 $
-	
-	
+
+
 					</h5>
 					<p class="left-txt" style="font-size:26px;"><strong>
 							gives the temperature
@@ -854,22 +854,22 @@
 							1 centred at the origin, defined for $z\geq 0$. Find the
 							average temperature over the surface
 						</strong></p>
-	
+
 					<div class="fragment" data-fragment-index="0">
 						<iframe scrolling="no" title="Chapter-41-2-1: Example"
 							src="https://www.geogebra.org/material/iframe/id/ewuzmn2a/width/500/height/380/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
 							width="500px" height="380px" style="border:0px;" data-preload> </iframe>
 					</div>
-	
+
 				</section>
 
 				<section data-auto-animate>
 					<h5>
 						41.2.1 The function $T (x, y, z) = x^2 + y^2 + z^2 + 4 $
-	
-	
+
+
 					</h5>
-					<p class="left-txt" style="font-size:26px;"><strong>
+					<p class="left-txt" style="font-size:18px;"><strong>
 							gives the temperature
 							at
 							any point $(x, y, z)$ on the surface
@@ -878,52 +878,324 @@
 							average temperature over the surface
 						</strong></p>
 
-						<table style="width:100%;">
-							<tr>
-								<td style="width:35%">
-	
-									<div class="r-stack">
-										<img style="width: 100%; 
+					<table style="width:100%;">
+						<tr>
+							<td style="width:35%">
+
+								<div class="r-stack">
+									<img style="width: 100%; 
 												display: block;
 												margin-left: auto;
 												margin-right: auto;" data-src="images/chapter-41/chapter-41-2-1-example.png" />
-									</div>
-	
-								</td>
-	
-								<td style="width:65%">
-	
-									<div class="size-60">
-										<div class="left-txt">
-											<p>
-												Here we have that
-											</p>
-										</div>
-										<div style="text-align:center" >
-											<p>
-												$
-												\displaystyle \text{Average temp.} = \frac{\displaystyle\iint_S T~dS}{\text{area of }S}\qquad \qquad \qquad \qquad 
-												$<br/><br/>
-												<span class="fragment" data-fragment-index="0">
-													$\qquad \;\;= \frac{\displaystyle\iint_{S_1} T~dS + \iint_{S_2} T~dS }{\displaystyle\iint_{S_1} ~dS + \iint_{S_2} ~dS }$.
-												</span>
-											</p>
-										</div>
-										<p class="fragment" data-fragment-index="0">
-											where $S_1$ is the base and $S_2$ is the top.
-										</p>
-										
-									</div>
-	
-	
-	
-	
-								</td>
-							</tr>
-	
-						</table>
+								</div>
 
-	
+							</td>
+
+							<td style="width:65%">
+
+								<div class="size-60">
+									<div class="left-txt">
+										<p>
+											Here we have that
+										</p>
+									</div>
+									<div style="text-align:center">
+										<p>
+											$
+											\displaystyle \text{Average temp.} = \frac{\displaystyle\iint_S
+											T~dS}{\text{area of }S}\qquad \qquad \qquad \qquad
+											$<br /><br />
+											<span class="fragment" data-fragment-index="0">
+												$\qquad \;\;= \frac{\displaystyle\iint_{S_1} T~dS + \iint_{S_2} T~dS
+												}{\displaystyle\iint_{S_1} ~dS + \iint_{S_2} ~dS }$.
+											</span>
+										</p>
+									</div>
+									<p class="fragment" data-fragment-index="0">
+										where $S_1$ is the base and $S_2$ is the top.
+									</p>
+
+								</div>
+
+
+
+
+							</td>
+						</tr>
+
+					</table>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						41.2.1 The function $T (x, y, z) = x^2 + y^2 + z^2 + 4 $
+
+
+					</h5>
+					<p class="left-txt" style="font-size:18px;"><strong>
+							gives the temperature
+							at
+							any point $(x, y, z)$ on the surface
+							of a solid hemisphere of radius
+							1 centred at the origin, defined for $z\geq 0$. Find the
+							average temperature over the surface
+						</strong></p>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:35%">
+
+								<div class="r-stack">
+									<img style="width: 100%; 
+												display: block;
+												margin-left: auto;
+												margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1a.png" />
+								</div>
+
+							</td>
+
+							<td style="width:65%">
+
+								<div class="size-60">
+									<div class="left-txt">
+										<p>
+											For $S_1$: Here we have a disk in the $xy$-plane
+											of radius $1$.
+											<span class="fragment" data-fragment-index="0">
+												Then the parametrisiation is
+												\[
+												\r(x,y) = x~\i+y~\j+0~\k\quad (x^2+y^2\leq 1).
+												\]
+											</span>
+										</p>
+										<p class="fragment" data-fragment-index="1">
+											Then $\r_x = \i$, $\r_y = \j$ and
+											\[
+											dS = \norm{\r_x\times \r_y }~dx~dy= dx~dy.
+											\]
+										</p>
+									</div>
+
+									<div class="r-stack">
+										<p class="fragment fade-in-then-out" data-fragment-index="2">
+											So $\displaystyle \iint_{S_1} T~dS = \iint_{S_1} \left(
+											x^2+y^2+z^2+4\right)dx~dy$
+										</p>
+										<p class="fragment fade-in-then-out" data-fragment-index="3">
+											or $\displaystyle \iint_{S_1} T~dS = \iint_{S_1} \left(
+											x^2+y^2+(0)^2+4\right)dx~dy$
+										</p>
+										<p class="fragment fade-in" data-fragment-index="4">
+											That is $\displaystyle \iint_{S_1} T~dS = \iint_\limits{x^2+y^2\leq 1}
+											\left( x^2+y^2+4\right)dx~dy$.
+										</p>
+									</div>
+
+
+
+
+								</div>
+
+
+
+
+							</td>
+						</tr>
+
+					</table>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						41.2.1 The function $T (x, y, z) = x^2 + y^2 + z^2 + 4 $
+
+
+					</h5>
+					<p class="left-txt" style="font-size:18px;"><strong>
+							gives the temperature
+							at
+							any point $(x, y, z)$ on the surface
+							of a solid hemisphere of radius
+							1 centred at the origin, defined for $z\geq 0$. Find the
+							average temperature over the surface
+						</strong></p>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:27%">
+
+								<div class="r-stack">
+									<img style="width: 100%; 
+												display: block;
+												margin-left: auto;
+												margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1a.png" />
+								</div>
+
+							</td>
+
+							<td style="width:73%">
+
+								<div class="size-60">
+									<div class="left-txt">
+										<p>
+											For $S_1$: Using polar coordinates
+											\[
+											x = r\cos\theta , \quad y = r \sin \theta
+											\]
+											with $0\leq r \leq 1$ and $0\leq \theta \leq 2 \pi$,
+											we have
+										</p>
+
+									</div>
+
+									<table>
+										<tr>
+											<td>
+												$\displaystyle \iint_{S_1} T~dS $<br /><br />
+											</td>
+											<td>
+												$\displaystyle = \iint_\limits{x^2+y^2\leq 1} \left(
+												x^2+y^2+z^2+4\right)dx~dy$
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment fade-in" data-fragment-index="0">
+												$\displaystyle = \int_0^1 \int_0^{2\pi} \left(r^2 \cos ^2 \theta + r^2
+												\sin^2 \theta + 4\right)r ~dr~d\theta $
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+
+											</td>
+											<td class="fragment fade-in" data-fragment-index="1">
+												$\displaystyle = \int_0^1 \int_0^{2\pi} \left(r^2 + 4\right)r
+												~dr~d\theta $
+												<span class="fragment fade-in" data-fragment-index="2">
+													$\displaystyle = \frac{9 \pi}{2}$
+												</span>
+											</td>
+										</tr>
+									</table>
+
+
+
+
+								</div>
+
+
+
+
+							</td>
+						</tr>
+
+					</table>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						41.2.1 The function $T (x, y, z) = x^2 + y^2 + z^2 + 4 $
+
+
+					</h5>
+					<p class="left-txt" style="font-size:18px;"><strong>
+							gives the temperature
+							at
+							any point $(x, y, z)$ on the surface
+							of a solid hemisphere of radius
+							1 centred at the origin, defined for $z\geq 0$. Find the
+							average temperature over the surface
+						</strong></p>
+
+					<table style="width:100%;">
+						<tr>
+							<td style="width:35%">
+
+								<div class="r-stack">
+									<img style="width: 100%; 
+												display: block;
+												margin-left: auto;
+												margin-right: auto;" data-src="images/chapter-41/chapter-41-1-1a.png" />
+								</div>
+
+							</td>
+
+							<td style="width:65%">
+
+								<div class="size-60">
+									<div class="left-txt">
+										<p>
+											For $S_1$: Using polar coordinates
+											\[
+											x = r\cos\theta , \quad y = r \sin \theta
+											\]
+											with $0\leq r \leq 1$ and $0\leq \theta \leq 2 \pi$,
+											we have
+										</p>
+
+									</div>
+
+									<table>
+										<tr>
+											<td>
+												$\displaystyle \iint_{S_1} T~dS $
+											</td>
+											<td>
+												$\displaystyle = \frac{9 \pi}{2}$.
+											</td>
+										</tr>
+									</table>
+
+								
+									<table>
+										<tr>
+											<td class="fragment fade-in" data-fragment-index="0">
+											Finally $\;\;\displaystyle \iint_{S_1}~dS $
+											</td>
+											<td class="fragment fade-in" data-fragment-index="1">
+												$\displaystyle = \text{Area of the disk of radius 1}$<br />
+
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+											</td>
+											<td>
+
+												<span class="fragment fade-in" data-fragment-index="2">
+													$=\pi (1)^2$
+													<span class="fragment fade-in" data-fragment-index="3">
+														$= \pi$.
+													</span>
+												</span>
+											</td>
+										</tr>
+									</table>
+
+
+								</div>
+
+
+
+
+							</td>
+						</tr>
+
+					</table>
+
+
 				</section>
 
 			</section>
