@@ -47,8 +47,6 @@
 			uMax = 2 * Math.PI,
 			vMin = 0,
 			vMax = 2 * Math.PI;
-		var play = true;
-		var torsion = 5;
 
 		var updateGraph = function () {
 
@@ -74,7 +72,7 @@
 			scale: [1, 1, 1],
 		}, {
 			quaternion: function (t) {
-				return [0, -Math.sin(t / 20), 0, Math.cos(t / 20)];
+				return [0, -Math.sin(t / 18), 0, Math.cos(t / 18)];
 			},
 		});
 
@@ -88,17 +86,23 @@
 
 		///* 
 		// 3D axes / grid
-		view.axis({
+		view.transform({
+			position: [0, -3, -3],
+		}).axis({
 			axis: 1,
 			width: 3,
 			color: "red"
 		});
-		view.axis({
+		view.transform({
+			position: [-3, 0, -3],
+		}).axis({
 			axis: 2,
 			width: 3,
 			color: "blue"
 		});
-		view.axis({
+		view.transform({
+			position: [-3, -3, 0],
+		}).axis({
 			axis: 3,
 			width: 3,
 			color: "green"
@@ -128,7 +132,7 @@
 		};
 
 		// Data for plotting
-		var resolution = 300;
+		var resolution = 58;
 		var graphData = domain.area({
 			axes: [1, 2], // u, v
 			width: resolution,
@@ -136,21 +140,12 @@
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
 
-				var autoTorsion = 5 * Math.cos(0.25 * t)
-
-				if (play) {
-					emit(
-						Fx(u, v, autoTorsion),
-						Fz(u, v, autoTorsion),
+				emit(
+						Fx(u, v, 0),
+						Fz(u, v, 0),
 						Fy(u, v, 0)
 					)
-				} else {
-					emit(
-						Fx(u, v, torsion),
-						Fz(u, v, torsion),
-						Fy(u, v, torsion)
-					)
-				}
+				
 			},
 		});
 		view.surface({
@@ -165,18 +160,17 @@
 
 		});
 
-		// GUI controls
+		var surfaceGrid = view.surface({
+			points: graphData,
+			fill: false,
+			lineX: true,
+			lineY: true,
+			width: 0.5,
+			color: '#0f0f0f',
+			zBias: 1,
+			shaded: false,
+		});
 
-		//var gui = new dat.GUI();
-
-		//var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange(updateGraph);
-		//var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange(updateGraph);
-		//var torsionGUI = gui.add(this, 'torsion').min(-10).max(10).step(0.01).name('torsion = ').onChange(updateGraph);
-		//var animateGUI = gui.add(this, 'play')
-
-		//gui.add(this, 'updateGraph').name("Update Graph");
-
-		//gui.close();
 	</script>
 </body>
 
