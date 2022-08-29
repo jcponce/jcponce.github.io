@@ -103,22 +103,24 @@
 					<table width="100%">
 						<tr>
 							<td width="35%">
-								<p style="font-size:19px;text-align:center;">$\displaystyle \int_I f(x)dx = \lim \sum_{i=1}^{n} f(x_i^*)(x_i-x_{i-1})$</p>
+								<p style="font-size:19px;text-align:center;">$\displaystyle \int_I f(x)dx = \lim
+									\sum_{i=1}^{n} f(x_i^*)(x_i-x_{i-1})$</p>
 							</td>
 							<td width="65%">
 								<iframe scrolling="no" title="Chapter-23: Riemann Integral"
-								src="https://www.geogebra.org/material/iframe/id/geqxwwm2/width/563/height/392/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
-								width="563px" height="392px" style="border:0px;" allowfullscreen=""> </iframe>
+									src="https://www.geogebra.org/material/iframe/id/geqxwwm2/width/563/height/392/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+									width="563px" height="392px" style="border:0px;" allowfullscreen="" data-preload>
+								</iframe>
 							</td>
 						</tr>
 					</table>
 
 					<div>
-						
-					
+
+
 					</div>
 
-					
+
 				</section>
 
 			</section>
@@ -152,17 +154,19 @@
 					<table style="width:100%;">
 						<tr>
 
-							<th style="width:50%">
+							<th style="width:45%">
 								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 									<p class="fragment" data-fragment-index="1">
 										Divide $R$ into subrectangles by dividing $[a,b]$ into $m$ subintervals
 										$[x_{i-1},x_i]$, each of width $$\Delta x = \frac{b-a}{m}$$
-										and
+										<span class="fragment" data-fragment-index="2">
+											and
 										$[c,d]$ into $n$ subintervals $[y_{i-1},y_i]$ of equal width
 										$$\Delta y = \frac{d-c}{n}.$$
+										</span>
 
 									</p>
-									<p class="fragment" data-fragment-index="2">
+									<p class="fragment" data-fragment-index="3">
 										Combining these gives a rectangular grid $R_{ij}$ with subrectangles each
 										of area $\Delta A= \Delta x\Delta y$.
 										In each subrectangle take any point $P_{ij}$ with
@@ -170,10 +174,21 @@
 									</p>
 								</div>
 							</th>
-							<th style="width:50%;" class="fragment" data-fragment-index="1"><img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/chapter-23/chapter-23-1-b-rec-area.svg" />
+							<th style="width:65%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1" style="width: 100%; 
+					         			display: block;
+						     			margin-left: auto;
+						     			margin-right: auto;" class="r-stretch" data-src="images/chapter-23/chapter-23-1-b-rec-area-rect.svg" />
+									<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 100%; 
+										display: block;
+										margin-left: auto;
+										margin-right: auto;" class="r-stretch" data-src="images/chapter-23/chapter-23-1-b-rec-area-dx.svg" />
+									<img class="fragment fade-in" data-fragment-index="2" style="width: 100%; 
+					        			 display: block;
+						     			margin-left: auto;
+						     			margin-right: auto;" class="r-stretch" data-src="images/chapter-23/chapter-23-1-b-rec-area.svg" />
+								</div>
 							</th>
 
 						</tr>
