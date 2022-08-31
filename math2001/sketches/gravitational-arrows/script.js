@@ -163,7 +163,7 @@ class Arrow {
   init() {
     // colors won't be modified later, so write them to the
     // buffer right away
-    this.color.setHSL( 0.55, rnd(0.3, 0.9), rnd(0.1, 0.9));
+    this.color.setHSL( 0.55, rnd(0.3, 0.9), rnd(0.1, 0.9) );
     this.color.toArray(this.buffers.color, this.offsets.color);
 
     // for initial positions we're using spherical coordinates, this 
@@ -284,8 +284,8 @@ const material = new THREE.RawShaderMaterial({
 
     void main() {
       // compute lighting (source: https://goo.gl/oS2vIY)
-      vec3 ambientColor = vec3(1.0) * 0.3;
-      vec3 directionalColor = vec3(1.0) * 0.7;
+      vec3 ambientColor = vec3(1.0) * 0.7;
+      vec3 directionalColor = vec3(1.0) * 0.9;
       vec3 lightDirection = normalize(vec3(-0.5, 1.0, 1.5));
 
       // diffuse-shading
