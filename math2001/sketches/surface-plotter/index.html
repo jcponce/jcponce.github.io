@@ -40,11 +40,14 @@
 
 		var graphData, view;
 
-		var xFunctionText = "cos(u)*(a + b*cos(v))";
-		var yFunctionText = "sin(u)*(a + b*cos(v))";
-		var zFunctionText = "b*sin(v)";
+		//var xFunctionText = "cos(u)*(a + b*cos(v))";
+		//var yFunctionText = "sin(u)*(a + b*cos(v))";
+		//var zFunctionText = "b*sin(v)";
+		var xFunctionText = "cos(a) * sinh(v) * sin(u) + sin(a) * cosh(v) * cos(u)";
+	    var yFunctionText = "-cos(a) * sinh(v) * cos(u) + sin(a) * cosh(v) * sin(u)";
+	    var zFunctionText = "u * cos(a) + v * sin(a)";
 
-		var a = 1,
+		var a = 0.5,
 			b = 0.5;
 		var xMin = -3,
 			xMax = 3,
@@ -52,10 +55,10 @@
 			yMax = 3,
 			zMin = -3,
 			zMax = 3;
-		var uMin = 0,
-			uMax = 6.282,
-			vMin = 0,
-			vMax = 6.282;
+		var uMin = -3.141,
+			uMax = 3.141,
+			vMin = -1.5,
+			vMax = 1.5;
 
 		// start of updateGraph function ==============================================================
 		var updateGraphFunc = function () {
