@@ -43,11 +43,11 @@
 		//var xFunctionText = "cos(u)*(a + b*cos(v))";
 		//var yFunctionText = "sin(u)*(a + b*cos(v))";
 		//var zFunctionText = "b*sin(v)";
-		var xFunctionText = "cos(a) * sinh(v) * sin(u) + sin(a) * cosh(v) * cos(u)";
-	    var yFunctionText = "-cos(a) * sinh(v) * cos(u) + sin(a) * cosh(v) * sin(u)";
-	    var zFunctionText = "u * cos(a) + v * sin(a)";
+		var xFunctionText = "0.75 * ( cos(a) * sinh(v) * sin(u) + sin(a) * cosh(v) * cos(u) )";
+	    var yFunctionText = "0.75 * ( -cos(a) * sinh(v) * cos(u) + sin(a) * cosh(v) * sin(u) )";
+	    var zFunctionText = "0.75 * ( u * cos(a) + v * sin(a) )";
 
-		var a = 0.5,
+		var a = 0,
 			b = 0.5;
 		var xMin = -3,
 			xMax = 3,
@@ -263,7 +263,7 @@
 			]
 		});
 
-		var resolution = 64;
+		var resolution = 72;
 		var graphData = domain.area({
 			width: resolution,
 			height: resolution,
@@ -385,7 +385,7 @@
 			vMaxGUI.setValue(6.282 + 3.14 / 2);
 			updateGraph();
 		};
-		var preset4GUI = folderP.add(this, "presetFunc4").name("Solid of Revolution");
+		var preset4GUI = folderP.add(this, "presetFunc4").name("Sol. Revol.");
 
 		var presetFunc5 = function () {
 			xFuncGUI.setValue("cos(u)*(a + b*cos(v))");
@@ -461,6 +461,7 @@
 		};
 		var preset10GUI = folderP.add(this, "presetFunc10").name("Figure-8");
 
+		/*
 		var presetFunc11 = function () {
 			xFuncGUI.setValue("2 * (sinh(v) * cos(4 * u)) / (1 + cosh(u) * cosh(v))");
 			yFuncGUI.setValue("2 * (sinh(v) * sin(4 * u)) / (1 + cosh(u) * cosh(v))");
@@ -473,6 +474,7 @@
 		};
 		var preset11GUI = folderP.add(this, "presetFunc11").name("Hyperbolic-Helicoid");
 
+		*/
 		
 
 		/*
