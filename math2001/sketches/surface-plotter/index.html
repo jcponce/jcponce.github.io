@@ -12,7 +12,7 @@
 
 	<link rel="stylesheet" href="../mathbox/mathbox.css">
 
-	<link rel="stylesheet" href="../mathbox/dat-gui-light-theme.css">
+	<link rel="stylesheet" href="dat-gui-light-theme.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 
@@ -304,7 +304,7 @@
 		// GUI controls
 
 		var gui = new dat.GUI({
-			width: 320
+			width: 330
 		});
 
 		var xFuncGUI = gui.add(this, 'xFunctionText').name('x = f(u,v) = ').onChange(updateGraphFunc);
@@ -323,6 +323,12 @@
 		var vMinGUI = folder2.add(this, 'vMin').onChange(updateGraphFunc);
 		var vMaxGUI = folder2.add(this, 'vMax').onChange(updateGraphFunc);
 		folder2.close();
+
+		/*
+		
+		Initialize present equation for different surfaces :)
+
+		*/
 
 		var folderP = gui.addFolder("Preset Equations");
 		folderP.close();
