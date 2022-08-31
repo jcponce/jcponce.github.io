@@ -61,31 +61,193 @@
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h3>42 Variable transformations in double integrals</h3>
-					<div class="left-txt size-70">
+					<div class="left-txt size-80">
 						<p>
-							Recall that, under a change of variable 
+							Recall that, under a change of variable
 							$x = x(u)$, a definite integral transforms as
 							\[
-							\int_a^bf(x)dx = \int_c^d f\left(x(u)\right)\frac{dx}{du}du,
+							\int_a^bf(x)~dx = \int_c^d f\left(x(u)\right)\frac{dx}{du}~du,
 							\]
-							where $a = x(c)$ and $b = x(d)$. 
+							where $a = x(c)$ and $b = x(d)$.
 						</p>
-						<p>
-							We have seen how this generalises to iterated integrals, when changing from cartesian
-							coordinates to polar, cylindrical or spherical coordinates. Here, we discuss how integrals
-							transform under more general coordinate changes. For simplicity, emphasis will be on
-							coordinate changes in two dimensions and on the cor- responding iterated (double) integrals.
-						</p>
-						
+
+
 
 
 					</div>
 				</section>
 
-				
 
+				<section data-auto-animate>
+					<h3>42 Variable transformations in double integrals</h3>
+					<div class="left-txt size-80">
+
+						<p>
+							We have seen how this generalises to iterated integrals, when changing from cartesian
+							coordinates to polar, cylindrical or spherical coordinates.
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
+							Here, we discuss how integrals
+							transform under more general coordinate changes.
+							<span class="fragment" data-fragment-index="1">
+								For simplicity, emphasis will be on
+								coordinate changes in two dimensions and on the corresponding iterated (double)
+								integrals.
+							</span>
+						</p>
+
+
+
+					</div>
+				</section>
+
+
+
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>42.1 Two-variable change of coordinates</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								In two dimensions, a change of coordinates is conveniently described by a surjective
+								transformation
+								\[
+								T:S\to R,\qquad (u,v)\mapsto (x,y)
+								\]
+								<span class="fragment" data-fragment-index="0">
+									where
+									\[
+									x=x(u,v), \qquad y=(u,v).
+									\]
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								We shall assume that $T$ and its first-order partial derivatives
+								are continuous on $S$.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>42.1 Two-variable change of coordinates</h4>
+					<div class="size-70">
+						<div class="left-txt">
+
+							<p>
+								A key property of $T$ is that it maps any boundary of the
+								region $S$ in the $u$-$v$ plane to a boundary of $R$ in the $x$-$y$
+								plane.
+								<span class="fragment" data-fragment-index="0">
+									Such a transformation is particularly useful if
+									we can restrict the coordinates $u,v$ to take values on
+									a rectangle.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									After possibly applying a second
+									transformation between this rectangle and the unit square
+									\[
+									\left\{ (u,v)\in \R^2~|~ 0\leq u,v\leq 1 \right\},
+									\]
+									this prompts us to focus on the case where $S$
+									<em>itself</em> is the unit square.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								If $T(u,v) = (x,y)$, then the point $(x,y)$ is called the
+								image of the point $ (u,v)$. We
+								extend this definition to regions.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+
+			</section>
+
+			<section>
+				<h5>42.2 Find the image of the region $\left\{(u,v) | 0 \leq u,v \leq 1\right\}$
+					under the transformation $x = u^2- v^2$, $y = 2uv$</h5>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>42.3 Jacobian</h4>
+					<div class="size-60">
+						<div class="left-txt">
+
+							<p>
+								We can view the change of variables in two
+								dimensions as a parameterisation
+								\[
+								\r(u,v) = x(u,v)~\i+y(u,v)~\j, \qquad (u,v)\in S,
+								\]
+								of the region $R$ in the $x$-$y$ plane.
+								This can then be used to analyse how the change of variables affects a double integral
+								over $R$.
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								To this end, we recall that a double integral over $R$ arises as the limit of a sum over
+								'larger and larger' families of 'smaller and smaller' patches making up $R$:
+								\[
+								\sum_{\text{patches}} f\left(x^*, y^*\right)\Delta S^* \to \iint_R f(x,y) ~dS.
+								\]
+								Here $\Delta S^* $  is the area of the patch containing the point $\left(x^*, y^*\right)$.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>42.3 Jacobian</h4>
+					<div class="size-70">
+						<div class="left-txt">
+
+							<p>
+								By working out an approximation of the patch area $\Delta S^*$, 
+								and expressing it in terms of the $u$, $v$ variables, we thus arrive at the formula
+								\[
+								\iint_R f(x,y)~dx~dy =\iint_S f\big(x(u,v), y(u,v)\big)\left|\frac{\partial (x,y)}{\partial (u,v)}\right|~du~dv
+								\]
+								<span>
+									where
+									\[
+									\frac{\partial (x,y)}{\partial (u,v)} =\text{det} \left(
+									\begin{array}{cc}
+									\dfrac{\partial x}{\partial u} & \dfrac{\partial y}{\partial u}\\
+									\dfrac{\partial x}{\partial v} & \dfrac{\partial y}{\partial v}\\
+									\end{array}
+									\right)
+									= \dfrac{\partial x}{\partial u} \dfrac{\partial y}{\partial u} - \dfrac{\partial x}{\partial v} \dfrac{\partial y}{\partial u} .
+									\]
+									is called the Jacobian of the transformation T .
+								</span>
+							</p>
+							
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<h5>42.4 Example $\left\{(x,y) | 0 \leq x \leq 1, x^2\leq y\leq x\right\}$
+				</h5>
+			</section>
+
+			<section>
+				<h5>42.5 Example: Use the transformation $x = u + v,$ $y = u - v$ </h5>
+				<p class="sbt">
+					to write $\iint_R f(x,y)~dA$ as iterated integral, where $R$ is the
+					region in the $x$-$y$ plane bounded by $x^2 +2xy+y^2 = 2(x-y)$ and $y = 0$.
+				</p>
 			</section>
 
 
