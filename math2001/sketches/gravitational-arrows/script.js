@@ -15,7 +15,7 @@
 
 
 // some constants we'll need later
-const NUM_INSTANCES = 6000;
+const NUM_INSTANCES = 5000;
 const ARROW_FORWARD = new THREE.Vector3(0, 0, 1);
 const UP = new THREE.Vector3(0, 1, 0);
 
@@ -163,14 +163,14 @@ class Arrow {
   init() {
     // colors won't be modified later, so write them to the
     // buffer right away
-    this.color.setHSL(rnd(0.2, 0.6), 0.2, rnd(0.3, 0.7));
+    this.color.setHSL( 0.55, rnd(0.3, 0.9), rnd(0.1, 0.9));
     this.color.toArray(this.buffers.color, this.offsets.color);
 
     // for initial positions we're using spherical coordinates, this 
     // makes it easier to have them evenly distibuted around the 
     // center.
     this.position.setFromSpherical({
-      radius: rnd(10, 300, 1.6), 
+      radius: rnd(20, 300, 1.6), 
       phi: Math.PI/2 + rnd(-0.1, 0.1), 
       theta: rnd(0, 2 * Math.PI)
     });
