@@ -200,7 +200,8 @@
 								\[
 								\sum_{\text{patches}} f\left(x^*, y^*\right)\Delta S^* \to \iint_R f(x,y) ~dS.
 								\]
-								Here $\Delta S^* $  is the area of the patch containing the point $\left(x^*, y^*\right)$.
+								Here $\Delta S^* $ is the area of the patch containing the point $\left(x^*,
+								y^*\right)$.
 							</p>
 						</div>
 					</div>
@@ -212,10 +213,11 @@
 						<div class="left-txt">
 
 							<p>
-								By working out an approximation of the patch area $\Delta S^*$, 
+								By working out an approximation of the patch area $\Delta S^*$,
 								and expressing it in terms of the $u$, $v$ variables, we thus arrive at the formula
 								\[
-								\iint_R f(x,y)~dx~dy =\iint_S f\big(x(u,v), y(u,v)\big)\left|\frac{\partial (x,y)}{\partial (u,v)}\right|~du~dv
+								\iint_R f(x,y)~dx~dy =\iint_S f\big(x(u,v), y(u,v)\big)\left|\frac{\partial
+								(x,y)}{\partial (u,v)}\right|~du~dv
 								\]
 								<span>
 									where
@@ -226,12 +228,86 @@
 									\dfrac{\partial x}{\partial v} & \dfrac{\partial y}{\partial v}\\
 									\end{array}
 									\right)
-									= \dfrac{\partial x}{\partial u} \dfrac{\partial y}{\partial u} - \dfrac{\partial x}{\partial v} \dfrac{\partial y}{\partial u} .
+									= \dfrac{\partial x}{\partial u} \dfrac{\partial y}{\partial u} - \dfrac{\partial
+									x}{\partial v} \dfrac{\partial y}{\partial u} .
 									\]
 									is called the Jacobian of the transformation $T$.
 								</span>
 							</p>
-							
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>42.3 Jacobian</h4>
+					<div class="size-70">
+						<div class="left-txt">
+
+							<p>
+								<strong>Question:</strong> Can one always find a variable transformation that maps from a rectangular
+								or a unit square?
+
+
+							</p>
+							<p>
+								Consider a type I region $R=\left\{ (x,y)~|~ a\leq x\leq b , g_1(x)\leq y\leq g_2(x)\right\}$
+							</p>
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>42.3 Jacobian</h4>
+					<div class="size-65">
+						<div class="left-txt">
+
+							<p>
+								What is the Jacobian then?
+							</p>
+							<p>
+								Because $\frac{\partial x}{\partial u}=0$ the corresponding
+								Jacobian is simply given by
+								
+							</p>
+							<table id="eqarray">
+								<tr>
+									<td>
+										$\displaystyle \frac{\partial (x,y)}{\partial (u,v)}$
+									</td>
+									<td>
+										$\displaystyle =
+										\left|
+										\begin{array}{cc}
+										\dfrac{\partial x}{\partial u} & \dfrac{\partial y}{\partial u}\\
+										\dfrac{\partial x}{\partial v} & \dfrac{\partial y}{\partial v}\\
+										\end{array}
+										\right|$
+											<span>
+												$\displaystyle =
+												\left|
+												\begin{array}{cc}
+												b-a & 0\\
+												* & g_2\left((1-u)a + ub\right) - g_1\left((1-u)a + ub\right)\\
+												\end{array}
+												\right|$
+											</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+
+									</td>
+									<td>
+										$\displaystyle =(b-a) \big[ g_2\left((1-u)a + ub\right) - g_1\left((1-u)a + ub\right) \big]$
+									</td>
+								</tr>
+							</table>
+
+							<p>
+								Of course, a similar change of variables applies if $R$ is of type II.
+							</p>
 						</div>
 					</div>
 				</section>
