@@ -219,7 +219,7 @@
 								\iint_R f(x,y)~dx~dy =\iint_S f\big(x(u,v), y(u,v)\big)\left|\frac{\partial
 								(x,y)}{\partial (u,v)}\right|~du~dv
 								\]
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									where
 									\[
 									\frac{\partial (x,y)}{\partial (u,v)} =\text{det} \left(
@@ -250,9 +250,53 @@
 
 
 							</p>
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								Consider a type I region $R=\left\{ (x,y)~|~ a\leq x\leq b , g_1(x)\leq y\leq g_2(x)\right\}$
 							</p>
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>42.3 Jacobian</h4>
+					<div class="size-65">
+						<div class="left-txt">
+
+							<table id="eqarray">
+								<tr>
+									<td>
+										Set $\displaystyle  x(u, v) $
+									</td>
+									<td>
+										$\displaystyle 
+										= (1 - u)a + ub,$
+									</td>
+									<td>
+										$0\leq u\leq 1$
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="1">
+									<td style="text-align:right">
+										$y$
+									</td>
+									<td>
+										$\displaystyle = (1 - v)g_1(x) + vg_2(x),$
+									</td>
+									<td>
+										$0\leq v\leq 1$
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="2">
+									<td style="text-align:right">
+										$y(u,v)$
+									</td>
+									<td>
+										$\displaystyle = (1 - v) g_1\left((1-u)~a +ub \right) + v  g_2\left((1-u)~a+ ub \right)$.
+									</td>
+								</tr>
+							</table>
 
 						</div>
 					</div>
@@ -266,17 +310,17 @@
 							<p>
 								What is the Jacobian then?
 							</p>
-							<p>
-								Because $\frac{\partial x}{\partial u}=0$ the corresponding
+							<p class="fragment" data-fragment-index="0">
+								Because $\dfrac{\partial x}{\partial u}=0$ the corresponding
 								Jacobian is simply given by
 								
 							</p>
 							<table id="eqarray">
 								<tr>
-									<td>
+									<td class="fragment" data-fragment-index="1">
 										$\displaystyle \frac{\partial (x,y)}{\partial (u,v)}$
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="1">
 										$\displaystyle =
 										\left|
 										\begin{array}{cc}
@@ -284,12 +328,12 @@
 										\dfrac{\partial x}{\partial v} & \dfrac{\partial y}{\partial v}\\
 										\end{array}
 										\right|$
-											<span>
+											<span class="fragment" data-fragment-index="1">
 												$\displaystyle =
 												\left|
 												\begin{array}{cc}
 												b-a & 0\\
-												* & g_2\left((1-u)a + ub\right) - g_1\left((1-u)a + ub\right)\\
+												* & g_2\left((1-u)~a + ub\right) - g_1\left((1-u)~a + ub\right)\\
 												\end{array}
 												\right|$
 											</span>
@@ -299,13 +343,13 @@
 									<td>
 
 									</td>
-									<td>
-										$\displaystyle =(b-a) \big[ g_2\left((1-u)a + ub\right) - g_1\left((1-u)a + ub\right) \big]$
+									<td class="fragment" data-fragment-index="2">
+										$\displaystyle =(b-a) \big[ g_2\left((1-u)~a + ub\right) - g_1\left((1-u)~a + ub\right) \big]$
 									</td>
 								</tr>
 							</table>
 
-							<p>
+							<p class="fragment" data-fragment-index="3">
 								Of course, a similar change of variables applies if $R$ is of type II.
 							</p>
 						</div>
@@ -314,7 +358,7 @@
 			</section>
 
 			<section>
-				<h5>42.4 Example $\left\{(x,y) | 0 \leq x \leq 1, x^2\leq y\leq x\right\}$
+				<h5>42.4 Example $\left\{(x,y) ~|~ 0 \leq x \leq 1, x^2\leq y\leq x\right\}$
 				</h5>
 			</section>
 
