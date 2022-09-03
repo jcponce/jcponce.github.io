@@ -895,7 +895,7 @@
 				<div>
 				  <iframe
 					scrolling="no"
-					title="Chapter-42-3: Example"
+					title="Chapter-42-4: Example"
 					src="https://www.geogebra.org/material/iframe/id/fnsmysdd/width/546/height/447/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
 					width="546px"
 					height="447px"
@@ -922,7 +922,7 @@
 							margin-left: auto;
 							margin-right: auto;
 						  "
-						  data-src="images/chapter-42/chapter-42-3-example-a.svg"
+						  data-src="images/chapter-42/chapter-42-4-example-a.svg"
 						/>
 					  </div>
 					</td>
@@ -985,7 +985,7 @@
 							margin-left: auto;
 							margin-right: auto;
 						  "
-						  data-src="images/chapter-42/chapter-42-3-example-a.svg"
+						  data-src="images/chapter-42/chapter-42-4-example-a.svg"
 						/>
 					  </div>
 					</td>
@@ -1086,7 +1086,7 @@
 							margin-left: auto;
 							margin-right: auto;
 						  "
-						  data-src="images/chapter-42/chapter-42-3-example-a.svg"
+						  data-src="images/chapter-42/chapter-42-4-example-a.svg"
 						/>
 					</div>
 				
@@ -1095,13 +1095,159 @@
 		</section>
 
         <section>
-          <h5>42.5 Example: Use the transformation $x = u + v,$ $y = u - v$</h5>
-          <p class="sbt">
-            to write $\iint_R f(x,y)~dA$ as iterated integral, where $R$ is the
-            region in the $x$-$y$ plane bounded by $x^2 +2xy+y^2 = 2(x-y)$ and
-            $y = 0$.
-          </p>
-        </section>
+
+			<section data-auto-animate>
+				<h5>42.5 Example: Use the transformation $x = u + v,$ $y = u - v$</h5>
+				<p class="sbt">
+				  to write $\iint_R f(x,y)~dA$ as iterated integral, where $R$ is the
+				  region in the $x$-$y$ plane bounded by $x^2 +2xy+y^2 = 2(x-y)$ and
+				  $y = 0$.
+				</p>
+	  
+				<div class="fragment" data-fragment-index="0">
+				  <img
+					style="
+					  width: 60%;
+					  display: block;
+					  margin-left: auto;
+					  margin-right: auto;
+					"
+					data-src="images/chapter-42/chapter-42-5-example.svg"
+				  />
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h5>42.5 Example: Use the transformation $x = u + v,$ $y = u - v$</h5>
+				<p class="sbt">
+				  to write $\iint_R f(x,y)~dA$ as iterated integral, where $R$ is the
+				  region in the $x$-$y$ plane bounded by $x^2 +2xy+y^2 = 2(x-y)$ and
+				  $y = 0$.
+				</p>
+	  
+				<div class="size-70">
+				  <div class="left-txt">
+					<p>
+						Using the change of vaiable $x = u + v,$ $y = u - v$, we have
+						\[
+						\iint_R f\left(x,y\right)dA=\iint_S f\left(u+v,u-v\right)\left|\frac{\partial(x,y)}{\partial(u,v)}\right|du~dv
+						\]
+					</p>
+					<p class="fragment" data-fragment-index="0">Here the Jacobian is
+					</p>
+				  </div>
+				  <div>
+					<p class="fragment" data-fragment-index="0">$\dfrac{\partial(x,y)}{\partial(u,v)}$
+						$ = \text{det}\left(
+						\begin{array}{cc}
+						\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v}\\
+						\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+						\end{array}
+						\right)$
+						$ = \text{det}\left(
+						\begin{array}{cc}
+						1 & 1\\
+						1 & -1
+						\end{array}
+						\right)$ $= -2$.</p>
+				  </div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h5>42.5 Example: Use the transformation $x = u + v,$ $y = u - v$</h5>
+				<p class="sbt">
+				  to write $\iint_R f(x,y)~dA$ as iterated integral, where $R$ is the
+				  region in the $x$-$y$ plane bounded by $x^2 +2xy+y^2 = 2(x-y)$ and
+				  $y = 0$.
+				</p>
+	  
+				<div class="size-70">
+				  <div class="left-txt">
+					<p>Then</p>
+					<div class="r-stack">
+						<p class="fragment fade-out" data-fragment-index="0">
+							$
+							\displaystyle \iint_R f\left(x,y\right)dA=\iint_S f\left(u+v,u-v\right)\left|-2\right|du~dv.
+							$
+						</p>
+						<p class="fragment fade-in" data-fragment-index="0">
+							$
+							\displaystyle \iint_R f\left(x,y\right)dA=2\iint_S f\left(u+v,u-v\right)du~dv.
+							$
+						</p>
+					</div>
+
+					<p class="fragment" data-fragment-index="1">
+						Now, to identify the region $S$ we substitute $x = u + v,$ $y = u - v$ into 
+						$x^2 +2xy+y^2 = 2(x-y)$ and $y=0$.<span class="fragment" data-fragment-index="2">
+							Then we obtain
+							\[
+							v = u\quad \text{and} \quad v = u^2.
+							\]
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="3">So the region $S$ in the $u$-$v$ plane is bounded by the parabola $v=u^2$ and a straightline $v=u$.</p>
+				  </div>
+				  
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h5>42.5 Example: Use the transformation $x = u + v,$ $y = u - v$</h5>
+				<p class="sbt">
+				  to write $\iint_R f(x,y)~dA$ as iterated integral, where $R$ is the
+				  region in the $x$-$y$ plane bounded by $x^2 +2xy+y^2 = 2(x-y)$ and
+				  $y = 0$.
+				</p>
+	  
+				<div class="size-60">
+				  <div class="left-txt">
+					<p>Therefore, considering the region $S$ as type I we have that</p>
+					<table id="eqarray">
+						<tr>
+							<td>
+								$
+								\displaystyle \iint_R f\left(x,y\right)dA
+								$
+							</td>
+							<td>
+							  $\displaystyle  =2\iint_S f\left(u+v,u-v\right)du~dv$
+							</td>
+						</tr>
+						<tr>
+							<td>
+								
+							</td>
+							<td class="fragment" data-fragment-index="0">
+							  $\displaystyle  =2\int_{u=0}^{u=1}\int_{v=u^2}^{v=u} f\left(u+v,u-v\right)du~dv.$
+							</td>
+						</tr>
+					</table>
+					<div class="r-stack">
+						<p>
+							
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="0">
+						<img
+						  style="
+							width: 38%;
+							display: block;
+							margin-left: auto;
+							margin-right: auto;
+						  "
+						  data-src="images/chapter-42/chapter-42-5-example-a.svg"
+						/>
+					  </div>
+
+				  </div>
+				  
+				</div>
+			</section>
+
+		</section>
 
         <section>
           <h4>Credits</h4>
