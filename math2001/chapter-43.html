@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>MATH2001/7000 - Chapter 43</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
+
+    <link rel="stylesheet" href="css/mylayout.css" />
+
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
+
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 43</p>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h3>43 Flux integrals and Gauss' divergence theorem</h3>
+            <div class="left-txt size-80">
+              <p>
+                By the end of this section, you should be able to answer the
+                following questions:
+              </p>
+              <ul>
+                <li class="fragment" data-fragment-index="0">
+                  What is a flux integral?
+                </li>
+                <li class="fragment" data-fragment-index="1">
+                  How do you use a flux integral to calculate the flux of a
+                  vector field across a surface?
+                </li>
+                <li class="fragment" data-fragment-index="2">
+                  What is Gauss' divergence theorem and under what conditions
+                  can it be applied?
+                </li>
+                <li class="fragment" data-fragment-index="3">
+                  How do you apply Gauss' divergence theorem?
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h3>43 Flux integrals and Gauss' divergence theorem</h3>
+            <div class="left-txt size-80">
+              <br />
+              <p>
+                We have already been introduced to the idea of flux of a
+                variable vector field across a curve (in $\R^2$) and the flux of
+                a constant vector field across rectangular surfaces (in $\R^3$).
+              </p>
+
+              <p class="fragment" data-fragment-index="0">
+                In this section we look at calculating the flux across smoothly
+                parametric surfaces.
+              </p>
+            </div>
+            <br />
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>43.1 Orientable surfaces</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  Let $S$ be a smooth surface. If we can choose a unit vector
+                  $\n$ that is normal to $S$ at every point so that $\n$ varies
+                  continuously over $S$, we call S an orientable surface. The
+                  choice of $\n$ provides $S$ with an orientation. There are
+                  only ever two possible orientations.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.1 Orientable surfaces</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  An example of an orientable surface is the surface of a
+                  sphere. The two possible orientations are out of the sphere or
+                  into the sphere.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.1 Orientable surfaces</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>An example of a non-orientable surface is a Mobius strip.</p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.1 Orientable surfaces</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  The orientation of a surface is important when considering
+                  flux through that surface. The orientation we choose is always
+                  the direction of positive flux.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>43.2 The flux integral</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  For a vector field $\v(x, y, z)$, we are interested in the
+                  flux of $\v$ across a smooth orientable parametric surface $S$
+                  in $\R^3$, parametrised by $\r(u,v)$, with u and v defined
+                  over some domain $D$. Let $\n(u,v)$ be a unit vector normal to
+                  the surface $S$ which defines the orientation of the surface
+                  (and hence the direction of positive flux).
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.1 Orientable surfaces</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  It would be most convenient to consider the context of fluid
+                  flow with $\v(x,y,z)$ being the velocity of a fluid at the point
+                  $(x, y, z)$.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.1 Orientable surfaces</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>To calculate the flux through S, we work through the following steps:</p>
+
+				<ol style="line-height:45px">
+					<li>Partition $S$ into small patches.</li>
+					<li>
+					  Approximate each patch by a parallelogram lying in the
+					  tangent plane to the corner of the patch closest to the $u$-$v$
+					  origin.
+					</li>
+					<li>
+					  Approximate the flux through each parallelogram of
+					  approximate area $\Delta S$ and add them to give an approximation to the
+					  total flux through $S$.
+					</li>
+					<li>
+					  Take the limit as the dimensions of $\Delta S\to 0$ 
+					  to obtain an exact expression for the flux.
+					</li>
+				  </ol>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.1 Orientable surfaces</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  The orientation of a surface is important when considering
+                  flux through that surface. The orientation we choose is always
+                  the direction of positive flux.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
+
+        <!-- Ends sections -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
+
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>
