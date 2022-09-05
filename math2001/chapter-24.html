@@ -1,123 +1,145 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-	<meta charset="utf-8">
+    <title>MATH2001/7000 - Chapter 24</title>
 
-	<title>MATH2001/7000 - Chapter 24</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
 
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="css/mylayout.css" />
 
-	<link rel="stylesheet" href="css/mylayout.css" />
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 
-	<!-- Code syntax highlighting -->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
 
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="css/fontawesome.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
 
-	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
 
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
 
-	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
 
-	<!--[if lt IE 9]>
-		<script src="../reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 24</p>
+        </section>
 
+        <section>
+          <h3>24 Fubini's theorem, volume by slabs</h3>
+          <div class="left-txt size-80">
+            <p>
+              By the end of this section, you should be able to answer the
+              following questions:
+            </p>
+            <ul>
+              <li class="fragment" data-fragment-index="0">
+                What is Fubini's theorem?
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                How is the double integral related to the iterated integral?
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                How do you estimate the volume below a surface using slabs?
+              </li>
+            </ul>
+          </div>
+          <p><br /></p>
+        </section>
 
-</head>
+        <section>
+          <section data-auto-animate>
+            <h4>24.1 Fubini's theorem</h4>
+            <div class="left-txt size-80">
+              <p class="fragment" data-fragment-index="0">
+                If $f(x,y)$ is integrable on the rectangle \[ R = \left\{
+                (x,y)~|~a\leq x\leq b, c\leq y\leq d \right\}, \]
+                <span class="fragment" data-fragment-index="1">then</span>
+              </p>
+            </div>
+            <div class="size-80">
+              <p>
+                <span class="fragment" data-fragment-index="1">
+                  $\displaystyle \iint_R f(x,y)~ dA = \int_a^b \int_c^d f(x,y)
+                  ~dy~dx$
+                </span>
+              </p>
+              <p>
+                <span class="fragment" data-fragment-index="2">
+                  $\displaystyle \qquad \qquad \;\;\;= \int_c^d \int_a^b f(x,y)
+                  ~dx~dy$
+                </span>
+              </p>
+            </div>
+          </section>
 
-<body>
-	<div class="reveal">
-		<div class="slides">
+          <section data-auto-animate>
+            <h4>24.1 Fubini's theorem</h4>
+            <div>
+              <iframe
+                scrolling="no"
+                title="Fubini's theorem: Square regions"
+                src="https://www.geogebra.org/material/iframe/id/pkcqbzhy/width/637/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+                width="637px"
+                height="472px"
+                style="border: 0px"
+                data-preload
+                allowfullscreen=""
+              >
+              </iframe>
+            </div>
+          </section>
+        </section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-
-			<section>
-				<h2>Calculus & <br />Linear Algebra II</h2>
-				<p>Chapter 24</p>
-			</section>
-
-			<section>
-				<h3>24 Fubini's theorem, volume by slabs</h3>
-				<div class="left-txt size-80">
-					<p>
-						By the end of this section, you should be able to answer the following questions:
-					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">What is Fubini's theorem?
-						</li>
-						<li class="fragment" data-fragment-index="1">How is the double integral related to the iterated
-							integral?</li>
-						<li class="fragment" data-fragment-index="2">How do you estimate the volume below a surface
-							using slabs?</li>
-					</ul>
-				</div>
-				<p><br /></p>
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h4>24.1 Fubini's theorem</h4>
-					<div class="left-txt size-80">
-						<p class="fragment" data-fragment-index="0">
-							If $f(x,y)$ is integrable on the rectangle
-							\[
-							R = \left\{ (x,y)~|~a\leq x\leq b, c\leq y\leq d \right\},
-							\]
-							<span class="fragment" data-fragment-index="1">then</span>
-						</p>
-					</div>
-					<div class=" size-80">
-						<p>
-							<span class="fragment" data-fragment-index="1">
-								$\displaystyle \iint_R f(x,y)~ dA = \int_a^b \int_c^d f(x,y) ~dy~dx$
-							</span>
-
-						</p>
-						<p>
-							<span class="fragment" data-fragment-index="2">
-								$\displaystyle \qquad \qquad \;\;\;= \int_c^d \int_a^b f(x,y) ~dx~dy$
-							</span>
-						</p>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>24.1 Fubini's theorem</h4>
-					<div>
-						<iframe scrolling="no" title="Fubini's theorem: Square regions"
-							src="https://www.geogebra.org/material/iframe/id/pkcqbzhy/width/637/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
-							width="637px" height="472px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-					</div>
-				</section>
-
-			</section>
-
-			<section>
-				<!--
+        <section>
+          <!--
 					<section>
 					<h4>24.2 Example: evaluate </h4>
 					<p class="sbt">$\displaystyle {\small \iint_R \left(x^2+y^2\right)dA}$ where
@@ -157,63 +179,59 @@
 				</section>
 				-->
 
-				<section>
-					<h4>24.2 Example: evaluate ${\small \iint_R \left(x^2+y^2\right)dA}$</h4>
-					<p class="sbt">where
-						$R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq y\leq 1 \right\}$</p>
-					<div class="size-60">
-						<table id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
-							<tr>
-								<td class="fragment" data-fragment-index="0">
-									$\displaystyle \iint_R \left(x^2+y^2\right)dA $
-								</td>
-								<td class="fragment" data-fragment-index="0">
-									$= \displaystyle \int_{x=0}^{x=2} \left[
-									\int_{y=0}^{y=1} \left(x^2+y^2\right)dy \right]dx $
-								</td>
-							</tr>
-							<tr>
-								<td>
+          <section>
+            <h4>
+              24.2 Example: evaluate ${\small \iint_R \left(x^2+y^2\right)dA}$
+            </h4>
+            <p class="sbt">
+              where $R = \left\{ (x,y)~|~0\leq x\leq 2, 0\leq y\leq 1 \right\}$
+            </p>
+            <div class="size-60">
+              <table
+                id="eqarray"
+                style="padding-top: 12px; padding-bottom: 12px"
+              >
+                <tr>
+                  <td class="fragment" data-fragment-index="0">
+                    $\displaystyle \iint_R \left(x^2+y^2\right)dA $
+                  </td>
+                  <td class="fragment" data-fragment-index="0">
+                    $= \displaystyle \int_{x=0}^{x=2} \left[ \int_{y=0}^{y=1}
+                    \left(x^2+y^2\right)dy \right]dx $
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="1">
+                    $ = \displaystyle \int_0^2 \left[ \left( x^2 y +
+                    \frac{y^3}{3} \right) \Bigg|_{y=0}^{y=1} \right] dx$
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="2">
+                    $= \displaystyle \int_0^2 \left[ x^2 (1) + \frac{(1)^3}{3} -
+                    \left(x^2 (0) + x^2 \frac{(0)^3}{3}\right) \right]dx$
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="3">
+                    $= \displaystyle \int_0^2 \left( x^2+\frac{1}{3} \right) dx$
+                    <span class="fragment" data-fragment-index="4">
+                      $= \displaystyle \left( \frac{x^3}{3}+\frac{1}{3}x
+                      \right)\Bigg|_{x=0}^{x=2}$
+                    </span>
+                    <span class="fragment" data-fragment-index="5">
+                      $= \displaystyle \frac{10}{3}$
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </section>
 
-								</td>
-								<td class="fragment" data-fragment-index="1">
-									$ = \displaystyle \int_0^2 \left[ \left( x^2 y + \frac{y^3}{3}
-									\right)
-									\Bigg|_{y=0}^{y=1} \right] dx$
-								</td>
-							</tr>
-							<tr>
-								<td>
-
-								</td>
-								<td class="fragment" data-fragment-index="2">
-									$= \displaystyle \int_0^2 \left[ x^2 (1) +
-									\frac{(1)^3}{3} - \left(x^2 (0) + x^2 \frac{(0)^3}{3}\right) \right]dx$
-								</td>
-							</tr>
-							<tr>
-								<td>
-
-								</td>
-								<td class="fragment" data-fragment-index="3">
-									$= \displaystyle \int_0^2 \left( x^2+\frac{1}{3}
-									\right) dx$
-									<span class="fragment" data-fragment-index="4">
-										$= \displaystyle \left( \frac{x^3}{3}+\frac{1}{3}x \right)\Bigg|_{x=0}^{x=2}$
-									</span>
-									<span class="fragment" data-fragment-index="5">
-										$= \displaystyle \frac{10}{3}$
-									</span>
-								</td>
-							</tr>
-						</table>
-
-
-					</div>
-
-				</section>
-
-				<!--
+          <!--
 					<section>
 					<h4>24.2 Example (cont.):</h4>
 					<p class="sbt">by Fubini's theorem</p>
@@ -253,590 +271,560 @@
 				</section>
 				-->
 
-				<section>
-					<h4>24.2 Example (cont.):</h4>
-					<p class="sbt">by Fubini's theorem</p>
-					<div class="size-60">
-						<table id="eqarray" style="padding-top: 12px;padding-bottom: 12px;">
-							<tr>
-								<td>
-									$\displaystyle \iint_R \left(x^2+y^2\right)dA $
-								</td>
-								<td>
-									$= \displaystyle \int_{y=0}^{y=1} \left[
-									\int_{x=0}^{x=2} \left(x^2+y^2\right)dx \right]dy $
-								</td>
-							</tr>
-							<tr>
-								<td>
+          <section>
+            <h4>24.2 Example (cont.):</h4>
+            <p class="sbt">by Fubini's theorem</p>
+            <div class="size-60">
+              <table
+                id="eqarray"
+                style="padding-top: 12px; padding-bottom: 12px"
+              >
+                <tr>
+                  <td>$\displaystyle \iint_R \left(x^2+y^2\right)dA $</td>
+                  <td>
+                    $= \displaystyle \int_{y=0}^{y=1} \left[ \int_{x=0}^{x=2}
+                    \left(x^2+y^2\right)dx \right]dy $
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="0">
+                    $ = \displaystyle \int_0^1 \left[ \left( \frac{x^3}{3} +
+                    y^2x \right) \Bigg|_{x=0}^{x=2} \right] dy$
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="1">
+                    $= \displaystyle \int_0^1 \left[ \frac{(2)^3}{3} + y^2(2) -
+                    \left(\frac{(0)^3}{3} + y^2(0)\right) \right]dy$
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="2">
+                    $= \displaystyle \int_0^1 \left( \frac{8}{3} + 2y^2 \right)
+                    dy$
+                    <span class="fragment" data-fragment-index="3">
+                      $= \displaystyle \left( \frac{8}{3}y + 2\frac{y^3}{3}
+                      \right)\Bigg|_{y=0}^{y=1}$
+                    </span>
+                    <span class="fragment" data-fragment-index="4">
+                      $= \displaystyle \frac{10}{3}$
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </section>
 
-								</td>
-								<td class="fragment" data-fragment-index="0">
-									$ = \displaystyle \int_0^1 \left[ \left( \frac{x^3}{3} + y^2x
-									\right)
-									\Bigg|_{x=0}^{x=2} \right] dy$
-								</td>
-							</tr>
-							<tr>
-								<td>
+          <section>
+            <h4>24.2 Example (cont.):</h4>
 
-								</td>
-								<td class="fragment" data-fragment-index="1">
-									$= \displaystyle \int_0^1 \left[ \frac{(2)^3}{3} +
-									y^2(2) - \left(\frac{(0)^3}{3} + y^2(0)\right) \right]dy$
-								</td>
-							</tr>
-							<tr>
-								<td>
+            <iframe
+              scrolling="no"
+              title="Chapter-24-6: Example"
+              src="https://www.geogebra.org/material/iframe/id/dkbkq8md/width/526/height/432/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+              width="526px"
+              height="432px"
+              style="border: 0px"
+            >
+            </iframe>
+            
+            <p style="font-size: 18px">
+              A representation of the volume in example 24.2.
+            </p>
+          </section>
+        </section>
 
-								</td>
-								<td class="fragment" data-fragment-index="2">
-									$= \displaystyle \int_0^1 \left( \frac{8}{3} +
-									2y^2
-									\right) dy$
-									<span class="fragment" data-fragment-index="3">
-										$= \displaystyle \left( \frac{8}{3}y + 2\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=1}$
-									</span>
-									<span class="fragment" data-fragment-index="4">
-										$= \displaystyle \frac{10}{3}$
-									</span>
-								</td>
-							</tr>
-						</table>
-					</div>
+        <section>
+          <section data-auto-animate>
+            <h4>24.3 Special case when $f(x,y)= g(x)h(y)$.</h4>
 
-				</section>
+            <div class="left-txt size-70">
+              <p class="fragment" data-fragment-index="0">
+                In this case we can separate the integral as follows
+              </p>
+            </div>
 
+            <div class="size-70">
+              <p class="fragment" data-fragment-index="1">
+                $\displaystyle \iint_R f(x,y)~ dA = \int_c^d \int_a^b g(x)h(y)
+                ~dx~dy$
+              </p>
+              <p class="fragment" data-fragment-index="2">
+                $\displaystyle \qquad \qquad\quad= \int_a^b g(x)~dx \int_c^d
+                h(y) ~dy.$
+              </p>
+            </div>
 
-				<section>
-					<h4>24.2 Example (cont.):</h4>
+            <br /><br />
+          </section>
 
-					<iframe scrolling="no" title="Chapter-23-3-2: Example"
-						src="https://www.geogebra.org/material/iframe/id/zt44e29t/width/526/height/432/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-						width="526px" height="432px" style="border:0px;" allowfullscreen=""> </iframe>
-					<p style="font-size:18px">A representation of the volume in example 24.2.</p>
-				</section>
-			</section>
+          <section data-auto-animate>
+            <h5>24.3.1 Example:</h5>
+            <p class="sbt">
+              $\displaystyle {\small \displaystyle \iint_R \sin x \cos y~dA }$
+              where $R = \left[ 0, \frac{\pi}{2} \right]\times \left[ 0,
+              \frac{\pi}{2} \right]$
+            </p>
+            <div class="size-70">
+              <table id="eqarray">
+                <tr>
+                  <td class="fragment" data-fragment-index="0">
+                    $\displaystyle \iint_R \sin x \cos y~dA $
+                  </td>
+                  <td class="fragment" data-fragment-index="1">
+                    $\displaystyle = \left(\int_{x=0}^{x=\pi/2} \sin x
+                    ~dx\right) \left( \int_{y=0}^{y=\pi/2} \cos y~dy \right) $
+                  </td>
+                </tr>
 
-			<section>
-				<section data-auto-animate>
-					<h4>24.3 Special case when $f(x,y)= g(x)h(y)$.</h4>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="2">
+                    $\displaystyle = \left( -\cos x\Bigg|_{x=0}^{x=\pi/2}
+                    \right) \left( \sin y \Bigg|_{y=0}^{y=\pi/2} \right)$
+                  </td>
+                </tr>
 
-					<div class="left-txt size-70">
-						<p class="fragment" data-fragment-index="0">
-							In this case we can separate the integral as follows
-						</p>
-					</div>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="3">$= 1. $</td>
+                </tr>
+              </table>
+            </div>
+            <br /><br />
+          </section>
+        </section>
 
-					<div class="size-70">
-						<p class="fragment" data-fragment-index="1">
-							$\displaystyle \iint_R f(x,y)~ dA = \int_c^d \int_a^b g(x)h(y) ~dx~dy$
-						</p>
-						<p class="fragment" data-fragment-index="2">
-							$\displaystyle \qquad \qquad\quad= \int_a^b g(x)~dx \int_c^d h(y) ~dy.$
-						</p>
-					</div>
+        <section>
+          <section data-auto-animate>
+            <h4>24.4 Non-rectangular region</h4>
+            <div class="left-txt size-70">
+              <p class="fragment" data-fragment-index="0">
+                To define a double integral over a non-rectangular region $D$,
+                we consider a rectangular $R$ which encloses $D$ and define \[
+                F(x,y) = \left\{ \begin{array}{rl} f(x,y) & \text{if }(x,y)\in
+                D\\ 0, &\text{if }(x,y)\in R \text{ but } \notin D \end{array}
+                \right. \]
+              </p>
+              <p class="fragment" data-fragment-index="1">
+                Then we can define the double integral of $f(x,y)$ over $D$ by
+                \[ \iint_D f(x,y) dA= \iint_R F(x,y)dA \]
+              </p>
+            </div>
+          </section>
 
-					<br/><br/>
-				</section>
+          <section data-auto-animate>
+            <h4>24.4 Non-rectangular region</h4>
+            <div class="left-txt size-70">
+              <p>
+                Then we can define the double integral of $f(x,y)$ over $D$ by
+                \[ \iint_D f(x,y) dA= \iint_R F(x,y)dA \]
+              </p>
+              <p>and proceed as before:</p>
+              <ol>
+                <li class="fragment" data-fragment-index="2">
+                  Chop $R$ into subrectangles,
+                </li>
+                <li class="fragment" data-fragment-index="3">
+                  Compute $F(x^*,y^*)\Delta A$ for each rectangle contained in
+                  $R$,
+                </li>
+                <li class="fragment" data-fragment-index="4">
+                  Add up the contributions from all subrectangles,
+                  <span class="fragment" data-fragment-index="5">and </span>
+                </li>
+                <li class="fragment" data-fragment-index="5">
+                  Take a limit as we chop $R$ into smaller and smaller pieces.
+                </li>
+              </ol>
+            </div>
+          </section>
 
-				<section data-auto-animate>
-					<h5>24.3.1 Example: </h5>
-					<p class="sbt">$\displaystyle {\small \displaystyle \iint_R \sin x \cos y~dA }$ where
-						$R = \left[ 0, \frac{\pi}{2} \right]\times \left[ 0, \frac{\pi}{2} \right]$</p>
-					<div class="size-70">
-						<table id="eqarray">
+          <section>
+            <h4>24.4 Non-rectangular region</h4>
+            <div class="left-txt size-70">
+              <p>
+                <span> We obtain </span>
+              </p>
+            </div>
+            <div class="size-70">
+              <p>
+                <span>
+                  $\displaystyle \iint_D f(x,y) ~dA = \iint_R F(x,y)~dA$
+                </span>
+                <span class="fragment" data-fragment-index="5">
+                  $\displaystyle =\lim_{\Delta A\to 0} \sum_{\text{subrectangles
+                  in }R}F\left(x^*,y^*\right)\Delta A$
+                </span>
+                <span class="fragment" data-fragment-index="6">
+                  <br /><br />$\displaystyle =\lim_{\Delta A\to 0
+                  }\sum_{\text{subrectangles in }D}f\left(x^*,y^*\right)\Delta A
+                  \,\quad$
+                </span>
+              </p>
+            </div>
 
-							<tr>
-								<td class="fragment" data-fragment-index="0">
-									$\displaystyle \iint_R \sin x \cos y~dA  $
-								</td>
-								<td  class="fragment" data-fragment-index="1">
-									$\displaystyle = \left(\int_{x=0}^{x=\pi/2} \sin
-									x
-									~dx\right) \left( \int_{y=0}^{y=\pi/2} \cos y~dy \right) $
-								</td>
-							</tr>
+            <div class="size-70 left-txt">
+              <p class="fragment" data-fragment-index="7">
+                However, this does not really tell us how to compute the double
+                integral over $D$. 😥
+              </p>
+              <p class="fragment" data-fragment-index="8">
+                So in next subsection, we will consider an alternative way of
+                calculating the volume below a surface above a rectangle $R$,
+                which can be easily generalized to compute double integral over
+                a general region.
+              </p>
+            </div>
+          </section>
+        </section>
 
-							<tr>
-								<td>
+        <section>
+          <section data-auto-animate>
+            <h4>24.5 Volume by slabs</h4>
+            <div class="size-70 left-txt">
+              <p>
+                Fubini's theorem tells us how to evaluate a double integral over
+                a rectangle region.
+                <span class="fragment" data-fragment-index="0">
+                  To compute a double integral over a general region, here we
+                  consider an alternative way of calculating the volume below a
+                  surface.
+                </span>
+                <span class="fragment" data-fragment-index="1">
+                  As seen in next section, this alternative way can be easily
+                  generalized to compute double integral over a general region.
+                </span>
+              </p>
+              <p class="fragment" data-fragment-index="2">
+                Suppose we want to find the volume below the surface $z = x^2y$
+                above the square region $0 ≤ x ≤ 8$ and $0 ≤ y ≤ 4$.
+              </p>
+              <p class="fragment" data-fragment-index="3">
+                A natural way to solve this problem is to break the region up
+                into slabs of equal depth $∆y = y_{j+1} -y_j$ located at $y_j$,
+                and add up the volume of the slabs $V \approx \sum_j \Delta V$,
+                where $\Delta V$ the volume of the $j$th slab.
+              </p>
+            </div>
+          </section>
 
-								</td>
-								<td class="fragment" data-fragment-index="2">
-									$\displaystyle = \left( -\cos x\Bigg|_{x=0}^{x=\pi/2} \right)
-									\left( \sin y \Bigg|_{y=0}^{y=\pi/2} \right)$
-								</td>
-							</tr>
-							
-							<tr>
-								<td>
+          <section data-auto-animate>
+            <h4>24.5 Volume by slabs</h4>
+            <p style="font-size: 18px">
+              The following diagram follows the method outlined here, taking
+              slabs of thickness $\Delta y$.
+            </p>
+            <iframe
+              scrolling="no"
+              title="Chapter-24-5: Horizontal slabs"
+              src="https://www.geogebra.org/material/iframe/id/aqq7yxxe/width/510/height/424/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+              width="510px"
+              height="424px"
+              style="border: 0px"
+              allowfullscreen=""
+            >
+            </iframe>
+          </section>
 
-								</td>
-								<td class="fragment" data-fragment-index="3">
-									$=  1. $
-								</td>
-							</tr>
+          <section data-auto-animate>
+            <h4>24.5 Volume by slabs</h4>
 
-						</table>
-					</div>
-					<br/><br/>
-
-				</section>
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h4>24.4 Non-rectangular region</h4>
-					<div class="left-txt size-70">
-						<p class="fragment" data-fragment-index="0">
-							To define a double integral over a non-rectangular region $D$, we consider a rectangular
-							$R$ which encloses $D$ and define
-							\[
-							F(x,y) = \left\{
-							\begin{array}{rl}
-							f(x,y) & \text{if }(x,y)\in D\\
-							0, &\text{if }(x,y)\in R \text{ but } \notin D
-							\end{array}
-							\right.
-							\]
-						</p>
-						<p class="fragment" data-fragment-index="1">
-							Then we can define the double integral of $f(x,y)$ over $D$ by
-							\[
-							\iint_D f(x,y) dA= \iint_R F(x,y)dA
-							\]
-
-						</p>
-
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>24.4 Non-rectangular region</h4>
-					<div class="left-txt size-70">
-
-						<p>
-							Then we can define the double integral of $f(x,y)$ over $D$ by
-							\[
-							\iint_D f(x,y) dA= \iint_R F(x,y)dA
-							\]
-
-						</p>
-						<p>
-							and proceed as before:
-						</p>
-						<ol>
-							<li class="fragment" data-fragment-index="2">Chop $R$ into subrectangles,</li>
-							<li class="fragment" data-fragment-index="3">
-								Compute $F(x^*,y^*)\Delta A$ for each rectangle contained in $R$,
-							</li>
-							<li class="fragment" data-fragment-index="4">
-								Add up the contributions from all subrectangles,
-								<span class="fragment" data-fragment-index="5">and </span>
-
-							</li>
-							<li class="fragment" data-fragment-index="5">
-								Take a limit as we chop $R$ into smaller and smaller pieces.
-							</li>
-						</ol>
-					</div>
-				</section>
-
-				<section>
-					<h4>24.4 Non-rectangular region</h4>
-					<div class="left-txt size-70">
-
-						<p>
-							<span>
-								We obtain
-							</span>
-
-						</p>
-					</div>
-					<div class="size-70">
-						<p>
-							<span>
-								$\displaystyle \iint_D f(x,y) ~dA = \iint_R F(x,y)~dA$
-							</span>
-							<span class="fragment" data-fragment-index="5">
-								$\displaystyle =\lim_{\Delta A\to 0} \sum_{\text{subrectangles in
-								}R}F\left(x^*,y^*\right)\Delta A$
-							</span>
-							<span class="fragment" data-fragment-index="6">
-								<br /><br />$\displaystyle =\lim_{\Delta A\to 0 }\sum_{\text{subrectangles in
-								}D}f\left(x^*,y^*\right)\Delta A \,\quad$
-							</span>
-						</p>
-					</div>
-
-					<div class="size-70 left-txt">
-						<p class="fragment" data-fragment-index="7">
-							However, this does not really tell us how to compute the
-							double integral over $D$. 😥 
-							
-						</p>
-						<p class="fragment" data-fragment-index="8">
-							So in next subsection, we will consider
-							an alternative way of calculating the volume below a surface above
-							a rectangle $R$, which can be easily generalized to compute double
-							integral over a general region.
-						</p>
-					</div>
-
-				</section>
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h4>24.5 Volume by slabs</h4>
-					<div class="size-70 left-txt">
-						<p>
-							Fubini's theorem tells us how to evaluate a double integral over a rectangle region.
-							<span class="fragment" data-fragment-index="0">
-								To compute
-								a double integral over a general region,
-								here we consider an alternative way of calculating
-								the volume below a surface.
-
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								As seen in next section, this alternative way can be easily generalized
-								to compute double integral over a general region.
-							</span>
-						</p>
-						<p class="fragment" data-fragment-index="2">
-							Suppose we want to find the volume below the surface
-							$z = x^2y$ above the square region $0 ≤ x ≤ 8$ and $0 ≤ y ≤ 4$.
-						</p>
-						<p class="fragment" data-fragment-index="3">
-							A natural way to solve this problem is to break the region up
-							into slabs of equal depth $∆y =
-							y_{j+1} -y_j$ located at $y_j$, and add up the volume of the
-							slabs $V \approx \sum_j \Delta V$, where $\Delta V$ the volume of
-							the $j$th slab.
-						</p>
-
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>24.5 Volume by slabs</h4>
-					<p style="font-size:18px">The following diagram follows the method outlined here, taking slabs
-						of thickness $\Delta y$.</p>
-					<iframe scrolling="no" title="Chapter-24-5: Horizontal slabs"
-						src="https://www.geogebra.org/material/iframe/id/aqq7yxxe/width/510/height/424/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-						width="510px" height="424px" style="border:0px;" allowfullscreen=""> </iframe>
-
-				</section>
-
-				<section data-auto-animate>
-					<h4>24.5 Volume by slabs</h4>
-
-					<table style="width:100%">
-
-						<tr>
-							<td style="width:40%">
-								<div class="r-stack">
-									<img class="fragment fade-out" data-fragment-index="0" style="
+            <table style="width: 100%">
+              <tr>
+                <td style="width: 40%">
+                  <div class="r-stack">
+                    <img
+                      class="fragment fade-out"
+                      data-fragment-index="0"
+                      style="
                         width: 100%;
                         display: block;
                         margin-left: auto;
                         margin-right: auto;
-                        " data-src="images/chapter-24/chapter-24-5-slab-01.png" />
-									<img class="fragment fade-in-then-out" data-fragment-index="0" style="
+                      "
+                      data-src="images/chapter-24/chapter-24-5-slab-01.png"
+                    />
+                    <img
+                      class="fragment fade-in-then-out"
+                      data-fragment-index="0"
+                      style="
                         width: 100%;
                         display: block;
                         margin-left: auto;
                         margin-right: auto;
-                        " data-src="images/chapter-24/chapter-24-5-slab-02.png" />
-									<img class="fragment fade-in" data-fragment-index="1" style="
+                      "
+                      data-src="images/chapter-24/chapter-24-5-slab-02.png"
+                    />
+                    <img
+                      class="fragment fade-in"
+                      data-fragment-index="1"
+                      style="
                         width: 100%;
                         display: block;
                         margin-left: auto;
                         margin-right: auto;
-                        " data-src="images/chapter-24/chapter-24-5-slab-03.png" />
-								</div>
-							</td>
-							<td style="width:60%">
+                      "
+                      data-src="images/chapter-24/chapter-24-5-slab-03.png"
+                    />
+                  </div>
+                </td>
+                <td style="width: 60%">
+                  <div class="size-60">
+                    <p>
+                      If the slab is very thin (i.e. $\Delta y \ll 1$)
+                      <span class="fragment" data-fragment-index="2">
+                        then the volume of each slab is \[ \Delta V \approx
+                        \text{ Area of slab } \times \text{ Depth } = C(y_j)~
+                        \Delta y. \]
+                      </span>
+                      <span class="fragment" data-fragment-index="3">
+                        Here $C(y_j)$ is the area of the slab at the location
+                        $y_j$ (and the result will depend on $y_j$!).
+                      </span>
+                    </p>
 
-								<div class="size-60">
-									<p>
-										If the slab is very thin (i.e. $\Delta y \ll 1$)
-										<span class="fragment" data-fragment-index="2">
-											then the volume of each slab is
-											\[
-											\Delta V \approx \text{ Area of slab } \times \text{ Depth } = C(y_j)~
-											\Delta y.
-											\]
+                    <p class="fragment" data-fragment-index="4">
+                      From one-dimensional calculus we know exactly that \[
+                      C(y_j) = \int _0^8 f(x,y_j)~dx, \;\; y_j \text{ constant.}
+                      \]
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </section>
 
-										</span>
-										<span class="fragment" data-fragment-index="3">
-											Here $C(y_j)$ is the area of the slab at the location
-											$y_j$ (and the result will depend on $y_j$!).
+          <section data-auto-animate>
+            <h4>24.5 Volume by slabs</h4>
 
-										</span>
-									</p>
-								
-									<p  class="fragment" data-fragment-index="4">
-										From one-dimensional calculus we know exactly that
-										\[
-										C(y_j) = \int _0^8 f(x,y_j)~dx, \;\; y_j \text{ constant.}
-										\]
-									</p>
-								</div>
-							</td>
-						</tr>
-
-					</table>
-				</section>
-
-				<section data-auto-animate>
-					<h4>24.5 Volume by slabs</h4>
-
-					<table style="width:100%">
-
-						<tr>
-							<td style="width:40%">
-								<div class="r-stack">
-									<img class="fragment fade-out" data-fragment-index="0" style="
+            <table style="width: 100%">
+              <tr>
+                <td style="width: 40%">
+                  <div class="r-stack">
+                    <img
+                      class="fragment fade-out"
+                      data-fragment-index="0"
+                      style="
                         width: 100%;
                         display: block;
                         margin-left: auto;
                         margin-right: auto;
-                        " data-src="images/chapter-24/chapter-24-5-slab-03.png" />
-									
-									<img class="fragment fade-in" data-fragment-index="0" style="
+                      "
+                      data-src="images/chapter-24/chapter-24-5-slab-03.png"
+                    />
+
+                    <img
+                      class="fragment fade-in"
+                      data-fragment-index="0"
+                      style="
                         width: 100%;
                         display: block;
                         margin-left: auto;
                         margin-right: auto;
-                        " data-src="images/chapter-24/chapter-24-5-slab-04.png" />
-								</div>
-							</td>
-							<td style="width:60%">
+                      "
+                      data-src="images/chapter-24/chapter-24-5-slab-04.png"
+                    />
+                  </div>
+                </td>
+                <td style="width: 60%">
+                  <div class="size-60">
+                    <p>
+                      From one-dimensional calculus we know exactly that \[
+                      C(y_j) = \int _0^8 f(x,y_j)~dx, \;\; y_j \text{ constant.}
+                      \]
+                    </p>
+                    <p>
+                      It is easy to compute this as a regular integral since
+                      $y_j$ does not vary with $x$.
 
-								<div class="size-60">
-									<p>
-										From one-dimensional calculus we know exactly that
-										\[
-										C(y_j) = \int _0^8 f(x,y_j)~dx, \;\; y_j \text{ constant.}
-										\]
-									</p>
-									<p>
-										
-											It is easy to compute this as a regular integral since $y_j$
-											does not vary with $x$.
-										
-										<span class="fragment" data-fragment-index="0">
-											Putting all this together
-											\[
-											V \approx \sum_\limits{j} \Delta V_j \approx \sum_\limits{j} C(y_j) ~\Delta y.
-											\]
-										</span>
-									</p>
-								</div>
-							</td>
-						</tr>
+                      <span class="fragment" data-fragment-index="0">
+                        Putting all this together \[ V \approx \sum_\limits{j}
+                        \Delta V_j \approx \sum_\limits{j} C(y_j) ~\Delta y. \]
+                      </span>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </section>
 
-					</table>
-				</section>
+          <section data-auto-animate>
+            <h4>24.5 Volume by slabs</h4>
+            <div class="size-65 left-txt">
+              <p>
+                As the slabs become thinner and thinner ($\Delta y$ → 0)
+                <span class="fragment" data-fragment-index="0">
+                  the approximation becomes more accurate
+                </span>
+                <span class="fragment" data-fragment-index="1">
+                  and we can replace the summation by an integral \[ V =\int_0^4
+                  C(y)~dy = \int_0^4 \left( \int_0^8 f(x,y) ~dx\right)dy. \]
+                </span>
+                <span class="fragment" data-fragment-index="2">
+                  note that the $y$ is held constant in the inner integral.
+                </span>
+              </p>
+              <p class="fragment" data-fragment-index="3">
+                A similar argument can be applied by considering slabs of depth
+                $\Delta x$, located at $x_j$. In other words, take slabs that
+                are parallel to the $y$-$z$ plane.
+              </p>
+            </div>
+          </section>
 
+          <section data-auto-animate>
+            <h4>24.5 Volume by slabs</h4>
+            <p style="font-size: 18px">
+              The following diagram follows the method outlined but taking slabs
+              of thickness $\Delta x$.
+            </p>
+            <iframe
+              scrolling="no"
+              title="Chapter-24-5: Vertical slabs"
+              src="https://www.geogebra.org/material/iframe/id/ukwnwgrg/width/510/height/424/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+              width="510px"
+              height="424px"
+              style="border: 0px"
+              data-preload
+              allowfullscreen=""
+            >
+            </iframe>
+          </section>
+        </section>
 
-				<section data-auto-animate>
-					<h4>24.5 Volume by slabs</h4>
-					<div class="size-65 left-txt">
-						<p>
-							As the slabs become thinner and thinner ($\Delta y$ → 0)
-							<span class="fragment" data-fragment-index="0">
-								the approximation becomes
-								more accurate
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								and we can replace the summation by an integral
-								\[
-								V =\int_0^4 C(y)~dy = \int_0^4 \left( \int_0^8 f(x,y) ~dx\right)dy.
-								\]
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								note that the $y$ is held constant in the inner integral.
+        <section>
+          <section>
+            <h4>24.6 Example:</h4>
+            <p class="sbt">
+              find the volume of the solid bounded by the elliptic paraboloid
+              $x^2+2y^2 + z=16$, <br />the planes $x=2$ and $y=2$, and the three
+              coordinate planes.
+            </p>
+            <div class="fragment" data-fragment-index="0">
+              <iframe
+                scrolling="no"
+                title="Chapter-24-6: Example"
+                src="https://www.geogebra.org/material/iframe/id/dkbkq8md/width/526/height/432/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+                width="526px"
+                height="432px"
+                style="border: 0px"
+                data-preload
+                allowfullscreen=""
+              >
+              </iframe>
+            </div>
+          </section>
 
-							</span>
-						</p>
-						<p class="fragment" data-fragment-index="3">
-							A similar argument can be applied by considering
-							slabs of depth $\Delta x$, located at $x_j$.
-							In other words, take slabs that are parallel to the $y$-$z$ plane.
-						</p>
+          <section data-auto-animate>
+            <h4>24.6 Example (cont.):</h4>
 
+            <div class="size-65">
+              <table id="eqarray">
+                <tr class="fragment" data-fragment-index="0">
+                  <td>$\displaystyle V$</td>
+                  <td>
+                    $\displaystyle = \int_{y=0}^{y=2} \left[ \int_{x=0}^{x=2}
+                    \left(16-x^2-2y^2\right)dx \right]dy $
+                  </td>
+                </tr>
 
-					</div>
-				</section>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="1">
+                    $= \displaystyle \int_0^2 \left[ \left( 16 x - \frac{x^3}{3}
+                    -2 y^2 x\right) \Bigg|_{x=0}^{x=2} \right] dy$
+                  </td>
+                </tr>
 
-				<section data-auto-animate>
-					<h4>24.5 Volume by slabs</h4>
-					<p style="font-size:18px">The following diagram follows the method outlined but taking slabs
-						of thickness $\Delta x$.</p>
-					<iframe scrolling="no" title="Chapter-24-5: Vertical slabs"
-						src="https://www.geogebra.org/material/iframe/id/ukwnwgrg/width/510/height/424/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-						width="510px" height="424px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="2">
+                    $= \displaystyle \int_0^2 \left( 32 - \frac{8}{3} - 4y^2
+                    \right) dy$
+                  </td>
+                </tr>
 
-				</section>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="3">
+                    $= \displaystyle \left( 32 y - \frac{8}{3} y -
+                    4\frac{y^3}{3} \right)\Bigg|_{y=0}^{y=2} $
+                    <span class="fragment" data-fragment-index="5">
+                      $= \displaystyle 48$
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </section>
 
-			</section>
+          <section data-auto-animate>
+            <h4>24.6 Example (cont.):</h4>
 
-			<section>
-				<section>
-					<h4>24.6 Example:</h4>
-					<p class="sbt">find the volume of the solid bounded by the elliptic paraboloid
-						$x^2+2y^2 + z=16$, <br />the planes $x=2$ and $y=2$, and the three coordinate planes.
-					</p>
-					<div class="fragment" data-fragment-index="0">
-						<iframe scrolling="no" title="Chapter-24-6: Example"
-							src="https://www.geogebra.org/material/iframe/id/dkbkq8md/width/526/height/432/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-							width="526px" height="432px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-					</div>
-				</section>
+            <div class="size-65">
+              <table id="eqarray">
+                <tr>
+                  <td>$\displaystyle V$</td>
+                  <td>
+                    $\displaystyle = \displaystyle \int_{x=0}^{x=2} \left[
+                    \int_{y=0}^{y=2} \left(16-x^2-2y^2\right)dy \right]dx$
+                  </td>
+                </tr>
 
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="1">
+                    $= \displaystyle \int_0^2 \left[ \left( 16 y - x^2 y - 2
+                    \frac{y^3}{3} \right) \Bigg|_{y=0}^{y=2} \right] dx$
+                  </td>
+                </tr>
 
-				<section data-auto-animate>
-					<h4>24.6 Example (cont.):</h4>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="2">
+                    $= \displaystyle \int_0^2 \left( 32 - 2x^2 -\frac{16}{3}
+                    \right) dx $
+                  </td>
+                </tr>
 
-					<div class="size-65">
-						<table id="eqarray">
-							<tr class="fragment" data-fragment-index="0">
-								<td>
-									$\displaystyle V$
-								</td>
-								<td>
-									$\displaystyle = \int_{y=0}^{y=2} \left[
-									\int_{x=0}^{x=2} \left(16-x^2-2y^2\right)dx \right]dy $
-								</td>
-							</tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="3">
+                    $= \displaystyle \left( 32 x - 2\frac{x^3}{3} -\frac{16}{3}x
+                    \right)\Bigg|_{x=0}^{x=2} $
+                    <span class="fragment" data-fragment-index="5">
+                      $= \displaystyle 48$
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </section>
+        </section>
 
-							<tr>
-								<td>
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
 
-								</td>
-								<td class="fragment" data-fragment-index="1">
-									$= \displaystyle \int_0^2 \left[ \left( 16 x - \frac{x^3}{3} -2 y^2
-									x\right)
-									\Bigg|_{x=0}^{x=2} \right] dy$
-								</td>
-							</tr>
+        <!-- Ends sections -->
+      </div>
+    </div>
 
-							<tr>
-								<td>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
 
-								</td>
-								<td class="fragment" data-fragment-index="2">
-									$= \displaystyle \int_0^2 \left(
-									32 - \frac{8}{3} - 4y^2
-									\right) dy$
-								</td>
-							</tr>
-
-							<tr>
-								<td>
-
-								</td>
-								<td class="fragment" data-fragment-index="3">
-									$= \displaystyle \left( 32 y - \frac{8}{3} y - 4\frac{y^3}{3}
-									\right)\Bigg|_{y=0}^{y=2} $
-									<span class="fragment" data-fragment-index="5">
-										$= \displaystyle 48$
-									</span>
-								</td>
-							</tr>
-						</table>
-
-					</div>
-
-
-
-				</section>
-
-				<section data-auto-animate>
-					<h4>24.6 Example (cont.):</h4>
-
-					<div class="size-65">
-						<table id="eqarray">
-							<tr>
-								<td>
-									$\displaystyle V$
-								</td>
-								<td>
-									$\displaystyle = \displaystyle \int_{x=0}^{x=2} \left[
-									\int_{y=0}^{y=2} \left(16-x^2-2y^2\right)dy \right]dx$
-								</td>
-							</tr>
-
-							<tr>
-								<td>
-
-								</td>
-								<td class="fragment" data-fragment-index="1">
-									$= \displaystyle \int_0^2 \left[ \left( 16 y - x^2 y - 2 \frac{y^3}{3}
-									\right)
-									\Bigg|_{y=0}^{y=2} \right] dx$
-								</td>
-							</tr>
-
-							<tr>
-								<td>
-
-								</td>
-								<td class="fragment" data-fragment-index="2">
-									$= \displaystyle \int_0^2 \left(
-									32 - 2x^2 -\frac{16}{3}
-									\right) dx $
-								</td>
-							</tr>
-
-							<tr>
-								<td>
-
-								</td>
-								<td class="fragment" data-fragment-index="3">
-									$= \displaystyle \left( 32 x - 2\frac{x^3}{3} -\frac{16}{3}x
-									\right)\Bigg|_{x=0}^{x=2} $
-									<span class="fragment" data-fragment-index="5">
-										$= \displaystyle 48$
-									</span>
-								</td>
-							</tr>
-						</table>
-
-					</div>
-
-				</section>
-			</section>
-
-
-
-			<section>
-
-				<h4>Credits</h4>
-				<div include-html="creditsb.html"></div>
-			</section>
-
-			<!-- Ends sections -->
-
-		</div>
-	</div>
-
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="mySetup/setup.js"></script>
-
-	<script>
-		includeHTML();
-	</script>
-
-
-</body>
-
+    <script>
+      includeHTML();
+    </script>
+  </body>
 </html>
