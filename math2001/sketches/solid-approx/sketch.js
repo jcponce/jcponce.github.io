@@ -43,8 +43,8 @@ function setup() {
     //gui.add(param, 'Approx', 0, 1, 0.01).listen();
 
     slider = createSlider(0, 1, 1, 0.01);
-    slider.position(windowWidth/2-150, windowHeight-70);
-    slider.style('width', '300px');
+    slider.position(windowWidth/2-200, windowHeight-70);
+    slider.style('width', '400px');
 
 }
 
