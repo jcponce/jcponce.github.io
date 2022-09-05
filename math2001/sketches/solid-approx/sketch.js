@@ -108,7 +108,7 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    slider.position(windowWidth/2-150, windowHeight-70);
+    slider.position(windowWidth/2-200, windowHeight-80);
 }
 
 function mousePressed() {
