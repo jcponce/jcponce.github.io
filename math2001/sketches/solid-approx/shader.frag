@@ -1,6 +1,9 @@
 // Original shader by
 // Thomas Hooper https://twitter.com/tdhooper
+// 08-Aug-2022
 // Link: https://www.shadertoy.com/view/NtcyRB
+// This version by Juan Carlos Ponce Campuzano
+// 05-Sep-2022
 
 // These are necessary definitions that let you graphics card know how to render the shader
 #ifdef GL_ES
@@ -43,7 +46,7 @@ Model map(vec3 p) {
     float d = length(p) - 16.;
     p += vec3(1.2,-.8,.8) * 12.; // Medium sphere
     d = smin(d, length(p) - 9., 4.);
-    p += vec3(2.1,.4,.6) * 5.; // Small sphere
+    p += vec3(1.8,.4,.6) * 5.; // Small sphere
     d = smin(d, length(p) - 4., 3.);
     col = vec3(.8);
     return Model(d, col);
@@ -157,7 +160,7 @@ void main() {
     Model model;
     float dist = 0.;
     bool bg = true;
-    vec3 bgcol = vec3(.415, 0.415, 0.635); //.08, 0.21, 0.96
+    vec3 bgcol = vec3(0.99); //.08, 0.21, 0.96
     vec3 col = bgcol;
     bool hitVoxel = false;
     vec3 voxelPosition;
