@@ -386,14 +386,14 @@
 							\]
 
 						</p>
-						
+
 					</div>
 				</section>
 
 				<section data-auto-animate>
 					<h4>24.4 Non-rectangular region</h4>
 					<div class="left-txt size-70">
-						
+
 						<p>
 							Then we can define the double integral of $f(x,y)$ over $D$ by
 							\[
@@ -460,12 +460,12 @@
 							</span>
 						</p>
 					</div>
-					
+
 				</section>
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h4>24.5 Volume by slabs</h4>
 					<div class="size-70 left-txt">
 						<p>
@@ -497,7 +497,7 @@
 					</div>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>24.5 Volume by slabs</h4>
 					<p style="font-size:18px">The following diagram follows the method outlined here, taking slabs
 						of thickness $\Delta y$.</p>
@@ -507,48 +507,119 @@
 
 				</section>
 
-
-				<section>
+				<section data-auto-animate>
 					<h4>24.5 Volume by slabs</h4>
-					<div class="size-60 left-txt">
-						<p>
-							If the slab is very thin (i.e. $\Delta y \ll 1$)
-							<span class="fragment" data-fragment-index="0">
-								then the volume of each slab is
-								\[
-								\Delta V \approx \text{ Area of slab } \times \text{ Depth } = C(y_i)~ \Delta y.
-								\]
 
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								Here $C(y_j)$ is the area of the slab at the location
-								$y_j$ (and the result will depend on $y_j$!).
+					<table style="width:100;%">
 
-							</span>
-						</p>
-						<p class="fragment" data-fragment-index="2">
-							From one-dimensional calculus we know exactly that
-							\[
-							C(y_i) = \int _0^8 f(x,y_j)~dx, \quad y_j \text{ constant.}
-							\]
-						</p>
-						<p>
-							<span class="fragment" data-fragment-index="3">
-								It is easy to compute this as a regular integral since $y_j$
-								does not vary with $x$.
-							</span>
-							<span class="fragment" data-fragment-index="4">
-								Putting all this together
-								\[
-								V \approx \sum_\limits{j} \Delta V_j \approx \sum_\limits{j} C(y_j) ~\Delta y.
-								\]
-							</span>
-						</p>
+						<tr>
+							<td style="width:40%">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="0" style="
+                        width: 100%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        " data-src="images/chapter-24/chapter-24-5-slab-01.png" />
+									<img class="fragment fade-in-then-out" data-fragment-index="0" style="
+                        width: 100%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        " data-src="images/chapter-24/chapter-24-5-slab-02.png" />
+									<img class="fragment fade-in" data-fragment-index="1" style="
+                        width: 100%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        " data-src="images/chapter-24/chapter-24-5-slab-03.png" />
+								</div>
+							</td>
+							<td style="width:60%">
 
-					</div>
+								<div class="size-60">
+									<p>
+										If the slab is very thin (i.e. $\Delta y \ll 1$)
+										<span class="fragment" data-fragment-index="2">
+											then the volume of each slab is
+											\[
+											\Delta V \approx \text{ Area of slab } \times \text{ Depth } = C(y_i)~
+											\Delta y.
+											\]
+
+										</span>
+										<span class="fragment" data-fragment-index="3">
+											Here $C(y_j)$ is the area of the slab at the location
+											$y_j$ (and the result will depend on $y_j$!).
+
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="4">
+										From one-dimensional calculus we know exactly that
+										\[
+										C(y_i) = \int _0^8 f(x,y_j)~dx, \;\; y_j \text{ constant.}
+										\]
+									</p>
+								</div>
+							</td>
+						</tr>
+
+					</table>
 				</section>
 
-				<section>
+				<section data-auto-animate>
+					<h4>24.5 Volume by slabs</h4>
+
+					<table style="width:100;%">
+
+						<tr>
+							<td style="width:40%">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="0" style="
+                        width: 100%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        " data-src="images/chapter-24/chapter-24-5-slab-03.png" />
+									
+									<img class="fragment fade-in" data-fragment-index="0" style="
+                        width: 100%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        " data-src="images/chapter-24/chapter-24-5-slab-04.png" />
+								</div>
+							</td>
+							<td style="width:60%">
+
+								<div class="size-60">
+									<p>
+										From one-dimensional calculus we know exactly that
+										\[
+										C(y_i) = \int _0^8 f(x,y_j)~dx, \;\; y_j \text{ constant.}
+										\]
+									</p>
+									<p>
+										<span>
+											It is easy to compute this as a regular integral since $y_j$
+											does not vary with $x$.
+										</span>
+										<span class="fragment" data-fragment-index="0">
+											Putting all this together
+											\[
+											V \approx \sum_\limits{j} \Delta V_j \approx \sum_\limits{j} C(y_j) ~\Delta y.
+											\]
+										</span>
+									</p>
+								</div>
+							</td>
+						</tr>
+
+					</table>
+				</section>
+
+
+				<section data-auto-animate>
 					<h4>24.5 Volume by slabs</h4>
 					<div class="size-65 left-txt">
 						<p>
@@ -578,7 +649,7 @@
 					</div>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>24.5 Volume by slabs</h4>
 					<p style="font-size:18px">The following diagram follows the method outlined but taking slabs
 						of thickness $\Delta x$.</p>
@@ -591,7 +662,7 @@
 			</section>
 
 			<section>
-				<section >
+				<section>
 					<h4>24.6 Example:</h4>
 					<p class="sbt">find the volume of the solid bounded by the elliptic paraboloid
 						$x^2+2y^2 + z=16$, <br />the planes $x=2$ and $y=2$, and the three coordinate planes.
@@ -614,14 +685,14 @@
 									$\displaystyle V$
 								</td>
 								<td>
-									$\displaystyle =  \int_{y=0}^{y=2} \left[
+									$\displaystyle = \int_{y=0}^{y=2} \left[
 									\int_{x=0}^{x=2} \left(16-x^2-2y^2\right)dx \right]dy $
 								</td>
 							</tr>
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="1">
 									$= \displaystyle \int_0^2 \left[ \left( 16 x - \frac{x^3}{3} -2 y^2
@@ -632,18 +703,18 @@
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="2">
 									$= \displaystyle \int_0^2 \left(
-										32 - \frac{8}{3} - 4y^2
-										\right) dy$
+									32 - \frac{8}{3} - 4y^2
+									\right) dy$
 								</td>
 							</tr>
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="3">
 									$= \displaystyle \left( 32 y - \frac{8}{3} y - 4\frac{y^3}{3}
@@ -654,10 +725,10 @@
 								</td>
 							</tr>
 						</table>
-						
+
 					</div>
 
-					
+
 
 				</section>
 
@@ -678,7 +749,7 @@
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="1">
 									$= \displaystyle \int_0^2 \left[ \left( 16 y - x^2 y - 2 \frac{y^3}{3}
@@ -689,18 +760,18 @@
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="2">
 									$= \displaystyle \int_0^2 \left(
-										32 - 2x^2 -\frac{16}{3}
-										\right) dx $
+									32 - 2x^2 -\frac{16}{3}
+									\right) dx $
 								</td>
 							</tr>
 
 							<tr>
 								<td>
-									
+
 								</td>
 								<td class="fragment" data-fragment-index="3">
 									$= \displaystyle \left( 32 x - 2\frac{x^3}{3} -\frac{16}{3}x
@@ -711,7 +782,7 @@
 								</td>
 							</tr>
 						</table>
-						
+
 					</div>
 
 				</section>
