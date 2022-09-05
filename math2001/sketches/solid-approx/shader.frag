@@ -48,7 +48,7 @@ Model map(vec3 p) {
     d = smin(d, length(p) - 9., 4.);
     p += vec3(1.8,.4,.6) * 5.; // Small sphere
     d = smin(d, length(p) - 4., 3.);
-    col = vec3(.8);
+    col = vec3(0.11, 0.51, .99);
     return Model(d, col);
 }
 
