@@ -138,16 +138,17 @@ void main() {
   
     vec3 camPos = vec3(0,0,64);
   
-    vec2 im = iMouse.xy * scale * iResolution.x / iResolution.y;
+    vec2 im = iMouse.xy;// * scale * iResolution.x / iResolution.y;
   
-    if (iView == false || iMouse.y < -0.79)
+    if (iView == false || iMouse.y < -0.745)
     {
         im = vec2(.6,.2);
     }
 
-    pR(camPos.yz, (0.5 - im.y) * PI / 2.);
+    pR(camPos.yz, (0.5 - im.y) * PI / 2.5);
     pR(camPos.xz, (0.5 - sin(iTime * .08 - PI * .5) * .5 + .5) * PI * 2.5);
-    
+    //pR(camPos.xz, (.5 - im.x) * PI * 2.5);
+
     mat3 camMat = calcLookAtMatrix(camPos, vec3(0), vec3(0,1,0));
 
     camPos = camPos;

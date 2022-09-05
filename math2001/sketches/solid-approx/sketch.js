@@ -42,7 +42,7 @@ function setup() {
     //});
     //gui.add(param, 'Approx', 0, 1, 0.01).listen();
 
-    slider = createSlider(0, 1, 0, 0.01);
+    slider = createSlider(0, 1, 1, 0.01);
     slider.position(windowWidth/2-150, windowHeight-70);
     slider.style('width', '300px');
 
@@ -76,7 +76,7 @@ function draw() {
     shaderBg.rect(0, 0, width, height);
     image(shaderBg, 0, 0, width, height);
 
-    /*
+    ///*
     // I just need the following code to display
     // information for position reference.
     // flip coordinate information box
@@ -101,7 +101,7 @@ function draw() {
     fill(255);
     text("x: " + nfc(xMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 15 + flipY);
     text("y: " + nfc(yMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 30 + flipY);
-    */
+    //*/
 
     //console.log(imView);
 }
