@@ -10,7 +10,7 @@ let easycam; //3D view
 
 let particles = [];
 
-let numMax = 400; //num of particles
+let numMax = 600; //num of particles
 let t = 0;
 let h = 0.01;
 let currentParticle = 0;
