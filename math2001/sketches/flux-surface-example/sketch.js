@@ -171,6 +171,19 @@ function draw() {
     pop();
     pop();
 
+    push();
+    strokeWeight(0.005);
+    stroke(0);
+    ellipse(0, 0, 2);
+    pop();
+
+    push();
+    strokeWeight(0.005);
+    stroke(0);
+    translate(0,0,2)
+    ellipse(0, 0, 2);
+    pop();
+
     // gizmo
     push();
     strokeWeight(0.02);
@@ -197,6 +210,7 @@ function draw() {
     push();
     noStroke();
     ambientMaterial(150, 150, 150, 80);
+    translate(0,0,-0.01)
     plane(8, 8);
     pop();
   }
