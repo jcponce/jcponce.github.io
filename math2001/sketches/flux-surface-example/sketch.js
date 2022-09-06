@@ -132,7 +132,7 @@ function draw() {
     strokeWeight(0.05);
     // red
     //stroke(255, 32, 0);
-    stroke(244, 255, 87);
+    stroke(102, 255, 255);
     let px = 2;
     let py = 1;
     line(-px, 0, 1, -py, 0, 1);
@@ -144,7 +144,7 @@ function draw() {
 
     // green
     //stroke(32, 255, 32);
-    stroke(244, 255, 87);
+    stroke(102, 255, 255);
     line(0, -px, 1, 0, -py, 1);
     line(0, px, 1, 0, py, 1);
     line(0.12, 1.77, 1, 0, 2, 1);
@@ -154,7 +154,7 @@ function draw() {
 
     // blue
     //stroke(0, 32, 255);
-    stroke(244, 255, 87);
+    stroke(102, 255, 255);
     line(0, 0, 0, 0, 0, -1);
     line(0, 0, 3, 0, 0, 2);
     line(0, 0.12, 2.77, 0, 0, 3);
