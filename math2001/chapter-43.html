@@ -357,23 +357,318 @@
                 <p>Let's have a closer look at these steps.</p>
 
                 <ul style="line-height: 40px">
-                  <li class="fragment" data-fragment-indes="1">
+                  <li class="fragment" data-fragment-index="0">
                     Steps 1 and 2 are exactly the same as steps 1 and 2 of our
                     calculation of surface area.
                   </li>
-                  <li class="fragment" data-fragment-indes="2">
-                    We approximate the flux through one patch by treating $\v$
-                    as constant over the patch (ie. the patch is small enough
-                    for this to be a decent approximation). Since we have
-                    already approximated the shape of the patch as a
-                    parallelogram, we need to work out the flux of a constant
-                    vector through a parallelogram.
-                  </li>
+                  
                 </ul>
+                <div>
+                  <img
+                    class="fragment"
+                    data-fragment-index="0"
+                    style="
+                      width: 40%;
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                    "
+                    data-src="images/chapter-43/chapter-043-20.png"
+                  />
+                </div>
               </div>
             </div>
           </section>
+
+
+          <section data-auto-animate>
+            <h4>43.2 The flux integral</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>Let's have a closer look at these steps.</p>
+
+                <table style="width:100%">
+                  <tr>
+                    <td style="width:50%">
+                      <ul style="line-height: 35px">
+                        <li>
+                          1 & 2: Steps 1 and 2 are exactly the same as steps 1 and 2 of our
+                          calculation of surface area.
+                        </li>
+                        <li >
+                          3: We approximate the flux through one patch by treating $\v$
+                          as constant over the patch (ie. the patch is small enough
+                          for this to be a decent approximation). Since we have
+                          already approximated the shape of the patch as a
+                          parallelogram, we need to work out the flux of a constant
+                          vector through a parallelogram.
+                        </li>
+      
+                      </ul>
+                    </td>
+                    <td style="width:50%">
+                      <div class="r-stack">
+                        <img  class="fragment fade-out" data-fragment-index="0"
+                          style="
+                            width: 100%;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                          "
+                          data-src="images/chapter-43/chapter-043-21.png"
+                        />
+                        <img  class="fragment fade-in" data-fragment-index="0"
+                          style="
+                            width: 100%;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                          "
+                          data-src="images/chapter-43/chapter-043-22.png"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                
+              </div>
+              
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.2 The flux integral</h4>
+            <div class="size-55">
+              <div class="left-txt">
+                <p>Let's have a closer look at these steps.</p>
+
+                <table style="width:100%">
+                  <tr>
+                    <td style="width:50%">
+                      <ul style="line-height: 35px">
+                        
+                        <li >
+                          3: To this end, consider the parallelogram 
+                          defined by the two (non-parallel) vectors 
+                          $\mathbf a$ and $\mathbf b$. 
+                          <span class="fragment" data-fragment-index="2">
+                            If we take the area of the patch 
+                          to be S, it can be seen from the diagram below 
+                          that the flux (volume per unit time if $\v$ is 
+                          velocity) passing through the parallelogram is
+                          \[
+                          \text{flux across parallelogram } \approx \v \cdot \n~ \Delta S
+                          \]
+                          </span>
+                        </li>
+      
+                      </ul>
+                    </td>
+                    <td style="width:50%">
+                      <div class="r-stack">
+                        <img  class="fragment fade-out" data-fragment-index="0"
+                          style="
+                            width: 100%;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                          "
+                          data-src="images/chapter-43/chapter-043-22.png"
+                        />
+                        <img  class="fragment fade-in-then-out" data-fragment-index="0"
+                          style="
+                            width: 100%;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                          "
+                          data-src="images/chapter-43/chapter-043-23.png"
+                        />
+                        <img  class="fragment fade-in-then-out" data-fragment-index="1"
+                          style="
+                            width: 100%;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                          "
+                          data-src="images/chapter-43/chapter-043-24.png"
+                        />
+                        <img  class="fragment fade-in" data-fragment-index="2"
+                          style="
+                            width: 100%;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                          "
+                          data-src="images/chapter-43/chapter-043-22.png"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                
+              </div>
+              
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.2 The flux integral</h4>
+            <div class="size-55">
+              <div class="left-txt">
+                <p>Let's have a closer look at these steps.</p>
+
+                
+                      <ul style="line-height: 35px">
+                        
+                        <li >
+                          3: We can take $\n = \frac{\mathbf a \times \mathbf b}{||\mathbf a \times \mathbf b||}$,
+                          and the area of the parallelogram is $||\mathbf a \times \mathbf b||\approx \Delta S$. 
+                          <span>
+                            Then we have
+                            \[
+                            \text{flux across parallelogram } \approx \v \cdot\frac{\mathbf a \times \mathbf b}{||\mathbf a \times \mathbf b||} ||\mathbf a \times \mathbf b|| = \v \cdot (||\mathbf a \times \mathbf b||)
+                            \]
+                          </span>
+                          <div class="r-stack">
+                            <img  
+                              style="
+                                width: 35%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                              "
+                              data-src="images/chapter-43/chapter-043-22.png"
+                            />
+                          </div>
+                        </li>
+      
+                      </ul>
+                   
+                
+              </div>
+              
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.2 The flux integral</h4>
+            <div class="size-55">
+              <div class="left-txt">
+                <p>Let's have a closer look at these steps.</p>
+
+                
+                      <ul style="line-height: 35px">
+                        
+                        <li >
+                          3: As shown previously, a patch of surface can be approximated 
+                          by a parallelogram determined by the two vectors 
+                          $\r_u\Delta u$ and $\r_v\Delta v$. Hence we have
+                          <span>
+                            Then we have
+                            \[
+                            \text{flux across one patch} \approx \v \cdot \n ~\Delta S = \v \cdot (\r_u\times \r_v) \Delta u \Delta v
+                            \]
+                          </span>
+                          <div class="r-stack">
+                            <img  
+                              style="
+                                width: 35%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                              "
+                              data-src="images/chapter-43/chapter-043-22.png"
+                            />
+                          </div>
+                        </li>
+      
+                      </ul>
+                   
+                
+              </div>
+              
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.2 The flux integral</h4>
+            <div class="size-55">
+              <div class="left-txt">
+                <p>Let's have a closer look at these steps.</p>
+
+                
+                      <ul style="line-height: 35px">
+                        
+                        <li >
+                          3: Note that we need to check that the vector 
+                          $\r_u\times \r_v$ points in the direction of
+                          positive flux. If not, we use $\r_v\times \r_u$.
+                          Adding these approximations over the entire surface S, we obtain
+                          <span>
+                            Then we have
+                            \[
+                            \text{flux across } S \approx \sum_{i} \v_i\cdot \n_i~\Delta S_i = \sum_i \v\left(u_i,v_i\right)\cdot \left(\r_u\times \r_v\right)\Delta u_i~\Delta v_i.
+                            \]
+                          </span>
+                          <div class="r-stack">
+                            <img  
+                              style="
+                                width: 35%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                              "
+                              data-src="images/chapter-43/chapter-043-22.png"
+                            />
+                          </div>
+                        </li>
+      
+                      </ul>
+                   
+                
+              </div>
+              
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>43.2 The flux integral</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>Let's have a closer look at these steps.</p>
+
+                
+                      <ul style="line-height: 35px">
+                        
+                        <li >
+                          4: To obtain an exact expression for the 
+                          flux across S we take the limit as $\Delta u,\Delta v \to 0$.
+                          <span>
+                            Then we have
+                            \[
+                            \text{flux across } S \approx \iint_S \v\cdot \n~dS = \iint_D \v\cdot \left(\r_u\times \r_v\right)du~dv.
+                            \]
+                          </span>
+                          
+                        </li>
+      
+                      </ul>
+                   <p>This expression is called a flux integral and is used
+                     to calculate the flux of any vector field across a smooth 
+                     orientable surface, not just fluids with a given velocity field.</p>
+                
+              </div>
+              
+            </div>
+          </section>
+
+          
+
+          
         </section>
+
+        
 
         <section>
 
