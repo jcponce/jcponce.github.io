@@ -16,7 +16,7 @@ function preload() {
 
 let particles = [];
 
-let numMax = 600; //num of particles
+let numMax = 1000; //num of particles
 let t = 0;
 let h = 0.01;
 let currentParticle = 0;
