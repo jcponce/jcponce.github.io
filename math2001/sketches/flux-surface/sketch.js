@@ -4,7 +4,7 @@
  * Written by Juan Carlos Ponce Campuzano, 06-Sep-2022
  */
 
-// Updated 01-Jun-2022
+// Updated --
 
 let easycam; //3D view
 
