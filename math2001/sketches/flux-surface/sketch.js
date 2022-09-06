@@ -96,7 +96,7 @@ function draw() {
       let p = particles[i];
       p.update();
       p.display();
-      const lim = 4;
+      const lim = 5;
       if (
         p.x > lim ||
         p.y > lim ||
@@ -109,9 +109,9 @@ function draw() {
         currentParticle--;
         particles.push(
           new Particle(
-            random(-0.5, 0.5),
-            random(-0.5, 0.5),
-            random(-0.5, 0.5),
+            random(-0.25, 0.25),
+            random(-0.25, 0.25),
+            random(-0.25, 0.25),
             t,
             h
           )
@@ -329,7 +329,7 @@ class Particle {
     translate(this.x, this.y, this.z);
     ambientMaterial(this.r, this.b, this.g);
     noStroke();
-    sphere(this.radius, 7, 6);
+    sphere(this.radius, 8, 8);
     pop();
   }
 }
