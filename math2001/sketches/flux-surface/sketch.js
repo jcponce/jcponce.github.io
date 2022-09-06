@@ -235,6 +235,7 @@ function draw() {
   //console.log(parDef.Type)
 }
 
+// Equations for field motion
 const componentFX = (t, x, y, z) =>
   parDef.Speed * (x / (x * x + y * y + z * z)); //Change this function
 
@@ -242,7 +243,7 @@ const componentFY = (t, x, y, z) =>
   parDef.Speed * (y / (x * x + y * y + z * z)); //Change this function
 
 const componentFZ = (t, x, y, z) =>
-  parDef.Speed * (z / (x * x + y * y + z * z)); //Change this function
+  parDef.Speed * ((z) / (x * x + y * y + z * z)); //Change this function
 
 // Runge-Kutta method
 function rungeKutta(time, x, y, z, h) {
