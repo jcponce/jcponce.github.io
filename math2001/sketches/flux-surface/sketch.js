@@ -26,10 +26,6 @@ let parDef = {
   },
 };
 
-function backAttractors() {
-  window.location.href = "https://jcponce.github.io/strange-attractors/#aizawa";
-}
-
 function setup() {
   // create gui (dat.gui)
   let gui = new dat.GUI({width:300});
@@ -44,7 +40,6 @@ function setup() {
   //gui.add(parDef, "Particles");
   //gui.add(parDef, "Randomize");
   gui.add(parDef, "Preset");
-  //gui.add(this, "backAttractors").name("Go Back");
 
   pixelDensity(2);
 
@@ -63,8 +58,6 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   easycam.setViewport([0, 0, windowWidth, windowHeight]);
 }
-
-let attractor;
 
 function initSketch() {
   let m = 4;
