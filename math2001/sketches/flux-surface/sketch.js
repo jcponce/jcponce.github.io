@@ -37,7 +37,7 @@ function setup() {
     })
     .name("Surface");
   gui.add(parDef, "Speed", 0, 2, 0.01).listen();
-  //gui.add(parDef, "Particles");
+  gui.add(parDef, "Particles");
   //gui.add(parDef, "Randomize");
   gui.add(parDef, "Preset");
 

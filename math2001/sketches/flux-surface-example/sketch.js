@@ -1,10 +1,10 @@
 /* p5.js (https://p5js.org/)
  * Under Creative Commons License
  * https://creativecommons.org/licenses/by-sa/4.0/
- * Written by Juan Carlos Ponce Campuzano, 19-Jul-2018
+ * Written by Juan Carlos Ponce Campuzano, 06-Sep-2022
  */
 
-// Updated 01-Jun-2022
+// Updated --
 
 let easycam; //3D view
 
@@ -23,7 +23,6 @@ let currentParticle = 0;
 
 // settings and presets
 let parDef = {
-  Type: 0,
   Speed: 1.0,
   Particles: true,
   Preset: function () {
@@ -38,19 +37,9 @@ function backAttractors() {
 
 function setup() {
   // create gui (dat.gui)
-  //let gui = new dat.GUI({ width: 300 });
-  //gui
-  //  .add(parDef, "Type", {
-  //    Sphere: 0,
-  //    Torus: 1,
-  //    Box: 2,
-  //  })
-  //  .name("Surface");
-  //gui.add(parDef, "Speed", 0, 5, 0.01).listen();
-  //gui.add(parDef, "Particles");
-  //gui.add(parDef, "Randomize");
-  //gui.add(parDef, "Preset");
-  //gui.add(this, "backAttractors").name("Go Back");
+  let gui = new dat.GUI({ width: 300 });
+  gui.add(parDef, "Speed", 0, 3, 0.01).listen();
+  gui.add(parDef, "Particles");
 
   pixelDensity(2);
 
@@ -126,7 +115,7 @@ function draw() {
     }
   }
 
-  if (parDef.Type == 0) {
+ 
     push();
     // gizmo
     strokeWeight(0.05);
@@ -213,78 +202,7 @@ function draw() {
     translate(0,0,-0.01)
     plane(8, 8);
     pop();
-  }
-  if (parDef.Type == 1) {
-    push();
-    // gizmo
-    strokeWeight(0.05);
-
-    // red
-    stroke(255, 32, 0);
-    let px = 3;
-    let py = 2;
-    line(px, 0, 0, py, 0, 0);
-    line(-px, 0, 0, -py, 0, 0);
-    line(2.77, 0.12, 0, 3, 0, 0);
-    line(2.77, -0.12, 0, 3, 0, 0);
-    line(-2.77, 0.12, 0, -3, 0, 0);
-    line(-2.77, -0.12, 0, -3, 0, 0);
-
-    // green
-    stroke(32, 255, 32);
-    line(0, px, 0, 0, py, 0);
-    line(0, -px, 0, 0, -py, 0);
-    line(0.12, 2.77, 0, 0, 3, 0);
-    line(-0.12, 2.77, 0, 0, 3, 0);
-    line(0.12, -2.77, 0, 0, -3, 0);
-    line(-0.12, -2.77, 0, 0, -3, 0);
-
-    strokeWeight(0.01);
-    stroke(0);
-    ambientMaterial(110, 145, 202);
-    torus(1.4, 0.6);
-    pop();
-  }
-  if (parDef.Type == 2) {
-    push();
-    // gizmo
-    strokeWeight(0.05);
-
-    // red
-    stroke(255, 32, 0);
-    let px = 3;
-    let py = 2;
-    line(-px, 0, 0, -py, 0, 0);
-    line(px, 0, 0, py, 0, 0);
-    line(2.77, 0.12, 0, 3, 0, 0);
-    line(2.77, -0.12, 0, 3, 0, 0);
-    line(-2.77, 0.12, 0, -3, 0, 0);
-    line(-2.77, -0.12, 0, -3, 0, 0);
-
-    // green
-    stroke(32, 255, 32);
-    line(0, -px, 0, 0, -py, 0);
-    line(0, px, 0, 0, py, 0);
-    line(0.12, 2.77, 0, 0, 3, 0);
-    line(-0.12, 2.77, 0, 0, 3, 0);
-    line(0.12, -2.77, 0, 0, -3, 0);
-    line(-0.12, -2.77, 0, 0, -3, 0);
-
-    // blue
-    stroke(0, 32, 255);
-    line(0, 0, -px, 0, 0, -py);
-    line(0, 0, px, 0, 0, py);
-    line(0, 0.12, 2.77, 0, 0, 3);
-    line(0, -0.12, 2.77, 0, 0, 3);
-    line(0, 0.12, -2.77, 0, 0, -3);
-    line(0, -0.12, -2.77, 0, 0, -3);
-
-    strokeWeight(0.03);
-    stroke(0);
-    ambientMaterial(100, 140, 220);
-    box(4);
-    pop();
-  }
+  
 
   //console.log(parDef.Type)
 }
