@@ -18,10 +18,10 @@ let currentParticle = 0;
 // settings and presets
 let parDef = {
   Type: 0,
-  Speed: 3.0,
+  Speed: 5.0,
   Particles: true,
   Preset: function () {
-    this.Speed = 3.0;
+    this.Speed = 5.0;
     this.Type = 0;
   },
 };
@@ -40,7 +40,7 @@ function setup() {
       Box: 2,
     })
     .name("Surface");
-  gui.add(parDef, "Speed", 0, 10, 0.01).listen();
+  gui.add(parDef, "Speed", 0, 12, 0.01).listen();
   //gui.add(parDef, "Particles");
   //gui.add(parDef, "Randomize");
   gui.add(parDef, "Preset");
