@@ -38,7 +38,6 @@ function setup() {
     .name("Surface");
   gui.add(parDef, "Speed", 0, 2, 0.01).listen();
   gui.add(parDef, "Particles");
-  //gui.add(parDef, "Randomize");
   gui.add(parDef, "Preset");
 
   pixelDensity(2);
@@ -236,7 +235,7 @@ function draw() {
   //console.log(parDef.Type)
 }
 
-// Equations for field motion
+// Equations for vector field motion
 const componentFX = (t, x, y, z) =>
   parDef.Speed * (-y); //Change this function
 
@@ -301,7 +300,7 @@ function rungeKutta(time, x, y, z, h) {
   };
 }
 
-//Particle definition and motion
+//Particle definition and motion using Runge-Kutta method
 class Particle {
   constructor(_x, _y, _z, _t, _h) {
     this.x = _x;
