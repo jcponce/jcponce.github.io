@@ -10,7 +10,7 @@ let easycam; //3D view
 
 let particles = [];
 
-let numMax = 600; //num of particles
+let numMax = 700; //num of particles
 let t = 0;
 let h = 0.01;
 let currentParticle = 0;
@@ -18,10 +18,10 @@ let currentParticle = 0;
 // settings and presets
 let parDef = {
   Type: 0,
-  Speed: 5.0,
+  Speed: 0.6,
   Particles: true,
   Preset: function () {
-    this.Speed = 5.0;
+    this.Speed = 0.6;
     this.Type = 0;
   },
 };
@@ -40,7 +40,7 @@ function setup() {
       Box: 2,
     })
     .name("Surface");
-  gui.add(parDef, "Speed", 0, 12, 0.01).listen();
+  gui.add(parDef, "Speed", 0, 2, 0.01).listen();
   //gui.add(parDef, "Particles");
   //gui.add(parDef, "Randomize");
   gui.add(parDef, "Preset");
@@ -109,9 +109,9 @@ function draw() {
         currentParticle--;
         particles.push(
           new Particle(
-            random(-0.25, 0.25),
-            random(-0.25, 0.25),
-            random(-0.25, 0.25),
+            random(-4, 4),
+            random(-4, 4),
+            random(-4, 4),
             t,
             h
           )
@@ -125,7 +125,8 @@ function draw() {
     // gizmo
     strokeWeight(0.05);
     // red
-    stroke(255, 32, 0);
+    //stroke(255, 32, 0);
+    stroke(102, 255, 255);
     let px = 3;
     let py = 2;
     line(-px, 0, 0, -py, 0, 0);
@@ -136,7 +137,8 @@ function draw() {
     line(-2.77, -0.12, 0, -3, 0, 0);
 
     // green
-    stroke(32, 255, 32);
+    //stroke(32, 255, 32);
+    stroke(102, 255, 255);
     line(0, -px, 0, 0, -py, 0);
     line(0, px, 0, 0, py, 0);
     line(0.12, 2.77, 0, 0, 3, 0);
@@ -145,7 +147,8 @@ function draw() {
     line(-0.12, -2.77, 0, 0, -3, 0);
 
     // blue
-    stroke(0, 32, 255);
+    //stroke(0, 32, 255);
+    stroke(102, 255, 255);
     line(0, 0, -px, 0, 0, -py);
     line(0, 0, px, 0, 0, py);
     line(0, 0.12, 2.77, 0, 0, 3);
@@ -166,7 +169,8 @@ function draw() {
     strokeWeight(0.05);
 
     // red
-    stroke(255, 32, 0);
+    //stroke(255, 32, 0);
+    stroke(102, 255, 255);
     let px = 3;
     let py = 2;
     line(px, 0, 0, py, 0, 0);
@@ -177,7 +181,8 @@ function draw() {
     line(-2.77, -0.12, 0, -3, 0, 0);
     
     // green
-    stroke(32, 255, 32);
+    //stroke(32, 255, 32);
+    stroke(102, 255, 255);
     line(0, px, 0, 0, py, 0);
     line(0, -px, 0, 0, -py, 0);
     line(0.12, 2.77, 0, 0, 3, 0);
@@ -187,7 +192,7 @@ function draw() {
 
     strokeWeight(0.01);
     stroke(0);
-    ambientMaterial(110, 145, 202);
+    ambientMaterial(163, 26, 255);
     torus(1.4, 0.6);
     pop();
   }
@@ -197,7 +202,8 @@ function draw() {
     strokeWeight(0.05);
 
     // red
-    stroke(255, 32, 0);
+    //stroke(255, 32, 0);
+    stroke(102, 255, 255);
     let px = 3;
     let py = 2;
     line(-px, 0, 0, -py, 0, 0);
@@ -208,7 +214,8 @@ function draw() {
     line(-2.77, -0.12, 0, -3, 0, 0);
 
     // green
-    stroke(32, 255, 32);
+    //stroke(32, 255, 32);
+    stroke(102, 255, 255);
     line(0, -px, 0, 0, -py, 0);
     line(0, px, 0, 0, py, 0);
     line(0.12, 2.77, 0, 0, 3, 0);
@@ -217,7 +224,8 @@ function draw() {
     line(-0.12, -2.77, 0, 0, -3, 0);
 
     // blue
-    stroke(0, 32, 255);
+    //stroke(0, 32, 255);
+    stroke(102, 255, 255);
     line(0, 0, -px, 0, 0, -py);
     line(0, 0, px, 0, 0, py);
     line(0, 0.12, 2.77, 0, 0, 3);
@@ -237,13 +245,13 @@ function draw() {
 
 // Equations for field motion
 const componentFX = (t, x, y, z) =>
-  parDef.Speed * (x / (x * x + y * y + z * z)); //Change this function
+  parDef.Speed * (-y); //Change this function
 
 const componentFY = (t, x, y, z) =>
-  parDef.Speed * (y / (x * x + y * y + z * z)); //Change this function
+  parDef.Speed * (x); //Change this function
 
 const componentFZ = (t, x, y, z) =>
-  parDef.Speed * ((z) / (x * x + y * y + z * z)); //Change this function
+  parDef.Speed * (1); //Change this function
 
 // Runge-Kutta method
 function rungeKutta(time, x, y, z, h) {
