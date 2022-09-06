@@ -124,17 +124,34 @@ function draw() {
     push();
     // gizmo
     strokeWeight(0.05);
+    // red
     stroke(255, 32, 0);
     let px = 3;
     let py = 2;
     line(-px, 0, 0, -py, 0, 0);
     line(px, 0, 0, py, 0, 0);
+    line(2.77, 0.12, 0, 3, 0, 0);
+    line(2.77, -0.12, 0, 3, 0, 0);
+    line(-2.77, 0.12, 0, -3, 0, 0);
+    line(-2.77, -0.12, 0, -3, 0, 0);
+
+    // green
     stroke(32, 255, 32);
     line(0, -px, 0, 0, -py, 0);
     line(0, px, 0, 0, py, 0);
+    line(0.12, 2.77, 0, 0, 3, 0);
+    line(-0.12, 2.77, 0, 0, 3, 0);
+    line(0.12, -2.77, 0, 0, -3, 0);
+    line(-0.12, -2.77, 0, 0, -3, 0);
+
+    // blue
     stroke(0, 32, 255);
     line(0, 0, -px, 0, 0, -py);
     line(0, 0, px, 0, 0, py);
+    line(0, 0.12, 2.77, 0, 0, 3);
+    line(0, -0.12, 2.77, 0, 0, 3);
+    line(0, 0.12, -2.77, 0, 0, -3);
+    line(0, -0.12, -2.77, 0, 0, -3);
 
     strokeWeight(0.01);
     stroke(0);
@@ -147,14 +164,26 @@ function draw() {
     push();
     // gizmo
     strokeWeight(0.05);
+
+    // red
     stroke(255, 32, 0);
     let px = 3;
     let py = 2;
     line(px, 0, 0, py, 0, 0);
     line(-px, 0, 0, -py, 0, 0);
+    line(2.77, 0.12, 0, 3, 0, 0);
+    line(2.77, -0.12, 0, 3, 0, 0);
+    line(-2.77, 0.12, 0, -3, 0, 0);
+    line(-2.77, -0.12, 0, -3, 0, 0);
+    
+    // green
     stroke(32, 255, 32);
     line(0, px, 0, 0, py, 0);
     line(0, -px, 0, 0, -py, 0);
+    line(0.12, 2.77, 0, 0, 3, 0);
+    line(-0.12, 2.77, 0, 0, 3, 0);
+    line(0.12, -2.77, 0, 0, -3, 0);
+    line(-0.12, -2.77, 0, 0, -3, 0);
 
     strokeWeight(0.01);
     stroke(0);
@@ -166,17 +195,35 @@ function draw() {
     push();
     // gizmo
     strokeWeight(0.05);
+
+    // red
     stroke(255, 32, 0);
     let px = 3;
     let py = 2;
     line(-px, 0, 0, -py, 0, 0);
     line(px, 0, 0, py, 0, 0);
+    line(2.77, 0.12, 0, 3, 0, 0);
+    line(2.77, -0.12, 0, 3, 0, 0);
+    line(-2.77, 0.12, 0, -3, 0, 0);
+    line(-2.77, -0.12, 0, -3, 0, 0);
+
+    // green
     stroke(32, 255, 32);
     line(0, -px, 0, 0, -py, 0);
     line(0, px, 0, 0, py, 0);
+    line(0.12, 2.77, 0, 0, 3, 0);
+    line(-0.12, 2.77, 0, 0, 3, 0);
+    line(0.12, -2.77, 0, 0, -3, 0);
+    line(-0.12, -2.77, 0, 0, -3, 0);
+
+    // blue
     stroke(0, 32, 255);
     line(0, 0, -px, 0, 0, -py);
     line(0, 0, px, 0, 0, py);
+    line(0, 0.12, 2.77, 0, 0, 3);
+    line(0, -0.12, 2.77, 0, 0, 3);
+    line(0, 0.12, -2.77, 0, 0, -3);
+    line(0, -0.12, -2.77, 0, 0, -3);
 
     strokeWeight(0.03);
     stroke(0);
