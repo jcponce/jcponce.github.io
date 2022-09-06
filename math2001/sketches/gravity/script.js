@@ -231,8 +231,8 @@ function getArrowGeometry() {
   const arrowGeometry = new THREE.ExtrudeGeometry(shape, {
     amount: 0.3,
     bevelEnabled: true,
-    bevelSize: 0.1, 
-    bevelThickness: 0.1, 
+    bevelSize: 0.05, 
+    bevelThickness: 0.03, 
     bevelSegments: 2
   });
 
