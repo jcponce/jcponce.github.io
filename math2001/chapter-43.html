@@ -703,6 +703,143 @@
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br/><br/>
           </section>
 
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-80">
+                <div class="left-txt">
+                  <p class="fragment" data-fragment-index="0">We need to find the net outward flux, <span class="fragment" data-fragment-index="1">that is</span>
+                  </p>
+                </div>
+                <div class="fragment" data-fragment-index="1">
+                  
+                  $\displaystyle \iint_S \F \cdot \v ~dS$
+                  <span class="fragment" data-fragment-index="2">$=\displaystyle \iint_{S_1} \F \cdot \n_1 ~dS$</span>
+                  <span class="fragment" data-fragment-index="3">$\displaystyle +\iint_{S_2} \F \cdot \n_2 ~dS$</span>
+                  <span class="fragment" data-fragment-index="4">$\displaystyle +\iint_{S_3} \F \cdot \n_3 ~dS$</span>
+                  
+                </div>
+              </div>
+              <br/><br/><br/><br/><br/><br/><br/>
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-70">
+                <div class="left-txt">
+                  <p>
+                    On $S_1$: We can use the parametrisation of the cylinder.
+                    <span>That is
+                      \[
+                      \r(\theta, z) = \cos \theta ~\i+ \sin \theta ~\j + z~\k
+                      \]
+                    </span>
+                  </p>
+                  <p>
+                    Then $\r_{\theta} = - \sin \theta~\i + \cos \theta ~\j$, $\r_z=\k$, 
+                    <span>and</span>
+                  </p>
+                </div>
+
+                <div>
+                  <p>
+                    $\displaystyle \r_{\theta}\times\r_z = 
+                    \left|
+                    \begin{array}{ccc}
+                    \i & \j & \k \\
+                    0 & 0 & 1 \\
+                    \sin \theta & \cos \theta & 0 
+                    \end{array}
+                    \right|
+                    $
+                    <span>
+                      $\displaystyle =-\cos \theta ~\i - \sin \theta ~\j$
+                    </span>
+                  </p>
+                </div>
+
+                <div class="left-txt">
+                  <p>But $\r_{\theta}\times\r_z$ is directed inward! 😥</p>
+                  <p>
+                    No problem! 😃 Juts take $\r_{\theta}\times\r_z= \cos \theta ~\i + \sin \theta ~\j$ 
+                    which directs outward, with the same direction as $\n_1$!
+                  </p>
+                </div>
+                
+              </div>
+              
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-60">
+                <div class="left-txt">
+                  <p>
+                    On $S_1$: So, considering $\r_{\theta}\times\r_z= \cos \theta ~\i + \sin \theta ~\j$
+                    we have that
+                    \[
+                    \F(\r(\theta, z))\cdot \left(\r_{\theta}\times\r_z\right) = z\cos \theta + \sin ^2 \theta.
+                    \]
+                  </p>
+                  <p class="fragment" data-fragment-index="0">
+                    Then 
+                  </p>
+                  <table id="eqarray">
+                    <tr class="fragment" data-fragment-index="0">
+                      <td>
+                        $\displaystyle \iint_{S_1} \F\cdot \n_1~ dS$
+                      </td>
+                      <td>
+                        $\displaystyle = \iint_{D} \F(\r(\theta, z))\cdot \left(\r_{\theta}\times\r_z\right) dz~d\theta$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                       
+                      </td>
+                      <td class="fragment" data-fragment-index="1">
+                        $\displaystyle = \int_0^{2\pi}\int_0^2 \left( z\cos\theta + \sin^2\theta \right) dz~d\theta$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                       
+                      </td>
+                      <td class="fragment" data-fragment-index="2">
+                        $\displaystyle = \int_0^{2\pi} \left[\bigg. \left( \frac{1}{2}z^2 \cos \theta + z \sin^2\theta \right)\bigg|_0^{2} \right] d\theta$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                       
+                      </td>
+                      <td class="fragment" data-fragment-index="3">
+                        $\displaystyle = 2 \int_0^{2\pi}  \left( \sin^2\theta + \cos \theta \right) d\theta$
+                        <span class="fragment" data-fragment-index="4">$=2 \pi$</span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                
+                
+              </div>
+              
+          </section>
           
         </section>
 
