@@ -17,7 +17,7 @@
 			transition: 'fade',
 
 			// PDF exporting properties
-			pdfSeparateFragments: false,
+			pdfSeparateFragments: true,
 			pdfMaxPagesPerSlide: 1,
 
 			// MathJax user-defined functions
