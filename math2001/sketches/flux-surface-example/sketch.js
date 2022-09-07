@@ -37,7 +37,7 @@ function backAttractors() {
 
 function setup() {
   // create gui (dat.gui)
-  let gui = new dat.GUI({ width: 300 });
+  let gui = new dat.GUI({ width: 240 });
   gui.add(parDef, "Speed", 0, 3, 0.01).listen();
   gui.add(parDef, "Particles");
 
