@@ -41,6 +41,7 @@
 						F: "{\\mathbf{F}}",
 						T: "{\\mathbf{T}}",
 						div: "{\\mbox{div}}\\,",
+						curl: "{\\mbox{curl}}\\,",
 						Re: "{\\mbox{Re}}\\,",
 						Im: "{\\mbox{Im}}\\,",
 						arg: "{\\mbox{arg}}\\,",

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>MATH2001/7000 - Chapter 45</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
+
+    <link rel="stylesheet" href="css/mylayout.css" />
+
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
+
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 45</p>
+        </section>
+
+        <section>
+          <h3>45 Curl of a vector field</h3>
+          <div class="left-txt size-80">
+            <p>
+              By the end of this section, you should be able to answer the
+              following questions:
+            </p>
+            <ul>
+              <li class="fragment" data-fragment-index="0">
+                How do you calculate the curl of a given vector field?
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                What is the significance of curl?
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                How do you test whether or not a given three dimensional vector
+                field is conservative?
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h4>45.1 Calculating curl</h4>
+          <div class="size-70">
+            <div class="left-txt">
+              <p>
+                If $(x, y, z)$ is a right handed Cartesian coordinate system and
+                $v(x, y, z) = v_1~\i+v_2~\j +v_3~\k$ is a differentiable vector field, then
+                define
+              </p>
+			  <table id="eqarray">
+				<tr>
+					<td>
+						$\displaystyle \curl (\v)  $
+					</td>
+					<td>
+						$\displaystyle = \nabla \times \v  $
+						<span>
+							$\displaystyle  = 
+						\left|
+						\begin{array}{ccc}
+						\i & \j & \k \\
+						\dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial y}  &\dfrac{\partial}{\partial z} \\
+						v_1 & v_2 & v_3
+						\end{array}
+						\right|
+						$
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						
+					</td>
+					<td>
+						$\displaystyle  = 
+						\left(\dfrac{\partial v_3}{\partial y}  - \dfrac{\partial v_2}{\partial z} \right)\i+
+						\left(\dfrac{\partial v_1}{\partial z}  - \dfrac{\partial v_3}{\partial x} \right)\j+
+						\left(\dfrac{\partial v_2}{\partial x}  - \dfrac{\partial v_1}{\partial y} \right)\k
+						$
+					</td>
+				</tr>
+			  </table>
+			  <p>Note that $\curl(\v)$ is a vector field.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
+
+        <!-- Ends sections -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
+
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>
