@@ -81,9 +81,10 @@ function draw() {
   // BG
   background(0);
 
-  rotateX(0.9);
+  translate(0, 1, 0)
+  rotateX(1.3);
   rotateY(0);
-  rotateZ(0.9);
+  rotateZ(0.8);
 
   if (parDef.Particles == true) {
     //updating and displaying the particles

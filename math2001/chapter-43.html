@@ -681,9 +681,9 @@
 
           <section  data-auto-animate>
             <h5>
-              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+              43.2.1 Calculate the net outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
             </h5>
-            <p  style="font-size:34px; font-weight:bold"> across 
+            <p  style="font-size:30px; font-weight:bold"> across 
               the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
 
               <br /><br /><br /><br /><br />
@@ -694,10 +694,10 @@
             data-background-iframe="sketches/flux-surface-example"
             data-background-interactive
           >
-            <h5 style="color: white">
-              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            <h5 style="color: grey">
+              43.2.1 Calculate the net outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
             </h5>
-            <p  style="color: white;font-size:16px;font-weight:bold"> across 
+            <p  style="color: grey;font-size:16px;font-weight:bold"> across 
               the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2=1, 0\leq z\leq 2\right\}$</p>
 
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br/><br/>
@@ -705,7 +705,7 @@
 
           <section data-auto-animate>
             <h5>
-              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+              43.2.1 Calculate the net outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
             </h5>
             <p  style="font-size:16px; font-weight:bold"> across 
               the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
@@ -727,6 +727,7 @@
               <br/><br/><br/><br/><br/><br/><br/>
           </section>
 
+          <!-- on S1 -->
           <section data-auto-animate>
             <h5>
               43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
@@ -738,20 +739,20 @@
                 <div class="left-txt">
                   <p>
                     On $S_1$: We can use the parametrisation of the cylinder.
-                    <span>That is
+                    <span class="fragment" data-fragment-index="0">That is
                       \[
-                      \r(\theta, z) = \cos \theta ~\i+ \sin \theta ~\j + z~\k
+                      \r(\theta, z) = \cos \theta ~\i+ \sin \theta ~\j + z~\k.
                       \]
                     </span>
                   </p>
-                  <p>
+                  <p class="fragment" data-fragment-index="1">
                     Then $\r_{\theta} = - \sin \theta~\i + \cos \theta ~\j$, $\r_z=\k$, 
-                    <span>and</span>
+                    <span class="fragment" data-fragment-index="2">and</span>
                   </p>
                 </div>
 
                 <div>
-                  <p>
+                  <p class="fragment" data-fragment-index="2">
                     $\displaystyle \r_{\theta}\times\r_z = 
                     \left|
                     \begin{array}{ccc}
@@ -761,15 +762,15 @@
                     \end{array}
                     \right|
                     $
-                    <span>
+                    <span class="fragment" data-fragment-index="3">
                       $\displaystyle =-\cos \theta ~\i - \sin \theta ~\j$
                     </span>
                   </p>
                 </div>
 
                 <div class="left-txt">
-                  <p>But $\r_{\theta}\times\r_z$ is directed inward! 😥</p>
-                  <p>
+                  <p class="fragment" data-fragment-index="4">But $\r_{\theta}\times\r_z$ is directed inward! 😥</p>
+                  <p class="fragment" data-fragment-index="5">
                     No problem! 😃 Juts take $\r_{\theta}\times\r_z= \cos \theta ~\i + \sin \theta ~\j$ 
                     which directs outward, with the same direction as $\n_1$!
                   </p>
@@ -786,7 +787,7 @@
             <p  style="font-size:16px; font-weight:bold"> across 
               the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
              
-              <div class="size-60">
+              <div class="size-65">
                 <div class="left-txt">
                   <p>
                     On $S_1$: So, considering $\r_{\theta}\times\r_z= \cos \theta ~\i + \sin \theta ~\j$
@@ -795,13 +796,10 @@
                     \F(\r(\theta, z))\cdot \left(\r_{\theta}\times\r_z\right) = z\cos \theta + \sin ^2 \theta.
                     \]
                   </p>
-                  <p class="fragment" data-fragment-index="0">
-                    Then 
-                  </p>
                   <table id="eqarray">
                     <tr class="fragment" data-fragment-index="0">
                       <td>
-                        $\displaystyle \iint_{S_1} \F\cdot \n_1~ dS$
+                        Then $\displaystyle \iint_{S_1} \F\cdot \n_1~ dS$
                       </td>
                       <td>
                         $\displaystyle = \iint_{D} \F(\r(\theta, z))\cdot \left(\r_{\theta}\times\r_z\right) dz~d\theta$
@@ -829,7 +827,7 @@
                       </td>
                       <td class="fragment" data-fragment-index="3">
                         $\displaystyle = 2 \int_0^{2\pi}  \left( \sin^2\theta + \cos \theta \right) d\theta$
-                        <span class="fragment" data-fragment-index="4">$=2 \pi$</span>
+                        <span class="fragment" data-fragment-index="4">$=2 \pi$.</span>
                       </td>
                     </tr>
                   </table>
@@ -840,7 +838,241 @@
               </div>
               
           </section>
-          
+
+          <!-- on S2 -->
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-70">
+                <div class="left-txt">
+                  <p>
+                    On $S_2$: In this case we have a disk on the plane $z=2$.
+                    <span class="fragment" data-fragment-index="0">Then, a parametrisation is
+                      given by
+                      \[
+                      \r(x,z) = x ~\i+ y ~\j + 2~\k, \quad x^2+y^2\leq 1.
+                      \]
+                    </span>
+                  </p>
+                  <p class="fragment" data-fragment-index="1">
+                    So $\r_{x} =~\i$, $\r_y=\j$, 
+                    <span class="fragment" data-fragment-index="2">and</span>
+                  </p>
+                </div>
+
+                <div>
+                  <p class="fragment" data-fragment-index="2">
+                    $\displaystyle \r_{x}\times\r_y = 
+                    \left|
+                    \begin{array}{ccc}
+                    \i & \j & \k \\
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 
+                    \end{array}
+                    \right|
+                    $
+                    <span class="fragment" data-fragment-index="3">
+                      $\displaystyle =\k$
+                    </span>
+                  </p>
+                </div>
+
+                <div class="left-txt">
+                  
+                  <p class="fragment" data-fragment-index="5">
+                    Here we have the same direction as $\n_2= \k$ 😃!
+                  </p>
+                </div>
+                
+              </div>
+              
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-70">
+                <div class="left-txt">
+                  <p>
+                    On $S_2$: So, considering $\r_{x}\times\r_y= \k$
+                    we have that
+                    \[
+                    \F(\r(x,y ))\cdot \left(\r_{x}\times\r_y\right) = x.
+                    \]
+                  </p>
+                  <table id="eqarray">
+                    <tr class="fragment" data-fragment-index="0">
+                      <td>
+                        Then $\displaystyle \iint_{S_2} \F\cdot \n_2~ dS$
+                      </td>
+                      <td>
+                        $\displaystyle = \iint_{x^2+y^2\leq 1} \F(\r(x,y))\cdot \left(\r_{x}\times\r_y\right) dx~dy$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                       
+                      </td>
+                      <td class="fragment" data-fragment-index="1">
+                        $\displaystyle = \iint_{x^2+y^2\leq 1} x~ dx~dy$
+                        <span class="fragment" data-fragment-index="4">$=0$.</span>
+                      </td>
+                    </tr>
+                    
+                    
+                  </table>
+                </div>
+                
+              </div>
+              
+          </section>
+
+          <!-- on S3 -->
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-70">
+                <div class="left-txt">
+                  <p>
+                    On $S_3$: Finally, we have another disk on the plane $z=0$ ($x$-$y$ plane).
+                    <span class="fragment" data-fragment-index="0">Then, a parametrisation is
+                      given by
+                      \[
+                      \r(x,z) = x ~\i+ y ~\j + 0~\k, \quad x^2+y^2\leq 1.
+                      \]
+                    </span>
+                  </p>
+                  <p class="fragment" data-fragment-index="1">
+                    So $\r_{x} =~\i$, $\r_y=\j$, 
+                    <span class="fragment" data-fragment-index="2">and</span>
+                  </p>
+                </div>
+
+                <div>
+                  <p class="fragment" data-fragment-index="2">
+                    $\displaystyle \r_{x}\times\r_y = 
+                    \left|
+                    \begin{array}{ccc}
+                    \i & \j & \k \\
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 
+                    \end{array}
+                    \right|
+                    $
+                    <span class="fragment" data-fragment-index="3">
+                      $\displaystyle =\k$
+                    </span>
+                  </p>
+                </div>
+
+                <div class="left-txt">
+                  
+                  <p class="fragment" data-fragment-index="5">
+                    Here we must consider $\r_{x}\times\r_y =-\k$, which has the same
+                    direction as  $\n_3$!
+                  </p>
+                </div>
+                
+              </div>
+              
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-70">
+                <div class="left-txt">
+                  <p>
+                    On $S_3$: So, considering $\r_{x}\times\r_y= -\k$
+                    we have that
+                    \[
+                    \F(\r(x,y ))\cdot \left(\r_{x}\times\r_y\right) = -x.
+                    \]
+                  </p>
+                  <table id="eqarray">
+                    <tr class="fragment" data-fragment-index="0">
+                      <td>
+                        Then $\displaystyle \iint_{S_3} \F\cdot \n_3~ dS$
+                      </td>
+                      <td>
+                        $\displaystyle = \iint_{x^2+y^2\leq 1} \F(\r(x,y))\cdot \left(\r_{x}\times\r_y\right) dx~dy$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                       
+                      </td>
+                      <td class="fragment" data-fragment-index="1">
+                        $\displaystyle = \iint_{x^2+y^2\leq 1} (-x)~ dx~dy$
+                        <span class="fragment" data-fragment-index="4">$=0$.</span>
+                      </td>
+                    </tr>
+                    
+                    
+                  </table>
+                </div>
+                
+              </div>
+              
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              43.2.1 Outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h5>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+              
+              <div class="size-75">
+                <div class="left-txt">
+                  <p>
+                    Therefore, the net outward flux across $S$ is:
+                  </p>
+                  <table id="eqarray">
+                    <tr class="fragment" data-fragment-index="0">
+                      <td>
+                        $\displaystyle \iint_S \F \cdot \v ~dS$
+                      </td>
+                      <td>
+                        $\displaystyle  =\displaystyle \iint_{S_1} \F \cdot \n_1 ~dS  +\iint_{S_2} \F \cdot \n_2 ~dS+ \iint_{S_3} \F \cdot \n_3 ~dS$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                       
+                      </td>
+                      <td class="fragment" data-fragment-index="1">
+                        $\displaystyle = 2\pi + 0 + 0$
+                        <span class="fragment" data-fragment-index="4">$=2\pi$.</span>
+                      </td>
+                    </tr>
+                    
+                    
+                  </table>
+                </div>
+                <br/><br/><br/>
+                
+              </div>
+              
+          </section>
+
+
         </section>
 
         <section>
