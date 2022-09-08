@@ -18,7 +18,7 @@ let currentParticle = 0;
 // settings and presets
 let parDef = {
   Type: 0,
-  Speed: 0.6,
+  Speed: 0.5,
   Particles: true,
   Preset: function () {
     this.Speed = 0.6;
@@ -240,7 +240,7 @@ const componentFX = (t, x, y, z) =>
   parDef.Speed * (-y); //Change this function
 
 const componentFY = (t, x, y, z) =>
-  parDef.Speed * (x); //Change this function
+  parDef.Speed * (x+cos(z)); //Change this function
 
 const componentFZ = (t, x, y, z) =>
   parDef.Speed * (1); //Change this function
