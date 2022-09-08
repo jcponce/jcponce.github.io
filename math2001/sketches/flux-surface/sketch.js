@@ -103,7 +103,7 @@ function draw() {
           new Particle(
             random(-4, 4),
             random(-4, 4),
-            random(-4, 0),
+            random(-4, 4),
             t,
             h
           )
