@@ -88,7 +88,7 @@ function draw() {
       let p = particles[i];
       p.update();
       p.display();
-      const lim = 5;
+      const lim = 4.5;
       if (
         p.x > lim ||
         p.y > lim ||
@@ -103,7 +103,7 @@ function draw() {
           new Particle(
             random(-4, 4),
             random(-4, 4),
-            random(-4, 4),
+            random(-4, 0),
             t,
             h
           )
