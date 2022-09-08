@@ -1223,13 +1223,112 @@
         </section>
 
         <section>
+          <section data-auto-animate>
 
-          <h6>
-            43.3.1 Use Gauss' divergence theorem to calculate the net outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
-          </h6>
-          <p  style="font-size:20px; font-weight:bold"> across 
-            the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+            <h6>
+              43.3.1 Use Gauss' divergence theorem to calculate the net outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h6>
+            <p  style="font-size:20px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+  
+              <div class="size-70">
+  
+                <div class="left-txt">
+  
+                  <p class="fragment" data-fragment-index="0">
+                    We need to calculate the net outward flux across (closed) surface $S$. 
+                    <div style="text-align:center"  class="fragment" data-fragment-index="0">
+                     </span><img width="39%"
+                    src="images/chapter-43/div-theorem.png"
+                    >
+                    </div>
+                    <span class="fragment" data-fragment-index="0">
+where $V$ is the cylindrical solid.
+                    </span>
+                  </p>
+  
+                  <p class="fragment" data-fragment-index="1">Recall that $\div (\F) = \nabla \cdot \F $
+                    <span class="fragment" data-fragment-index="2">
+                      $= \frac{\partial }{\partial x}(z) +\frac{\partial }{\partial y}(y) + \frac{\partial }{\partial z}(x) $
+                    </span>
+                    <span class="fragment" data-fragment-index="3">
+                      $=1$.
+                    </span>
+                  </p>
+  
+                  <p class="fragment" data-fragment-index="4">
+                    Then we just need to compute
+                  </p>
+                  <table id="eqarray" class="fragment" data-fragment-index="4">
+                    <tr>
+                      <td>
+                        $\displaystyle
+                        \iint_V 1 ~dV
+                        $
+                      </td>
+                      <td >
+                       
+                      </td>
+                    </tr>
+                    
+                  </table>
+                </div>
+  
+              </div>
+          </section>
 
+          <section data-auto-animate>
+
+            <h6>
+              43.3.1 Use Gauss' divergence theorem to calculate the net outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h6>
+            <p  style="font-size:20px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+  
+              <div class="size-70">
+  
+                <div class="left-txt">
+  
+                  <p>
+                    Notice that 
+                  </p>
+                  <table id="eqarray">
+                    <tr>
+                      <td>
+                        $\displaystyle
+                        \iint_V 1 ~dV
+                        $
+                      </td>
+                      <td class="fragment" data-fragment-index="0">
+                        $=$ volume of cylindrical solid (height 2 and raduis 1)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        
+                      </td>
+                      <td class="fragment" data-fragment-index="1">
+                        $= (\pi)(1)^2(2)$
+                        <span class="fragment" data-fragment-index="2">
+                          $=2\pi$.
+                        </span> 
+                      </td>
+                    </tr>
+                  </table>
+
+                  <p class="fragment" data-fragment-index="3">
+                    Using cylindrical coordinates you can find the same value
+                    \[
+                    \iiint_V 1 ~dV = \int_0^{2\pi} \int_0^1 \int_0^2 (1) ~r~ dz~dr ~d\theta = 2\pi.
+                    \]
+                    <span class="fragment" data-fragment-index="4">
+                      Check it! 📝
+                    </span>
+                  </p>
+                </div>
+  
+              </div>
+          </section>
         </section>
 
         <section>
