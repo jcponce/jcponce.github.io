@@ -155,8 +155,8 @@
               <div class="left-txt">
                 <p>
                   An example of an orientable surface is the surface of a
-                  sphere. The two possible orientations are out of the sphere or
-                  into the sphere.
+                  sphere. The two possible orientations are <strong>out</strong> of the sphere or
+                  <strong>into</strong> the sphere.
                 </p>
               </div>
               <div>
@@ -281,6 +281,7 @@
                 data-src="images/chapter-43/chapter-43-orientation.png"
               />
             </div>
+            <br/><br/>
           </section>
         </section>
 
@@ -292,7 +293,7 @@
                 <p>
                   For a vector field $\v(x, y, z)$, we are interested in the
                   flux of $\v$ across a smooth orientable parametric surface $S$
-                  in $\R^3$, parametrised by $\r(u,v)$, with u and v defined
+                  in $\R^3$, parametrised by $\r(u,v)$, with $u$ and $v$ defined
                   over some domain $D$.
                 </p>
                 <p class="fragment" data-fragment-indes="0">
@@ -358,7 +359,7 @@
 
                 <ul style="line-height: 40px">
                   <li class="fragment" data-fragment-index="0">
-                    <strong>1 & 2:</strong> Steps 1 and 2 are exactly the same as steps 1 and 2 of our
+                    <strong>Steps 1 and 2:</strong> These are exactly the same as steps 1 and 2 of our
                     calculation of surface area.
                   </li>
                   
@@ -368,7 +369,7 @@
                     class="fragment"
                     data-fragment-index="0"
                     style="
-                      width: 45%;
+                      width: 55%;
                       display: block;
                       margin-left: auto;
                       margin-right: auto;
@@ -392,23 +393,26 @@
                     <td style="width:50%">
                       <ul style="line-height: 35px">
                         <li>
-                          <strong>Steps 1 and 2:</strong>  are exactly the same as steps 1 and 2 of our
+                          <strong>Steps 1 and 2:</strong> These are exactly the same as steps 1 and 2 of our
                           calculation of surface area.
                         </li>
                         <li>
                           <strong>Step 3:</strong> We approximate the flux through one patch by treating $\v$
                           as constant over the patch (i.e., the patch is small enough
-                          for this to be a decent approximation). Since we have
+                          for this to be a decent approximation). 
+                          <span class="fragment" data-fragment-index="0">
+                            Since we have
                           already approximated the shape of the patch as a
                           parallelogram, we need to work out the flux of a constant
                           vector through a parallelogram.
+                          </span>
                         </li>
       
                       </ul>
                     </td>
                     <td style="width:50%">
                       <div class="r-stack">
-                        <img  class="fragment fade-out" data-fragment-index="0"
+                        <img class="fragment fade-out" data-fragment-index="0"
                           style="
                             width: 100%;
                             display: block;
@@ -426,6 +430,7 @@
                           "
                           data-src="images/chapter-43/chapter-043-2a2.png"
                         />
+                        
                       </div>
                     </td>
                   </tr>
@@ -453,7 +458,7 @@
                           $\mathbf a$ and $\mathbf b$. 
                           <span class="fragment" data-fragment-index="1">
                             If we take the area of the patch 
-                          to be S, it can be seen from the diagram below 
+                          to be $S$, it can be seen from the diagram below 
                           that the flux (volume per unit time if $\v$ is 
                           velocity) passing through the parallelogram is
                           \[
@@ -1236,42 +1241,40 @@
                 <div class="left-txt">
   
                   <p class="fragment" data-fragment-index="0">
-                    We need to calculate the net outward flux across (closed) surface $S$. 
+                    We need to calculate the net outward flux across (closed) surface $S$
                     <div style="text-align:center"  class="fragment" data-fragment-index="0">
                      </span><img width="39%"
                     src="images/chapter-43/div-theorem.png"
                     >
                     </div>
                     <span class="fragment" data-fragment-index="0">
-where $V$ is the cylindrical solid.
+                    where $V$ is the cylindrical solid.
                     </span>
                   </p>
   
                   <p class="fragment" data-fragment-index="1">Recall that $\div (\F) = \nabla \cdot \F $
                     <span class="fragment" data-fragment-index="2">
-                      $= \frac{\partial }{\partial x}(z) +\frac{\partial }{\partial y}(y) + \frac{\partial }{\partial z}(x) $
+                      $= \dfrac{\partial }{\partial x}(z) +\dfrac{\partial }{\partial y}(y) + \dfrac{\partial }{\partial z}(x) $
                     </span>
                     <span class="fragment" data-fragment-index="3">
                       $=1$.
                     </span>
                   </p>
   
-                  <p class="fragment" data-fragment-index="4">
-                    Then we just need to compute
-                  </p>
-                  <table id="eqarray" class="fragment" data-fragment-index="4">
-                    <tr>
-                      <td>
-                        $\displaystyle
-                        \iint_V 1 ~dV
-                        $
-                      </td>
-                      <td >
-                       
-                      </td>
-                    </tr>
-                    
-                  </table>
+                  <div class="r-stack">
+                    <p class="fragment fade-in-then-out" data-fragment-index="4">
+                        $\text{Then we just need to compute  }\displaystyle
+                    \iint_V 1 ~dV.
+                    $
+                    </p>
+                    <p class="fragment fade-in" data-fragment-index="5">
+                        $\text{This means that the  }\displaystyle
+                    \textbf{ Net outward flux } =\iiint_V  ~dV.
+                    $
+                    </p>
+                  </div>
+                  <br/><br/><br/>
+                  
                 </div>
   
               </div>
@@ -1289,17 +1292,15 @@ where $V$ is the cylindrical solid.
   
                 <div class="left-txt">
   
-                  <p>
-                    Notice that 
-                  </p>
+                
                   <table id="eqarray">
                     <tr>
                       <td>
-                        $\displaystyle
-                        \iint_V 1 ~dV
+                        Note $\;\displaystyle
+                        \iiint_V ~dV
                         $
                       </td>
-                      <td class="fragment" data-fragment-index="0">
+                      <td >
                         $=$ volume of cylindrical solid (height 2 and raduis 1)
                       </td>
                     </tr>
@@ -1307,26 +1308,29 @@ where $V$ is the cylindrical solid.
                       <td>
                         
                       </td>
-                      <td class="fragment" data-fragment-index="1">
+                      <td class="fragment" data-fragment-index="0">
                         $= (\pi)(1)^2(2)$
-                        <span class="fragment" data-fragment-index="2">
+                        <span class="fragment" data-fragment-index="1">
                           $=2\pi$.
                         </span> 
                       </td>
                     </tr>
                   </table>
+                  <p class="fragment" data-fragment-index="2">
+                    Hence $\textbf{ Net outward flux } = 2\pi$.
+                  </p>
 
                   <p class="fragment" data-fragment-index="3">
-                    Using cylindrical coordinates you can find the same value
+                    Using cylindrical coordinates you can find the same value:
                     \[
-                    \iiint_V 1 ~dV = \int_0^{2\pi} \int_0^1 \int_0^2 (1) ~r~ dz~dr ~d\theta = 2\pi.
+                    \iiint_V  ~dV = \int_0^{2\pi} \int_0^1 \int_0^2 (1) ~r~ dz~dr ~d\theta = 2\pi.
                     \]
                     <span class="fragment" data-fragment-index="4">
-                      Check it! 📝
+                      You should check it! 📝
                     </span>
                   </p>
                 </div>
-  
+                <br/>
               </div>
           </section>
         </section>
