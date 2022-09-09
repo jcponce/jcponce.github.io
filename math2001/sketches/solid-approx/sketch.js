@@ -19,6 +19,7 @@ let xMouse;
 let yMouse;
 let imView = false;
 let slider;
+let w;
 
 function preload() {
     // load the shader
@@ -36,15 +37,10 @@ function setup() {
     shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
     cursor('grab');
 
-    // create gui (dat.gui), not needed anymore
-    //let gui = new dat.GUI({
-    //    width: 280,
-    //});
-    //gui.add(param, 'Approx', 0, 1, 0.01).listen();
-
+    w = width * 0.4;
     slider = createSlider(0, 1, 1, 0.01);
-    slider.position(windowWidth/2-200, windowHeight-80);
-    slider.style('width', '400px');
+    slider.style('width', ''+ w +'px');
+    slider.position(windowWidth/2-w/2, windowHeight-80);
 
 }
 
@@ -108,7 +104,10 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    slider.position(windowWidth/2-200, windowHeight-80);
+    w = width * 0.4;
+    console.log(w);
+    slider.style('width', ''+ w +'px');
+    slider.position(windowWidth/2-w/2, windowHeight-80);
 }
 
 function mousePressed() {
