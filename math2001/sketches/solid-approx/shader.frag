@@ -147,7 +147,7 @@ void main() {
 
     pR(camPos.yz, (0.5 - im.y) * PI / 2.5);
     pR(camPos.xz, (0.5 - sin(iTime * .08 - PI * .5) * .5 + .5) * PI * 2.5);
-    //pR(camPos.xz, (.5 - im.x) * PI * 2.5);
+    //pR(camPos.xz, (.5 - im.x) * PI * 2.5); // Maybe :)
 
     mat3 camMat = calcLookAtMatrix(camPos, vec3(0), vec3(0,1,0));
 
