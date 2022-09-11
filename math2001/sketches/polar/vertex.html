@@ -11,6 +11,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/controls/OrbitControls.js"
     ></script>
+    <script src="../mathbox/dat.gui.min.js"></script>
     <!--
       - a minified version mathbox.min.js is also available;
       - recommend using a specific version (not @latest) in public sites
@@ -50,6 +51,13 @@
 
       three.camera.position.set(0, 0, 3);
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+      // Dat GUI
+    let gui = new dat.GUI();
+    let props = {
+      k: 0.5,
+    };
+    gui.add(props, 'k').min(0.1).max(3.0).step(.1).name("Transform");
 
       function pingpong(t) {
         return -Math.cos(t / 4);
@@ -91,13 +99,14 @@
         }
       );
 
-      var view = transition
-        .vertex({
-          pass: "view",
-        })
-        .polar({
+      var view = 
+      //transition
+      //  .vertex({
+      //    pass: "view",
+      //  })
+        mathbox.polar({
           
-          bend: 0.2,
+          bend: props.k,
           range: [
             [-MathBox.π, MathBox.π],
             [0, 1],
