@@ -24,6 +24,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/mathbox@latest/build/mathbox.css"
     />
+
+    <link rel="stylesheet" href="dat-gui-light-theme.css">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
   </head>
   <body>
@@ -82,7 +84,7 @@
 
       var updatefunc = function () {
         view.set("bend", props.k);
-        console.log(props.k);
+        //console.log(props.k);
       };
 
       var updateGraph = function () {
@@ -192,7 +194,9 @@
         });
 
       // Dat GUI
-      let gui = new dat.GUI();
+      let gui = new dat.GUI({
+        width: 300
+      });
       let props = {
         k: 0.0,
       };
