@@ -22,7 +22,7 @@
     ></script>
     <link
       rel="stylesheet"
-      href="mathbox/mathbox.css"
+      href="https://cdn.jsdelivr.net/npm/mathbox@latest/build/mathbox.css"
     />
 
     <link rel="stylesheet" href="dat-gui-light-theme.css">
@@ -55,8 +55,19 @@
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
       function pingpong(t) {
-        return -Math.cos(t / 4);
+        return Math.sin(Math.PI / 2.0 * Math.cos(t/6))/2 + 1/2;;
       }
+
+      /*
+      var tim = 0;
+      three.on("update", function () {
+        tim = three.Time.clock;
+
+        view.set("bend", pingpong(tim));
+      });
+      */
+
+      
 
       formatNumber = MathBox.Util.Pretty.number();
 
@@ -83,7 +94,9 @@
       );
 
       var updatefunc = function () {
-        view.set("bend", props.k);
+       view.set("bend", props.k);
+       //var p = pingpong(tim);
+       //view.set("bend", p);
         //console.log(props.k);
       };
 
