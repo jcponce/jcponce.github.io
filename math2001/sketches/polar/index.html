@@ -52,10 +52,11 @@
       three.camera.position.set(0, 0, 3);
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
-
       function pingpong(t) {
         return -Math.cos(t / 4);
       }
+
+      formatNumber = MathBox.Util.Pretty.number();
 
       mathbox.set({
         scale: 600,
@@ -123,7 +124,7 @@
         })
         .format({
           expr: function (x) {
-            return x ? (x / MathBox.π).toPrecision(2) + "π" : 0;
+            return formatNumber(x);
           },
         })
         .label({
