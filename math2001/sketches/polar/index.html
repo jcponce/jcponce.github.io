@@ -42,7 +42,7 @@
     </script>
     <script>
       var mathbox = MathBox.mathBox({
-        plugins: ["core", "controls", "cursor", "stats"],
+        plugins: ["core", "controls", "cursor"],
         controls: {
           klass: THREE.OrbitControls,
         },
@@ -52,19 +52,10 @@
       three.camera.position.set(0, 0, 3);
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
-      //   warpShader = slide.shader(
-      //   {
-      //    code: "uniform float time;\nuniform float intensity;\n\nvec4 warpVertex(vec4 xyzw, inout vec4 stpq) {\n  xyzw *= vec4(1.0, 0.5, 0.5, 0.0);\n\n  xyzw +=   0.2 * intensity * (sin(xyzw.yzwx * 1.91 + time + sin(xyzw.wxyz * 1.74 + time)));\n  xyzw +=   0.1 * intensity * (sin(xyzw.yzwx * 4.03 + time + sin(xyzw.wxyz * 2.74 + time)));\n  xyzw +=  0.05 * intensity * (sin(xyzw.yzwx * 8.39 + time + sin(xyzw.wxyz * 4.18 + time)));\n  xyzw += 0.025 * intensity * (sin(xyzw.yzwx * 15.1 + time + sin(xyzw.wxyz * 9.18 + time)));\n    \n  xyzw *= vec4(1.0, 2.0, 2.0, 0.0);\n    \n  return xyzw;\n}",
-      //  },
-      //   {
-      //     time: time,
-      //   }
-      //  );
 
       function pingpong(t) {
         return -Math.cos(t / 4);
       }
-
 
       mathbox.set({
         scale: 600,
@@ -88,21 +79,6 @@
         }
       );
 
-      /*
-          var transition = mathbox.reveal(
-            {
-              stagger: [10, 0, 0, 0],
-            },
-            {
-              enter: function (t) {
-                return 1.0 - Math.pow(1.0 - Math.min(1, (1 + pingpong(t)) * 2), 2);
-              },
-              exit: function (t) {
-                return 1.0 - Math.pow(1.0 - Math.min(1, (1 - pingpong(t)) * 2), 2);
-              },
-            }
-          );
-          */
       var updatefunc = function () {
         view.set("bend", props.k);
         console.log(props.k);
@@ -118,15 +94,15 @@
         bend: valuess,
         range: [
           [-MathBox.π, MathBox.π],
-          [0, 1],
-          [-1, 1],
+          [0, MathBox.π],
+          [-MathBox.π / 2, MathBox.π / 2],
         ],
         scale: [2, 1, 1],
       });
 
       view
         .transform({
-          position: [0, 0.5, 0],
+          position: [0, MathBox.π / 2, 0],
         })
         .axis({
           detail: 512,
@@ -186,10 +162,10 @@
           expr: function (emit, x, i, t) {
             emit(
               x,
-              MathBox.π / 8 +
-                0.2 * Math.sin(x + t) +
-                0.25 * Math.sin(x * 2 + t * 1.81) +
-                0.1125 * Math.sin(x * 3 + t * 2.18)
+              MathBox.π / 2 +
+                0.6 * Math.sin(x + t) +
+                0.3 * Math.sin(x * 2 + t * 1.81) +
+                0.1825 * Math.sin(x * 3 + t * 2.18)
             );
           },
           channels: 2,
