@@ -15,7 +15,7 @@
 
 
 // some constants we'll need later
-const NUM_INSTANCES = 5000;
+const NUM_INSTANCES = 6000;
 const ARROW_FORWARD = new THREE.Vector3(0, 0, 1);
 const UP = new THREE.Vector3(0, 1, 0);
 
