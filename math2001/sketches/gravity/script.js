@@ -40,7 +40,7 @@ function init(scene) {
   // helpers
   const numInstances = NUM_INSTANCES;
 
-  // instancing besically means that we will be drawing a
+  // instancing basically means that we will be drawing a
   // number of instances of the same singular geometry. 
   // These instances are not controlled by properties 
   // like mesh.position, mesh.rotation etc. but instead 
