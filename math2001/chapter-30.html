@@ -446,61 +446,63 @@
 								$\underline{dy~dz~dx}$
 							</span>.</p>
 					</div>
-					<table class="size-60" id="eqarray">
-						<tr>
-							<td class="fragment" data-fragment-index="1">
-								$\displaystyle \int_{x=0}^{x=1}\int_{y=\sqrt{x}}^{y=1}\left[ \int_{z=0}^{z=1-y} f
-								~dz
-								\right]dy~dx$
-							</td>
-							<td class="fragment" data-fragment-index="2">
-								$\displaystyle = \int_{x=0}^{x=1}\left[ \int_{y=\sqrt{x}}^{y=1} \int_{z=0}^{z=1-y} f
-								~dz~ dy\right]dx $
-							</td>
-						</tr>
-						<tr>
-							<td>
-
-							</td>
-							<td class="fragment" data-fragment-index="3">
-								$\displaystyle = \int_{x=0}^{x=1}\bigg[ \bigg.$
-								<span class="fragment highlight-red" data-fragment-index="4">
-									$\displaystyle\int_{z=0}^{z=1-\sqrt{x}} \int_{y=\sqrt{x}}^{y=1-z}$
-								</span>
-								$\displaystyle \,f$
-								<span class="fragment highlight-red" data-fragment-index="4">
-									$dy~ dz$
-								</span>
-								$\bigg.\bigg]dx $
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-
-							</td>
-							<td class="fragment" data-fragment-index="5">
-								$\displaystyle = \int_{x=0}^{x=1} \int_{z=0}^{z=1-\sqrt{x}}
-								\left[ \int_{y=\sqrt{x}}^{y=1-z}
-								f~dy
-								\right]
-								dz~dx $
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-
-							</td>
-							<td class="fragment" data-fragment-index="6">
-								$\displaystyle = \iint_D
-								\left[ \int_{y=\sqrt{x}}^{y=1-z}
-								f~dy
-								\right]
-								dA$
-							</td>
-						</tr>
-					</table>
+					<div class="size-60">
+						<table id="eqarray">
+							<tr>
+								<td class="fragment" data-fragment-index="1">
+									$\displaystyle \int_{x=0}^{x=1}\int_{y=\sqrt{x}}^{y=1}\left[ \int_{z=0}^{z=1-y} f
+									~dz
+									\right]dy~dx$
+								</td>
+								<td class="fragment" data-fragment-index="2">
+									$\displaystyle = \int_{x=0}^{x=1}\left[ \int_{y=\sqrt{x}}^{y=1} \int_{z=0}^{z=1-y} f
+									~dz~ dy\right]dx $
+								</td>
+							</tr>
+							<tr>
+								<td>
+	
+								</td>
+								<td class="fragment" data-fragment-index="3">
+									$\displaystyle = \int_{x=0}^{x=1}\bigg[ \bigg.$
+									<span class="fragment highlight-red" data-fragment-index="4">
+										$\displaystyle\int_{z=0}^{z=1-\sqrt{x}} \int_{y=\sqrt{x}}^{y=1-z}$
+									</span>
+									$\displaystyle \,f$
+									<span class="fragment highlight-red" data-fragment-index="4">
+										$dy~ dz$
+									</span>
+									$\bigg.\bigg]dx $
+								</td>
+							</tr>
+	
+							<tr>
+								<td>
+	
+								</td>
+								<td class="fragment" data-fragment-index="5">
+									$\displaystyle = \int_{x=0}^{x=1} \int_{z=0}^{z=1-\sqrt{x}}
+									\left[ \int_{y=\sqrt{x}}^{y=1-z}
+									f~dy
+									\right]
+									dz~dx $
+								</td>
+							</tr>
+	
+							<tr>
+								<td>
+	
+								</td>
+								<td class="fragment" data-fragment-index="6">
+									$\displaystyle = \iint_D
+									\left[ \int_{y=\sqrt{x}}^{y=1-z}
+									f~dy
+									\right]
+									dA$
+								</td>
+							</tr>
+						</table>
+					</div>
 					<div class="size-60 left-txt">
 						<p class="fragment" data-fragment-index="7">
 							Here $D$ is the projection of the region
