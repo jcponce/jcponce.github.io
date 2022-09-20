@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>MATH2001/7000 - Chapter 45</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
+
+    <link rel="stylesheet" href="css/mylayout.css" />
+
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
+
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 45</p>
+        </section>
+
+        <section>
+          <h3>45 Curl of a vector field</h3>
+          <div class="left-txt size-80">
+            <p>
+              By the end of this section, you should be able to answer the
+              following questions:
+            </p>
+            <ul>
+              <li class="fragment" data-fragment-index="0">
+                How do you calculate the curl of a given vector field?
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                What is the significance of curl?
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                How do you test whether or not a given three dimensional vector
+                field is conservative?
+              </li>
+            </ul>
+          </div>
+          <br/><br/>
+        </section>
+
+        <section>
+          <h4>45.1 Calculating curl</h4>
+          <div class="size-70">
+            <div class="left-txt">
+              <p class="fragment" data-fragment-index="0">
+                If $(x, y, z)$ is a right handed Cartesian coordinate system and
+                $\v(x, y, z) = v_1~\i+v_2~\j +v_3~\k$ is a differentiable vector
+                field,
+                <span class="fragment" data-fragment-index="1">
+                  then define
+                </span>
+              </p>
+              <table id="eqarray">
+                <tr>
+                  <td class="fragment" data-fragment-index="1">
+                    $\displaystyle \curl (\v) $
+                  </td>
+                  <td class="fragment" data-fragment-index="2">
+                    $\displaystyle = \nabla \times \v $
+                    <span class="fragment" data-fragment-index="3">
+                      $\displaystyle = \left| \begin{array}{ccc} \i & \j & \k \\
+                      \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial y}
+                      &\dfrac{\partial}{\partial z} \\ v_1 & v_2 & v_3
+                      \end{array} \right| $
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="fragment" data-fragment-index="4">
+                    $\displaystyle = \left(\dfrac{\partial v_3}{\partial y} -
+                    \dfrac{\partial v_2}{\partial z} \right)\i+
+                    \left(\dfrac{\partial v_1}{\partial z} - \dfrac{\partial
+                    v_3}{\partial x} \right)\j+ \left(\dfrac{\partial
+                    v_2}{\partial x} - \dfrac{\partial v_1}{\partial y}
+                    \right)\k $
+                  </td>
+                </tr>
+              </table>
+              <p class="fragment" data-fragment-index="5">
+                Note that $\curl(\v)$ <strong>is a vector field</strong>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h5>
+              45.1.1 Example: let $\v = yz^2~\i + zx^2~\j + xy^2~\k$. Find
+              $\curl(\v)$.
+            </h5>
+            <div class="size-70">
+              <div>
+                <table id="eqarray">
+                  <tr>
+                    <td class="fragment" data-fragment-index="0">
+                      $\nabla \times \v$
+                    </td>
+                    <td class="fragment" data-fragment-index="1">
+                      $\displaystyle = \left| \begin{array}{ccc} \i & \j & \k \\
+                      \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial y}
+                      &\dfrac{\partial}{\partial z} \\ yz^2 & zx^2 & xy^2
+                      \end{array} \right| $
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+  
+                    </td>
+                   <td class="fragment" data-fragment-index="2">
+                    $\displaystyle = \left| \begin{array}{cc} 
+                    \dfrac{\partial}{\partial y} &\dfrac{\partial}{\partial z}\\
+                    yx^2 & xy^2
+                    \end{array} \right| \i$
+                     
+                    <span class="fragment" data-fragment-index="3">
+                      $- 
+                    \left| \begin{array}{cc} 
+                    \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial z}\\
+                    yz^2 & xy^2
+                    \end{array} \right| \j $
+                    </span>
+                    <span class="fragment" data-fragment-index="4">
+                      $+ 
+                      \left| \begin{array}{cc} 
+                      \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial y}\\
+                      yz^2 & zx^2
+                      \end{array} \right| \k  $</span>
+                   </td>
+                  </tr>
+  
+                  
+                </table>
+              </div>
+              <br/><br/><br/>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              45.1.1 Example: let $\v = yz^2~\i + zx^2~\j + xy^2~\k$. Find
+              $\curl(\v)$.
+            </h5>
+            <div class="size-70">
+              <div>
+                <table id="eqarray">
+                  <tr>
+                    <td>
+                      $\nabla \times \v$
+                    </td>
+                   <td >
+                    $\displaystyle = \left| \begin{array}{cc} 
+                    \dfrac{\partial}{\partial y} &\dfrac{\partial}{\partial z}\\
+                    yx^2 & xy^2
+                    \end{array} \right| \i - 
+                    \left| \begin{array}{cc} 
+                    \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial z}\\
+                    yz^2 & xy^2
+                    \end{array} \right| \j + 
+                      \left| \begin{array}{cc} 
+                      \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial y}\\
+                      yz^2 & zx^2
+                      \end{array} \right| \k  $
+                   </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                   
+                   <td class="fragment" data-fragment-index="0">
+                    $\displaystyle = \left(\dfrac{\partial}{\partial y}\left(xy^2\right) -
+                    \dfrac{\partial }{\partial z} \left(zx^2\right) \right)\i
+                    $
+
+                   <span class="fragment" data-fragment-index="1"> $+
+                    \left(\dfrac{\partial }{\partial z}\left(yz^2\right) - \dfrac{\partial
+                    }{\partial x}\left(xy^2\right) \right)\j  $
+                   </span>
+                   </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                   
+                   <td class="fragment" data-fragment-index="2">
+                    $\displaystyle  \quad + \left(\dfrac{\partial
+                    }{\partial x}\left(zx^2\right) - \dfrac{\partial}{\partial y} \left(yz^2\right)
+                    \right)\k  $
+                   </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      
+                    </td>
+                   
+                   <td class="fragment" data-fragment-index="3">
+                    $\displaystyle  = \left( 2xy - x^2 \right)\i+
+                    \left(2yz-y^2 \right)\j + \left(2xz-z^2 \right)\k.$
+                   </td>
+                  </tr>
+                </table>
+              </div>
+            </div><br/>
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>45.2 Understanding curl</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="0">
+                  For the rotation of a rigid body about a fixed axis with angular
+                  velocity $\w$, the velocity at a point $P$, whose position
+                  vector is $\r$, is given by $\v = \w \times \r$.
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  If we choose the axis of rotation to be the z-axis, then $\w =
+                  \omega \k$. Calculate $\curl(\v)$:
+                </p>
+                
+                <p class="fragment" data-fragment-index="2">We have that $\r = x~\i + y~\j + z~\k$.
+                  <span class="fragment" data-fragment-index="3">
+                    Then
+                  </span>
+                </p>
+                <table id="eqarray">
+                  <tr class="fragment" data-fragment-index="3">
+                    <td>
+                      $\v$
+                    </td>
+                    <td>
+                      $= \w \times \r$
+                      <span class="fragment" data-fragment-index="4">
+                        $\displaystyle = \left| \begin{array}{ccc} \i & \j & \k \\
+                      0 & 0 & \omega \\ x & y & z
+                      \end{array} \right| $
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td class="fragment" data-fragment-index="5">
+                     $= -\omega \left( y~\i - x~\j \right)$
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4>45.2 Understanding curl</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Then $\v =  -\omega \left( y~\i - x~\j \right)$
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                 On the other hand, we have that 
+                </p>
+                <table id="eqarray">
+                  <tr class="fragment" data-fragment-index="3">
+                    <td>
+                      $\curl \v$
+                    </td>
+                    <td>
+                      $= \nabla \times \v$
+                      <span class="fragment" data-fragment-index="4">
+                        $\displaystyle = \left| \begin{array}{ccc} 
+                        \i & \j & \k \\
+                        \displaystyle \frac{\partial }{\partial x} & \displaystyle \frac{\partial }{\partial y} & \displaystyle \frac{\partial }{\partial z}\\
+                        -\omega y & \omega x & 0
+                        \end{array} \right| 
+                        $
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td class="fragment" data-fragment-index="5">
+                     $=(0) ~\i - (0)~\j + (\omega+\omega)~\k$
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td class="fragment" data-fragment-index="6">
+                     $=2\omega ~\k$
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+                <p class="fragment" data-fragment-index="7">
+                  This implies that $\curl \v $ is proportinal to the angular
+                  vector $\w$.
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4>45.2 Understanding curl</h4>
+            <div class="size-60">
+              <div>
+                <p>
+                  In general, $\curl \v$ characterises the rotation of a 
+                  vector field. 
+                </p>
+                
+                
+                
+              </div>
+              <div>
+                <iframe scrolling="no" title="Chapter-45: Curl detector" 
+                src="https://www.geogebra.org/material/iframe/id/fccpvvzy/width/713/height/448/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="713px" height="448px" style="border:0px;"
+                allowfullscreen=""> </iframe>
+              </div>
+            </div>
+            <br/>
+          </section>
+          
+
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>45.3 Conservative fields revisited</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  It turns out that the curl of a vector field is exactly what
+                  we need to generalise the result mentioned in Chapter 36.3 to
+                  three dimensions.
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  Show that if $\F$ is a conservative vector field, then $\curl
+                  \F = \mathbf 0$.
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  <strong>Proof:</strong> If $\F$ is conservative, then
+                  there exists $f$ such that
+                  \[
+                  \F = \nabla f.
+                  \]
+                  <span class="fragment" data-fragment-index="2">
+                    That is
+                  \[
+                  \F = \frac{\partial f}{\partial x}~\i+ \frac{\partial f}{\partial y}~\j+ \frac{\partial f}{\partial z}~\k.
+                  \]
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4>45.3 Conservative fields revisited</h4>
+            <div class="size-65">
+              <div class="left-txt">
+                
+                <p>
+                  <strong>Proof:</strong> Since
+                  $
+                  \F = \frac{\partial f}{\partial x}~\i+ \frac{\partial f}{\partial y}~\j+ \frac{\partial f}{\partial z}~\k
+                  $, 
+                  <span class="fragment" data-fragment-index="0">
+                    then
+                  </span>
+                </p>
+
+                <table id="eqarray">
+                  <tr class="fragment" data-fragment-index="0">
+                    <td >
+                      $\curl \F$
+                    </td>
+                    <td>
+                      $\displaystyle = \left| \begin{array}{ccc} \i & \j & \k \\
+                      \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial y}
+                      &\dfrac{\partial}{\partial z} \\ 
+                      \dfrac{\partial f}{\partial x} & \dfrac{\partial f}{\partial y} & \dfrac{\partial f}{\partial z}
+                      \end{array} \right| $
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td class="fragment" data-fragment-index="1">
+                      $\displaystyle = \left(\frac{\partial ^2 f}{\partial y \partial z} - \frac{\partial ^2 f}{\partial z \partial y} \right)\i \, $
+                      <span class="fragment" data-fragment-index="2">
+                        $\displaystyle + \left(\frac{\partial ^2 f}{\partial z \partial x} - \frac{\partial ^2 f}{\partial x \partial z} \right)\j \,$
+                      </span>
+                      <span class="fragment" data-fragment-index="3">
+                        $\displaystyle+ \left(\frac{\partial ^2 f}{\partial x \partial y} - \frac{\partial ^2 f}{\partial y \partial x} \right)\k$
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+
+                    </td>
+                    <td class="fragment" data-fragment-index="4">
+                      $=\mathbf 0.$
+                    </td>
+                  </tr>
+                </table>
+                <p class="fragment" data-fragment-index="5">
+                  In other words, $\nabla \times \F = \mathbf 0.$
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4>45.3 Conservative fields revisited</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Indeed, the diagram on Chapter 36 that outlines our logic can
+                  be extended directly to the three dimensional case.
+                  <span class="fragment" data-fragment-index="0"
+                    >The only difference is the condition which will serve as
+                    our test for conservative fields, namely $\curl \F = \mathbf
+                    0$.</span
+                  >
+                </p>
+              </div>
+              <div class="r-stack">
+                <img
+                  class="fragment fade-out"
+                  data-fragment-index="1"
+                  src="images/chapter-45/chapter-36-3-diagram.svg"
+                  width="85%"
+                  data-preload
+                />
+                <img
+                  class="fragment fade-in"
+                  data-fragment-index="1"
+                  src="images/chapter-45/chapter-45-3-diagram.svg"
+                  width="85%"
+                  data-preload
+                />
+              </div>
+              <br />
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>45.3 Conservative fields revisited</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  The proofs of the links in the diagram for the three
+                  dimensional case below are very similar to those used in the
+                  two dimensional case.
+                  <span class="fragment" data-fragment-index="0">
+                    The only detail that is significantly different is shwoing
+                    that if $\curl \F = \mathbf 0$ then \[ \oint_C\F \cdot d\r =
+                    0. \]
+                  </span>
+                </p>
+
+                <p class="fragment" data-fragment-index="1">
+                  Note also that $\F$ must be a vector field defined everywhere
+                  in $\R^3$ with continuous partial derivatives.
+                </p>
+              </div>
+            </div>
+            <br/><br/><br/><br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4>45.3 Conservative fields revisited</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Note also that $\F$ must be a vector field defined everywhere
+                  in $\R^3$ with continuous partial derivatives.
+                </p>
+              </div>
+
+              <div class="r-stack">
+                <img
+                  src="images/chapter-45/chapter-45-3-diagram.svg"
+                  width="55%"
+                  data-preload
+                />
+              </div>
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="0">
+                  The proof of that part of the diagram requires a
+                  generalisation of Green's theorem known as
+                  <em>Stokes' theorem</em>, which we will investigate in the
+                  next section.
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4>45.3 Conservative fields revisited</h4>
+
+            <div class="size-70">
+              <div class="r-stack">
+                <img
+                  src="images/chapter-45/chapter-45-3-diagram.svg"
+                  width="45%"
+                  data-preload
+                />
+              </div>
+
+              <div class="left-txt">
+                <p>
+                  The main consequence of this diagram is that we have the
+                  following test for a conservative vector field in three
+                  dimensions:
+                </p>
+              </div>
+
+              <div id="theorem">
+                <p>
+                  A vector field $\F$ is conservative if and only if $\curl \F =
+                  \mathbf 0$.
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+        </section>
+
+        <section>
+          <h5>
+            45.3.1 Determine whether or not the vector field $\F =
+            (1+yz)~\i+(1+xz)~\j+xy~\k$ is conservative.
+          </h5>
+          <div class="size-70">
+            <div class="left-txt">
+              <p class="fragment" data-fragment-index="0">Recall that $\F$ is conservative if and only if $\curl \F=\mathbf 0$.
+                <span class="fragment" data-fragment-index="1">Then we compute</span>
+              </p>
+              
+              <table id="eqarray">
+                <tr class="fragment" data-fragment-index="1">
+                  <td >
+                    $\curl \F$
+                  </td>
+                  <td>
+                    $\displaystyle = \;\left| \begin{array}{ccc} \i & \j & \k \\
+                    \dfrac{\partial}{\partial x} &\dfrac{\partial}{\partial y}
+                    &\dfrac{\partial}{\partial z} \\ 
+                    1+yz & 1+ xz & xy
+                    \end{array} \right| $
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    
+                  </td>
+                  <td class="fragment" data-fragment-index="2">
+                    $\displaystyle = \; \left( x - x \right)\i \, $
+                    <span class="fragment" data-fragment-index="3">
+                      $\displaystyle + \left(y -y \right)\j \,$
+                    </span>
+                    <span class="fragment" data-fragment-index="4">
+                      $\displaystyle +\left(z - z \right)\k$
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+
+                  </td>
+                  <td class="fragment" data-fragment-index="5">
+                    $=\mathbf 0.$
+                  </td>
+                </tr>
+              </table>
+              <p class="fragment" data-fragment-index="6">
+                Therefore $\F$ is conservative.
+              </p>
+            </div>
+          </div>
+          <br/>
+        </section>
+
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
+
+        <!-- Ends sections -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
+
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>
