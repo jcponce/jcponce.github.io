@@ -84,9 +84,215 @@
 				</div>
 			</section>
 
+
+			<section>
+				<section data-auto-animate>
+					<h4>
+						46.1 Summary of surfaces and curves
+					</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								Here we summarise the different types of curves and surfaces 
+								which we need to under- stand Stokes' theorem. Although most 
+								of these definitions have already been given, you may find it 
+								useful to have all of this information in one place so 
+								you can review at a glance.
+							</p>
+						</div>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						46.1.1 Surfaces
+					</h5>
+					<div class="size-80">
+						<div class="left-txt">
+							<ul>
+								<li>
+									Smooth: the surface normal vector depends 
+									continuously on the points on the surface.
+								</li>
+								<li>
+									Piecewise smooth: the surface consists of 
+									finitely many smooth surfaces intersecting 
+									only at their boundaries.
+								</li>
+								<li>
+									Oriented (or orientable): the direction of the 
+									positive normal vector can be continued uniquely 
+									and continuously across the whole surface 
+									(especially if the surface is piecewise smooth).
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						46.1.2 Curves
+					</h5>
+					<div class="size-80">
+						<div class="left-txt">
+							<ul>
+								<li>
+									Smooth: the tangent at each point on the 
+									curve is unique and varies continuously.
+								</li>
+								<li>
+									Piecewise smooth: the curve consists of
+									finitely many smooth curves.
+								</li>
+								<li>
+									Simple: the curve never intersects itself 
+									anywhere between its endpoints.
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</section>
+
+
+			</section>
 				
 
-			
+			<section>
+				<section>
+					<h4>
+						46.2 Stokes' theorem
+					</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<div id="theorem">
+								<p>Let $S$ be a piecewise smooth, orientable surface in $\R^3$ 
+									and let the boundary of $S$ be a piecewise smooth, simple,
+									 closed curve $C$. Let $\F (x, y, z)$ be a continuous 
+									 vector function with continuous first partial derivatives
+									 in some domain containing $S$. Then
+									 \[
+									 \oint \F \cdot d\r = \iint_S \curl \F \cdot \n ~dS
+									 \]
+									 where $\n$ is a unit normal vector fo $S$, and the integration
+									 around $C$ is taken in the direction using the
+									 "right hand rule" with $\n$.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h5>
+						46.2.1 Relation to Green's theorem
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Recall Green's theorem in the plane. 
+								It relates a line integral on a boundary 
+								to a double integral over a region in the 
+								plane. Roughly speaking, Stokes' theorem 
+								is a 3-D version of this: it relates a 
+								surface integral on a piece of surface 
+								(in 3-D) to a line integral on the boundary 
+								of the surface.
+							</p>
+
+							<p>
+								In fact, note that if the surface is in 
+								the x-y plane with $\n = \k$, Stokes' theorem 
+								reduces to Green's theorem, since the $\k$ 
+								component of $\curl \F$ is just 
+								\[
+								\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}.
+								\]
+							</p>
+							
+						</div>
+					</div>
+				</section>
+
+
+				<section>
+					<h5>
+						46.2.2 Verify Stokes' theorem where $C$ 
+					</h5>
+					<p class="sbt">is the 
+						curve of intersection of the plane $y+z = 2$ and 
+						the cylinder $x^2+y^2 = 1$, oriented counterclockwise
+						 when looking from above, and $\F = \left[-y^2, x, z^2\right]$</p>
+					<div class="size-70">
+						<div class="left-txt">
+							
+							
+						</div>
+					</div>
+				</section>
+
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>
+						46.3 Further reading: Circulation
+					</h4>
+					
+					<div class="size-70">
+						<div class="left-txt">
+							
+							<p>
+								Let $\v$ represent the velocity field of a fluid
+								 and $C$ is a piecewise smooth, simple, closed 
+								 curve. We have
+								 \[
+								 \oint_C \v\cdot d\r = \oint_C \v \cdot \T ~dS,
+								 \]
+								 where $\T$ is a unit tangent vector in the direction 
+								 of the orientation of the curve. The dot product 
+								 $\v \cdot \T$ is the component of $\v$ in the direction of $\T$ 
+								 (and hence the curve), so we can interpret $\oint_C \v \cdot \T~dS$  
+								 as a measure of the tendency of the fluid to move around $C$
+								 the curve $C$. We call this quantity the circulation of 
+								 $\v$ around $C$.
+							</p>
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						46.3 Further reading: Circulation
+					</h4>
+					
+					<div class="size-70">
+						<div class="left-txt">
+							
+							<p>
+								Now define a small circle $C_a$ of radius $a$ about 
+								a point $P_0$, such that the disc $S_a$ enclosed by 
+								$C_a$ is normal to the vector $\n(P_0)$. Our aim here 
+								is to better understand $\curl \v$. 
+								
+							</p>
+
+							<p>
+								Since $\curl \v$ is continuous, we approximate 
+								$\curl \v$ over $S_a$ as $\curl \v(P0)$. Stokes theorem 
+								then gives us
+							</p>
+
+						</div>
+					</div>
+				</section>
+
+				
+			</section>
 
 			
 			<section>
