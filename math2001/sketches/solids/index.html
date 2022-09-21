@@ -50,7 +50,6 @@
 				const pointLight = new THREE.PointLight( 0xffffff, 0.8 );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
-				//camera.position.y = 400;
         		camera.position.set( 500, 600, 700 );
 				scene.add( camera );
 				camera.add( pointLight );
@@ -106,6 +105,7 @@
 				object.position.set( - 300, 0, - 200 );
 				scene.add( object );
 
+				// Not sure if I need this array :(
 				const points = [];
 
 				for ( let i = 0; i < 50; i ++ ) {
@@ -113,8 +113,6 @@
 					points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50, ( i - 5 ) * 2 ) );
 
 				}
-
-				
 
         		const GrannyKnot = new Curves.GrannyKnot();
         		const tube = new ParametricGeometries.TubeGeometry( GrannyKnot, 100, 3.5, 15, true );
