@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - Solids & Regions</title>
+		<title>three.js webgl - Solids & Sheets</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="style.css">
 	</head>
 	<body>
 
-		<div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - Solids & Regions</div>
+		<div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - Solids & Sheets</div>
 
 		<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
@@ -27,13 +27,13 @@
 
 			import * as THREE from 'three';
 
-			import Stats from 'three/addons/libs/stats.module.js';
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
       import * as Curves from 'three/addons/curves/CurveExtras.js';
       import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
 			import { ParametricGeometries } from 'three/addons/geometries/ParametricGeometries.js';
 
-			let camera, scene, renderer, stats;
+			let camera, orthoCamera, scene, renderer;
 
 			init();
 			animate();
@@ -42,8 +42,9 @@
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
 				camera.position.y = 400;
+        //camera.position.set( 0, 0, 400 );
 
-				scene = new THREE.Scene();
+				scene = new THREE.Scene(camera);
 
 				let object;
 
@@ -54,7 +55,10 @@
 				camera.add( pointLight );
 				scene.add( camera );
 
-				const map = new THREE.TextureLoader().load( '../threejs/textures/brick_roughness.jpg' );
+        orthoCamera = new THREE.OrthographicCamera( - 1, 1, 1, - 1, 1, 2 );
+				orthoCamera.position.set( 0.5, 0, 1 );
+
+				const map = new THREE.TextureLoader().load( '../threejs/textures/brick_diffuse.jpg' );
 				map.wrapS = map.wrapT = THREE.RepeatWrapping;
 				map.anisotropy = 16;
 
@@ -134,11 +138,12 @@
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+
 				document.body.appendChild( renderer.domElement );
 
-				stats = new Stats();
-				document.body.appendChild( stats.dom );
-
+				
 				//
 
 				window.addEventListener( 'resize', onWindowResize );
@@ -161,7 +166,7 @@
 				requestAnimationFrame( animate );
 
 				render();
-				stats.update();
+				
 
 			}
 
