@@ -105,7 +105,8 @@
 				object.position.set( - 300, 0, - 200 );
 				scene.add( object );
 
-				// Not sure if I need this array :(
+				// The following lines are in case I use LatheGeometry :)
+				/*
 				const points = [];
 
 				for ( let i = 0; i < 50; i ++ ) {
@@ -113,6 +114,7 @@
 					points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50, ( i - 5 ) * 2 ) );
 
 				}
+				*/
 
         		const GrannyKnot = new Curves.GrannyKnot();
         		const tube = new ParametricGeometries.TubeGeometry( GrannyKnot, 100, 3.5, 15, true );
