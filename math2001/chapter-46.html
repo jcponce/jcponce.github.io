@@ -94,7 +94,7 @@
 						<div class="left-txt">
 							<p>
 								Here we summarise the different types of curves and surfaces 
-								which we need to under- stand Stokes' theorem. Although most 
+								which we need to understand Stokes' theorem. Although most 
 								of these definitions have already been given, you may find it 
 								useful to have all of this information in one place so 
 								you can review at a glance.
@@ -102,6 +102,7 @@
 						</div>
 					</div>
 
+					<br/><br/><br/>
 				</section>
 
 				<section data-auto-animate>
@@ -110,17 +111,17 @@
 					</h5>
 					<div class="size-80">
 						<div class="left-txt">
-							<ul>
-								<li>
+							<ul style="line-height:48px">
+								<li class="fragment" data-fragment-index="0">
 									Smooth: the surface normal vector depends 
 									continuously on the points on the surface.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="1">
 									Piecewise smooth: the surface consists of 
 									finitely many smooth surfaces intersecting 
 									only at their boundaries.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="2">
 									Oriented (or orientable): the direction of the 
 									positive normal vector can be continued uniquely 
 									and continuously across the whole surface 
@@ -129,7 +130,7 @@
 							</ul>
 						</div>
 					</div>
-
+					<br/><br/><br/>
 				</section>
 
 				<section data-auto-animate>
@@ -138,23 +139,23 @@
 					</h5>
 					<div class="size-80">
 						<div class="left-txt">
-							<ul>
-								<li>
+							<ul  style="line-height:48px">
+								<li class="fragment" data-fragment-index="0">
 									Smooth: the tangent at each point on the 
 									curve is unique and varies continuously.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="1">
 									Piecewise smooth: the curve consists of
 									finitely many smooth curves.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="2">
 									Simple: the curve never intersects itself 
 									anywhere between its endpoints.
 								</li>
 							</ul>
 						</div>
 					</div>
-
+					<br/><br/><br/>
 				</section>
 
 
@@ -171,15 +172,21 @@
 							<div id="theorem">
 								<p>Let $S$ be a piecewise smooth, orientable surface in $\R^3$ 
 									and let the boundary of $S$ be a piecewise smooth, simple,
-									 closed curve $C$. Let $\F (x, y, z)$ be a continuous 
+									 closed curve $C$. 
+									<span class="fragment" data-fragment-index="0">
+										Let $\F (x, y, z)$ be a continuous 
 									 vector function with continuous first partial derivatives
-									 in some domain containing $S$. Then
+									 in some domain containing $S$. 
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Then
 									 \[
-									 \oint \F \cdot d\r = \iint_S \curl \F \cdot \n ~dS
+									 \oint_C \F \cdot d\r = \iint_S \curl \F \cdot \n ~dS
 									 \]
 									 where $\n$ is a unit normal vector fo $S$, and the integration
 									 around $C$ is taken in the direction using the
 									 "right hand rule" with $\n$.
+									</span>
 								</p>
 							</div>
 						</div>
@@ -195,14 +202,18 @@
 							<p>Recall Green's theorem in the plane. 
 								It relates a line integral on a boundary 
 								to a double integral over a region in the 
-								plane. Roughly speaking, Stokes' theorem 
+								plane. 
+								<span  class="fragment" data-fragment-index="0">
+								Roughly speaking, Stokes' theorem 
 								is a 3-D version of this: it relates a 
 								surface integral on a piece of surface 
 								(in 3-D) to a line integral on the boundary 
 								of the surface.
+								</span>
+								
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="1">
 								In fact, note that if the surface is in 
 								the x-y plane with $\n = \k$, Stokes' theorem 
 								reduces to Green's theorem, since the $\k$ 
@@ -248,17 +259,24 @@
 							<p>
 								Let $\v$ represent the velocity field of a fluid
 								 and $C$ is a piecewise smooth, simple, closed 
-								 curve. We have
+								 curve. 
+								 <span class="fragment" data-fragment-index="0">
+ 								We have
 								 \[
 								 \oint_C \v\cdot d\r = \oint_C \v \cdot \T ~dS,
 								 \]
 								 where $\T$ is a unit tangent vector in the direction 
-								 of the orientation of the curve. The dot product 
+								 of the orientation of the curve. 
+								 </span>
+								 <span class="fragment" data-fragment-index="1">
+									The dot product 
 								 $\v \cdot \T$ is the component of $\v$ in the direction of $\T$ 
 								 (and hence the curve), so we can interpret $\oint_C \v \cdot \T~dS$  
 								 as a measure of the tendency of the fluid to move around $C$
 								 the curve $C$. We call this quantity the circulation of 
 								 $\v$ around $C$.
+								 </span>
+								
 							</p>
 
 						</div>
@@ -281,7 +299,7 @@
 								
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								Since $\curl \v$ is continuous, we approximate 
 								$\curl \v$ over $S_a$ as $\curl \v(P_0)$. Stokes theorem 
 								then gives us
@@ -289,10 +307,10 @@
 
 							<table id="eqarray">
 								<tr>
-									<td>
+									<td class="fragment" data-fragment-index="0">
 										$\displaystyle \oint_{C_a} \v \cdot d\r$
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="0">
 										$ \displaystyle =\iint_{S_a} \curl \v \cdot \n ~dS $
 									</td>
 								</tr>
@@ -328,7 +346,7 @@
 									<td>
 										
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="0">
 										$ \displaystyle \approx \iint_{S_a} \curl \v(P_0) \cdot \n(P_0) ~dS $
 									</td>
 								</tr>
@@ -337,7 +355,7 @@
 									<td>
 										
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="1">
 										$ \displaystyle =  \curl \v(P_0) \cdot \n(P_0) \iint_{S_a}~dS $
 									</td>
 								</tr>
@@ -346,7 +364,7 @@
 									<td>
 										
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="2">
 										$ \displaystyle =  \curl \v(P_0) \cdot \n(P_0) \left( \pi a^2\right) $
 									</td>
 								</tr>
@@ -382,10 +400,10 @@
 
 							</table>
 
-							<p>This implies:</p>
+							<p class="fragment" data-fragment-index="0">This implies:</p>
 
 							<table id="eqarray">
-								<tr>
+								<tr class="fragment" data-fragment-index="0">
 									<td>
 										$\displaystyle \curl \v(P_0) \cdot \n(P_0) $
 									</td>
@@ -399,7 +417,7 @@
 									<td>
 										
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="1">
 										$ \displaystyle \approx \frac{\text{circulation around disc}}{\text{area of disc}}$
 									</td>
 								</tr>
@@ -430,15 +448,15 @@
 
 							</table>
 
-							<p>This approximation improves as $a\to 0$. 
-								<span>
+							<p class="fragment" data-fragment-index="0">This approximation improves as $a\to 0$. 
+								<span class="fragment" data-fragment-index="1">
 									Indeed
 									\[
 									\curl \v(P_0) \cdot \n(P_0) = \lim_{a \to 0} \frac{1}{\pi a^2} \oint_{C_a} \v \cdot d\r 
 									\]
 								</span>
 							</p>
-							<p>
+							<p class="fragment" data-fragment-index="2">
 								Note that this has a maximum value when 
 								$\curl \v(P_0)$ and $\n(P_0)$ have the same direction.
 							</p>
@@ -473,13 +491,13 @@
 								In particular, if we take $\n(P_0)$ to be each 
 								of the coordinate unit vectors $\i$, $\j$, $\k$, we 
 								have the following: 
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									The $\i$, $\j$, $\k$ components 
 								of $\curl \v(P_0)$ give the circulation density at
 								$P_0$ in planes normal to each of the $\i$, $\j$, $\k $
 								respectively. 
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									The magnitude of $\curl \v(P_0)$
 								gives the maximum circulation density about 
 								$P_0$ in a plane normal to $\curl \v(P_0)$.
@@ -487,6 +505,7 @@
 							</p>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				
@@ -507,7 +526,7 @@
 								of Stokes' theorem, both with the same boundary curve $C$, 
 								then
 								\[
-								\iint_{S_1}\curl \F \cdot \n_1 ~dS = \oint_C \F \cdot d\r = \iint_{S_2}\curl \F \cdot \n_1 ~dS 
+								\iint_{S_1}\curl \F \cdot \n_1 ~dS = \oint_C \F \cdot d\r = \iint_{S_2}\curl \F \cdot \n_1 ~dS .
 								\]
 							</p>
 							<br/><br/><br/><br/><br/><br/><br/>
@@ -520,7 +539,7 @@
 						46.4 Further reading: <br/>Curl fields & vector potentials
 					</h4>
 					
-					<div class="size-60">
+					<div class="size-70">
 						<div class="left-txt">
 	
 							
@@ -529,13 +548,39 @@
 								other criteria of Stokes' theorem, and if we define $C$ to be 
 								any closed curve lying on $S$, so that $S_1$ and $S_2$ are two open
 								surfaces whose union makes up $S$ and whose common boundary is 
-								$C$, then
+								$C$, 
+								<span  class="fragment" data-fragment-index="0">
+									then
+								</span>
 							</p>
+							<table id="eqarray" style="width:100%">
+								<tr class="fragment" data-fragment-index="0">
+									<td style="width:30%;text-align:right">
+										<img width="80%" src="images/chapter-46/oiint.png">
+									</td>
+									<td style="width:70%">
+										$  \displaystyle =\iint_{S_1}\curl \F \cdot \n_1 ~dS + \iint_{S_2}\curl \F \cdot \n_2 ~dS $
+									</td>
+								</tr>
+								
+							</table>
+							
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
 
+				<section data-auto-animate>
+					<h4>
+						46.4 Further reading: <br/>Curl fields & vector potentials
+					</h4>
+					
+					<div class="size-70">
+						<div class="left-txt">
 							<table id="eqarray" style="width:100%">
 								<tr>
 									<td style="width:30%;text-align:right">
-										<img width="75%" src="images/chapter-46/oiint.png">
+										<img width="80%" src="images/chapter-46/oiint.png">
 									</td>
 									<td style="width:70%">
 										$  \displaystyle =\iint_{S_1}\curl \F \cdot \n_1 ~dS + \iint_{S_2}\curl \F \cdot \n_2 ~dS $
@@ -545,7 +590,7 @@
 									<td>
 										
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="0">
 										$ \displaystyle =\oint_{C}\F \cdot d\r + \oint_{-C} \F \cdot d\r $
 									</td>
 								</tr>
@@ -554,13 +599,13 @@
 									<td>
 										
 									</td>
-									<td>
+									<td class="fragment" data-fragment-index="1">
 										$ \displaystyle =\oint_{C} \F \cdot d\r - \oint_{C} \F \cdot d\r $
-										<span>$=0,$</span>
+										<span class="fragment" data-fragment-index="2">$=0,$</span>
 									</td>
 								</tr>
 							</table>
-							<p>since the orientation of $C$ as a boundary to $S_1$ will be 
+							<p class="fragment" data-fragment-index="3">since the orientation of $C$ as a boundary to $S_1$ will be 
 								in the opposite direction to that of $S_2$.
 							</p>
 						</div>
@@ -573,7 +618,7 @@
 						46.4 Further reading: <br/>Curl fields & vector potentials
 					</h4>
 					
-					<div class="size-65">
+					<div class="size-70">
 						<div>
 	
 							
@@ -589,7 +634,7 @@
 								and $G$ 
 								a corresponding vector potential.
 							</p>
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								The above result says that the net outward 
 								flux of a curl field across any closed surface is zero.
 							</p>
@@ -606,7 +651,7 @@
 						46.4 Further reading: <br/>Curl fields & vector potentials
 					</h4>
 					
-					<div class="size-65">
+					<div class="size-70">
 						
 						<div class="left-txt">
 	
@@ -614,14 +659,46 @@
 							
 							<p>
 								We can verify that $\div(\curl \mathbf G) = 0$ for any vector 
-								field $\mathbf G$. Consequently we should not be too surprised 
+								field $\mathbf G$. 
+								
+								<span class="fragment" data-fragment-index="0">
+									Consequently we should not be too surprised 
 								by the above result, since Gauss' divergence theorem 
 								says that
+								</span>
 
 							</p>
 
 						</div>
 
+						<div  class="fragment" data-fragment-index="0">
+							<img width="63%" src="images/chapter-46/oiint-3.png">
+						</div>
+
+						<div class="left-txt">
+	
+							
+							<p class="fragment" data-fragment-index="1">
+								In fact, it turns out that we have the following test
+								 for curl fields:
+								
+							</p>
+
+							
+							   
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>
+						46.4 Further reading: <br/>Curl fields & vector potentials
+					</h4>
+					
+					<div class="size-70">
+						
 						<div>
 							<img width="63%" src="images/chapter-46/oiint-3.png">
 						</div>
@@ -637,16 +714,25 @@
 
 							<p>
 								Let $\F$ be a vector field whose components and their partial 
-								derivatives are continuous. If every closed surface in the 
+								derivatives are continuous.
+								<span class="fragment" data-fragment-index="0">
+									If every closed surface in the 
 								domain of $\F$ only encloses points which are also in the domain 
-								of $\F$, and if $\div \F = 0$, then there exists some $\mathbf G$ such that 
-								$\F = \curl \mathbf G$. That is, $\F$ is a $\curl$ field.
+								of $\F$, and if $\div \F = 0$, 
+								</span> 
+								<span class="fragment" data-fragment-index="1">
+									then there exists some $\mathbf G$ such that 
+								$\F = \curl \mathbf G$. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									That is, $\F$ is a $\curl$ field.
+								</span>
 							</p>   
    
 							   
 						</div>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 
 
