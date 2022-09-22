@@ -113,16 +113,16 @@
 						<div class="left-txt">
 							<ul style="line-height:48px">
 								<li class="fragment" data-fragment-index="0">
-									Smooth: the surface normal vector depends 
+									<em>Smooth</em>: the surface normal vector depends 
 									continuously on the points on the surface.
 								</li>
 								<li class="fragment" data-fragment-index="1">
-									Piecewise smooth: the surface consists of 
+									<em>Piecewise smooth</em>: the surface consists of 
 									finitely many smooth surfaces intersecting 
 									only at their boundaries.
 								</li>
 								<li class="fragment" data-fragment-index="2">
-									Oriented (or orientable): the direction of the 
+									<em>Oriented (or orientable)</em>: the direction of the 
 									positive normal vector can be continued uniquely 
 									and continuously across the whole surface 
 									(especially if the surface is piecewise smooth).
@@ -141,15 +141,15 @@
 						<div class="left-txt">
 							<ul  style="line-height:48px">
 								<li class="fragment" data-fragment-index="0">
-									Smooth: the tangent at each point on the 
+									<em>Smooth</em>: the tangent at each point on the 
 									curve is unique and varies continuously.
 								</li>
 								<li class="fragment" data-fragment-index="1">
-									Piecewise smooth: the curve consists of
+									<em>Piecewise smooth</em>: the curve consists of
 									finitely many smooth curves.
 								</li>
 								<li class="fragment" data-fragment-index="2">
-									Simple: the curve never intersects itself 
+									<em>Simple</em>: the curve never intersects itself 
 									anywhere between its endpoints.
 								</li>
 							</ul>
@@ -191,6 +191,7 @@
 							</div>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				<section>
@@ -228,7 +229,7 @@
 				</section>
 
 
-				<section>
+				<section data-auto-animate>
 					<h5>
 						46.2.2 Verify Stokes' theorem where $C$ 
 					</h5>
@@ -238,10 +239,100 @@
 						 when looking from above, and $\F = \left[-y^2, x, z^2\right]$</p>
 					<div class="size-70">
 						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">Here we must calculate
+								\[
+								\oint_C \F\cdot d\r \;\;\text{ and } \;\;\iint_S \nabla \times \F \cdot \n ~dS.
+								\]
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Let's find first the parametrisation of $C$, which is defined by the intersection of
+								$\left\{x^2+y^2=1, y+z=2\right\}.$
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								This is given by
+								\[
+								\r(t) = (1)\cos(t) ~\i + (1)\sin(t) ~\j +(2-(1)\sin (t) )~\k, \;\;0\leq t\leq 2 \pi.
+								\]
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						46.2.2 Verify Stokes' theorem where $C$ 
+					</h5>
+					<p class="sbt">is the 
+						curve of intersection of the plane $y+z = 2$ and 
+						the cylinder $x^2+y^2 = 1$, oriented counterclockwise
+						 when looking from above, and $\F = \left[-y^2, x, z^2\right]$</p>
+					<div class="size-60">
+						<div class="left-txt">
 							
+							<p>
+								Thus we have that
+								\[
+								d\r(t) = \left( -\sin(t)~\i + \cos (t) ~\j - \cos(t)~\k \right)dt
+								\]
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								and
+								\[
+								\F\left(\r(t)\right) = -\sin^2(t)~\i + \cos(t)~\j +\left(2-\sin(t)\right)^2\k.
+								\]
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								So $\F\left(\r(t)\right) \cdot d\r = \left( \sin^3(t) + \cos^2(t) - 4\cos(t) +4 \cos(t)\sin (t)-\cos(t) \sin^2(t) \right)dt$.
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>
+						46.2.2 Verify Stokes' theorem where $C$ 
+					</h5>
+					<p class="sbt">is the 
+						curve of intersection of the plane $y+z = 2$ and 
+						the cylinder $x^2+y^2 = 1$, oriented counterclockwise
+						 when looking from above, and $\F = \left[-y^2, x, z^2\right]$</p>
+					<div class="size-60">
+						<div class="left-txt">
+							
+							<table id="eqarray">
+								<tr>
+									<td>
+										$\displaystyle \oint_C \F \cdot d\r$
+									</td>
+									<td class="fragment" data-fragment-index="0">
+										$\displaystyle = \int_0^{2\pi} \F\left(\r(t)\right) \cdot d\r $
+									</td>
+								</tr>
+								<tr>
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="2">
+										$\displaystyle = \int_{t=0}^{t=2\pi} \left( \sin^3(t) + \cos^2(t) - 4\cos(t) +4 \cos(t)\sin (t)-\cos(t) \sin^2(t) \right)dt $
+									</td>
+								</tr>
+								<tr>
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="3">
+										$\displaystyle = \pi.$
+									</td>
+								</tr>
+							</table>
 							
 						</div>
 					</div>
+					<br/><br/><br/><br/>
 				</section>
 
 
