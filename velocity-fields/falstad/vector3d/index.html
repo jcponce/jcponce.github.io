@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>3-D Vector Fields</title>
+    <link rel="stylesheet" href="vector3d.css" type="text/css">
+  </head>
+
+  <body>
+    <div class="canvas">
+    <canvas id="glcanvas"></canvas>
+      <div id="axesLabelContainer">
+        <div id="xLabel" class="floating-div">x</div>
+        <div id="yLabel" class="floating-div">y</div>
+        <div id="zLabel" class="floating-div">z</div>
+      </div>
+    </div>
+    <div class="sidebar">
+      Field selection:<br>
+      <select id="functionChooser" onchange="functionChanged()">
+      </select><br>
+      <select id="dispChooser" onchange="dispChooserChanged(); resetParticles()">
+        <option value="partsvel">Display: Particles (Vel.)</option>
+        <option value="partsforce">Display: Particles (Force)</option>
+        <option value="vectors">Display: Field Vectors</option>
+        <option value="streamlines">Display: Streamlines</option>
+        <option value="equip">Display: Equipotentials</option>
+      </select><br>
+      <select id="sliceChooser" onchange="sliceChooserChanged()">
+        <option value="none">No Slicing</option>
+        <option value="x">Show X Slice</option>
+        <option value="y">Show Y Slice</option>
+        <option value="z">Show Z Slice</option>
+      </select><br>
+      <div class="checkbox">Stopped: <input type="checkbox" id="stoppedCheck"></div>
+      <div class="checkbox">Reverse: <input type="checkbox" id="reverseCheck" oninput="didAdjust()"></div>
+      <button id="resetButton" onclick="resetParticles()">Reset</button><br>
+      <button id="kickButton" onclick="kickParticles()">Kick</button><br>
+      <p>&nbsp;</p>
+      <div id="strengthDiv">
+      <span id="strengthLabel">Field Strength:</span>
+      <input type="range" min="1" max="100" value="20" class="slider" id="strengthBar" oninput="didAdjust()">
+      <br>
+      </div>
+      <div id="partCountDiv">
+      Number of Particles:
+      <input type="range" min="1" max="5000" value="500" class="slider" id="partCountBar" oninput="didAdjust()">
+      </div>
+      <div id="vecDensityDiv">
+      <span id="vecDensityLabel">Vector Density:</span>
+      <input type="range" min="1" max="64" value="16" class="slider" id="vecDensityBar" oninput="didAdjust()">
+      </div>
+      <div id="lineDensityDiv">
+      <span id="lineDensityLabel">Stream Line Density:</span>
+      <input type="range" min="1" max="16" value="5" class="slider" id="lineDensityBar" oninput="didAdjust()">
+      </div>
+      <div id="potentialDiv">
+      Potential Shown:
+      <input type="range" min="0" max="1000" value="1" class="slider" id="potentialBar" oninput="didAdjust()">
+      </div>
+      <div id="aux1Div">
+      <span id="aux1Label">Aux 1</span>
+      <input type="range" min="1" max="100" value="50" class="slider" id="aux1Bar" oninput="didAdjust()">
+      </div>
+      <div id="aux2Div">
+      <span id="aux2Label">Aux 2</span>
+      <input type="range" min="1" max="100" value="50" class="slider" id="aux2Bar" oninput="didAdjust()">
+      </div>
+      <div id="aux3Div">
+      <span id="aux3Label">Aux 3</span>
+      <input type="range" min="1" max="100" value="50" class="slider" id="aux3Bar" oninput="didAdjust()">
+      </div>
+      <div id="textFieldDiv">
+      <span id="textFieldLabel"></span>
+      <input type="text" id="textField1" oninput="actionPerformed()"><br>
+      <div id="textField23Div">
+      <input type="text" id="textField2" oninput="actionPerformed()"><br>
+      <input type="text" id="textField3" oninput="actionPerformed()"><br>
+      </div>
+      </div>
+      &nbsp;<br>
+      <div id="values">
+      One rotation per ...<br>
+      Particle speed: 123 m/s<br>
+      Coriolis accel: 123 m/s^2<br>    
+      t = ...<br>
+      </div>
+      <br><a target="stateLink" id="stateLink" href="http://www.apple.com/">Link to this example</a>
+      <br>&nbsp;
+      <br><a target="_blank" id="source" href="http://www.falstad.com/">By P. Falstad</a>
+      <br>&nbsp;<br>
+    </div>
+  </body>
+  <script>function BUILD_CASE_EMV(a, b, c) { return c; }</script>
+  <script src="gl-matrix.js"></script>
+  <script src="vector3d.js"></script>
+</html>
