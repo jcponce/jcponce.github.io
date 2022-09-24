@@ -663,7 +663,7 @@ function main() {
     void main()
     {
         gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-        gl_PointSize = 5.;
+        gl_PointSize = 3.5;
     }
   `;
 
