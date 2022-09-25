@@ -5,6 +5,9 @@
     <title>2-D Vector Fields</title>
     <link rel="stylesheet" href="vector.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
 
   <body>
@@ -106,7 +109,7 @@
       Coriolis accel: 123 m/s^2<br>    
       t = ...<br>
       </div>
-      <br>&nbsp;&nbsp;<a style="font-size:30px"  target="stateLink" id="stateLink" href="http://www.apple.com/"><i class="fa fa-share-square-o" aria-hidden="true"></i>
+      &nbsp;&nbsp;<a data-toggle="tooltip" data-placement="right" style="font-size:30px"  target="stateLink" id="stateLink" href="http://www.apple.com/" title="Share this example!"><i class="fa fa-share-square-o" aria-hidden="true"></i>
       </a>
       <br>&nbsp;
       <br>&nbsp;&nbsp;<a target="_blank" id="source" href="http://www.falstad.com/">By P. Falstad</a>
@@ -117,4 +120,9 @@
   <script>function BUILD_CASE_EMV(a, b, c) { return c; }</script>
   <script src="gl-matrix.js"></script>
   <script src="vector.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
 </html>
