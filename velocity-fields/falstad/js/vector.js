@@ -1,4 +1,6 @@
 // vector3d.js (C) 2021 by Paul Falstad
+// http://www.falstad.com/
+// Original applet: http://www.falstad.com/vector/
 
 "use strict";
 
