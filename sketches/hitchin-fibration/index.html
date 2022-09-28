@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>MathBox - Hyperbolic Helicoid</title>
+	<script src="../mathbox/mathbox-bundle.min.js"></script>
+	<script src="../mathbox/dat.gui.js"></script>
+
+
+	<link rel="stylesheet" href="../mathbox/mathbox.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+	<!-- Global site tag (gtag.js) - Google Analytics<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="../js/google-analytics-ga4.js"></script> -->
+	
+</head>
+
+<body>
+	<script>
+		// Load mathbox with controls
+		var mathbox = mathBox({
+			plugins: ['core', 'cursor', 'controls'],
+			controls: {
+				klass: THREE.OrbitControls,
+			},
+		});
+		if (mathbox.fallback) throw "WebGL error";
+
+		// Set renderer background
+		var three = mathbox.three;
+		three.renderer.setClearColor(new THREE.Color('#FFFFFF'), 1.0);
+
+		// Set mathbox units and place camera
+		mathbox.set({
+			scale: 720,
+			focus: 3
+		});
+		mathbox.camera({
+			proxy: true,
+			position: [2, 2.5, 2]
+		});
+
+		var xMin = -3,
+			xMax = 3,
+			yMin = -3,
+			yMax = 3,
+			zMin = -3,
+			zMax = 3;
+		var uMin = 0,
+			uMax = 2 * Math.PI,
+			vMin = 0,
+			vMax = 2 * Math.PI;
+
+		var updateGraph = function () {
+
+			view.set("range", [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			]);
+			domain.set("range", [
+				[uMin, uMax],
+				[vMin, vMax]
+			]);
+
+		};
+
+		var viewpolar = mathbox.polar({
+        bend: 1,
+        range: [
+          [-MathBox.π, MathBox.π],
+          [0, MathBox.π],
+          [-MathBox.π / 2, MathBox.π / 2],
+        ],
+          scale: [2, 1, 1],
+        });
+
+		// Create cartesian view
+		var view = mathbox.cartesian({
+			
+			range: [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			],
+			scale: [1.2, 1.2, 1.2],
+		}, {
+			quaternion: function (t) {
+				return [0, -Math.sin(t / 18)*0, 0, Math.cos(t / 18)*0];
+			},
+		});
+
+		// Create u,v domain
+		var domain = mathbox.cartesian({
+			range: [
+				[uMin, uMax],
+				[vMin, vMax]
+			]
+		});
+
+		///* 
+		// 3D axes / grid
+		
+
+		
+		//*/
+
+		viewpolar
+        .transform({
+          position: [0, MathBox.π / 2, 0],
+        })
+        .axis({
+          detail: 512,
+        })
+        .scale({
+          divide: 10,
+          unit: MathBox.π,
+          base: 2,
+        })
+        .ticks({
+          width: 3,
+          classes: ["foo", "bar"],
+        })
+        .scale({
+          divide: 5,
+          unit: MathBox.π,
+          base: 2,
+        })
+        .format({
+          expr: function (x) {
+            return formatNumber(x);
+          },
+        })
+        .label({
+          depth: 0.5,
+          zIndex: 1,
+        });
+
+      viewpolar.axis({
+        axis: 2,
+        detail: 128,
+        crossed: true,
+      });
+      viewpolar
+        .transform({
+          position: [MathBox.π / 2, 0, 0],
+        })
+        .axis({
+          axis: 2,
+          detail: 128,
+          crossed: true,
+        });
+      viewpolar
+        .transform({
+          position: [-MathBox.π / 2, 0, 0],
+        })
+        .axis({
+          axis: 2,
+          detail: 128,
+          crossed: true,
+        });
+
+		viewpolar.grid({
+          divideX: 40,
+          detailX: 512,
+          divideY: 20,
+          detailY: 128,
+          width: 1,
+          opacity: 0.5,
+          unitX: MathBox.π,
+          baseX: 2,
+          zBias: -5,
+        })
+       //.vertex({
+         // pass: "#sampler",
+        //});
+
+		//g(x,y) = 2 + sin(x/2).cos(y)
+		var gFunc = (u, v) => {
+			return 2 + Math.sin(u/2) * Math.cos(v);
+		}
+
+		var s = 0.9;
+		var Fx = (u, v, t) => {
+			return (s * Math.cos(u) * gFunc(u, v));
+		};
+		var Fy = (u, v, t) => {
+			return (s * Math.sin(u) * gFunc(u, v));
+		};
+		var Fz = (u, v, t) => {
+			return (s * (Math.sin(u / 2) * Math.sin(v) ));
+		};
+
+		// Data for plotting
+		var resolution = 58;
+		var graphData = domain.area({
+			axes: [1, 2], // u, v
+			width: resolution,
+			height: resolution,
+			channels: 3,
+			expr: function (emit, u, v, i, j, t) {
+
+				emit(
+						Fx(u, v, 0),
+						Fz(u, v, 0),
+						Fy(u, v, 0)
+					)
+				
+			},
+		});
+		view.surface({
+			points: graphData,
+			fill: true,
+			lineX: false,
+			lineY: false,
+			width: 0.1,
+			color: '#1ad1ff',
+			zBias: 1,
+			shaded: true,
+
+		});
+
+		var surfaceGrid = view.surface({
+			points: graphData,
+			fill: false,
+			lineX: true,
+			lineY: true,
+			width: 0.5,
+			color: '#0f0f0f',
+			zBias: 1,
+			shaded: false,
+		});
+
+	</script>
+</body>
+
+</html>
