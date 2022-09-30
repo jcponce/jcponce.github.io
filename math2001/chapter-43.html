@@ -127,7 +127,7 @@
                 <p>
                   Let $S$ be a smooth surface. If we can choose a unit vector
                   $\n$ that is normal to $S$ at every point so that $\n$ varies
-                  continuously over $S$, we call S an orientable surface.
+                  continuously over $S$, we call $S$ an orientable surface.
                   <span class="fragment" data-fragment-index="0">
                     The choice of $\n$ provides $S$ with an orientation. There
                     are only ever two possible orientations.
@@ -147,7 +147,7 @@
                 "
                 data-src="images/chapter-43/chapter-43-orientation.png"
               />
-            </div>
+            </div><br/>
           </section>
 
           <section data-auto-animate>
@@ -172,7 +172,7 @@
                 >
                 </iframe>
               </div>
-              <br />
+              <br /><br/>
             </div>
           </section>
 
@@ -214,7 +214,7 @@
             <div>
               <img
                 style="
-                  width: 100%;
+                  width: 86%;
                   display: block;
                   margin-left: auto;
                   margin-right: auto;
@@ -231,7 +231,7 @@
                   <i class="fa fa-external-link-alt"></i
                 ></a>
               </p>
-            </div>
+            </div><br/>
           </section>
 
           <section data-auto-animate>
@@ -304,6 +304,7 @@
                 </p>
               </div>
             </div>
+            <br/><br/>
           </section>
 
           <section
@@ -349,7 +350,7 @@
                   </li>
                 </ol>
               </div>
-            </div>
+            </div><br/><br/>
           </section>
 
           <section data-auto-animate>
@@ -379,7 +380,7 @@
                   />
                 </div>
               </div>
-            </div>
+            </div><br/>
           </section>
 
 
@@ -440,6 +441,7 @@
               </div>
               
             </div>
+            <br/>
           </section>
 
           <section data-auto-animate>
@@ -525,6 +527,7 @@
               </div>
               
             </div>
+            <br/><br/>
           </section>
 
           <section data-auto-animate>
@@ -564,6 +567,7 @@
               </div>
               
             </div>
+            <br/>
           </section>
 
           <section data-auto-animate>
@@ -604,13 +608,14 @@
               </div>
               
             </div>
+            <br/>
           </section>
 
           <section data-auto-animate>
             <h4>43.2 The flux integral</h4>
             <div class="size-70">
               <div class="left-txt">
-                <p>Let's have a closer look at these steps.</p>
+                <p style="color:grey">Let's have a closer look at these steps.</p>
 
                 
                       <ul style="line-height: 35px">
@@ -644,6 +649,7 @@
               </div>
               
             </div>
+            <br/>
           </section>
 
           <section data-auto-animate>
@@ -671,7 +677,7 @@
                      orientable surface, not just fluids with a given velocity field.</p>
                 
               </div>
-              <br/>
+              <br/><br/>
               
             </div>
           </section>
@@ -691,8 +697,12 @@
             </h5>
             <p  style="font-size:30px; font-weight:bold"> across 
               the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+              <br />
 
-              <br /><br /><br /><br /><br />
+              <p class="fragment" data-fragment-index="0">
+                Can we visualise this? 🤔
+              </p>
+              <br /><br /><br />
           </section>
 
           <section
@@ -706,7 +716,8 @@
             <p  style="color: grey;font-size:16px;font-weight:bold"> across 
               the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2=1, 0\leq z\leq 2\right\}$</p>
 
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br/><br/>
+            
+              <br/><br/><br/><br /><br /><br /><br /><br /><br/><br/>
           </section>
 
           <section data-auto-animate>
@@ -716,7 +727,7 @@
             <p  style="font-size:16px; font-weight:bold"> across 
               the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
              
-              <div class="size-80">
+              <div class="size-75">
                 <div class="left-txt">
                   <p class="fragment" data-fragment-index="0">We need to find the net outward flux, <span class="fragment" data-fragment-index="1">that is</span>
                   </p>
@@ -752,19 +763,19 @@
                     </span>
                   </p>
                   <p class="fragment" data-fragment-index="1">
-                    Then $\r_{\theta} = - \sin \theta~\i + \cos \theta ~\j$, $\r_z=\k$, 
+                    Then $\r_{\theta} = - \sin \theta~\i + \cos \theta ~\j,\,$ $\,\r_z=\k\,$, 
                     <span class="fragment" data-fragment-index="2">and</span>
                   </p>
                 </div>
 
                 <div>
                   <p class="fragment" data-fragment-index="2">
-                    $\displaystyle \r_{\theta}\times\r_z = 
+                    $\displaystyle \r_z\times\r_{\theta} = 
                     \left|
                     \begin{array}{ccc}
                     \i & \j & \k \\
                     0 & 0 & 1 \\
-                    \sin \theta & \cos \theta & 0 
+                    -\sin \theta & \cos \theta & 0 
                     \end{array}
                     \right|
                     $
@@ -775,14 +786,65 @@
                 </div>
 
                 <div class="left-txt">
-                  <p class="fragment" data-fragment-index="4">But $\r_{\theta}\times\r_z$ is directed inward! 😥</p>
-                  <p class="fragment" data-fragment-index="5">
-                    No problem! 😃 Juts take $\r_{\theta}\times\r_z= \cos \theta ~\i + \sin \theta ~\j$ 
-                    which directs outward, with the same direction as $\n_1$!
+                  <p class="fragment" data-fragment-index="4">But $\r_z\times\r_{\theta} $ is directed inward! 😥
+                    <span class="fragment" data-fragment-index="5">
+                      &nbsp;&nbsp; No problem! 😃 
+                    </span>
+                  </p>
+                  <br/>
+                </div>
+                
+              </div>
+              <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h6>
+              43.2.1 Calculate the net outward flux of $\F(x,y,z)= z~\i+y\j+x~\k$
+            </h6>
+            <p  style="font-size:16px; font-weight:bold"> across 
+              the surface of the cylindrical solid given by $\left\{(x,y,z)~|~ x^2+y^2\leq1, 0\leq z\leq 2\right\}$</p>
+             
+              <div class="size-70">
+           
+                <div class="left-txt">
+                  <p>
+                    On $S_1$:
+                    </p>
+                </div>
+
+                <div>
+                  <p >
+                    $\displaystyle \r_z\times\r_{\theta}  = 
+                    \left|
+                    \begin{array}{ccc}
+                    \i & \j & \k \\
+                    0 & 0 & 1 \\
+                    -\sin \theta & \cos \theta & 0 
+                    \end{array}
+                    \right|
+                    $
+                    <span>
+                      $\displaystyle =-\cos \theta ~\i - \sin \theta ~\j$
+                    </span>
+                  </p>
+                </div>
+
+                <div class="left-txt">
+                  <p >But $\r_{\theta}\times\r_z$ is directed inward! 😥
+                    <span>
+                      &nbsp;&nbsp; No problem! 😃 
+                    </span>
+                  </p>
+                  <p >
+                   Juts take $\r_{\theta}\times\r_z $
+                   <span class="fragment" data-fragment-index="0">$= \cos \theta ~\i + \sin \theta ~\j,$ </span>
+                    <span class="fragment" data-fragment-index="1">which directs outward, with the same direction as $\n_1$!</span>
                   </p>
                 </div>
                 
               </div>
+              <br/><br/><br/>
               
           </section>
 
@@ -839,10 +901,8 @@
                   </table>
                 </div>
 
-                
-                
               </div>
-              
+              <br/>
           </section>
 
           <!-- on S2 -->
@@ -860,7 +920,7 @@
                     <span class="fragment" data-fragment-index="0">Then, a parametrisation is
                       given by
                       \[
-                      \r(x,z) = x ~\i+ y ~\j + 2~\k, \quad x^2+y^2\leq 1.
+                      \r(x,y) = x ~\i+ y ~\j + 2~\k, \quad x^2+y^2\leq 1.
                       \]
                     </span>
                   </p>
@@ -893,7 +953,7 @@
                     Here we have the same direction as $\n_2= \k$ 😃!
                   </p>
                 </div>
-                <br/>
+                <br/><br/>
               </div>
               
           </section>
@@ -1081,7 +1141,7 @@
                     
                   </table>
                 </div>
-                <br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/>
                 
               </div>
               
@@ -1113,6 +1173,7 @@
                   </p>
               </div>
             </div>
+            <br/>
           </section>
 
           <section data-auto-animate>
@@ -1161,7 +1222,7 @@
                     over the volume enclosed by $S$.
                   </p>
               </div>
-            </div>
+            </div><br/><br/>
           </section>
 
           <section data-auto-animate>
