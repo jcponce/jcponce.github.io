@@ -102,7 +102,7 @@
 									Then the function
 									\[
 									\div \v = \frac{\partial v_1}{\partial x}+\frac{\partial v_2}{\partial
-									y}+\frac{\partial v_2}{\partial z}= \nabla \cdot \v
+									y}+\frac{\partial v_3}{\partial z}= \nabla \cdot \v
 									\]
 									is called the divergence of $\v$.
 								</span>
@@ -140,7 +140,7 @@
 							<br />
 							<p class="fragment" data-fragment-index="3">
 								$\Rightarrow\;\;
-								\div \F = F_1\left(x,y\right)\i+ F_2\left(x,y\right)\j.
+								\div \F = \frac{F_1\left(x,y\right)}{\partial x}\i+ \frac{F_2\left(x,y\right)}{\partial y}\j.
 								$
 							</p>
 						</div>
@@ -168,7 +168,7 @@
 
 								</td>
 								<td class="fragment" data-fragment-index="2">
-									$\displaystyle =\frac{\partial}{\partial x}\left(x^2 y\right)+
+									$\displaystyle =\frac{\partial}{\partial x}\left(x y^2\right)+
 									\frac{\partial}{\partial y}\left(x y z\right)+
 									\frac{\partial}{\partial z}\left(yz^2\right)$
 								</td>
@@ -1000,7 +1000,7 @@
 									<p class="fragment" data-fragment-index="0">
 										Using polar coordinates $x=r\cos \theta$,
 										$y= r\sin \theta$ with $0\leq r \leq 2$ and
-										$0\leq \theta \leq 2 \pi$,
+										$0\leq \theta \leq  \pi$,
 										<span class="fragment" data-fragment-index="1">
 											we have
 										</span>
@@ -1010,7 +1010,7 @@
 													$\displaystyle\iint_D(x+y)~dA$
 												</td>
 												<td>
-													$\displaystyle = \int_0^2\int_0^{2\pi} \left(r\cos \theta + r \sin
+													$\displaystyle = \int_0^2\int_0^{\pi} \left(r\cos \theta + r \sin
 													\theta\right)r ~dr~d\theta$
 
 												</td>
@@ -1020,7 +1020,7 @@
 
 												</td>
 												<td class="fragment" data-fragment-index="2">
-													$\displaystyle =\left(\int_0^2 r^2~dr \right)\left(\int_0^{2\pi}
+													$\displaystyle =\left(\int_0^2 r^2~dr \right)\left(\int_0^{\pi}
 													\left(\cos \theta + \sin \theta\right)d\theta \right)$
 												</td>
 											</tr>
