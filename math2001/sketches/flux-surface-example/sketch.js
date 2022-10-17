@@ -84,7 +84,7 @@ function draw() {
   translate(0, 1, 0)
   rotateX(1.3);
   rotateY(0);
-  rotateZ(0.8);
+  rotateZ(2.3);
 
   if (parDef.Particles == true) {
     //updating and displaying the particles
@@ -118,7 +118,7 @@ function draw() {
 
  
     push();
-    // gizmo
+    // Unit normal vectors
     strokeWeight(0.05);
     // red
     //stroke(255, 32, 0);
@@ -151,7 +151,9 @@ function draw() {
     line(0, -0.12, 2.77, 0, 0, 3);
     line(0, 0.12, -0.77, 0, 0, -1);
     line(0, -0.12, -0.77, 0, 0, -1);
+    pop();
 
+    // Cylinder
     strokeWeight(0.005);
     stroke(0);
     ambientMaterial(20, 145, 232);
@@ -159,14 +161,16 @@ function draw() {
     scale(0.1);
     model(obj);
     pop();
-    pop();
+    
 
+    // Top circle
     push();
     strokeWeight(0.005);
     stroke(0);
     ellipse(0, 0, 2);
     pop();
 
+    // Bottom circle
     push();
     strokeWeight(0.005);
     stroke(0);
@@ -174,29 +178,30 @@ function draw() {
     ellipse(0, 0, 2);
     pop();
 
-    // gizmo
+    // Axes
     push();
     strokeWeight(0.02);
+
+    // x-Axis
     stroke(255, 32, 0);
-    line(0, 0, 0, 0, 4, 0);
-    line(0.12,3.87,  0, 0, 4, 0);
-    line(-0.12,3.87, 0, 0, 4, 0);
-
-
-    stroke(32, 255, 32);
     line(0, 0, 0, 4, 0, 0);
     line(3.87, 0.12, 0, 4, 0, 0);
     line(3.87, -0.12, 0, 4, 0, 0);
 
+    // y-Axis
+    stroke(32, 255, 32);
+    line(0, 0, 0, 0, -4, 0);
+    line(0.12, -3.87,  0, 0, -4, 0);
+    line(-0.12, -3.87, 0, 0, -4, 0);
 
+    // z-Axis
     stroke(0, 32, 255);
     line(0, 0, 0, 0, 0, 4);
     line(0, 0.12, 3.87, 0, 0, 4);
     line(0, -0.12, 3.87, 0, 0, 4);
-
-
     pop();
 
+    // xy-Plane
     push();
     noStroke();
     ambientMaterial(150, 150, 150, 80);
@@ -204,8 +209,6 @@ function draw() {
     plane(8, 8);
     pop();
   
-
-  //console.log(parDef.Type)
 }
 
 // Equations for field motion
