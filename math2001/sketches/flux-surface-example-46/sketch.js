@@ -11,7 +11,7 @@ let easycam; //3D view
 let obj;
 
 function preload() {
-  obj = loadModel("cylinder.obj");
+  obj = loadModel("solid.obj");
 }
 
 let particles = [];
@@ -154,29 +154,32 @@ function draw() {
     pop();
 
     // Cylinder
-    strokeWeight(0.005);
-    stroke(0);
-    ambientMaterial(20, 145, 232);
     push();
+    strokeWeight(0);
+    stroke(0);
+    rotateZ(PI);
+    ambientMaterial(20, 145, 232);
     scale(0.1);
     model(obj);
     pop();
     
-
-    // Top circle
+    // Top ellipse
     push();
-    strokeWeight(0.005);
+    strokeWeight(0.01);
     stroke(0);
-    ellipse(0, 0, 2);
+    translate(0,0,2);
+    rotateX(PI/4);
+    ellipse(0, 0, 1.99, 2.89);
     pop();
 
     // Bottom circle
     push();
-    strokeWeight(0.005);
+    strokeWeight(0.01);
     stroke(0);
-    translate(0,0,2)
     ellipse(0, 0, 2);
     pop();
+
+    
 
     // Axes
     push();
@@ -212,11 +215,11 @@ function draw() {
 }
 
 // Equations for field motion
-const componentFX = (t, x, y, z) => parDef.Speed * z; //Change this function
+const componentFX = (t, x, y, z) => parDef.Speed * y * y; //Change this function
 
-const componentFY = (t, x, y, z) => parDef.Speed * y; //Change this function
+const componentFY = (t, x, y, z) => parDef.Speed * x; //Change this function
 
-const componentFZ = (t, x, y, z) => parDef.Speed * x; //Change this function
+const componentFZ = (t, x, y, z) => parDef.Speed * z * z; //Change this function
 
 // Runge-Kutta method
 function rungeKutta(time, x, y, z, h) {
@@ -300,7 +303,7 @@ class Particle {
 
   display() {
     push();
-    translate(this.x, this.y, this.z);
+    translate(this.x, -this.y, this.z);
     ambientMaterial(this.r, this.b, this.g);
     noStroke();
     sphere(this.radius, 8, 8);
