@@ -84,7 +84,7 @@ function draw() {
   translate(0, 1, 0)
   rotateX(1.3);
   rotateY(0);
-  rotateZ(2.3);
+  rotateZ(-0.9);
 
   if (parDef.Particles == true) {
     //updating and displaying the particles
@@ -135,21 +135,21 @@ function draw() {
     // green
     //stroke(32, 255, 32);
     stroke(102, 255, 255);
-    line(0, -px, 0.5, 0, -py, 0.5);
+    line(0, -px, 1.25, 0, -py, 1.25);
     line(0, px, 0.5, 0, py, 0.5);
     line(0.12, 1.77, 0.5, 0, 2, 0.5);
     line(-0.12, 1.77, 0.5, 0, 2, 0.5);
-    line(0.12, -1.77, 0.5, 0, -2, 0.5);
-    line(-0.12, -1.77, 0.5, 0, -2, 0.5);
+    line(0.12, -1.77, 1.25, 0, -2, 1.25);
+    line(-0.12, -1.77, 1.25, 0, -2, 1.25);
 
     // blue
     //stroke(0, 32, 255);
     stroke(102, 255, 255);
     line(0, 0, 0, 0, 0, -1);
-    line(0, 0, 2, 0, -0.7, 2.7);
-    
-    line(0, -0.7, 2.5, 0, -0.7, 2.7);
-    line(0, -0.4, 2.6, 0, -0.7, 2.7);
+
+    line(0, 0, 2, 0, 0.7, 2.7);
+    line(0, 0.7, 2.5, 0, 0.7, 2.7);
+    line(0, 0.4, 2.6, 0, 0.7, 2.7);
     line(0, 0.12, -0.77, 0, 0, -1);
     line(0, -0.12, -0.77, 0, 0, -1);
     pop();
@@ -158,7 +158,6 @@ function draw() {
     push();
     strokeWeight(0);
     stroke(0);
-    rotateZ(PI);
     ambientMaterial(20, 145, 232);
     scale(0.1);
     model(obj);
@@ -169,7 +168,7 @@ function draw() {
     strokeWeight(0.01);
     stroke(0);
     translate(0,0,2);
-    rotateX(PI/4);
+    rotateX(-PI/4);
     ellipse(0, 0, 1.99, 2.89);
     pop();
 
@@ -188,15 +187,15 @@ function draw() {
 
     // x-Axis
     stroke(255, 32, 0);
-    line(0, 0, 0, 4, 0, 0);
-    line(3.87, 0.12, 0, 4, 0, 0);
-    line(3.87, -0.12, 0, 4, 0, 0);
+    line(0, 0, 0, -4, 0, 0);
+    line(-3.87, 0.12, 0, -4, 0, 0);
+    line(-3.87, -0.12, 0, -4, 0, 0);
 
     // y-Axis
     stroke(32, 255, 32);
-    line(0, 0, 0, 0, -4, 0);
-    line(0.12, -3.87,  0, 0, -4, 0);
-    line(-0.12, -3.87, 0, 0, -4, 0);
+    line(0, 0, 0, 0, 4, 0);
+    line(0.12, 3.87,  0, 0, 4, 0);
+    line(-0.12, 3.87, 0, 0, 4, 0);
 
     // z-Axis
     stroke(0, 32, 255);
@@ -216,7 +215,7 @@ function draw() {
 }
 
 // Equations for field motion
-const componentFX = (t, x, y, z) => parDef.Speed * y * y; //Change this function
+const componentFX = (t, x, y, z) => - parDef.Speed * y * y; //Change this function
 
 const componentFY = (t, x, y, z) => parDef.Speed * x; //Change this function
 
@@ -304,7 +303,7 @@ class Particle {
 
   display() {
     push();
-    translate(this.x, -this.y, this.z);
+    translate(-this.x, this.y, this.z);
     ambientMaterial(this.r, this.b, this.g);
     noStroke();
     sphere(this.radius, 8, 8);
