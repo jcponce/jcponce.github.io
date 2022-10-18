@@ -166,7 +166,7 @@ function draw() {
     // Top ellipse
     push();
     strokeWeight(0.007);
-    stroke(0);
+    stroke(51);
     fill(20, 145, 232);
     translate(0,0,2);
     rotateX(-PI/4);
@@ -176,15 +176,15 @@ function draw() {
     // Bottom circle
     push();
     strokeWeight(0.01);
-    stroke(0);
-    ellipse(0, 0, 2);
+    stroke(51);
+    ellipse(0, 0, 2, 2, 40);
     pop();
 
     push();
     beginShape();
     for(let i = 0; i <= 2 * PI; i+=0.05){
-        stroke(0, 204, 0);
-        strokeWeight(0.04);
+        stroke(255, 153, 0);
+        strokeWeight(0.045);
         let x0 = sin(i);
         let y0 = cos(i);
         let z0 = 2-cos(i);
