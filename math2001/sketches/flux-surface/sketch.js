@@ -114,10 +114,8 @@ function draw() {
 
   if (parDef.Type == 0) {
     push();
-    // gizmo
+    // Normal vectors
     strokeWeight(0.05);
-    // red
-    //stroke(255, 32, 0);
     stroke(102, 255, 255);
     let px = 3;
     let py = 2;
@@ -128,8 +126,6 @@ function draw() {
     line(-2.77, 0.12, 0, -3, 0, 0);
     line(-2.77, -0.12, 0, -3, 0, 0);
 
-    // green
-    //stroke(32, 255, 32);
     stroke(102, 255, 255);
     line(0, -px, 0, 0, -py, 0);
     line(0, px, 0, 0, py, 0);
@@ -138,8 +134,6 @@ function draw() {
     line(0.12, -2.77, 0, 0, -3, 0);
     line(-0.12, -2.77, 0, 0, -3, 0);
 
-    // blue
-    //stroke(0, 32, 255);
     stroke(102, 255, 255);
     line(0, 0, -px, 0, 0, -py);
     line(0, 0, px, 0, 0, py);
@@ -157,11 +151,8 @@ function draw() {
   }
   if (parDef.Type == 1) {
     push();
-    // gizmo
+    // Normal vectors
     strokeWeight(0.05);
-
-    // red
-    //stroke(255, 32, 0);
     stroke(102, 255, 255);
     let px = 3;
     let py = 2;
@@ -173,8 +164,6 @@ function draw() {
     line(-2, 0, -1.1, -2.25, 0, -1.3);
     line(-2.2, 0, -1, -2.25, 0, -1.3);
     
-    // green
-    //stroke(32, 255, 32);
     stroke(102, 255, 255);
     line(0, px, 0, 0, py, 0);
     line(0, -px, 0, 0, -py, 0);
@@ -191,11 +180,8 @@ function draw() {
   }
   if (parDef.Type == 2) {
     push();
-    // gizmo
+    // Normal vectors
     strokeWeight(0.05);
-
-    // red
-    //stroke(255, 32, 0);
     stroke(102, 255, 255);
     let px = 3;
     let py = 2;
@@ -206,8 +192,6 @@ function draw() {
     line(-2.77, 0.12, 0, -3, 0, 0);
     line(-2.77, -0.12, 0, -3, 0, 0);
 
-    // green
-    //stroke(32, 255, 32);
     stroke(102, 255, 255);
     line(0, -px, 0, 0, -py, 0);
     line(0, px, 0, 0, py, 0);
@@ -216,8 +200,6 @@ function draw() {
     line(0.12, -2.77, 0, 0, -3, 0);
     line(-0.12, -2.77, 0, 0, -3, 0);
 
-    // blue
-    //stroke(0, 32, 255);
     stroke(102, 255, 255);
     line(0, 0, -px, 0, 0, -py);
     line(0, 0, px, 0, 0, py);
@@ -233,7 +215,6 @@ function draw() {
     pop();
   }
 
-  //console.log(parDef.Type)
 }
 
 // Equations for vector field motion
