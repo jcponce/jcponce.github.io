@@ -158,18 +158,19 @@ function draw() {
     push();
     strokeWeight(0);
     stroke(0);
-    ambientMaterial(20, 145, 232);
+    ambientMaterial(179, 0, 134);
     scale(0.1);
     model(obj);
     pop();
     
     // Top ellipse
     push();
-    strokeWeight(0.01);
+    strokeWeight(0.007);
     stroke(0);
+    fill(20, 145, 232);
     translate(0,0,2);
     rotateX(-PI/4);
-    ellipse(0, 0, 1.99, 2.89);
+    ellipse(0, 0, 1.99, 2.83);
     pop();
 
     // Bottom circle
@@ -177,6 +178,20 @@ function draw() {
     strokeWeight(0.01);
     stroke(0);
     ellipse(0, 0, 2);
+    pop();
+
+    push();
+    beginShape();
+    for(let i = 0; i <= 2 * PI; i+=0.05){
+        stroke(0, 204, 0);
+        strokeWeight(0.04);
+        let x0 = sin(i);
+        let y0 = cos(i);
+        let z0 = 2-cos(i);
+        
+        vertex(x0, y0, z0);
+    }
+    endShape(CLOSE);
     pop();
 
     
