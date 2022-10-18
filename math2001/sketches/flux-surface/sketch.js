@@ -4,7 +4,7 @@
  * Written by Juan Carlos Ponce Campuzano, 06-Sep-2022
  */
 
-// Updated --
+// Updated -- 18/Oct/2022
 
 let easycam; //3D view
 
@@ -165,12 +165,13 @@ function draw() {
     stroke(102, 255, 255);
     let px = 3;
     let py = 2;
-    line(px, 0, 0, py, 0, 0);
-    line(-px, 0, 0, -py, 0, 0);
-    line(2.77, 0.12, 0, 3, 0, 0);
-    line(2.77, -0.12, 0, 3, 0, 0);
-    line(-2.77, 0.12, 0, -3, 0, 0);
-    line(-2.77, -0.12, 0, -3, 0, 0);
+    line(1.75, 0, 0.43, 2.25, 0, 1.3);
+    line(2, 0, 1.1, 2.25, 0, 1.3);
+    line(2.2, 0, 1, 2.25, 0, 1.3);
+
+    line(-1.75, 0, -0.43, -2.25, 0, -1.3);
+    line(-2, 0, -1.1, -2.25, 0, -1.3);
+    line(-2.2, 0, -1, -2.25, 0, -1.3);
     
     // green
     //stroke(32, 255, 32);
@@ -227,7 +228,7 @@ function draw() {
 
     strokeWeight(0.03);
     stroke(0);
-    ambientMaterial(100, 140, 220);
+    ambientMaterial(153, 51, 102);
     box(4);
     pop();
   }
