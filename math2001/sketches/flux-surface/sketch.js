@@ -10,7 +10,7 @@ let easycam; //3D view
 
 let particles = [];
 
-let numMax = 1000; //num of particles
+let numMax = 1300; //num of particles
 let t = 0;
 let h = 0.01;
 let currentParticle = 0;
@@ -21,6 +21,7 @@ let parDef = {
   Type: 0,
   Speed: 0.5,
   Particles: true,
+  Vectors: true,
   Preset: function () {
     this.Speed = 0.6;
     this.Type = 0;
@@ -30,7 +31,7 @@ let parDef = {
 function setup() {
   // create gui (dat.gui)
 
-  let gui = new dat.GUI({width:300});
+  let gui = new dat.GUI({width:330});
   gui.add(parDef, "Field");
   gui
     .add(parDef, "Type", {
@@ -42,6 +43,7 @@ function setup() {
   
   gui.add(parDef, "Speed", 0, 2, 0.01).listen();
   gui.add(parDef, "Particles");
+  gui.add(parDef, "Vectors").name("Norm. Vectors");
   gui.add(parDef, "Preset");
 
   pixelDensity(2);
@@ -92,7 +94,7 @@ function draw() {
       let p = particles[i];
       p.update();
       p.display();
-      const lim = 4.5;
+      const lim = 5;
       if (
         p.x > lim ||
         p.y > lim ||
@@ -105,9 +107,9 @@ function draw() {
         currentParticle--;
         particles.push(
           new Particle(
-            random(-4, 4),
-            random(-4, 4),
-            random(-4, 4),
+            random(-5, 5),
+            random(-5, 5),
+            random(-5, 5),
             t,
             h
           )
@@ -118,7 +120,9 @@ function draw() {
 
   if (parDef.Type == 0) {
     push();
-    // Normal vectors
+    
+    if(parDef.Vectors){
+      // Normal vectors
     strokeWeight(0.05);
     stroke(102, 255, 255);
     let px = 3;
@@ -145,6 +149,7 @@ function draw() {
     line(0, -0.12, 2.77, 0, 0, 3);
     line(0, 0.12, -2.77, 0, 0, -3);
     line(0, -0.12, -2.77, 0, 0, -3);
+    }
 
     strokeWeight(0.01);
     stroke(0);
@@ -155,7 +160,9 @@ function draw() {
   }
   if (parDef.Type == 1) {
     push();
-    // Normal vectors
+    
+    if(parDef.Vectors){
+      // Normal vectors
     strokeWeight(0.05);
     stroke(102, 255, 255);
     let px = 3;
@@ -175,6 +182,7 @@ function draw() {
     line(-0.12, 2.77, 0, 0, 3, 0);
     line(0.12, -2.77, 0, 0, -3, 0);
     line(-0.12, -2.77, 0, 0, -3, 0);
+    }
 
     strokeWeight(0.01);
     stroke(0);
@@ -184,7 +192,8 @@ function draw() {
   }
   if (parDef.Type == 2) {
     push();
-    // Normal vectors
+    if(parDef.Vectors){
+      // Normal vectors
     strokeWeight(0.05);
     stroke(102, 255, 255);
     let px = 3;
@@ -211,6 +220,7 @@ function draw() {
     line(0, -0.12, 2.77, 0, 0, 3);
     line(0, 0.12, -2.77, 0, 0, -3);
     line(0, -0.12, -2.77, 0, 0, -3);
+    }
 
     strokeWeight(0.03);
     stroke(0);
