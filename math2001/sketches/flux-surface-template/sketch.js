@@ -34,7 +34,9 @@ let parDef = {
 // Setting things up
 function setup() {
   // create gui (dat.gui)
-  let gui = new dat.GUI({ width: 240 });
+  let gui = new dat.GUI({
+    width: 240
+  });
   gui.add(parDef, "Field");
   gui.add(parDef, "Speed", 0, 3, 0.01).listen();
   gui.add(parDef, "Particles");
@@ -45,7 +47,9 @@ function setup() {
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes("antialias", true);
 
-  easycam = new Dw.EasyCam(this._renderer, { distance: 9 });
+  easycam = new Dw.EasyCam(this._renderer, {
+    distance: 9
+  });
 
   // place initial samples
   initSketch();
@@ -94,99 +98,99 @@ function draw() {
     }
   }
 
- 
-    push();
-    // Unit normal vectors
-    strokeWeight(0.05);
-    // red axis
-    stroke(102, 255, 255);
-    let px = 2;
-    let py = 1;
-    line(-px, 0, 1, -py, 0, 1);
-    line(px, 0, 1, py, 0, 1);
-    line(1.77, 0.12, 1, 2, 0, 1);
-    line(1.77, -0.12, 1, 2, 0, 1);
-    line(-1.77, 0.12, 1, -2, 0, 1);
-    line(-1.77, -0.12, 1, -2, 0, 1);
 
-    // green axis
-    stroke(102, 255, 255);
-    line(0, -px, 1, 0, -py, 1);
-    line(0, px, 1, 0, py, 1);
-    line(0.12, 1.77, 1, 0, 2, 1);
-    line(-0.12, 1.77, 1, 0, 2, 1);
-    line(0.12, -1.77, 1, 0, -2, 1);
-    line(-0.12, -1.77, 1, 0, -2, 1);
+  push();
+  // Unit normal vectors
+  strokeWeight(0.05);
+  // red axis
+  stroke(102, 255, 255);
+  let px = 2;
+  let py = 1;
+  line(-px, 0, 1, -py, 0, 1);
+  line(px, 0, 1, py, 0, 1);
+  line(1.77, 0.12, 1, 2, 0, 1);
+  line(1.77, -0.12, 1, 2, 0, 1);
+  line(-1.77, 0.12, 1, -2, 0, 1);
+  line(-1.77, -0.12, 1, -2, 0, 1);
 
-    // blue axis
-    stroke(102, 255, 255);
-    line(0, 0, 0, 0, 0, -1);
-    line(0, 0, 3, 0, 0, 2);
-    line(0, 0.12, 2.77, 0, 0, 3);
-    line(0, -0.12, 2.77, 0, 0, 3);
-    line(0, 0.12, -0.77, 0, 0, -1);
-    line(0, -0.12, -0.77, 0, 0, -1);
-    pop();
+  // green axis
+  stroke(102, 255, 255);
+  line(0, -px, 1, 0, -py, 1);
+  line(0, px, 1, 0, py, 1);
+  line(0.12, 1.77, 1, 0, 2, 1);
+  line(-0.12, 1.77, 1, 0, 2, 1);
+  line(0.12, -1.77, 1, 0, -2, 1);
+  line(-0.12, -1.77, 1, 0, -2, 1);
 
-    /*
-    // Cylinder
-    strokeWeight(0.005);
-    stroke(0);
-    ambientMaterial(179, 0, 134);
-    push();
-    scale(0.1);
-    model(obj);
-    pop();
-    
-    // Bottom circle
-    push();
-    fill(20, 145, 232);
-    strokeWeight(0.005);
-    stroke(0);
-    ellipse(0, 0, 2, 2, 40);
-    pop();
+  // blue axis
+  stroke(102, 255, 255);
+  line(0, 0, 0, 0, 0, -1);
+  line(0, 0, 3, 0, 0, 2);
+  line(0, 0.12, 2.77, 0, 0, 3);
+  line(0, -0.12, 2.77, 0, 0, 3);
+  line(0, 0.12, -0.77, 0, 0, -1);
+  line(0, -0.12, -0.77, 0, 0, -1);
+  pop();
 
-    // Top circle
-    push();
-    strokeWeight(0.005);
-    stroke(0);
-    translate(0,0,2)
-    ellipse(0, 0, 2, 2, 40);
-    pop();
-    */
-
-    // Axes
-    push();
-    strokeWeight(0.02);
-    
-
-    // x-Axis
-    stroke(255, 32, 0);
-    line(0, 0, 0, 4, 0, 0);
-    line(3.87, 0.12, 0, 4, 0, 0);
-    line(3.87, -0.12, 0, 4, 0, 0);
-
-    // y-Axis
-    stroke(32, 255, 32);
-    line(0, 0, 0, 0, -4, 0);
-    line(0.12, -3.87,  0, 0, -4, 0);
-    line(-0.12, -3.87, 0, 0, -4, 0);
-
-    // z-Axis
-    stroke(0, 32, 255);
-    line(0, 0, 0, 0, 0, 4);
-    line(0, 0.12, 3.87, 0, 0, 4);
-    line(0, -0.12, 3.87, 0, 0, 4);
-    pop();
-
-    // xy-Plane
-    push();
-    noStroke();
-    ambientMaterial(150, 150, 150, 80);
-    translate(0,0,-0.01)
-    plane(8, 8);
-    pop();
+  /*
+  // Cylinder
+  strokeWeight(0.005);
+  stroke(0);
+  ambientMaterial(179, 0, 134);
+  push();
+  scale(0.1);
+  model(obj);
+  pop();
   
+  // Bottom circle
+  push();
+  fill(20, 145, 232);
+  strokeWeight(0.005);
+  stroke(0);
+  ellipse(0, 0, 2, 2, 40);
+  pop();
+
+  // Top circle
+  push();
+  strokeWeight(0.005);
+  stroke(0);
+  translate(0,0,2)
+  ellipse(0, 0, 2, 2, 40);
+  pop();
+  */
+
+  // Axes
+  push();
+  strokeWeight(0.02);
+
+
+  // x-Axis
+  stroke(255, 32, 0);
+  line(0, 0, 0, 4, 0, 0);
+  line(3.87, 0.12, 0, 4, 0, 0);
+  line(3.87, -0.12, 0, 4, 0, 0);
+
+  // y-Axis
+  stroke(32, 255, 32);
+  line(0, 0, 0, 0, -4, 0);
+  line(0.12, -3.87, 0, 0, -4, 0);
+  line(-0.12, -3.87, 0, 0, -4, 0);
+
+  // z-Axis
+  stroke(0, 32, 255);
+  line(0, 0, 0, 0, 0, 4);
+  line(0, 0.12, 3.87, 0, 0, 4);
+  line(0, -0.12, 3.87, 0, 0, 4);
+  pop();
+
+  // xy-Plane
+  push();
+  noStroke();
+  ambientMaterial(150, 150, 150, 80);
+  translate(0, 0, -0.01)
+  plane(8, 8);
+  pop();
+
 }
 
 // Equations for field motion
@@ -310,5 +314,5 @@ function sourceCode() {
   window.open(
     "https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/flux-surface-example-43/sketch.js",
     "_blank"
-    )
+  )
 }
