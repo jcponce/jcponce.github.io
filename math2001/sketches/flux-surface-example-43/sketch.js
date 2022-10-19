@@ -220,7 +220,7 @@ class Particle {
 
   display() {
     push();
-    translate(this.x, this.y, this.z);
+    translate(this.x, -this.y, this.z);
     ambientMaterial(this.r, this.b, this.g);
     noStroke();
     sphere(this.radius, 8, 8);

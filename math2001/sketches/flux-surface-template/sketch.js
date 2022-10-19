@@ -11,19 +11,19 @@ let easycam; //3D view
 let obj;
 
 function preload() {
-  obj = loadModel("solid.obj");
+  obj = loadModel("cylinder.obj");
 }
 
 let particles = []; // Array for particles
-let numMax = 1200; //num of particles
+let numMax = 1100; // Num of particles
 let t = 0; // Initial time
-let h = 0.01; //Delta h
+let h = 0.01; // delta h
 let currentParticle = 0;
 
 // settings and presets for UI controls
 let parDef = {
-  Field: "<-y², x, z²>",
-  Speed: 1.0,
+  Field: "<z,y,x>",
+  Speed: 0.3,
   Particles: true,
   Preset: function () {
     this.Speed = 1.0;
@@ -51,8 +51,7 @@ function setup() {
   initSketch();
 }
 
-
-
+// Plots eveything
 function draw() {
   // projection
   perspective((60 * PI) / 180, width / height, 1, 5000);
@@ -112,71 +111,54 @@ function draw() {
 
     // green axis
     stroke(102, 255, 255);
-    line(0, -px, 1.25, 0, -py, 1.25);
-    line(0, px, 0.5, 0, py, 0.5);
-    line(0.12, 1.77, 0.5, 0, 2, 0.5);
-    line(-0.12, 1.77, 0.5, 0, 2, 0.5);
-    line(0.12, -1.77, 1.25, 0, -2, 1.25);
-    line(-0.12, -1.77, 1.25, 0, -2, 1.25);
+    line(0, -px, 1, 0, -py, 1);
+    line(0, px, 1, 0, py, 1);
+    line(0.12, 1.77, 1, 0, 2, 1);
+    line(-0.12, 1.77, 1, 0, 2, 1);
+    line(0.12, -1.77, 1, 0, -2, 1);
+    line(-0.12, -1.77, 1, 0, -2, 1);
 
     // blue axis
-    rotateZ(PI);
     stroke(102, 255, 255);
     line(0, 0, 0, 0, 0, -1);
-    line(0, 0, 2, 0, 0.7, 2.7);
-    line(0, 0.7, 2.5, 0, 0.7, 2.7);
-    line(0, 0.4, 2.6, 0, 0.7, 2.7);
+    line(0, 0, 3, 0, 0, 2);
+    line(0, 0.12, 2.77, 0, 0, 3);
+    line(0, -0.12, 2.77, 0, 0, 3);
     line(0, 0.12, -0.77, 0, 0, -1);
     line(0, -0.12, -0.77, 0, 0, -1);
     pop();
 
+    /*
     // Cylinder
-    push();
-    strokeWeight(0);
+    strokeWeight(0.005);
     stroke(0);
-    rotateZ(PI);
     ambientMaterial(179, 0, 134);
+    push();
     scale(0.1);
     model(obj);
     pop();
     
-    // Top ellipse
-    push();
-    strokeWeight(0.007);
-    stroke(51);
-    fill(20, 145, 232);
-    translate(0,0,2);
-    rotateZ(PI);
-    rotateX(-PI/4);
-    ellipse(0, 0, 1.99, 2.83);
-    pop();
-
     // Bottom circle
     push();
-    strokeWeight(0.01);
-    stroke(51);
+    fill(20, 145, 232);
+    strokeWeight(0.005);
+    stroke(0);
     ellipse(0, 0, 2, 2, 40);
     pop();
 
-    // Curve define by intersection of cylinder and plane
+    // Top circle
     push();
-    rotateZ(PI);
-    beginShape();
-    for(let i = 0; i <= 2 * PI; i+=0.05){
-        stroke(255, 153, 0);
-        strokeWeight(0.045);
-        let x0 = sin(i);
-        let y0 = cos(i);
-        let z0 = 2-cos(i);
-        
-        vertex(x0, y0, z0);
-    }
-    endShape(CLOSE);
+    strokeWeight(0.005);
+    stroke(0);
+    translate(0,0,2)
+    ellipse(0, 0, 2, 2, 40);
     pop();
+    */
 
     // Axes
     push();
     strokeWeight(0.02);
+    
 
     // x-Axis
     stroke(255, 32, 0);
@@ -208,11 +190,11 @@ function draw() {
 }
 
 // Equations for field motion
-const componentFX = (t, x, y, z) => parDef.Speed * (-y * y);
+const componentFX = (t, x, y, z) => parDef.Speed * (-y*y);
 
 const componentFY = (t, x, y, z) => parDef.Speed * x;
 
-const componentFZ = (t, x, y, z) => parDef.Speed * z * z;
+const componentFZ = (t, x, y, z) => parDef.Speed * z*z;
 
 //Particle definition and motion
 class Particle {
@@ -305,10 +287,6 @@ function rungeKutta(time, x, y, z, h) {
 }
 
 // Auxiliary functions
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  easycam.setViewport([0, 0, windowWidth, windowHeight]);
-}
 
 function initSketch() {
   let m = 4;
@@ -323,9 +301,14 @@ function initSketch() {
   }
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  easycam.setViewport([0, 0, windowWidth, windowHeight]);
+}
+
 function sourceCode() {
   window.open(
-    "https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/flux-surface-example-46/sketch.js",
+    "https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/flux-surface-example-43/sketch.js",
     "_blank"
     )
 }
