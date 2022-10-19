@@ -31,8 +31,11 @@ let parDef = {
   },
 };
 
-function backAttractors() {
-  window.location.href = "https://jcponce.github.io/strange-attractors/#aizawa";
+function sourceCode() {
+  window.open(
+    "https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/flux-surface-example-43/sketch.js",
+    "_blank"
+    )
 }
 
 function setup() {
@@ -40,13 +43,12 @@ function setup() {
   let gui = new dat.GUI({ width: 240 });
   gui.add(parDef, "Speed", 0, 3, 0.01).listen();
   gui.add(parDef, "Particles");
+  gui.add(this, "sourceCode").name("Source");
 
   pixelDensity(2);
 
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes("antialias", true);
-
-  //console.log(Dw.EasyCam.INFO);
 
   easycam = new Dw.EasyCam(this._renderer, { distance: 9 });
 

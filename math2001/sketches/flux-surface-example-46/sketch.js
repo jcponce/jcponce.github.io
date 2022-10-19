@@ -74,6 +74,13 @@ function initSketch() {
   }
 }
 
+function sourceCode() {
+  window.open(
+    "https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/flux-surface-example-46/sketch.js",
+    "_blank"
+    )
+}
+
 function draw() {
   // projection
   perspective((60 * PI) / 180, width / height, 1, 5000);

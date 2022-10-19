@@ -554,7 +554,7 @@
                           <span class="fragment" data-fragment-index="0">
                             Then we have
                             \[
-                            \text{flux across parallelogram } \approx \v \cdot\frac{\mathbf a \times \mathbf b}{||\mathbf a \times \mathbf b||} ||\mathbf a \times \mathbf b|| = \v \cdot (||\mathbf a \times \mathbf b||)
+                            \text{flux across parallelogram } \approx \v \cdot\frac{\mathbf a \times \mathbf b}{||\mathbf a \times \mathbf b||} ||\mathbf a \times \mathbf b|| = \v \cdot (\mathbf a \times \mathbf b)
                             \]
                           </span>
                           <div class="r-stack">
@@ -743,7 +743,7 @@
                 </div>
                 <div class="fragment" data-fragment-index="1">
                   
-                  $\displaystyle \iint_S \F \cdot \v ~dS$
+                  $\displaystyle \iint_S \F \cdot \n ~dS$
                   <span class="fragment" data-fragment-index="2">$=\displaystyle \iint_{S_1} \F \cdot \n_1 ~dS$</span>
                   <span class="fragment" data-fragment-index="3">$\displaystyle +\iint_{S_2} \F \cdot \n_2 ~dS$</span>
                   <span class="fragment" data-fragment-index="4">$\displaystyle +\iint_{S_3} \F \cdot \n_3 ~dS$</span>
@@ -1055,7 +1055,7 @@
                 <div class="left-txt">
                   
                   <p class="fragment" data-fragment-index="5">
-                    Here we must consider $\r_{x}\times\r_y =-\k$, which has the same
+                    Here we must consider $\r_{y}\times\r_x =-\k$, which has the same
                     direction as  $\n_3$!
                   </p>
                 </div>
@@ -1074,10 +1074,10 @@
               <div class="size-70">
                 <div class="left-txt">
                   <p>
-                    On $S_3$: So, considering $\r_{x}\times\r_y= -\k$
+                    On $S_3$: So, considering $\r_{y}\times\r_x= -\k$
                     we have that
                     \[
-                    \F(\r(x,y ))\cdot \left(\r_{x}\times\r_y\right) = -x.
+                    \F(\r(x,y ))\cdot \left(\r_{y}\times\r_x\right) = -x.
                     \]
                   </p>
                   <table id="eqarray">
@@ -1086,7 +1086,7 @@
                         Then $\displaystyle \iint_{S_3} \F\cdot \n_3~ dS$
                       </td>
                       <td>
-                        $\displaystyle = \iint_{x^2+y^2\leq 1} \F(\r(x,y))\cdot \left(\r_{x}\times\r_y\right) dx~dy$
+                        $\displaystyle = \iint_{x^2+y^2\leq 1} \F(\r(x,y))\cdot \left(\r_{y}\times\r_x\right) dx~dy$
                       </td>
                     </tr>
                     <tr>
@@ -1122,7 +1122,7 @@
                   <table id="eqarray">
                     <tr class="fragment" data-fragment-index="0">
                       <td>
-                        $\displaystyle \iint_S \F \cdot \v ~dS$
+                        $\displaystyle \iint_S \F \cdot \n ~dS$
                       </td>
                       <td>
                         $\displaystyle  =\displaystyle \iint_{S_1} \F \cdot \n_1 ~dS  +\iint_{S_2} \F \cdot \n_2 ~dS+ \iint_{S_3} \F \cdot \n_3 ~dS$
