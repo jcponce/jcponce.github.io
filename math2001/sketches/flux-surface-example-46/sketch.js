@@ -22,6 +22,7 @@ let currentParticle = 0;
 
 // settings and presets for UI controls
 let parDef = {
+  Field: "<-y², x, z²>",
   Speed: 1.0,
   Particles: true,
   Preset: function () {
@@ -34,6 +35,7 @@ let parDef = {
 function setup() {
   // create gui (dat.gui)
   let gui = new dat.GUI({ width: 240 });
+  gui.add(parDef, "Field");
   gui.add(parDef, "Speed", 0, 3, 0.01).listen();
   gui.add(parDef, "Particles");
   gui.add(this, "sourceCode").name("Source");

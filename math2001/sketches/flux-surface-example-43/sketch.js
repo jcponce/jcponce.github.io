@@ -22,6 +22,7 @@ let currentParticle = 0;
 
 // settings and presets for UI controls
 let parDef = {
+  Field: "<z,y,x>",
   Speed: 1.0,
   Particles: true,
   Preset: function () {
@@ -34,6 +35,7 @@ let parDef = {
 function setup() {
   // create gui (dat.gui)
   let gui = new dat.GUI({ width: 240 });
+  gui.add(parDef, "Field");
   gui.add(parDef, "Speed", 0, 3, 0.01).listen();
   gui.add(parDef, "Particles");
   gui.add(this, "sourceCode").name("Source");
@@ -129,7 +131,7 @@ function draw() {
     // Cylinder
     strokeWeight(0.005);
     stroke(0);
-    ambientMaterial(20, 145, 232);
+    ambientMaterial(179, 0, 134);
     push();
     scale(0.1);
     model(obj);
@@ -137,9 +139,10 @@ function draw() {
     
     // Bottom circle
     push();
+    fill(20, 145, 232);
     strokeWeight(0.005);
     stroke(0);
-    ellipse(0, 0, 2);
+    ellipse(0, 0, 2, 2, 40);
     pop();
 
     // Top circle
@@ -147,7 +150,7 @@ function draw() {
     strokeWeight(0.005);
     stroke(0);
     translate(0,0,2)
-    ellipse(0, 0, 2);
+    ellipse(0, 0, 2, 2, 40);
     pop();
 
     // Axes
