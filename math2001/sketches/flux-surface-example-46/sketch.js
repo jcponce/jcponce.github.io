@@ -36,6 +36,7 @@ function setup() {
   let gui = new dat.GUI({ width: 240 });
   gui.add(parDef, "Speed", 0, 3, 0.01).listen();
   gui.add(parDef, "Particles");
+  gui.add(this, "sourceCode").name("Source");
 
   pixelDensity(2);
 
