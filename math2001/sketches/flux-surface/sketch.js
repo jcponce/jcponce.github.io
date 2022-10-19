@@ -4,7 +4,7 @@
  * Written by Juan Carlos Ponce Campuzano, 06-Sep-2022
  */
 
-// Updated -- 18/Oct/2022
+// Updated -- 19/Oct/2022
 
 let easycam; //3D view
 
@@ -51,31 +51,13 @@ function setup() {
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes("antialias", true);
 
-  //console.log(Dw.EasyCam.INFO);
-
   easycam = new Dw.EasyCam(this._renderer, { distance: 9 });
 
   // place initial samples
   initSketch();
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  easycam.setViewport([0, 0, windowWidth, windowHeight]);
-}
 
-function initSketch() {
-  let m = 4;
-  for (var i = 0; i < numMax; i++) {
-    particles[i] = new Particle(
-      random(-m, m),
-      random(-m, m),
-      random(-m, m),
-      t,
-      h
-    );
-  }
-}
 
 function draw() {
   // projection
@@ -233,13 +215,48 @@ function draw() {
 
 // Equations for vector field motion
 const componentFX = (t, x, y, z) =>
-  parDef.Speed * (-y); //Change this function
+  parDef.Speed * (-y);
 
 const componentFY = (t, x, y, z) =>
-  parDef.Speed * (x+cos(z)); //Change this function
+  parDef.Speed * (x+cos(z));
 
 const componentFZ = (t, x, y, z) =>
-  parDef.Speed * (1); //Change this function
+  parDef.Speed * (1);
+
+//Particle definition and motion using Runge-Kutta method
+class Particle {
+  constructor(_x, _y, _z, _t, _h) {
+    this.x = _x;
+    this.y = _y;
+    this.z = _z;
+    this.time = _t;
+    this.radius = random(0.025, 0.025);
+    this.h = _h;
+    this.op = random(200, 200);
+    this.r = random(0);
+    this.g = random(164, 255);
+    this.b = random(255);
+  }
+
+  update() {
+    let tmp = rungeKutta(this.time, this.x, this.y, this.z, this.h);
+
+    this.x = tmp.u;
+    this.y = tmp.v;
+    this.z = tmp.w;
+
+    this.time += this.h;
+  }
+
+  display() {
+    push();
+    translate(this.x,-this.y, this.z);
+    ambientMaterial(this.r, this.b, this.g);
+    noStroke();
+    sphere(this.radius, 8, 8);
+    pop();
+  }
+}
 
 // Runge-Kutta method
 function rungeKutta(time, x, y, z, h) {
@@ -296,37 +313,22 @@ function rungeKutta(time, x, y, z, h) {
   };
 }
 
-//Particle definition and motion using Runge-Kutta method
-class Particle {
-  constructor(_x, _y, _z, _t, _h) {
-    this.x = _x;
-    this.y = _y;
-    this.z = _z;
-    this.time = _t;
-    this.radius = random(0.025, 0.025);
-    this.h = _h;
-    this.op = random(200, 200);
-    this.r = random(0);
-    this.g = random(164, 255);
-    this.b = random(255);
-  }
 
-  update() {
-    let tmp = rungeKutta(this.time, this.x, this.y, this.z, this.h);
 
-    this.x = tmp.u;
-    this.y = tmp.v;
-    this.z = tmp.w;
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  easycam.setViewport([0, 0, windowWidth, windowHeight]);
+}
 
-    this.time += this.h;
-  }
-
-  display() {
-    push();
-    translate(this.x,-this.y, this.z);
-    ambientMaterial(this.r, this.b, this.g);
-    noStroke();
-    sphere(this.radius, 8, 8);
-    pop();
+function initSketch() {
+  let m = 4;
+  for (var i = 0; i < numMax; i++) {
+    particles[i] = new Particle(
+      random(-m, m),
+      random(-m, m),
+      random(-m, m),
+      t,
+      h
+    );
   }
 }
