@@ -10,7 +10,7 @@ let easycam; //3D view
 
 let particles = [];
 
-let numMax = 1300; //num of particles
+let numMax = 1000; //num of particles
 let t = 0;
 let h = 0.01;
 let currentParticle = 0;
@@ -45,6 +45,7 @@ function setup() {
   gui.add(parDef, "Particles");
   gui.add(parDef, "Vectors").name("Norm. Vectors");
   gui.add(parDef, "Preset");
+  gui.close();
 
   pixelDensity(2);
 
@@ -76,7 +77,7 @@ function draw() {
       let p = particles[i];
       p.update();
       p.display();
-      const lim = 5;
+      const lim = 4.5;
       if (
         p.x > lim ||
         p.y > lim ||
@@ -89,9 +90,9 @@ function draw() {
         currentParticle--;
         particles.push(
           new Particle(
-            random(-5, 5),
-            random(-5, 5),
-            random(-5, 5),
+            random(-4.5, 4.5),
+            random(-4.5, 4.5),
+            random(-4.5, 4.5),
             t,
             h
           )
