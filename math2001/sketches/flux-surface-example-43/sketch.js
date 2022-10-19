@@ -8,7 +8,7 @@
 
 let easycam; //3D view
 
-let obj; // I made the cut cylinder with GeoGebra
+let obj; // I made the cylinder with GeoGebra
 
 function preload() {
   obj = loadModel("cylinder.obj");
