@@ -4,7 +4,7 @@
  * Written by Juan Carlos Ponce Campuzano, 06-Sep-2022
  */
 
-// Updated -- 18/Oct-2022
+// Updated -- 19/Oct-2022
 
 let easycam; //3D view
 
@@ -14,14 +14,13 @@ function preload() {
   obj = loadModel("cylinder.obj");
 }
 
-let particles = [];
-
-let numMax = 1000; //num of particles
-let t = 0;
-let h = 0.01;
+let particles = []; // Array for particles
+let numMax = 1000; // Num of particles
+let t = 0; // Initial time
+let h = 0.01; // delta h
 let currentParticle = 0;
 
-// settings and presets
+// settings and presets for UI controls
 let parDef = {
   Speed: 1.0,
   Particles: true,
@@ -31,13 +30,7 @@ let parDef = {
   },
 };
 
-function sourceCode() {
-  window.open(
-    "https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/flux-surface-example-43/sketch.js",
-    "_blank"
-    )
-}
-
+// Setting things up
 function setup() {
   // create gui (dat.gui)
   let gui = new dat.GUI({ width: 240 });
@@ -56,26 +49,7 @@ function setup() {
   initSketch();
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  easycam.setViewport([0, 0, windowWidth, windowHeight]);
-}
-
-let attractor;
-
-function initSketch() {
-  let m = 4;
-  for (var i = 0; i < numMax; i++) {
-    particles[i] = new Particle(
-      random(-m, m),
-      random(-m, m),
-      random(-m, m),
-      t,
-      h
-    );
-  }
-}
-
+// Plots eveything
 function draw() {
   // projection
   perspective((60 * PI) / 180, width / height, 1, 5000);
@@ -122,8 +96,7 @@ function draw() {
     push();
     // Unit normal vectors
     strokeWeight(0.05);
-    // red
-    //stroke(255, 32, 0);
+    // red axis
     stroke(102, 255, 255);
     let px = 2;
     let py = 1;
@@ -134,8 +107,7 @@ function draw() {
     line(-1.77, 0.12, 1, -2, 0, 1);
     line(-1.77, -0.12, 1, -2, 0, 1);
 
-    // green
-    //stroke(32, 255, 32);
+    // green axis
     stroke(102, 255, 255);
     line(0, -px, 1, 0, -py, 1);
     line(0, px, 1, 0, py, 1);
@@ -144,8 +116,7 @@ function draw() {
     line(0.12, -1.77, 1, 0, -2, 1);
     line(-0.12, -1.77, 1, 0, -2, 1);
 
-    // blue
-    //stroke(0, 32, 255);
+    // blue axis
     stroke(102, 255, 255);
     line(0, 0, 0, 0, 0, -1);
     line(0, 0, 3, 0, 0, 2);
@@ -164,15 +135,14 @@ function draw() {
     model(obj);
     pop();
     
-
-    // Top circle
+    // Bottom circle
     push();
     strokeWeight(0.005);
     stroke(0);
     ellipse(0, 0, 2);
     pop();
 
-    // Bottom circle
+    // Top circle
     push();
     strokeWeight(0.005);
     stroke(0);
@@ -214,11 +184,46 @@ function draw() {
 }
 
 // Equations for field motion
-const componentFX = (t, x, y, z) => parDef.Speed * z; //Change this function
+const componentFX = (t, x, y, z) => parDef.Speed * z;
 
-const componentFY = (t, x, y, z) => parDef.Speed * y; //Change this function
+const componentFY = (t, x, y, z) => parDef.Speed * y;
 
-const componentFZ = (t, x, y, z) => parDef.Speed * x; //Change this function
+const componentFZ = (t, x, y, z) => parDef.Speed * x;
+
+//Particle definition and motion
+class Particle {
+  constructor(_x, _y, _z, _t, _h) {
+    this.x = _x;
+    this.y = _y;
+    this.z = _z;
+    this.time = _t;
+    this.radius = random(0.025, 0.025);
+    this.h = _h;
+    this.op = random(200, 200);
+    this.r = random(0);
+    this.g = random(164, 255);
+    this.b = random(255);
+  }
+
+  update() {
+    let tmp = rungeKutta(this.time, this.x, this.y, this.z, this.h);
+
+    this.x = tmp.u;
+    this.y = tmp.v;
+    this.z = tmp.w;
+
+    this.time += this.h;
+  }
+
+  display() {
+    push();
+    translate(this.x, this.y, this.z);
+    ambientMaterial(this.r, this.b, this.g);
+    noStroke();
+    sphere(this.radius, 8, 8);
+    pop();
+  }
+}
 
 // Runge-Kutta method
 function rungeKutta(time, x, y, z, h) {
@@ -275,37 +280,29 @@ function rungeKutta(time, x, y, z, h) {
   };
 }
 
-//Particle definition and motion
-class Particle {
-  constructor(_x, _y, _z, _t, _h) {
-    this.x = _x;
-    this.y = _y;
-    this.z = _z;
-    this.time = _t;
-    this.radius = random(0.025, 0.025);
-    this.h = _h;
-    this.op = random(200, 200);
-    this.r = random(0);
-    this.g = random(164, 255);
-    this.b = random(255);
+// Auxiliary functions
+
+function initSketch() {
+  let m = 4;
+  for (var i = 0; i < numMax; i++) {
+    particles[i] = new Particle(
+      random(-m, m),
+      random(-m, m),
+      random(-m, m),
+      t,
+      h
+    );
   }
+}
 
-  update() {
-    let tmp = rungeKutta(this.time, this.x, this.y, this.z, this.h);
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  easycam.setViewport([0, 0, windowWidth, windowHeight]);
+}
 
-    this.x = tmp.u;
-    this.y = tmp.v;
-    this.z = tmp.w;
-
-    this.time += this.h;
-  }
-
-  display() {
-    push();
-    translate(this.x, this.y, this.z);
-    ambientMaterial(this.r, this.b, this.g);
-    noStroke();
-    sphere(this.radius, 8, 8);
-    pop();
-  }
+function sourceCode() {
+  window.open(
+    "https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/flux-surface-example-43/sketch.js",
+    "_blank"
+    )
 }
