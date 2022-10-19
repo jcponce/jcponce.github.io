@@ -17,6 +17,7 @@ let currentParticle = 0;
 
 // settings and presets
 let parDef = {
+  Field: "<-y, x+cos(z), 1>",
   Type: 0,
   Speed: 0.5,
   Particles: true,
@@ -28,7 +29,9 @@ let parDef = {
 
 function setup() {
   // create gui (dat.gui)
+
   let gui = new dat.GUI({width:300});
+  gui.add(parDef, "Field");
   gui
     .add(parDef, "Type", {
       Sphere: 0,
@@ -36,6 +39,7 @@ function setup() {
       Box: 2,
     })
     .name("Surface");
+  
   gui.add(parDef, "Speed", 0, 2, 0.01).listen();
   gui.add(parDef, "Particles");
   gui.add(parDef, "Preset");
@@ -126,7 +130,7 @@ function draw() {
     line(-2.77, 0.12, 0, -3, 0, 0);
     line(-2.77, -0.12, 0, -3, 0, 0);
 
-    stroke(102, 255, 255);
+    //stroke(102, 255, 255);
     line(0, -px, 0, 0, -py, 0);
     line(0, px, 0, 0, py, 0);
     line(0.12, 2.77, 0, 0, 3, 0);
@@ -134,7 +138,7 @@ function draw() {
     line(0.12, -2.77, 0, 0, -3, 0);
     line(-0.12, -2.77, 0, 0, -3, 0);
 
-    stroke(102, 255, 255);
+    //stroke(102, 255, 255);
     line(0, 0, -px, 0, 0, -py);
     line(0, 0, px, 0, 0, py);
     line(0, 0.12, 2.77, 0, 0, 3);
@@ -309,7 +313,7 @@ class Particle {
 
   display() {
     push();
-    translate(this.x, this.y, this.z);
+    translate(this.x,-this.y, this.z);
     ambientMaterial(this.r, this.b, this.g);
     noStroke();
     sphere(this.radius, 8, 8);
