@@ -190,11 +190,11 @@ function draw() {
 }
 
 // Equations for field motion
-const componentFX = (t, x, y, z) => parDef.Speed * (-y*y);
+const componentFX = (t, x, y, z) => parDef.Speed * (x);
 
-const componentFY = (t, x, y, z) => parDef.Speed * x;
+const componentFY = (t, x, y, z) => parDef.Speed * (y);
 
-const componentFZ = (t, x, y, z) => parDef.Speed * z*z;
+const componentFZ = (t, x, y, z) => parDef.Speed * (-z);
 
 //Particle definition and motion
 class Particle {
