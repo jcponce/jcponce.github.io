@@ -4,11 +4,11 @@
  * Written by Juan Carlos Ponce Campuzano, 06-Sep-2022
  */
 
-// Updated -- 19/Oct/2022
+// Updated -- 20/Oct/2022
 
 let easycam; //3D view
 
-let obj;
+let obj; // I made the cut cylinder with GeoGebra
 
 function preload() {
   obj = loadModel("cylinder.obj");
@@ -229,6 +229,7 @@ class Particle {
 }
 
 // Runge-Kutta method
+// https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
 function rungeKutta(time, x, y, z, h) {
   let k1 = componentFX(time, x, y, z);
   let j1 = componentFY(time, x, y, z);
