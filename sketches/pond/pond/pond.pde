@@ -7,7 +7,7 @@ public void setup() {
     int pondWidth = window.innerWidth;
     int pondHeight = 500;
 
-	size(pondWidth,pondHeight00,500);
+	size(pondWidth,pondHeight);
 
 	frameRate(45); //45
 	
