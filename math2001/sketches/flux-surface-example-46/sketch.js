@@ -112,12 +112,12 @@ function draw() {
 
     // green axis
     stroke(102, 255, 255);
-    line(0, -px, 1.25, 0, -py, 1.25);
+    line(0, -px, 0.5, 0, -py, 0.5);
     line(0, px, 0.5, 0, py, 0.5);
     line(0.12, 1.77, 0.5, 0, 2, 0.5);
     line(-0.12, 1.77, 0.5, 0, 2, 0.5);
-    line(0.12, -1.77, 1.25, 0, -2, 1.25);
-    line(-0.12, -1.77, 1.25, 0, -2, 1.25);
+    line(0.12, -1.77, 0.5, 0, -2, 0.5);
+    line(-0.12, -1.77, 0.5, 0, -2, 0.5);
 
     // blue axis
     rotateZ(PI);
@@ -153,10 +153,12 @@ function draw() {
 
     // Bottom circle
     push();
+    //noFill();
     strokeWeight(0.01);
     stroke(51);
     ellipse(0, 0, 2, 2, 40);
     pop();
+    
 
     // Curve define by intersection of cylinder and plane
     push();
