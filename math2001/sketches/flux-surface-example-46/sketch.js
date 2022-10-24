@@ -152,21 +152,34 @@ function draw() {
     pop();
 
     // Bottom circle
+
     push();
-    //noFill();
-    strokeWeight(0.01);
-    stroke(51);
-    ellipse(0, 0, 2, 2, 40);
+    noFill();
+    strokeWeight(0.03);
+    stroke(0);
+    beginShape();
+    for(let i = 0; i <= 2 * PI; i+=0.05){
+        
+        let x0 = sin(i);
+        let y0 = cos(i);
+        let z0 = 0;
+        
+        vertex(x0, y0, z0);
+    }
+    endShape(CLOSE);
     pop();
+
+    
     
 
     // Curve define by intersection of cylinder and plane
     push();
     rotateZ(PI);
+    stroke(255, 153, 0);
+    strokeWeight(0.045);
     beginShape();
-    for(let i = 0; i <= 2 * PI; i+=0.05){
-        stroke(255, 153, 0);
-        strokeWeight(0.045);
+    for(let i = 0; i <= 2 * PI; i+= 0.05){
+        
         let x0 = sin(i);
         let y0 = cos(i);
         let z0 = 2-cos(i);
