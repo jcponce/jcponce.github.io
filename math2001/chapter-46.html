@@ -133,6 +133,13 @@
 					<br/><br/><br/>
 				</section>
 
+				<section data-background-iframe="sketches/terrain/"
+					data-background-interactive
+					>
+ 
+		   
+				</section>
+
 				<section data-auto-animate>
 					<h5>
 						46.1.2 Curves
@@ -182,7 +189,7 @@
 									<span class="fragment" data-fragment-index="1">
 										Then
 									 \[
-									 \oint_C \F \cdot d\r = \iint_S \curl \F \cdot \n ~dS
+									 \oint_C \F \cdot d\r = \iint_S \left(\curl \F \right) \cdot \n ~dS
 									 \]
 									 where $\n$ is a unit normal vector fo $S$, and the integration
 									 around $C$ is taken in the direction using the
@@ -217,7 +224,7 @@
 												<span >
 													Then
 												 \[
-												 \oint_C \F \cdot d\r = \iint_S \curl \F \cdot \n ~dS
+												 \oint_C \F \cdot d\r = \iint_S \left(\curl \F \right)\cdot \n ~dS
 												 \]
 												 where $\n$ is a unit normal vector fo $S$, and the integration
 												 around $C$ is taken in the direction using the
@@ -305,12 +312,12 @@
 						<div class="r-stack">
 							<p class="fragment fade-out" data-fragment-index="0">
 								
-								$\displaystyle \oint_{C} \F \cdot d\r = \iint_{S}\curl \F \cdot \n ~dS$
+								$\displaystyle \oint_{C} \F \cdot d\r = \iint_{S}\left(\curl \F \right) \cdot \n ~dS$
 								
 							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="0">
 								$\displaystyle
-								\oint_{C} \F \cdot d\r = \iint_{D} \curl \F \cdot \k ~dA
+								\oint_{C} \F \cdot d\r = \iint_{D} \left(\curl \F \right) \cdot \k ~dA
 								$
 							</p>
 							<p class="fragment fade-in-then-out size-80" data-fragment-index="1">
@@ -469,8 +476,7 @@
 							  \]
 						  </p>
 						  <p class="fragment" data-fragment-index="0">
-							  and
-							  \[
+							  and since $\r(t) = \cos(t) ~\i + \sin(t) ~\j +\left(2-(1)\sin (t) \right)~\k$, we have that							  \[
 							  \F\left(\r(t)\right) = -\sin^2(t)~\i + \cos(t)~\j +\left(2-\sin(t)\right)^2\k.
 							  \]
 						  </p>
@@ -666,7 +672,7 @@
 					  <div class="left-txt">
 						  
 						  <p>
-							  Since $\nabla \times \F = 1-2y\;$ and $\;\n = \r_x\times \r_y = \j+\k,$ 
+							  Since $\nabla \times \F = (1-2y)~\k\;$ and $\;\n = \r_x\times \r_y = \j+\k,$ 
 							  <span class="fragment" data-fragment-index="0">
 								   then
 							  </span>
