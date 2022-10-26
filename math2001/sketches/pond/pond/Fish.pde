@@ -157,8 +157,8 @@ class Fish extends Boid {
 		if(getFoodEaten() > 11 && isExploding){
 			textAlign(CENTER);
 			fill(240);
-			textSize(34);
-        	text("😢 Oh no! You gave it too much food", width/2, height/2); 
+			textSize(36);
+        	text("😢 Oh no! You gave it too much food!", width/2, height/2); 
 		}
 		
 	}
