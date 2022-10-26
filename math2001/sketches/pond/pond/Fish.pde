@@ -153,6 +153,14 @@ class Fish extends Boid {
 			float mouthSize = (bodySizeW*.05) * (float) lastAteTimer / (frameRate/2)
 			ellipse(location.x,location.y,mouthSize,mouthSize);
 		}
+
+		if(getFoodEaten() > 11 && isExploding){
+			textAlign(CENTER);
+			fill(240);
+			textSize(34);
+        	text("😢 Oh no! You gave it too much food", width/2, height/2); 
+		}
+		
 	}
 	
 	private void renderHead( PVector _location, float _eyeSize, float _eyeDist ) {

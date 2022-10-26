@@ -48,7 +48,7 @@ public void draw() {
     myFish.update();
     myFish.render();
     if(myFish.getFoodEaten() > 11 && !myFish.getIsExploding()) {
-        myFish.explode();
+        myFish.explode(); 
     }
 
     for(int i = foregroundBubbles.size()-1; i >= 0; i--) {
