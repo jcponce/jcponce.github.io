@@ -90,14 +90,14 @@
 				
 				const points = [];
 
-				for ( let i = 0; i < 50; i ++ ) {
+				for ( let i = -25; i < 25; i ++ ) {
 
-					points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50, ( i - 5 ) * 2 ) );
+					points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50, ( i - 5 ) * 2.5 ) );
 
 				}
 				
 				object = new THREE.Mesh( new THREE.LatheGeometry( points, 20 ), material );
-				object.position.set( - 300, 20, 20 );
+				object.position.set( - 300, 0, 0 );
 				scene.add( object );
 
 				
