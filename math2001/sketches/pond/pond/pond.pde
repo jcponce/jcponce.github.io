@@ -19,6 +19,7 @@ public void setup() {
     backgroundBubbles = new ArrayList<Bubble>();
 
     foods = new ArrayList<Food>();
+    cursor(HAND);
 }
 
 
