@@ -1,3 +1,4 @@
+// https://coderflex.com/blog/what-are-access-modifiers-in-javascript
 class Boid {
 	
 	private PVector location;
