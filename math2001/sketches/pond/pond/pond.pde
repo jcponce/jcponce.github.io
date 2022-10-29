@@ -5,7 +5,7 @@ Fish myFish;
 
 public void setup() {
     int pondWidth = window.innerWidth;
-    int pondHeight = 500;
+    int pondHeight = window.innerHeight;
 
 	size(pondWidth,pondHeight);
 
