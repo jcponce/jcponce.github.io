@@ -241,33 +241,138 @@
 								</span>
 							</p>
 
-						</div>
-
-						<div>
-							<p class="fragment" data-fragment-index="0">$\displaystyle  \dfrac{1}{g\left(y\right)}\dfrac{dy}{dx}  = f(x)  $
-								<span class="fragment" data-fragment-index="1">
-									$\displaystyle \;\;\Rightarrow \;\;  \dfrac{1}{g\left(y\right)}\dfrac{dy}{dx} dx = f(x) ~dx $
-								</span>
+							<p class="fragment" data-fragment-index="1">
+								Multiply by $I(x) \neq 0$ to obtain
 							</p>
 
-							<p class="fragment" data-fragment-index="3">
-								$\displaystyle \;\;\Rightarrow \;\; \dfrac{1}{g\left(y\right)}~dy = f(x) ~dx $
-								<span class="fragment" data-fragment-index="4">
-									$\displaystyle \;\;\Rightarrow \;\; \int \dfrac{1}{g\left(y\right)}~dy = \int f(x) ~dx +C $
-								</span>
-							</p>
-
-							
-							<p class="fragment" data-fragment-index="5"><strong>Note:</strong> Here we have an implicit solution.</p>
 						</div>
-						
 					</div>
-					
-					
+					<div class="size-80">
+						<div class="fragment" data-fragment-index="2">
+							$
+							\ds I(x) \frac{dy}{dx} + I(x) p(x) y  = I(x)q(x).
+							$
+						</div>
+					</div>
+					<br/><br/>
 
 				</section>
+
+				<section data-auto-animate>
+
+					
+					<h3>1 Solutions of first order ODEs</h3>
+					
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)y$
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div>
+							$\ds I(x) \frac{dy}{dx} + I(x) p(x) y  = I(x)q(x).$
+						</div>
+					</div>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								We choose $I(x)$ such that $\frac{d}{dx}\left(I(x)~y\right) = I(x) ~q(x)$.
+							</p>
+							
+						</div>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out"  data-fragment-index="1">Integrating we obtain &nbsp;
+								$
+								\ds I(x)~y = \int I(x)q(x)~dx + C.
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="2">That is &nbsp;
+								$
+								\ds y = \frac{1}{I(x)}\int I(x)q(x)~dx + \frac{C}{I(x)}.
+								$
+							</p>
+						</div>
+						<br/>
+						<p class="fragment" data-fragment-index="3">
+							<strong>Note:</strong> $I(x) = e^{\int p(x)~dx}$ is the <em>integrating factor</em>. 
+						</p>
+					</div>
+					
+					<br/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>1 Solutions of first order ODEs</h3>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								In most applications involving first order ODEs, 
+								we are required to solve an IVP.
+								<span class="fragment" data-fragment-index="0">
+									Generally, this is a problem of the form
+								\[
+								\frac{dy}{dx}=f(x,y), \quad y(x_0 )= y_0.
+								\]
+								</span>
+							</p>
+
+							<div class="fragment" data-fragment-index="1">
+								<p>In other words, we seek to find solutions of the 
+									ODE which pass through the point $(x_0, y_0)$ in the 
+									$x$-$y$ plane.</p>
+							</div>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+
 			</section>
 
+
+			<section>
+
+				<section data-auto-animate>
+					<h5>1.1 Example: $\ds \frac{dy}{dx}= x, y(0) = 1$ has a unique solution</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								Integrating: $\ds y = \int x ~dx + C$
+								<spanclass="fragment" data-fragment-index="1">
+									$\,=\ds \frac{1}{2}x^2 + C$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								Let's solve now the Initial Value Problem (IVP):
+								<span class="fragment" data-fragment-index="3">
+									$y(0)=1 $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\Rightarrow 1 = \frac{1}{2}(0) + C$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ \Rightarrow C = 1$.
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								Therefore
+								\[
+								y = \frac{1}{2}x^2 + 1.
+								\]
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</section>
 
 
 

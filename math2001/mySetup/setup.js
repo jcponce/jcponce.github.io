@@ -40,6 +40,7 @@
 						w: "{\\mathbf{w}}",
 						n: "{\\mathbf{n}}",
 						F: "{\\mathbf{F}}",
+						FF: "{\\mathbb{F}}",
 						T: "{\\mathbf{T}}",
 						div: "{\\mbox{div}}\\,",
 						curl: "{\\mbox{curl}}\\,",
