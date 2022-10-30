@@ -37,8 +37,13 @@ public void draw() {
 
     for(int i = backgroundBubbles.size()-1; i >= 0; i--) {
         Bubble bubble = backgroundBubbles.get(i);
-        if (bubble.getLocation().y < -50)
+        if (bubble.getLocation().y < -50){ 
+            //if(random(0,1) < 1/2){
+            //    bubbleS.play();
+            //} bubbleD.play();
             backgroundBubbles.remove(i);
+        }
+            
         else {
             bubble.update();
             bubble.render();
