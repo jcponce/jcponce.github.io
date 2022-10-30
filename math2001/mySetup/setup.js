@@ -51,6 +51,7 @@
 						Log: "\\mbox{Log}\\,",
 						Int: "\\mbox{Int}\\,",
 						ra: "\\rightarrow",
+						Ra: "\\Rightarrow",
 						ds: "\\displaystyle",
 						res: "\\mbox{res}\\,",
 						conj: ["{\\overline{#1}}", 1],
