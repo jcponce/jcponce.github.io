@@ -132,7 +132,7 @@
 							</p>
 
 							<p class="fragment" data-fragment-index="2">
-								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)y$
+								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)~y$
 							</p>
 	
 							
@@ -267,32 +267,32 @@
 					<div class="size-80">
 						<div class="left-txt">
 							<p>
-								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)y$
+								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)~y$
 							</p>
 						</div>
 					</div>
 					<div class="size-80">
 						<div>
-							$\ds I(x) \frac{dy}{dx} + I(x) p(x) y  = I(x)q(x).$
+							$\ds I(x) \frac{dy}{dx} + I(x) ~p(x)~ y  = I(x)~q(x).$
 						</div>
 					</div>
 
 					<div class="size-80">
 						<div class="left-txt">
 							<p class="fragment" data-fragment-index="0">
-								We choose $I(x)$ such that $\frac{d}{dx}\left(I(x)~y\right) = I(x) ~q(x)$.
+								We choose $I(x)$ such that $\frac{d}{dx}\big(I(x)~y\big) = I(x)~ q(x).$
 							</p>
 							
 						</div>
 						<div class="r-stack">
 							<p class="fragment fade-in-then-out"  data-fragment-index="1">Integrating we obtain &nbsp;
 								$
-								\ds I(x)~y = \int I(x)q(x)~dx + C.
+								\ds I(x)~y = \int I(x)~q(x)~dx + C.
 								$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="2">That is &nbsp;
 								$
-								\ds y = \frac{1}{I(x)}\int I(x)q(x)~dx + \frac{C}{I(x)}.
+								\ds y = \frac{1}{I(x)}\int I(x)~q(x)~dx + \frac{C}{I(x)}.
 								$
 							</p>
 						</div>
@@ -412,6 +412,67 @@
 								\[
 								y = x^3 \quad \text{ or } \quad y = - x^3. 
 								\]
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.3 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$ has no solution</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								Note that the ODE is linear: 
+								<span class="fragment" data-fragment-index="1">
+									$\, \ds \frac{dy}{dx} + \dfrac{y}{x}=1$
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="2">
+									Multiply by $x$: $\, \Ra \;\ds x\frac{dy}{dx} + y=x$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\, \Ra \;\ds \dfrac{d}{dx}\big(xy\big)=x$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="4">
+								Here the factor $x$ is the <strong>Integrating factor</strong>,
+								<span class="fragment" data-fragment-index="5">
+									that is, $I(x) = \exp\left({\int \frac{1}{x}dx}\right) $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= x$
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.3 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$ has no solution</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p >
+								Note that the ODE is linear: 
+								<span >
+									$\, \ds \frac{dy}{dx} + \dfrac{y}{x}=1$
+								</span><br/><br/>
+								<span>
+									Multiply by $x$: $\, \Ra \;\ds x\frac{dy}{dx} + y=x$
+								</span>
+								<span>
+									$\, \Ra \;\ds \dfrac{d}{dx}\big(xy\big)=x$
+								</span>
+							</p>
+
+							<p>
+								$\, \Ra \; xy = \frac{1}{2}x^2 +C=x$
+								<span class="fragment" data-fragment-index="0">
+									&nbsp; or $\; \ds y = \frac{1}{2}x+ \frac{C}{x}.$
+								</span>
 							</p>
 						</div>
 					</div>
