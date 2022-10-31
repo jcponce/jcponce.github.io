@@ -648,16 +648,112 @@
 			<section>
 
 				<section data-auto-animate>
-					<h4>3.5 Example: $\ds  + \left( x^2 + xy\right)\frac{dy}{dx}=0$</h4>
+					<h4>3.5 Example: $\ds \left( 3xy+y^3 \right) + \left( x^2 + xy\right)\frac{dy}{dx}=0$</h4>
 					<div class="size-70">
 						<div class="left-txt">
-							<p>Text
+							<p>
 								<span class="fragment" data-fragment-index="0">
-									text
+									Here we have that $\ds \frac{\partial P }{\partial y} = 3x+2y$
+									and $\ds \frac{\partial Q}{\partial x} =2x+y$.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Then $\ds \frac{\partial P }{\partial y} \neq  
+								\frac{\partial Q}{\partial x} $
+								<span class="fragment" data-fragment-index="2">
+									Thus, it is not exact! 😮 &nbsp;&nbsp;&nbsp;
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									It seems to be almost exact?
+								</span>
+							</p>
+							
+							<p class="fragment" data-fragment-index="4">
+								Try for example $h\equiv h(x)\neq 0$,
+								<span class="fragment" data-fragment-index="5">
+									then $$\ds h\left(3xy+y^2\right)+h\left(x^2+xy\right)\frac{dy}{dx}=0$$
 								</span>
 							</p>
 						</div>
 					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>3.5 Example: $\ds \left( 3xy+y^3 \right) + \left( x^2 + xy\right)\frac{dy}{dx}=0$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Here we have that $\ds \frac{\partial P }{\partial y} = 3x+2y$
+									and $\ds \frac{\partial Q}{\partial x} =2x+y$.
+								</span>
+							</p>
+							<p>
+								Then $\ds \frac{\partial P }{\partial y} \neq  
+								\frac{\partial Q}{\partial x} $
+								<span>
+									Thus, it is not exact! 😮 &nbsp;&nbsp;&nbsp;
+								</span>
+								<span>
+									It seems to be almost exact?
+								</span>
+							</p>
+							
+							<p>
+								Try for example $h\equiv h(x)\neq 0$,
+								<span>
+									then $$\ds \overbrace{h\left(3xy+y^2\right)}^{\hat P}+\overbrace{h\left(x^2+xy\right)}^{\hat Q}\frac{dy}{dx}=0$$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="6">
+								is exact iff $\ds \frac{\partial \hat P }{\partial y} = 
+								\frac{\partial \hat Q}{\partial x}.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>3.5 Example: $\ds \left( 3xy+y^3 \right) + \left( x^2 + xy\right)\frac{dy}{dx}=0$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Then $\ds \frac{\partial \hat P}{\partial y} =  h\left(3x+2y\right)$
+								<span class="fragment" data-fragment-index="0">
+									$=h'\left(x^2+xy\right)+ h\left(2x+y\right)$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Thus  $h\left(x+y\right)$
+								<span class="fragment" data-fragment-index="2">
+									$=h'x \left(x+y\right)$ 
+								</span>
+								<span class="fragment" data-fragment-index="3"> 
+									&nbsp; or &nbsp; $h = h' x$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									&nbsp;  $\Ra \;h' = \ds \frac{h}{x}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									&nbsp; $\Ra \;h = K x$ for any constant $K$.
+								</span>
+							</p>
+
+							<p>Choose $K=1$ to obtain a new ODE
+								\[
+								3x^2y+xy^2+\left(x^3+x^2y\right)\frac{dy}{dx}=0
+								\]
+								<span>
+									is exact and its solution is given by $\ds x^2y+\frac{1}{2}x^2y^2=C$ 📝
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
 				</section>
 
 			</section>
