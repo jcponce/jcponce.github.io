@@ -43,6 +43,8 @@
 						FF: "{\\mathbb{F}}",
 						T: "{\\mathbf{T}}",
 						div: "{\\mbox{div}}\\,",
+						nec: "{\\boxed{\\Rightarrow}}",
+						suf: "{\\boxed{\\Leftarrow}}",
 						curl: "{\\mbox{curl}}\\,",
 						Re: "{\\mbox{Re}}\\,",
 						Im: "{\\mbox{Im}}\\,",

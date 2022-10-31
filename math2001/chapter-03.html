@@ -224,28 +224,158 @@
 				<section data-auto-animate>
 					<h4>3.2 Test for exactness</h4>
 					<div class="size-70">
-						<div class="left-txt">
-							<p>Text
-								<span class="fragment" data-fragment-index="0">
-
+						<div id="theorem" class="left-txt">
+							<p>
+								<span  class="fragment" data-fragment-index="0">
+									Let $P$, $Q$, and $\ds \frac{\partial Q}{\partial x}$ be
+								continuous over some region of interest. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then \[
+									P\left( x, y\right)+ Q\left( x, y\right)\frac{dy}{dx}=0
+									\]
+									is an exact ODE 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									<em>if and only if</em> (iff)
+									\[
+									\frac{\partial P}{\partial y} =\frac{\partial Q}{\partial x}
+									\]
+									everywhere in the region.
 								</span>
 							</p>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>3.2 Test for exactness</h4>
-					<div class="size-70">
+					<div class="size-75">
 						<div class="left-txt">
-							<p>Text
-								<span>
-
+							<p><strong>Proof:</strong>
+								<span class="fragment" data-fragment-index="0">
+									$\nec$ 
 								</span>
+								<span class="fragment" data-fragment-index="1">Recall that  
+									$\ds \frac{\partial^2 f}{\partial x\partial y}=\frac{\partial^2 f}{\partial y\partial x}$
+									for a smooth function $\,f$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									So if the ODE is exact,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then there exists $\,f$ such that 
+									\[
+									f_x = \frac{\partial f}{\partial x} = P\left(x,y\right)\quad \text{and}\quad f_y = \frac{\partial f}{\partial y} = Q\left(x,y\right)
+									\]
+								</span>
+								
+							</p>
+
+							<p class="fragment" data-fragment-index="4">It follows that </p>
+							
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="4">
+								$\ds \frac{\partial P}{\partial y}$
+								<span class="fragment" data-fragment-index="5">$\ds = \frac{\partial^2 f}{\partial y\partial x}$</span>
+								<span class="fragment" data-fragment-index="6">$\ds = \frac{\partial^2 f}{\partial x\partial y}$</span>
+								<span class="fragment" data-fragment-index="7">$\ds = \frac{\partial Q}{\partial x}.$</span>
+								<span class="fragment" data-fragment-index="8">$\quad\blacksquare$</span>
+								
 							</p>
 						</div>
 					</div>
+					<br/><br/>
 				</section>
+
+
+				<section data-auto-animate>
+					<h4>3.2 Test for exactness</h4>
+					<div class="size-75">
+						<div class="left-txt">
+							<p><strong>Proof:</strong>
+								<span class="fragment" data-fragment-index="0">
+									$\suf$ 
+								</span>
+								<span class="fragment" data-fragment-index="1">If 
+									$\ds \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x},$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									then we can always find $\,f$ such that $f_x=P\left(x,y\right)$ and $f_y=Q\left(x,y\right)$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Indeed, let 
+									\[
+									f\left(x,y\right)=\int_{x_0}^{x}P\left(x',y\right)dx' + \int_{y_0}^{y}Q\left(x_0,y'\right)dy'+C
+									\]
+									for fixed $x_0,y_0$.
+								</span>
+								<span class="fragment" data-fragment-index="4">Then</span>
+								
+							</p>
+
+							
+							
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="4">
+								$\ds \,f_x$
+								<span class="fragment" data-fragment-index="5">$\ds = \frac{\partial }{\partial x}\left( \int_{x_0}^{x}P\left(x',y\right)dx' + \int_{y_0}^{y}Q\left(x_0,y'\right)dy' \right)$</span>
+								<span class="fragment" data-fragment-index="6">$\ds = P \left(x,y\right)$</span>
+								
+							</p>
+							
+							<div class="r-stack">
+								<p class="fragment fade-in-then-out" data-fragment-index="7">
+									$\ds f_y 
+									 = \frac{\partial }{\partial y}\left( \int_{x_0}^{x}P\left(x',y\right)dx' + \int_{y_0}^{y}Q\left(x,y'\right)d'y \right) \qquad\qquad$
+								</p>
+								<p class="fragment fade-in-then-out" data-fragment-index="8">
+									$\ds f_y = \int_{x_0}^{x}\frac{\partial P\left(x',y\right)}{\partial y} dx' + \frac{d}{dy} \int_{y_0}^{y}Q\left(x_0,y'\right)dy'\qquad \qquad\,$
+								</p>
+								<p class="fragment fade-in-then-out" data-fragment-index="9">
+									$\ds f_y = \int_{x_0}^{x}\frac{\partial Q\left(x',y\right)}{\partial x} dx' + Q\left(x_0,y\right)\qquad \qquad \qquad \qquad \;\;$
+								</p>
+								<p class="fragment fade-in" data-fragment-index="10">
+									$\ds f_y = Q\left(x_,y\right)- Q\left(x_0,y\right)+ Q\left(x_0,y\right)$
+									<span class="fragment" data-fragment-index="11">$=Q\left(x,y\right).$</span>
+									<span class="fragment" data-fragment-index="12">$\qquad \quad\;\;\blacksquare$</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>3.2 Test for exactness</h4>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								For this proof we used the function
+								\[
+									f\left(x,y\right)=\int_{x_0}^{x}P\left(x',y\right)dx' + \int_{y_0}^{y}Q\left(x_0,y'\right)dy'+C.
+								\]
+							</p>
+						</div>
+					</div>
+					<div class="size-75">
+						<div  class="left-txt">
+							<div class="fragment" data-fragment-index="0">
+								<p >
+									The problem of actually determining $f(x,y)$ is still
+									outstanding.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/>	<br/><br/><br/><br/><br/>
+				</section>
+
+				
 
 			</section>
 
