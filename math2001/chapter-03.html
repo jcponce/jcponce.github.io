@@ -99,22 +99,29 @@
 								First recall that if $z = f(x, y)$ is a differentiable 
 								function of $x$ and $y$, where $x = g(t)$
 								and $y = h(t)$ are both differentiable functions of $t$,
-								<span class="fragment" data-fragment-index="1">
-									then $z$ is a differentiable function
-									of $t$ whose derivative is given by the chain rule:
-									\[
-									\frac{dz}{dt} = \frac{\partial f}{\partial dx}\frac{\partial x}{\partial dt} + \frac{\partial f}{\partial dy}\frac{\partial y}{\partial dt}
-									\]
-								</span>
+								<span class="fragment" data-fragment-index="1">then $z$ is a differentiable function
+									of $t$ whose derivative is given by the chain rule:</span>
+								
 							</p>
 
+							
+						</div>
+						
+						<div class="fragment" data-fragment-index="1">
 							<p>
+								\[
+								\frac{dz}{dt} = \frac{\partial f}{dx}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}
+								\]
+							</p>
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="2">
 								Now suppose the equation
 								\[
 								f(x,y)= C
 								\]
 								defines $y$ implicitly as a function of $x$ (here $C$ is a constant).
-								<span>
+								<span class="fragment" data-fragment-index="3">
 									Then $y = y(x)$ can be 
 									shown to satisfy a first order ODE obtained by 
 									using the chain rule above.
@@ -127,24 +134,119 @@
 				<section data-auto-animate>
 					<h4>3.1 Definition</h4>
 					<div class="size-70">
+						
+						
+						<div >
+							<p>
+								\[
+								\frac{dz}{dt} = \frac{\partial f}{dx}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}
+								\]
+							</p>
+						</div>
 						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								First recall that if $z = f(x, y)$ is a differentiable 
-								function of $x$ and $y$, where $x = g(t)$
-								and $y = h(t)$ are both differentiable functions of $t$,
+							<p>
+								Now suppose the equation
+								\[
+								f(x,y)= C
+								\]
+								defines $y$ implicitly as a function of $x$ (here $C$ is a constant).
+								<span class="fragment" data-fragment-index="0">
+									Then $y = y(x)$ can be 
+									shown to satisfy a first order ODE obtained by 
+									using the chain rule above.
+								</span>
 								<span class="fragment" data-fragment-index="1">
-									then $z$ is a differentiable function
-									of $t$ whose derivative is given by the chain rule:
+									In this case,
+									$z = f(x, y(x)) = C$, 
+								</span>
+								<span class="fragment" data-fragment-index="2">so</span>
+							</p>
+						</div>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="2" >$\ds \frac{dz}{dx} = \frac{\partial f}{dx}\frac{dx}{dx} + \frac{\partial f}{\partial y}\frac{dy}{dx}$</p>
+							<p class="fragment fade-in"  data-fragment-index="3">$f_x + f_y y' =0.$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(7)$</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>3.1 Definition</h4>
+					<div class="size-65">
+						<div class="r-stack">
+							<p >$f_x + f_y y' =0.$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(7)$</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									A first order ODE of the form
 									\[
-									\frac{dz}{dt} = \frac{\partial f}{\partial dx}\frac{\partial x}{\partial dt} + \frac{\partial f}{\partial dy}\frac{\partial y}{\partial dt}
+									P\left(x,y\right)+ Q\left(x,y\right)= \frac{dy}{dx}=0 \qquad (8)
 									\]
+									is called <strong>exact</strong>,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									 if there is a function $f(x, y)$ (compare $(8)$ with $(7)$ above) such that
+									\[
+									f_x\left(x,y\right) = P\left(x,y\right) \quad \text{and}\quad f_y\left(x,y\right) = Q\left(x,y\right).
+									\]
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								The solution is then given implicitly by the equation $\,f\left(x,y\right)=C.$
+								<span class="fragment" data-fragment-index="3">
+									The constant $C$ can usually be determined by some kind of “initial condition”.
+								</span>
+							</p>
+
+							
+
+							<p class="fragment" data-fragment-index="4">🤔 Given an equation of the form $(8)$, how do we determine whether or not it is exact?
+								<span class="fragment" data-fragment-index="5">
+									There is a simple test.
+								</span>
+							</p>
+
+
+						
+						</div>
+					</div>
+					<br/>
+				</section>
+	
+				
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>3.2 Test for exactness</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span class="fragment" data-fragment-index="0">
+
 								</span>
 							</p>
 						</div>
 					</div>
 				</section>
-	
-				
+
+				<section data-auto-animate>
+					<h4>3.2 Test for exactness</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span>
+
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
 			</section>
 
 
