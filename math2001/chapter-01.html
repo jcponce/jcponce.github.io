@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2001/7000 - Chapter 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Calculus & <br />Linear Algebra II</h2>
+				<p>Chapter 1</p>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>1 Solutions of first order ODEs</h3>
+					<div class="left-txt size-70">
+						<p>
+							By the end of this section, you should be able 
+							to answer the following questions about
+							first order ODEs:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">How do you solve an IVP associated with directly 
+								integrable, separable or linear
+								ODEs? (Revision)
+							</li>
+							<li class="fragment" data-fragment-index="1">Under what conditions does a solution to an IVP problem exist?
+							</li>
+							<li class="fragment" data-fragment-index="2" >
+								Under what conditions is a solution to an IVP problem unique?
+							</li>
+						</ul>
+	
+						<p  class="fragment" data-fragment-index="3">
+							In MATH1052, you were introduced to Ordinary Differential 
+							Equations (ODEs) and Initial Value Problems (IVPs) 
+							and saw how to find solutions to some special types 
+							of first order equations. 
+							<span  class="fragment" data-fragment-index="4">
+							In particular, there should be 
+							three types of first order ODEs that you are familiar with solving.
+							</span>
+						</p>
+	
+						
+					</div>
+					<br/><br/>
+	
+					
+	
+				</section>
+
+				<section data-auto-animate>
+
+					<h3>1 Solutions of first order ODEs</h3>
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								In MATH1052, you were introduced to Ordinary Differential 
+								Equations (ODEs) and Initial Value Problems (IVPs) 
+								and saw how to find solutions to some special types 
+								of first order equations. 
+								<span>
+								In particular, there should be 
+								three types of first order ODEs that you are familiar with solving.
+								</span>
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-80">
+						<div class="left-txt">
+						
+	
+							<p>
+								&#8226; Directly integrable: $\dfrac{dy}{dx} = f(x)$
+							</p>
+		
+							<p class="fragment" data-fragment-index="1">
+								&#8226; Separable: $\dfrac{dy}{dx} = f(x)g(y)$
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)~y$
+							</p>
+	
+							
+						</div>
+						
+					</div>
+
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+
+					
+					<h3>1 Solutions of first order ODEs</h3>
+					
+
+					<div class="size-80">
+						<div class="left-txt">
+						
+	
+							<p>
+								&#8226; Directly integrable: $\dfrac{dy}{dx} = f(x)$
+							</p>
+
+						</div>
+
+						<div>
+							<p class="fragment" data-fragment-index="0">$\displaystyle  \dfrac{dy}{dx}~dx  = f(x) ~dx $
+								<span class="fragment" data-fragment-index="1">
+									$\displaystyle \;\;\Rightarrow \;\;  dy  = f(x) ~dx $
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="3">
+									$\displaystyle \;\;\Rightarrow \;\; y =\int f(x)~dx + C $
+								
+							</p>
+						</div>
+						
+					</div>
+					
+					<br/><br/><br/><br/><br/>
+
+				</section>
+
+				<section data-auto-animate>
+
+					
+					<h3>1 Solutions of first order ODEs</h3>
+					
+
+					<div class="size-80">
+						<div class="left-txt">
+						
+	
+							<p>
+								&#8226; Separable: $\dfrac{dy}{dx} = f(x)g(y)$
+							</p>
+
+						</div>
+
+						<div>
+							<p class="fragment" data-fragment-index="0">$\displaystyle  \dfrac{1}{g\left(y\right)}\dfrac{dy}{dx}  = f(x)  $
+								<span class="fragment" data-fragment-index="1">
+									$\displaystyle \;\;\Rightarrow \;\;  \dfrac{1}{g\left(y\right)}\dfrac{dy}{dx} dx = f(x) ~dx $
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="3">
+								$\displaystyle \;\;\Rightarrow \;\; \dfrac{1}{g\left(y\right)}~dy = f(x) ~dx $
+								<span class="fragment" data-fragment-index="4">
+									$\displaystyle \;\;\Rightarrow \;\; \int \dfrac{1}{g\left(y\right)}~dy = \int f(x) ~dx +C $
+								</span>
+							</p>
+
+							<br/>
+							<p class="fragment" data-fragment-index="5"><strong>Note:</strong> Here we have an implicit solution.</p>
+						</div>
+						
+					</div>
+					
+					<br/><br/>
+
+				</section>
+
+				<section data-auto-animate>
+
+					
+					<h3>1 Solutions of first order ODEs</h3>
+					
+
+					<div class="size-80">
+						<div class="left-txt">
+						
+	
+							<p>
+								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)y$
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								First, we need to write it in standard form:
+								<span>
+									\[
+									\frac{dy}{dx} + p(x) y  = q(x).
+									\]
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="1">
+								Multiply by $I(x) \neq 0$ to obtain
+							</p>
+
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="fragment" data-fragment-index="2">
+							$
+							\ds I(x) \frac{dy}{dx} + I(x) p(x) y  = I(x)q(x).
+							$
+						</div>
+					</div>
+					<br/><br/>
+
+				</section>
+
+				<section data-auto-animate>
+
+					
+					<h3>1 Solutions of first order ODEs</h3>
+					
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								&#8226; Linear: $\dfrac{dy}{dx} = q(x)-p(x)~y$
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div>
+							$\ds I(x) \frac{dy}{dx} + I(x) ~p(x)~ y  = I(x)~q(x).$
+						</div>
+					</div>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								We choose $I(x)$ such that $\frac{d}{dx}\big(I(x)~y\big) = I(x)~ q(x).$
+							</p>
+							
+						</div>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out"  data-fragment-index="1">Integrating we obtain &nbsp;
+								$
+								\ds I(x)~y = \int I(x)~q(x)~dx + C.
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="2">That is &nbsp;
+								$
+								\ds y = \frac{1}{I(x)}\int I(x)~q(x)~dx + \frac{C}{I(x)}.
+								$
+							</p>
+						</div>
+						<br/>
+						<p class="fragment" data-fragment-index="3">
+							<strong>Note:</strong> $I(x) = e^{\int p(x)~dx}$ is the <em>integrating factor</em>. 
+						</p>
+					</div>
+					
+					<br/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>1 Solutions of first order ODEs</h3>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								In most applications involving first order ODEs, 
+								we are required to solve an IVP.
+								<span class="fragment" data-fragment-index="0">
+									Generally, this is a problem of the form
+								\[
+								\frac{dy}{dx}=f(x,y), \quad y(x_0 )= y_0.
+								\]
+								</span>
+							</p>
+
+							<div class="fragment" data-fragment-index="1">
+								<p>In other words, we seek to find solutions of the 
+									ODE which pass through the point $(x_0, y_0)$ in the 
+									$x$-$y$ plane.</p>
+							</div>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h5>1.1 Example: $\ds \frac{dy}{dx}= x, y(0) = 1$ has a unique solution</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p  class="fragment" data-fragment-index="0">
+								Integrating: $\ds y = \int x ~dx + C$
+								<span class="fragment" data-fragment-index="1">
+									$\,=\ds \frac{1}{2}x^2 + C$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								Let's solve now the Initial Value Problem (IVP):
+								<span class="fragment" data-fragment-index="3">
+									$y(0)=1 $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\Rightarrow 1 = \frac{1}{2}(0) + C$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ \Rightarrow C = 1$.
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								Therefore
+								\[
+								y = \frac{1}{2}x^2 + 1. 
+								\]
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5 style="font-size:75%">1.2 Example: $\ds \frac{dy}{dx}= 3xy^{1/3}, y(0) = 0$ has more than one solution</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								This is a separable ODE: 
+								<span class="fragment" data-fragment-index="1">
+									So $\, \ds \int \frac{dy}{y^{1/3}}=3x + C$
+								</span><br/>
+								<span class="fragment" data-fragment-index="2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\, \ds \Rightarrow \frac{3}{2}y^{2/3}=\frac{3}{2}x^2 + C$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="3">
+								Let's solve now the IVP:
+								<span class="fragment" data-fragment-index="4">
+									$y(0)=0 $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\Rightarrow \ds \frac{3}{2}(0)^{2/3}=\frac{3}{2}(0)^2 + C$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \Rightarrow C = 0$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$ \Rightarrow y^2 = \left(x^2\right)^3$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ \, = x^6$.
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="8">
+								Therefore
+								\[
+								y = x^3 \quad \text{ or } \quad y = - x^3. 
+								\]
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.3 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$ has no solution</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								Note that the ODE is linear: 
+								<span class="fragment" data-fragment-index="1">
+									$\, \ds \frac{dy}{dx} + \dfrac{y}{x}=1$
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="2">
+									Multiply by $x$: $\, \Ra \;\ds x\frac{dy}{dx} + y=x$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\, \Ra \;\ds \dfrac{d}{dx}\big(xy\big)=x$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="4">
+								Here the factor $x$ is the <strong>Integrating factor</strong>,
+								
+							</p>
+							
+						</div>
+						<div><span class="fragment" data-fragment-index="5">
+							that is, $\;I(x) =\ds \exp\left({\int \frac{1}{x}dx}\right) $
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							$= x$
+						</span></div>
+					</div>
+					<br/<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.3 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$ has no solution</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p >
+								Note that the ODE is linear: 
+								<span >
+									$\, \ds \frac{dy}{dx} + \dfrac{y}{x}=1$
+								</span><br/><br/>
+								<span>
+									Multiply by $x$: $\, \Ra \;\ds x\frac{dy}{dx} + y=x$
+								</span>
+								<span>
+									$\, \Ra \;\ds \dfrac{d}{dx}\big(xy\big)=x$
+								</span>
+							</p>
+
+							<p>
+								$\, \Ra \; xy = \ds \frac{1}{2}x^2 +C=x$
+								<span class="fragment" data-fragment-index="0">
+									&nbsp; or $\; \ds y = \frac{1}{2}x+ \frac{C}{x}.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.3 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$ has no solution</h5>
+
+					<div class="size-70">
+						<div class="left-txt">
+							<p >
+								Thus the general solution of the linear ODE 
+								<span >
+									$\, \ds \frac{dy}{dx} + \dfrac{y}{x}=1$ is
+									$$ \ds y = \frac{1}{2}x+ \frac{C}{x}.$$
+								</span>
+							</p>
+
+							
+
+							<p class="fragment" data-fragment-index="0">Can we solve the IVP: $y(0)=1$?
+								<span class="fragment" data-fragment-index="1">Note that $\ds \frac{C}{x}\to \infty $ when $x=0$.</span>
+
+							</p>
+							
+							<p class="fragment" data-fragment-index="2">
+								How about coosing $C=0$. 
+								<span class="fragment" data-fragment-index="3">But then $y(0)=0$.</span></p>
+							<p class="fragment" data-fragment-index="4">Then it cannot satisfy the initial condition.
+								<span class="fragment" data-fragment-index="5">Therefore, no solution satisfies $y(0)=1$.</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1.4 Existence and uniqueness criteria</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">Here we consider the initial value problem of the form
+								\[
+								\frac{dy}{dx}=f(x,y), \quad y(x_0)=y_0.
+								\]
+							</p>
+							<p class="fragment" data-fragment-index="2">The main result concerns the conditions under 
+								which we have existence and uniqueness
+								of a solution.</p>
+
+							<ul>
+								<li class="fragment" data-fragment-index="3">
+									(existence) If $f(x, y)$ is continuous in some rectangle
+									\[
+									R =\left\{(x,y) ~|~ |x-x_0|\lt a, |y-y_0|\lt b|\right\}
+									\]
+									then the initial value problem has at least one solution.
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									(uniqueness) Moreover, if $f_y(x, y)$ is also continuous in $R$ then there is some
+									interval $|x-x_0|\leq h \lt a$ which contains a unique solution to the initial value
+									problem.
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1.4 Existence and uniqueness criteria</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							
+							<ul>
+								<li>
+									(existence) If $f(x, y)$ is continuous in some rectangle
+									\[
+									R =\left\{(x,y) ~|~ |x-x_0|\lt a, |y-y_0|\lt b|\right\}
+									\]
+									then the initial value problem has at least one solution.
+								</li>
+								<li >
+									(uniqueness) Moreover, if $f_y(x, y)$ is also continuous in $R$ then there is some
+									interval $|x-x_0|\leq h \lt a$ which contains a unique solution to the initial value
+									problem.
+								</li>
+
+							</ul>
+
+							<p>
+								This result only tells us that a solution exists or is 
+								unique locally (i.e., in the rectangle $R$).
+								<span class="fragment" data-fragment-index="0">
+									Beyond $R$, 
+									we simply don't know. Let's look at the previous three
+									examples in the context of the two conditions. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									In the 
+									next section, we look closer at 
+									understanding these conditions and how they arise.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
+			
+			<section>
+
+				<section data-auto-animate>
+					<h5>1.5 Example: $\ds \frac{dy}{dx}= x, y(0) = 1$</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p  class="fragment" data-fragment-index="0">
+								Here $f(x,y) = x$ 
+								<span class="fragment" data-fragment-index="1">&nbsp; is continuous</span>
+								<span class="fragment" data-fragment-index="2">
+									 and &nbsp;$\ds \frac{\partial f}{\partial y} = 0$ 
+								</span>
+								<span class="fragment" data-fragment-index="3">&nbsp; is continuous.</span>
+							</p>
+
+
+							<p class="fragment" data-fragment-index="4">
+								This implies a unique solution: 
+								<span class="fragment" data-fragment-index="5">$y =\ds\frac{1}{2}x^2 + 1.$</span>
+								
+							</p>
+						
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.6 Example: $\ds \frac{dy}{dx}= 3xy^{1/3}, y(0) = 0$</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p  class="fragment" data-fragment-index="0">
+								For $(x,_0,y_0)=(0,0)$, &nbsp; $f(x,y) = 3xy^{1/3}$ 
+								<span class="fragment" data-fragment-index="1">&nbsp; is continuous,</span>
+								<span class="fragment" data-fragment-index="2">
+									 then the solution exists.
+								</span>
+							</p>
+
+
+							<p class="fragment" data-fragment-index="3">
+								On the other hand we have $\ds \frac{\partial f}{\partial y} = \frac{x}{y^{2/3}}.$
+								<span class="fragment" data-fragment-index="4">This is not continuous in any rectangle containing 
+									$(0,0)$</span>
+								
+							</p>
+
+							<p class="fragment" data-fragment-index="5">
+								Therefore, we cannot comment on uniqueness.
+								<span class="fragment" data-fragment-index="6">
+									In fact we have that $y=\pm x^3.$
+								</span>
+							</p>
+						
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.6 Example: $\ds \frac{dy}{dx}= 3xy^{1/3}, y(0) = 0$</h5>
+
+					
+					<div>
+						<iframe scrolling="no" 
+						title="Chapter-01: Example 1.6" 
+						data-src="https://www.geogebra.org/material/iframe/id/etpp4gf6/width/685/height/473/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false" 
+						width="685px" height="473px" style="border:0px;" allowfullscreen=""> </iframe>
+					
+					</div>
+
+					<br/>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.7 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p  class="fragment" data-fragment-index="0">
+								Here $\;f(x,y) = \dfrac{x-y}{x}$ 
+								<span class="fragment" data-fragment-index="1">&nbsp; is not continuous
+									in any rectangle containing $(0,1).$
+								</span>
+							</p>
+
+
+							<p class="fragment" data-fragment-index="5">
+								Therefore, we cannot comment on existence.
+								
+							</p>
+						
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1.7 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$</h5>
+
+					<div>
+						<iframe scrolling="no" 
+						title="Chapter-01: Example 1.7" 
+						data-src="https://www.geogebra.org/material/iframe/id/kyqudr4u/width/685/height/473/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false" 
+						width="685px" height="473px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+					<br/>
+				</section>
+
+				
+
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
