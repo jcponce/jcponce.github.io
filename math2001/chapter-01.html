@@ -667,10 +667,10 @@
 				</section>
 
 				<section data-auto-animate>
-					<h5>1.6 Example: $\ds \frac{dy}{dx}= 3xy^{1/3}, y(0) = 0$</h5>
+					<h5 style="font-size:60%">1.6 Example: $\ds \frac{dy}{dx}= 3xy^{1/3}, y(0) = 0$</h5>
 
 
-					<div class="mathcell size-40 left-txt" style="height:510px;width:600px">
+					<div class="mathcell size-40 left-txt" style="width:600px;height:520px;">
 						<script>
 							var parent = document.currentScript.parentNode;
 
@@ -690,17 +690,22 @@
 
 								var part = getVariable(id, 'part');
 
-								var lim = 4;
+								var lim = 5;
+								var res = 90;
 
 								var s = isosurface((x, y, z) => 9 * Math.pow(x, 3) * y - (Math.pow(z, 3)),
-									[-lim, lim], [-lim, lim], [-lim, lim], {
+									[-lim, lim, res], [-lim, lim, res], [-lim, lim, res], {
 										colormap: 'hot',
 									});
 
 								var t = isosurface((x, y, z) => Math.pow(z, 3) * Math.pow(y, 2) - Math.pow(x, 3),
-								[-lim, lim], [-lim, lim], [-lim, lim], {
+									[-lim, lim, res], [-lim, lim, res], [-lim, lim, res], {
 										colormap: 'cool',
 									});
+								/*
+									parametric( (x,y) => [ x, y, (x-y)/x ], [-1,1], [-1,1],
+                           			{ colormap: (x,y) => colorFromHue( (x-y)/x ) } )
+						   		*/
 
 								var data = [];
 
@@ -716,7 +721,9 @@
 									type: 'threejs',
 									frame: true,
 									viewpoint: [-1,1,0.7],
-									axesLabels: false, 
+									axesLabels: true, 
+									aspectRatio: [1,1,1],
+									
 								};
 
 								evaluate(id, data, config);
@@ -755,7 +762,8 @@
 					<br /><br /><br /><br /><br />
 				</section>
 
-				<section data-auto-animate>
+				<!--
+					<section data-auto-animate>
 					<h5>1.7 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$</h5>
 
 					<div>
@@ -764,13 +772,77 @@
 							width="685px" height="473px" style="border:0px;" allowfullscreen=""> </iframe>
 					</div>
 					<br />
-				</section>
+				    </section>
+				-->
 
 
 				<section data-auto-animate>
-					<h5>1.7 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$</h5>
+					<h5 style="font-size:60%">1.7 Example: $\ds \frac{dy}{dx}= \frac{x-y}{x}, y(0) = 1$</h5>
 
-					
+					<div class="mathcell size-40 left-txt" style="width:600px;height:520px;">
+						<script>
+							var parent = document.currentScript.parentNode;
+
+							var id = generateId();
+							parent.id = id;
+
+							MathCell(id, [{
+								type: 'buttons',
+								values: ['f(x,y)', 'f_y(x,y)'],
+								width: '1in',
+								name: 'part',
+								label: 'Plot:'
+							}, ]);
+
+
+							parent.update = function (id) {
+
+								var part = getVariable(id, 'part');
+
+								var lim = 5;
+								var res = 50;
+
+								var s = isosurface((x, y, z) => z * y - x + y,
+									[-lim, lim, res], [-lim, lim, res], [-lim, lim, res], {
+										colormap: 'hot',
+									});
+
+								var t = isosurface((x, y, z) => x * z -1,
+									[-lim, lim, res], [-lim, lim, res], [-lim, lim, res], {
+										colormap: 'cool',
+									});
+								/*
+									parametric( (x,y) => [ x, y, (x-y)/x ], [-1,1], [-1,1],
+                           			{ colormap: (x,y) => colorFromHue( (x-y)/x ) } )
+						   		*/
+
+								var data = [];
+
+								if (part === 'f(x,y)')
+
+									data.push(s);
+
+								else
+
+									data.push(t);
+
+								var config = {
+									type: 'threejs',
+									frame: true,
+									viewpoint: [-1,1,0.7],
+									axesLabels: true, 
+									aspectRatio: [1,1,1],
+									
+								};
+
+								evaluate(id, data, config);
+
+							}
+
+							parent.update(id);
+						</script>
+					</div>
+					<br/>
 
 					<br />
 				</section>
