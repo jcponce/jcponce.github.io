@@ -721,7 +721,7 @@
 								var config = {
 									type: 'threejs',
 									frame: true,
-									viewpoint: [-1,1,0.7],
+									viewpoint: [1,1,0.7],
 									axesLabels: true, 
 									aspectRatio: [1,1,1],
 									
@@ -803,12 +803,12 @@
 								var lim = 5;
 								var res = 50;
 
-								var s = isosurface((x, y, z) => z * y - x + y,
+								var s = isosurface((x, y, z) => z * x - x + y,
 									[-lim, lim, res], [-lim, lim, res], [-lim, lim, res], {
 										colormap: 'hot',
 									});
 
-								var t = isosurface((x, y, z) => x * z -1,
+								var t = isosurface((x, y, z) => x * z + 1,
 									[-lim, lim, res], [-lim, lim, res], [-lim, lim, res], {
 										colormap: 'cool',
 									});
@@ -830,7 +830,7 @@
 								var config = {
 									type: 'threejs',
 									frame: true,
-									viewpoint: [-1,1,0.7],
+									viewpoint: [1,1,0.7],
 									axesLabels: true, 
 									aspectRatio: [1,1,1],
 									
