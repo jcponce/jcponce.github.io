@@ -172,7 +172,7 @@
 									this gives a parametrisation for a
 									hyperbola (only the right branch), since
 									\[
-									\cosh^2 \left(x\right) + \sinh^2\left(x\right)=x^2-y^2=1,
+									\cosh^2 \left(x\right) - \sinh^2\left(x\right)=x^2-y^2=1,
 									\]
 								</span>
 								<span class="fragment" data-fragment-index="1">
@@ -341,40 +341,105 @@
 					<h5>4.2.1 Show that $\ds \frac{d}{dx} \big( \arsinh(x)\big) = \frac{1}{\sqrt{1+x^2}}$</h5>
 					<div class="size-70">
 						<div class="left-txt">
-							<p>Text
+							<p>
 								<span class="fragment" data-fragment-index="0">
-									po
+									Let $y = \sinh^{-1}x$. 
 								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then $x = \sinh\left(y(x)\right).$ &nbsp; ($\star$)
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Thus $\ds \frac{d}{dx}(x)  = \frac{d}{dx} \left(\sinh\left(y(x)\right) \right)$
+								<span class="fragment" data-fragment-index="3">
+									$\;\Ra \ds 1 = \cosh y  \frac{dy}{dx}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\; \ds \Ra  \frac{dy}{dx} = \frac{1}{\cosh y}$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">We know that $\cosh^2 y - \sinh^2 y = 1$.
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								Then $\;\cosh y = \sqrt{1 + \sinh^2 y }$
+								<span class="fragment" data-fragment-index="7">
+									$= \sqrt{1+x^2}\;$ from ($\star$)
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\; \Ra \ds \frac{dy}{dx} = \frac{1}{\sqrt{1+x^2}}$ 
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="9">📝 <strong>Exercise:</strong>
+								Similarly set $y = \arcosh x = \cosh^{-1}x$ to prove that 
+								\[\ds \frac{d}{dx}\left(\cosh^{-1}x\right)  = \frac{1}{\sqrt{x^2-1}}.\]
 							</p>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
-					<h5 style="font-size:80%">4.2.2 Evaluate the integrals $\ds \int \frac{dx}{\sqrt{1+x^2}}$ and $\ds \int \frac{dx}{\sqrt{x^2-1}}$</h5>
+					<h5 style="font-size:75%">4.2.2 Evaluate the integrals $\ds \int \frac{dx}{\sqrt{1+x^2}}$ and $\ds \int \frac{dx}{\sqrt{x^2-1}}$</h5>
 					<div class="size-70">
 						<div class="left-txt">
-							<p>Text
+							<p>
 								<span class="fragment" data-fragment-index="0">
-									po
+									Consider again $\cosh^2 t - \sinh^2 t = 1$.
 								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then $1 + \sinh^2 t = \cosh^2 t.$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Now set $x = \sinh t$
+								<span class="fragment" data-fragment-index="3">
+									$\;\Ra dx = \cosh t dt.$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="4">Thus </p>
+							<p class="fragment" data-fragment-index="4">
+								$\ds \int \frac{dx}{\sqrt{1+x^2}}$
+								<span class="fragment" data-fragment-index="5">
+									$= \ds \int \frac{\cosh t ~dt}{\sqrt{1+ \sinh^2 t}}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= \ds \int \frac{\cosh t}{\cosh t} dt$ 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$= \ds \int dt$ 
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+									&nbsp;  $\,= t + C$ 
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$= \sinh^{-1} x + C.$ 
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="10">📝 <strong>Exercise:</strong>
+								Use the identity $\cosh^2 t - 1 = \sinh^2 t$ to somplify $\sqrt{x^2-1}.$
 							</p>
 						</div>
 					</div>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
 					<h5 >
 						4.2.3 Show that $\ds \frac{d}{dx} \big( \artanh(x)\big) = \frac{1}{\sqrt{1-x^2}}$, $\abs{x}\lt 1$</h5>
+						<br/>
 					<div class="size-70">
 						<div class="left-txt">
-							<p>Text
-								<span class="fragment" data-fragment-index="0">
-									po
-								</span>
+							<p>
+								📝 <strong>Exercise:</strong> This is similar to <a href="#/6/0/9">Example 4.2.1</a>.
 							</p>
 						</div>
 					</div>
+					<br/><br/><br/><br/><br/><br/>
 				</section>
 
 				<section data-auto-animate>
