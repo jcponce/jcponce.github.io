@@ -13,12 +13,10 @@ window.onload = function () {
 
   let verly = new Verly(50, canvas, ctx);
 
-  // ASKBUDDIE
-  let center = height / 2 - 100;
-  let offsetX = 80;
+  
 
   //verly.createCloth(200, 200, 200, 200, 10, 3)
-  let rope = verly.createRope(0, 25, 50, 17, 0);
+  let rope = verly.createRope(20, 25, 55, 14, 0);
   rope.pin(rope.points.length - 1);
   //rope.pin(rope.points.length / 2);
   
