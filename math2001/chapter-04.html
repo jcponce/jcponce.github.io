@@ -470,16 +470,92 @@
 
 				<section data-auto-animate>
 					<h5 >
-						4.2.4 Show that $\arsinh (x) = \ln \left( x +\sqrt{x^2+1}\right)$</h5>
-					<div class="size-70">
+						4.2.4 Show that $\arsinh (x) = \ds \ln \left( x +\sqrt{x^2+1}\right)$</h5>
+					<div class="size-65">
 						<div class="left-txt">
-							<p>Text
+							<p>
 								<span class="fragment" data-fragment-index="0">
-									po
+									Let $y = \arsinh x = \sinh^{-1}x$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\; \Ra x = \sinh y$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$= \ds \frac{e^{y}- e^{-y}}{2}$ &nbsp; ($\star$).
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="3">Our goal is to find $y(x)$ or $\exp\left(y(x)\right)$ from ($\star$).</p>
+
+							<p class="fragment" data-fragment-index="4">
+								From ($\star$) we have that $3x = e^{y}-e^{-y}$
+								<span class="fragment" data-fragment-index="5">
+									$\; \Ra 2x e^{y}= \left(e^{-y}\right)^{2} - 1.$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									That is, \[\left(e^{-y}\right)^{2} -  2x e^{y} - 1=  0.\]
+								</span>
+								
+							</p>
+							<p class="fragment" data-fragment-index="7">This is a quadratic in $e^y$,
+								<span class="fragment" data-fragment-index="8">
+									so
+								</span>
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="8">
+								$e^y = \ds\frac{-b\pm \sqrt{b^2-4ac}}{2a}$
+								<span class="fragment" data-fragment-index="9">
+									$= \ds \frac{-(-2x)\pm \sqrt{(-2x)^2-4(1)(-1)}}{2(1)}$
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="10">
+									$\;\;\quad = x\pm \sqrt{x^2+1}.$
 								</span>
 							</p>
 						</div>
 					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5 >
+						4.2.4 Show that $\arsinh (x) = \ds \ln \left( x +\sqrt{x^2+1}\right)$</h5>
+					<div class="size-65">
+						<div class="left-txt">
+							<p>Thus we have that $e^y= x\pm \sqrt{x^2+1}$. 
+								<span class="fragment" data-fragment-index="0">
+									Now $e^y\gt 0$ for all $y$ and $\sqrt{x^2+1}\gt x$,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then we must take the positive sign: 
+									\[
+									e^y= x+ \sqrt{x^2+1}.
+									\]
+								</span>
+								
+							</p>
+
+							<p class="fragment" data-fragment-index="3">
+								Therefore
+								\[
+								y = \ln\left(x + \sqrt{x^2+1}\right).
+								\]
+							</p>
+
+							<div class="left-txt">
+								<p class="fragment" data-fragment-index="4">
+									📝 <strong>Exercise:</strong> Similarly it can be shown that 
+									\[
+									y = \cosh^{-1} x = \ln\left(x + \sqrt{x^2-1}\right).
+									\]
+								</p>
+							</div>
+							
+						</div>
+						
+					</div>
+					<br/>
 				</section>
 
 
