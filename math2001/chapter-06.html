@@ -239,23 +239,23 @@
 								</p>
 							</div>
 							<div class="left-txt">
-								<p>
+								<p class="fragment" data-fragment-index="0">
 									Thus we have
 								</p>
 							</div>
 							<div>
-								<p>
+								<p  class="fragment" data-fragment-index="0">
 									$\ds \left(  u' y_1' + u y_1'' + v' y_2' + v y_2'' \right)+ 
 									p(x)\left(uy_1' +vy_2'\right) + q(x)\left(uy_1 +vy_2\right)$<br/><br/>
-									<span>
+									<span class="fragment" data-fragment-index="1">
 										$= u \left(y_1'' +p y_1'+qy_1\right)+
 										 v \left(y_2'' +p y_2'+qy_2\right)
 										 + u'y_1'+ v'y_2'$
 									</span><br/><br/>
-									<span>
+									<span class="fragment" data-fragment-index="2">
 										$=  u'y_1'+ v'y_2'$
 									</span>
-									<span>$=$ RHS $=r(x)\quad (\star\star) \quad \qquad \qquad \qquad \;\; $</span>
+									<span class="fragment" data-fragment-index="3">$=$ RHS $=r(x)\quad (\star\star) \quad \qquad \qquad \qquad \;\; $</span>
 								</p>
 							</div>
 						</div>
@@ -273,17 +273,18 @@
 							
 							
 							<div class="left-txt">
-								<p>
+								<p class="fragment" data-fragment-index="0">
 									So the equations for $u$ and $v$:
 									\[
-									\begin{eqnarray*}
-									u'y_1'  + v' y_2'  &=& r(x)\\
-									u'y_1  + v' y_2  &=& 0
+									\left\{ \begin{eqnarray*}
+									u'y_1  + v' y_2  &=& 0\\
+									u'y_1'  + v' y_2'  &=& r(x)
 									\end{eqnarray*}
+									\right.
 									\]
 								</p>
-								<p>Written in matrix form:</p>
-								<p>
+								<p class="fragment" data-fragment-index="1">Written in matrix form:</p>
+								<p class="fragment" data-fragment-index="1">
 									\[
 									\begin{eqnarray*}
 									\left( \begin{matrix}
@@ -312,10 +313,7 @@
 				<section data-auto-animate>
 					<h4 style="font-size:70%">6.1 Derive the formulae for $u(x)$ and $v(x)$ in the variation of
 						parameters</h4>
-						<div class="size-70">
-							
-							
-							
+						<div class="size-60">
 							<div class="left-txt">
 								
 								<p>
@@ -337,33 +335,69 @@
 									\]
 								</p>
 
-								<p>So if $W = \det \left( \begin{matrix}
+								<p class="fragment" data-fragment-index="0">So if $W = \det \left( \begin{matrix}
 									y_1 & y_2 \\
 									y_1' & y_2'
 									\end{matrix}\right) \neq 0$, 
-									<span>then</span>
+									<span class="fragment" data-fragment-index="1">then</span>
 								</p>
-								<p>
-									
-									\[
-									\begin{eqnarray*}
-									\left( \begin{matrix}
-									y_1 & y_2 \\
-									y_1' & y_2'
-									\end{matrix}\right) 
-									\left( \begin{matrix}
-									u'   \\
-									v' 
-									\end{matrix}\right) 
-									&=& \left( \begin{matrix}
-									0   \\
-									r(x) 
-									\end{matrix}\right).
-									\end{eqnarray*}
-									\]
-									
-								</p>
+								
 
+							</div>
+							<div >
+								
+								<p style="margin-top: 1.5em ;
+								margin-bottom: 1em ;"  class="fragment" data-fragment-index="1">
+										$\ds \left( \begin{matrix}
+										u'   \\
+										v' 
+										\end{matrix}\right) $
+										<span class="fragment" data-fragment-index="2">
+											$=
+											\ds 
+											\left( \begin{matrix}
+											y_1 & y_2 \\
+											y_1' & y_2'
+											\end{matrix}\right)^{-1}  
+											\left( \begin{matrix}
+										     0\\
+										    r(x)
+										    \end{matrix}\right)$
+										</span>
+										<span class="fragment" data-fragment-index="3">
+											$=
+											\ds \frac{1}{W}
+											\left( \begin{matrix}
+											y_2' & -y_2 \\
+											-y_1' & y_1
+											\end{matrix}\right)
+											\left( \begin{matrix}
+										     0\\
+										    r(x)
+										    \end{matrix}\right)$
+										</span>
+										<span class="fragment" data-fragment-index="4">
+											$=
+											\ds \frac{1}{W} 
+											\left( \begin{matrix}
+										    -y_2 r(x)\\
+										    y_1 r(x)
+										    \end{matrix}\right)$
+										</span>
+										
+									
+								</p>
+								<p style="margin-top: 1.5em ;
+								margin-bottom: 1em ;"
+								 class="fragment" data-fragment-index="5">
+									$\Ra u' = \ds \frac{-y_2r(x)}{W}\;\;$ and $\;\;\ds v'= \frac{y_1r(x)}{W} \qquad$
+								</p>
+								<p style="margin-top: 1.5em ;
+								margin-bottom: 1em ;"
+								 class="fragment" data-fragment-index="6">
+									$\Ra u = \ds - \int \frac{y_2r(x)}{W}dx\;\;$ and $\;\;\ds v= \int \frac{y_1r(x)}{W}dx .$
+									<span class="fragment" data-fragment-index="7">$\quad \blacksquare$</span>
+								</p>
 							</div>
 							
 						</div>
