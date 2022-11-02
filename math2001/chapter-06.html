@@ -183,61 +183,194 @@
 				<section data-auto-animate>
 					<h4 style="font-size:70%">6.1 Derive the formulae for $u(x)$ and $v(x)$ in the variation of
 						parameters</h4>
-					<div class="size-65">
+					<div class="size-70">
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
 									Suppose that we have solved $y'' + p(x) y' + q(x) y = 0.$
 								</span>
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="1">
 									Then $y_1$, $y_2$ such that $y_H = A y_1 + B y_2.$
 								</span>
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="2">
 									Look for $y_p = u(x) y_1 + v(x) y_2.$
 								</span>
 							</p>
 							
-							<p>
+							<p class="fragment" data-fragment-index="3">
 								Substitute into ODE and try to choose $u,v$ to solve the problem.
-								<span>
+								<span class="fragment" data-fragment-index="4">
 									That is, substitute into LHS:
 								</span>
 							</p>
 						</div>
+						<div class="fragment" data-fragment-index="4">
+							<p>$y_p' = u'y_1 + u y_1'+ v'y_2+vy_2'$</p>
+						</div>
+						
 						<div>
-							<p>$y_p = u'y_1 + u y_1'+ v'y_2+vy_2'$</p>
+							<p class="fragment" data-fragment-index="6">Now set &nbsp; $v' y_2 + u'y_1 = 0$ &nbsp;&nbsp;&nbsp;($\star$)</p>
 						</div>
+						
 						<div class="left-txt">
-							<p >Now set</p>
-						</div>
-						<div>
-							<p> $v' y_2 + u'y_1 = 0$ &nbsp;&nbsp;&nbsp;($\star$)</p>
-						</div>
-						<div class="left-txt">
-							<p >Then 
+							<p  class="fragment" data-fragment-index="7">Then 
+								<span class="fragment" data-fragment-index="7">&nbsp;$y_p' = u y_1'+ vy_2' + 0$</span>
+							    <span class="fragment" data-fragment-index="8">&nbsp;$\Ra y_p'' = u' y_1' + u y_1'' + v' y_2' + v y_2''.$</span>
 							</p>
 						</div>
 						<div>
-							<p>$y_p' = u y_1'+ vy_2' + 0$</p>
-							<p>$\Ra y_p'' = u' y_1' + u y_1'' + v' y_2' + v y_2''$</p>
+							
 						</div>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4 style="font-size:70%">6.1 Derive the formulae for $u(x)$ and $v(x)$ in the variation of
 						parameters</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									Suppose that we have solved $y'' + p(x) y' q(x) y = 0.$
-								</span>
-							</p>
+						<div class="size-70">
+							<div>
+								<p>Now set &nbsp; $v' y_2 + u'y_1 = 0$ &nbsp;&nbsp;&nbsp;($\star$)</p>
+							</div>
+							
+							<div>
+								<p >
+									$ y_p'' = u' y_1' + u y_1'' + v' y_2' + v y_2''.$</span>
+								</p>
+							</div>
+							<div class="left-txt">
+								<p>
+									Thus we have
+								</p>
+							</div>
+							<div>
+								<p>
+									$\ds \left(  u' y_1' + u y_1'' + v' y_2' + v y_2'' \right)+ 
+									p(x)\left(uy_1' +vy_2'\right) + q(x)\left(uy_1 +vy_2\right)$<br/><br/>
+									<span>
+										$= u \left(y_1'' +p y_1'+qy_1\right)+
+										 v \left(y_2'' +p y_2'+qy_2\right)
+										 + u'y_1'+ v'y_2'$
+									</span><br/><br/>
+									<span>
+										$=  u'y_1'+ v'y_2'$
+									</span>
+									<span>$=$ RHS $=r(x)\quad (\star\star) \quad \qquad \qquad \qquad \;\; $</span>
+								</p>
+							</div>
 						</div>
-					</div>
+						<br/><br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:70%">6.1 Derive the formulae for $u(x)$ and $v(x)$ in the variation of
+						parameters</h4>
+						<div class="size-70">
+							<div>
+								<p>$v' y_2 + u'y_1 = 0$ &nbsp;&nbsp;&nbsp;($\star$)</p>
+								<p>$u'y_1'+ v'y_2' = r(x)$ &nbsp;&nbsp;&nbsp; ($\star\star$)</p>
+							</div>
+							
+							
+							<div class="left-txt">
+								<p>
+									So the equations for $u$ and $v$:
+									\[
+									\begin{eqnarray*}
+									u'y_1'  + v' y_2'  &=& r(x)\\
+									u'y_1  + v' y_2  &=& 0
+									\end{eqnarray*}
+									\]
+								</p>
+								<p>Written in matrix form:</p>
+								<p>
+									\[
+									\begin{eqnarray*}
+									\left( \begin{matrix}
+									y_1 & y_2 \\
+									y_1' & y_2'
+									\end{matrix}\right) 
+									\left( \begin{matrix}
+									u'   \\
+									v' 
+									\end{matrix}\right) 
+									&=& \left( \begin{matrix}
+									0   \\
+									r(x) 
+									\end{matrix}\right).
+									\end{eqnarray*}
+									\]
+								</p>
+
+							</div>
+							
+						</div>
+						<br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4 style="font-size:70%">6.1 Derive the formulae for $u(x)$ and $v(x)$ in the variation of
+						parameters</h4>
+						<div class="size-70">
+							
+							
+							
+							<div class="left-txt">
+								
+								<p>
+									\[
+									\begin{eqnarray*}
+									\left( \begin{matrix}
+									y_1 & y_2 \\
+									y_1' & y_2'
+									\end{matrix}\right) 
+									\left( \begin{matrix}
+									u'   \\
+									v' 
+									\end{matrix}\right) 
+									&=& \left( \begin{matrix}
+									0   \\
+									r(x) 
+									\end{matrix}\right).
+									\end{eqnarray*}
+									\]
+								</p>
+
+								<p>So if $W = \det \left( \begin{matrix}
+									y_1 & y_2 \\
+									y_1' & y_2'
+									\end{matrix}\right) \neq 0$, 
+									<span>then</span>
+								</p>
+								<p>
+									
+									\[
+									\begin{eqnarray*}
+									\left( \begin{matrix}
+									y_1 & y_2 \\
+									y_1' & y_2'
+									\end{matrix}\right) 
+									\left( \begin{matrix}
+									u'   \\
+									v' 
+									\end{matrix}\right) 
+									&=& \left( \begin{matrix}
+									0   \\
+									r(x) 
+									\end{matrix}\right).
+									\end{eqnarray*}
+									\]
+									
+								</p>
+
+							</div>
+							
+						</div>
+						<br/>
+				</section>
+
+				
 
 			</section>
 
