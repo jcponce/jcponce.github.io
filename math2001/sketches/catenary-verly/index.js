@@ -16,7 +16,7 @@ window.onload = function () {
   
 
   //verly.createCloth(200, 200, 200, 200, 10, 3)
-  let rope = verly.createRope(20, 25, 55, 14, 0);
+  let rope = verly.createRope(50, 30, 70, 10, 0);
   rope.pin(rope.points.length - 1);
   //rope.pin(rope.points.length / 2);
   
