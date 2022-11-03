@@ -1021,15 +1021,17 @@
 								</span>
 								<span class="fragment" data-fragment-index="2">
 									we have
-									$$
-									[\bfu]_\beta=\begin{pmatrix} a\\ b \end{pmatrix}
-									\qquad\text{and}\qquad
-									[\bfu]_{\beta'}=
-									\begin{pmatrix} a\\ \frac{1}{2}(b-a) \end{pmatrix}.
-									$$
-
 								</span>
-
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+								$$
+								[\bfu]_\beta=\begin{pmatrix} a\\ b \end{pmatrix}
+								\qquad\text{and}\qquad
+								[\bfu]_{\beta'}=
+								\begin{pmatrix} a\\ \frac{1}{2}(b-a) \end{pmatrix}.
+								$$
+								</span>
 							</p>
 							<p class="fragment" data-fragment-index="3">
 								The corresponding transition matrix
@@ -1042,15 +1044,24 @@
 
 				<section data-auto-animate>
 					<h4>7.10 Transition matrix</h4>
-					<div class="size-70">
+					<div class="size-65">
 						<div class="left-txt">
-
+							<p>
+								<span>
+								$$
+								[\bfu]_\beta=\begin{pmatrix} a\\ b \end{pmatrix}
+								\qquad\text{and}\qquad
+								[\bfu]_{\beta'}=
+								\begin{pmatrix} a\\ \frac{1}{2}(b-a) \end{pmatrix}.
+								$$
+								</span>
+							</p>
 							<p>
 								The corresponding transition matrix
 								$P_{\beta\to\beta'}$ is given as follows:
 							</p>
 
-							<p class="fragment" data-fragment-index="0">We have
+							<p class="fragment" data-fragment-index="0">
 								\[
 								\begin{pmatrix} a\\ \frac{1}{2}(b-a) \end{pmatrix}
 								=
@@ -1073,7 +1084,7 @@
 
 						</div>
 					</div>
-					<br /> <br />
+					<br /> 
 				</section>
 
 				<section data-auto-animate>
@@ -1097,11 +1108,94 @@
 								</span>
 							</p>
 
+							<p class="fragment" data-fragment-index="1">
+								We can check this for our example:
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								We have that $\beta = \left\{\v_1, \v_2\right\}=  \left\{1, x\right\}$
+								and $\beta' = \left\{\v_1', \v_2'\right\}=  \left\{1+x, 2x\right\}.$
+							</p>
 
 
 						</div>
 					</div>
-					<br /> <br /><br /> <br /><br />
+					<br /> <br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>7.10 Transition matrix</h4>
+					<div class="size-65">
+						<div class="left-txt">
+							
+							<p>
+								We have that $\beta = \left\{\v_1, \v_2\right\}=  \left\{1, x\right\}$
+								and $\beta' = \left\{\v_1', \v_2'\right\}=  \left\{1+x, 2x\right\}.$
+							</p>
+						</div>
+						<div>
+							<p>
+								$\v_1 = 1$
+								<span>
+									$= a_1 \v_1' + a_2 \v_2'$
+								</span>
+								<span>
+									$=a_1\left(1+ x\right)+a_2\left(2x\right)$
+								</span>
+								<span>
+									$=a_1+ \left(a_1+ 2a_2\right)x.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>Comparing coefficients we get $a_1=1$ 
+								and $a_1+2a_2 = 0$, that is, $a_2 = -\dfrac{1}{2}.$
+							</p>
+							<p>Thus $\ds\left[\v_1\right]_{\beta'}=\begin{pmatrix} 1\\ -\frac{1}{2} \end{pmatrix}.$</p>
+						</div>
+						<div>
+							<p>
+								$\v_2 = x$
+								<span>
+									$= a_1 \v_1' + a_2 \v_2'$
+								</span>
+								<span>
+									$=a_1+ \left(a_1+ 2a_2\right)x.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>Comparing coefficients we get: $a_1=0$ 
+								and $a_2 = \dfrac{1}{2}.$ Thus $\ds\left[\v_2\right]_{\beta'}=\begin{pmatrix} 0\\ \frac{1}{2} \end{pmatrix}.$</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>7.10 Transition matrix</h4>
+					<br />
+					<div class="size-70">
+						<div>
+							
+							<p>
+								$\ds\left[\v_1\right]_{\beta'}=\begin{pmatrix} 1\\ -\frac{1}{2} \end{pmatrix}\;\;$
+								and
+								$\;\;\ds\left[\v_2\right]_{\beta'}=\begin{pmatrix} 0\\ \frac{1}{2} \end{pmatrix}$
+							</p>
+						</div>
+						<br />
+						
+						<div>
+							<p>
+								Therefore $P_{\beta\ra \beta'} = 
+								\left( \left[ \v_1\right]_{\beta'} ~|~
+								\left[ \v_2\right]_{\beta'} \right)
+								=  \ds\left[\v_1\right]_{\beta'}=\begin{pmatrix} 1 & 0 \\ -\frac{1}{2} & \frac{1}{2}\end{pmatrix}.$
+							</p>
+						</div>
+						
+					</div>
+					<br /><br /><br />
 				</section>
 
 			</section>
