@@ -63,33 +63,333 @@
 			<section>
 				<h3>8 Real inner product spaces</h3>
 				<div class="left-txt size-80">
-					<br/>
+					<br />
 					<p>
-						By the end of this section, you should understand 
-						the definition of inner product space, and be aware 
-						of many new examples. 
- 
+						By the end of this section, you should understand
+						the definition of inner product space, and be aware
+						of many new examples.
+
 					</p>
 
-					<br/>
+					<br />
 
 					<p class="fragment" data-fragment-index="0">
 						Every vector space in this section is real.
 					</p>
-					
 
-					
 
-					
+
+
+
 				</div>
-				<br/><br/><br/><br/>
+				<br /><br /><br /><br />
 
-				
+
 
 			</section>
 
 
+			<section>
 
+				<section data-auto-animate>
+					<h4>8.1 Dot product</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									The familiar <strong>dot product</strong>, $\bfu\cdot\bfv$, of the two vectors
+									$\bfu,\bfv\in\R^3$ is given by
+									$$
+									\bfu\cdot\bfv=u_1v_1+u_2v_2+u_3v_3,
+									$$
+									where $\bfu=(u_1,u_2,u_3)$ and $\bfv=(v_1,v_2,v_3)$.
+
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								This dot product has the following key properties:
+							</p>
+						</div>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>8.1 Dot product</h4>
+					<div class="size-70">
+						<div class="left-txt">
+
+							<p>
+								This dot product has the following key properties:
+							</p>
+						</div>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>8.2 Inner product</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Inspired by the dot product on $\R^n$, we
+									define a so-called inner product on a
+									general real vector space
+									by elevating the key properties of the dot product to axioms.
+
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Accordingly, an <strong>inner product</strong> on $V$ is a function that takes each
+								ordered pair $(\bfu,\bfv)$ of elements of $V$ to
+								a real number, denoted by $\langle\bfu,\bfv\rangle$, such that for all
+								$\bfu,\bfv,\bfw\in V$ and all $k\in\R$:
+							</p>
+						</div>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>8.2 Inner product</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							
+							<p>
+								Accordingly, an <strong>inner product</strong> on $V$ is a function that takes each
+								ordered pair $(\bfu,\bfv)$ of elements of $V$ to
+								a real number, denoted by $\langle\bfu,\bfv\rangle$, such that for all
+								$\bfu,\bfv,\bfw\in V$ and all $k\in\R$:
+							</p>
+
+							
+							
+						</div>
+					</div>
+
+					<div class="size-70">
+						<div class="left-txt">
+							<table id="eqarray">
+									<tr>
+										<td>
+											<strong>(I1)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu,\bfv\rangle=\langle\bfv,\bfu\rangle$
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I2)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu+\bfv,\bfw\rangle=\langle\bfu,\bfw\rangle+\langle\bfv,\bfw\rangle$
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I3)</strong>
+											
+										</td>
+										<td>
+											$\langle k\cdot\bfu,\bfv\rangle=k\langle\bfu,\bfv\rangle$
+	
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I4)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu,\bfu\rangle\geq0$
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I5)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu,\bfu\rangle=0$ iff $\bfu={\bf 0}$ (where ${\bf 0}$ is the unique zero vector)
+										</td>
+									</tr>
+								</table>
+							
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>8.2 Inner product</h4>
+					<div class="size-50">
+						<div class="left-txt">
+							<table id="eqarray">
+									<tr>
+										<td>
+											<strong>(I1)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu,\bfv\rangle=\langle\bfv,\bfu\rangle$
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I2)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu+\bfv,\bfw\rangle=\langle\bfu,\bfw\rangle+\langle\bfv,\bfw\rangle$
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I3)</strong>
+											
+										</td>
+										<td>
+											$\langle k\cdot\bfu,\bfv\rangle=k\langle\bfu,\bfv\rangle$
+	
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I4)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu,\bfu\rangle\geq0$
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>(I5)</strong>
+											
+										</td>
+										<td>
+											$\langle\bfu,\bfu\rangle=0$ iff $\bfu={\bf 0}$ (where ${\bf 0}$ is the unique zero vector)
+										</td>
+									</tr>
+								</table>
+							
+						</div>
+					</div>
+					<div class="size-65 left-txt">
+						<p>
+							A vector space with an inner product associated to it is called an <strong>inner product space</strong>.
+							<span class="fragment" data-fragment-index="0">
+								As we are assuming that all vector spaces are real in this section, we have thus introduced the notion of a 
+							    <strong>real</strong> inner product space.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+
+							One can also define inner products on complex vector spaces, thereby introducing <strong>complex</strong> inner product spaces,
+							but they are beyond the scope of these lectures.
+							</span>
+						</p>
+					</div>
+					<br /><br />
+				</section>
+
+			</section>
+
+			
+			<section data-auto-animate>
+					<h4>8.3 Example: Weighted dot product</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span class="fragment" data-fragment-index="0">
+									text
+								</span>
+							</p>
+						</div>
+					</div>
+			
+			</section>
+
+			
+			<section data-auto-animate>
+					<h4>8.4 Example: Inner product generated by a matrix</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span class="fragment" data-fragment-index="0">
+									text
+								</span>
+							</p>
+						</div>
+					</div>
+			
+			</section>
+
+
+			
+			<section data-auto-animate>
+				<h4>8.5 Example: Inner product on $M_{n,n}(\R)$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span class="fragment" data-fragment-index="0">
+									text
+								</span>
+							</p>
+						</div>
+					</div>
+				
+			</section>
+
+			<section data-auto-animate>
+				<h4>8.6 Example: Standard inner product on $P_n(\R)$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span class="fragment" data-fragment-index="0">
+									text
+								</span>
+							</p>
+						</div>
+					</div>
+				
+			</section>
+
+			<section data-auto-animate>
+				<h4>8.7 Example: Evaluation inner product on $P_n(\R)$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span class="fragment" data-fragment-index="0">
+									text
+								</span>
+							</p>
+						</div>
+					</div>
+				
+			</section>
+
+			<section data-auto-animate>
+				<h4>8.8 Example: Inner product on $C[a,b]$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>Text
+								<span class="fragment" data-fragment-index="0">
+									text
+								</span>
+							</p>
+						</div>
+					</div>
+				
+			</section>
 
 
 
