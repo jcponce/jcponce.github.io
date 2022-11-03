@@ -92,7 +92,7 @@
 
 				<section data-auto-animate>
 					<h3>6 Variation of parameters</h3>
-					<div class="left-txt size-60">
+					<div class="left-txt size-65">
 						<p>
 							The method of undetermined coeffcients is 
 							very easy to apply, but only works for
@@ -135,7 +135,7 @@
 
 				<section data-auto-animate>
 					<h3>6 Variation of parameters</h3>
-					<div class="left-txt size-60">
+					<div class="left-txt size-65">
 						
 						<ul>
 							<li>
@@ -187,25 +187,32 @@
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
+									Consider the nonhomogeneous ODE $y'' + p(x) y' + q(x) y = r(x)\;\;(1)$.
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="1">
 									Suppose that we have solved $y'' + p(x) y' + q(x) y = 0.$
 								</span>
-								<span class="fragment" data-fragment-index="1">
-									Then $y_1$, $y_2$ such that $y_H = A y_1 + B y_2.$
-								</span>
 								<span class="fragment" data-fragment-index="2">
-									Look for $y_p = u(x) y_1 + v(x) y_2.$
+									That is, we have $y_1$, $y_2$ such that $y_H = A y_1 + B y_2.$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									We are looking for 
+									\[
+									y_p = u(x) y_1 + v(x) y_2 \qquad (2).
+									\]
 								</span>
 							</p>
 							
 							<p class="fragment" data-fragment-index="3">
-								Substitute into ODE and try to choose $u,v$ to solve the problem.
+								We determine $u$ and $v$ so that (2) is a particular 
+								solution of the nonhomogeneous ODE  (1).
 								<span class="fragment" data-fragment-index="4">
-									That is, substitute into LHS:
+									First, differentiating (2) we obtain
 								</span>
 							</p>
 						</div>
 						<div class="fragment" data-fragment-index="4">
-							<p>$y_p' = u'y_1 + u y_1'+ v'y_2+vy_2'$</p>
+							<p>$y_p' = u'y_1 + u y_1'+ v'y_2+vy_2'.$</p>
 						</div>
 						
 						<div>
@@ -222,7 +229,7 @@
 							
 						</div>
 					</div>
-					<br/><br/>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -230,17 +237,24 @@
 						parameters</h4>
 						<div class="size-70">
 							<div>
-								<p>Now set &nbsp; $u'y_1 + v' y_2 = 0$ &nbsp;&nbsp;&nbsp;($\star$)</p>
+								<p>$u'y_1 + v' y_2 = 0$ &nbsp;&nbsp;&nbsp;($\star$)</p>
 							</div>
 							
 							<div>
-								<p >
-									$ y_p'' = u' y_1' + u y_1'' + v' y_2' + v y_2''.$</span>
+								<p>
+									\[
+									\begin{eqnarray} 
+									y_p &=& u y_1 + v y_2,\\
+									y_p' &=& u'y_1 + v'y_2,\\
+									y_p'' &=& u' y_1' + u y_1'' + v' y_2' + v y_2''.
+									\end{eqnarray}
+									\]
 								</p>
+								
 							</div>
 							<div class="left-txt">
 								<p class="fragment" data-fragment-index="0">
-									Thus we have
+									Thus, substituting these values into the nonhomogenous <a href="">(1)</a> we have
 								</p>
 							</div>
 							<div>
@@ -255,7 +269,7 @@
 									<span class="fragment" data-fragment-index="2">
 										$=  u'y_1'+ v'y_2'$
 									</span>
-									<span class="fragment" data-fragment-index="3">$=$ RHS $=r(x)\quad (\star\star) \quad \qquad \qquad \qquad \;\; $</span>
+									<span class="fragment" data-fragment-index="3">$=r(x)\quad (\star\star) \quad \qquad \qquad \qquad \;\; $</span>
 								</p>
 							</div>
 						</div>
@@ -274,7 +288,8 @@
 							
 							<div class="left-txt">
 								<p class="fragment" data-fragment-index="0">
-									So the equations for $u$ and $v$:
+									Here we have a linear system of two algebraic equations
+									for $u'$ and $v'$:
 									\[
 									\left\{ \begin{eqnarray*}
 									u'y_1  + v' y_2  &=& 0\\
