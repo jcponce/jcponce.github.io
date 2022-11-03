@@ -62,7 +62,7 @@
 
 			<section>
 				<h3>7 Vector spaces</h3>
-				<div class="left-txt size-70">
+				<div class="left-txt size-75">
 					<p>
 						By the end of this section, you should be able to understand:
 					</p>
@@ -82,22 +82,610 @@
 					</ul>
 
 					<p class="fragment" data-fragment-index="4">
-						<strong>Notation.</strong> For the next set of lectures on 
-						linear algebra, $F$ stands for R or C. Thus, if a statement 
-						holds for or applies to both number sets, we may simply 
-						state it for F. Elements of F are often called scalars.
+						<strong>Notation.</strong> For the next set of lectures on
+						linear algebra, $\BF$ stands for $\R$ or $\C.$ Thus, if a statement
+						holds for or applies to both number sets, we may simply
+						state it for $\BF.$ Elements of $\BF$ are often called scalars.
 					</p>
 
-					
-				</div>
-				<br/><br/>
 
-				
+				</div>
+				<br /><br />
+
+
 
 			</section>
 
 
+			<section>
+				<section data-auto-animate>
+					<h4>7.1 Definition</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								Let $V$ be a nonempty set on which are defined
+								operations "$+$" (called addition) and "$\cdot$"
+								(called scalar multiplication).
 
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
+								all $\bfu,\bfv,\bfw\in V$ and all $k,\ell\in\BF$:
+							</p>
+
+
+
+							<table id="eqarray">
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V1)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv\in V$ (closure)
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="2">
+									<td>
+										<strong>(V2)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="3">
+									<td>
+										<strong>(V3)</strong>
+									</td>
+									<td>
+										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+									</td>
+								</tr>
+
+							</table>
+
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>7.1 Definition</h4>
+					<div class="size-45 left-txt">
+						<p>
+							$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
+							all $\bfu,\bfv,\bfw\in V$ and all $k,\ell\in\BF$:
+						</p>
+					</div>
+					<div class="size-60">
+						<div class="left-txt">
+
+
+
+							<table id="eqarray">
+								<tr>
+									<td>
+										<strong>(V1)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv\in V$ (closure)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<strong>(V2)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V3)</strong>
+									</td>
+									<td>
+										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="0">
+									<td>
+										<strong>(V4)</strong>
+									</td>
+									<td>
+										$\exists\,{\bf 0}\in V$ such that $\bfu+{\bf 0}=\bfu$ (zero vector, or additive
+										identity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V5)</strong>
+									</td>
+									<td>
+										For each $\bfu\in V$, $\exists\,(-\bfu)\in V$ such that $\bfu+(-\bfu)={\bf 0}$
+										(additive inverse)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="2">
+									<td>
+										<strong>(V6)</strong>
+									</td>
+									<td>
+										$k\cdot\bfu\in V$ (closure)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="3">
+									<td>
+										<strong>(V7)</strong>
+									</td>
+									<td>
+										$k\cdot(\bfu+\bfv)=k\cdot\bfu+k\cdot\bfv$ (multiplicative-additive
+										distributivity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="4">
+									<td>
+										<strong>(V8)</strong>
+									</td>
+									<td>
+										$(k+\ell)\cdot\bfu=k\cdot\bfu+\ell\cdot\bfu$ (additive-multiplicative
+										distributivity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="5">
+									<td>
+										<strong>(V9)</strong>
+									</td>
+									<td>
+										$k\cdot(\ell\cdot\bfu)=(k\ell)\cdot\bfu$ (multiplicative-multiplicative
+										distributivity)
+
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="6">
+									<td>
+										<strong>(V10)</strong>
+									</td>
+									<td>
+										$1\cdot\bfu=\bfu$ (multiplicative identity)
+									</td>
+								</tr>
+
+							</table>
+
+
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>7.1 Definition</h4>
+
+					<div class="size-40">
+						<div class="left-txt">
+
+							<table id="eqarray">
+								<tr>
+									<td>
+										<strong>(V1)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv\in V$ (closure)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<strong>(V2)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V3)</strong>
+									</td>
+									<td>
+										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<strong>(V4)</strong>
+									</td>
+									<td>
+										$\exists\,{\bf 0}\in V$ such that $\bfu+{\bf 0}=\bfu$ (zero vector, or additive
+										identity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V5)</strong>
+									</td>
+									<td>
+										For each $\bfu\in V$, $\exists\,(-\bfu)\in V$ such that $\bfu+(-\bfu)={\bf 0}$
+										(additive inverse)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V6)</strong>
+									</td>
+									<td>
+										$k\cdot\bfu\in V$ (closure)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V7)</strong>
+									</td>
+									<td>
+										$k\cdot(\bfu+\bfv)=k\cdot\bfu+k\cdot\bfv$ (multiplicative-additive
+										distributivity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V8)</strong>
+									</td>
+									<td>
+										$(k+\ell)\cdot\bfu=k\cdot\bfu+\ell\cdot\bfu$ (additive-multiplicative
+										distributivity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V9)</strong>
+									</td>
+									<td>
+										$k\cdot(\ell\cdot\bfu)=(k\ell)\cdot\bfu$ (multiplicative-multiplicative
+										distributivity)
+
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V10)</strong>
+									</td>
+									<td>
+										$1\cdot\bfu=\bfu$ (multiplicative identity)
+									</td>
+								</tr>
+
+							</table>
+
+
+
+						</div>
+
+					</div>
+					<div class="size-65">
+						<div class="left-txt">
+							<p>The scalar multiplication symbol is often omitted.
+								Elements of a vector space are usually called vectors.</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+			</section>
+
+
+			<section data-auto-animate>
+				<h4>7.2 Example: $\BF^n$ - set of $n$-tuples</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>Text
+							<span class="fragment" data-fragment-index="0">
+								Text
+							</span>
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h4>7.3 Example: $M_{m,n}(\BF)$ - set of $m\times n$ matrices</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>Text
+							<span class="fragment" data-fragment-index="0">
+								Text
+							</span>
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h4 style="font-size:72%">7.4 Example: $C[a,b]$ - set of continuous real-valued functions on $[a,b]$
+				</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>Text
+							<span class="fragment" data-fragment-index="0">
+								Text
+							</span>
+						</p>
+					</div>
+				</div>
+			</section>
+
+
+			<section data-auto-animate>
+				<h4 style="font-size:85%">7.5 Example: $P_n(\BF)$ - set of polynomials of degree at most $n$</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>Text
+							<span class="fragment" data-fragment-index="0">
+								Text
+							</span>
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h4 style="font-size:80%">7.6 Example: Set of solutions to a homogeneous linear ODE</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>Text
+							<span class="fragment" data-fragment-index="0">
+								Text
+							</span>
+						</p>
+					</div>
+				</div>
+			</section>
+
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>7.7 Familiar concepts in linear algebra</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Here we lists several concepts with which you should already be familiar.
+								</span>
+							</p>
+
+							<ul>
+								<li class="fragment" data-fragment-index="1">
+									<strong>Linear combination</strong>
+
+									For $v_1,v_2,\ldots,v_n\in V$ and $\alpha_1,\alpha_2,\ldots,\alpha_n\in
+									\mathbb{F}$, we call
+									$$
+									\alpha_1 v_1+\alpha_2 v_2+\cdots +\alpha_n v_n
+									$$
+									a <em>linear combination</em> of the vectors $v_1,v_2,\ldots,v_n$.
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									<strong>Linear independence</strong>
+
+									A non-empty set of vectors $S=\{v_1,v_2,\ldots,v_n\}$ in $V$ is said to be <em>linearly
+										dependent</em> if there exist scalars $\alpha_1,\alpha_2,\ldots,\alpha_n$ not all zero such that 
+									$$
+									\alpha_1 v_1+\alpha_2v_2 + \cdots + \alpha_n v_n=0.
+									$$
+									Otherwise, $S$ is called <strong>linearly independent</strong>, i.e. $S$ is linearly independent if
+									$$
+									\alpha_1 v_1+\alpha_2v_2 + \cdots + \alpha_n v_n=0 \ \ \Rightarrow \ \ 
+									\alpha_1=\alpha_2=\cdots=\alpha_n=0.
+									$$
+									
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>7.7 Familiar concepts in linear algebra</h4>
+					<div class="size-65">
+						<div class="left-txt">
+							<p>
+								<span>
+									Here we lists several concepts with which you should already be familiar.
+								</span>
+							</p>
+
+							<ul>
+								<li>
+									<strong>Subspace</strong>
+
+										A subset $W\subseteq V$ is called a <em>subspace</em> if $W$ is also a real vector
+										space with the same addition and scalar multiplication. In particular, $W$ is required to close
+										under addition and scalar multiplication.
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									<strong>Span</strong>
+
+										The <em>span</em> of a non-empty set of vectors $S=\{v_1,v_2,\ldots,v_n\}$ in $V$ is the
+										set of all linear combinations of vectors in $S$, denoted span$(S)$. The set span$(S)$ is a subspace
+										of $V$.
+									
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>7.7 Familiar concepts in linear algebra</h4>
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<span>
+									Here we lists several concepts with which you should already be familiar.
+								</span>
+							</p>
+
+							<ul>
+								<li >
+									<strong>Linear combination</strong>
+
+									For $v_1,v_2,\ldots,v_n\in V$ and $\alpha_1,\alpha_2,\ldots,\alpha_n\in
+									\mathbb{F}$, we call
+									$$
+									\alpha_1 v_1+\alpha_2 v_2+\cdots +\alpha_n v_n
+									$$
+									a <em>linear combination</em> of the vectors $v_1,v_2,\ldots,v_n$.
+								</li>
+								<li>
+									<strong>Linear independence</strong>
+
+									A non-empty set of vectors $S=\{v_1,v_2,\ldots,v_n\}$ in $V$ is said to be <em>linearly
+										dependent</em> if there exist scalars $\alpha_1,\alpha_2,\ldots,\alpha_n$ not all zero such that 
+									$$
+									\alpha_1 v_1+\alpha_2v_2 + \cdots + \alpha_n v_n=0.
+									$$
+									Otherwise, $S$ is called <strong>linearly independent</strong>, i.e. $S$ is linearly independent if
+									$$
+									\alpha_1 v_1+\alpha_2v_2 + \cdots + \alpha_n v_n=0 \ \ \Rightarrow \ \ 
+									\alpha_1=\alpha_2=\cdots=\alpha_n=0.
+									$$
+									
+								</li>
+								<li>
+									<strong>Subspace</strong>
+
+										A subset $W\subseteq V$ is called a <em>subspace</em> if $W$ is also a real vector
+										space with the same addition and scalar multiplication. In particular, $W$ is required to close
+										under addition and scalar multiplication.
+								</li>
+								<li>
+									<strong>Span</strong>
+
+										The <em>span</em> of a non-empty set of vectors $S=\{v_1,v_2,\ldots,v_n\}$ in $V$ is the
+										set of all linear combinations of vectors in $S$, denoted span$(S)$. The set span$(S)$ is a subspace
+										of $V$.
+									
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>7.8 Basis</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $\beta=\{\bfv_1,\ldots,\bfv_n\}$ be a set of vectors in the vector space $V$.
+									
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\,\beta$ is a <strong>basis</strong> for $V$ if
+								</span>
+							</p>
+							<table id="eqarray">
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(B1)</strong>
+									</td>
+									<td>
+										$\,\beta$ is linearly independent;
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="2">
+									<td>
+										<strong>(B2)</strong>
+									</td>
+									<td>
+										$\,\beta$ spans $V$.
+									</td>
+								</tr>
+							</table>
+
+							<p class="fragment" data-fragment-index="3">Note that the notion of a basis is only defined here for finite sets.
+								A nonzero vector space is <strong>finite-dimensional</strong> if it contains a finite set of vectors that forms a basis.
+								<span class="fragment" data-fragment-index="4">
+									If no such set exists, the vector space is <strong>infinite-dimentional</strong>.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								Let $V$ be a finite-dimensional vector space. 
+								<span class="fragment" data-fragment-index="6">
+									The number of vectors in any basis for $V$ is the same, and this number
+								is known as the <strong>dimension</strong> of $V$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>7.8 Basis</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								An <strong>ordered basis</strong> for a vector space is a 
+								basis endowed with a specific order. 
+								For some vector spaces, there is a canonical 
+								ordered basis, called a <strong>standard basis</strong>.
+							</p>
+							
+						</div>
+					</div>
+					<br/>
+				</section>
+
+			</section>
+
+
+			<section>
+				<h4>7.9 Decomposition theorem</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>
+							<span>
+								Let $\beta=\{\bfv_1,\ldots,\bfv_n\}$ be a set 
+								of vectors in the vector space $V$. Then, 
+								$\beta$ is a basis for $V$ iff 
+								each $\bfw\in V$ can be uniquely 
+								expressed as a linear combination of vectors in $\beta$.
+							</span>
+						</p>
+						
+					</div>
+				</div>
+				<br/>
+			</section>
 
 
 
