@@ -449,42 +449,33 @@
 
 				<section data-auto-animate>
 					<h4>Inconsistent linear systems</h4>
-					<div class="size-50">
+					<div class="size-60">
 						<div class="left-txt">
 							<p>
-								To find $\mathbf x$, let us recall the <strong>column space</strong> 
+								To find $\hat{\bf x}$, let us recall the <strong>column space</strong>
 								of the matrix $A$. Let ${\bf a}_1,\ldots,{\bf a}_n\in M_{m,1}(\mathbb{R})$
-								be the columns of $A$, i.e., . Let ${\bf x}\in M_{n,1}(\mathbb{R})$
+								be the columns of $A$, i.e., $A = \left({\bf a_1} ~|~ {\bf a_2} ~|~\cdots ~|~{\bf
+								a_n}\right)$,
 								then
-								$$
-								\mathrm{Col}(A)=\mathrm{span}(\{{\bf a}_1,\ldots,{\bf a}_n\}),
-$$
-where  are the columns of $A$.
-Since
-$$
- {\bf a}_1=A\begin{pmatrix} 1\\ 0\\ \vdots\\ 0\end{pmatrix},\quad
- {\bf a}_2=A\begin{pmatrix} 0\\ 1\\ \vdots\\ 0\end{pmatrix},\ldots,\quad
- {\bf a}_n=A\begin{pmatrix} 0\\ 0\\ \vdots\\ 1\end{pmatrix},
-$$
-we have
-\begin{align*}
- \mathrm{Col}(A)&=\mathrm{span}\Big(\!\{A\begin{pmatrix} 1\\ 0\\ \vdots\\ 0\end{pmatrix},A\begin{pmatrix} 0\\ 1\\ \vdots\\ 0\end{pmatrix},
-  \ldots,A\begin{pmatrix} 0\\ 0\\ \vdots\\ 1\end{pmatrix}\}\!\Big)
- =\{A\begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix}|\,x_1,x_2,\ldots,x_n\in\mathbb{R}\}
- \\[.15cm]
- &=\{A{\bf x}\,|\,{\bf x}\in M_{n,1}(\mathbb{R})\}.
-\end{align*}
-It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus in the situation described in Section~\ref{Sec:Mini}.
+								$$\mathrm{Col}(A)=\mathrm{span}(\{{\bf a}_1,\ldots,{\bf a}_n\}).$$
+								Let ${\bf x}\in M_{n,1}(\mathbb{R})$
+								then we have
+								\begin{align*}
+								A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots + x_n{\bf a}_n,\quad x_k\in \R.
+								\end{align*}
+								So $A{\bf x}$ is a linear combination of the columns of $A$,
+								i.e. a vector of the form $A{\bf x}$ is
+								always a vector in $\mathrm{Col}(A)$. 
 							</p>
 							<p>
-								A solution $\hat{\bf x}$ to this minimisation problem is referred to as a 
-								<strong>least squares solution</strong>. 
-								
+								It follows that 
+								$A\hat{\bf x}\in\mathrm{Col}(A)$. 
+								We are thus in the situation described in Section 12.1.
 							</p>
 						</div>
 					</div>
 				</section>
-
+				<br/>
 			</section>
 
 
