@@ -63,23 +63,399 @@
 			<section>
 				<h3>11 Gram-Schmidt process</h3>
 				<div class="left-txt size-80">
-					<br/>
+					<br />
 					<p>
-						The goal of this section is to discuss orthogonal 
-						projections, and develop a way of 
-						constructing an orthonormal basis for an inner 
+						The goal of this section is to discuss orthogonal
+						projections, and develop a way of
+						constructing an orthonormal basis for an inner
 						product space.
- 
+
 					</p>
-					
+
 				</div>
-				<br/><br/><br/><br/><br/>
+				<br /><br /><br /><br /><br />
 
 			</section>
 
 
+			<section>
+
+				<section data-auto-animate>
+					<h4>11.1 Orthogonal set</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be a real inner product space.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									A nonempty set of vectors in $V$ is <strong>orthogonal</strong> if each vector in
+									the set is
+									orthogonal to all the other vectors in the set.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									That is, the set $\{\bfv_1,\ldots,\bfv_n\}\subseteq V$ is orthogonal if
+									$$
+									\langle\bfv_i,\bfv_j\rangle=0,\qquad i\neq j.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Let $S$ be a finite set of vectors in $V$ such that ${\bf 0}\notin S$.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Then,
+								</span>
+							</p>
+						</div>
+						<div class="fragment" data-fragment-index="4">
+							<p>
+								$S$ orthogonal $\Longrightarrow$ $S$ linearly
+								independent.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.1 Orthogonal set</h4>
+					<div class="size-70">
+
+						<div>
+							<p>
+								$S$ orthogonal $\Longrightarrow$ $S$ linearly
+								independent.
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</section>
 
 
+			<section>
+
+				<section data-auto-animate>
+					<h4>11.2 Orthonormal basis</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									An orthogonal set of vectors in $V$ is called
+									<strong>orthonormal</strong> if all the vectors
+									in the set are unit vectors.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									That is, the set $\{\bfe_1,\ldots,\bfe_n\}\subset V$ is orthonormal if
+									$$
+									\langle\bfe_i,\bfe_j\rangle=\delta_{i,j},
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									where the <strong>Kronecker delta</strong> is defined by
+									$$
+									\delta_{i,j}=\begin{cases} \,0,\ & i\neq j,\\[.15cm] \,1,\ &i=j. \end{cases}
+									$$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="3">
+								<span>
+									Examples in $\R^n$ endowed with the
+									usual dot product are given as follows:
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.2 Orthonormal basis</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Examples in $\R^n$ endowed with the
+									usual dot product are given as follows:
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.2 Orthonormal basis</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									An <strong>orthonormal basis</strong> for $V$ is a basis
+									for $V$ that is also an orthonormal set.
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>11.3 Decomposition theorem</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $S=\{\bfe_1,\ldots,\bfe_n\}$ be an
+									orthonormal basis for $V$, and let $\bfu\in V$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then,
+									$$
+									\bfu=\langle\bfu,\bfe_1\rangle\bfe_1+\ldots+\langle\bfu,\bfe_n\rangle\bfe_n
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									and
+									$$
+									||\bfu||^2=\langle\bfu,\bfe_1\rangle^2+\ldots+\langle\bfu,\bfe_n\rangle^2.
+									$$
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.3 Decomposition theorem</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Proof:
+								</span>
+
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>11.4 Orthogonal projection</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $U$ be a finite-dimensional subspace
+									of the real inner product space $V$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then, each $\bfv\in V$ can be written in a unique way as
+									$$
+									\bfv=\bfu+\bfw,\qquad \bfu\in U,\quad \bfw\in U^\bot.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									In the proof, we will assume that $U$ has
+									an orthonormal basis $S=\{\bfe_1,\ldots,\bfe_k\}$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									As we will see in
+									Section 11.6, this assumption
+									is redundant since every
+									finite-dimensional inner product space <em>has</em>
+									such a basis.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.4 Orthogonal projection</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Proof:
+								</span>
+
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.4 Orthogonal projection</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									The vector $\bfu\in U$ is called the
+									<strong>orthogonal projection of $\bfv$ onto $U$</strong>
+									and is given by
+									$$
+									\mathrm{Proj}_U(\bfv)=\langle\bfv,\bfe_1\rangle\bfe_1+\ldots+\langle\bfv,\bfe_k\rangle\bfe_k.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Likewise, the vector $\bfw\in U^\bot$ is called the {\bf orthogonal projection of
+									$\bfv$ onto $U^\bot$} and is given by
+									$$
+									\mathrm{Proj}_{U^\bot}(\bfv)=\bfv-\mathrm{Proj}_U(\bfv).
+									$$
+								</span>
+
+							</p>
+
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.4 Orthogonal projection</h4>
+					<div class="size-70">
+						<div class="left-txt">
+
+							<p>
+								One can show that
+								$$
+								\dim V=\dim U+\dim U^\bot.
+								$$
+								<span class="fragment" data-fragment-index="3">
+									This can be very helpful when determining
+									the orthogonal complement of a subspace $U$.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Indeed, suppose you have managed to find
+									$\dim V-\dim U$ linearly independent
+									vectors that are all orthogonal to $U$.
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Then, these vectors will, in fact, form a basis for
+									$U^\bot$. This property will be used in the next example.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>11.5 Example: Orthogonal projection in $\R^3$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $\R^3$ be endowed with the
+									usual dot product, and let
+									$$
+									U=
+									{\rm
+									span}\left(\left\{(0,1,0),\left(-\dfrac{4}{5},0,\dfrac{3}{5}\right)\right\}\right),\quad
+									\bfv=(1,1,1).
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Find the orthogonal projections of $\bfv$ onto $U$ and $U^\bot$.
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.5 Example: Orthogonal projection in $\R^3$</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Cont...
+								</span>
+
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>11.6 Construction of orthonormal basis</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									It is often convenient to have an
+									orthonormal basis for a given
+									finite-dimensional inner product space.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The following algorithm turns a linearly 
+									independent set of vectors into an
+									orthonormal set of vectors
+									with the same span as the original set.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Applying the algorithm to a basis thus 
+									turns the basis into an orthonormal basis. 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Hence:
+								</span>
+							</p>
+							<div id="theorem"  class="fragment" data-fragment-index="3">
+								<p style="font-size:120%">
+									Every finite-dimensional real inner product space has an orthonormal basis.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.6 Construction of orthonormal basis</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<div id="theorem">
+								<p style="font-size:85%">
+									Every finite-dimensional real inner product space has an orthonormal basis.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Let $\{\bfv_1,\ldots,\bfv_n\}$ be a 
+								linearly independent set of vectors in the 
+								real inner product space $V$.
+								<span class="fragment" data-fragment-index="0">
+									The corresponding <strong>Gram-Schmidt process</strong>
+									is the following algorithm:
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</section>
 
 
 			<section>

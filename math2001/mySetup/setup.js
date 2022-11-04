@@ -41,6 +41,7 @@
 						bfu: "{\\mathbf{u}}",
 						bfv: "{\\mathbf{v}}",
 						bfw: "{\\mathbf{w}}",
+						bfe: "{\\mathbf{e}}",
 						n: "{\\mathbf{n}}",
 						F: "{\\mathbf{F}}",
 						BF: "{\\mathbb{F}}",
