@@ -391,42 +391,195 @@
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="1">
-									Let $\u, \v\in \R^n$, and let $A\in M_{n,n}(\R)$
+									Let $\u, \v\in \R^n$, and let $A\in M_{n,n}(\R)$ be invertible matrix.
+								</span>
+								<span>
+									Then
+									\[
+									\langle \u, \v\rangle = \left(A\u\right)\cdot \left(A\v\right)
+									\]
+									defines an inner product.
+								</span>
+							</p>
+							<p>
+								<strong>
+									Note:
+								</strong>
+								$\left(A\u\right)\cdot \left(A\v\right)$
+								<span>
+									$=\left(A\u\right)^{T} A\v $
+								</span>
+								<span>
+									$=\u^{T} A^{T} A\v .$
 								</span>
 							</p>
 						</div>
 					</div>
-			
+					<br/><br/><br/>
 			</section>
 
 
 			
-			<section data-auto-animate>
-				<h4>8.5 Example: Inner product on $M_{n,n}(\R)$</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>Text
-								<span class="fragment" data-fragment-index="0">
-									text
+			<section>
+				<section data-auto-animate>
+					<h4>8.5 Example: Inner product on $M_{n,n}(\R)$</h4>
+						<div class="size-60">
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Let $\u, \v\in M_{n,n}(\R)$. 
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										That is
+										\[
+										\u = 
+										\begin{pmatrix} 
+										a_{11} & \cdots & a_{1n}\\ 
+										\vdots & \ddots & \vdots\\ 
+										a_{n1} & \cdots & a_{nn}\\ 
+										\end{pmatrix}
+										\quad 
+										\text{and}
+										\quad 
+										\v =
+										\begin{pmatrix} 
+										b_{11} & \cdots & b_{1n}\\ 
+										\vdots & \ddots & \vdots\\ 
+										b_{n1} & \cdots & b_{nn}\\ 
+										\end{pmatrix}.
+										\]
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									Then 
+									\[
+									\langle \u , \v \rangle = \mbox{Tr}\left(\v^{T} \u\right)
+									\]
+									is an inner product,
+									<span class="fragment" data-fragment-index="3">
+										where the trace "$\mbox{Tr}$" is defined as
+										\[
+										\mbox{Tr}
+										\begin{pmatrix} 
+										a_{11} & \cdots & a_{1n}\\ 
+										\vdots & \ddots & \vdots\\ 
+										a_{n1} & \cdots & a_{nn}\\ 
+										\end{pmatrix}
+										= 
+										a_{11}+a_{22}+\cdots + a_{nn}.
+										\]
+									</span>
+								</p>
+							</div>
+						</div>
+					
+						<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>8.5 Example: Inner product on $M_{n,n}(\R)$</h4>
+						<div class="size-45">
+							<div class="left-txt">
+								<p>
+									<span>
+										Let $\u, \v\in M_{n,n}(\R)$. 
+									</span>
+									<span>
+										That is
+										\[
+										\u = 
+										\begin{pmatrix} 
+										a_{11} & \cdots & a_{1n}\\ 
+										\vdots & \ddots & \vdots\\ 
+										a_{n1} & \cdots & a_{nn}\\ 
+										\end{pmatrix}
+										\quad 
+										\text{and}
+										\quad 
+										\v =
+										\begin{pmatrix} 
+										b_{11} & \cdots & b_{1n}\\ 
+										\vdots & \ddots & \vdots\\ 
+										b_{n1} & \cdots & b_{nn}\\ 
+										\end{pmatrix}.
+										\]
+									</span>
+								</p>
+								<p>
+									Then 
+									\[
+									\langle \u , \v \rangle = \mbox{Tr}\left(\v^{T} \u\right)
+									\]
+									is an inner product,
+									<span>
+										where the trace "$\mbox{Tr}$" is defined as
+										\[
+										\mbox{Tr}
+										\begin{pmatrix} 
+										a_{11} & \cdots & a_{1n}\\ 
+										\vdots & \ddots & \vdots\\ 
+										a_{n1} & \cdots & a_{nn}\\ 
+										\end{pmatrix}
+										= 
+										a_{11}+a_{22}+\cdots + a_{nn}.
+										\]
+									</span>
+								</p>
+							</div>
+						</div>
+
+						<div class="size-70 left-txt">
+							<p>
+								<strong>
+									Note:
+								</strong>
+								Since $\;\mbox{Tr} \left(A^T\right) = \mbox{Tr}(A)$
+								<span>
+									$\;\Ra \mbox{Tr} \left(\v^T \u\right) = \mbox{Tr}(\u^T\v).$
 								</span>
 							</p>
 						</div>
-					</div>
-				
+					
+						<br/><br/>
+				</section>
 			</section>
 
 			<section data-auto-animate>
 				<h4>8.6 Example: Standard inner product on $P_n(\R)$</h4>
 					<div class="size-70">
 						<div class="left-txt">
-							<p>Text
+							<p>
 								<span class="fragment" data-fragment-index="0">
-									text
+									For $\mathbf p, \mathbf q \in P_n\left(\R\right)$,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we write
+									\[
+									\begin{eqnarray}
+									\mathbf p \equiv p(x) & = & a_0 + a_1 x+ \cdots + a_n x^n, \\
+									\mathbf q \equiv q(x) & = & b_0 + b_1 x+ \cdots + b_n x^n.\\
+									\end{eqnarray}
+									\]
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Then 
+								\[
+								\langle \mathbf p , \mathbf q \rangle
+								=
+								a_0b_0 + a_1b_1 + \cdots a_nb_n
+								\]
+								defines an inner product
+								<span class="fragment" data-fragment-index="3">
+									called
+									<strong>
+										standard inner product on 
+									</strong>
+									$P_n\left(\R\right).$
 								</span>
 							</p>
 						</div>
 					</div>
-				
+				<br/><br/>
 			</section>
 
 			<section data-auto-animate>
