@@ -63,21 +63,158 @@
 			<section>
 				<h3>10 Orthogonality</h3>
 				<div class="left-txt size-80">
-					<br/>
+					<br />
 					<p>
-						The goal of this section is to develop our 
-						understanding of orthogonality in the context 
+						The goal of this section is to develop our
+						understanding of orthogonality in the context
 						of inner product spaces.
- 
+
 					</p>
-					
+
 				</div>
-				<br/><br/><br/><br/><br/><br/>
+				<br /><br /><br /><br /><br /><br />
 
 			</section>
 
 
 
+			<section>
+
+				<section data-auto-animate>
+					<h4>10.1 Norm</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									The norm (or magnitude or length) of an element
+									$\bfv=(v_1,\ldots,v_n)$ of $\R^n$
+									is given by the familiar expression
+									$$
+									||\bfv||=\sqrt{\bfv\cdot\bfv}=\sqrt{v_1^2+\ldots+v_n^2}.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									There is a similar notion for any real inner product space $V$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									The <strong>norm</strong> of a vector $\bfv\in V$,
+									denoted by $||\bfv||$, is thus defined by
+									$$
+									||\bfv||=\sqrt{\langle\bfv,\bfv\rangle}.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									A vector with norm $1$ is called a <strong>unit vector</strong>.
+								</span>
+							</p>
+							<p>
+
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>10.1 Norm</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								How would we define the <em>distance</em>,
+								$d(\bfu,\bfv)$, between two vectors $\bfu,\bfv\in V$?
+								<span class="fragment" data-fragment-index="0">
+									A natural notion of distance between two vectors should be
+									independent of the order we happen to be viewing them.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									That is, we want the distance measure
+									to be symmetric: $d(\bfu,\bfv)=d(\bfv,\bfu)$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Again using $\R^n$ as inspiration,
+									we now define the <strong>distance</strong> between two
+									vectors $\bfu,\bfv\in V$ as
+									$$
+									d(\bfu,\bfv)=||\bfu-\bfv||.
+									$$
+
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								The symmetry $d(\bfu,\bfv)=d(\bfv,\bfu)$ follows from
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="3">
+								$
+								\langle\bfu-\bfv,\bfu-\bfv\rangle
+								$
+								<span class="fragment" data-fragment-index="4">
+									$
+									=\langle\bfu,\bfu\rangle-\langle\bfu,\bfv\rangle-\langle\bfv,\bfu\rangle+\langle\bfv,\bfv\rangle
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=\langle\bfv-\bfu,\bfv-\bfu\rangle.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>10.1 Norm</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								Note that the notions of norm and distance
+								are relative to the inner product used!
+								<span class="fragment" data-fragment-index="0">
+									For example, with the inner product given
+									in <a href="chapter-08.html#/9/0/1" target="_blank">Example 8.8</a>,
+									the norm of a real-valued continuous function on
+									$[-1,1]$ is given as follows:
+								</span>
+
+							</p>
+
+						</div>
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>10.1 Norm</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								As in $\R^n$ with inner product
+								given by the usual dot product,
+								<span class="fragment" data-fragment-index="0">
+									we say that two vectors $\bfu,\bfv\in V$ are
+									<strong>orthogonal</strong> if
+									$$
+									\langle\bfu,\bfv\rangle=0.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									We need a bit of preparation before we 
+									can talk more generally about the <em>angle</em>
+									between two vectors,
+									see Section 10.7.
+								</span>
+
+							</p>
+
+						</div>
+
+					</div>
+					<br /><br />
+				</section>
+
+			</section>
 
 
 
