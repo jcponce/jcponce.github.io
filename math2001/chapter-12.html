@@ -1,602 +1,568 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<meta charset="utf-8">
-
-	<title>MATH2001/7000 - Chapter 12</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
-
-	<link rel="stylesheet" href="css/mylayout.css" />
-
-	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
-
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="css/fontawesome.css">
-
-	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
-
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
-
-
-	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
-
-	<!--[if lt IE 9]>
-		<script src="../reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
-
-
-</head>
-
-<body>
-	<div class="reveal">
-		<div class="slides">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-
-			<section>
-				<h2>Calculus & <br />Linear Algebra II</h2>
-				<p>Chapter 12</p>
-			</section>
-
-			<section>
-				<h3>12 Least squares approximation</h3>
-				<br /><br /><br /><br /><br />
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h4 style="font-size:75%">12.1 Least squares problem - minimising distance
-						to a subspace</h4>
-					<div class="left-txt size-65">
-
-
-						<p class="fragment" data-fragment-index="1">
-							A recurring problem in linear algebra, and
-							in its myriad of applications, is the following:
-						</p>
-						<ul class="fragment" data-fragment-index="2">
-							<li>
-								Given a vector ${\bf v}$ in a real inner
-								product space $V$, give the best
-								approximation to ${\bf v}$ in
-								a finite-dimensional subspace $U$ of $V$.
-							</li>
-						</ul>
-						<p class="fragment" data-fragment-index="3">
-							This problem is called he "least squares problem".
-						</p>
-
-					</div>
-
-					<div class="left-txt size-65">
-
-
-						<p class="fragment" data-fragment-index="4">
-							What do we mean by ``best approximation"?
-							<span class="fragment" data-fragment-index="5">
-								It means to find a vector in a subspace
-								of minimal distance to a given vector
-								in the ambient vector space.
-							</span>
-							<span class="fragment" data-fragment-index="6">
-								So the answer to
-								the problem is to
-							</span>
-						</p>
-					</div>
-
-					<div class="size-65">
-						<p class="fragment" data-fragment-index="6">
-							<em>find $\bfu\in U$ such that $d(\bfu,\bfv)$
-								is as small as possible.</em>
-						</p>
-					</div>
-					<br />
-
-				</section>
-
-				<section data-auto-animate>
-					<h4 style="font-size:75%">12.1 Least squares problem - minimising distance
-						to a subspace</h4>
-
-					<div class="left-txt size-60">
-
-						<p>
-							What do we mean by "best approximation"?
-							<span>
-								It means to find a vector in a subspace
-								of minimal distance to a given vector
-								in the ambient vector space.
-							</span>
-							<span>
-								So the answer to
-								the problem is to
-							</span>
-						</p>
-					</div>
-
-					<div class="size-60">
-						<p>
-							<em>find $\bfu\in U$ such that $d(\bfu,\bfv)$
-								is as small as possible.</em>
-						</p>
-					</div>
-
-					<div class="left-txt size-60">
-						<p>
-							That is,
-							$\mathbf{u}\in U$ that minimises $||\mathbf{v}-\mathbf{u}||.$
-						</p>
-					</div>
-
-					<div class="left-txt size-65">
-						<div class="fragment" data-fragment-index="0">
-							<p>
-								<strong>Theorem </strong>(Best Approximation Theorem).
-								If $U$ is a finite-dimensional subspace of a real inner product space $V$, and if
-								$\mathbf{v}\in V,$ then $\mathrm{Proj}_U(\bfv)$ is the best approximation to
-								$\mathbf{v}$ from $U$ in the sense that
-								$$||\mathbf{v}-\mathrm{Proj}_U(\bfv)||
-								\lt ||\mathbf{v}-\mathbf{u}||, ~~\forall \mathbf{u}\in U.$$
-							</p>
-						</div>
-					</div>
-					<br /><br />
-
-				</section>
-
-				<section data-auto-animate>
-					<h4 style="font-size:75%">12.1 Least squares problem - minimising distance
-						to a subspace</h4>
-
-					<div class="left-txt size-60">
-
-						<p>
-							From the Best Approximation Theorem,
-							$\u = \mathrm{Proj}_U(\bfv)$ is the best approximation
-							to $\v \in V$ in a finite-dimensional subspace $U$ of $V$.
-
-						</p>
-						<p class="fragment" data-fragment-index="0">
-							<em>How to find $\mathrm{Proj}_U(\bfv)$?</em>
-						</p>
-						<p class="fragment" data-fragment-index="1">
-							<strong>Solution 1.</strong>
-							Use Gram-Schmidt process to construct an orthonormal basis
-							$\{\bfe_1, \bfe_2,\cdots,\bfe_n\}$ of $U$.
-							<span class="fragment" data-fragment-index="2">
-								Then
-								$$
-								\mathrm{Proj}_U(\bfv)=
-								\langle\bfv,\bfe_1\rangle\bfe_1+\ldots+\langle\bfv,\bfe_n\rangle\bfe_n.
-								$$
-							</span>
-						</p>
-						<p class="fragment" data-fragment-index="3">
-							<strong>Solution 2.</strong>
-							Let $\gamma=\{\bfu_1, \bfu_2,\cdots,\bfu_n\}$ be a basis of the subspace
-							$U$.
-							<span class="fragment" data-fragment-index="4">
-								any $\u \in U$ can be written as
-								$\u = \alpha_1 \u_1+ \alpha_2 \u_2+ \cdots \alpha_n \u_n$.
-							</span>
-						</p>
-					</div>
-					<br /><br />
-
-				</section>
-
-				<section data-auto-animate>
-					<h4 style="font-size:75%">12.1 Least squares problem - minimising distance
-						to a subspace</h4>
-
-					<div class="left-txt size-60">
-						<p>
-							<strong>Solution 2.</strong>
-							Let $\gamma=\{\bfu_1, \bfu_2,\cdots,\bfu_n\}$ be a basis of the subspace
-							$U$.
-							<span>
-								any $\u \in U$ can be written as
-								$\u = \alpha_1 \u_1+ \alpha_2 \u_2+ \cdots \alpha_n \u_n$.
-							</span>
-
-						</p>
-					</div>
-
-					<div class="left-txt size-60">
-						<p>
-							We seek coefficients $\alpha_1,\alpha_2,\dots \alpha_n$ that minimise
-							$||\mathbf{v}-\u||$,
-							<span class="fragment" data-fragment-index="0">
-								or equivalently, minimise
-								$||\mathbf{v}-\u||^2=||\mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2 \mathbf{u}_2+\dots
-								+\alpha_n
-								\mathbf{u}_n)||^2$ (same outcome, avoid square root).
-							</span>
-						</p>
-						<p style="margin-bottom:5px" class="fragment" data-fragment-index="1">
-							$||\mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2 \mathbf{u}_2+\dots
-							+\alpha_n
-							\mathbf{u}_n)||^2$</p>
-						<table id="eqarray">
-							<tr class="fragment" data-fragment-index="2">
-								<td>
-									$\quad$
-								</td>
-								<td>
-									$=\langle \mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2 \mathbf{u}_2+\dots +\alpha_n
-									\mathbf{u}_n), \mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2 \mathbf{u}_2+\dots
-									+\alpha_n
-									\mathbf{u}_n) \rangle$
-								</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="3">
-								<td>
-									$\quad$
-								</td>
-								<td>
-									$=\langle \mathbf{v},\mathbf{v} \rangle-2\alpha_1 \langle \mathbf{v},\mathbf{u}_1
-									\rangle
-									-2\alpha_2 \langle \mathbf{v},\mathbf{u}_2 \rangle -\dots-2\alpha_n \langle
-									\mathbf{v},\mathbf{u}_n \rangle
-									+\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_j \langle \mathbf{u}_i, \mathbf{u}_j
-									\rangle$
-								</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="4">
-								<td>
-									$\quad$
-								</td>
-								<td>
-									$=E(\alpha_1,\alpha_2,\dots,\alpha_n).$
-								</td>
-							</tr>
-						</table>
-						<p class="fragment" data-fragment-index="5">$E$ is a real valued function and is called the
-							"error".</p>
-					</div>
-
-
-					<br />
-
-				</section>
-
-				<section data-auto-animate>
-					<h4 style="font-size:75%">12.1 Least squares problem - minimising distance
-						to a subspace</h4>
-
-					<div class="left-txt size-60">
-						<p>
-							From MATH1052/MATH1072:
-							we minimise $E$. Set $\nabla E=\mathbf{0}$, which gives
-							<span class="fragment" data-fragment-index="0">
-								\begin{align*}
-								\frac{\partial E}{\partial \alpha_k}=-2\langle \mathbf{v},\mathbf{u}_k
-								\rangle+2\sum_{l=1}^n \alpha_l \langle\mathbf{u}_k,\mathbf{u}_l \rangle=0.
-								\end{align*}
-							</span>
-						</p>
-						<p class="fragment" data-fragment-index="1">
-							This is $n$ equations in $n$ unknowns,
-							<span class="fragment" data-fragment-index="2">
-								which may be expressed in matrix form:
-								\begin{align*}
-								\left(
-								\begin{array}{cccc}
-								\langle \mathbf{u}_1,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_1,\mathbf{u}_2\rangle
-								~\dots
-								~ \langle \mathbf{u}_1,\mathbf{u}_n\rangle \\
-								\langle \mathbf{u}_2,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_2,\mathbf{u}_2\rangle
-								~\dots
-								~ \langle \mathbf{u}_2,\mathbf{u}_n\rangle\\
-								\vdots&~\vdots & \\
-								\langle \mathbf{u}_n,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_n,\mathbf{u}_2\rangle
-								~\dots
-								~ \langle \mathbf{u}_n,\mathbf{u}_n\rangle
-								\end{array}
-								\right)
-								\left(\begin{array}{c}
-								\alpha_1\\ \alpha_2\\ \vdots\\ \alpha_n
-								\end{array}\right)&=
-								\left(\begin{array}{c}
-								\langle \mathbf{v},\mathbf{u}_1 \rangle\\ \langle \mathbf{v},\mathbf{u}_2 \rangle \\
-								\vdots\\
-								\langle \mathbf{v},\mathbf{u}_n \rangle
-								\end{array}\right).
-								\end{align*}
-							</span>
-						</p>
-
-					</div>
-
-
-					<br />
-
-				</section>
-
-				<section data-auto-animate>
-					<h4 style="font-size:75%">12.1 Least squares problem - minimising distance
-						to a subspace</h4>
-
-					<div class="left-txt size-60">
-
-						<p>
-							This is $n$ equations in $n$ unknowns,
-							<span>
-								which may be expressed in matrix form:
-								\begin{align*}
-								\left(
-								\begin{array}{cccc}
-								\langle \mathbf{u}_1,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_1,\mathbf{u}_2\rangle
-								~\dots
-								~ \langle \mathbf{u}_1,\mathbf{u}_n\rangle \\
-								\langle \mathbf{u}_2,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_2,\mathbf{u}_2\rangle
-								~\dots
-								~ \langle \mathbf{u}_2,\mathbf{u}_n\rangle\\
-								\vdots&~\vdots & \\
-								\langle \mathbf{u}_n,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_n,\mathbf{u}_2\rangle
-								~\dots
-								~ \langle \mathbf{u}_n,\mathbf{u}_n\rangle
-								\end{array}
-								\right)
-								\left(\begin{array}{c}
-								\alpha_1\\ \alpha_2\\ \vdots\\ \alpha_n
-								\end{array}\right)&=
-								\left(\begin{array}{c}
-								\langle \mathbf{v},\mathbf{u}_1 \rangle\\ \langle \mathbf{v},\mathbf{u}_2 \rangle \\
-								\vdots\\
-								\langle \mathbf{v},\mathbf{u}_n \rangle
-								\end{array}\right).
-								\end{align*}
-							</span>
-						</p>
-						<p class="fragment" data-fragment-index="0">
-							Solve this system for $\alpha_1, \alpha_2, \ldots,\alpha_n$ to obtain
-							\[
-							\mathrm{Proj}_U(\bfv) = \alpha_1\u_1+ \alpha_2\u_2+\cdots + \alpha_n\u_n.
-							\]
-						</p>
-
-						<p class="fragment" data-fragment-index="1">
-							<em>Note:</em> If $\gamma$ is orthonormal $\implies$ matrix on LHS$\,=I$ (the identity
-							matrix)
-							<span class="fragment" data-fragment-index="2">
-								$\implies$ $\alpha_i=\langle \mathbf{v}, \mathbf{u}_i\rangle$,
-								which coincides with <a href="#/2/2/2">Solution 1</a>, as
-								expected.
-							</span>
-
-						</p>
-
-					</div>
-
-
-					<br />
-
-				</section>
-
-			</section>
-
-
-			<section>
-
-				<section data-auto-animate>
-					<h4>12.2 Inconsistent linear systems</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									In applications, one is often faced with over-determined linear systems.
-									For example, we may have a bunch of data points that we have reasons to believe
-									should fit on a straight line.
-									But real-life data points rarely match predictions exactly.
-								</span>
-
-							</p>
-							<p class="fragment" data-fragment-index="1">
-								The goal in this section is to develop a method for obtaining the best fit or
-								approximation of a specified kind to a given set of data points.
-							</p>
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>12.2 Inconsistent linear systems</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								To this end, let $A\in M_{m,n}(\mathbb{R})$ and ${\bf b}\in M_{m,1}(\mathbb{R})$.
-								<span class="fragment" data-fragment-index="1">
-									For $m>n$, the linear system
-									described by $A{\bf x}={\bf b}$ is over-determined and does not in general have a
-									solution.
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									However, we may be satisfied if we can find $\hat{\bf x}\in M_{n,1}(\mathbb{R})$
-									such that $A\hat{\bf x}$ is as `close' to ${\bf b}$ as possible.
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									That is, we seek to minimise $||{\bf b}-A{\bf x}||$ for given $A$ and ${\bf b}$.
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									For
-									computational reasons, one usually
-									minimises $||{\bf b}-A{\bf x}||^2$ instead.
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="5">
-								A solution $\hat{\bf x}$ to this minimisation problem is referred to as a
-								<strong>least squares solution</strong>.
-
-							</p>
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>12.2 Inconsistent linear systems</h4>
-					<div class="size-65">
-						<div class="left-txt">
-							<p>
-								To find $\hat{\bf x}$, let us recall the <strong>column space</strong>
-								of the matrix $A$.
-								<span class="fragment" data-fragment-index="0">
-									Let ${\bf a}_1,\ldots,{\bf a}_n\in M_{m,1}(\mathbb{R})$
-									be the columns of $A$, i.e., $A = \left({\bf a_1} ~|~ {\bf a_2} ~|~\cdots ~|~{\bf
-									a_n}\right)$,
-									then
-									$$\mathrm{Col}(A)=\mathrm{span}(\{{\bf a}_1,\ldots,{\bf a}_n\}).$$
-								</span>
-							</p>
-						</div>
-					</div>
-					<div class="size-65">
-						<div class="left-txt">
-							<p>
-								
-								<span class="fragment" data-fragment-index="1">
-									Let ${\bf x}\in M_{n,1}(\mathbb{R})$
-									then we have
-									\begin{align*}
-									A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots + x_n{\bf a}_n,\quad x_k\in \R.
-									\end{align*} 
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									So $A{\bf x}$ is a linear combination of the columns of $A$,
-									i.e. a vector of the form $A{\bf x}$ is
-									always a vector in $\mathrm{Col}(A)$. 
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>12.2 Inconsistent linear systems</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span>
-									Let ${\bf x}\in M_{n,1}(\mathbb{R})$
-									then we have
-									\begin{align*}
-									A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots + x_n{\bf a}_n,\quad x_k\in \R.
-									\end{align*} 
-								</span>
-								<span>
-									So $A{\bf x}$ is a linear combination of the columns of $A$,
-									i.e. a vector of the form $A{\bf x}$ is
-									always a vector in $\mathrm{Col}(A)$. 
-								</span>
-							</p>
-						</div>
-					</div>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								It follows that 
-								$A\hat{\bf x}\in\mathrm{Col}(A)$. 
-								We are thus in the situation described in Section 12.1.
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>12.2 Inconsistent linear systems</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								Consequently, we know that
-								$$
-								A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b}).
-								$$
-								<span class="fragment" data-fragment-index="0">
-								But we are still faced with the task of disentangling $\hat{\bf x}$.
-								</span>
-								<span class="fragment" data-fragment-index="1">
-								Note that, although $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b})$
-								is <em>uniquely</em> given in terms of $A$ and ${\bf b}$, 
-								its solution $\hat{\bf x}$ need <em>not</em> be.
-								</span>
-							</p>
-
-							<p class="fragment" data-fragment-index="2">
-								<strong>Solution 3.</strong> For the current special application, 
-								i.e. least squares solutions of linear systems, 
-								we have a more direct (and simpler) method. In the following we describe this method and give some examples.
-							</p>
-							
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-				
-			</section>
-
-			<section>
-				<h4>12.3 $\mathrm{Col}(A)^\bot=N(A^T)$</h4>
-				<div class="size-65">
-					<div class="left-txt">
-						<p>The orthogonal complement of the column space of $A$ is the null space of $A^T$.</p>
-					</div>
-				</div>
-			</section>
-
-
-
-
-
-
-			<section>
-
-				<h4>Credits</h4>
-				<div include-html="creditsb.html"></div>
-			</section>
-
-			<!-- Ends sections -->
-
-		</div>
-	</div>
-
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="mySetup/setup.js"></script>
-
-	<script>
-		includeHTML();
-	</script>
-
-
-</body>
-
+  <head>
+    <meta charset="utf-8" />
+
+    <title>MATH2001/7000 - Chapter 12</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
+
+    <link rel="stylesheet" href="css/mylayout.css" />
+
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
+
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 12</p>
+        </section>
+
+        <section>
+          <h3>12 Least squares approximation</h3>
+          <br /><br /><br /><br /><br />
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4 style="font-size: 75%;">
+              12.1 Least squares problem - minimising distance to a subspace
+            </h4>
+            <div class="left-txt size-65">
+              <p class="fragment" data-fragment-index="1">
+                A recurring problem in linear algebra, and in its myriad of
+                applications, is the following:
+              </p>
+              <ul class="fragment" data-fragment-index="2">
+                <li>
+                  Given a vector ${\bf v}$ in a real inner product space $V$,
+                  give the best approximation to ${\bf v}$ in a
+                  finite-dimensional subspace $U$ of $V$.
+                </li>
+              </ul>
+              <p class="fragment" data-fragment-index="3">
+                This problem is called he "least squares problem".
+              </p>
+            </div>
+
+            <div class="left-txt size-65">
+              <p class="fragment" data-fragment-index="4">
+                What do we mean by ``best approximation"?
+                <span class="fragment" data-fragment-index="5">
+                  It means to find a vector in a subspace of minimal distance to
+                  a given vector in the ambient vector space.
+                </span>
+                <span class="fragment" data-fragment-index="6">
+                  So the answer to the problem is to
+                </span>
+              </p>
+            </div>
+
+            <div class="size-65">
+              <p class="fragment" data-fragment-index="6">
+                <em
+                  >find $\bfu\in U$ such that $d(\bfu,\bfv)$ is as small as
+                  possible.</em
+                >
+              </p>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size: 75%;">
+              12.1 Least squares problem - minimising distance to a subspace
+            </h4>
+
+            <div class="left-txt size-60">
+              <p>
+                What do we mean by "best approximation"?
+                <span>
+                  It means to find a vector in a subspace of minimal distance to
+                  a given vector in the ambient vector space.
+                </span>
+                <span>
+                  So the answer to the problem is to
+                </span>
+              </p>
+            </div>
+
+            <div class="size-60">
+              <p>
+                <em
+                  >find $\bfu\in U$ such that $d(\bfu,\bfv)$ is as small as
+                  possible.</em
+                >
+              </p>
+            </div>
+
+            <div class="left-txt size-60">
+              <p>
+                That is, $\mathbf{u}\in U$ that minimises
+                $||\mathbf{v}-\mathbf{u}||.$
+              </p>
+            </div>
+
+            <div class="left-txt size-65">
+              <div class="fragment" data-fragment-index="0">
+                <p>
+                  <strong>Theorem </strong>(Best Approximation Theorem). If $U$
+                  is a finite-dimensional subspace of a real inner product space
+                  $V$, and if $\mathbf{v}\in V,$ then $\mathrm{Proj}_U(\bfv)$ is
+                  the best approximation to $\mathbf{v}$ from $U$ in the sense
+                  that $$||\mathbf{v}-\mathrm{Proj}_U(\bfv)|| \lt
+                  ||\mathbf{v}-\mathbf{u}||, ~~\forall \mathbf{u}\in U.$$
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size: 75%;">
+              12.1 Least squares problem - minimising distance to a subspace
+            </h4>
+
+            <div class="left-txt size-60">
+              <p>
+                From the Best Approximation Theorem, $\u =
+                \mathrm{Proj}_U(\bfv)$ is the best approximation to $\v \in V$
+                in a finite-dimensional subspace $U$ of $V$.
+              </p>
+              <p class="fragment" data-fragment-index="0">
+                <em>How to find $\mathrm{Proj}_U(\bfv)$?</em>
+              </p>
+              <p class="fragment" data-fragment-index="1">
+                <strong>Solution 1.</strong>
+                Use Gram-Schmidt process to construct an orthonormal basis
+                $\{\bfe_1, \bfe_2,\cdots,\bfe_n\}$ of $U$.
+                <span class="fragment" data-fragment-index="2">
+                  Then $$ \mathrm{Proj}_U(\bfv)=
+                  \langle\bfv,\bfe_1\rangle\bfe_1+\ldots+\langle\bfv,\bfe_n\rangle\bfe_n.
+                  $$
+                </span>
+              </p>
+              <p class="fragment" data-fragment-index="3">
+                <strong>Solution 2.</strong>
+                Let $\gamma=\{\bfu_1, \bfu_2,\cdots,\bfu_n\}$ be a basis of the
+                subspace $U$.
+                <span class="fragment" data-fragment-index="4">
+                  any $\u \in U$ can be written as $\u = \alpha_1 \u_1+ \alpha_2
+                  \u_2+ \cdots \alpha_n \u_n$.
+                </span>
+              </p>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size: 75%;">
+              12.1 Least squares problem - minimising distance to a subspace
+            </h4>
+
+            <div class="left-txt size-60">
+              <p>
+                <strong>Solution 2.</strong>
+                Let $\gamma=\{\bfu_1, \bfu_2,\cdots,\bfu_n\}$ be a basis of the
+                subspace $U$.
+                <span>
+                  any $\u \in U$ can be written as $\u = \alpha_1 \u_1+ \alpha_2
+                  \u_2+ \cdots \alpha_n \u_n$.
+                </span>
+              </p>
+            </div>
+
+            <div class="left-txt size-60">
+              <p>
+                We seek coefficients $\alpha_1,\alpha_2,\dots \alpha_n$ that
+                minimise $||\mathbf{v}-\u||$,
+                <span class="fragment" data-fragment-index="0">
+                  or equivalently, minimise
+                  $||\mathbf{v}-\u||^2=||\mathbf{v}-(\alpha_1
+                  \mathbf{u}_1+\alpha_2 \mathbf{u}_2+\dots +\alpha_n
+                  \mathbf{u}_n)||^2$ (same outcome, avoid square root).
+                </span>
+              </p>
+              <p
+                style="margin-bottom: 5px;"
+                class="fragment"
+                data-fragment-index="1"
+              >
+                $||\mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2 \mathbf{u}_2+\dots
+                +\alpha_n \mathbf{u}_n)||^2$
+              </p>
+              <table id="eqarray">
+                <tr class="fragment" data-fragment-index="2">
+                  <td>
+                    $\quad$
+                  </td>
+                  <td>
+                    $=\langle \mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2
+                    \mathbf{u}_2+\dots +\alpha_n \mathbf{u}_n),
+                    \mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2
+                    \mathbf{u}_2+\dots +\alpha_n \mathbf{u}_n) \rangle$
+                  </td>
+                </tr>
+                <tr class="fragment" data-fragment-index="3">
+                  <td>
+                    $\quad$
+                  </td>
+                  <td>
+                    $=\langle \mathbf{v},\mathbf{v} \rangle-2\alpha_1 \langle
+                    \mathbf{v},\mathbf{u}_1 \rangle -2\alpha_2 \langle
+                    \mathbf{v},\mathbf{u}_2 \rangle -\dots-2\alpha_n \langle
+                    \mathbf{v},\mathbf{u}_n \rangle
+                    +\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_j \langle
+                    \mathbf{u}_i, \mathbf{u}_j \rangle$
+                  </td>
+                </tr>
+                <tr class="fragment" data-fragment-index="4">
+                  <td>
+                    $\quad$
+                  </td>
+                  <td>
+                    $=E(\alpha_1,\alpha_2,\dots,\alpha_n).$
+                  </td>
+                </tr>
+              </table>
+              <p class="fragment" data-fragment-index="5">
+                $E$ is a real valued function and is called the "error".
+              </p>
+            </div>
+
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size: 75%;">
+              12.1 Least squares problem - minimising distance to a subspace
+            </h4>
+
+            <div class="left-txt size-60">
+              <p>
+                From MATH1052/MATH1072: we minimise $E$. Set $\nabla
+                E=\mathbf{0}$, which gives
+                <span class="fragment" data-fragment-index="0">
+                  \begin{align*} \frac{\partial E}{\partial \alpha_k}=-2\langle
+                  \mathbf{v},\mathbf{u}_k \rangle+2\sum_{l=1}^n \alpha_l
+                  \langle\mathbf{u}_k,\mathbf{u}_l \rangle=0. \end{align*}
+                </span>
+              </p>
+              <p class="fragment" data-fragment-index="1">
+                This is $n$ equations in $n$ unknowns,
+                <span class="fragment" data-fragment-index="2">
+                  which may be expressed in matrix form: \begin{align*} \left(
+                  \begin{array}{cccc} \langle \mathbf{u}_1,\mathbf{u}_1\rangle ~
+                  & \langle \mathbf{u}_1,\mathbf{u}_2\rangle ~\dots ~ \langle
+                  \mathbf{u}_1,\mathbf{u}_n\rangle \\ \langle
+                  \mathbf{u}_2,\mathbf{u}_1\rangle ~ & \langle
+                  \mathbf{u}_2,\mathbf{u}_2\rangle ~\dots ~ \langle
+                  \mathbf{u}_2,\mathbf{u}_n\rangle\\ \vdots&~\vdots & \\ \langle
+                  \mathbf{u}_n,\mathbf{u}_1\rangle ~ & \langle
+                  \mathbf{u}_n,\mathbf{u}_2\rangle ~\dots ~ \langle
+                  \mathbf{u}_n,\mathbf{u}_n\rangle \end{array} \right)
+                  \left(\begin{array}{c} \alpha_1\\ \alpha_2\\ \vdots\\ \alpha_n
+                  \end{array}\right)&= \left(\begin{array}{c} \langle
+                  \mathbf{v},\mathbf{u}_1 \rangle\\ \langle
+                  \mathbf{v},\mathbf{u}_2 \rangle \\ \vdots\\ \langle
+                  \mathbf{v},\mathbf{u}_n \rangle \end{array}\right).
+                  \end{align*}
+                </span>
+              </p>
+            </div>
+
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size: 75%;">
+              12.1 Least squares problem - minimising distance to a subspace
+            </h4>
+
+            <div class="left-txt size-60">
+              <p>
+                This is $n$ equations in $n$ unknowns,
+                <span>
+                  which may be expressed in matrix form: \begin{align*} \left(
+                  \begin{array}{cccc} \langle \mathbf{u}_1,\mathbf{u}_1\rangle ~
+                  & \langle \mathbf{u}_1,\mathbf{u}_2\rangle ~\dots ~ \langle
+                  \mathbf{u}_1,\mathbf{u}_n\rangle \\ \langle
+                  \mathbf{u}_2,\mathbf{u}_1\rangle ~ & \langle
+                  \mathbf{u}_2,\mathbf{u}_2\rangle ~\dots ~ \langle
+                  \mathbf{u}_2,\mathbf{u}_n\rangle\\ \vdots&~\vdots & \\ \langle
+                  \mathbf{u}_n,\mathbf{u}_1\rangle ~ & \langle
+                  \mathbf{u}_n,\mathbf{u}_2\rangle ~\dots ~ \langle
+                  \mathbf{u}_n,\mathbf{u}_n\rangle \end{array} \right)
+                  \left(\begin{array}{c} \alpha_1\\ \alpha_2\\ \vdots\\ \alpha_n
+                  \end{array}\right)&= \left(\begin{array}{c} \langle
+                  \mathbf{v},\mathbf{u}_1 \rangle\\ \langle
+                  \mathbf{v},\mathbf{u}_2 \rangle \\ \vdots\\ \langle
+                  \mathbf{v},\mathbf{u}_n \rangle \end{array}\right).
+                  \end{align*}
+                </span>
+              </p>
+              <p class="fragment" data-fragment-index="0">
+                Solve this system for $\alpha_1, \alpha_2, \ldots,\alpha_n$ to
+                obtain \[ \mathrm{Proj}_U(\bfv) = \alpha_1\u_1+
+                \alpha_2\u_2+\cdots + \alpha_n\u_n. \]
+              </p>
+
+              <p class="fragment" data-fragment-index="1">
+                <em>Note:</em> If $\gamma$ is orthonormal $\implies$ matrix on
+                LHS$\,=I$ (the identity matrix)
+                <span class="fragment" data-fragment-index="2">
+                  $\implies$ $\alpha_i=\langle \mathbf{v}, \mathbf{u}_i\rangle$,
+                  which coincides with <a href="#/2/2/2">Solution 1</a>, as
+                  expected.
+                </span>
+              </p>
+            </div>
+
+            <br />
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>12.2 Inconsistent linear systems</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    In applications, one is often faced with over-determined
+                    linear systems. For example, we may have a bunch of data
+                    points that we have reasons to believe should fit on a
+                    straight line. But real-life data points rarely match
+                    predictions exactly.
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  The goal in this section is to develop a method for obtaining
+                  the best fit or approximation of a specified kind to a given
+                  set of data points.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.2 Inconsistent linear systems</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  To this end, let $A\in M_{m,n}(\mathbb{R})$ and ${\bf b}\in
+                  M_{m,1}(\mathbb{R})$.
+                  <span class="fragment" data-fragment-index="1">
+                    For $m>n$, the linear system described by $A{\bf x}={\bf b}$
+                    is over-determined and does not in general have a solution.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    However, we may be satisfied if we can find $\hat{\bf x}\in
+                    M_{n,1}(\mathbb{R})$ such that $A\hat{\bf x}$ is as `close'
+                    to ${\bf b}$ as possible.
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    That is, we seek to minimise $||{\bf b}-A{\bf x}||$ for
+                    given $A$ and ${\bf b}$.
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    For computational reasons, one usually minimises $||{\bf
+                    b}-A{\bf x}||^2$ instead.
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="5">
+                  A solution $\hat{\bf x}$ to this minimisation problem is
+                  referred to as a
+                  <strong>least squares solution</strong>.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.2 Inconsistent linear systems</h4>
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  To find $\hat{\bf x}$, let us recall the
+                  <strong>column space</strong>
+                  of the matrix $A$.
+                  <span class="fragment" data-fragment-index="0">
+                    Let ${\bf a}_1,\ldots,{\bf a}_n\in M_{m,1}(\mathbb{R})$ be
+                    the columns of $A$, i.e., $A = \left({\bf a_1} ~|~ {\bf a_2}
+                    ~|~\cdots ~|~{\bf a_n}\right)$, then
+                    $$\mathrm{Col}(A)=\mathrm{span}(\{{\bf a}_1,\ldots,{\bf
+                    a}_n\}).$$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="1">
+                    Let ${\bf x}\in M_{n,1}(\mathbb{R})$ then we have
+                    \begin{align*} A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\
+                    \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots
+                    + x_n{\bf a}_n,\quad x_k\in \R. \end{align*}
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    So $A{\bf x}$ is a linear combination of the columns of $A$,
+                    i.e. a vector of the form $A{\bf x}$ is always a vector in
+                    $\mathrm{Col}(A)$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.2 Inconsistent linear systems</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    Let ${\bf x}\in M_{n,1}(\mathbb{R})$ then we have
+                    \begin{align*} A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\
+                    \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots
+                    + x_n{\bf a}_n,\quad x_k\in \R. \end{align*}
+                  </span>
+                  <span>
+                    So $A{\bf x}$ is a linear combination of the columns of $A$,
+                    i.e. a vector of the form $A{\bf x}$ is always a vector in
+                    $\mathrm{Col}(A)$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus
+                  in the situation described in Section 12.1.
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.2 Inconsistent linear systems</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Consequently, we know that $$ A\hat{\bf
+                  x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b}). $$
+                  <span class="fragment" data-fragment-index="0">
+                    But we are still faced with the task of disentangling
+                    $\hat{\bf x}$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Note that, although $A\hat{\bf
+                    x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b})$ is
+                    <em>uniquely</em> given in terms of $A$ and ${\bf b}$, its
+                    solution $\hat{\bf x}$ need <em>not</em> be.
+                  </span>
+                </p>
+
+                <p class="fragment" data-fragment-index="2">
+                  <strong>Solution 3.</strong> For the current special
+                  application, i.e. least squares solutions of linear systems,
+                  we have a more direct (and simpler) method. In the following
+                  we describe this method and give some examples.
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+        </section>
+
+        <section>
+          <h4>12.3 $\mathrm{Col}(A)^\bot=N(A^T)$</h4>
+          <div class="size-65">
+            <div class="left-txt">
+              <p>
+                The orthogonal complement of the column space of $A$ is the null
+                space of $A^T$.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
+
+        <!-- Ends sections -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
+
+    <script>
+      includeHTML();
+    </script>
+  </body>
 </html>
