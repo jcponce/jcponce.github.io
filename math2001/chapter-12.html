@@ -124,7 +124,7 @@
 					<div class="left-txt size-60">
 
 						<p>
-							What do we mean by ``best approximation"?
+							What do we mean by "best approximation"?
 							<span>
 								It means to find a vector in a subspace
 								of minimal distance to a given vector
@@ -415,7 +415,7 @@
 								</span>
 
 							</p>
-							<p>
+							<p class="fragment" data-fragment-index="1">
 								The goal in this section is to develop a method for obtaining the best fit or
 								approximation of a specified kind to a given set of data points.
 							</p>
@@ -429,16 +429,25 @@
 						<div class="left-txt">
 							<p>
 								To this end, let $A\in M_{m,n}(\mathbb{R})$ and ${\bf b}\in M_{m,1}(\mathbb{R})$.
-								For $m>n$, the linear system
-								described by $A{\bf x}={\bf b}$ is over-determined and does not in general have a
-								solution.
-								However, we may be satisfied if we can find $\hat{\bf x}\in M_{n,1}(\mathbb{R})$
-								such that $A\hat{\bf x}$ is as `close' to ${\bf b}$ as possible.
-								That is, we seek to minimise $||{\bf b}-A{\bf x}||$ for given $A$ and ${\bf b}$. For
-								computational reasons, one usually
-								minimises $||{\bf b}-A{\bf x}||^2$ instead.
+								<span class="fragment" data-fragment-index="1">
+									For $m>n$, the linear system
+									described by $A{\bf x}={\bf b}$ is over-determined and does not in general have a
+									solution.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									However, we may be satisfied if we can find $\hat{\bf x}\in M_{n,1}(\mathbb{R})$
+									such that $A\hat{\bf x}$ is as `close' to ${\bf b}$ as possible.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									That is, we seek to minimise $||{\bf b}-A{\bf x}||$ for given $A$ and ${\bf b}$.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									For
+									computational reasons, one usually
+									minimises $||{\bf b}-A{\bf x}||^2$ instead.
+								</span>
 							</p>
-							<p>
+							<p class="fragment" data-fragment-index="5">
 								A solution $\hat{\bf x}$ to this minimisation problem is referred to as a
 								<strong>least squares solution</strong>.
 
@@ -449,31 +458,73 @@
 
 				<section data-auto-animate>
 					<h4>12.2 Inconsistent linear systems</h4>
-					<div class="size-60">
+					<div class="size-65">
 						<div class="left-txt">
 							<p>
 								To find $\hat{\bf x}$, let us recall the <strong>column space</strong>
-								of the matrix $A$. Let ${\bf a}_1,\ldots,{\bf a}_n\in M_{m,1}(\mathbb{R})$
-								be the columns of $A$, i.e., $A = \left({\bf a_1} ~|~ {\bf a_2} ~|~\cdots ~|~{\bf
-								a_n}\right)$,
-								then
-								$$\mathrm{Col}(A)=\mathrm{span}(\{{\bf a}_1,\ldots,{\bf a}_n\}).$$
-								Let ${\bf x}\in M_{n,1}(\mathbb{R})$
-								then we have
-								\begin{align*}
-								A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots + x_n{\bf a}_n,\quad x_k\in \R.
-								\end{align*}
-								So $A{\bf x}$ is a linear combination of the columns of $A$,
-								i.e. a vector of the form $A{\bf x}$ is
-								always a vector in $\mathrm{Col}(A)$. 
+								of the matrix $A$.
+								<span class="fragment" data-fragment-index="0">
+									Let ${\bf a}_1,\ldots,{\bf a}_n\in M_{m,1}(\mathbb{R})$
+									be the columns of $A$, i.e., $A = \left({\bf a_1} ~|~ {\bf a_2} ~|~\cdots ~|~{\bf
+									a_n}\right)$,
+									then
+									$$\mathrm{Col}(A)=\mathrm{span}(\{{\bf a}_1,\ldots,{\bf a}_n\}).$$
+								</span>
 							</p>
+						</div>
+					</div>
+					<div class="size-65">
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									Let ${\bf x}\in M_{n,1}(\mathbb{R})$
+									then we have
+									\begin{align*}
+									A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots + x_n{\bf a}_n,\quad x_k\in \R.
+									\end{align*} 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									So $A{\bf x}$ is a linear combination of the columns of $A$,
+									i.e. a vector of the form $A{\bf x}$ is
+									always a vector in $\mathrm{Col}(A)$. 
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>12.2 Inconsistent linear systems</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Let ${\bf x}\in M_{n,1}(\mathbb{R})$
+									then we have
+									\begin{align*}
+									A{\bf x}& = A \begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix} = x_1{\bf a}_1+x_2{\bf a}_2+\cdots + x_n{\bf a}_n,\quad x_k\in \R.
+									\end{align*} 
+								</span>
+								<span>
+									So $A{\bf x}$ is a linear combination of the columns of $A$,
+									i.e. a vector of the form $A{\bf x}$ is
+									always a vector in $\mathrm{Col}(A)$. 
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
 							<p>
 								It follows that 
 								$A\hat{\bf x}\in\mathrm{Col}(A)$. 
 								We are thus in the situation described in Section 12.1.
 							</p>
 						</div>
-					</div><br/>
+					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -485,13 +536,17 @@
 								$$
 								A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b}).
 								$$
-								But we are still faced with the task of disentangling $\hat{\bf x}$. 
+								<span class="fragment" data-fragment-index="0">
+								But we are still faced with the task of disentangling $\hat{\bf x}$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
 								Note that, although $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b})$
 								is <em>uniquely</em> given in terms of $A$ and ${\bf b}$, 
 								its solution $\hat{\bf x}$ need <em>not</em> be.
+								</span>
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="2">
 								<strong>Solution 3.</strong> For the current special application, 
 								i.e. least squares solutions of linear systems, 
 								we have a more direct (and simpler) method. In the following we describe this method and give some examples.
