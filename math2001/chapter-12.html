@@ -101,7 +101,7 @@
 
             <div class="left-txt size-65">
               <p class="fragment" data-fragment-index="4">
-                What do we mean by ``best approximation"?
+                What do we mean by "best approximation"?
                 <span class="fragment" data-fragment-index="5">
                   It means to find a vector in a subspace of minimal distance to
                   a given vector in the ambient vector space.
@@ -412,7 +412,7 @@
                   </span>
                   <span class="fragment" data-fragment-index="2">
                     However, we may be satisfied if we can find $\hat{\bf x}\in
-                    M_{n,1}(\mathbb{R})$ such that $A\hat{\bf x}$ is as `close'
+                    M_{n,1}(\mathbb{R})$ such that $A\hat{\bf x}$ is as 'close'
                     to ${\bf b}$ as possible.
                   </span>
                   <span class="fragment" data-fragment-index="3">
@@ -542,6 +542,159 @@
               </p>
             </div>
           </div>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>12.4 Solving for $\hat{\bf x}$</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Recall from Section 11.4 that
+                    $\bfv-\mathrm{Proj}_U(\bfv)=\mathrm{Proj}_{U^\bot}(\bfv)\in
+                    U^\bot$ for any finite-dimensional subspace $U$ of $V$ and
+                    $\bfv\in V$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Since $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf
+                    b})$, we thus have $$ {\bf b}-A\hat{\bf
+                    x}\in\mathrm{Col}(A)^\bot. $$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Because $\mathrm{Col}(A)^\bot=N(A^T)$, it follows that
+                    $A^T({\bf b}-A\hat{\bf x})={\bf 0}$, so $$ A^T\!A\hat{\bf
+                    x}=A^T{\bf b}. $$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.4 Solving for $\hat{\bf x}$</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Since $A\in M_{m,n}(\mathbb{R})\; \Rightarrow\; A^T\!A\in
+                  M_{n,n}(\mathbb{R})$, the equation $A^T\!A\hat{\bf x}=A^T{\bf
+                  b}$ can always be solved for $\hat{\bf x}$, for example by
+                  Gaussian elimination.
+
+                  <span class="fragment" data-fragment-index="0">
+                    However, the solution need not be unique.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Indeed, the solution is unique if and only if $A^T\!A$ is
+                    invertible, in which case $$ \hat{{\bf
+                    x}}=(A^T\!A)^{-1}A^T{\bf b}. $$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    A key to determining whether $A^T\!A$ is invertible is the
+                    following result:
+                  </span>
+                </p>
+              </div>
+              <div class="fragment" data-fragment-index="3">
+                <p>
+                  $\{{\bf a}_1,\ldots,{\bf a}_n\}$ is linearly independent
+                  $\quad\Longleftrightarrow\quad$ $A^TA$ is invertible.
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.4 Solving for $\hat{\bf x}$</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  🤔 But how does that help?
+                  <span class="fragment" data-fragment-index="0">
+                    Well, recall that $m>n$ so that $A$ may be describing an
+                    over-determined linear system.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    In fact, in case the linear system encodes experimental or
+                    empirical data, $m$ is likely to be much larger than $n$.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    The columns of $A$ are then very likely to be linearly
+                    independent, and $A^TA$ would indeed be invertible.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>12.5 Fitting a curve to data</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Experiments yield data (assume $x_i$ distinct and exact) $$
+                    (x_1, y_1),\;(x_2,y_2),\;\cdots, \;(x_n, y_n) $$ which
+                    include measurement error.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Theory may predict polynomial relation between $x$ and $y$.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    But experimental data points rarely match theoretical
+                    predictions exactly.
+                  </span>
+                </p>
+
+                <p class="fragment" data-fragment-index="3">
+                  We seek
+                  <em>a least squares polynomial function of best fit</em> (e.g.
+                  least squares line of best fit or regression line).
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.5 Fitting a curve to data</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  We seek
+                  <em>a least squares polynomial function of best fit</em> (e.g.
+                  least squares line of best fit or regression line).
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.5 Fitting a curve to data</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <strong>Example: Quadratic fit.</strong>
+                  <span class="fragment" data-fragment-index="0">
+                    Suppose some physical system is modeled by a quadratic
+                    function $p(t)$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
+                    (2,2),\ (4,7),\ (5,10). $$ Find the least squares
+                    approximation for $p(t)$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
         </section>
 
         <section>
