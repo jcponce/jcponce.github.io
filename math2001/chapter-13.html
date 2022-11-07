@@ -1,109 +1,272 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-	<meta charset="utf-8">
+    <title>MATH2001/7000 - Chapter 13</title>
 
-	<title>MATH2001/7000 - Chapter 13</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
 
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="css/mylayout.css" />
 
-	<link rel="stylesheet" href="css/mylayout.css" />
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 
-	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
 
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="css/fontawesome.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
 
-	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
 
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
 
-	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
 
-	<!--[if lt IE 9]>
-		<script src="../reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 13</p>
+        </section>
 
+        <section>
+          <section data-auto-animate>
+            <h4 style="font-size: 121%;">
+              13 Least squares function approximation
+            </h4>
 
-</head>
+            <div class="left-txt size-75">
+              <p class="fragment" data-fragment-index="0">
+                <em>Problem:</em> Given a function $f\in C[a, b]$, find the best
+                approximation to $f$ using only functions from a specified
+                subspace $U$ of $C[a, b]$.
+              </p>
+              <p class="fragment" data-fragment-index="1">
+                <strong>
+                  Interpret "best possible" in the sense of least squares.
+                </strong>
+              </p>
 
-<body>
-	<div class="reveal">
-		<div class="slides">
+              <p class="fragment" data-fragment-index="2">
+                Consider $g$ as an approximation to $f$ as shown by the graph.
+              </p>
+            </div>
+            <br /><br /><br />
+          </section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+          <section data-auto-animate>
+            <h4 style="font-size: 121%;">
+              13 Least squares function approximation
+            </h4>
 
-			<section>
-				<h2>Calculus & <br />Linear Algebra II</h2>
-				<p>Chapter 13</p>
-			</section>
+            <div class="left-txt size-75">
+              <p>
+                At point $x_0$ the error is $|f(x_0)-g(x_0)|$. For the entire
+                interval, define error as $\int_a^b |f(x)-g(x)|dx.$
+                <span class="fragment" data-fragment-index="0">
+                  This is <em>area between curves.</em>
+                </span>
+              </p>
+            </div>
+            <br /><br /><br />
+          </section>
 
-			<section>
-				<h4 style="font-size:121%">13 Least squares function approximation</h4>
-				
-				
-				<div class="left-txt size-75">
-					<br/>
-					<p><em>Problem:</em> Given a function $f\in C[a, b]$, 
-						find the best approximation to $f$ using only
-						functions from a specified subspace $U$ of $C[a, b]$.</p>
-					
-				</div>
-				<br/><br/><br/><br/><br/><br/><br/>
+          <section data-auto-animate>
+            <h4 style="font-size: 121%;">
+              13 Least squares function approximation
+            </h4>
 
-			</section>
+            <div class="left-txt size-70">
+              <p>
+                An easier definition (and one more amenable to calculations) is
+                the <em>mean squared error</em> (MSE) \begin{align*}
+                \text{MSE}=\int_a^b (\,f(x)-g(x))^2~dx. \end{align*}
+                <span class="fragment" data-fragment-index="0">
+                  Use the integral inner product on $C[a,b]$ defined by
+                  \begin{align*} \langle \mathbf{p},\mathbf{q}\rangle &=\int_a^b
+                  p(x)q(x)~dx \end{align*}
+                </span>
+              </p>
+            </div>
+            <div class="left-txt size-70">
+              <p>
+                <span class="fragment" data-fragment-index="1">
+                  \begin{align*}
+                  \implies~\text{MSE}~=||\mathbf{f}-\mathbf{g}||^2&=\langle
+                  \mathbf{f}-\mathbf{g},\mathbf{f}-\mathbf{g}\rangle =\int_a^b
+                  (\,f(x)-g(x))^2~dx. \end{align*}
+                </span>
+              </p>
+            </div>
+            <br />
+          </section>
 
+          <section data-auto-animate>
+            <h4 style="font-size: 121%;">
+              13 Least squares function approximation
+            </h4>
+            <div class="left-txt size-70">
+              <p>
+                <span>
+                  \begin{align*}
+                  \implies~\text{MSE}~=||\mathbf{f}-\mathbf{g}||^2&=\langle
+                  \mathbf{f}-\mathbf{g},\mathbf{f}-\mathbf{g}\rangle =\int_a^b
+                  (\,f(x)-g(x))^2~dx. \end{align*}
+                </span>
+              </p>
+            </div>
+            <div class="left-txt size-70">
+              <p>
+                <span>
+                  It follows that the best approximation to $f$ using only
+                  functions $g$'s from the subspace $U$ of $C[a,b]$ is achieved
+                  by minimizing $||\mathbf f - \mathbf g||^2$ relative to the
+                  above integral inner product.
+                </span>
+              </p>
+            </div>
+            <br /><br />
+          </section>
+        </section>
 
+        <section>
+          <section data-auto-animate>
+            <h4>13.1 Example: $\sin(x)$</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Find the least squares approximation for $\sin x$ in the
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
+                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $$
+                </p>
+              </div>
+            </div>
+          </section>
 
+          <section data-auto-animate>
+            <h4>13.1 Example: $\sin(x)$</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Solution cont...
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
 
+        <section>
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  In $C[0,2\pi]$, the set $$
+                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
+                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
+                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
+                  orthonormal with respect to the inner product $$ \langle{\bf
+                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
+                </p>
+              </div>
+            </div>
+          </section>
 
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  It follows that $\beta_n$ is an orthonormal basis for the
+                  $(2n+1)$-dimensional subspace $W_n=\mathrm{span}(\beta_n)$ of
+                  $C[0,2\pi]$.
+                  <span class="fragment" data-fragment-index="0">
+                    The orthogonal projection of ${\bf f}\in C[0,2\pi]$ onto
+                    $W_n$ is given by $\mathrm{Proj}_{W_n}({\bf f})$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    In the limit $n\to\infty$, the corresponding approximation
+                    of $f(x)$ yields the <strong>Fourier series</strong> of $f(x)$ over the
+                    interval $[0,2\pi]$: $$
+                    f(x)=\frac{a_0}{2}+\sum_{k=1}^\infty\,(a_k\cos kx+b_k\sin
+                    kx), $$ 
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    where $$ a_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\cos
+                    kx\,dx,\qquad b_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\sin kx\,dx,
+                    $$ are the associated <strong>Fourier coefficients</strong>.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
 
-			<section>
+		
 
-				<h4>Credits</h4>
-				<div include-html="creditsb.html"></div>
-			</section>
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
 
-			<!-- Ends sections -->
+        <!-- Ends sections -->
+      </div>
+    </div>
 
-		</div>
-	</div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
 
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="mySetup/setup.js"></script>
-
-	<script>
-		includeHTML();
-	</script>
-
-
-</body>
-
+    <script>
+      includeHTML();
+    </script>
+  </body>
 </html>
