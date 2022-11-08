@@ -168,8 +168,8 @@
               </div>
               <div>
                 <p class="fragment" data-fragment-index="1">
-                  ${\pmb v}_1=\mat{r}{1\\0\\-1}$, ${\pmb v}_2=\mat{c}{1\\2\\1}$,
-                  ${\pmb v}_3=\mat{r}{1\\-1\\1}$.
+                  $\v_1=\mat{r}{1\\0\\-1}$, $\v_2=\mat{c}{1\\2\\1}$,
+                  $\v_3=\mat{r}{1\\-1\\1}$.
                 </p>
               </div>
               <div class="left-txt">
@@ -278,10 +278,10 @@
                   Similar matrices have the same eigenvalues.
                 </p>
                 <p>
-                  In fact, if $B=P^{-1}AP$ and ${\pmb v}$ is an eigenvector of
+                  In fact, if $B=P^{-1}AP$ and $\v$ is an eigenvector of
                   $A$ corresponding to eigenvalue $\lambda$,
                   <span class="fragment" data-fragment-index="0">
-                    then $P^{-1}{\pmb v}$ is an eigenvector of $B$ corresponding
+                    then $P^{-1}\v$ is an eigenvector of $B$ corresponding
                     to eigenvalue $\lambda$.
                   </span>
                   <span class="fragment" data-fragment-index="1">
@@ -291,13 +291,13 @@
                 <table id="eqarray">
                   <tr class="fragment" data-fragment-index="1">
                     <td>
-                      $B\left(P^{-1}{\pmb v}\right)$
+                      $B\left(P^{-1}\v\right)$
                     </td>
                     <td>
                       $=$
                     </td>
                     <td>
-                      $\left(P^{-1}AP\right)P^{-1}{\pmb v}$
+                      $\left(P^{-1}AP\right)P^{-1}\v$
                     </td>
                   </tr>
                   <tr class="fragment" data-fragment-index="2">
@@ -306,7 +306,7 @@
                       $=$
                     </td>
                     <td>
-                      $ P^{-1}\left(A{\pmb v}\right)$
+                      $ P^{-1}\left(A\v\right)$
                     </td>
                   </tr>
                   <tr class="fragment" data-fragment-index="3">
@@ -315,7 +315,7 @@
                       $=$
                     </td>
                     <td>
-                      $P^{-1}\left(\lambda {\pmb v}\right)$
+                      $P^{-1}\left(\lambda \v\right)$
                     </td>
                   </tr>
                   <tr class="fragment" data-fragment-index="4">
@@ -324,7 +324,7 @@
                       $=$
                     </td>
                     <td>
-                      $\lambda \left(P^{-1}{\pmb v}\right)$
+                      $\lambda \left(P^{-1}\v\right)$
                     </td>
                   </tr>
                 </table>
@@ -342,11 +342,11 @@
                 <p>
                   <span class="fragment" data-fragment-index="0">
                     Let the matrix $A$ be $n\times n$ with $n$ linearly
-                    independent eigenvectors ${\pmb v}_1,\dots, {\pmb v}_n$
+                    independent eigenvectors $\v_1,\dots, \v_n$
                     corresponding to eigenvalues $\lambda_1,\dots,\lambda_n$.
                   </span>
                   <span class="fragment" data-fragment-index="1">
-                    Let $$ P=({\pmb v}_1| \dots |{\pmb v}_n) $$ be the $n\times
+                    Let $$ P=(\v_1| \dots |\v_n) $$ be the $n\times
                     n$ matrix whose columns are the eigenvectors.
                   </span>
                   <span class="fragment" data-fragment-index="2">
@@ -367,11 +367,11 @@
                 <p>
                   <span>
                     Let the matrix $A$ be $n\times n$ with $n$ linearly
-                    independent eigenvectors ${\pmb v}_1,\dots, {\pmb v}_n$
+                    independent eigenvectors $\v_1,\dots, \v_n$
                     corresponding to eigenvalues $\lambda_1,\dots,\lambda_n$.
                   </span>
                   <span>
-                    Let $$ P=({\pmb v}_1| \dots |{\pmb v}_n) $$ be the $n\times
+                    Let $$ P=(\v_1| \dots |\v_n) $$ be the $n\times
                     n$ matrix whose columns are the eigenvectors.
                   </span>
                   <span>
@@ -418,10 +418,10 @@
 						<p class="fragment" data-fragment-index="1">
 							Now say $\lambda_1,\dots,\lambda_m$ are 
 							<em>distinct</em> eigenvalues of $A$, 
-							with corresponding eigenvectors ${\pmb v}_1,\dots,{\pmb v}_m$.
+							with corresponding eigenvectors $\v_1,\dots,\v_m$.
 							<span>
 								Then we have also seen that 
-								${\pmb v}_1,\dots,{\pmb v}_m$ 
+								$\v_1,\dots,\v_m$ 
 								are linearly independent.
 							</span>
 						</p>
@@ -538,24 +538,24 @@ $(2-\lambda)(1-\lambda)^2=0$, so $\lambda=2,1,1$.
 							
 							<span class="fragment" data-fragment-index="0">
 								For a system of coupled differential equations which can be written 
-in matrix form as
+in matrix form as 
 $$
-\dot{\pmb x}=A{\pmb x} 
+\dot{\mathbf x}=A{\mathbf x} 
 $$
-(where ${\pmb x}=(x_1,\dots,x_n)^T$,
-$\dot{\pmb x}=(\dot x_1,\dots,\dot x_n)^T$),
+(where ${\mathbf x}=(x_1,\dots,x_n)^T$,
+$\dot{\mathbf x}=(\dot x_1,\dots,\dot x_n)^T$),
 							</span>
 							<span class="fragment" data-fragment-index="1">
 if $A$ can be diagonalised, say 
 $P^{-1}AP=D$ with $D$ diagonal,
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								then make the substitution ${\pmb x}=P{\pmb y}$.
+								then make the substitution ${\mathbf x}=P{\mathbf y}$.
 							</span>
 							<span class="fragment" data-fragment-index="3">
 								This yields
 $$
-\dot{\pmb y}=D{\pmb y} 
+\dot{\mathbf y}=D{\mathbf y} 
 $$
 which is easily solved.
 							</span>
@@ -592,7 +592,7 @@ This gives an easy way to calculate $A^n$.
 							What can we say about the linear system 
 							(corresponding to a square matrix $A$) 
 $$
-A{\pmb x} = {\pmb b},
+A{\mathbf x} = {\pmb b},
 $$
 if we know how to diagonalise $A$?
 						</p>
