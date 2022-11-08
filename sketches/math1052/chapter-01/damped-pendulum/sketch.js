@@ -33,6 +33,11 @@ function setup() {
 function draw() {
 
   background(255);
+  fill(0);
+  stroke(200);
+  strokeWeight(1);
+  textSize(10);
+  text("By Carlos Ponce Campuzano/@jcponcemath", 5, 15);
   p.go();
 }
 
