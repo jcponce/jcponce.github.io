@@ -63,6 +63,8 @@
 						arcosh: "\\mbox{arcosh}\\,",
 						arsinh: "\\mbox{arsinh}\\,",
 						artanh: "\\mbox{artan}\\,",
+						//\newcommand{\mat}[2]{\left( \begin{array}{#1} #2 \end{array}\right)}
+						mat: ["{\\left(\\begin{array}{#1} #2\\end{array}\\right)}", 2],
 						conj: ["{\\overline{#1}}", 1],
 						abs: ["{\\left|#1\\right|}", 1],
 						sabs: ["{\\left|#1\\right|}", 1],

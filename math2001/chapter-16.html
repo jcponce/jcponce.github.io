@@ -1,125 +1,443 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-	<meta charset="utf-8">
+    <title>MATH2001/7000 - Chapter 16</title>
 
-	<title>MATH2001/7000 - Chapter 16</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
 
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="css/mylayout.css" />
 
-	<link rel="stylesheet" href="css/mylayout.css" />
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 
-	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
 
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="css/fontawesome.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
 
-	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
 
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
 
-	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
 
-	<!--[if lt IE 9]>
-		<script src="../reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 16</p>
+        </section>
 
+        <section>
+          <section data-auto-animate>
+            <h3>16 Diagonalisation</h3>
+            <div class="left-txt size-80">
+              <p>
+                By the end of this section, you should be able to answer the
+                following questions:
+              </p>
+              <ul>
+                <li class="fragment" data-fragment-index="0">
+                  How do you find a matrix $P$ which diagonalises a given matrix
+                  $A$?
+                </li>
+                <li class="fragment" data-fragment-index="1">
+                  How do you determine if $A$ is diagonalisable?
+                </li>
+                <li class="fragment" data-fragment-index="2">
+                  What are two applications of diagonalisation?
+                </li>
+              </ul>
+            </div>
+            <br /><br /><br />
+          </section>
 
-</head>
+          <section data-auto-animate>
+            <h3>16 Diagonalisation</h3>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  A square matrix $A$ is <em>diagonalisable</em> if there is a
+                  non-singular matrix $P$ such that $P^{-1}AP$ is a diagonal
+                  matrix.
+                  <span class="fragment" data-fragment-index="0">
+                    Here we consider the question: given a matrix, is it
+                    diagonalisable?
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    If so, how do we find $P$?
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="2">
+                  The secret to constructing such a $P$ is to let the columns of
+                  $P$ be the eigenvectors of $A$.
+                  <span class="fragment" data-fragment-index="3">
+                    We immediately have that $AP=PD$, where $D$ is a diagonal
+                    matrix with eigenvalues on the diagonal.
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    We know from <a href="">section 15.1</a>
+                    that $P$ is invertible if and only if the columns of $P$ are
+                    linearly independent.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </section>
 
-<body>
-	<div class="reveal">
-		<div class="slides">
+          <section data-auto-animate>
+            <h3>16 Diagonalisation</h3>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  Hence, we have the following result:
+                </p>
+                <p>
+                  The $n\times n$ matrix $A$ is diagonalisable if and only if
+                  $A$ has $n$ linearly independent eigenvectors.
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  Is the matrix
+                  $A=\left(\begin{array}{rrr}-3&1&0\\1&-2&1\\0&1&-3\end{array}\right)$
+                  diagonalisable?
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+          <section data-auto-animate>
+            <h3>16 Diagonalisation</h3>
+            <div class="size-60">
+              <div class="left-txt">
+                <p style="font-size: 80%;">
+                  Is the matrix
+                  $A=\left(\begin{array}{rrr}-3&1&0\\1&-2&1\\0&1&-3\end{array}\right)$
+                  diagonalisable?
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  This matrix has eigenvalues $-3, -1, -4$,
+                  <span class="fragment" data-fragment-index="1">
+                    with corresponding eigenvectors
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="1">
+                  ${\pmb v}_1=\mat{r}{1\\0\\-1}$, ${\pmb v}_2=\mat{c}{1\\2\\1}$,
+                  ${\pmb v}_3=\mat{r}{1\\-1\\1}$.
+                </p>
+              </div>
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="2">
+                  We form the matrix $$ P=\left(\begin{array}{rrr}1&1&1\\0&\;
+                  2&-1\\-1&1&1\end{array}\right) $$ whose columns are these
+                  eigenvectors.
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
 
-			<section>
-				<h2>Calculus & <br />Linear Algebra II</h2>
-				<p>Chapter 16</p>
-			</section>
+          <section data-auto-animate>
+            <h3>16 Diagonalisation</h3>
+            <div class="size-60">
+              <div class="left-txt">
+                <p style="font-size: 80%;">
+                  Is the matrix
+                  $A=\left(\begin{array}{rrr}-3&1&0\\1&-2&1\\0&1&-3\end{array}\right)$
+                  diagonalisable?
+                </p>
+                <p>
+                  We can check directly that $P^{-1}AP=D,$
+                  <span class="fragment" data-fragment-index="0">
+                    where
+                    $$\left(\begin{array}{rrr}-3&0&0\\0&-1&0\\0&0&-4\end{array}\right)=D$$
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    is a diagonal matrix with the eigenvalues on the diagonal.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
 
-			<section>
-				<h3>16 Diagonalisation</h3>
-				<div class="left-txt size-80">
-					<p>
-						By the end of this section, you should be 
-						able to answer the following questions:
-					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">
-							How do you find a matrix $P$ which diagonalises a given matrix $A$?
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							How do you determine if $A$ is diagonalisable?
-						</li>
-						<li class="fragment" data-fragment-index="2">
-							What are two applications of diagonalisation?
-						</li>
-						
-					</ul>
+          <section data-auto-animate>
+            <h3>16 Diagonalisation</h3>
+            <div class="size-75">
+              <div class="left-txt">
+                <p>
+                  So steps for diagonalising an $n\times n$ matrix $A$:
+                </p>
+                <ol style="line-height: 20px;">
+                  <li class="fragment" data-fragment-index="0">
+                    Find eigenvalues $\lambda_1, \lambda_2, \cdots$, and the
+                    corresponding eigenvectors $\v_1, \v_2, \cdots$, of $A$.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Check if $A$ has $n$ linearly independent eigenvectors.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    If no, $A$ is not diagonalizable. <br />
+                    <span class="fragment" data-fragment-index="3">
+                      If yes, $A$ is diagonalizable. In this case, form matrix
+                      $P=(\v_1|\v_2|\cdots|\v_n)$. Then $P^{-1}$ exists and $P$
+                      diagonalizes $A$, i.e. $P^{-1}AP=diag\{\lambda_1, \cdots,
+                      \lambda_n\}$.
+                    </span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
+        </section>
 
+        <section>
+          <section data-auto-animate>
+            <h4>16.1 Similar matrices</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Two matrices $A$ and $B$ are <em>similar</em> if there is a
+                    non-singular matrix $P$ such that $B=P^{-1}AP$.
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  The statements "$A$ is diagonalisable" and "$A$ is similar to
+                  a diagonal matrix" are equivalent.
+                </p>
+                <p class="fragment" data-fragment-index="2">
+                  <strong>
+                    16.1.1 Theorem (similar matrices)
+                  </strong>
+                </p>
+                <p class="fragment" data-fragment-index="3">
+                  Similar matrices have the same eigenvalues.
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+          <section data-auto-animate>
+            <h4>16.1 Similar matrices</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <strong>
+                    16.1.1 Theorem (similar matrices)
+                  </strong>
+                </p>
+                <p>
+                  Similar matrices have the same eigenvalues.
+                </p>
+                <p>
+                  In fact, if $B=P^{-1}AP$ and ${\pmb v}$ is an eigenvector of
+                  $A$ corresponding to eigenvalue $\lambda$,
+                  <span class="fragment" data-fragment-index="0">
+                    then $P^{-1}{\pmb v}$ is an eigenvector of $B$ corresponding
+                    to eigenvalue $\lambda$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    This is because
+                  </span>
+                </p>
+                <table id="eqarray">
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      $B\left(P^{-1}{\pmb v}\right)$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\left(P^{-1}AP\right)P^{-1}{\pmb v}$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="2">
+                    <td></td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $ P^{-1}\left(A{\pmb v}\right)$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="3">
+                    <td></td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $P^{-1}\left(\lambda {\pmb v}\right)$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="4">
+                    <td></td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\lambda \left(P^{-1}{\pmb v}\right)$
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <br />
+          </section>
+        </section>
 
-					
+        <section>
+          <section data-auto-animate>
+            <h4>16.2 A closer look at the diagonal matrix</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Let the matrix $A$ be $n\times n$ with $n$ linearly
+                    independent eigenvectors ${\pmb v}_1,\dots, {\pmb v}_n$
+                    corresponding to eigenvalues $\lambda_1,\dots,\lambda_n$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Let $$ P=({\pmb v}_1| \dots |{\pmb v}_n) $$ be the $n\times
+                    n$ matrix whose columns are the eigenvectors.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Then $$ P^{-1}AP=\left(\begin{array}{cccc}
+                    \lambda_1&0&\cdots&0\\0&\lambda_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\
+                    0&0&\cdots&\lambda_n\end{array}\right), $$ the diagonal
+                    matrix with the eigenvalues down the main diagonal.
+                  </span>
+                  
+                </p>
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h4>16.2 A closer look at the diagonal matrix</h4>
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    Let the matrix $A$ be $n\times n$ with $n$ linearly
+                    independent eigenvectors ${\pmb v}_1,\dots, {\pmb v}_n$
+                    corresponding to eigenvalues $\lambda_1,\dots,\lambda_n$.
+                  </span>
+                  <span>
+                    Let $$ P=({\pmb v}_1| \dots |{\pmb v}_n) $$ be the $n\times
+                    n$ matrix whose columns are the eigenvectors.
+                  </span>
+                  <span>
+                    Then $$ P^{-1}AP=\left(\begin{array}{cccc}
+                    \lambda_1&0&\cdots&0\\0&\lambda_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\
+                    0&0&\cdots&\lambda_n\end{array}\right), $$ the diagonal
+                    matrix with the eigenvalues down the main diagonal.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-70">
+              <div class="left-txt">
+                  <span>
+                    The important point here is the order in which the
+                    eigenvalues appear.
+                  </span>
+                  <span class="fragment" data-fragment-index="0">
+					They correspond to the
+					order in which the associated eigenvectors 
+					appear in the columns of $P$.
+                  </span>
+                </p>
+              </div>
+            </div>
+			<br/>
+          </section>
+        </section>
 
-					
+		<section>
+ 
+			<section data-auto-animate>
+				<h4>16.3 Diagonalisability</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								We know that an $n\times n$ matrix $A$ is diagonalisable
+if and only if $A$ has $n$ linearly independent eigenvectors.
+							</span>
+						</p>
+					</div>
 				</div>
-				<br/><br/><br/>
-
-				
-
 			</section>
 
+		</section>
 
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
 
+        <!-- Ends sections -->
+      </div>
+    </div>
 
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
 
-
-			<section>
-
-				<h4>Credits</h4>
-				<div include-html="creditsb.html"></div>
-			</section>
-
-			<!-- Ends sections -->
-
-		</div>
-	</div>
-
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="mySetup/setup.js"></script>
-
-	<script>
-		includeHTML();
-	</script>
-
-
-</body>
-
+    <script>
+      includeHTML();
+    </script>
+  </body>
 </html>
