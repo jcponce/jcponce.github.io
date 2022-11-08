@@ -106,16 +106,37 @@
                 <p>
                   <span class="fragment" data-fragment-index="0">
                     We define the functions $\cosh\left(x\right) $ and
-                    $\sinh\left(x\right) $ by \[ \begin{eqnarray*}
-                    \cosh\left(x\right) & = & \frac{e^x+e^{-x}}{2}\\
-                    \sinh\left(x\right) & = & \frac{e^x-e^{-x}}{2}.
-                    \end{eqnarray*} \]
+                    $\sinh\left(x\right) $ by
                   </span>
                 </p>
-                <p class="fragment" data-fragment-index="1">
+                <table id="eqarray">
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      $\cosh\left(x\right) $
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \frac{e^x+e^{-x}}{2}$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="2">
+                    <td>
+                      $\sinh\left(x\right) $
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \frac{e^x-e^{-x}}{2}$
+                    </td>
+                  </tr>
+                </table>
+                <p class="fragment" data-fragment-index="3">
                   We can check by direct calculation that \[ \cosh^2
                   \left(x\right) + \sinh^2\left(x\right)=1. \]
-                  <span class="fragment" data-fragment-index="2">
+                  <span class="fragment" data-fragment-index="4">
                     Compare this with the the familiar identity $\cos^2
                     \left(\theta\right) + \sin^2\left(\theta\right)=1$ for
                     trigonometric functions.
@@ -133,7 +154,7 @@
                 <p>
                   We can check by direct calculation that \[ \cosh^2
                   \left(x\right) + \sinh^2\left(x\right)=1. \]
-                  <span class="fragment" data-fragment-index="0">
+                  <span>
                     Compare this with the the familiar identity $\cos^2
                     \left(\theta\right) + \sin^2\left(\theta\right)=1$ for
                     trigonometric functions.
@@ -185,15 +206,35 @@
                   These hyperbolic functions satisfy properties similar to their
                   trigonometric counterparts.
                   <span class="fragment" data-fragment-index="0">
-                    For example \[ \begin{eqnarray*} \frac{d}{dx} \big(
-                    \cosh\left(x\right) \big) & = & \frac{e^x-e^{-x}}{2} =
-                    \sinh\left(x\right) \\ \frac{d}{dx} \big(
-                    \sinh\left(x\right) \big) & = & \frac{e^x+e^{-x}}{2} =
-                    \cosh\left(x\right) . \end{eqnarray*} \]
+                    For example
                   </span>
                 </p>
+                <table id="eqarray">
+                  <tr class="fragment" data-fragment-index="0">
+                    <td>
+                      $\ds\frac{d}{dx} \big(\cosh\left(x\right) \big) $
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \frac{e^x-e^{-x}}{2} = \sinh\left(x\right)$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      $\ds\frac{d}{dx} \big( \sinh\left(x\right) \big) $
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \frac{e^x+e^{-x}}{2} = \cosh\left(x\right) .$
+                    </td>
+                  </tr>
+                </table>
 
-                <p class="fragment" data-fragment-index="1">
+                <p class="fragment" data-fragment-index="2">
                   <strong>Note:</strong> $\cosh(0) = 1$, $\cosh(x) \leq 1$,
                   $\cosh(x)$ is an even function; $\sinh(0) = 0$, $\sinh(x)$ is
                   an odd function.
@@ -208,13 +249,34 @@
             <div class="size-70">
               <div class="left-txt">
                 <p>
-                  We also define \[ \begin{eqnarray*} \tanh\left(x\right) & = &
-                  \frac{\sinh\left(x\right)}{\cosh\left(x\right)} =
-                  \frac{1-e^{-2x}}{1+e^{-2x}}, \quad
-                  \abs{\tanh\left(x\right)}\lt 1, \\ \coth\left(x\right) & = &
-                  \frac{\cosh\left(x\right)}{\sinh\left(x\right)}.
-                  \end{eqnarray*} \]
+                  We also define
                 </p>
+                <table id="eqarray">
+                  <tr>
+                    <td>
+                      $\ds\tanh\left(x\right) $
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \frac{\sinh\left(x\right)}{\cosh\left(x\right)} =
+                      \frac{1-e^{-2x}}{1+e^{-2x}}, \quad
+                      \abs{\tanh\left(x\right)}\lt 1,$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      $\ds\coth\left(x\right)$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \frac{\cosh\left(x\right)}{\sinh\left(x\right)}.$
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
             <br /><br /><br /><br />
@@ -255,21 +317,27 @@
               <div class="left-txt">
                 <p class="fragment" data-fragment-index="0">
                   The inverse function of $\cosh$ is denoted $\arcosh$
-                  <span class="fragment" data-fragment-index="3"
-                    >$= \cosh^{-1}$</span
-                  >
+                  <span class="fragment highlight-red" data-fragment-index="4">
+                    <span class="fragment" data-fragment-index="3">
+						$= \cosh^{-1}$
+					</span>
+                  </span>
                 </p>
                 <p class="fragment" data-fragment-index="1">
                   The inverse function of $\sinh$ is denoted $\arsinh$
-                  <span class="fragment" data-fragment-index="3"
-                    >$= \sinh^{-1}$</span
-                  >
+                  <span class="fragment highlight-red" data-fragment-index="4">
+                    <span class="fragment" data-fragment-index="3">
+						$= \sinh^{-1}$
+					</span>
+                  </span>
                 </p>
                 <p class="fragment" data-fragment-index="2">
                   The inverse function of $\tanh$ is denoted $\artanh$
-                  <span class="fragment" data-fragment-index="3"
-                    >$= \tanh^{-1}$</span
-                  >
+                  <span class="fragment highlight-red" data-fragment-index="4">
+                    <span class="fragment" data-fragment-index="3">
+						$= \tanh^{-1}$
+					</span>
+                  </span>
                 </p>
               </div>
             </div>
@@ -300,17 +368,40 @@
 
         <section>
           <section data-auto-animate>
-            <h4>4.1 Properties of hyperbolic functions</h4>
+            <h4>4.2 Inverse hyperbolic functions</h4>
             <div class="size-70">
               <div class="left-txt">
                 <p>
-                  <span class="fragment" data-fragment-index="0">
-                    We have the following: \[ \begin{eqnarray*} \int
-                    \frac{dx}{\sqrt{1+x^2}} &=& \arsinh(x)+C\\ \int
-                    \frac{dx}{\sqrt{x^2-1}} &=& \arcosh(x)+C, \;x\gt0\\
-                    \end{eqnarray*} \]
+                  <span>
+                    We have the following: 
                   </span>
                 </p>
+				<table id="eqarray">
+					<tr>
+					  <td>
+						$\ds\int
+						\frac{dx}{\sqrt{1+x^2}} $
+					  </td>
+					  <td>
+						$=$
+					  </td>
+					  <td>
+						$\ds  \arsinh(x)+C$
+					  </td>
+					</tr>
+					<tr class="fragment" data-fragment-index="1">
+					  <td>
+						$\ds\int
+						\frac{dx}{\sqrt{x^2-1}}$
+					  </td>
+					  <td>
+						$=$
+					  </td>
+					  <td>
+						$\ds \arcosh(x)+C, \;x\gt 1$
+					  </td>
+					</tr>
+				  </table>
               </div>
             </div>
             <br /><br /><br /><br />
@@ -546,42 +637,38 @@
           </section>
         </section>
 
-
-
         <section>
+          <section data-auto-animate>
+            <h4>4.3 Further reading: The catenary problem</h4>
 
-			<section data-auto-animate>
-				<h4>4.3 Further reading: The catenary problem</h4>
-	
-				<br/>
-				<div class="size-70">
-					<div class="left-txt">
-					  <p class="fragment" data-fragment-index="0">
-						One of the most famous problems where hyperbolic functions are
-						used is in determining the profile of a heavy chain (of
-						constant density $\rho$) suspended from two points of equal
-						height (known as a catenary curve).
-					  </p>
-					</div>
-				</div>
-				
-				
-				<br/><br/><br/><br/><br/>
-			</section>
+            <br />
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  One of the most famous problems where hyperbolic functions are
+                  used is in determining the profile of a heavy chain (of
+                  constant density $\rho$) suspended from two points of equal
+                  height (known as a catenary curve).
+                </p>
+              </div>
+            </div>
+
+            <br /><br /><br /><br /><br />
+          </section>
 
           <section data-auto-animate>
             <h4>4.3 Further reading: The catenary problem</h4>
 
-			<div class="size-45">
-				<div class="left-txt">
-				  <p>
-					One of the most famous problems where hyperbolic functions are
-					used is in determining the profile of a heavy chain (of
-					constant density $\rho$) suspended from two points of equal
-					height (known as a catenary curve).
-				  </p>
-				</div>
-			</div>
+            <div class="size-45">
+              <div class="left-txt">
+                <p>
+                  One of the most famous problems where hyperbolic functions are
+                  used is in determining the profile of a heavy chain (of
+                  constant density $\rho$) suspended from two points of equal
+                  height (known as a catenary curve).
+                </p>
+              </div>
+            </div>
             <iframe
               data-src="sketches/catenary-verly/"
               title="Interactive Catenary"
@@ -595,45 +682,42 @@
             <p style="font-size: 18px; margin-top: -10px;">
               Drag the end points.
             </p>
-			
-			  <br/>
+
+            <br />
           </section>
 
           <section data-auto-animate>
             <h4>4.3 Further reading: The catenary problem</h4>
-			<div class="size-60">
-				<div class="left-txt">
-				  <p>
-					One of the most famous problems where hyperbolic functions are
-					used is in determining the profile of a heavy chain (of
-					constant density $\rho$) suspended from two points of equal
-					height (known as a catenary curve).
-				  </p>
-				</div>
-			</div>
             <div class="size-60">
               <div class="left-txt">
-                
+                <p>
+                  One of the most famous problems where hyperbolic functions are
+                  used is in determining the profile of a heavy chain (of
+                  constant density $\rho$) suspended from two points of equal
+                  height (known as a catenary curve).
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
                 <p>
                   To derive the differential equation satisfied by the profile
                   $y(x)$, we look at the forces acting on a small element of arc
                   (inside the rectangular box in figure below).
                 </p>
-				
               </div>
-			  <div>
-				<img width="50%" src="images/chapter-04/small-arc.png">
-			  </div>
+              <div>
+                <img width="50%" src="images/chapter-04/small-arc.png" />
+              </div>
             </div>
-			
           </section>
 
           <section data-auto-animate>
             <h4>4.3 Further reading: The catenary problem</h4>
             <div class="size-60">
-				<div>
-					<img width="40%" src="images/chapter-04/small-arc.png">
-				</div>
+              <div>
+                <img width="40%" src="images/chapter-04/small-arc.png" />
+              </div>
               <div class="left-txt">
                 <p>
                   Let $T(x)$ be the tensile force in the chain with constant
@@ -648,11 +732,11 @@
                 </p>
               </div>
             </div>
-			<br/>
+            <br />
           </section>
           <section data-auto-animate>
             <h4>4.3 Further reading: The catenary problem</h4>
-            <div class="size-65">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   The horizontal equilibrium is the trivial relation $H=H$,
@@ -660,22 +744,20 @@
                   (V+\delta V) = V + \rho g(\delta s). $$
                 </p>
                 <p class="fragment" data-fragment-index="0">
-                  Dividing both sides by
-                  $\delta x$ gives $$ \frac{\delta V}{\delta x} = \rho
-                  g\frac{\delta s}{\delta x}. $$ 
-				  <span class="fragment" data-fragment-index="1">
-					From geometry, we also have the
-                  approximation $$ \frac{\delta y}{\delta x} \approx \frac VH.
-                  $$
-				  </span>
+                  Dividing both sides by $\delta x$ gives $$ \frac{\delta
+                  V}{\delta x} = \rho g\frac{\delta s}{\delta x}. $$
+                  <span class="fragment" data-fragment-index="1">
+                    From geometry, we also have the approximation $$
+                    \frac{\delta y}{\delta x} \approx \frac VH. $$
+                  </span>
                 </p>
               </div>
             </div>
-			<br/><br/>
+            <br />
           </section>
           <section data-auto-animate>
             <h4>4.3 Further reading: The catenary problem</h4>
-            <div class="size-60">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   We also have the approximation to the arclength $\delta s$ $$
@@ -685,13 +767,27 @@
                 </p>
                 <p class="fragment" data-fragment-index="0">
                   Finally we take the limit $\delta x\ra 0$ so that $\delta y\ra
-                  0$ and $\delta s\ra 0$ simultaneously. 
-				  <span class="fragment" data-fragment-index="1">
-					We then have the
-                  following equations
-				  </span>
+                  0$ and $\delta s\ra 0$ simultaneously.
                 </p>
-                <table id="eqarray"  class="fragment" data-fragment-index="1">
+                
+              </div>
+            </div>
+            <br /><br /><br /><br />
+          </section>
+          <section data-auto-animate>
+            <h4>4.3 Further reading: The catenary problem</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  Finally we take the limit $\delta x\ra 0$ so that $\delta y\ra
+                  0$ and $\delta s\ra 0$ simultaneously.
+                </p>
+				<p>
+					<span>
+						We then have the following equations
+					  </span>
+				</p>
+                <table id="eqarray">
                   <tr>
                     <td>
                       $\ds \frac{dV}{dx}$
@@ -726,27 +822,65 @@
                     </td>
                   </tr>
                 </table>
+				
               </div>
-            </div><br/>
+            </div>
+            <br/><br/>
           </section>
           <section data-auto-animate>
             <h4>4.3 Further reading: The catenary problem</h4>
-			<br/>
             <div class="size-65">
               <div class="left-txt">
-                <p>
-					Putting these equations together gives the ODE satisfied by the
-					profile $y(x)$,
-					$$
-					\frac{d^2y}{dx^2} = \frac{\rho g}{H}\sqrt{1+\left(
-					\frac{dy}{dx}\right)^2}.
-					$$  
-                </p>
-                
+				<p>
+					<span>
+						We then have the following equations
+					  </span>
+				</p>
+                <table id="eqarray">
+                  <tr>
+                    <td>
+                      $\ds \frac{dV}{dx}$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \rho g\frac{ds}{dx},$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      $V$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds H\frac{dy}{dx},$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      $\ds \frac{ds}{dx}$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \sqrt{1+\left( \frac{dy}{dx} \right)^2}.$
+                    </td>
+                  </tr>
+                </table>
+				<p>
+					Putting these equations together gives the ODE satisfied by
+					the profile $y(x)$, $$ \frac{d^2y}{dx^2} = \frac{\rho
+					g}{H}\sqrt{1+\left( \frac{dy}{dx}\right)^2}. $$
+				  </p>
               </div>
             </div>
-			<br/><br/><br/><br/><br/>
+            <br/>
           </section>
+          
         </section>
 
         <section>
