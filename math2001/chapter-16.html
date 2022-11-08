@@ -409,9 +409,192 @@
 					<div class="left-txt">
 						<p>
 							<span class="fragment" data-fragment-index="0">
-								We know that an $n\times n$ matrix $A$ is diagonalisable
-if and only if $A$ has $n$ linearly independent eigenvectors.
+								We know that an $n\times n$ matrix $A$ is 
+								diagonalisable 
+								if and only if $A$ has $n$ linearly 
+								 independent eigenvectors.
 							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Now say $\lambda_1,\dots,\lambda_m$ are 
+							<em>distinct</em> eigenvalues of $A$, 
+							with corresponding eigenvectors ${\pmb v}_1,\dots,{\pmb v}_m$.
+							<span>
+								Then we have also seen that 
+								${\pmb v}_1,\dots,{\pmb v}_m$ 
+								are linearly independent.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Hence if $A$ is $n\times n$ with $n$ 
+							distinct eigenvalues, then $A$ is diagonalisable. 
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							The question remains, if $A$ has 
+							fewer than $n$ distinct eigenvalues, how do we 
+							know if $A$ is diagonalisable? 
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h5>16.3.1 Example</h5>
+				<div class="size-60">
+					<div class="left-txt">
+						<p>
+							<span>
+								Let $A=\left(\begin{array}{ccc}2&1&3\\0&1&0\\0&0&1\end{array}\right)$
+and $B=\left(\begin{array}{ccc}2&1&3\\0&1&1\\0&0&1\end{array}\right)$.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Easy to see the characteristic equation of both $A$ and $B$ is
+$(2-\lambda)(1-\lambda)^2=0$, so $\lambda=2,1,1$.
+						</p>
+						
+					</div>
+				</div>
+			</section>
+
+		</section>
+
+		<section>
+ 
+			<section data-auto-animate>
+				<h4>16.4 Algebraic and geometric multiplicity</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								If we are only interested in finding out 
+								whether or not a matrix is
+								diagonalisable,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then we need to know the dimension of each eigenspace.
+								There is one theorem (which we will not prove!) that states:
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							If $\lambda_i$ is an eigenvalue, then the 
+							dimension of the corresponding
+							eigenspace cannot be greater than the number 
+							of times $(\lambda-\lambda_i)$
+							appears as a factor in the characteristic polynomial.
+						</p>
+					</div>
+				</div>
+				<br/><br/><br/>
+			</section>
+
+			<section data-auto-animate>
+				<h4>16.4 Algebraic and geometric multiplicity</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>
+							We often use the following terminology:
+							
+						</p>
+						<ul style="line-height:50px">
+							<li class="fragment" data-fragment-index="0">
+								The <em>geometric multiplicity</em> of the eigenvalue $\lambda_i$ is the dimension of the
+								eigenspace corresponding to $\lambda_i$.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								The <em>algebraic multiplicity</em> of the eigenvalue 
+								$\lambda_i$ is the number 
+								of times $(\lambda-\lambda_i)$ appears as 
+								a factor in the characteristic polynomial.
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="2">
+							The main result is the following:
+						</p>
+						<div id="theorem" class="fragment" data-fragment-index="2">
+							<p>
+							A square matrix is diagonalisable if and 
+							only if the geometric and algebraic
+							multiplicities are equal for every eigenvalue.
+							</p>
+						</div>
+					</div>
+				</div>
+				<br/>
+			</section>
+
+		</section>
+
+		<section>
+ 
+			<section data-auto-animate>
+				<h4>16.5 Applications of diagonalisability</h4>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>
+							<strong>16.5.1 Systems of differential equations</strong>
+						</p>
+						<p>
+							
+							<span class="fragment" data-fragment-index="0">
+								For a system of coupled differential equations which can be written 
+in matrix form as
+$$
+\dot{\pmb x}=A{\pmb x} 
+$$
+(where ${\pmb x}=(x_1,\dots,x_n)^T$,
+$\dot{\pmb x}=(\dot x_1,\dots,\dot x_n)^T$),
+							</span>
+							<span class="fragment" data-fragment-index="1">
+if $A$ can be diagonalised, say 
+$P^{-1}AP=D$ with $D$ diagonal,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then make the substitution ${\pmb x}=P{\pmb y}$.
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								This yields
+$$
+\dot{\pmb y}=D{\pmb y} 
+$$
+which is easily solved.
+							</span>
+						</p>
+					</div>
+				</div>
+				<br/>
+			</section>
+
+		</section>
+
+		<section>
+ 
+			<section data-auto-animate>
+				<h5>16.5.2 Matrix powers</h5>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>
+							If $A$ is diagonalisable, say $P^{-1}AP=D$ with $D$ diagonal, then
+$$
+A^n=PD^nP^{-1}.
+$$
+This gives an easy way to calculate $A^n$.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h5>16.5.3 Linear systems</h5>
+				<div class="size-70">
+					<div class="left-txt">
+						<p>
+							What can we say about the linear system 
+							(corresponding to a square matrix $A$) 
+$$
+A{\pmb x} = {\pmb b},
+$$
+if we know how to diagonalise $A$?
 						</p>
 					</div>
 				</div>
