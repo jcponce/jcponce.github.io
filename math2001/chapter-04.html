@@ -1,608 +1,734 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<meta charset="utf-8">
-
-	<title>MATH2001/7000 - Chapter 4</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
-
-	<link rel="stylesheet" href="css/mylayout.css" />
-
-	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
-
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="css/fontawesome.css">
-
-	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
-
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
-
-
-	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
-
-	<!--[if lt IE 9]>
-		<script src="../reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
-
-	
-
-
-</head>
-
-<body>
-	<div class="reveal">
-		<div class="slides">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-
-			<section>
-				<h2>Calculus & <br />Linear Algebra II</h2>
-				<p>Chapter 4</p>
-			</section>
-
-			<section>
-				<h3>4 Hyperbolic functions</h3>
-				<div class="left-txt size-80">
-					<p>
-						By the end of this section, you should be able to answer
-						the following questions:
-					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">
-							What is the definition of the sinh and cosh functions?
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							What is the definition of the inverse hyperbolic functions?
-						</li>
-						<li class="fragment" data-fragment-index="2">
-							What are the derivatives and anti-derivatives of these functions?
-						</li>
-						<li class="fragment" data-fragment-index="3">
-							How are hyperbolic functions used in the catenary problem?
-						</li>
-					</ul>
-
-
-
-
-				</div>
-				<br /><br /><br />
-
-
-
-			</section>
-
-			<section>
-
-				<section data-auto-animate>
-					<h4>4.1 Properties of hyperbolic functions</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									We define the functions $\cosh\left(x\right) $ and $\sinh\left(x\right) $ by
-									\[
-									\begin{eqnarray*}
-									\cosh\left(x\right) & = & \frac{e^x+e^{-x}}{2}\\
-									\sinh\left(x\right) & = & \frac{e^x-e^{-x}}{2}.
-									\end{eqnarray*}
-									\]
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="1">We can check by direct calculation that
-								\[
-								\cosh^2 \left(x\right) + \sinh^2\left(x\right)=1.
-								\]
-								<span class="fragment" data-fragment-index="2">
-									Compare this with the the familiar identity
-									$\cos^2 \left(\theta\right) + \sin^2\left(\theta\right)=1$ for trigonometric
-									functions.
-								</span>
-
-							</p>
-						</div>
-					</div>
-					<br />
-				</section>
-
-				<section data-auto-animate>
-					<h4>4.1 Properties of hyperbolic functions</h4>
-					<div class="size-70">
-						<div class="left-txt">
-
-							<p>We can check by direct calculation that
-								\[
-								\cosh^2 \left(x\right) + \sinh^2\left(x\right)=1.
-								\]
-								<span class="fragment" data-fragment-index="0">
-									Compare this with the the familiar identity
-									$\cos^2 \left(\theta\right) + \sin^2\left(\theta\right)=1$ for trigonometric
-									functions.
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									This identity allows us to parametrise a unit circle.
-
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									By setting $x(t) = \cos(t), y(t) =
-									\sin(t)$,
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									we get the equation of the unit circle
-									\[
-									\cos^2 \left(t\right) + \sin^2\left(t\right)=x^2 + y^2 = 1.
-									\]
-								</span>
-
-							</p>
-						</div>
-					</div>
-					<br /><br />
-				</section>
-
-				<section data-auto-animate>
-					<h4>4.1 Properties of hyperbolic functions</h4>
-					<div class="size-70">
-						<div class="left-txt">
-
-							<p>If we set $x(t) = \cosh(t)$ and $y(t) = \sinh(t)$,
-								<span class="fragment" data-fragment-index="0">
-									this gives a parametrisation for a
-									hyperbola (only the right branch), since
-									\[
-									\cosh^2 \left(x\right) - \sinh^2\left(x\right)=x^2-y^2=1,
-									\]
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									which is the equation of a hyperbola.
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									This is why we call these functions “hyperbolic
-									functions”.
-								</span>
-							</p>
-						</div>
-					</div>
-					<br /><br /><br /><br />
-				</section>
-
-
-
-				<section data-auto-animate>
-					<h4>4.1 Properties of hyperbolic functions</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>These hyperbolic functions satisfy properties
-								similar to their trigonometric counterparts.
-								<span class="fragment" data-fragment-index="0">
-									For example
-									\[
-									\begin{eqnarray*}
-									\frac{d}{dx} \big( \cosh\left(x\right) \big) & = & \frac{e^x-e^{-x}}{2} =
-									\sinh\left(x\right) \\
-									\frac{d}{dx} \big( \sinh\left(x\right) \big) & = & \frac{e^x+e^{-x}}{2} =
-									\cosh\left(x\right) .
-									\end{eqnarray*}
-									\]
-								</span>
-							</p>
-
-							<p class="fragment" data-fragment-index="1"><strong>Note:</strong>
-								$\cosh(0) = 1$, $\cosh(x) \leq 1$, $\cosh(x)$ is an
-								even function; $\sinh(0) = 0$, $\sinh(x)$ is
-								an odd function.</p>
-						</div>
-					</div>
-					<br /><br />
-				</section>
-
-				<section data-auto-animate>
-					<h4>4.1 Properties of hyperbolic functions</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>We also define
-								\[
-								\begin{eqnarray*}
-								\tanh\left(x\right) & = & \frac{\sinh\left(x\right)}{\cosh\left(x\right)} =
-								\frac{1-e^{-2x}}{1+e^{-2x}}, \quad \abs{\tanh\left(x\right)}\lt 1, \\
-								\coth\left(x\right) & = & \frac{\cosh\left(x\right)}{\sinh\left(x\right)}.
-								\end{eqnarray*}
-								\]
-							</p>
-
-
-						</div>
-					</div>
-					<br /><br /><br /><br />
-				</section>
-
-
-			</section>
-
-			<section>
-				<section>
-					<h5>Graph of $\cosh\left(x\right)$</h5>
-					<img width="65%" src="images/chapter-04/chapter-04-cosh.svg">
-					<br /><br />
-				</section>
-
-				<section>
-					<h5>Graph of $\sinh\left(x\right)$</h5>
-					<img width="65%" src="images/chapter-04/chapter-04-sinh.svg">
-					<br /><br />
-				</section>
-
-				<section>
-					<h5>Graph of $\tanh\left(x\right)$</h5>
-					<img width="65%" src="images/chapter-04/chapter-04-tanh.svg">
-					<br /><br />
-				</section>
-
-				<section>
-					<h5>Graph of $\coth\left(x\right)$</h5>
-					<img width="65%" src="images/chapter-04/chapter-04-coth.svg">
-					
-					<br /><br />
-				</section>
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h4>4.2 Inverse hyperbolic functions</h4>
-					<div class="size-80">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								The inverse function of $\cosh$ is denoted $\arcosh$
-								<span class="fragment" data-fragment-index="3">$= \cosh^{-1}$</span>
-							</p>
-							<p class="fragment" data-fragment-index="1">
-								The inverse function of $\sinh$ is denoted $\arsinh$
-								<span class="fragment" data-fragment-index="3">$= \sinh^{-1}$</span>
-							</p>
-							<p class="fragment" data-fragment-index="2">
-								The inverse function of $\tanh$ is denoted $\artanh$
-								<span class="fragment" data-fragment-index="3">$= \tanh^{-1}$</span>
-							</p>
-						</div>
-					</div>
-					<br /><br />
-					<br /><br /> <br />
-				</section>
-
-				<section>
-					<h5>Graph of $\arcosh(x)$</h5>
-					<img width="65%" src="images/chapter-04/chapter-04-arcosh.svg">
-					<br /><br />
-				</section>
-
-				<section>
-					<h5>Graph of $\arsinh(x)$</h5>
-					<img width="65%" src="images/chapter-04/chapter-04-arsinh.svg">
-					<br /><br />
-				</section>
-
-				<section>
-					<h5>Graph of $\artanh (x)$</h5>
-					<img width="65%" src="images/chapter-04/chapter-04-artanh.svg">
-					
-					<br /><br />
-				</section>
-			</section>
-
-			<section>
-
-				<section data-auto-animate>
-					<h4>4.1 Properties of hyperbolic functions</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-								We have the following:
-								\[
-								\begin{eqnarray*}
-								\int \frac{dx}{\sqrt{1+x^2}} &=& \arsinh(x)+C\\
-								\int \frac{dx}{\sqrt{x^2-1}} &=& \arcosh(x)+C, \;x\gt0\\
-								\end{eqnarray*}
-								\]
-								</span>
-							</p>
-						</div>
-					</div>
-					<br /><br /><br /><br />
-				</section>
-
-			</section>
-
-			<section>
-
-				<section data-auto-animate>
-					<h5>4.2.1 Show that $\ds \frac{d}{dx} \big( \arsinh(x)\big) = \frac{1}{\sqrt{1+x^2}}$</h5>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									Let $y = \sinh^{-1}x$. 
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									Then $x = \sinh\left(y(x)\right).$ &nbsp; ($\star$)
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="2">
-								Thus $\ds \frac{d}{dx}(x)  = \frac{d}{dx} \left(\sinh\left(y(x)\right) \right)$
-								<span class="fragment" data-fragment-index="3">
-									$\;\Ra \ds 1 = \cosh y  \frac{dy}{dx}$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									$\; \ds \Ra  \frac{dy}{dx} = \frac{1}{\cosh y}$
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="5">We know that $\cosh^2 y - \sinh^2 y = 1$.
-							</p>
-							<p class="fragment" data-fragment-index="6">
-								Then $\;\cosh y = \sqrt{1 + \sinh^2 y }$
-								<span class="fragment" data-fragment-index="7">
-									$= \sqrt{1+x^2}\;$ from ($\star$)
-								</span>
-								<span class="fragment" data-fragment-index="8">
-									$\; \Ra \ds \frac{dy}{dx} = \frac{1}{\sqrt{1+x^2}}$ 
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="9">📝 <strong>Exercise:</strong>
-								Similarly set $y = \arcosh x = \cosh^{-1}x$ to prove that 
-								\[\ds \frac{d}{dx}\left(\cosh^{-1}x\right)  = \frac{1}{\sqrt{x^2-1}}.\]
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h5 style="font-size:75%">4.2.2 Evaluate the integrals $\ds \int \frac{dx}{\sqrt{1+x^2}}$ and $\ds \int \frac{dx}{\sqrt{x^2-1}}$</h5>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									Consider again $\cosh^2 t - \sinh^2 t = 1$.
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									Then $1 + \sinh^2 t = \cosh^2 t.$
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="2">
-								Now set $x = \sinh t$
-								<span class="fragment" data-fragment-index="3">
-									$\;\Ra dx = \cosh t ~dt.$
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="4">Thus </p>
-							<p class="fragment" data-fragment-index="4">
-								$\ds \int \frac{dx}{\sqrt{1+x^2}}$
-								<span class="fragment" data-fragment-index="5">
-									$= \ds \int \frac{\cosh t ~dt}{\sqrt{1+ \sinh^2 t}}$
-								</span>
-								<span class="fragment" data-fragment-index="6">
-									$= \ds \int \frac{\cosh t}{\cosh t} dt$ 
-								</span>
-								<span class="fragment" data-fragment-index="7">
-									$= \ds \int dt$ 
-								</span>
-								
-							</p>
-							<p>
-								<span class="fragment" data-fragment-index="8">
-									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-									&nbsp;  $\,= t + C$ 
-								</span>
-								<span class="fragment" data-fragment-index="9">
-									$= \sinh^{-1} x + C.$ 
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="10">📝 <strong>Exercise:</strong>
-								Use the identity $\cosh^2 t - 1 = \sinh^2 t$ to somplify $\sqrt{x^2-1}.$
-							</p>
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h5 >
-						4.2.3 Show that $\ds \frac{d}{dx} \big( \artanh(x)\big) = \frac{1}{\sqrt{1-x^2}}$, $\abs{x}\lt 1$</h5>
-						<br/>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								📝 <strong>Exercise:</strong> This is similar to <a href="#/6/0/9">Example 4.2.1</a>.
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					
-					<h4>More properties</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								Using partial fractions, we can also evaluate the integral
-								\[
-								\int \frac{dx}{1-x^2}=\frac12 \ln\left(\frac{1+x}{1-x}\right)+C.
-								\]
-							</p>
-							<p class="fragment" data-fragment-index="1">
-								In fact, we have the following identities
-								\[
-								\begin{eqnarray*}
-								\artanh (x) &=& \frac12 \ln\left(\frac{1+x}{1-x}\right),\\
-								\arsinh (x) &=& \ln \left( x +\sqrt{x^2+1}\right),\\
-								\arcosh (x) &=& \ln \left( x +\sqrt{x^2-1}\right).
-								\end{eqnarray*}
-								\]
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h5 >
-						4.2.4 Show that $\arsinh (x) = \ds \ln \left( x +\sqrt{x^2+1}\right)$</h5>
-					<div class="size-65">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									Let $y = \arsinh x = \sinh^{-1}x$
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									$\; \Ra x = \sinh y$
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									$= \ds \frac{e^{y}- e^{-y}}{2}$ &nbsp; ($\star$).
-								</span>
-							</p>
-
-							<p class="fragment" data-fragment-index="3">Our goal is to find $y(x)$ or $\exp\left(y(x)\right)$ from ($\star$).</p>
-
-							<p class="fragment" data-fragment-index="4">
-								From ($\star$) we have that $3x = e^{y}-e^{-y}$
-								<span class="fragment" data-fragment-index="5">
-									$\; \Ra 2x e^{y}= \left(e^{-y}\right)^{2} - 1.$
-								</span>
-								<span class="fragment" data-fragment-index="6">
-									That is, \[\left(e^{-y}\right)^{2} -  2x e^{y} - 1=  0.\]
-								</span>
-								
-							</p>
-							<p class="fragment" data-fragment-index="7">This is a quadratic in $e^y$,
-								<span class="fragment" data-fragment-index="8">
-									so
-								</span>
-							</p>
-						</div>
-						<div>
-							<p class="fragment" data-fragment-index="8">
-								$e^y = \ds\frac{-b\pm \sqrt{b^2-4ac}}{2a}$
-								<span class="fragment" data-fragment-index="9">
-									$= \ds \frac{-(-2x)\pm \sqrt{(-2x)^2-4(1)(-1)}}{2(1)}$
-								</span><br/><br/>
-								<span class="fragment" data-fragment-index="10">
-									$\;\;\quad = x\pm \sqrt{x^2+1}.$
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h5 >
-						4.2.4 Show that $\arsinh (x) = \ds \ln \left( x +\sqrt{x^2+1}\right)$</h5>
-					<div class="size-65">
-						<div class="left-txt">
-							<p>Thus we have that $e^y= x\pm \sqrt{x^2+1}$. 
-								<span class="fragment" data-fragment-index="0">
-									Now $e^y\gt 0$ for all $y$ and $\sqrt{x^2+1}\gt x$,
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									then we must take the positive sign: 
-									\[
-									e^y= x+ \sqrt{x^2+1}.
-									\]
-								</span>
-								
-							</p>
-
-							<p class="fragment" data-fragment-index="3">
-								Therefore
-								\[
-								y = \ln\left(x + \sqrt{x^2+1}\right).
-								\]
-							</p>
-
-							<div class="left-txt">
-								<p class="fragment" data-fragment-index="4">
-									📝 <strong>Exercise:</strong> Similarly, it can be shown that 
-									\[
-									y = \cosh^{-1} x = \ln\left(x + \sqrt{x^2-1}\right).
-									\]
-								</p>
-							</div>
-							
-						</div>
-						
-					</div>
-					<br/>
-				</section>
-
-
-			</section>
-
-			<section>
-				<h4>4.3 Further reading: The catenary problem</h4>
-
-				<iframe data-src="sketches/catenary-verly/"
-				    title="Interactive Catenary"
-				    scrolling="no"
-				    width="100%"
-					height="530px"
-					style="border: 0px">
-				</iframe>
-					<!--https://anuraghazra.dev/Verly.js/examples/text/-->
-				<p style="font-size:18px;margin-top:-10px">
-					Drag the end points.
-				</p>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>MATH2001/7000 - Chapter 4</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
+
+    <link rel="stylesheet" href="css/mylayout.css" />
+
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
+
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 4</p>
+        </section>
+
+        <section>
+          <h3>4 Hyperbolic functions</h3>
+          <div class="left-txt size-80">
+            <p>
+              By the end of this section, you should be able to answer the
+              following questions:
+            </p>
+            <ul>
+              <li class="fragment" data-fragment-index="0">
+                What is the definition of the sinh and cosh functions?
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                What is the definition of the inverse hyperbolic functions?
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                What are the derivatives and anti-derivatives of these
+                functions?
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                How are hyperbolic functions used in the catenary problem?
+              </li>
+            </ul>
+          </div>
+          <br /><br /><br />
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>4.1 Properties of hyperbolic functions</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    We define the functions $\cosh\left(x\right) $ and
+                    $\sinh\left(x\right) $ by \[ \begin{eqnarray*}
+                    \cosh\left(x\right) & = & \frac{e^x+e^{-x}}{2}\\
+                    \sinh\left(x\right) & = & \frac{e^x-e^{-x}}{2}.
+                    \end{eqnarray*} \]
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  We can check by direct calculation that \[ \cosh^2
+                  \left(x\right) + \sinh^2\left(x\right)=1. \]
+                  <span class="fragment" data-fragment-index="2">
+                    Compare this with the the familiar identity $\cos^2
+                    \left(\theta\right) + \sin^2\left(\theta\right)=1$ for
+                    trigonometric functions.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>4.1 Properties of hyperbolic functions</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  We can check by direct calculation that \[ \cosh^2
+                  \left(x\right) + \sinh^2\left(x\right)=1. \]
+                  <span class="fragment" data-fragment-index="0">
+                    Compare this with the the familiar identity $\cos^2
+                    \left(\theta\right) + \sin^2\left(\theta\right)=1$ for
+                    trigonometric functions.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    This identity allows us to parametrise a unit circle.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    By setting $x(t) = \cos(t), y(t) = \sin(t)$,
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    we get the equation of the unit circle \[ \cos^2
+                    \left(t\right) + \sin^2\left(t\right)=x^2 + y^2 = 1. \]
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>4.1 Properties of hyperbolic functions</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  If we set $x(t) = \cosh(t)$ and $y(t) = \sinh(t)$,
+                  <span class="fragment" data-fragment-index="0">
+                    this gives a parametrisation for a hyperbola (only the right
+                    branch), since \[ \cosh^2 \left(x\right) -
+                    \sinh^2\left(x\right)=x^2-y^2=1, \]
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    which is the equation of a hyperbola.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    This is why we call these functions “hyperbolic functions”.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br /><br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>4.1 Properties of hyperbolic functions</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  These hyperbolic functions satisfy properties similar to their
+                  trigonometric counterparts.
+                  <span class="fragment" data-fragment-index="0">
+                    For example \[ \begin{eqnarray*} \frac{d}{dx} \big(
+                    \cosh\left(x\right) \big) & = & \frac{e^x-e^{-x}}{2} =
+                    \sinh\left(x\right) \\ \frac{d}{dx} \big(
+                    \sinh\left(x\right) \big) & = & \frac{e^x+e^{-x}}{2} =
+                    \cosh\left(x\right) . \end{eqnarray*} \]
+                  </span>
+                </p>
+
+                <p class="fragment" data-fragment-index="1">
+                  <strong>Note:</strong> $\cosh(0) = 1$, $\cosh(x) \leq 1$,
+                  $\cosh(x)$ is an even function; $\sinh(0) = 0$, $\sinh(x)$ is
+                  an odd function.
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>4.1 Properties of hyperbolic functions</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  We also define \[ \begin{eqnarray*} \tanh\left(x\right) & = &
+                  \frac{\sinh\left(x\right)}{\cosh\left(x\right)} =
+                  \frac{1-e^{-2x}}{1+e^{-2x}}, \quad
+                  \abs{\tanh\left(x\right)}\lt 1, \\ \coth\left(x\right) & = &
+                  \frac{\cosh\left(x\right)}{\sinh\left(x\right)}.
+                  \end{eqnarray*} \]
+                </p>
+              </div>
+            </div>
+            <br /><br /><br /><br />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h5>Graph of $\cosh\left(x\right)$</h5>
+            <img width="65%" src="images/chapter-04/chapter-04-cosh.svg" />
+            <br /><br />
+          </section>
+
+          <section>
+            <h5>Graph of $\sinh\left(x\right)$</h5>
+            <img width="65%" src="images/chapter-04/chapter-04-sinh.svg" />
+            <br /><br />
+          </section>
+
+          <section>
+            <h5>Graph of $\tanh\left(x\right)$</h5>
+            <img width="65%" src="images/chapter-04/chapter-04-tanh.svg" />
+            <br /><br />
+          </section>
+
+          <section>
+            <h5>Graph of $\coth\left(x\right)$</h5>
+            <img width="65%" src="images/chapter-04/chapter-04-coth.svg" />
+
+            <br /><br />
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>4.2 Inverse hyperbolic functions</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="0">
+                  The inverse function of $\cosh$ is denoted $\arcosh$
+                  <span class="fragment" data-fragment-index="3"
+                    >$= \cosh^{-1}$</span
+                  >
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  The inverse function of $\sinh$ is denoted $\arsinh$
+                  <span class="fragment" data-fragment-index="3"
+                    >$= \sinh^{-1}$</span
+                  >
+                </p>
+                <p class="fragment" data-fragment-index="2">
+                  The inverse function of $\tanh$ is denoted $\artanh$
+                  <span class="fragment" data-fragment-index="3"
+                    >$= \tanh^{-1}$</span
+                  >
+                </p>
+              </div>
+            </div>
+            <br /><br />
+            <br /><br />
+            <br />
+          </section>
+
+          <section>
+            <h5>Graph of $\arcosh(x)$</h5>
+            <img width="65%" src="images/chapter-04/chapter-04-arcosh.svg" />
+            <br /><br />
+          </section>
+
+          <section>
+            <h5>Graph of $\arsinh(x)$</h5>
+            <img width="65%" src="images/chapter-04/chapter-04-arsinh.svg" />
+            <br /><br />
+          </section>
+
+          <section>
+            <h5>Graph of $\artanh (x)$</h5>
+            <img width="65%" src="images/chapter-04/chapter-04-artanh.svg" />
+
+            <br /><br />
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>4.1 Properties of hyperbolic functions</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    We have the following: \[ \begin{eqnarray*} \int
+                    \frac{dx}{\sqrt{1+x^2}} &=& \arsinh(x)+C\\ \int
+                    \frac{dx}{\sqrt{x^2-1}} &=& \arcosh(x)+C, \;x\gt0\\
+                    \end{eqnarray*} \]
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br /><br /><br />
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h5>
+              4.2.1 Show that $\ds \frac{d}{dx} \big( \arsinh(x)\big) =
+              \frac{1}{\sqrt{1+x^2}}$
+            </h5>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Let $y = \sinh^{-1}x$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Then $x = \sinh\left(y(x)\right).$ &nbsp; ($\star$)
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="2">
+                  Thus $\ds \frac{d}{dx}(x) = \frac{d}{dx}
+                  \left(\sinh\left(y(x)\right) \right)$
+                  <span class="fragment" data-fragment-index="3">
+                    $\;\Ra \ds 1 = \cosh y \frac{dy}{dx}$
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    $\; \ds \Ra \frac{dy}{dx} = \frac{1}{\cosh y}$
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="5">
+                  We know that $\cosh^2 y - \sinh^2 y = 1$.
+                </p>
+                <p class="fragment" data-fragment-index="6">
+                  Then $\;\cosh y = \sqrt{1 + \sinh^2 y }$
+                  <span class="fragment" data-fragment-index="7">
+                    $= \sqrt{1+x^2}\;$ from ($\star$)
+                  </span>
+                  <span class="fragment" data-fragment-index="8">
+                    $\; \Ra \ds \frac{dy}{dx} = \frac{1}{\sqrt{1+x^2}}$
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="9">
+                  📝 <strong>Exercise:</strong>
+                  Similarly set $y = \arcosh x = \cosh^{-1}x$ to prove that
+                  \[\ds \frac{d}{dx}\left(\cosh^{-1}x\right) =
+                  \frac{1}{\sqrt{x^2-1}}.\]
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h5 style="font-size: 75%;">
+              4.2.2 Evaluate the integrals $\ds \int \frac{dx}{\sqrt{1+x^2}}$
+              and $\ds \int \frac{dx}{\sqrt{x^2-1}}$
+            </h5>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Consider again $\cosh^2 t - \sinh^2 t = 1$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Then $1 + \sinh^2 t = \cosh^2 t.$
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="2">
+                  Now set $x = \sinh t$
+                  <span class="fragment" data-fragment-index="3">
+                    $\;\Ra dx = \cosh t ~dt.$
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="4">Thus</p>
+                <p class="fragment" data-fragment-index="4">
+                  $\ds \int \frac{dx}{\sqrt{1+x^2}}$
+                  <span class="fragment" data-fragment-index="5">
+                    $= \ds \int \frac{\cosh t ~dt}{\sqrt{1+ \sinh^2 t}}$
+                  </span>
+                  <span class="fragment" data-fragment-index="6">
+                    $= \ds \int \frac{\cosh t}{\cosh t} dt$
+                  </span>
+                  <span class="fragment" data-fragment-index="7">
+                    $= \ds \int dt$
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="8">
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; $\,= t + C$
+                  </span>
+                  <span class="fragment" data-fragment-index="9">
+                    $= \sinh^{-1} x + C.$
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="10">
+                  📝 <strong>Exercise:</strong>
+                  Use the identity $\cosh^2 t - 1 = \sinh^2 t$ to somplify
+                  $\sqrt{x^2-1}.$
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              4.2.3 Show that $\ds \frac{d}{dx} \big( \artanh(x)\big) =
+              \frac{1}{\sqrt{1-x^2}}$, $\abs{x}\lt 1$
+            </h5>
+            <br />
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  📝 <strong>Exercise:</strong> This is similar to
+                  <a href="#/6/0/9">Example 4.2.1</a>.
+                </p>
+              </div>
+            </div>
+            <br /><br /><br /><br /><br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>More properties</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="0">
+                  Using partial fractions, we can also evaluate the integral \[
+                  \int \frac{dx}{1-x^2}=\frac12
+                  \ln\left(\frac{1+x}{1-x}\right)+C. \]
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  In fact, we have the following identities \[ \begin{eqnarray*}
+                  \artanh (x) &=& \frac12 \ln\left(\frac{1+x}{1-x}\right),\\
+                  \arsinh (x) &=& \ln \left( x +\sqrt{x^2+1}\right),\\ \arcosh
+                  (x) &=& \ln \left( x +\sqrt{x^2-1}\right). \end{eqnarray*} \]
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              4.2.4 Show that $\arsinh (x) = \ds \ln \left( x
+              +\sqrt{x^2+1}\right)$
+            </h5>
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Let $y = \arsinh x = \sinh^{-1}x$
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    $\; \Ra x = \sinh y$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    $= \ds \frac{e^{y}- e^{-y}}{2}$ &nbsp; ($\star$).
+                  </span>
+                </p>
+
+                <p class="fragment" data-fragment-index="3">
+                  Our goal is to find $y(x)$ or $\exp\left(y(x)\right)$ from
+                  ($\star$).
+                </p>
+
+                <p class="fragment" data-fragment-index="4">
+                  From ($\star$) we have that $2x = e^{y}-e^{-y}$
+                  <span class="fragment" data-fragment-index="5">
+                    $\; \Ra 2x e^{y}= \left(e^{y}\right)^{2} - 1.$
+                  </span>
+                  <span class="fragment" data-fragment-index="6">
+                    That is, \[\left(e^{y}\right)^{2} - 2x e^{y} - 1= 0.\]
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="7">
+                  This is a quadratic in $e^y$,
+                  <span class="fragment" data-fragment-index="8">
+                    so
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="8">
+                  $e^y = \ds\frac{-b\pm \sqrt{b^2-4ac}}{2a}$
+                  <span class="fragment" data-fragment-index="9">
+                    $= \ds \frac{-(-2x)\pm \sqrt{(-2x)^2-4(1)(-1)}}{2(1)}$ </span
+                  ><br /><br />
+                  <span class="fragment" data-fragment-index="10">
+                    $\;\;\quad = x\pm \sqrt{x^2+1}.$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate>
+            <h5>
+              4.2.4 Show that $\arsinh (x) = \ds \ln \left( x
+              +\sqrt{x^2+1}\right)$
+            </h5>
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  Thus we have that $e^y= x\pm \sqrt{x^2+1}$.
+                  <span class="fragment" data-fragment-index="0">
+                    Now $e^y\gt 0$ for all $y$ and $\sqrt{x^2+1}\gt x$,
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    then we must take the positive sign: \[ e^y= x+
+                    \sqrt{x^2+1}. \]
+                  </span>
+                </p>
+
+                <p class="fragment" data-fragment-index="3">
+                  Therefore \[ y = \ln\left(x + \sqrt{x^2+1}\right). \]
+                </p>
+
+                <div class="left-txt">
+                  <p class="fragment" data-fragment-index="4">
+                    📝 <strong>Exercise:</strong> Similarly, it can be shown
+                    that \[ y = \cosh^{-1} x = \ln\left(x + \sqrt{x^2-1}\right).
+                    \]
+                  </p>
+                </div>
+              </div>
+            </div>
+            <br />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h4>4.3 Further reading: The catenary problem</h4>
+
+            <iframe
+              data-src="sketches/catenary-verly/"
+              title="Interactive Catenary"
+              scrolling="no"
+              width="100%"
+              height="530px"
+              style="border: 0px;"
+            >
+            </iframe>
+            <!--https://anuraghazra.dev/Verly.js/examples/text/-->
+            <p style="font-size: 18px; margin-top: -10px;">
+              Drag the end points.
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <h4>4.3 Further reading: The catenary problem</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  One of the most famous problems where hyperbolic functions are
+                  used is in determining the profile of a heavy chain (of
+                  constant density $\rho$) suspended from two points of equal
+                  height (known as a catenary curve).
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  To derive the differential equation satisfied by the profile
+                  $y(x)$, we look at the forces acting on a small element of arc
+                  (inside the rectangular box in figure below).
+                </p>
 				
-			</section>
+              </div>
+			  <div class="fragment" data-fragment-index="0">
+				<img width="50%" src="images/chapter-04/small-arc.png">
+			  </div>
+            </div>
+			
+          </section>
 
-			<section>
+          <section data-auto-animate>
+            <h4>4.3 Further reading: The catenary problem</h4>
+            <div class="size-60">
+				<div>
+					<img width="40%" src="images/chapter-04/small-arc.png">
+				</div>
+              <div class="left-txt">
+                <p>
+                  Let $T(x)$ be the tensile force in the chain with constant
+                  horizontal component $H$ (since the load has no $x$ component)
+                  and vertical component $V(x)$. In the above figure the
+                  vertical components of the tensile force at either end of the
+                  arc are $V$ and $V+\delta V$.
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  The mass of the arc will be $\rho(\delta s)$, so that the
+                  force due to gravity is $\rho g(\delta s)$.
+                </p>
+              </div>
+            </div>
+			<br/>
+          </section>
+          <section data-auto-animate>
+            <h4>4.3 Further reading: The catenary problem</h4>
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  The horizontal equilibrium is the trivial relation $H=H$,
+                  whereas the vertical equilibrium is the more informative $$
+                  (V+\delta V) = V + \rho g(\delta s). $$
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  Dividing both sides by
+                  $\delta x$ gives $$ \frac{\delta V}{\delta x} = \rho
+                  g\frac{\delta s}{\delta x}. $$ 
+				  <span class="fragment" data-fragment-index="1">
+					From geometry, we also have the
+                  approximation $$ \frac{\delta y}{\delta x} \approx \frac VH.
+                  $$
+				  </span>
+                </p>
+              </div>
+            </div>
+			<br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4>4.3 Further reading: The catenary problem</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  We also have the approximation to the arclength $\delta s$ $$
+                  (\delta s)^2\approx (\delta x)^2+(\delta y)^2\ \ \Ra\ \
+                  \frac{\delta s}{\delta x} \approx \sqrt{1 + \left(
+                  \frac{\delta y}{\delta x} \right)^2} $$
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  Finally we take the limit $\delta x\ra 0$ so that $\delta y\ra
+                  0$ and $\delta s\ra 0$ simultaneously. 
+				  <span class="fragment" data-fragment-index="1">
+					We then have the
+                  following equations
+				  </span>
+                </p>
+                <table id="eqarray"  class="fragment" data-fragment-index="1">
+                  <tr>
+                    <td>
+                      $\ds \frac{dV}{dx}$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \rho g\frac{ds}{dx},$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      $V$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds H\frac{dy}{dx},$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      $\ds \frac{ds}{dx}$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \sqrt{1+\left( \frac{dy}{dx} \right)^2}.$
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div><br/>
+          </section>
+          <section data-auto-animate>
+            <h4>4.3 Further reading: The catenary problem</h4>
+			<br/>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+					Putting these equations together gives the ODE satisfied by the
+					profile $y(x)$,
+					$$
+					\frac{d^2y}{dx^2} = \frac{\rho g}{H}\sqrt{1+\left(
+					\frac{dy}{dx}\right)^2}.
+					$$  
+                </p>
+                
+              </div>
+            </div>
+			<br/><br/><br/><br/>
+          </section>
+        </section>
 
-				<h4>Credits</h4>
-				<div include-html="creditsb.html"></div>
-			</section>
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
 
-			<!-- Ends sections -->
+        <!-- Ends sections -->
+      </div>
+    </div>
 
-		</div>
-	</div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
 
-	
-	
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="mySetup/setup.js"></script>
-
-	<script>
-		includeHTML();
-	</script>
-
-</body>
-
+    <script>
+      includeHTML();
+    </script>
+  </body>
 </html>
