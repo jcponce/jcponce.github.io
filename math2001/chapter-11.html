@@ -797,7 +797,7 @@
 
 				<section data-auto-animate>
 					<h4>11.6 Construction of orthonormal basis</h4>
-					<div class="size-70">
+					<div class="size-65">
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
@@ -824,35 +824,137 @@
 									Every finite-dimensional real inner product space has an orthonormal basis.
 								</p>
 							</div>
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>11.6 Construction of orthonormal basis</h4>
-					<div class="size-70">
-						<div class="left-txt">
-							<div id="theorem">
-								<p style="font-size:80%">
-									Every finite-dimensional real inner product space has an orthonormal basis.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="size-60">
-						<div class="left-txt">
-							<p>
+							<p class="fragment" data-fragment-index="4">
 								Let $\{\bfv_1,\ldots,\bfv_n\}$ be a 
 								linearly independent set of vectors in the 
 								real inner product space $V$.
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="5">
 									The corresponding <strong>Gram-Schmidt process</strong>
 									is the following algorithm:
 								</span>
 							</p>
 						</div>
 					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.6 Construction of orthonormal basis</h4>
+					
+					<div class="size-60">
+						<div class="left-txt">
+							<p style="font-size:80%">
+								<span>
+									The corresponding <strong>Gram-Schmidt process</strong>
+									is the following algorithm:
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								<strong>
+									Step 1:
+								</strong>
+								Let $\w_1 = \v_1$. 
+								<span class="fragment" data-fragment-index="1">
+									(Easy! 😃)
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								<strong>
+									Step 2: 
+								</strong>
+								We can obtain a vector $\w_2$ that is 
+								orthogonal to $\w_1$ by computing the 
+								component of $\v_2$ that is 
+								orthogonal to the space $W_1$ spanned
+								by $\w_1$. 
+								<span class="fragment" data-fragment-index="3">
+									To do this we use the formula:
+								\[
+								\w_2 = \v_2 - \mathrm{Proj}_{W_1} \v_2 = \v_2 - \frac{\langle \v_2, \w_1 \rangle}{\norm{w_1}^2}\w_1.
+								\]
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								<strong>
+									Step 3:
+								</strong>
+								To construct a vector $\w_3$ that is orthogonal 
+								to both $\w_1$ and $\w_2$, we compute the 
+								component of $v_3$ orthogonal to the 
+								space $W_3$ spanned by $w_1$ and $w_2$. 
+								<span class="fragment" data-fragment-index="5">
+									Here we use the 
+								formula:
+								\[
+								\w_3 = \v_3 - \mathrm{Proj}_{W_2} \v_3 = \v_3 - \frac{\langle \v_3, \w_1 \rangle}{\norm{w_1}^2}\w_1 -  \frac{\langle \v_3, \w_2 \rangle}{\norm{w_2}^2}\w_2.
+								\]
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:70%">11.6 Construction of orthonormal basis</h4>
+					
+					<div class="size-55">
+						<div class="left-txt">
+							
+							<p>
+								<strong>
+									Step 1:
+								</strong>
+								Let $\w_1 = \v_1$. 
+								<span>
+									(Easy! 😃)
+								</span>
+							</p>
+							<p>
+								<strong>
+									Step 2: 
+								</strong>
+								We can obtain a vector $\w_2$ that is 
+								orthogonal to $\w_1$ by computing the 
+								component of $\v_2$ that is 
+								orthogonal to the space $W_1$ spanned
+								by $\w_1$. To do this we use the formula:
+								\[
+								\w_2 = \v_2 - \mathrm{Proj}_{W_1} \v_2 = \v_2 - \frac{\langle \v_2, \w_1 \rangle}{\norm{w_1}^2}\w_1.
+								\]
+							</p>
+							<p>
+								<strong>
+									Step 3:
+								</strong>
+								To construct a vector $\w_3$ that is orthogonal 
+								to both $\w_1$ and $\w_2$, we compute the 
+								component of $v_3$ orthogonal to the 
+								space $W_3$ spanned by $w_1$ and $w_2$. Here we use the 
+								formula:
+								\[
+								\w_3 = \v_3 - \mathrm{Proj}_{W_2} \v_3 = \v_3 - \frac{\langle \v_3, \w_1 \rangle}{\norm{w_1}^2}\w_1 -  \frac{\langle \v_3, \w_2 \rangle}{\norm{w_2}^2}\w_2.
+								\]
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								<strong>
+									$n$ step:
+								</strong>
+								Continuing in this way we will produce after
+								$n$ steps an orthogonal set of nonzero
+								vectors $\left\{\w_1, \w_2, \ldots,  \w_n \right\}.$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								<strong>
+									Final step:
+								</strong>
+								To convert the orthogonal basis into an orthonormal basis
+								$\left\{\mathbf q_1, \mathbf q_2, \ldots,  \mathbf q_n \right\},$ 
+								normalize the orthogonal basis vectors.
+							</p>
+						</div>
+					</div>
+					<br/>
 				</section>
  
 			</section>
