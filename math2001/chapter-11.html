@@ -118,15 +118,83 @@
 
 				<section data-auto-animate>
 					<h4>11.1 Orthogonal set</h4>
-					<div class="size-70">
+					<div class="size-65">
 
-						<div>
+						<div style="font-size:70%;font-weight:bold">
 							<p>
 								$S$ orthogonal $\Longrightarrow$ $S$ linearly
 								independent.
 							</p>
 						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								Let $S = \left\{\v_1, \v_2, \ldots, \v_n\right\}$ be orthogonal
+								and consider 
+								\[
+								k_1 \v_1 + k_2\v_2 + \cdots + k_n\v_n = \mathbf 0.
+								\]
+								<span class="fragment" data-fragment-index="1">
+									Then for any $\v_i\in S$
+								</span>
+							</p>
+							<table id="eqarray">
+								<tr>
+									<td class="fragment" data-fragment-index="1">
+										$0 $
+
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$ \langle \mathbf 0, \v_i \rangle$
+										<span class="fragment" data-fragment-index="2">
+											$= \langle k_1 \v_1  + \cdots + k_n\v_n, \v_i \rangle$
+										</span>
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="3">
+									<td>
+										
+									</td>
+									<td>
+										$=$
+									</td>
+									<td>
+										$ k_1 \langle \v_1 , \v_i \rangle + \cdots + k_n \langle  \v_n , \v_i \rangle$
+									</td>
+								</tr>
+								<tr >
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$ k_i \langle \v_i , \v_i \rangle$
+										<span class="fragment" data-fragment-index="5">
+											&nbsp; by orthogonality.
+										</span>
+									</td>
+								</tr>
+							</table>
+							<p class="fragment" data-fragment-index="6">
+								Since $\mathbf 0 \notin S$, 
+								<span class="fragment" data-fragment-index="7">
+									we have that $\v_i\neq \mathbf 0$ and 
+									so $\langle \v_i, \v_i \rangle \neq 0$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\;\Ra \; k_i =0\;\; \forall i.$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="9">
+								Therefore $\ds \left\{\v_1, \v_2, \ldots, \v_n\right\}$ is linearly independent. $\quad \blacksquare$
+							</p>
+						</div>
 					</div>
+					<br/>
 				</section>
 
 			</section>
@@ -181,12 +249,63 @@
 									usual dot product are given as follows:
 								</span>
 							</p>
+							<p class="fragment" data-fragment-index="0">
+								<strong>Example 1:</strong> 
+								$\left\{ (1,0,0), (0,1,0), (0,0,1)\right\}$ orthonormal set.
+							</p>
+							<br/>
+							<p class="fragment" data-fragment-index="1">
+								<strong>Example 2:</strong> 
+								$\mathcal S = \left\{ 
+								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right), 
+								\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)
+								\right\}$ orthonormal set in 
+								$\R^3$.
+							</p>
+							<br/>
+							<p class="fragment" data-fragment-index="2">
+								<strong>Example 3:</strong> 
+								$\mathcal S \cup  \left\{ 
+									\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)
+									\right\}$ orthonormal set in 
+									$\R^3$.
+							</p>
 						</div>
 					</div>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>11.2 Orthonormal basis</h4>
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<span>
+									Examples in $\R^n$ endowed with the
+									usual dot product are given as follows:
+								</span>
+							</p>
+							<p>
+								<strong>Example 1:</strong> 
+								$\left\{ (1,0,0), (0,1,0), (0,0,1)\right\}$ orthonormal set.
+							</p>
+							<p>
+								<strong>Example 2:</strong> 
+								$\mathcal S = \left\{ 
+								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right), 
+								\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)
+								\right\}$ orthonormal set in 
+								$\R^3$.
+							</p>
+							<p>
+								<strong>Example 3:</strong> 
+								$\mathcal S \cup  \left\{ 
+									\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)
+									\right\}$ orthonormal set in 
+									$\R^3$.
+							</p>
+						</div>
+					</div>
 					<div class="size-70">
 						<div class="left-txt">
 							<p>
@@ -195,8 +314,16 @@
 									for $V$ that is also an orthonormal set.
 								</span>
 							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								The sets in Examples 1 and 3 are also orthonormal vasis for $\R^3$,
+								but the set in Example 2 <strong>is  NOT</strong> a basis for $\R^3$.
+							</p>
 						</div>
 					</div>
+					<br/>
+					<br/>
+					
 				</section>
 
 			</section>
