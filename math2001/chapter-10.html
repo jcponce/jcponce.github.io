@@ -313,27 +313,103 @@
 				<br/>
 			</section>
 
-			<section data-auto-animate>
-				<h4>10.3 Cauchy-Schwarz inequality</h4>
-				<div class="size-70">
-					<div class="left-txt">
-						<p>
-							<span class="fragment" data-fragment-index="0">
-								Let $V$ be a real inner product space, and let $\bfu,\bfv\in V$.
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								Then,
-								$$
-								|\langle\bfu,\bfv\rangle|\leq||\bfu||\,||\bfv||.
-								$$
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								Moreover, this inequality is an equality if and only if
-								$\bfu$ or $\bfv$ is a scalar multiple of the other vector.
-							</span>
-						</p>
+			<section>
+				<section data-auto-animate>
+					<h4>10.3 Cauchy-Schwarz inequality</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be a real inner product space, and let $\bfu,\bfv\in V$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then,
+									$$
+									|\langle\bfu,\bfv\rangle|\leq||\bfu||\,||\bfv||.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Moreover, this inequality is an equality if and only if
+									$\bfu$ or $\bfv$ is a scalar multiple of the other vector.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								For $\u = \mathbf 0$ ✅ 😃.
+								<span class="fragment" data-fragment-index="4">
+									For $\u \neq  \mathbf 0$, let $t\in R$ and
+								</span>
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="5">
+								$a = \langle \u, \u\rangle $,&nbsp;&nbsp;&nbsp; $b = 2 \langle \u, \v\rangle $, &nbsp;&nbsp;&nbsp;$c = \langle \v, \v\rangle .$
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="6">
+								Then &nbsp;&nbsp; $0 \leq \langle t\,\u + \v, t\,\u + \v \rangle$
+								<span class="fragment" data-fragment-index="7">
+									$ = \langle \u, \u\rangle t^2 + 2\langle \u, \v \rangle t + \langle \v, \v\rangle$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ \ds = at^2 + b t + c$
+								</span>
+							</p>
+						</div>
+						
 					</div>
-				</div>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>10.3 Cauchy-Schwarz inequality</h4>
+					<div class="size-65">
+						
+						<div>
+							<p>
+								Then &nbsp;&nbsp; $0 \leq \langle t\,\u + \v, t\,\u + \v \rangle$
+								<span>
+									$ = \langle \u, \u\rangle t^2 + 2\langle \u, \v \rangle t + \langle \v, \v\rangle$
+								</span>
+								<span>
+									$ \ds = at^2 + b t + c$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								In this case we must have that $b^2 -4ac \leq 0$. 
+								<span class="fragment" data-fragment-index="0">
+									So 
+									\[
+									4 \langle \u, \v\rangle^2 - 4 \langle \u, \u\rangle\langle \v, \v\rangle \leq 0.
+									\]
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Or equivalently
+									\[
+									\langle \u, \v\rangle^2 \leq  \langle \u, \u\rangle \langle \v, \v\rangle .
+									\]
+								</span>
+								
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Taking square roots of both sides and using the fact that $\langle \u, \u\rangle$ and $\langle \v, \v\rangle $
+								nonnegative yields
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="2">
+								$\ds \abs{\langle \u, \v\rangle}\leq \langle \u, \u\rangle^{1/2} \langle \v, \v\rangle ^{1/2}\quad $
+								<span  class="fragment" data-fragment-index="3">
+									or 
+									$\quad |\langle\bfu,\bfv\rangle|\leq||\bfu||\,||\bfv||.\quad \blacksquare$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
 			</section>
 
 			<section data-auto-animate>
