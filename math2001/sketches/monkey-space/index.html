@@ -35,11 +35,12 @@
 		<script type="module">
 
 			import * as THREE from 'three';
-
+			import { OrbitControls } from '../threejs/jsm/controls/OrbitControls.js';
 			import Stats from '../threejs/libs/stats.module.js';
 			import { GUI } from '../threejs/libs/lil-gui.module.min.js';
 
 			let camera, scene, renderer, stats;
+			let controls;
 
 			let mesh;
 			const amount = parseInt( window.location.search.slice( 1 ) ) || 15;
@@ -54,6 +55,8 @@
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
 				camera.position.set( amount * 0.9, amount * 0.9, amount * 0.9 );
 				camera.lookAt( 0, 0, 0 );
+
+				
 
 				scene = new THREE.Scene();
 
@@ -85,6 +88,10 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
 
+				controls = new OrbitControls( camera, renderer.domElement );
+				//controls.autoRotate = true;
+				//controls.autoRotateSpeed = - 0.2;
+				//controls.enableDamping = true;
 				//
 
 				stats = new Stats();
