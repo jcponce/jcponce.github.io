@@ -554,6 +554,52 @@
 						<div class="left-txt">
 							<p>
 								<span>
+									<strong>
+										Proof:
+									</strong>
+								</span>
+								<span>
+									For uniqueness let $\v = \u + \w$ and $\v = \u'+ \w'$,
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									where $\u, \u'\in U$ and $\w, \w'\in U^{\perp}$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then 
+									\[
+									\u - \u' = \w' - \w
+									\]
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									but $U \cap U^{\perp} = \{\mathbf 0\}.$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Then 
+									\[
+									\u - \u' = \mathbf 0 =  \w'- \w.
+									\]
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									That is $\u = \u'$ and $\w=\w'.$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									This implies uniqueness. $\quad \blacksquare$
+								</span>
+								
+							</p>
+							
+							
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.4 Orthogonal projection</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
 									The vector $\bfu\in U$ is called the
 									<strong>orthogonal projection of $\bfv$ onto $U$</strong>
 									and is given by
@@ -627,9 +673,120 @@
 								<span class="fragment" data-fragment-index="1">
 									Find the orthogonal projections of $\bfv$ onto $U$ and $U^\bot$.
 								</span>
+								<span class="fragment" data-fragment-index="2">
+									First, consider $U = \text{span}(S)$,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									 where $S = \left\{\bfe_1 , \bfe_2\right\}$ is the orthonormal set (Check it!📝).
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>11.5 Example: Orthogonal projection in $\R^3$</h4>
+					<div style="font-size:35%">
+						<div class="left-txt">
+							<p>
+								<span>
+									Let $\R^3$ be endowed with the
+									usual dot product, and let
+									$$
+									U=
+									{\rm
+									span}\left(\left\{(0,1,0),\left(-\dfrac{4}{5},0,\dfrac{3}{5}\right)\right\}\right),\quad
+									\bfv=(1,1,1).
+									$$
+								</span>
+								<span >
+									Find the orthogonal projections of $\bfv$ onto $U$ and $U^\bot$.
+								</span>
+								<span>
+									First, consider $U = \text{span}(S)$, where $S = \left\{\bfe_1 , \bfe_2\right\}$ is the orthonormal set (Check it!📝).
+								</span>
 							</p>
 						</div>
 					</div>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Orthogonal projection onto $U$ means
+								</span>
+							</p>
+							<table id="eqarray">
+								<tr class="fragment" data-fragment-index="0">
+									<td>
+										$\u$
+									</td>
+									<td>
+										$=$
+									</td>
+									<td>
+										$\mathrm{Proj}_{U}(\v)$
+										<span class="fragment" data-fragment-index="1">
+											$\,=\, \langle \v, \bfe_1\rangle\bfe_1 +  \langle \v, \bfe_2\rangle\bfe_2$
+										</span>
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="2">
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="2">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="2">
+										$\cdots$
+										<span class="fragment" data-fragment-index="2">
+											$\,=\, \bfe_1 - \frac{1}{5} \bfe_2$
+										</span>
+										<span class="fragment" data-fragment-index="3">
+											$\,=\, \ds\left(\frac{4}{25} , 1, - \frac{3}{25}\right).$
+										</span>
+									</td>
+								</tr>
+							</table>
+
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									Orthogonal projection onto $U^{\perp}$ means
+								</span>
+							</p>
+							<table id="eqarray">
+								<tr class="fragment" data-fragment-index="5">
+									<td>
+										$\w$
+									</td>
+									<td>
+										$=$
+									</td>
+									<td>
+										$\mathrm{Proj}_{U^{\perp}}(\v)$
+										<span class="fragment" data-fragment-index="6">
+											$\,=\, \v - \u$
+										</span>
+									</td>
+								</tr>
+								<tr >
+									<td>
+										
+									</td>
+									<td class="fragment" data-fragment-index="7">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="7">
+										$\ds \left(\frac{21}{25} , 0,  \frac{28}{25}\right).$
+										
+									</td>
+								</tr>
+							</table>
+							
+						</div>
+					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
