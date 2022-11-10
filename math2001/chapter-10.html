@@ -228,14 +228,14 @@
 
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="2">
 								<strong>Note:</strong>
 								Notion of orthogonality is also relative to the 
 								inner product used. 
 							</p>
 
 						</div>
-						<p style="font-size:200%">
+						<p style="font-size:200%" class="fragment" data-fragment-index="2">
 							🤔
 						</p>
 
@@ -414,7 +414,7 @@
 
 			<section data-auto-animate>
 				<h4>10.4 Triangle inequality</h4>
-				<div class="size-70">
+				<div class="size-60">
 					<div class="left-txt">
 						<p>
 							<span class="fragment" data-fragment-index="0">
@@ -428,25 +428,100 @@
 							</span>
 
 						</p>
+
+						<table>
+							<tr>
+								<td style="width:50%"  class="fragment" data-fragment-index="2">
+	
+									<p>Geometrically we have:</p>
+									<img style="width:70%" src="images/chapter-10/chapter-10-4-triangle-ine.svg">
+								</td>
+								<td style="width:50%">
+									<p class="fragment" data-fragment-index="3">
+										<strong>Proof:</strong>
+									</p>
+									<table id="eqarray">
+										<tr class="fragment" data-fragment-index="3">
+											<td>
+												$\norm{\u + \v}^2$
+											</td>
+											<td>
+												$ = \norm{\u}^2 +  2 \langle  \u,  \v \rangle + \norm{\v}^2  $
+											</td>
+										</tr>
+										<tr class="fragment" data-fragment-index="4">
+											<td>
+												
+											</td>
+											<td>
+												$ \leq \norm{\u}^2 +  2\abs{ \langle  \u,  \v \rangle }+ \norm{\v}^2  $
+											</td>
+										</tr>
+										<tr class="fragment" data-fragment-index="5">
+											<td>
+												
+											</td>
+											<td>
+												$ \leq \norm{\u}^2 +  2 \norm{\u}\norm{\v} + \norm{\v}^2  $
+											</td>
+										</tr>
+										<tr class="fragment" data-fragment-index="5">
+											<td>
+												
+											</td>
+											<td>
+												$ =\big(  \norm{\u} + \norm{\v}\big)^2  $
+											</td>
+										</tr>
+									</table>
+									<p class="fragment" data-fragment-index="6">
+										Hence
+										$||\bfu+\bfv||\leq||\bfu||+||\bfv||.$
+									</p>
+									<br/>
+								</td>
+								
+							</tr>
+						</table>
 					</div>
 				</div>
+				<br/>
 			</section>
 
 			<section data-auto-animate>
 				<h4>10.5 Angle between two vectors</h4>
-				<div class="size-70">
+				<div class="size-65">
 					<div class="left-txt">
 						<p>
 							<span class="fragment" data-fragment-index="0">
-								Cool
+								In $\R^n$, angle $\theta$ between $\u$ and $\v$ is given by
+								\[
+								\cos \theta = \frac{\u \cdot \v}{\norm{\u}\norm{\v}}, \quad \theta\in [0,\pi].
+								\]
+							</span>
+							
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								For general any real inner product space $V$,
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								Cool again
+								similarly define 
+								\[
+								\cos \theta = \frac{\langle \u , \v \rangle}{\norm{\u}\norm{\v}}, \quad \theta\in [0,\pi].
+								\]
 							</span>
-
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							For this to make sense we must have
+							\[
+							-1 \leq \frac{\langle \u , \v \rangle}{\norm{\u}\norm{\v}} \leq 1.
+							\]
 						</p>
 					</div>
 				</div>
+				<br/><br/>
 			</section>
 
 
