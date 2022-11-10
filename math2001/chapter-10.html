@@ -535,43 +535,137 @@
 								<span class="fragment" data-fragment-index="0">
 									Let $U$ be a subset of the real inner product space $V$.
 								</span>
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="1">
 									The <strong>orthogonal complement</strong> of $U$, denoted by $U^\bot$,
 									is the set of all vectors in $V$ that are orthogonal to every vector in $U$.
 								</span>
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="2">
 									That is,
 									$$
 									U^\bot=\{\bfv\in V\,|\,\langle\bfv,\bfu\rangle=0\text{ for every } \bfu\in U\}.
 									$$
 								</span>
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="3">
 									This is a vector space with addition
 									 and scalar multiplication inherited from $V$.
 								</span>
 							</p>
 						</div>
 					</div>
+					<br/><br/><br/>
+				</section>
+
+				
+				<section data-auto-animate>
+						<h5>10.6.1 Example: For $A\in M_{m,n}(\mathbb{R})$, Row$(A)^\bot = N(A)$ with respect to the Euclidean
+							inner product</h5>
+						<div class="size-70">
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										
+										Write
+										$\;\ds A = \begin{pmatrix}
+										\mathbf r_1\\
+										— \\
+										\mathbf r_2\\
+										— \\
+										\vdots \\
+										—\\
+										\mathbf r_m\\
+										\end{pmatrix}\;
+										$ 
+										where $\mathbf r_1, \mathbf r_2,\ldots ,\mathbf r_n$ denote
+										the rows, 
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										
+										$$\text{i.e., }\quad\text{Row}(A) = \text{span}\left(\left\{ \mathbf r_1, \mathbf r_2,\ldots ,\mathbf r_n\right\}\right)$$
+									</span>
+									
+								</p>
+								
+							</div>
+						</div>
+						<br/>
 				</section>
 
 				<section data-auto-animate>
-					<h5>10.6.1 Example: For $A\in M_{m,n}(\mathbb{R})$, Row$(A)^\bot = N(A)$ with respect to the Euclidean
-						inner product</h5>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									 inner product space $V$...
-								</span>
+						<h5>10.6.1 Example: For $A\in M_{m,n}(\mathbb{R})$, Row$(A)^\bot = N(A)$ with respect to the Euclidean
+							inner product</h5>
+						<div class="size-70">
+							<div class="left-txt">
+								<p>
+									Let $\mathbf x = \left(x_1,x_2, \ldots, x_n \right)$,
+									<span class="fragment" data-fragment-index="0">
+										then
+									</span>
+								</p>
 								
-							</p>
+							</div>
+							<div>
+								
+								<p class="fragment" data-fragment-index="1">
+									$A\mathbf x^T$
+									<span class="fragment" data-fragment-index="2">
+										$ = \ds \begin{pmatrix}
+										\mathbf r_1\\
+										— \\
+										\vdots \\
+										—\\
+										\mathbf r_m\\
+										\end{pmatrix}
+										\begin{pmatrix}
+										x_1\\
+										\quad \\
+										\vdots \\
+										\quad \\
+										x_n\\
+										\end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$ = \ds \begin{pmatrix}
+										\mathbf r_1 \mathbf x^T\\
+										\quad \\
+										\vdots \\
+										\quad\\
+										\mathbf r_m \mathbf x^T\\
+										\end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$ = \ds \begin{pmatrix}
+										\mathbf r_1 \cdot \mathbf x_1\\
+										\quad\\
+										\vdots \\
+										\quad\\
+										\mathbf r_m  \cdot \mathbf x_n\\
+										\end{pmatrix}
+										$
+									</span>
+
+								</p>
+								<p class="fragment" data-fragment-index="5">
+									So $A \mathbf x^T = \mathbf 0\;$ iff $\;\mathbf r_i \cdot \mathbf x = 0$ $\forall i.$
+									
+									<span class="fragment" data-fragment-index="6">
+										This implies $\mathbf x \in N(A)\;$ iff $\; \mathbf x\in \text{Row}(A)^{\perp}.$
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									Therefore $\;\text{Row}(A)^{\perp}=N(A).\quad \blacksquare$
+								</p>
+								
+							</div>
 						</div>
-					</div>
+						<br/>
 				</section>
+				
 
 				<section data-auto-animate>
 					<h5>10.6.2 $U^\bot$ is an example of a <em>subspace</em></h5>
-					<div class="size-70">
+					<div class="size-75">
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
@@ -583,11 +677,24 @@
 								</span>
 								
 							</p> 
-							<p class="fragment" data-fragment-index="2">
-								Now we prove that $U^\bot$ is an example of a <em>subspace</em>.
+							<ul>
+								<li class="fragment" data-fragment-index="2">
+									$\mathbf 0 \in W$?
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									$\u + \v \in W$? for all $\u,\v\in W$.
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									$k\u  \in W$? for all $\u \in W, k\in \R$.
+								</li>
+							</ul>
+
+							<p class="fragment" data-fragment-index="5">
+								Now we prove that $U^\bot$ is an example of a <em>subspace</em>. 📝 Exercise.
 							</p>
 						</div>
 					</div>
+					<br/><br/>
 				</section>
 
 			</section>
