@@ -970,8 +970,237 @@
                 </p>
               </div>
             </div>
+            <br /><br /><br /><br /><br /><br />
+
+          </section>
+          <section data-auto-animate>
+            <h4>12.5 Fitting a curve to data</h4>
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  <strong>Example: Quadratic fit.</strong>
+                  <span>
+                    Suppose some physical system is modeled by a quadratic
+                    function $p(t)$.
+                  </span>
+                  <span>
+                    Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
+                    (2,2),\ (4,7),\ (5,10). $$ Find the least squares
+                    approximation for $p(t)$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  Consider the quadratic function $p(t) = a_0 + a_1 t + a_2 t^2$. 
+                  <span class="fragment" data-fragment-index="0">
+                    To find the least
+                  squares approximation we need to solve the linear system:
+                  </span>
+                </p>
+                <div class="r-stack">
+                  <p class="fragment fade-in-then-out" data-fragment-index="0">
+                    <span>
+                      \[
+                    \left\{
+                    \begin{array}{ccccccc}
+                    a_0& +& a_1 (1)& + & a_2 (1)^2 & = & 5 \\
+                    a_0& + &a_1 (2) &+ &a_2 (2)^2 & = & 2 \\
+                    a_0 &+& a_1 (4) &+ &a_2 (4)^2 & = & 7 \\
+                    a_0 &+& a_1 (5)& +& a_2 (5)^2 & = & 10 \\
+                    \end{array}  
+                    \right.
+                    \]
+                    </span>
+                  </p>
+                  <p class="fragment fade-in-then-out" data-fragment-index="1">
+                    <span>
+                      \[
+                    \left\{
+                    \begin{array}{ccccccc}
+                    a_0& +& a_1 & + & a_2  & = & 5 \\
+                    a_0& + & 2a_1  &+ & 4a_2  & = & 2 \\
+                    a_0 &+& 4a_1  &+ & 16a_2  & = & 7 \\
+                    a_0 &+& 5a_1 & +& 25a_2  & = & 10 \\
+                    \end{array}  
+                    \right.
+                    \]
+                    </span>
+                  </p>
+                  <p class="fragment fade-in-then-out" data-fragment-index="2">
+                    <span>
+                      \[
+                    \left(
+                    \begin{array}{ccc}
+                    1 &  1 &  1  \\
+                    1 &  2 &  4  \\
+                    1 &  4 &  16  \\
+                    1 &  5 &  25 \\
+                    \end{array}  
+                    \right)
+                    \left(
+                    \begin{array}{c}
+                     a_0 \\
+                     a_1 \\
+                     a_2 \\
+                    \end{array}  
+                    \right)
+                    =
+                    \left(
+                    \begin{array}{c}
+                     5 \\
+                     2 \\
+                     7 \\
+                     10 \\
+                    \end{array}  
+                    \right)
+                    \]
+                    </span>
+                  </p>
+                  <p class="fragment fade-in" data-fragment-index="3">
+                    <span>
+                      \[
+                    \underbrace{\left(
+                    \begin{array}{ccc}
+                    1 &  1 &  1  \\
+                    1 &  2 &  4  \\
+                    1 &  4 &  16  \\
+                    1 &  5 &  25 \\
+                    \end{array}  
+                    \right)}_{A}
+                    \underbrace{\left(
+                    \begin{array}{c}
+                     a_0 \\
+                     a_1 \\
+                     a_2 \\
+                    \end{array}  
+                    \right)}_{\mathbf x}
+                    =
+                    \underbrace{\left(
+                    \begin{array}{c}
+                     5 \\
+                     2 \\
+                     7 \\
+                     10 \\
+                    \end{array}  
+                    \right)}_{\mathbf b}
+                    \]
+                    </span>
+                  </p>
+                  
+                </div>
+                
+              </div>
+            </div>
             <br /><br />
           </section>
+          <section data-auto-animate>
+            <h4>12.5 Fitting a curve to data</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  <strong>Example: Quadratic fit.</strong>
+                  <span>
+                    Suppose some physical system is modeled by a quadratic
+                    function $p(t)$.
+                  </span>
+                  <span>
+                    Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
+                    (2,2),\ (4,7),\ (5,10). $$ Find the least squares
+                    approximation for $p(t)$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                
+                <div class="r-stack size-60">
+                  <p>
+                    <span>
+                      \[
+                    \underbrace{\left(
+                    \begin{array}{ccc}
+                    1 &  1 &  1  \\
+                    1 &  2 &  4  \\
+                    1 &  4 &  16  \\
+                    1 &  5 &  25 \\
+                    \end{array}  
+                    \right)}_{A}
+                    \underbrace{\left(
+                    \begin{array}{c}
+                     a_0 \\
+                     a_1 \\
+                     a_2 \\
+                    \end{array}  
+                    \right)}_{\mathbf x}
+                    =
+                    \underbrace{\left(
+                    \begin{array}{c}
+                     5 \\
+                     2 \\
+                     7 \\
+                     10 \\
+                    \end{array}  
+                    \right)}_{\mathbf b}
+                    \]
+                    </span>
+                  </p>
+                  
+                </div>
+                <p>
+                  So we have $A\mathbf x = \mathbf b$. 
+                  <span class="fragment" data-fragment-index="0">
+                    This is an inconsistent system 
+                  but the columns of $A$ are linearly independent.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Then $A^TA$ is invertible.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Thus the least squares approximation is 
+                  </span>
+                  
+                </p>
+              </div>
+              <div>
+                <p >
+                  <span class="fragment" data-fragment-index="2">
+                    $\ds \mathbf x = \left(A^T A\right)^{-1}A^T \mathbf b$
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                  $= 
+                  \left(
+                  \begin{array}{c}
+                   8 \\
+                   -\frac{9}{2} \\
+                   1 \\
+                  \end{array}  
+                  \right)
+                  $
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                  $\;\,\Ra \;\, p(t) = 8 - \dfrac{9}{2}+ t^2.
+                  $
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br />
+          </section>
+
+          <section data-auto-animate id="quadratic-fit">
+            <h4>Quadratic fit</h4>
+            <div>
+              <iframe scrolling="no" title="Chapter-12-5: Quadratic fit" 
+              src="https://www.geogebra.org/material/iframe/id/wuguwkpk/width/700/height/374/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
+              width="700px" height="374px" style="border:0px;" allowfullscreen=""> </iframe>
+            </div>
+            <br/><br/><br/>
+          </section>
+
         </section>
 
         <section>
