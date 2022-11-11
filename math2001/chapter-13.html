@@ -107,18 +107,18 @@
             </h4>
 
             <div>
-              <img width="60%" data-src="images/chapter-13/chapter-13-2-fitting-curves.svg">
+              <img width="85%" data-src="images/chapter-13/chapter-13-2-fitting-curves.svg">
             </div>
             <div class="left-txt size-65">
               <p>
-                At point $x_0$ the error is $|f(x_0)-g(x_0)|$. For the entire
-                interval, define error as $\int_a^b |f(x)-g(x)|dx.$
+                At point $x_0$ the error is $|\,f(x_0)-g(x_0)|$. For the entire
+                interval, define error as $\int_a^b \left|\,f(x)-g(x)\right|dx.$
                 <span class="fragment" data-fragment-index="0">
                   This is <em>area between curves.</em>
                 </span>
               </p>
             </div>
-            <br /><br /><br />
+            <br />
           </section>
 
           <section data-auto-animate>
@@ -138,7 +138,7 @@
                 </span>
               </p>
             </div>
-            <div class="left-txt size-70">
+            <div class="size-70">
               <p>
                 <span class="fragment" data-fragment-index="1">
                   \begin{align*}
@@ -155,7 +155,7 @@
             <h4 style="font-size: 121%;">
               13 Least squares function approximation
             </h4>
-            <div class="left-txt size-70">
+            <div class="size-70">
               <p>
                 <span>
                   \begin{align*}
@@ -175,14 +175,41 @@
                 </span>
               </p>
             </div>
-            <br /><br />
+            <br /><br /><br/><br/>
           </section>
         </section>
 
         <section>
           <section data-auto-animate>
             <h4>13.1 Example: $\sin(x)$</h4>
-            <div class="size-70">
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  Find the least squares approximation for $\sin x$ in the
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
+                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $$
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Look for 
+                    $p(x)\in U$ such that 
+                    $$\norm{\sin x - p(x)}^2 = \int_0^{\pi} \left(\sin x-  p(x) \right)$$
+                    is minimal.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    From Chapter 12, the best approximation $p(x)$ for $\sin x$ is given
+                    by 
+                    $$p(x) = \mathrm{Proj}_{U}(\sin x).$$
+                  </span>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>13.1 Example: $\sin(x)$</h4>
+            <div class="size-40">
               <div class="left-txt">
                 <p>
                   Find the least squares approximation for $\sin x$ in the
@@ -192,17 +219,214 @@
                 </p>
               </div>
             </div>
-          </section>
-
-          <section data-auto-animate>
-            <h4>13.1 Example: $\sin(x)$</h4>
-            <div class="size-70">
+            <div class="size-60">
               <div class="left-txt">
+                <p class="fragment" data-fragment-index="0">
+                 We actually have two methods from Chapter 12.
+                </p>
                 <p>
-                  Solution cont...
+                  <span class="fragment" data-fragment-index="1">
+                    <strong>Solution 1.</strong>
+                  Use the Gram-Schimdt process to turn $\beta$ into 
+                  an orthonormal basis $\{\bfe_1, \bfe_2, \bfe_3\}$.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Then $p(x) =  \mathrm{Proj}_{U}(\sin x)$ is given by
+                    \[
+                    p(x) =  \mathrm{Proj}_{U}(\sin x) = 
+                    \langle\sin x , \bfe_1\rangle\bfe_1 + \langle\sin x , \bfe_2\rangle\bfe_2 + \langle\sin x , \bfe_3\rangle\bfe_3.
+                    \]
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    This gives the besst approximation for $\sin x$ by functions from $U$.
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="4">
+                    <strong>
+                      Exercise:
+                    </strong>
+                    1) Find the orthonormal basis;
+                  </span> 
+                  <span class="fragment" data-fragment-index="5">
+                    2) Compute $\langle \sin x, \bfe_i \rangle$ for $i=1,2,3$; 
+                  </span>
+                  <span class="fragment" data-fragment-index="6">
+                    and, 3) Verify the answer is given by
+                    \[
+                    p(x) = \frac{12\left(\pi^2-10\right)}{\pi^3}
+                    +\frac{60\left(12-\pi^2\right)}{\pi^4}x
+                    +\frac{60\left(\pi^2-12\right)}{\pi^5}x^2
+                    \]
+                  </span>
+                  
                 </p>
               </div>
             </div>
+            <br/>
+          </section>
+          <section>
+            <h4>13.1 Example: $\sin(x)$</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  Find the least squares approximation for $\sin x$ in the
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
+                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                
+                <p> 
+                  <strong>Solution 2.</strong>
+                  <span class="fragment" data-fragment-index="1">
+                  Set $p(x) = \alpha_1 + \alpha x + \alpha_3 x^2$.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Then $\alpha_1, \alpha_2,\alpha_3$ are determined by
+                    \[
+                    \left(
+                    \begin{array}{ccc}
+                    \langle 1, 1 \rangle &  \langle 1, x \rangle  &  \langle 1, x^2 \rangle   \\
+                    \langle x, 1 \rangle  &  \langle x, x \rangle  &  \langle x, x^2 \rangle   \\
+                    \langle x^2, 1 \rangle  &  \langle x^2, x \rangle  &  \langle x^2, x^2 \rangle   \\
+                    \end{array}  
+                    \right)
+                    \left(
+                    \begin{array}{c}
+                    \alpha_0 \\
+                    \alpha_1 \\
+                    \alpha_2 \\
+                    \end{array}  
+                    \right)
+                    =
+                    \left(
+                    \begin{array}{c}
+                    \langle \sin x, 1 \rangle \\
+                    \langle \sin x, x \rangle \\
+                    \langle \sin x, x^2 \rangle \\
+                    \end{array}  
+                    \right)
+                    \]
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    Note $\ds \int_0^{\pi}x^ndx = \frac{\pi^{n+1}}{n+1}$.
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                   $\;\langle \sin x, 1 \rangle = 2$, 
+                  </span>
+                  <span class="fragment" data-fragment-index="5">
+                   $\;\langle \sin x, x \rangle = \pi$,
+                  </span>
+                  <span class="fragment" data-fragment-index="6">
+                   $\;\langle \sin x, x^2 \rangle = \pi^2-4$.
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="7">
+                    \[\Ra
+                    \left(
+                    \begin{array}{ccc}
+                    \pi &  \frac{\pi^2}{2} &  \frac{\pi^3}{3}   \\
+                    \frac{\pi^2}{2}  & \frac{\pi^3}{3}  &  \frac{\pi^4}{4}  \\
+                    \frac{\pi^3}{3}  &  \frac{\pi^4}{4}  &  \frac{\pi^5}{5}  \\
+                    \end{array}  
+                    \right)
+                    \left(
+                    \begin{array}{c}
+                    \alpha_0 \\
+                    \alpha_1 \\
+                    \alpha_2 \\
+                    \end{array}  
+                    \right)
+                    =
+                    \left(
+                    \begin{array}{c}
+                    2\\
+                    \pi \\
+                    \pi^2-4 \\
+                    \end{array}  
+                    \right)
+                    \]
+                  </span>
+                  
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+          <section data-auto-animate>
+            <h4>13.1 Example: $\sin(x)$</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  Find the least squares approximation for $\sin x$ in the
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
+                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                
+                <p>
+                  <span>
+                    <strong>Solution 2.</strong>
+                  Set $p(x) = \alpha_1 + \alpha x + \alpha_3 x^2$.
+                  </span>
+                  <span>
+                    Then $\alpha_1, \alpha_2,\alpha_3$ are determined by
+                  </span>
+                </p>
+                <p>
+                  <span>
+                    \[
+                    \left(
+                    \begin{array}{ccc}
+                    \pi &  \dfrac{\pi^2}{2} &  \dfrac{\pi^3}{3}   \\
+                    \dfrac{\pi^2}{2}  & \dfrac{\pi^3}{3}  &  \dfrac{\pi^4}{4}  \\
+                    \dfrac{\pi^3}{3}  &  \dfrac{\pi^4}{4}  &  \dfrac{\pi^5}{5}  \\
+                    \end{array}  
+                    \right)
+                    \left(
+                    \begin{array}{c}
+                    \alpha_0 \\
+                    \alpha_1 \\
+                    \alpha_2 \\
+                    \end{array}  
+                    \right)
+                    =
+                    \left(
+                    \begin{array}{c}
+                    2\\
+                    \pi \\
+                    \pi^2-4 \\
+                    \end{array}  
+                    \right)
+                    \]
+                  </span>
+                  
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Solve this system to obtain the same result from <a href="#/2/1/6">Solution 1</a>. 😃
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                   That is:
+                  \[
+                  \alpha_1 = \frac{12\left(\pi^2-10\right)}{\pi^3},\;
+                  \alpha_2 = \frac{60\left(12-\pi^2\right)}{\pi^4},\;
+                  \alpha_3 = \frac{60\left(\pi^2-12\right)}{\pi^5}
+                  \]
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br/>
           </section>
         </section>
 
