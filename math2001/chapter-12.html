@@ -690,15 +690,129 @@
         </section>
 
         <section>
-          <h4>12.3 $\mathrm{Col}(A)^\bot=N(A^T)$</h4>
-          <div class="size-65">
+          <h4>12.3 $\mathrm{Col}(A)^\bot=N\left(A^T\right)$</h4>
+          <div class="size-60">
             <div class="left-txt">
               <p>
                 The orthogonal complement of the column space of $A$ is the null
                 space of $A^T$.
               </p>
+              <p class="fragment" data-fragment-index="0">
+                <strong>Note:</strong>
+                Recall that $\left(A\v\right)\cdot \u = \left(A\v\right)^T \u  = \v^T A^T \u = \v \cdot \left(A^T\u\right)$. $\quad(\star)$
+              </p>
+              <p class="fragment" data-fragment-index="1">
+                <strong>Proof:</strong>
+                <span class="fragment" data-fragment-index="2">
+                  $\subseteq$ 
+                </span>
+                <span class="fragment" data-fragment-index="3">
+                  - Let $\u\in \mathrm{Col}(A)^{\perp}$,
+                </span>
+                <span class="fragment" data-fragment-index="4">
+                  then for $\v \in \R^n$
+                </span>
+              </p>
+            </div>
+            <div>
+              <p class="fragment" data-fragment-index="5">
+                $
+                0 = \left(A \v\right)\cdot \u
+                $
+                <span class="fragment" data-fragment-index="6">
+                  $
+                  = \left(A \v\right)^T \u
+                  $
+                </span>
+                <span class="fragment" data-fragment-index="7">
+                  $
+                  = \v^TA^T  \u
+                  $
+                </span>
+                <span class="fragment" data-fragment-index="8">
+                  $
+                  = \v \cdot \left(A^T \u\right)  
+                  $
+                </span>
+              </p>
+            </div>
+            <div>
+              <p class="fragment" data-fragment-index="9">
+                Set $\v = A^T\u$,
+                <span class="fragment" data-fragment-index="10">
+                  then $0 =  \left(A^T \u\right) \cdot   \left(A^T \u\right)  $
+                </span>
+                <span class="fragment" data-fragment-index="11">
+                 $\; \Ra A^T\u = \mathbf 0  $
+                </span>
+                <span class="fragment" data-fragment-index="12">
+                 $\; \Ra \u \in N\left(A^T\right)  $
+                </span>
+                <span class="fragment" data-fragment-index="13">
+                 $\; \Ra  \mathrm{Col}(A)^{\perp} \subseteq N\left(A^T\right) .$
+                </span>
+              </p>
+            </div>
+            <div class="left-txt">
+              <p class="fragment" data-fragment-index="14">
+                
+                $\supseteq$
+                
+                <span class="fragment" data-fragment-index="15">
+                  - Let $\u\in N\left(A\right)$,
+                </span>
+                <span class="fragment" data-fragment-index="16">
+                  then for $A^T \u = \mathbf 0$.
+                </span>
+                <span class="fragment" data-fragment-index="17">
+                  Thus for all  $\v \in \R^n$ we have 
+                </span>
+              </p>
+            </div>
+            <div>
+              <p class="fragment" data-fragment-index="18">
+                $
+                0 =\v \cdot \mathbf 0
+                $
+                <span class="fragment" data-fragment-index="19">
+                  $
+                  = \v \cdot \left(A^T \u\right)
+                  $
+                </span>
+                <span class="fragment" data-fragment-index="20">
+                  $
+                  = \v^TA^T  \u
+                  $
+                </span>
+                <span class="fragment" data-fragment-index="21">
+                  $
+                  = \left(A\v\right)^T \u
+                  $
+                </span>
+                <span class="fragment" data-fragment-index="22">
+                  $
+                  = \left(A\v\right) \cdot \u
+                  $
+                </span>
+              </p>
+            </div>
+            <div>
+              <p class="fragment" data-fragment-index="23">
+                So $\u$ is perpendicular to all vectors of the form $A \v\in \mathrm{Col}(A)$
+                <span class="fragment" data-fragment-index="24">
+                  $
+                  \; \Ra \u \in \mathrm{Col}(A)^{\perp}
+                  $
+                </span>
+                <span class="fragment" data-fragment-index="25">
+                  $
+                  \; \Ra \mathrm{Col}(A)^{\perp} \supseteq N\left(A^T\right).
+                  $
+                </span>
+              </p>
             </div>
           </div>
+          <br/>
         </section>
 
         <section>
