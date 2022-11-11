@@ -54,8 +54,9 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
-				camera.position.set( 0.1, 0.1, 0.1 );
-				//camera.position.set( amount * 0.15, amount * 0.15, amount * 0.15 );
+				const p = 0.15;
+				//camera.position.set( p, p, p);
+				camera.position.set( amount * p, amount * p, amount * p );
 				camera.lookAt( 0, 0, 0 );
 
 				
@@ -85,7 +86,7 @@
 					
 					const gui = new GUI();
 					gui.add( mesh, 'count', 0, count );
-					gui.add( contUI, 'animate').onChange(setVal);
+					//gui.add( contUI, 'animate').onChange(setVal);
 					gui.close();
 
 				} );
@@ -148,7 +149,7 @@
 					if (rot == true){
 						time = Date.now() * 0.00008;
 					} else {
-						time = Date.now() * 0;
+						time = 0;
 					}
 
 					
@@ -156,7 +157,7 @@
 					mesh.rotation.y = Math.sin( time / 2 );
 
 					let i = 0;
-					const spt = 3;
+					const spt = 4;
 					const offset = ( amount - 1 ) / 2;
 
 					for ( let x = 0; x < amount; x ++ ) {
