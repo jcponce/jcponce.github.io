@@ -95,7 +95,7 @@
                 </li>
               </ul>
               <p class="fragment" data-fragment-index="3">
-                This problem is called he "least squares problem".
+                This problem is called the "least squares problem".
               </p>
             </div>
 
@@ -189,6 +189,78 @@
             <h4 style="font-size: 75%;">
               12.1 Least squares problem - minimising distance to a subspace
             </h4>
+            <div class="left-txt" style="font-size:40%">
+              <div>
+                <p>
+                  <strong>Theorem </strong>(Best Approximation Theorem). If $U$
+                  is a finite-dimensional subspace of a real inner product space
+                  $V$, and if $\mathbf{v}\in V,$ then $\mathrm{Proj}_U(\bfv)$ is
+                  the best approximation to $\mathbf{v}$ from $U$ in the sense
+                  that $$||\mathbf{v}-\mathrm{Proj}_U(\bfv)|| \lt
+                  ||\mathbf{v}-\mathbf{u}||, ~~\forall \mathbf{u}\in U.$$
+                </p>
+              </div>
+            </div>
+            <div class="size-70">
+              <div class="left-txt">
+                <p><strong>Proof:</strong>
+                  <span class="fragment" data-fragment-index="0">
+                    Let $U$ be a finite-dimensional subspace of $V$ and $\v \in V$, $\u\in U$,
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    then 
+                  </span>
+                </p>
+              </div>
+              <div class="r-stack">
+                <p class="fragment fade-in-then-out" data-fragment-index="1">
+                  $
+                  \norm{ \v - \mathrm{Proj}_U(\bfv) }^2 
+                  \leq
+                  \norm{ \v - \mathrm{Proj}_U(\bfv) }^2+ \norm{ \mathrm{Proj}_U(\bfv) -\u }^2$
+                </p>
+                <p class="fragment fade-in" data-fragment-index="2">
+                  $
+                  \norm{ \v - \mathrm{Proj}_U(\bfv) }^2 
+                  \leq
+                  \underbrace{\norm{ \v - \mathrm{Proj}_U(\bfv) }^2}_{\in U^{\perp}}+ 
+                  \underbrace{\norm{ \mathrm{Proj}_U(\bfv) -\u }^2}_{\in U}$
+                </p>
+                
+              </div>
+
+              <div>
+                <p class="fragment" data-fragment-index="3">
+                  $
+                  \qquad\quad\qquad
+                  \leq
+                  \norm{ \v - \mathrm{Proj}_U(\bfv) 
+                  +
+                   \mathrm{Proj}_U(\bfv) -\u }^2
+                  $
+                </p>
+                <p class="fragment" data-fragment-index="4">
+                  $
+                  
+                  \leq \norm{ \v  -\u }^2.\qquad\quad\,
+                  $
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="5">
+                  Therefore $\norm{ \v - \mathrm{Proj}_U(\bfv) } \leq \norm{ \v  -\u }$ for all $\u\in U. \qquad
+                  \blacksquare$
+                </p>
+              </div>
+            </div>
+            
+            <br/><br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size: 75%;">
+              12.1 Least squares problem - minimising distance to a subspace
+            </h4>
 
             <div class="left-txt size-60">
               <p>
@@ -199,10 +271,12 @@
               <p class="fragment" data-fragment-index="0">
                 <em>How to find $\mathrm{Proj}_U(\bfv)$?</em>
               </p>
-              <p class="fragment" data-fragment-index="1">
-                <strong>Solution 1.</strong>
+              <p>
+                <span  class="fragment" data-fragment-index="1">
+                  <strong>Solution 1.</strong>
                 Use Gram-Schmidt process to construct an orthonormal basis
                 $\{\bfe_1, \bfe_2,\cdots,\bfe_n\}$ of $U$.
+                </span>
                 <span class="fragment" data-fragment-index="2">
                   Then $$ \mathrm{Proj}_U(\bfv)=
                   \langle\bfv,\bfe_1\rangle\bfe_1+\ldots+\langle\bfv,\bfe_n\rangle\bfe_n.
@@ -397,20 +471,61 @@
                 <p>
                   <span class="fragment" data-fragment-index="0">
                     In applications, one is often faced with over-determined
-                    linear systems. For example, we may have a bunch of data
+                    linear systems. 
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                     For example, we may have a bunch of data
                     points that we have reasons to believe should fit on a
-                    straight line. But real-life data points rarely match
+                    straight line. 
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    But real-life data points rarely match
                     predictions exactly.
                   </span>
                 </p>
-                <p class="fragment" data-fragment-index="1">
+                <p class="fragment" data-fragment-index="3">
                   The goal in this section is to develop a method for obtaining
                   the best fit or approximation of a specified kind to a given
                   set of data points.
                 </p>
               </div>
             </div>
+            <br/><br/><br/>
           </section>
+          <section data-auto-animate>
+            <h4>12.2 Inconsistent linear systems</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    In applications, one is often faced with over-determined
+                    linear systems. 
+                  </span>
+                  <span>
+                     For example, we may have a bunch of data
+                    points that we have reasons to believe should fit on a
+                    straight line. 
+                  </span>
+                  <span>
+                    But real-life data points rarely match
+                    predictions exactly.
+                  </span>
+                </p>
+                <p>
+                  The goal in this section is to develop a method for obtaining
+                  the best fit or approximation of a specified kind to a given
+                  set of data points.
+                </p>
+              </div>
+              <div>
+                <iframe scrolling="no" title="Chapter-12-2: Fitting line" src="https://www.geogebra.org/material/iframe/id/tmyev6ke/width/790/height/368/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
+                width="790px" height="368px" style="border:0px;" allowfullscreen=""> </iframe>
+              </div>
+            </div>
+            <br/><br/>
+          </section>
+
+          
 
           <section data-auto-animate>
             <h4>12.2 Inconsistent linear systems</h4>
@@ -444,6 +559,7 @@
                 </p>
               </div>
             </div>
+            <br/><br/>
           </section>
 
           <section data-auto-animate>
@@ -507,11 +623,39 @@
               <div class="left-txt">
                 <p>
                   It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus
-                  in the situation described in Section 12.1.
+                  in the situation described in <a href="#/2/0/2">Section 12.1</a>.
                 </p>
               </div>
             </div>
             <br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>12.2 Inconsistent linear systems</h4>
+            
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus
+                  in the situation described in <a href="#/2/0/2">Section 12.1</a>.
+                </p>
+                <p>
+                  For a finite-dimensional subspace $U\subset V $ and $\v\in V$ and
+                  $\u \in U$,
+                  <span class="fragment" data-fragment-index="0">
+                    $\u = \mathrm{Proj}_{U}({\bf v})$ minimizes $\norm{\v-\u}^2$.
+                  </span><br/><br/>
+                  <span class="fragment" data-fragment-index="1">
+                    Hence $U = \mathrm{Col}(A)$ and $\v= \mathbf b$
+                    with all vectors in $U$ of the form $A \mathbf x$.
+                  </span>
+                  <span class="fragment" data-fragment-index="2"> 
+                    Then $$\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b})$$ is a vector on $\mathrm{Col}(A)$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br/>
           </section>
 
           <section data-auto-animate>
