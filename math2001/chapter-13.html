@@ -477,6 +477,106 @@
           </section>
         </section>
 
+
+        <section>
+          <section id="fourier-series"  data-auto-animate>
+            <h5>More about Fourier series</h5>
+            <div class="left-txt size-60">
+              <p>The <b>Fourier series</b> of a real function $f$ defined on the interval $(-p,p)$ is given by
+                \[
+                f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\,\cos \left(\frac{n\, \pi}{p}x\right)+b_n\,\sin
+                \left(\frac{n\, \pi}{p}x\right) \right),
+                \]
+                <span class="fragment" data-fragment-index="0">
+                  where
+                \begin{eqnarray*}
+                a_0&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,dx,\\
+                a_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\cos \left(\frac{n\, \pi}{p}x\right)\,dx,\\
+                b_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\sin \left(\frac{n\, \pi}{p}x\right)\,dx.
+                \end{eqnarray*}
+                </span>
+              </p>
+    
+                <p style="font-size:18px"  class="fragment" data-fragment-index="0">The <em>Fourier series</em> is named in honor of <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
+                  target="_blank">Jean Baptiste Joseph Fourier (1768-1830).</a></p>
+            </div>
+    
+          </section>
+    
+          <section id="fourier-example" data-auto-animate>
+            <h5>More about Fourier series</h5>
+            <div class="left-txt size-60">
+              <p><strong>Example:</strong> Consider the function
+                defined by $f(x)=x+\pi$ for $-\pi &lt; x &lt; \pi $
+                and $f(x)=f(x+2\pi)$ for $-\infty &lt; x &lt; \infty$.
+                <span class="fragment" data-fragment-index="0">Its Fourier series expansion is
+                  \[
+                  f(x)=\pi+2\sum_{n=1}^{\infty}\frac{\left(-1\right)^{n+1}}{n}\sin (n\,x).
+                  \]
+                </span>
+              </p>
+            </div>
+    
+            <img  class="fragment" data-fragment-index="1" width="72%" src="https://teaching.smp.uq.edu.au/scims/Num_analysis/images/fourierfunc.gif">
+    
+            <br/>
+          </section>
+    
+          <section id="square-wave" data-auto-animate>
+            <h5>More about Fourier series</h5>
+            <p class="sbt">The square wave</p>
+            
+            <div  class="fourier" style="height:450px;width:700px">
+              <iframe scrolling="no" title="Square wave" src="https://dynamicmath.xyz/math2400/sketches/fourier/square-function" width="650px"
+              height="600px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+            </div>
+                
+            <br/>
+          </section>
+    
+          <section id="fourier-square-wave" data-auto-animate>
+            <h5>More about Fourier series</h5>
+    
+            <table style="width:100%;">
+              <tr>
+    
+                <td style="width:40%">
+                  <div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+                    <p>
+                      <strong>The square wave</strong><br /><br />
+                      The Fourier series expansion is given by
+                      \[
+                      f(x):=\frac{4}{\pi}\sum_{1,3,5\ldots}^{\infty} \frac{1}{n}\sin\left(\frac{n\pi
+                      x}{L}\right)
+                      \]
+                    </p>
+                  </div>
+    
+                  <br />
+                  <p style="font-size:14px">Original Fourier applets by: <a href="https://www.jezzamon.com/fourier/"
+                      target="_blank">Jez Swanson</a></p>
+                </td>
+                <td style="width:60%;">
+                  <div  class="fourier" style="height: 450px;width:450px">
+                    <iframe scrolling="no" title="Square wave" src="https://dynamicmath.xyz/math2400/sketches/fourier/square-wave" width="400px"
+                    height="500px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+                  </div>
+                </td>
+    
+              </tr>
+            </table>
+            <br/>
+          </section>
+    
+    
+          <section data-auto-animate id="fourier-general-example" data-background-iframe="https://dynamicmath.xyz/math2400/sketches/fourier/user-wave" data-preload>
+    
+            <h4 style="text-align:center;font-size:24px;margin-top:-340px;">FOURIER series: General example</h4>
+    
+    
+          </section>
+        </section>
+
 		
 
         <section>
