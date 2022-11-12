@@ -300,14 +300,17 @@
                 <p class="fragment" data-fragment-index="0">
                   Hence ${\mathbf x}={\mathbf v}$ is a non-trivial solution to the
                   homogeneous system of equations $(A-\lambda I){\mathbf x}={\pmb
-                  0}$, and conversely, if there is a non-trivial solution then
+                  0}$,
+                  <span class="fragment" data-fragment-index="1">
+                    and conversely, if there is a non-trivial solution then
                   $\lambda$ is an eigenvalue of $A$.
+                  </span>
                 </p>
               </div>
             </div>
             <div class="size-70">
               <table id="eqarray">
-                <tr class="fragment" data-fragment-index="1">
+                <tr class="fragment" data-fragment-index="2">
                   <td>
                     $\lambda \mbox{ is an eigenvalue of $A$}$
                   </td>
@@ -319,7 +322,7 @@
                     solution}$
                   </td>
                 </tr>
-                <tr class="fragment" data-fragment-index="2">
+                <tr class="fragment" data-fragment-index="3">
                   <td></td>
                   <td>
                     $\Leftrightarrow$
@@ -328,7 +331,7 @@
                     $A-\lambda I \mbox{ is singular}$
                   </td>
                 </tr>
-                <tr class="fragment" data-fragment-index="3">
+                <tr class="fragment" data-fragment-index="4">
                   <td></td>
                   <td>
                     $\Leftrightarrow$
@@ -584,8 +587,8 @@
                   $
                   \Ra \;
                   \left\{
-                  \begin{array}{ccccccc}
-                     &   - & 2v_1 & + & v_2 & = & 0 \qquad (1)\\
+                  \begin{array}{rrrrrcc}
+                   - 2v_1  &   &  & + & v_2 & = & 0 \qquad (1)\\
                    v_1  &   - & v_2 & + & v_3 & = & 0 \qquad (2)\\
                    &   &   v_2 & - & 2v_3 & = & 0 \qquad (3)\\
                   \end{array}
@@ -719,9 +722,9 @@
                   \Ra \;
                   \left\{
                   \begin{array}{ccccccc}
-                   &  &    &  & v_2 & = & 0 \qquad (1)\\
+                   &  &  v_2  &  &  & = & 0 \qquad (1)\\
                    v_1 & +  &   v_2 & + & v_3 & = & 0 \qquad (2)\\
-                    & &   & - & v_2 & = & 0 \qquad (3)\\
+                    & &  v_2 &  &  & = & 0 \qquad (3)\\
                   \end{array}
                   \right. .
                   $
@@ -733,7 +736,7 @@
               <div class="left-txt">
                 <p class="fragment" data-fragment-index="6">
                   Thus $
-                  \left(
+                  \;\left(
                         \begin{array}{c}
                         v_1  \\
                         v_2 \\
@@ -836,37 +839,35 @@
                   \Ra \;
                   \left\{
                   \begin{array}{ccccccc}
-                     &    & v_1 & + & v_2 & = & 0 \qquad (1)\\
-                   v_1  &   - & 2v_2 & + & v_3 & = & 0 \qquad (2)\\
+                   v_1  &    &  & + & v_2 & = & 0 \qquad (1)\\
+                   v_1  &   + & 2v_2 & + & v_3 & = & 0 \qquad (2)\\
                    &   &   v_2 & + & v_3 & = & 0 \qquad (3)\\
                   \end{array}
                   \right. .
                   $
                   <span class="fragment" data-fragment-index="3">
-                    &nbsp;&nbsp;&nbsp; Equation (1) $\;\Ra\; $ $v_1 = -v_2.\qquad$
+                    &nbsp;From equation (1) $\,\Ra\, $ $v_1 = -v_2.\qquad$
                   </span>
                 </p>
               </div>
               <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="4">
-                    Substitute into (2) and (3) 
-                    $\; 
-                    \Ra \;
-                  \left\{
-                  \begin{array}{ccccc}
-                     v_2 & + & v_3 & = & 0 \\
-                      v_2 & - & v_3 & = & 0 \\
-                  \end{array}
-                  \right. .
+                    Substitute into (2)
                     $
-                  </span>  
+                    \;\Ra
+                    v_2  +  v_3  =  0,
+                    $
+                  </span> 
                   <span class="fragment" data-fragment-index="5">
-                    &nbsp; &nbsp; Then $v_3 = -v_2,$
+                    which is also equation (3).
+                  </span> 
+                  <span class="fragment" data-fragment-index="6">
+                    &nbsp;Then $v_3 = -v_2,$
                   </span>
                 </p>
-                <p class="fragment" data-fragment-index="6">
-                  and $
+                <p class="fragment" data-fragment-index="7">
+                  and $\;
                   \left(
                         \begin{array}{c}
                         v_1  \\
@@ -884,7 +885,7 @@
                         \end{array}
                         \right)
                   $
-                  <span class="fragment" data-fragment-index="7">
+                  <span class="fragment" data-fragment-index="8">
                     $
                     = 
                         v_2
@@ -897,7 +898,7 @@
                         \right).
                     $
                   </span>
-                  <span class="fragment" data-fragment-index="8">
+                  <span class="fragment" data-fragment-index="9">
                     Thus, the eigenvector is 
                     $
                         \left(
@@ -1010,32 +1011,32 @@
                   </span>
                 </p>
                 <p>
-                  <span>
+                  <span class="fragment" data-fragment-index="1">
                     $\text{det}\left(A- \lambda I\right)$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="2">
                     $= \text{det}\left(\left(A- \lambda I\right)^T\right)$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="3">
                     $= \text{det}\left(A^T- \lambda I^T\right)$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="4">
                     $= \text{det}\left(A^T- \lambda I\right).$
                   </span>
                 </p>
                 <br/>
                 <p>
-                  <span class="fragment" data-fragment-index="1">
+                  <span class="fragment" data-fragment-index="5">
                     <strong>2.</strong> $A$ is singular if and only if
                     $\lambda=0$ is an eigenvalue of $A$.
                   </span>
                 </p>
                 <p>
-                  <span>
+                  <span class="fragment" data-fragment-index="6">
                     $A$ is singular if and only if $A\mathbf x = \mathbf 0$ has a non-trivial
                     solution
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="7">
                     $\iff \lambda =0 $ is an eigenvalue of $A$.
                   </span>
                   
@@ -1056,9 +1057,11 @@
                     non-singular.
                   </span>
                 </p>
+                
                 <p>
                   <strong>Exercise:</strong> 📝
                 </p>
+                <br/>
                 <p>
                   <span class="fragment" data-fragment-index="2">
                     <strong>4.</strong> If $\lambda$ is an eigenvalue of $A$,
@@ -1070,7 +1073,7 @@
                   <strong>Exercise:</strong> 📝
                 </p>
               </div>
-            </div><br/><br/><br/>
+            </div><br/><br/>
           </section>
         </section>
 
