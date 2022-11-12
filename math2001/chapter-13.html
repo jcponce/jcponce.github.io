@@ -456,7 +456,7 @@
             <br/><br/><br/>
           </section>
           <section data-auto-animate>
-            <h4>13.2 Fourier coefficients</h4>
+            <h4 style="font-size:80%">13.2 Fourier coefficients</h4>
             <div class="size-50">
               <div class="left-txt">
                 <p>
@@ -496,7 +496,7 @@
             <br/><br/>
           </section>
           <section data-auto-animate>
-            <h4>13.2 Fourier coefficients</h4>
+            <h4 style="font-size:80%">13.2 Fourier coefficients</h4>
             <div class="size-40">
               <div class="left-txt size-80">
                 <p>
@@ -509,7 +509,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-60">
+            <div class="size-55">
               <div class="left-txt">
                 <p>
                   <strong>Proof:</strong>
@@ -562,11 +562,11 @@
                 </table>
               </div>
             </div>
-            <br/>
+            <br/><br/>
           </section>
 
           <section data-auto-animate>
-            <h4>13.2 Fourier coefficients</h4>
+            <h4 style="font-size:80%">13.2 Fourier coefficients</h4>
             <div class="size-40">
               <div class="left-txt size-80">
                 <p>
@@ -638,7 +638,7 @@
             <br/>
           </section>
           <section data-auto-animate>
-            <h4>13.2 Fourier coefficients</h4>
+            <h4 style="font-size:80%">13.2 Fourier coefficients</h4>
             <div class="size-40">
               <div class="left-txt size-80">
                 <p>
@@ -705,7 +705,7 @@
             <br/><br/>
           </section>
           <section data-auto-animate>
-            <h4>13.2 Fourier coefficients</h4>
+            <h4 style="font-size:80%">13.2 Fourier coefficients</h4>
             <div class="size-40">
               <div class="left-txt size-80">
                 <p>
@@ -795,7 +795,168 @@
                 </p>
               </div>
             </div>
+            <br/><br/>
           </section>
+
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                 To see this we need to find $\big \langle \mathbf f, \hat{\bfe}_k \big \rangle\hat{\bfe}_k $ in 
+                 the sum.
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                 For $\hat{\bfe}_0 = \dfrac{1}{\sqrt{2\pi}}$: 
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="1">
+                  $
+                  \big\langle \mathbf f, \hat{\bfe}_0 \big\rangle\hat{\bfe}_0
+                  $
+                  <span class="fragment" data-fragment-index="2">
+                    $= \ds\left(\int_0^{2\pi} f(x) \frac{1}{\sqrt{2\pi}}dx \right)  \frac{1}{\sqrt{2\pi}}$
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    $= \ds\frac{a_0}{2},\;$ where $\ds a_0 = \frac{1}{\pi} \int_0^{2\pi} f(x) dx.$
+                  </span>
+                </p>
+              </div>
+            </div>
+            
+            <br/><br/><br/><br/><br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                 For $\hat{\bfe}_k = \dfrac{1}{\sqrt{\pi}}\cos (kx)$: 
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="0">
+                  $
+                  \big\langle \mathbf f, \hat{\bfe}_k \big\rangle\hat{\bfe}_k
+                  $
+                  <span class="fragment" data-fragment-index="1">
+                    $= \ds\left(\int_0^{2\pi} f(x) \frac{1}{\sqrt{\pi}} \cos(kx) dx \right)  \frac{1}{\sqrt{\pi}}\cos (kx)$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    $= \ds a_k\cos (kx),\;$
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    <br/><br/>where $\ds a_k = \frac{1}{\pi} \int_0^{2\pi} f(x)\cos(kx) dx.$
+                  </span>
+                </p>
+              </div>
+            </div>
+            
+            <br/><br/><br/><br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4 >13.2 Fourier coefficients</h4>
+            
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                 For $\hat{\bfe}_k = \dfrac{1}{\sqrt{\pi}}\sin (kx)$: 
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="0">
+                  $
+                  \big\langle \mathbf f, \hat{\bfe}_k \big\rangle\hat{\bfe}_k
+                  $
+                  <span class="fragment" data-fragment-index="1">
+                    $= \ds\left(\int_0^{2\pi} f(x) \frac{1}{\sqrt{\pi}} \sin(kx) dx \right)  \frac{1}{\sqrt{\pi}} \sin (kx)$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    $= \ds b_k\sin (kx),\;$
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    <br/><br/> where $\ds b_k = \frac{1}{\pi} \int_0^{2\pi} f(x)\sin(kx) dx.$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br/><br/><br/><br/><br/>
+          </section>
+
+          <section data-auto-animate id="fourier-coefficients">
+            <h4 style="font-size:70%">13.2 Fourier coefficients</h4>
+            
+            <div class="size-45">
+              <div class="left-txt">
+                <p>
+                 For $\hat{\bfe}_0 = \dfrac{1}{\sqrt{2\pi}}$: 
+                </p>
+              </div>
+              <div>
+                <p>
+                  $
+                  \big\langle \mathbf f, \hat{\bfe}_0 \big\rangle\hat{\bfe}_0
+                  $
+                  <span>
+                    $= \ds\left(\int_0^{2\pi} f(x) \frac{1}{\sqrt{2\pi}}dx \right)  \frac{1}{\sqrt{2\pi}}$
+                  </span>
+                  <span>
+                    $= \ds\frac{a_0}{2},\;$ where $\ds a_0 = \frac{1}{\pi} \int_0^{2\pi} f(x) dx.$
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div class="size-45">
+              <div class="left-txt">
+                <p>
+                 For $\hat{\bfe}_k = \dfrac{1}{\sqrt{\pi}}\cos (kx)$: 
+                </p>
+              </div>
+              <div>
+                <p>
+                  $
+                  \big\langle \mathbf f, \hat{\bfe}_k \big\rangle\hat{\bfe}_k
+                  $
+                  <span>
+                    $= \ds\left(\int_0^{2\pi} f(x) \frac{1}{\sqrt{\pi}} \cos(kx) dx \right)  \frac{1}{\sqrt{\pi}}\cos (kx)$
+                  </span>
+                  <span>
+                    $= \ds a_k\cos (kx),\;$ <br/><br/>where $\ds a_k = \frac{1}{\pi} \int_0^{2\pi} f(x)\cos(kx) dx.$
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div class="size-45">
+              <div class="left-txt">
+                <p>
+                 For $\hat{\bfe}_k = \dfrac{1}{\sqrt{\pi}}\sin (kx)$: 
+                </p>
+              </div>
+              <div>
+                <p>
+                  $
+                  \big\langle \mathbf f, \hat{\bfe}_k \big\rangle\hat{\bfe}_k
+                  $
+                  <span>
+                    $= \ds\left(\int_0^{2\pi} f(x) \frac{1}{\sqrt{\pi}} \sin(kx) dx \right)  \frac{1}{\sqrt{\pi}} \sin (kx)$
+                  </span>
+                  <span>
+                    $= \ds b_k\sin (kx),\;$
+                  </span>
+                  <span>
+                    <br/><br/> where $\ds b_k = \frac{1}{\pi} \int_0^{2\pi} f(x)\sin(kx) dx.$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+
+
         </section>
 
 
