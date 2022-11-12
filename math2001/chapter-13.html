@@ -453,6 +453,319 @@
                 </p>
               </div>
             </div>
+            <br/><br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  In $C[0,2\pi]$, the set $$
+                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
+                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
+                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
+                  orthonormal with respect to the inner product $$ \langle{\bf
+                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  <strong>Proof:</strong>
+                  <span class="fragment" data-fragment-index="0">
+                    First note that $\Big\langle \dfrac{1}{\sqrt{2\pi} }, \dfrac{1}{\sqrt{2\pi} } \Big\rangle = 1;$
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    $\Big\langle \dfrac{1}{\sqrt{2\pi} }, \cos(kx) \Big\rangle = 0;$ 
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    $\Big\langle \dfrac{1}{\sqrt{2\pi} }, \sin (kx) \Big\rangle = 0.$
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    Then $\dfrac{1}{\sqrt{2\pi}}$ is a unit vector perpendicular to each element in 
+                    \[
+                    \left\{\dfrac{1}{\sqrt{2\pi}} \cos (kx), \dfrac{1}{\sqrt{2\pi}}\sin (kx)~|~
+                    k=1,\ldots, n\right\}.
+                    \]
+                    
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-40">
+              <div class="left-txt size-80">
+                <p>
+                  In $C[0,2\pi]$, the set $$
+                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
+                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
+                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
+                  orthonormal with respect to the inner product $$ \langle{\bf
+                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  <strong>Proof:</strong>
+                  <span>
+                    Then 
+                  </span>
+                </p>
+                <table id="eqarray">
+                  <tr>
+                    <td>
+                      $\big\langle \cos \left(kx\right), \cos\left(k'x\right) \big\rangle$
+                    </td>
+                    <td class="fragment" data-fragment-index="0">
+                      $=$
+                    </td>
+                    <td class="fragment" data-fragment-index="0">
+                      $\ds\int_{0}^{2\pi} \cos \left(kx\right) \cos \left(k'x\right)dx$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds \int_{0}^{2\pi} \frac{1}{2}
+                      \left[\cos \left( \left( k -k' \right)x \right) +\cos \left( \left( k +k' \right)x \right) \right]dx$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="2">
+                    <td>
+                      
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds 
+                      \left\{
+                        \begin{array}{ll}
+                        \frac{1}{2} \left[ \dfrac{\sin \left( \left( k -k' \right)x \right)}{k-k'} + \dfrac{\sin \left( \left( k +k' \right)x \right)}{k+k'} \right]\Big|_0^{2\pi}, & k\neq k' \\
+                        \frac{1}{2} \left[  x + \dfrac{\sin \left( 2k x \right)}{2k} \right]\Big|_0^{2\pi}, & k= k' \\
+                        \end{array}
+                      \right.
+                      $
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-40">
+              <div class="left-txt size-80">
+                <p>
+                  In $C[0,2\pi]$, the set $$
+                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
+                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
+                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
+                  orthonormal with respect to the inner product $$ \langle{\bf
+                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  <strong>Proof:</strong>
+                  <span>
+                    Then 
+                  </span>
+                </p>
+                <table id="eqarray">
+                  <tr>
+                    <td>
+                      $\big\langle \cos \left(kx\right), \cos\left(k'x\right) \big\rangle$
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds 
+                      \left\{
+                        \begin{array}{ll}
+                        \frac{1}{2} \left[ \frac{\sin \left( \left( k -k' \right)x \right)}{k-k'} + \frac{\sin \left( \left( k +k' \right)x \right)}{k+k'} \right]\Big|_0^{2\pi}, & k\neq k' \\
+                        \frac{1}{2} \left[  x + \frac{\sin \left( 2k x \right)}{2k} \right]\Big|_0^{2\pi}, & k= k' \\
+                        \end{array}
+                      \right.
+                      $
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds 
+                      \left\{
+                        \begin{array}{cc}
+                        0, & k\neq k' \\
+                        \pi, & k= k' \\
+                        \end{array}
+                      \right.
+                      $
+                    </td>
+                  </tr>
+                  
+                </table>
+                <p class="fragment" data-fragment-index="2">
+                  Thus
+                  $
+                  \ds\left\{\frac{1}{\sqrt{ \pi }}\cos (kx )~|~ k=1, \ldots, n\right\}
+                  $
+                  is orthonormal.
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-40">
+              <div class="left-txt size-80">
+                <p>
+                  In $C[0,2\pi]$, the set $$
+                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
+                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
+                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
+                  orthonormal with respect to the inner product $$ \langle{\bf
+                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  <strong>Proof:</strong>
+                  <span>
+                    Similarly we can compute other inner products to obtain
+                  </span>
+                </p>
+                <table id="eqarray">
+                  <tr>
+                    <td>
+                      $\big\langle \sin \left(kx\right), \sin\left(k'x\right) \big\rangle$
+                    </td>
+                    <td class="fragment" data-fragment-index="0">
+                      $=$
+                    </td>
+                    <td class="fragment" data-fragment-index="0">
+                      $\ds 
+                      \int_0^{2\pi} \sin\sin \left(kx\right) \sin \left(k'x\right)dx
+                      $
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $\ds 
+                      \left\{
+                        \begin{array}{cc}
+                        0, & k\neq k' \\
+                        \pi, & k= k' \\
+                        \end{array}
+                      \right.
+                      $
+                    </td>
+                  </tr>
+                  
+                </table>
+                <p class="fragment" data-fragment-index="2">
+                  So
+                  $
+                  \ds\left\{\frac{1}{\sqrt{ \pi }}\sin (kx )~|~ k=1, \ldots, n\right\}
+                  $
+                  is orthonormal. 
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+          <section data-auto-animate>
+            <h4>13.2 Fourier coefficients</h4>
+            <div class="size-40">
+              <div class="left-txt size-80">
+                <p>
+                  In $C[0,2\pi]$, the set $$
+                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
+                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
+                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
+                  orthonormal with respect to the inner product $$ \langle{\bf
+                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  <strong>Proof:</strong>
+                  <span>
+                    Finally
+                  </span>
+                </p>
+                <table id="eqarray">
+                  <tr>
+                    <td>
+                      $\big\langle \sin \left(kx\right), \cos\left(k'x\right) \big\rangle$
+                    </td>
+                    <td class="fragment" data-fragment-index="0">
+                      $=$
+                    </td>
+                    <td class="fragment" data-fragment-index="0">
+                      $\ds 
+                      \int_0^{2\pi} \sin \left(kx\right) \cos \left(k'x\right)dx
+                      $
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="1">
+                    <td>
+                      
+                    </td>
+                    <td>
+                      $=$
+                    </td>
+                    <td>
+                      $0,\;$ for any $k,k'.$
+                    </td>
+                  </tr>
+                  
+                </table>
+                <p class="fragment" data-fragment-index="2">
+                  Thus
+                  $
+                  \ds\left\{\frac{1}{\sqrt{ \pi }}\sin (kx )~|~ k=1, \ldots, n\right\}
+                  $
+                  is $\perp$ to 
+                  $
+                  \ds\left\{\frac{1}{\sqrt{ \pi }}\cos (kx )~|~ k=1, \ldots, n\right\}
+                  .$
+                </p>
+              </div>
+            </div>
+            <br/>
           </section>
 
           <section data-auto-animate>
