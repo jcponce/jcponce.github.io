@@ -1,10 +1,17 @@
 // Full list of configuration options available here:
 		// https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
-			
+
+			// Display presentation control arrows
 			controls: true,
+
+			// Push each slide change to the browser history.  Implies `hash: true`
 			history: true,
+			
+			// Display the page number of the current slide
 			slideNumber: "c/t",
+
+			// Vertical centering of slides
 			center: true,
 
 			// Global override for preloading lazy-loaded iframes
@@ -63,7 +70,6 @@
 						arcosh: "\\mbox{arcosh}\\,",
 						arsinh: "\\mbox{arsinh}\\,",
 						artanh: "\\mbox{artan}\\,",
-						//\newcommand{\mat}[2]{\left( \begin{array}{#1} #2 \end{array}\right)}
 						mat: ["{\\left(\\begin{array}{#1} #2\\end{array}\\right)}", 2],
 						conj: ["{\\overline{#1}}", 1],
 						abs: ["{\\left|#1\\right|}", 1],
@@ -90,7 +96,8 @@
 			},
 
 
-			chalkboard: { // font-awesome.min.css must be available
+			chalkboard: { 
+				// -> font-awesome.min.css must be available
 				//src: "chalkboard/chalkboard.json",
 				//storage: "chalkboard-demo",
 				boardmarkerWidth: 4,
