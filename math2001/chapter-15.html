@@ -467,8 +467,8 @@
                   To find the eigenvalues and eigenvectors, do the following:
                 </p>
 
-                <ul>
-                  <li class="fragment" data-fragment-index="0">
+                <ol>
+                  <li class="fragment" data-fragment-index="0"  style=" margin-bottom: 50px; ">
                     Find the roots of the characteristic polynomial,
                     $\det(A-\lambda I)=0$. These are the eigenvalues.
                   </li>
@@ -476,7 +476,7 @@
                     For each eigenvalue $\lambda$, find $N(A-\lambda I),$ known
                     as the <em>eigenspace</em> associated to $\lambda$.
                   </li>
-                </ul>
+                </ol>
               </div>
             </div><br/><br/><br/><br/><br/>
           </section>
@@ -986,6 +986,11 @@
                         </tr>
                       </table>
                     </td>
+                    <td>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;
+                    </td>
                   </tr>
 
                 </table>
@@ -1117,7 +1122,7 @@
                   Now we have to prove the case for $n+1$. 
                   <span class="fragment" data-fragment-index="8">
                     Set 
-                    $$a_1\v_1+ a_2\v_2+ \cdots + a_{n+1}\v_n= \mathbf 0 \qquad (\star)$$
+                    $$a_1\v_1+ a_2\v_2+ \cdots + a_{n+1}\v_{n+1}= \mathbf 0 \qquad (\star)$$
                   </span>
                 </p>
               </div>
@@ -1156,20 +1161,20 @@
                   Now we have to prove the case for $n+1$. 
                   <span>
                     Set 
-                    $$a_1\v_1+ a_2\v_2+ \cdots + a_{n+1}\v_n= \mathbf 0 \qquad (\star)$$
+                    $$a_1\v_1+ a_2\v_2+ \cdots + a_{n+1}\v_{n+1}= \mathbf 0 \qquad (\star)$$
                   </span>
                 </p>
                 <p>
                   <span class="fragment" data-fragment-index="0">
-                    Multiply ($\star$) by $A$ from the left to obtain
+                    Multiply ($\star$) by the matrix $A$ from the left to obtain
                     \[
-                    A\left(a_1\v_1+ \cdots + a_{n+1}\v_n\right) = a_1\lambda_1\v_1+ a_2\lambda_2\v_2+ \cdots + a_{n+1}\lambda_n\v_n\qquad (1)
+                    A\left(a_1\v_1+ \cdots + a_{n+1}\v_{n+1}\right) = a_1\lambda_1\v_1+ a_2\lambda_2\v_2+ \cdots + a_{n}\lambda_{n}\v_{n}  + a_{n+1}\lambda_{n+1}\v_{n+1} = \mathbf 0\quad (1)
                     \] 
                   </span>
                   <span class="fragment" data-fragment-index="1">
-                    Now multiply ($\star$) by $\lambda_{n+1}$ to get
+                    Now multiply ($\star$) by $\lambda_{n+1}\neq 0$ to get
                     \[
-                     a_1\lambda_{n+1}\v_1+ a_2\lambda_{n+1}\v_2+ \cdots + a_{n+1}\lambda_{n+1}\v_n = \mathbf 0\qquad (2)
+                     a_1\lambda_{n+1}\v_1+ a_2\lambda_{n+1}\v_2+ \cdots + a_{n}\lambda_{n+1}\v_{n}  + a_{n+1}\lambda_{n+1}\v_{n+1} = \mathbf 0\qquad (2)
                     \] 
                   </span>
                 </p>
@@ -1207,21 +1212,21 @@
                 </p>
                 <p>
                   <span>
-                    Multiply ($\star$) by $A$ from the left to obtain
+                    Multiply ($\star$) by the matrix $A$ from the left to obtain
                     \[
-                    A\left(a_1\v_1+ \cdots + a_{n+1}\v_n\right) = a_1\lambda_1\v_1+ a_2\lambda_2\v_2+ \cdots + a_{n+1}\lambda_n\v_n\qquad (1)
+                    A\left(a_1\v_1+ \cdots + a_{n+1}\v_{n+1}\right) = a_1\lambda_1\v_1+ a_2\lambda_2\v_2+ \cdots + a_{n}\lambda_{n}\v_{n}  + a_{n+1}\lambda_{n+1}\v_{n+1} = \mathbf 0\quad (1)
                     \] 
                   </span>
                   <span>
-                    Now multiply ($\star$) by $\lambda_{n+1}$ to get
+                    Now multiply ($\star$) by $\lambda_{n+1}\neq 0$ to get
                     \[
-                     a_1\lambda_{n+1}\v_1+ a_2\lambda_{n+1}\v_2+ \cdots + a_{n+1}\lambda_{n+1}\v_n= \mathbf 0\qquad (2)
+                     a_1\lambda_{n+1}\v_1+ a_2\lambda_{n+1}\v_2+ \cdots + a_{n}\lambda_{n+1}\v_{n}  + a_{n+1}\lambda_{n+1}\v_{n+1} = \mathbf 0\qquad (2)
                     \] 
                   </span>
                 </p>
                 <p class="fragment" data-fragment-index="1">Substracting (2) - (1) we obtain
                   \[
-                  a_1\left(\lambda_{n+1} -\lambda_1\right)\v_1+ a_2\left(\lambda_{n+1} -\lambda_2\right)\v_2+\cdots + a_n\left(\lambda_{n+1} -\lambda_n\right)\v_n=\mathbf 0
+                  a_1\left(\lambda_{n+1} -\lambda_1\right)\v_1+ a_2\left(\lambda_{n+1} -\lambda_2\right)\v_2+\cdots + a_n\left(\lambda_{n+1} -\lambda_n\right)\v_n=\mathbf 0.
                   \]
                 </p>
               </div>
@@ -1259,17 +1264,20 @@
                 
                 <p>Substracting (2) - (1) we obtain
                   \[
-                  a_1\left(\lambda_{n+1} -\lambda_1\right)\v_1+ a_2\left(\lambda_{n+1} -\lambda_2\right)\v_2+\cdots + a_n\left(\lambda_{n+1} -\lambda_n\right)\v_n=\mathbf 0
+                  a_1\left(\lambda_{n+1} -\lambda_1\right)\v_1+ a_2\left(\lambda_{n+1} -\lambda_2\right)\v_2+\cdots + a_n\left(\lambda_{n+1} -\lambda_n\right)\v_n=\mathbf 0.
                   \]
                 </p>
                 <p class="fragment" data-fragment-index="0">
-                  but $\left\{\v_1, \v_2, \ldots, \v_n\right\}$ is 
+                  Recall that $\left\{\v_1, \v_2, \ldots, \v_n\right\}$ is 
                   linearly independent by induction hypotesis.
                 </p>
                 <p class="fragment" data-fragment-index="1">
                   Then $a_1\left(\lambda_{n+1} -\lambda_1\right) = a_2\left(\lambda_{n+1} -\lambda_2\right) = \cdots = a_n\left(\lambda_{n+1} -\lambda_n\right)=0.$
                   <span class="fragment" data-fragment-index="2">
-                    Since $\{\lambda_i\}$ are distinct, then 
+                    Since $\{\lambda_i\}$ are distinct,
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    then 
                     $$a_1=a_2=\cdots = a_n=0.$$
                   </span>
                 </p>
@@ -1306,7 +1314,7 @@
                   <strong>Proof:</strong>
                 </p>
                 <p>
-                  So we know that $a_k=0$ for $k=1,\ldots,n$. 
+                  So we have that $a_i=0$ for $i=1,\ldots,n$. 
                   <span class="fragment" data-fragment-index="0">
                     Substituting in $$a_1\v_1+ a_2\v_2+ \cdots + a_{n+1}\v_{n+1}= \mathbf 0,\quad (\star)$$ 
                   </span>
@@ -1327,15 +1335,16 @@
                 </p>
               </div>
               <div class="left-txt">
-                
-                
                 <p class="fragment" data-fragment-index="3">
-                  Therefore
-                  \[
-                  \left\{\v_1, \v_2, \ldots, \v_n, v_{n+1}\right\}
-                  \]
+                  Thus 
+                  $\left\{\v_1, \v_2, \ldots, \v_{n+1}\right\}$
                   is linearly independent. 
-                  <span class="fragment" data-fragment-index="3">
+                  <span class="fragment" data-fragment-index="4">
+                    Hence, the set of eigenvectors
+                    $$\left\{\v_1, \v_2, \ldots,  v_{k}\right\}$$
+                    is linearly independent.
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
                     $\quad\blacksquare$
                   </span>
                 </p>
