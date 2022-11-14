@@ -122,7 +122,7 @@
                   <span class="fragment" data-fragment-index="4">
                     We know from <a href="chapter-15.html#/equivalent-statements/4">section 15.1</a>
                     that $P$ is invertible if and only if the columns of $P$ are
-                    linearly independent. 
+                    linearly independent.
                   </span>
                 </p>
               </div>
@@ -214,19 +214,25 @@
                 <p>
                   So steps for diagonalising an $n\times n$ matrix $A$:
                 </p>
-                <ol style="line-height: 20px;">
-                  <li class="fragment" data-fragment-index="0">
+                <ol style="line-height: 20px;margin-bottom:10px">
+                  <li class="fragment" data-fragment-index="0" style=" margin-bottom: 30px; ">
                     Find eigenvalues $\lambda_1, \lambda_2, \cdots$, and the
                     corresponding eigenvectors $\v_1, \v_2, \cdots$, of $A$.
                   </li>
-                  <li class="fragment" data-fragment-index="1">
+                  <li class="fragment" data-fragment-index="1" style=" margin-bottom: 30px; ">
                     Check if $A$ has $n$ linearly independent eigenvectors.
                   </li>
-                  <li class="fragment" data-fragment-index="2">
+                  <li class="fragment" data-fragment-index="2" style=" margin-bottom: 30px; ">
                     If no, $A$ is not diagonalizable. <br />
                     <span class="fragment" data-fragment-index="3">
-                      If yes, $A$ is diagonalizable. In this case, form matrix
-                      $P=(\v_1|\v_2|\cdots|\v_n)$. Then $P^{-1}$ exists and $P$
+                      If yes, $A$ is diagonalizable. 
+                    </span>
+                    <span class="fragment" data-fragment-index="4">
+                      In this case, form matrix
+                      $P=(\v_1|\v_2|\cdots|\v_n)$.
+                    </span>
+                    <span class="fragment" data-fragment-index="5">
+                       Then $P^{-1}$ exists and $P$
                       diagonalizes $A$, i.e. $P^{-1}AP=diag\{\lambda_1, \cdots,
                       \lambda_n\}$.
                     </span>
@@ -234,7 +240,7 @@
                 </ol>
               </div>
             </div>
-            <br /><br /><br />
+            <br /><br />
           </section>
         </section>
 
@@ -263,7 +269,7 @@
                 </p>
               </div>
             </div>
-            <br /><br />
+            <br /><br /><br/>
           </section>
           <section data-auto-animate>
             <h4>16.1 Similar matrices</h4>
@@ -436,11 +442,12 @@
 						</p>
 					</div>
 				</div>
+        <br/><br/>
 			</section>
 
 			<section data-auto-animate>
 				<h5>16.3.1 Example</h5>
-				<div class="size-60">
+				<div class="size-70">
 					<div class="left-txt">
 						<p>
 							<span>
@@ -450,11 +457,383 @@ and $B=\left(\begin{array}{ccc}2&1&3\\0&1&1\\0&0&1\end{array}\right)$.
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							Easy to see the characteristic equation of both $A$ and $B$ is
-$(2-\lambda)(1-\lambda)^2=0$, so $\lambda=2,1,1$.
+$$(2-\lambda)(1-\lambda)^2=0,$$ so $\lambda=2,1,1$.
 						</p>
 						
 					</div>
+				</div><br/><br/>
+			</section>
+
+			<section data-auto-animate>
+				<h5>16.3.1 Example</h5>
+				<div class="size-50">
+					<div class="left-txt">
+						<p>
+							<span>
+								Let $A=\left(\begin{array}{ccc}2&1&3\\0&1&0\\0&0&1\end{array}\right)$
+                and $B=\left(\begin{array}{ccc}2&1&3\\0&1&1\\0&0&1\end{array}\right)$.
+							</span>
+              <span>
+                Easy to see the characteristic equation of both $A$ and $B$ is
+                $(2-\lambda)(1-\lambda)^2=0,$ so $\lambda=2,1,1$.
+              </span>
+						</p>
+						
+						
+					</div>
 				</div>
+        
+        <div class="size-60">
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Note that both matrices have two ($n\lt 3$) distinct eigenvalues.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							For $A:$ We have that for $\lambda=2$
+						</p>
+						
+					</div>
+          <div>
+            <p class="fragment" data-fragment-index="2">
+              $\ds
+              \text{det}\left(A-\lambda I\right)\mathbf x
+              $
+              <span class="fragment" data-fragment-index="3">
+                $=
+                \left(
+                \begin{array}{ccc}
+                0   & 1 & 3 \\
+                1 & -1 &0 \\
+                0 & 1 & -1  \\
+                \end{array}
+                \right)
+                \left(
+                \begin{array}{c}
+                x_1    \\
+                x_2  \\
+                x_3  \\
+                \end{array}
+                \right)
+                
+                $
+              </span>
+              <span class="fragment" data-fragment-index="4">
+                $
+                =\left(
+                  \begin{array}{c}
+                  0    \\
+                  0  \\
+                  0  \\
+                  \end{array}
+                  \right)
+                $
+              </span>
+            </p>
+          </div>
+          <div>
+            <p class="fragment" data-fragment-index="5">
+              $\Ra$ $x_3 = x_2 = 0,$
+              <span class="fragment" data-fragment-index="6">
+                which means that $x_1$ is free variable.
+              </span>
+              
+
+            </p>
+            <p>
+              <span class="fragment" data-fragment-index="7">
+                Thus 
+                $
+                \left(
+              \begin{array}{c}
+              x_1    \\
+              x_2  \\
+              x_3  \\
+              \end{array}
+              \right)
+              =\left(
+                \begin{array}{c}
+                x_1    \\
+                0  \\
+                0  \\
+                \end{array}
+                \right)
+                $
+              </span>
+              <span class="fragment" data-fragment-index="8">
+                $
+                =x_1
+                \left(
+                  \begin{array}{c}
+                  1    \\
+                  0  \\
+                  0  \\
+                  \end{array}
+                  \right).
+                $
+              </span>
+              <span class="fragment" data-fragment-index="9">
+                Hence the eigenvector is 
+                $\v_1 = 
+                \left(
+                  \begin{array}{c}
+                  1    \\
+                  0  \\
+                  0  \\
+                  \end{array}
+                  \right).
+                $
+              </span>
+            </p>
+          </div>
+
+				</div>
+        <br/>
+			</section>
+
+			<section data-auto-animate>
+				<h5>16.3.1 Example</h5>
+				<div class="size-40">
+					<div class="left-txt">
+						<p>
+							<span>
+								Let $A=\left(\begin{array}{ccc}2&1&3\\0&1&0\\0&0&1\end{array}\right)$
+                and $B=\left(\begin{array}{ccc}2&1&3\\0&1&1\\0&0&1\end{array}\right)$.
+							</span>
+              <span>
+                Easy to see the characteristic equation of both $A$ and $B$ is
+                $(2-\lambda)(1-\lambda)^2=0,$ so $\lambda=2,1,1$.
+              </span>
+						</p>
+						
+						
+					</div>
+				</div>
+        
+        <div class="size-60">
+					<div class="left-txt">
+						<p>
+							<span style="font-size:70%">
+								Both matrices have two ($n\lt 3$) distinct eigenvalues.
+							</span>
+						</p>
+						<p>
+							For $A:$ Now for $\lambda=1$
+						</p>
+						
+					</div>
+          <div>
+            <p class="fragment" data-fragment-index="0">
+              $\ds
+              \text{det}\left(A-\lambda I\right)\mathbf x=
+              \left(
+              \begin{array}{ccc}
+              1   & 1 & 3 \\
+              1 & 0 &0 \\
+              0 & 1 & 0 \\
+              \end{array}
+              \right)
+              \left(
+              \begin{array}{c}
+              x_1    \\
+              x_2  \\
+              x_3  \\
+              \end{array}
+              \right)
+              =\left(
+                \begin{array}{c}
+                0    \\
+                0  \\
+                0  \\
+                \end{array}
+                \right)
+              $
+              <span class="fragment" data-fragment-index="1">
+                $\;\Ra\;$ $\;x_1+x_2+3x_3=0.$
+              </span>
+            </p>
+          </div>
+          <div class="left-txt">
+            
+            <p>
+              <span class="fragment" data-fragment-index="2">
+                So $\;x_1=-x_2-3x_3$.
+              </span>
+              <span class="fragment" data-fragment-index="3">
+                Thus
+              </span>
+              <span class="fragment" data-fragment-index="3">
+                
+                $\;
+                \left(
+              \begin{array}{c}
+              x_1    \\
+              x_2  \\
+              x_3  \\
+              \end{array}
+              \right)
+              =\left(
+                \begin{array}{c}
+                -x_2-3x_3   \\
+                x_2  \\
+                x_3  \\
+                \end{array}
+                \right)
+                $
+              </span>
+              <span class="fragment" data-fragment-index="4">
+                $
+                =x_2
+                \left(
+                  \begin{array}{c}
+                  -1    \\
+                  1  \\
+                  0  \\
+                  \end{array}
+                  \right)
+                  +
+                  x_3
+                  \left(
+                  \begin{array}{c}
+                  -3    \\
+                  0  \\
+                  1  \\
+                  \end{array}
+                  \right).
+                $
+              </span>
+              
+            </p>
+          </div>
+
+          <div>
+            <p>
+              <span class="fragment" data-fragment-index="5">
+                Hence the eigenvectors are 
+                $\v_2 = 
+                \left(
+                  \begin{array}{c}
+                  -1    \\
+                  1  \\
+                  0  \\
+                  \end{array}
+                  \right)
+                $
+                and
+                $\v_3 = 
+                \left(
+                  \begin{array}{c}
+                  -3    \\
+                  0  \\
+                  1  \\
+                  \end{array}
+                  \right).
+                $ 
+              </span>
+            </p>
+          </div>
+
+				</div>
+        <br/>
+			</section>
+			<section data-auto-animate>
+				<h5>16.3.1 Example</h5>
+				<div class="size-40">
+					<div class="left-txt">
+						<p>
+							<span>
+								Let $A=\left(\begin{array}{ccc}2&1&3\\0&1&0\\0&0&1\end{array}\right)$
+                and $B=\left(\begin{array}{ccc}2&1&3\\0&1&1\\0&0&1\end{array}\right)$.
+							</span>
+              <span>
+                Easy to see the characteristic equation of both $A$ and $B$ is
+                $(2-\lambda)(1-\lambda)^2=0,$ so $\lambda=2,1,1$.
+              </span>
+						</p>
+						
+						
+					</div>
+				</div>
+        
+        <div class="size-60">
+					<div class="left-txt">
+						<p>
+							<span style="font-size:70%">
+								Both matrices have two ($n\lt 3$) distinct eigenvalues.
+							</span>
+						</p>
+						<p>
+							
+              <span  class="fragment" data-fragment-index="0">
+                Therefore $A$ is diagonalizable, 
+              </span>
+              <span  class="fragment" data-fragment-index="1">
+                since $A$ has three linearly
+                independent vectors.
+              </span>
+						</p>
+						
+					</div>
+          
+          <div style="font-size:85%">
+            <table>
+
+              <tr>
+                
+                <td>
+                  <table style="border: 1px solid #ddd;">
+                    <tr>
+                      <th style="text-align:center;border: 1px solid #ddd;">Eigenvalue</th>
+                      <th style="text-align:center;border: 1px solid #ddd;">Eigenvector</th>
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;border: 1px solid #ddd;">$\lambda=2$</td>
+                      <td style="text-align:center;border: 1px solid #ddd;">
+                        $\left(
+                          \begin{array}{c}
+                          1  \\
+                          0 \\
+                          0 \\
+                          \end{array}
+                          \right)$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;border: 1px solid #ddd;">$\lambda=1$</td>
+                      <td style="text-align:center;border: 1px solid #ddd;">
+                        $\left(
+                          \begin{array}{c}
+                          -1  \\
+                          1 \\
+                          0 \\
+                          \end{array}
+                          \right)$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;border: 1px solid #ddd;">$\lambda=1$</td>
+                      <td style="text-align:center;border: 1px solid #ddd;">
+                        $\left(
+                          \begin{array}{c}
+                          -3  \\
+                          0 \\
+                          1 \\
+                          \end{array}
+                          \right)$
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+               
+              </tr>
+
+            </table>
+            
+          </div>
+
+				</div>
+        <br/>
 			</section>
 
 		</section>
