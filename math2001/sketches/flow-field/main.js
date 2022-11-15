@@ -61,7 +61,7 @@ let particles;
 let hue;
 
 function setup() {
-  size = 15;
+  size = 20;
   hue = 0;
   noiseZ = 0;
   canvas = document.querySelector("#canvas");
@@ -128,7 +128,7 @@ function drawBackground() {
 
 function drawParticles() {
   hue += 0.5;
-  ctx.fillStyle = `hsla(${hue}, 50%, 50%, 1)`;
+  ctx.fillStyle = `hsla(${hue}, 50%, 50%, 0.86)`;
   particles.forEach(p => {
     p.draw();
     let pos = p.pos.div(size);
