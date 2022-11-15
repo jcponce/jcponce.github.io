@@ -13,14 +13,14 @@ Site:
 
 var speed = 0.07;
 var maxSize = 20;
-var falloff = 250;
+var falloff = 150;
 var steps = 13;
 var color1;
 var color2;
 
 
 function setup() {
-	createCanvas(400, 400);
+	createCanvas(300, 300);
 	
 	textAlign(CENTER);
 	noStroke();
