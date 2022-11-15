@@ -1235,38 +1235,422 @@
 				<h4>16.5 Applications of diagonalisability</h4>
 				<div class="size-70">
 					<div class="left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							<strong>16.5.1 Systems of differential equations</strong>
 						</p>
 						<p>
 							
-							<span class="fragment" data-fragment-index="0">
-								For a system of coupled differential equations which can be written 
-in matrix form as 
-$$
-\dot{\mathbf x}=A{\mathbf x} 
-$$
-(where ${\mathbf x}=(x_1,\dots,x_n)^T$,
-$\dot{\mathbf x}=(\dot x_1,\dots,\dot x_n)^T$),
-							</span>
 							<span class="fragment" data-fragment-index="1">
-if $A$ can be diagonalised, say 
-$P^{-1}AP=D$ with $D$ diagonal,
+								For a system of coupled differential equations which can be written 
+                in matrix form as 
+                $$
+                \dot{\mathbf x}=A{\mathbf x} 
+                $$
+                (where ${\mathbf x}=(x_1,\dots,x_n)^T$,
+                $\dot{\mathbf x}=(\dot x_1,\dots,\dot x_n)^T$),
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								then make the substitution ${\mathbf x}=P{\mathbf y}$.
+                if $A$ can be diagonalised, say 
+                $P^{-1}AP=D$ with $D$ diagonal,
 							</span>
 							<span class="fragment" data-fragment-index="3">
+								then make the substitution ${\mathbf x}=P{\mathbf y}$.
+							</span>
+							<span class="fragment" data-fragment-index="4">
 								This yields
-$$
-\dot{\mathbf y}=D{\mathbf y} 
-$$
-which is easily solved.
+                $$
+                \dot{\mathbf y}=D{\mathbf y} 
+                $$
+                which is easily solved.
 							</span>
 						</p>
 					</div>
 				</div>
 				<br/>
+			</section>
+
+			<section data-auto-animate>
+				<h4>16.5 Applications of diagonalisability</h4>
+				<div class="size-40">
+					<div class="left-txt">
+						<p>
+							<strong>16.5.1 Systems of differential equations</strong>
+						</p>
+						<p>
+							
+							<span>
+								For a system of coupled differential equations which can be written 
+                in matrix form as 
+                $
+                \dot{\mathbf x}=A{\mathbf x} 
+                $
+                (where ${\mathbf x}=(x_1,\dots,x_n)^T$,
+                $\dot{\mathbf x}=(\dot x_1,\dots,\dot x_n)^T$),
+							</span>
+							<span>
+                if $A$ can be diagonalised, say 
+                $P^{-1}AP=D$ with $D$ diagonal,
+							</span>
+							<span>
+								then make the substitution ${\mathbf x}=P{\mathbf y}$.
+							</span>
+							<span>
+								This yields
+                $$
+                \dot{\mathbf y}=D{\mathbf y} 
+                $$
+                which is easily solved.
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="size-65">
+					<div class="left-txt">
+						<p>
+							
+							<span class="fragment" data-fragment-index="0">
+								For example, consider the coupled system of ODEs:
+                \[
+                \left\{
+                  \begin{array}{rcrcr}
+                  \dot x_1 & = & x_1  & + & 2x_2\\ 
+                  \dot x_2 & = & 2x_1 & + & x_2\\ 
+                  \end{array}
+                \right.
+                \]
+							</span>
+							<span class="fragment" data-fragment-index="1">
+                Write 
+                $
+                \left(
+                  \begin{array}{r}
+                  \dot x_1 \\ 
+                  \dot x_2 \\ 
+                  \end{array}
+                \right)
+                =
+                \left(
+                  \begin{array}{cc}
+                  1 & 2\\ 
+                  2 & 1\\ 
+                  \end{array}
+                \right)
+                \left(
+                  \begin{array}{r}
+                   x_1 \\ 
+                   x_2 \\ 
+                  \end{array}
+                \right)\;
+                $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								or
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\; \dot{\mathbf x} = A \mathbf x.$ $\quad (\star)$
+							</span>
+						</p>
+            <p class="fragment" data-fragment-index="3">
+              Is $A$ diagonalizable? 🤔
+              <span class="fragment" data-fragment-index="4">
+                The answer is "Yes".
+              </span>
+              <span class="fragment" data-fragment-index="5">
+                $\;\Ra \; P^{-1}A P = D.$
+              </span>
+            </p>
+            
+					</div>
+				</div>
+				<br/><br/>
+			</section>
+
+			<section data-auto-animate>
+				<h4>16.5 Applications of diagonalisability</h4>
+				<div class="size-40">
+					<div class="left-txt">
+						<p>
+							<strong>16.5.1 Systems of differential equations</strong>
+						</p>
+						<p>
+							
+							<span>
+								For a system of coupled differential equations which can be written 
+                in matrix form as 
+                $
+                \dot{\mathbf x}=A{\mathbf x} 
+                $
+                (where ${\mathbf x}=(x_1,\dots,x_n)^T$,
+                $\dot{\mathbf x}=(\dot x_1,\dots,\dot x_n)^T$),
+							</span>
+							<span>
+                if $A$ can be diagonalised, say 
+                $P^{-1}AP=D$ with $D$ diagonal,
+							</span>
+							<span>
+								then make the substitution ${\mathbf x}=P{\mathbf y}$.
+							</span>
+							<span>
+								This yields
+                $$
+                \dot{\mathbf y}=D{\mathbf y} 
+                $$
+                which is easily solved.
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="size-65">
+					<div class="left-txt">
+						<p>
+							<span>
+                Write 
+                $
+                \left(
+                  \begin{array}{r}
+                  \dot x_1 \\ 
+                  \dot x_2 \\ 
+                  \end{array}
+                \right)
+                =
+                \left(
+                  \begin{array}{cc}
+                  1 & 2\\ 
+                  2 & 1\\ 
+                  \end{array}
+                \right)
+                \left(
+                  \begin{array}{r}
+                   x_1 \\ 
+                   x_2 \\ 
+                  \end{array}
+                \right)\;
+                $
+							</span>
+							<span>
+								or
+							</span>
+							<span>
+								$\; \dot{\mathbf x} = A \mathbf x.$ $\quad (\star)$
+							</span>
+						</p>
+            <p>
+              Is $A$ diagonalizable?
+              <span>
+                The answer is "Yes".
+              </span>
+              <span>
+                $\;\Ra \; P^{-1}A P = D.$
+              </span>
+            </p>
+            <p class="fragment" data-fragment-index="0">
+              From $\;(\star)\;\Ra$ $\;P^{-1}\dot{\mathbf x}$
+              <span class="fragment" data-fragment-index="1">
+                $= P^{-1}A \mathbf x$
+              </span>
+              <span class="fragment" data-fragment-index="2">
+                $= P^{-1}A I {\mathbf x}$
+              </span>
+              <span class="fragment" data-fragment-index="3">
+                $= P^{-1}A P P^{-1}{\mathbf x}$
+              </span>
+              <span class="fragment" data-fragment-index="4">
+                $= D P^{-1}{\mathbf x}.$
+              </span>
+              <span class="fragment" data-fragment-index="5">
+                Thus
+                \[
+                \frac{d}{dt}\left(P^{-1}\mathbf x \right)= D \left(P^{-1}\mathbf x\right)\qquad (\star \star)
+                \]
+              </span>
+            </p>
+					</div>
+         
+				</div>
+				<br/><br/>
+			</section>
+
+			<section data-auto-animate>
+				<h4>16.5 Applications of diagonalisability</h4>
+				<div class="size-40">
+					<div class="left-txt">
+						<p>
+							<strong>16.5.1 Systems of differential equations</strong>
+						</p>
+						<p>
+							
+							<span>
+								For a system of coupled differential equations which can be written 
+                in matrix form as 
+                $
+                \dot{\mathbf x}=A{\mathbf x} 
+                $
+                (where ${\mathbf x}=(x_1,\dots,x_n)^T$,
+                $\dot{\mathbf x}=(\dot x_1,\dots,\dot x_n)^T$),
+							</span>
+							<span>
+                if $A$ can be diagonalised, say 
+                $P^{-1}AP=D$ with $D$ diagonal,
+							</span>
+							<span>
+								then make the substitution ${\mathbf x}=P{\mathbf y}$.
+							</span>
+							<span>
+								This yields
+                $$
+                \dot{\mathbf y}=D{\mathbf y} 
+                $$
+                which is easily solved.
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="size-65">
+          <div>
+            <p>
+              <span style="font-size:85%">
+                $
+                \dfrac{d}{dt}\left(P^{-1}\mathbf x \right) = D \left(P^{-1}\mathbf x\right)\qquad (\star \star)
+                $
+              </span>
+            </p>
+          </div>
+					<div class="left-txt">
+            
+            
+            <p class="fragment" data-fragment-index="0">
+              Introducing the expression
+              $
+              y(t) =  
+              \left(
+                \begin{array}{r}
+                y_1(t) \\ 
+                y_2(t) \\ 
+                \end{array}
+              \right)
+              = P^{-1}\mathbf x,\,
+              $
+              <span class="fragment" data-fragment-index="1">
+                implies that
+              </span>
+            </p>
+					</div>
+          <div>
+            <p class="fragment" data-fragment-index="1">
+              $\dot{\mathbf y} = D \mathbf y\;$ (from $\;(\star \star)$)
+              <span class="fragment" data-fragment-index="2">
+                $\;\Ra\; 
+                \left(
+                \begin{array}{r}
+                \dot y_1(t) \\ 
+                \dot y_2(t) \\ 
+                \end{array}
+              \right)
+              = 
+              \left(
+                \begin{array}{cc}
+                \lambda_1 & 0 \\ 
+                0 & \lambda_2\\ 
+                \end{array}
+              \right)
+              \left(
+                \begin{array}{r}
+                \dot y_1(t) \\ 
+                \dot y_2(t) \\ 
+                \end{array}
+              \right)
+                $
+              </span>
+            </p>
+            <p class="fragment" data-fragment-index="3">
+              $\Ra\; \dot y_1 = \lambda_1y_1\;$ and $\; \dot y_2 = \lambda_2y_2.\qquad $
+            </p>
+          </div>
+         
+				</div>
+				<br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h4>16.5 Applications of diagonalisability</h4>
+				<div class="size-40">
+					<div class="left-txt">
+						<p>
+							<strong>16.5.1 Systems of differential equations</strong>
+						</p>
+						<p>
+							
+							<span>
+								For a system of coupled differential equations which can be written 
+                in matrix form as 
+                $
+                \dot{\mathbf x}=A{\mathbf x} 
+                $
+                (where ${\mathbf x}=(x_1,\dots,x_n)^T$,
+                $\dot{\mathbf x}=(\dot x_1,\dots,\dot x_n)^T$),
+							</span>
+							<span>
+                if $A$ can be diagonalised, say 
+                $P^{-1}AP=D$ with $D$ diagonal,
+							</span>
+							<span>
+								then make the substitution ${\mathbf x}=P{\mathbf y}$.
+							</span>
+							<span>
+								This yields
+                $$
+                \dot{\mathbf y}=D{\mathbf y} 
+                $$
+                which is easily solved.
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="size-65">
+          
+					
+          <div>
+            <p>
+              $\dot{\mathbf y} = D \mathbf y\;$ (from $\;(\star \star)$)
+              <span>
+                $\;\Ra\; 
+                \left(
+                \begin{array}{r}
+                \dot y_1(t) \\ 
+                \dot y_2(t) \\ 
+                \end{array}
+              \right)
+              = 
+              \left(
+                \begin{array}{cc}
+                \lambda_1 & 0 \\ 
+                0 & \lambda_2\\ 
+                \end{array}
+              \right)
+              \left(
+                \begin{array}{r}
+                \dot y_1(t) \\ 
+                \dot y_2(t) \\ 
+                \end{array}
+              \right)
+                $
+              </span>
+            </p>
+            <p>
+              $\Ra\; \dot y_1 = \lambda_1y_1\;$ and $\; \dot y_2 = \lambda_2y_2.\qquad$
+            </p>
+          </div>
+
+          <div class="left-txt">
+            <p>
+              Solve for $\,y_1,y_2,\,$
+              <span class="fragment" data-fragment-index="0">
+                then substitute into $\,\mathbf x = P\mathbf y\,$ to get $\,x_1, x_2.$
+              </span>
+            </p>
+          </div>
+         
+				</div>
+				<br/><br/><br/>
 			</section>
 
 		</section>
@@ -1278,14 +1662,69 @@ which is easily solved.
 				<div class="size-70">
 					<div class="left-txt">
 						<p>
-							If $A$ is diagonalisable, say $P^{-1}AP=D$ with $D$ diagonal, then
-$$
-A^n=PD^nP^{-1}.
-$$
-This gives an easy way to calculate $A^n$.
+							If $A$ is diagonalisable, say $P^{-1}AP=D$ with $D$ diagonal,
+              <span class="fragment" data-fragment-index="0">
+                then
+                $$
+                A^n=PD^nP^{-1}.
+                $$
+                This gives an easy way to calculate $A^n$.
+              </span>
 						</p>
+            <p class="fragment" data-fragment-index="1">
+              From $A= PDP^{-1}$
+              <span>
+                we have that
+              </span>
+            </p>
+
 					</div>
+          <div>
+            <p class="fragment" data-fragment-index="2">
+              $A^n$
+              <span class="fragment" data-fragment-index="3">
+                $=\underbrace{PDP^{-1} P D P^{-1} \cdots P D P^{-1}}_{n-\text{times}}$
+              </span>
+              <span class="fragment" data-fragment-index="4">
+                $=P D^n P^{-1},$
+              </span>
+              
+            </p>
+            
+          </div>
+          <div>
+            <p>
+              <span class="fragment" data-fragment-index="5">
+                where
+              </span>
+              <span class="fragment" data-fragment-index="5">
+                $\;D^n $
+              </span> 
+              <span class="fragment" data-fragment-index="6">
+                $ = 
+                \left(
+                \begin{array}{ccc}
+                \lambda_1 &  \ldots  & 0 \\
+                \vdots &  \ddots  & \vdots \\
+                0 &  \ldots  &  \lambda_n\\
+                \end{array}
+                \right)^n$
+              </span> 
+              <span class="fragment" data-fragment-index="7">
+                $=
+                \left(
+                \begin{array}{ccc}
+                \lambda_1^n &  \ldots  & 0 \\
+                \vdots &  \ddots  & \vdots \\
+                0 &  \ldots  &  \lambda_n^n\\
+                \end{array}
+                \right).$
+              </span>
+              
+            </p>
+          </div>
 				</div>
+        <br/><br/>
 			</section>
 
 			<section data-auto-animate>
@@ -1295,13 +1734,54 @@ This gives an easy way to calculate $A^n$.
 						<p>
 							What can we say about the linear system 
 							(corresponding to a square matrix $A$) 
-$$
-A{\mathbf x} = {\pmb b},
-$$
-if we know how to diagonalise $A$?
+              $$
+              A{\mathbf x} = {\mathbf b},
+              $$
+              if we know how to diagonalise $A$?
 						</p>
+
+            <p class="fragment" data-fragment-index="0">
+              Multiply $A{\mathbf x} = {\mathbf b}$ by $P^{-1}$ from left on both sides.
+              <span class="fragment" data-fragment-index="1">
+                Then we get
+              </span>
+            </p>
 					</div>
+          <div>
+            <p class="fragment" data-fragment-index="1">
+              $P^{-1}A \mathbf x $
+              <span class="fragment" data-fragment-index="2">
+                $= P^{-1}A I\mathbf x$
+              </span>
+              <span class="fragment" data-fragment-index="3">
+                $= P^{-1}A P P^{-1}\mathbf x$
+              </span>
+              <span class="fragment" data-fragment-index="4">
+                $= P^{-1} \mathbf b.\;$
+              </span>
+              <span class="fragment" data-fragment-index="5">
+                Then $\;D\left(P^{-1} \mathbf x\right) = P^{-1} \mathbf b.$
+              </span>
+            </p>
+          </div>
+
+          <div class="left-txt">
+            <p class="fragment" data-fragment-index="6">
+              Set $\mathbf y = P^{-1}\mathbf x$,
+              <span class="fragment" data-fragment-index="7">
+                then $D\mathbf y = P^{-1} \mathbf b.$
+              </span>
+              <span class="fragment" data-fragment-index="8">
+                👈 This is a decoupled system!
+              </span>
+
+            </p>
+            <p class="fragment" data-fragment-index="10">
+              Finally, solve for $\mathbf y $ and then $\mathbf x = P \mathbf y.$
+            </p>
+          </div>
 				</div>
+        <br/><br/> 
 			</section>
 
 		</section>
