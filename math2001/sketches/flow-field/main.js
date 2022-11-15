@@ -31,7 +31,7 @@ class Particle {
     //ctx.fillRect(this.pos.x, this.pos.y, this.size, this.size);
     ctx.beginPath();
     ctx.ellipse(this.pos.x, this.pos.y, this.size/2, this.size/2,  0, 0, 2 * Math.PI);
-    ctx.stroke();
+    //ctx.stroke();
     ctx.fill();
   }
   
