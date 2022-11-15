@@ -70,8 +70,9 @@ public void draw() {
   drawParticles();
  
   stroke(256);
+  cursor(HAND);
   
-  text("fps: " + nf(frameRate, 2, 1), 10, 20);
+  //text("fps: " + nf(frameRate, 2, 1), 10, 20);
 }
  
   int c = color(64,128,256); // particle pixel color
@@ -85,8 +86,8 @@ private void drawParticles() {
          
  for (int i = 0; i < numParticles; i++) {
             float ladung = particles[i].charge;
-            fill((int) (128 + (ladung - 0.5) * 256),128,
-                    (int) (128 - (ladung - 0.5) * 256));
+            fill((int) (0 + (ladung - 0.5) * 256),128,
+                    (int) (138 - (ladung - 0.5) * 256));
             int d = parseInt(particles[i].radius * 2);
             ellipse((float) particles[i].posX, (float) particles[i].posY, d, d);
         }
