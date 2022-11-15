@@ -11,16 +11,16 @@ Site:
   jasonlabbe3d.com
 */
 
-var speed = 0.07;
+var speed = 0.03;
 var maxSize = 20;
-var falloff = 150;
+var falloff = 250;
 var steps = 13;
 var color1;
 var color2;
 
 
 function setup() {
-	createCanvas(300, 300);
+	createCanvas(350, 350);
 	
 	textAlign(CENTER);
 	noStroke();
