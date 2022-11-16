@@ -359,10 +359,10 @@
                   
                   <span class="fragment" data-fragment-index="0">
                     It is straightforward to show that 
-                    <span class="fragment highlight-blue" data-fragment-index="1">
+                    <span>
                       if a matrix is orthogonally
-                      diagonalisable, then it is symmetric
-                    </span>:
+                      diagonalisable, then it is symmetric:
+                    </span>
                   </span>
                 </p>
                 <p>
@@ -489,50 +489,50 @@
             </div>
             <div class="size-60">
               <div class="left-txt">
-                <p>
+                <p class="fragment" data-fragment-index="0">
                   <strong>Let's check the orthogonality:</strong> $\v_i \cdot \v_j = 0$ for $i\neq j$.
                 </p>
-                <p>
+                <p class="fragment" data-fragment-index="1">
                   We know from the previous <a href="#/example-18-2-1">result 18.2.1</a> that as the 
                   eigenvalues are distinct,
-                  <span> the eigenvectors
+                  <span class="fragment" data-fragment-index="2"> the eigenvectors
                     $\v_1, \v_2,$ and $\v_3$ are mutually orthogonal.
                   </span>
                 </p>
-                <p>
+                <p class="fragment" data-fragment-index="2">
                   Are these vectors unitary? 🤔
-                  <span>We must normalize them!</span>
-                  <span>So we need:</span>
+                  <span class="fragment" data-fragment-index="3">We must normalize them!</span>
+                  <span class="fragment" data-fragment-index="4">So we need:</span>
                 </p>
               </div>
               <div>
-                <p>
+                <p class="fragment" data-fragment-index="4">
                   $\norm{\v_1} $
-                  <span>
+                  <span class="fragment" data-fragment-index="5">
                     $=\sqrt{1^2+0^2+1^2}$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="6">
                     $=\sqrt{2},$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="7">
                     $\quad$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="7">
                     $\norm{\v_2}$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="8">
                     $=\sqrt{1^2+2^2+1^2}$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="9">
                     $=\sqrt{6},$
                   </span>
                 </p>
-                <p>
+                <p class="fragment" data-fragment-index="10">
                   $\norm{\v_3} $
-                  <span>
+                  <span class="fragment" data-fragment-index="11">
                     $=\sqrt{1^2+(-1)^2+1^2}$
                   </span>
-                  <span>
+                  <span class="fragment" data-fragment-index="12">
                     $=\sqrt{3}.$
                   </span>
                   
@@ -541,7 +541,7 @@
               </div>
               <div class="left-txt">
                 <p>
-                  <span>
+                  <span class="fragment" data-fragment-index="13">
                     Now we normalize the eigenvectors to unit vectors: $\hat{\v}_i =\dfrac{\v_i}{\norm{\v_i}}$
                   </span>
                 </p>
@@ -619,7 +619,7 @@
               
               <div class="left-txt">
                 
-                <p>Then
+                <p>Then the unitary vectors are
                   \[
                   \hat{\v}_1=\frac{1}{\sqrt{2}} \mat{r}{1\\ 0\\ -1},\ \ 
                   \hat{\v}_2=\frac{1}{\sqrt{6}} \mat{c}{1\\ 2\\ 1},\ \ 
@@ -627,7 +627,7 @@
                   -1\\ 1}. 
                   \]
                 </p>
-                <p>
+                <p class="fragment" data-fragment-index="0">
                   Thus the set $\left\{\hat{\v}_1, \hat{\v}_2, \hat{\v}_3\right\}$
                   is orthonormal.
                 </p>
@@ -655,13 +655,12 @@
               <div class="left-txt">
                 <p>
                   Now we can form the orthogonal matrix $P$:
-                  
                 </p>
               </div>
               <div>
-                <p>
-                  $\ds  P = \left( \hat{\v}_1 ~| ~\hat{\v}_2 ~| ~\hat{\v}_3\right)$
-                  <span>
+                <p class="fragment" data-fragment-index="0">
+                  $\ds  P = \big( \hat{\v}_1 ~| ~\hat{\v}_2 ~| ~\hat{\v}_3\big)$
+                  <span class="fragment" data-fragment-index="1">
                     $=
                     \ds 
                     \left(
@@ -676,9 +675,9 @@
                 </p>
               </div>
               <div class="left-txt">
-                <p>
+                <p class="fragment" data-fragment-index="2">
                   It orthogonally diangonalises $A$,
-                  <span>
+                  <span class="fragment" data-fragment-index="3">
                     that is
                     \[
                     P^TAP = \left(\begin{array}{rrr}-3&0&0\\0&-1&0\\0&0&-4\end{array}\right).
