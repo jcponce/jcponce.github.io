@@ -1,160 +1,645 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-	<meta charset="utf-8">
+    <title>MATH2001/7000 - Chapter 19</title>
 
-	<title>MATH2001/7000 - Chapter 19</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
 
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="css/mylayout.css" />
 
-	<link rel="stylesheet" href="css/mylayout.css" />
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 
-	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
 
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="css/fontawesome.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
 
-	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
 
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
 
-	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
 
-	<!--[if lt IE 9]>
-		<script src="../reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 19</p>
+        </section>
 
+        <section>
+          <section data-auto-animate>
+            <h3>19 Quadratic forms</h3>
+            <div class="left-txt size-80">
+              <p>
+                By the end of this section, you should be able to answer the
+                following questions:
+              </p>
+              <ul>
+                <li class="fragment" data-fragment-index="0">
+                  What is a quadratic form?
+                </li>
+                <li class="fragment" data-fragment-index="1">
+                  How do you diagonalise quadratic forms?
+                </li>
+                <li class="fragment" data-fragment-index="2">
+                  How can you use diagonalisation of two variable quadratic
+                  forms to identify conic sections?
+                </li>
+                <li class="fragment" data-fragment-index="3">
+                  What are quadric surfaces?
+                </li>
+              </ul>
+            </div>
+            <br /><br />
+          </section>
 
-</head>
+          <section data-auto-animate>
+            <h3>19 Quadratic forms</h3>
+            <div class="left-txt size-80">
+              <p>
+                This section presents a novel application of orthogonal
+                diagonalisation as a way of identifying conic sections.
+                <span class="fragment" data-fragment-index="0">
+                  We also mention the generalisation to three dimensions and
+                  how, in principle, we could identify quadric surfaces,
+                  although the details in this case can become quite messy.
+                </span>
+              </p>
 
-<body>
-	<div class="reveal">
-		<div class="slides">
+              <p class="fragment" data-fragment-index="1">
+                The majority of this section is based on the section on
+                quadratic forms in the MATH2001 recommended text “Elementary
+                Linear Algebra (Applications Version)” by Anton and Rorres,
+                pages 479-502.
+              </p>
+            </div>
+            <br /><br />
+          </section>
+        </section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+        <section>
+          <section data-auto-animate>
+            <h4>19.1 Definition</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Consider $n$ real variables $x_1, x_2, \ldots, x_n$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    A function of the form
+                    $$\ds{\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j}$$ is called a
+                    <em>quadratic form</em>,
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    where the $a_{ij}$ are real constants.
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="3">
+                  For example, the most general quadratic form in the variables
+                  $x$ and $y$ is $$ Q(x,y) = ax^2 + by^2 + cxy. $$
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+          <section data-auto-animate>
+            <h4>19.1 Definition</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    In the three variables $x$, $y$ and $z$, the most general
+                    quadratic form is $$ Q(x,y,z) = ax^2 + by^2 + cz^2 + dxy +
+                    exz + fyz, $$
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    where in both cases $a,b,c,d,e,f$ are all constants.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    It is possible to express quadratic forms in $n$ variables
+                    as a matrix product $\v^TA\v$, where $\v$ is a vector with
+                    the $n$ variables as entries and $A$ is a symmetric matrix.
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="3">
+                  The two variable quadratic form above can be expressed as $$
+                  Q(x,y) = \mat{cc}{x & y}\mat{cc}{a & c/2 \\ c/2 &
+                  b}\mat{c}{x\\ y}. $$
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+          <section data-auto-animate>
+            <h4>19.1 Definition</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    The three variable quadratic form given above can be written
+                    as $$ Q(x,y,z) = \mat{ccc}{x & y & z}\mat{ccc}{a & d/2 &
+                    e/2\\ d/2 & b & f/2\\ e/2 & f/2 & c}\mat{c}{x\\ y\\ z}. $$
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    As an exercise, trying verifying this by expanding out both
+                    expressions.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Observe that in both cases the diagonal entries of the
+                    matrix are the coefficients of the square terms and the
+                    off-diagonal entries in the matrix are the coefficients of
+                    the cross-terms.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
+          <section data-auto-animate>
+            <h5>
+              19.1.1 Give the matrix representation of the quadratic form
+              $2x^2+6xy-7y^2$
+            </h5>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    To do
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    To do...
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    To do...
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
+        </section>
 
-			<section>
-				<h2>Calculus & <br />Linear Algebra II</h2>
-				<p>Chapter 19</p>
-			</section>
+        <section>
+          <section data-auto-animate>
+            <h4>19.2 Diagonalising quadratic forms</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Since we know we can always orthogonally diagonalise a
+                    symmetric matrix,
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    if we do this to the symmetric matrix in the matrix
+                    representation of the quadratic form,
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    we can reduce the quadratic form to a sum of square terms.
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="3">
+                  We shall demonstrate this by example:
+                </p>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <h5 style="text-align: left;">
+                19.2.1 Express $-3x^2-2y^2-3z^2+2xy+2yz$ exclusively as a sum of
+                square terms
+              </h5>
+            </div>
+            <br /><br /><br />
+          </section>
+          <section data-auto-animate>
+            <h5 style="text-align: left;">
+              19.2.1 Express $-3x^2-2y^2-3z^2+2xy+2yz$ exclusively as a sum of
+              square terms
+            </h5>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Todo
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Todo
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Todo
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
+        </section>
 
-			<section>
-				<section data-auto-animate>
-					<h3>19 Quadratic forms</h3>
-					<div class="left-txt size-80">
-						<p>
-							By the end of this section, you should be 
-							able to answer the following questions:
-						</p>
-						<ul>
-							<li class="fragment" data-fragment-index="0">
-								What is a quadratic form?
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								How do you diagonalise quadratic forms?
-							</li>
-							<li class="fragment" data-fragment-index="2">
-								How can you use diagonalisation of two variable 
-								quadratic forms to identify conic sections?
-							</li>
-							<li class="fragment" data-fragment-index="3">
-								What are quadric surfaces?
-							</li>
-						</ul>
-	
-						
-					</div>
-					<br/><br/>
-	
-					
-	
-				</section>
+        <section>
+          <section data-auto-animate>
+            <h4>19.3 Quadratic equations and conic sections</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    We now restrict our attention to two dimensions, by
+                    investigating quadratic equations, which are equations of
+                    the form $$ ax^2+by^2+cxy + dx+ey +f= 0, $$ where
+                    $a,b,c,d,e,f\in \R$.
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="1">
+                    Graphs of quadratic equations are known as
+                    <em>conic sections</em>, because they can be realised as the
+                    intersection of a plane and a double cone in three
+                    dimensions.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    The most interesting of these are the so-called
+                    <em>non-degenerate</em> conic sections¹.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br />
+            <p
+              class="fragment"
+              data-fragment-index="2"
+              style="font-size: 18px; text-align: left;"
+            >
+              ¹There are also
+              <em>
+                degenerate
+              </em>
+              (points, lines) and
+              <em>imaginary</em> (without real graphs) conic sections.
+            </p>
+			<!--https://www.htmlsymbols.xyz/-->
+          </section>
+          <section data-auto-animate>
+            <h4>19.3 Quadratic equations and conic sections</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    A non-degenerate conic section is in standard position
+                    relative to the coordinate axes if its equation can be
+                    expressed in one of the following forms:
+                  </span>
+                </p>
 
-				<section data-auto-animate>
-					<h3>19 Quadratic forms</h3>
-					<div class="left-txt size-80">
-						
-	
-						<p>
-							This section presents a novel application of orthogonal 
-							diagonalisation as a way of identifying conic sections.
-							<span class="fragment" data-fragment-index="0">
-								We also mention the generalisation to three 
-								dimensions and how, in principle, we could identify 
-								quadric surfaces, although the details in this case 
-								can become quite messy.
+                <ul style="line-height: 110px;">
+                  <li class="fragment" data-fragment-index="0">
+                    $\ds{\frac{x^2}{k^2}+\frac{y^2}{l^2}=1; \;k,l>0,}$
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    $\ds{\frac{x^2}{k^2}-\frac{y^2}{l^2}=1}$ or
+                    $\ds{\frac{y^2}{l^2}-\frac{x^2}{k^2}=1; \;k,l>0,}$
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    $x^2=ky$ or $y^2=kx; \;k\ne0.$
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <br />
+          </section>
+          <section data-auto-animate>
+            <h4>19.3 Quadratic equations and conic sections</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    The key observation here is that conic sections in standard
+                    form have no cross-terms.
+                  </span>
+                  <span class="fragment" data-fragment-index="0">
+                    Given a quadratic equation with cross-terms in the
+                    associated quadratic form,
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    we can <em>change variables</em> to remove the cross-terms
+                    by orthogonal diagonalisation.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Due to the defining property of rotation matrices, an
+                    orthogonal matrix $P$ always corresponds to a rotation,
+                    provided $\det(P)=1$ (not $-1$).
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    Hence, we have the following:
+                  </span>
+                </p>
+
+                <div id="theorem" class="fragment" data-fragment-index="3">
+                  <p>
+                    Changing variables by orthogonal diagonalisation corresponds
+                    to a rotation of the coordinate axes. If $P$ is the
+                    orthogonal (rotation) matrix, then the new coordinates
+                    $(u,v)$ can be expressed in terms of the old coordinates
+                    $(x,y)$ as $$ \mat{c}{u \\ v} = P^T\mat{c}{x \\ y}. $$
+                  </p>
+                </div>
+              </div>
+            </div>
+            <br />
+          </section>
+          <section data-auto-animate>
+            <h4>19.3 Quadratic equations and conic sections</h4>
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    Another important observation is that there is never an
+                    occurance of $x^2$ and $x$ in the standard form (or $y^2$
+                    and $y$).
+                  </span>
+                  <span class="fragment" data-fragment-index="0">
+                    As a general rule, given a quadratic equation (even after
+                    changing variables from orthogonal diagonalisation),
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    if we have terms such as $x^2$ and $x$ (or similar terms
+                    involving new variables) we can <em>complete the square</em> to
+                    be left with only a square term.
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    We have the following:
+                  </span>
+                </p>
+
+                <div id="theorem" class="fragment" data-fragment-index="3">
+                  <p>
+                    Completing the square in a quadratic equation corresponds to
+                    translating (or shifting) the coordinate axes.
+                  </p>
+                </div>
+
+				<p class="fragment" data-fragment-index="4">
+					In summary, to identify a quadratic equation as a 
+					conic section, we follow these steps:
+				</p>
+              </div>
+            </div>
+            <br /><br/>
+          </section>
+          
+          <section data-auto-animate>
+            <h4>19.3 Quadratic equations and conic sections</h4>
+            <div class="size-60">
+              <div class="left-txt">
+
+				<p>
+					In summary, to identify a quadratic equation as a 
+					conic section, we follow these steps:
+				</p>
+
+				<table id="eqarray">
+					<tr class="fragment" data-fragment-index="0">
+						<td style="vertical-align:top">
+							1.
+						</td>
+						<td style="vertical-align:top">
+							Write the quadratic equation 
+							$$
+							ax^2+by^2 + cxy + dx+ ey+f=0
+							$$
+							in the matrix form $\mathbf x^TA\mathbf x + K\mathbf x + f=0$, where $\mathbf x =\mat{c}{x\\ y}$ and $K = \mat{cc}{d & e}$.
+						</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="1">
+						<td style="vertical-align:top">
+							2.
+						</td>
+						<td style="vertical-align:top">
+							Find a matrix $P$ that orthogonally diagonalises $A$, so $A=PDP^T$. 
+							<span class="fragment" data-fragment-index="2">
+								You may need
+						to swap columns of $P$ to ensure that $\det(P)=1$ (and hence corresponds to a
+						rotation).
 							</span>
-						</p>
-	
-						<p class="fragment" data-fragment-index="1">
-							The majority of this section is based on the 
-							section on quadratic forms in the MATH2001 
-							recommended text “Elementary Linear Algebra 
-							(Applications Version)” by Anton and Rorres, 
-							pages 479-502.
-						</p>
-						
-	
-						
-					</div>
-					<br/><br/>
-	
+						</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="3">
+						<td >
+							3.
+						</td>
+						<td style="vertical-align:top">
+							Define new variables $u,v$ such that $\v = \mat{c}{u\\ v} = P^T\mathbf x$ $\Ra$
+						$\mathbf x=P\v$.
+						</td>
+					</tr>
 					
-	
-				</section>
-			</section>
+				</table>
 
+				
+              </div>
+            </div>
+            <br /><br/>
+          </section>
+          <section data-auto-animate>
+            <h4>19.3 Quadratic equations and conic sections</h4>
+            <div class="size-60">
+              <div class="left-txt">
 
+				<table id="eqarray">
+					
+					<tr>
+						<td style="vertical-align:top">
+							4.
+						</td>
+						<td style="vertical-align:top">
+							Substitute $\v$ into the matrix form of the equation, giving
+						$$
+						\v^TD\v + KP\v + f=0.
+						$$
+						</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="0">
+						<td style="vertical-align:top">
+							5.
+						</td>
+						<td style="vertical-align:top">
+							Complete the square if required. 
+							<span class="fragment" data-fragment-index="1">
+								This is necessary if $u^2$ and $u$ are both
+						present (or $v^2$ and $v$). 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								This defines a new set of variables $s,t$ by
+						translating $u,v$. 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								The translations will be of the form $s=\alpha u+\beta$,
+						$t=\gamma v + \delta$.
+							</span>
+						</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="4">
+						<td style="vertical-align:top">
+							6.
+						</td>
+						<td style="vertical-align:top">
+							If it is a non-degenerate conic, the final equation in $s$ and $t$ should be a
+						conic section in standard form.
+						</td>
+					</tr>
+				</table>
 
+				
+              </div>
+            </div>
+            <br /><br/><br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4 style="font-size:80%">19.3 Quadratic equations and conic sections</h4>
+            <div style="font-size:47%">
+              <div class="left-txt">
 
+				
 
+				<table id="eqarray">
+					<tr>
+						<td style="vertical-align:top">
+							1.
+						</td>
+						<td style="vertical-align:top">
+							Write the quadratic equation 
+							$$
+							ax^2+by^2 + cxy + dx+ ey+f=0
+							$$
+							in the matrix form $\mathbf x^TA\mathbf x + K\mathbf x + f=0$, where $\mathbf x =\mat{c}{x\\ y}$ and $K = \mat{cc}{d & e}$.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align:top">
+							2.
+						</td>
+						<td style="vertical-align:top">
+							Find a matrix $P$ that orthogonally diagonalises $A$, so $A=PDP^T$. You may need
+						to swap columns of $P$ to ensure that $\det(P)=1$ (and hence corresponds to a
+						rotation).
+						</td>
+					</tr>
+					<tr>
+						<td >
+							3.
+						</td>
+						<td style="vertical-align:top">
+							Define new variables $u,v$ such that $\v = \mat{c}{u\\ v} = P^T\mathbf x$ $\Ra$
+						$\mathbf x=P\v$.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align:top">
+							4.
+						</td>
+						<td style="vertical-align:top">
+							Substitute $\v$ into the matrix form of the equation, giving
+						$$
+						\v^TD\v + KP\v + f=0.
+						$$
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align:top">
+							5.
+						</td>
+						<td style="vertical-align:top">
+							Complete the square if required. This is necessary if $u^2$ and $u$ are both
+						present (or $v^2$ and $v$). This defines a new set of variables $s,t$ by
+						translating $u,v$. The translations will be of the form $s=\alpha u+\beta$,
+						$t=\gamma v + \delta$.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align:top">
+							6.
+						</td>
+						<td style="vertical-align:top">
+							If it is a non-degenerate conic, the final equation in $s$ and $t$ should be a
+						conic section in standard form.
+						</td>
+					</tr>
+				</table>
 
-			<section>
+				
+              </div>
+            </div>
+            <br />
+          </section>
+        </section>
 
-				<h4>Credits</h4>
-				<div include-html="creditsb.html"></div>
-			</section>
+		<section>
+			<h5 style="text-align:left;font-size:65%">19.3.1 Describe the conic whose equation is $x^2+y^2+2xy-3x-5y+4=0$</h5>
+		</section>
 
-			<!-- Ends sections -->
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
 
-		</div>
-	</div>
+        <!-- Ends sections -->
+      </div>
+    </div>
 
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="mySetup/setup.js"></script>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
 
-	<script>
-		includeHTML();
-	</script>
-
-
-</body>
-
+    <script>
+      includeHTML();
+    </script>
+  </body>
 </html>
