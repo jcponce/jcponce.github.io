@@ -126,16 +126,63 @@
           </section>
           <section data-auto-animate>
             <h4>18.1 Orthogonal matrices</h4>
+            <div class="size-60">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    An orthogonal matrix is then a real square matrix $Q$ such
+                    that $Q^{-1}=Q^T$. An immediate consequence of this is that
+                    $\det(Q) = \pm 1$.
+                  </span>
+                </p>
+                
+              </div>
+            </div>
             <div class="size-70">
               <div class="left-txt">
                 <p>
-                  Cool
                   <span class="fragment" data-fragment-index="0">
-                    Cool...
+                    So we have that  
+                    \[
+                    Q^TQ= QQ^T = I.
+                    \]
+                  </span>
+                  <span class="fragment" data-fragment-index="1">Thus</span>
+                </p>
+
+              </div>
+              <div>
+                <p>
+                  <span class="fragment" data-fragment-index="6">
+                    $\text{det}\left(Q\right)^2=$
+                  </span>
+                  <span class="fragment" data-fragment-index="5">
+                    $\text{det}\left(Q^T\right)\text{det}\left(Q\right)=$
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                     $\text{det}\left(Q^TQ\right)$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    $=\text{det}\left(QQ^T\right)$
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    $=\text{det}\left(I\right)$
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    $=1$
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="7">
+                  So $\text{det}\left(Q\right)^2$
+                  <span class="fragment" data-fragment-index="8">
+                    $\;\Ra\;$ $\text{det}\left(Q\right)=\pm 1.$
                   </span>
                 </p>
               </div>
             </div>
+            <br/><br/>
           </section>
         </section>
 
@@ -158,37 +205,150 @@
                 </p>
               </div>
             </div>
-			<br/><br/>
+			      <br/><br/>
           </section>
+          
           <section data-auto-animate>
-            <h4>18.2 Symmetric matrices</h4>
-            <div class="size-70">
-              <div class="left-txt">
-                <p>
-                  Cool
-                  <span class="fragment" data-fragment-index="0">
-                    Cool...
-                  </span>
-                </p>
-              </div>
-            </div>
-          </section>
-          <section data-auto-animate>
-            <h5 style="font-size: 70%;">
+            <h5 style="font-size: 80%;">
               18.2.1 If $A$ is real symmetric, then the eigenvectors
               corresponding to different eigenvalues are orthogonal
             </h5>
             <div class="size-70">
               <div class="left-txt">
                 <p>
-                  <strong>Proof:</strong>
+                  
                   <span class="fragment" data-fragment-index="0">
-                    Cool...
+                    <strong>Proof:</strong>
                   </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Given $A\v_1 = \lambda_1 \v_1$ and $A\v_2 = \lambda_2 \v_2$ with $\lambda_1 \neq \lambda_2$,
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    we want to prove that 
+                    \[
+                    \v_1 \cdot \v_2 = 0,
+                    \]
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                   or equivalently
+                    \[
+                    \v_1^T  \v_2 = 0.
+                    \]
+                    in terms of matrix multiplication.
+                  </span>
+
                 </p>
               </div>
             </div>
+            <br/>
           </section>
+          <section data-auto-animate>
+            <h5 style="font-size: 80%;">
+              18.2.1 If $A$ is real symmetric, then the eigenvectors
+              corresponding to different eigenvalues are orthogonal
+            </h5>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  
+                  <span>
+                    <strong>Proof:</strong>
+                    Given $A\v_1 = \lambda_1 \v_1$ and $A\v_2 = \lambda_2 \v_2$ with $\lambda_1 \neq \lambda_2$. 
+                  </span>
+                  <span class="fragment" data-fragment-index="0">
+                    Consider
+                  </span>
+                  
+                </p>
+
+              </div>
+              <div>
+                <table id="eqarray">
+                  <tr>
+                    <td class="fragment" data-fragment-index="0">
+                      $\lambda_1 \v_1^T \v_2$
+                    </td>
+                    <td class="fragment" data-fragment-index="1">
+                      $=$
+                    </td>
+                    <td class="fragment" data-fragment-index="1">
+                      $\left(\lambda_1\v_1 \right)^T \v_2$
+                      <span class="fragment" data-fragment-index="2">
+                        $=\left(A \v_1\right)^T \v_2$
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td class="fragment" data-fragment-index="3">
+                      $=$
+                    </td>
+                    <td class="fragment" data-fragment-index="3">
+                      $\v_1^T A^T  \v_2$
+                      <span class="fragment" data-fragment-index="4">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        👉 $\left(\left(A B\right)^T  = B^T A^T\right)$
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td class="fragment" data-fragment-index="5">
+                      $=$
+                    </td>
+                    <td class="fragment" data-fragment-index="5">
+                      $\v_1^T A \v_2$
+                      <span class="fragment" data-fragment-index="6">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                        👉 $\left(A^T  =A\right)$
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td class="fragment" data-fragment-index="7">
+                      $=$
+                    </td>
+                    <td class="fragment" data-fragment-index="8">
+                      $\v_1^T \lambda_2 \v_2$
+                      <span class="fragment" data-fragment-index="9">$= \lambda_2\v_1^T \v_2$</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="10">
+                  Then $\left(\lambda_1 - \lambda_2\right)\v_1^T \v_2 = 0.$
+                  <span class="fragment" data-fragment-index="11">
+                    Since $\lambda_1\neq \lambda_2,$ 
+                  </span>
+                  <span class="fragment" data-fragment-index="12">
+                    $\;\Ra\; \v_1^T \v_2 = 0.$
+                  </span>
+                  <span class="fragment" data-fragment-index="13">
+                    So $\;\v_1 \cdot  \v_2 = 0.$
+                  </span>
+                  
+                </p>
+                <p><span class="fragment" data-fragment-index="14">
+                  Therefore $\v_1$ and $\v_2$ are orthogonal.
+                </span></p>
+              </div>
+            </div>
+            <br/>
+          </section>
+
           <section data-auto-animate>
             <h5 style="font-size: 70%;">
               18.2.2 Real symmetric matrices are orthogonally diagonalisable
