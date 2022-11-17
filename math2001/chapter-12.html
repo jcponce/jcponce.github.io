@@ -563,6 +563,32 @@
             </div>
             <br/><br/><br/>
           </section>
+          <section data-auto-animate>
+            <h4 style="font-size:90%">12.2 Inconsistent linear systems</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    We seek to minimise $||{\bf b}-A{\bf x}||$ for
+                    given $A$ and ${\bf b}$.
+                  </span>
+                  <span>
+                    For computational reasons, one usually minimises $||{\bf
+                    b}-A{\bf x}||^2$ instead. A solution $\hat{\bf x}$ to this minimisation problem is
+                    referred to as a
+                    <strong>least squares solution</strong>.
+                  </span>
+                </p>
+                
+              </div>
+            </div>
+
+            <div>
+              <iframe scrolling="no" title="Chapter-12-2: Least squares error" src="https://www.geogebra.org/material/iframe/id/gkur3wqe/width/791/height/478/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="791px" height="478px" style="border:0px;"> </iframe>
+            </div>
+            <br/><br/>
+            
+          </section>
 
           <section data-auto-animate>
             <h4>12.2 Inconsistent linear systems</h4>
@@ -656,6 +682,22 @@
                   </span>
                 </p>
               </div>
+            </div>
+            <br /><br/>
+          </section>
+          <section data-auto-animate>
+            <h4 style="font-size:90%">12.2 Inconsistent linear systems</h4>
+            
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus
+                  in the situation described in <a href="#/2/0/2">Section 12.1</a>.
+                </p>
+              </div>
+            </div>
+            <div>
+              <iframe scrolling="no" title="Chapter-12-4: Least squares error vector" src="https://www.geogebra.org/material/iframe/id/cr4h2jma/width/791/height/478/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="791px" height="478px" style="border:0px;"> </iframe>
             </div>
             <br /><br/>
           </section>
@@ -823,6 +865,80 @@
         </section>
 
         <section>
+          <section data-auto-animate>
+            <h4>12.4 Solving for $\hat{\bf x}$</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Recall from <a href=chapter-11.html#/5/0/1>Section 11.4</a> that
+                    $\bfv-\mathrm{Proj}_U(\bfv)=\mathrm{Proj}_{U^\bot}(\bfv)\in
+                    U^\bot$ for any finite-dimensional subspace $U$ of $V$ and
+                    $\bfv\in V$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Since $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf
+                    b})$, we thus have $$ {\bf b}-A\hat{\bf
+                    x}\in\mathrm{Col}(A)^\bot. $$
+                  </span>
+                  
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+          <section data-auto-animate>
+            <h4>12.4 Solving for $\hat{\bf x}$</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    Recall from <a href=chapter-11.html#/5/0/1>Section 11.4</a> that
+                    $\bfv-\mathrm{Proj}_U(\bfv)=\mathrm{Proj}_{U^\bot}(\bfv)\in
+                    U^\bot$ for any finite-dimensional subspace $U$ of $V$ and
+                    $\bfv\in V$.
+                  </span>
+                  <span>
+                    Since $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf
+                    b})$, we thus have $$ {\bf b}-A\hat{\bf
+                    x}\in\mathrm{Col}(A)^\bot. $$
+                  </span>
+                  
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <iframe scrolling="no" title="Chapter-12-4: Least squares error vector" src="https://www.geogebra.org/material/iframe/id/cr4h2jma/width/791/height/478/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="791px" height="478px" style="border:0px;"> </iframe>
+            </div>
+            <br /><br />
+          </section>
+          <section data-auto-animate>
+            <h4>12.4 Solving for $\hat{\bf x}$</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Recall from <a href=chapter-11.html#/5/0/1>Section 11.4</a> that
+                    $\bfv-\mathrm{Proj}_U(\bfv)=\mathrm{Proj}_{U^\bot}(\bfv)\in
+                    U^\bot$ for any finite-dimensional subspace $U$ of $V$ and
+                    $\bfv\in V$.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Since $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf
+                    b})$, we thus have $$ {\bf b}-A\hat{\bf
+                    x}\in\mathrm{Col}(A)^\bot. $$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Because $\mathrm{Col}(A)^\bot=N\left(A^T\right)$, it follows that
+                    $A^T({\bf b}-A\hat{\bf x})={\bf 0}$, so $$ A^T\!A\hat{\bf
+                    x}=A^T{\bf b}. $$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
             <div class="size-70">
