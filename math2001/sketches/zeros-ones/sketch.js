@@ -20,7 +20,7 @@ var color2;
 
 
 function setup() {
-	createCanvas(350, 350);
+	createCanvas(400, 400);
 	
 	textAlign(CENTER);
 	noStroke();
