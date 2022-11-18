@@ -190,7 +190,7 @@
         <section>
           <section data-auto-animate>
             <h4>13.1 Example: $\sin(x)$</h4>
-            <div class="size-60">
+            <div class="size-65">
               <div class="left-txt">
                 <p>
                   Find the least squares approximation for $\sin x$ in the
@@ -198,25 +198,30 @@
                   product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
                   p(x)q(x)~dx. $$
                 </p>
+              </div>
+            </div>
+            <div class="size-65">
+              <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="0">
                     Look for 
                     $p(x)\in U$ such that 
-                    $$\norm{\sin x - p(x)}^2 = \int_0^{\pi} \left(\sin x-  p(x) \right)$$
+                    $$\norm{\sin x - p(x)}^2 = \int_0^{\pi} \big(\sin x-  p(x) \big)dx$$
                     is minimal.
                   </span>
                   <span class="fragment" data-fragment-index="1">
-                    From Chapter 12, the best approximation $p(x)$ for $\sin x$ is given
+                    From <a href="chapter-12.html" target="_blank">Chapter 12</a>, the best approximation $p(x)$ for $\sin x$ is given
                     by 
                     $$p(x) = \mathrm{Proj}_{U}(\sin x).$$
                   </span>
                 </p>
               </div>
             </div>
+            <br/><br/>
           </section>
 
           <section data-auto-animate>
-            <h4>13.1 Example: $\sin(x)$</h4>
+            <h4 style="font-size:90%">13.1 Example: $\sin(x)$</h4>
             <div class="size-40">
               <div class="left-txt">
                 <p>
@@ -236,17 +241,19 @@
                   <span class="fragment" data-fragment-index="1">
                     <strong>Solution 1.</strong>
                   Use the Gram-Schimdt process to turn $\beta$ into 
-                  an orthonormal basis $\{\bfe_1, \bfe_2, \bfe_3\}$.
+                  an orthonormal basis $\{\hat{\bfe_1}, \hat{\bfe_2}, \hat{\bfe_3}\}$.
                   </span>
                   <span class="fragment" data-fragment-index="2">
                     Then $p(x) =  \mathrm{Proj}_{U}(\sin x)$ is given by
                     \[
                     p(x) =  \mathrm{Proj}_{U}(\sin x) = 
-                    \langle\sin x , \bfe_1\rangle\bfe_1 + \langle\sin x , \bfe_2\rangle\bfe_2 + \langle\sin x , \bfe_3\rangle\bfe_3.
+                    \big\langle\sin x , \hat{\bfe_1}\big\rangle\hat{\bfe_1} + 
+                    \big\langle\sin x , \hat{\bfe_2}\big\rangle\hat{\bfe_2} + 
+                    \big\langle\sin x , \hat{\bfe_3}\big\rangle\hat{\bfe_3}.
                     \]
                   </span>
                   <span class="fragment" data-fragment-index="3">
-                    This gives the besst approximation for $\sin x$ by functions from $U$.
+                    This gives the best approximation for $\sin x$ by functions from $U$.
                   </span>
                 </p>
                 <p>
@@ -257,10 +264,10 @@
                     1) Find the orthonormal basis;
                   </span> 
                   <span class="fragment" data-fragment-index="5">
-                    2) Compute $\langle \sin x, \bfe_i \rangle$ for $i=1,2,3$; 
+                    2) Compute $\big\langle \sin x, \hat{\bfe_i} \big\rangle$ for $i=1,2,3$; 
                   </span>
                   <span class="fragment" data-fragment-index="6">
-                    and, 3) Verify the answer is given by
+                    and, <br/>3) Verify the answer is given by
                     \[
                     p(x) = \frac{12\left(\pi^2-10\right)}{\pi^3}
                     +\frac{60\left(12-\pi^2\right)}{\pi^4}x
@@ -274,7 +281,7 @@
             <br/>
           </section>
           <section>
-            <h4>13.1 Example: $\sin(x)$</h4>
+            <h4 style="font-size:90%">13.1 Example: $\sin(x)$</h4>
             <div class="size-40">
               <div class="left-txt">
                 <p>
@@ -367,7 +374,7 @@
             <br/>
           </section>
           <section data-auto-animate>
-            <h4>13.1 Example: $\sin(x)$</h4>
+            <h4 style="font-size:90%">13.1 Example: $\sin(x)$</h4>
             <div class="size-40">
               <div class="left-txt">
                 <p>
