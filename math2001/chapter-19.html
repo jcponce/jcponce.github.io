@@ -986,6 +986,154 @@
             <br/><br/>
           </section>
 
+          <section data-auto-animate>
+            <h5 style="text-align: left; font-size: 65%;">
+              19.3.1 Describe the conic whose equation is $x^2+y^2+2xy-3x-5y+4=0$
+            </h5>
+            
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <strong>Step 2.</strong>
+                  Find <span style="font-weight:bold">eigenvalues</span> and <span style="font-weight:bold">eigenvectors</span> of $A$.
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span>
+                    $\;\Ra\; \lambda_1 = 2,\qquad\quad \lambda_2 =0.
+                  $
+                  </span>
+                </p>
+                <p>
+                  <span>
+                    $ 
+                    \Ra\; \v_1 = 
+                    \left( \begin{array}{r}
+                    1 \\ 1 \end{array} \right),
+                    \qquad 
+                     \v_2 = 
+                    \left( \begin{array}{r}
+                    1 \\ -1 \end{array} \right).
+                    
+                    $
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-70">
+              <div>
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    We check that $\v_1 \cdot \v_2 = 0$. 
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    They are orthogonal! 😃
+                  </span>
+                  
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="2">
+                    Since $\norm{\v_1} = \sqrt{2}, \; \norm{\v_2} = \sqrt{2},$ 
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                   we have that <br/><br/>
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    $\hat{\v}_1 = \dfrac{\v_1}{\norm{\v_1}} = 
+                   \dfrac{1}{\sqrt{2}}
+                   \left( \begin{array}{r}
+                    1 \\ 1 \end{array} \right)
+                   \;$ and 
+                   $\;\hat{\v}_2 = \dfrac{\v_2}{\norm{\v_2}} = 
+                   \dfrac{1}{\sqrt{2}}
+                   \left( \begin{array}{r}
+                    1 \\ -1 \end{array} \right).
+                   $
+                  </span>
+                  
+                </p>
+
+              </div>
+            </div>
+            
+            <br/><br/>
+          </section>
+
+          <section data-auto-animate>
+            <h5 style="text-align: left; font-size: 65%;">
+              19.3.1 Describe the conic whose equation is $x^2+y^2+2xy-3x-5y+4=0$
+            </h5>
+            
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  <strong>Step 2.</strong>
+                  Now we form the matrix $P= \left(\hat{\v}_1 ~|~ \hat{\v}_2 \right).$
+                  <span class="fragment" data-fragment-index="0">
+                    That is
+                    $
+                    P 
+                    =
+                    \dfrac{1}{\sqrt{2}}
+                   \left( \begin{array}{r}
+                   1 & 1 \\ 1 & -1 \end{array} \right).
+                    $
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="1">
+                    But note that $\text{det}(P) = -1.$
+                  </span>
+                  <span style="color:#cc0000"  class="fragment" data-fragment-index="2">
+                    This is NOT a rotation! 😕 
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    No problem! We just swap the columns to obtain
+                    \[
+                    P = \left(\hat{\v}_2 ~|~ \hat{\v}_1\right)
+                    =
+                    \dfrac{1}{\sqrt{2}}
+                   \left( \begin{array}{r}
+                   1 & 1 \\ -1 & 1 \end{array} \right)
+                    \]
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    so $\text{det}(P) = 1$ and  now $P$ is a rotation! 😎
+                  </span>
+                  <span class="fragment" data-fragment-index="5">
+                    Thus the matrix $P$ also orthogonally diagonalises $A$.
+                  </span>
+                  <span class="fragment" data-fragment-index="6">
+                    That is, 
+                  </span>
+
+                </p>
+                
+              </div>
+              <div>
+                <p>
+                  <span class="fragment" data-fragment-index="6">
+                    $P^TAP $
+                  </span>
+                  <span class="fragment" data-fragment-index="7">
+                    $=D$
+                  </span>
+                  <span class="fragment" data-fragment-index="8">
+                    $=\left( \begin{array}{r}
+                    0 & 0 \\ 0 & 2 \end{array} \right)$
+                  </span>
+                  <span class="fragment" data-fragment-index="9">
+                    $\;\Ra\; A = PDP^T.$
+                  </span>
+                </p>
+              </div>
+            </div>
+            
+            
+            <br/><br/>
+          </section>
+
         </section>
 
         <section>
