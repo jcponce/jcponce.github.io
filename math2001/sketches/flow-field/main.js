@@ -128,7 +128,7 @@ function drawBackground() {
 
 function drawParticles() {
   hue += 0.5;
-  ctx.fillStyle = `hsla(${hue}, 50%, 50%, 0.86)`;
+  ctx.fillStyle = `hsla(${hue}, 50%, 50%, 0.96)`;
   particles.forEach(p => {
     p.draw();
     let pos = p.pos.div(size);
