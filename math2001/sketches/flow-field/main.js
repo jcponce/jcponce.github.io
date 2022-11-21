@@ -150,6 +150,7 @@ function drawFlowField() {
       ctx.moveTo(x1, y1);
       ctx.lineTo(x1 + field[x][y].x*size*2, y1 + field[x][y].y*size*2);
       ctx.stroke();
+      ctx.lineWidth = 2.5;
     }
   }
 }
