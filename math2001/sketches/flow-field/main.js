@@ -104,7 +104,7 @@ function calculateField() {
 function reset() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
-  ctx.strokeStyle = "white";
+  ctx.strokeStyle = "black";
   noise.seed(Math.random());
   columns = Math.round(w / size) + 1;
   rows = Math.round(h / size) + 1;
@@ -122,7 +122,7 @@ function draw(now) {
 }
 
 function drawBackground() {
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "white";
   ctx.fillRect(0, 0, w, h);
 }
 
@@ -150,7 +150,7 @@ function drawFlowField() {
       ctx.moveTo(x1, y1);
       ctx.lineTo(x1 + field[x][y].x*size*2, y1 + field[x][y].y*size*2);
       ctx.stroke();
-      ctx.lineWidth = 2.5;
+      ctx.lineWidth = 1.8;
     }
   }
 }
