@@ -128,7 +128,7 @@ function drawBackground() {
 
 function drawParticles() {
   hue += 0.5;
-  ctx.fillStyle = `hsla(${hue}, 50%, 50%, 0.86)`;
+  ctx.fillStyle = `hsla(${hue}, 50%, 50%, 0.96)`;
   particles.forEach(p => {
     p.draw();
     let pos = p.pos.div(size);
@@ -150,6 +150,7 @@ function drawFlowField() {
       ctx.moveTo(x1, y1);
       ctx.lineTo(x1 + field[x][y].x*size*2, y1 + field[x][y].y*size*2);
       ctx.stroke();
+      ctx.lineWidth = 2.5;
     }
   }
 }
