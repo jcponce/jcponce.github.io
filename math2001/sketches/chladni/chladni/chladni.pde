@@ -1,5 +1,9 @@
 // A fork of Chladni Patterns by Konstantin Makhmutov
 // https://openprocessing.org/user/56835?view=sketches&o=11
+// CreativeCommons Attribution ShareAlike
+
+// This version by Juan Carlos Ponce Campuzano
+// 30/Nov/2022
 
 float[][] p, v;
 float f1 = 0.01, f2 = 0.02, f3 = 0.03;
