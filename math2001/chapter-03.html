@@ -294,7 +294,7 @@
 
 				<section data-auto-animate>
 					<h4>3.2 Test for exactness</h4>
-					<div class="size-75">
+					<div class="size-80">
 						<div class="left-txt">
 							<p><strong>Proof:</strong>
 								<span class="fragment" data-fragment-index="0">
@@ -341,7 +341,7 @@
 
 				<section data-auto-animate>
 					<h4>3.2 Test for exactness</h4>
-					<div class="size-75">
+					<div class="size-80">
 						<div class="left-txt">
 							<p><strong>Proof:</strong>
 								<span>
@@ -362,15 +362,55 @@
 									\]
 									for fixed $x_0,y_0$.
 								</span>
-								<span class="fragment" data-fragment-index="4">Then</span>
+								
 
 							</p>
 
 
 
 						</div>
+						
+					</div>
+					<br /><br/><br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>3.2 Test for exactness</h4>
+					<div class="size-75 left-txt">
+						<p><strong>Proof:</strong>
+							<span>
+								$\suf\;$
+							</span>
+						</p>
+					</div>
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								
+								
+								<span class="fragment" data-fragment-index="3">
+									\[
+									f\left(x,y\right)=\int_{x_0}^{x}P\left(x',y\right)dx' +
+									\int_{y_0}^{y}Q\left(x_0,y'\right)dy'+C
+									\]
+									for fixed $x_0,y_0$.
+								</span>
+								
+
+							</p>
+
+
+
+						</div>
+						
+					</div>
+					<div class="size-75">
+						
 						<div>
+							
 							<p class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="4">Then</span>
 								$\ds \,f_x$
 								<span class="fragment" data-fragment-index="5">$\ds = \frac{\partial }{\partial x}\left(
 									\int_{x_0}^{x}P\left(x',y\right)dx' + \int_{y_0}^{y}Q\left(x_0,y'\right)dy'
@@ -383,27 +423,28 @@
 								<p class="fragment fade-in-then-out" data-fragment-index="7">
 									$\ds f_y
 									= \frac{\partial }{\partial y}\left( \int_{x_0}^{x}P\left(x',y\right)dx' +
-									\int_{y_0}^{y}Q\left(x,y'\right)d'y \right) \qquad\qquad$
+									\int_{y_0}^{y}Q\left(x,y'\right)d'y \right) \qquad$
 								</p>
 								<p class="fragment fade-in-then-out" data-fragment-index="8">
 									$\ds f_y = \int_{x_0}^{x}\frac{\partial P\left(x',y\right)}{\partial y} dx' +
-									\frac{d}{dy} \int_{y_0}^{y}Q\left(x_0,y'\right)dy'\qquad \qquad\,$
+									\frac{d}{dy} \int_{y_0}^{y}Q\left(x_0,y'\right)dy'\qquad \,$
 								</p>
 								<p class="fragment fade-in-then-out" data-fragment-index="9">
 									$\ds f_y = \int_{x_0}^{x}\frac{\partial Q\left(x',y\right)}{\partial x} dx' +
-									Q\left(x_0,y\right)\qquad \qquad \qquad \qquad \;\;$
+									Q\left(x_0,y\right)\qquad \qquad \qquad \;\;$
 								</p>
 								<p class="fragment fade-in" data-fragment-index="10">
 									$\ds f_y = Q\left(x,y\right)- Q\left(x_0,y\right)+ Q\left(x_0,y\right)$
 									<span class="fragment" data-fragment-index="11">$=Q\left(x,y\right).$</span>
-									<span class="fragment" data-fragment-index="12">$\qquad
+									<span class="fragment" data-fragment-index="12">$
 										\quad\;\;\blacksquare$</span>
 								</p>
 							</div>
 						</div>
 					</div>
-					<br />
+					<br /><br /><br />
 				</section>
+				
 
 
 				<section data-auto-animate>
@@ -440,7 +481,7 @@
 			<section>
 				<section data-auto-animate>
 					<h4>3.3 Example: $2x+ e^y + x e^y y' = 0$</h4>
-					<div class="size-70">
+					<div class="size-75">
 						<div class="left-txt">
 							<p>Here we have that $P = 2x+ e^y$ and $Q = xe^y$.
 
@@ -462,7 +503,7 @@
 							<p class="fragment" data-fragment-index="4">
 								So there exists $\,f$ such that
 							</p>
-							<table style="width:100%">
+							<table style="width:100%;margin-top:-10px">
 								<tr>
 									<td style="width:50%">
 										<p class="fragment" data-fragment-index="4">
@@ -490,7 +531,7 @@
 								</tr>
 							</table>
 
-							<p class="fragment" data-fragment-index="10">
+							<p class="fragment" data-fragment-index="10" style="margin-top:-10px">
 								Compare with $(2)$ above to obtain $\ds \frac{dg}{dy} = 0 $
 								<span class="fragment" data-fragment-index="11">$\;\Ra \;g(y) = C.$</span>
 							</p>
@@ -575,7 +616,7 @@
 								<span class="fragment" data-fragment-index="0">
 									Let's say that we have an equation
 									\[
-									P\left(x,y\right) + P\left(x,y\right)  \frac{dy}{dx} = 0
+									P\left(x,y\right) + Q\left(x,y\right)  \frac{dy}{dx} = 0
 									\]
 									such that
 									\[
@@ -607,7 +648,7 @@
 								function $h(x, y)$ and then see if it is possible 
 								to choose $h(x, y)$ such that the resulting equation
 								\[
-								h\left(x,y\right) P\left(x,y\right) + h\left(x,y\right) P\left(x,y\right)  \frac{dy}{dx} = 0
+								h\left(x,y\right) P\left(x,y\right) + h\left(x,y\right) Q\left(x,y\right)  \frac{dy}{dx} = 0
 								\]
 								is exact. 
 								<span class="fragment" data-fragment-index="0">
