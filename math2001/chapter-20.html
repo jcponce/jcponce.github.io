@@ -245,9 +245,9 @@
                 </p>
                 <p>
                   <span class="fragment" data-fragment-index="2">
-                    Instead, we introduce the complex inner product $$
-                    \u\cdot\v = u_1\overline{v}_1 + u_2\overline{v}_2 + \cdots
-                    + u_n\overline{v}_n, $$ where as usual $\overline{v}_i$
+                    Instead, we introduce the complex inner product $$ \u\cdot\v
+                    = u_1\overline{v}_1 + u_2\overline{v}_2 + \cdots +
+                    u_n\overline{v}_n, $$ where as usual $\overline{v}_i$
                     denotes the complex conjugate of $v_i$.
                   </span>
                 </p>
@@ -260,24 +260,476 @@
                 </p>
               </div>
             </div>
-			<br/><br/>
+            <br /><br />
           </section>
           <section data-auto-animate>
             <h4>20.3 Complex inner product</h4>
             <div class="size-75">
               <div class="left-txt">
                 <p>
-					So now we understand what is meant by the following statement: Columns 
-					of a unitary matrix form an orthonormal set with respect to the
-					complex inner product.
-                 
+                  So now we understand what is meant by the following statement:
+                  Columns of a unitary matrix form an orthonormal set with
+                  respect to the complex inner product.
                 </p>
-                
               </div>
             </div>
-			<br/><br/>
+            <br /><br />
           </section>
         </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>20.4 Hermitian (self-adjoint) matrices</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    A complex matrix $A$ is called <em>Hermitian</em> (or
+                    <em>self-adjoint</em>) if $A=A^*$.
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="1">
+                    As with symmetric matrices, we can recognise a Hermitian
+                    matrix by inspection.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    See if you can see the pattern in the following $2\times 2$,
+                    $3\times 3$ and $4\times 4$ Hermitian matrices.
+					$$
+\left( \begin{array}{cc} a_{11} & a_{12} + ib_{12}\\
+a_{12} - ib_{12} & a_{22}\end{array}\right),\quad
+\left( \begin{array}{ccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}\\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33}
+\end{array}\right),
+$$
+$$
+\left( \begin{array}{cccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}
+& a_{14}+ib_{14} \\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23} & a_{24}+ib_{24}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33} & a_{34} + ib_{34} \\
+a_{14}-ib_{14} & a_{24}-ib_{24} & a_{34} - ib_{34} & a_{44}
+\end{array}\right),
+$$
+                  </span>
+                </p>
+              </div>
+            </div>
+			<br/>
+          </section>
+          <section data-auto-animate>
+            <h4 style="font-size:70%">20.4 Hermitian (self-adjoint) matrices</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p style="font-size:60%">
+                  <span>
+                    A complex matrix $A$ is called <em>Hermitian</em> (or
+                    <em>self-adjoint</em>) if $A=A^*$.
+                  </span>
+                </p>
+                <p style="font-size:70%">
+                  <span>
+                    As with symmetric matrices, we can recognise a Hermitian
+                    matrix by inspection.
+                  </span>
+                  <span>
+                    See if you can see the pattern in the following $2\times 2$,
+                    $3\times 3$ and $4\times 4$ Hermitian matrices.
+					$$
+\left( \begin{array}{cc} a_{11} & a_{12} + ib_{12}\\
+a_{12} - ib_{12} & a_{22}\end{array}\right),\quad
+\left( \begin{array}{ccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}\\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33}
+\end{array}\right),
+$$
+$$
+\left( \begin{array}{cccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}
+& a_{14}+ib_{14} \\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23} & a_{24}+ib_{24}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33} & a_{34} + ib_{34} \\
+a_{14}-ib_{14} & a_{24}-ib_{24} & a_{34} - ib_{34} & a_{44}
+\end{array}\right),
+$$
+                  </span>
+                </p>
+				<p>
+					where $a_{ij},b_{ij}\in \mathbb{R}$. Note in particular that the
+					diagonal entries are real numbers.
+				</p>
+				<p class="fragment" data-fragment-index="0">
+					One of the most significant results on Hermitian matrices is that
+their eigenvalues are real.
+				</p>
+              </div>
+            </div>
+			<br/>
+          </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							Let $\v\in \mathbb{C}^n$ be an eigenvector of 
+							the Hermitian matrix $A$,
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							with corresponding eigenvalue $\lambda$. In other words, 
+							\begin{equation}
+							A\v = \lambda \v. \qquad \qquad (11)
+							\end{equation}
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							In what follows, we use the fact that $(AB)^* = B^*A^*$ which holds
+							since the same is true for matrix transposition. 
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="3">
+							We multiply
+(11) from the left by $\v^*$ (treat $\v$ as an $n\times 1$
+complex matrix) to obtain
+\begin{equation}
+\v^*A\v =\v^*(\lambda\v) = \lambda(\v^*\v). \qquad \qquad (12)
+\end{equation}
+						</span>
+						
+					</p>
+					
+
+				</div>
+			</div>
+			<br/><br/>
+		  </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
+					<p style="font-size:70%">
+						<span>
+							Let $\v\in \mathbb{C}^n$ be an eigenvector of 
+							the Hermitian matrix $A$,
+						</span>
+						<span>
+							with corresponding eigenvalue $\lambda$. In other words, 
+							\begin{equation}
+							A\v = \lambda \v. \qquad \qquad (11)
+							\end{equation}
+						</span>
+						<span>
+							In what follows, we use the fact that $(AB)^* = B^*A^*$ which holds
+							since the same is true for matrix transposition. 
+						</span>
+					</p>
+					<p style="font-size:70%">
+						<span>
+							We multiply
+(11) from the left by $\v^*$ (treat $\v$ as an $n\times 1$
+complex matrix) to obtain
+\begin{equation}
+\v^*A\v =\v^*(\lambda\v) = \lambda(\v^*\v). \qquad \qquad (12)
+\end{equation}
+						</span>
+						
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							Also note that
+$$
+(\v^*A\v)^* = \v^*A^*(\v^*)^* = \v^*A\v,
+$$
+
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							
+which yields, by applying (12),
+$$
+{\rm l.h.s.}=(\lambda \v^*\v)^*=\bar{\lambda}\v^*\v={\rm r.h.s.}=\lambda\v^*\v.
+$$
+						</span>
+						
+					</p>
+
+				</div>
+			</div>
+			<br/>
+		  </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
+					
+					<p>
+						<span>
+							Also note that
+$$
+(\v^*A\v)^* = \v^*A^*(\v^*)^* = \v^*A\v,
+$$
+
+						</span>
+						<span>
+							
+which yields, by applying (12),
+$$
+{\rm l.h.s.}=(\lambda \v^*\v)^*=\bar{\lambda}\v^*\v={\rm r.h.s.}=\lambda\v^*\v.
+$$
+						</span>
+						
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							It follows that 
+							$$
+							(\bar{\lambda}-\lambda)\v^*\v=0,~~~{\rm so}~\bar{\lambda}=\lambda~({\rm as}~\v^*\v\neq 0),
+							$$
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							i.e. $\lambda$ is real.
+						</span>
+					</p>
+					
+
+				</div>
+			</div>
+			<br/><br/>
+		  </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
+					
+					<p style="font-size:70%">
+						<span>
+							Also note that
+$$
+(\v^*A\v)^* = \v^*A^*(\v^*)^* = \v^*A\v,
+$$
+
+						</span>
+						<span>
+							
+which yields, by applying (12),
+$$
+{\rm l.h.s.}=(\lambda \v^*\v)^*=\bar{\lambda}\v^*\v={\rm r.h.s.}=\lambda\v^*\v.
+$$
+						</span>
+						
+					</p>
+					<p style="font-size:70%">
+						<span>
+							It follows that 
+							$$
+							(\bar{\lambda}-\lambda)\v^*\v=0,~~~{\rm so}~\bar{\lambda}=\lambda~({\rm as}~\v^*\v\neq 0),
+							$$
+						</span>
+						<span>
+							i.e. $\lambda$ is real.
+						</span>
+					</p>
+					<p>
+						One consequence of this result is that a real symmetric matrix has
+real eigenvalues, since every real symmetric matrix is Hermitian. 
+This result was stated on Chapter ?? but not proved.
+					</p>
+
+				</div>
+			</div>
+			<br/><br/>
+		  </section>
+        </section>
+
+		<section data-auto-animate>
+			<h4>20.5 Unitary diagonalisation</h4>
+			<div class="size-75">
+				<div class="left-txt">
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							We have seen that real symmetric matrices are orthogonally
+							diagonalisable. There is an analogous concept for complex matrices.
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							A square matrix $A$ with complex entries is said to be unitarily diagonalisable
+if there is a unitary matrix $P$ such that $P^*AP$ is diagonal.
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="1">
+							It is natural to consider which matrices are unitarily 
+							diagonalisable. The answer lies in a more general class of matrix.
+						</span>
+					</p>
+					
+				</div>
+			</div>
+			<br/><br/><br/>
+		</section>
+
+		<section>
+ 
+			<section data-auto-animate>
+				<h4>20.6 Normal matrices</h4>
+				<div class="size-75">
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								A square complex matrix is called normal if it 
+								commutes with its own 
+								conjugate transpose, ie, if $AA^* = A^*A$.
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								Normal matrices are generally more difficult to identify by inspection. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								However,
+								we have some classes of matrices which are normal:
+							</span>
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="3">unitary,</li>
+							<li class="fragment" data-fragment-index="4">
+								Hermitian,
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								real skew-symmetric (satisfying $A^T=-A$),
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								any diagonal matrix,
+							</li>
+							<li class="fragment" data-fragment-index="7">
+								others?
+							</li>
+						</ul>
+					</div>
+				</div>
+				<br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h4>20.6 Normal matrices</h4>
+				<div class="size-45">
+					<div class="left-txt">
+						<p>
+							<span>
+								A square complex matrix is called normal if it 
+								commutes with its own 
+								conjugate transpose, ie, if $AA^* = A^*A$.
+							</span>
+						</p>
+						<p>
+							<span>
+								Normal matrices are generally more difficult to identify by inspection. 
+							</span>
+							<span >
+								However,
+								we have some classes of matrices which are normal:
+							</span>
+						</p>
+						<ul>
+							<li>unitary,</li>
+							<li>
+								Hermitian,
+							</li>
+							<li>
+								real skew-symmetric (satisfying $A^T=-A$),
+							</li>
+							<li>
+								any diagonal matrix,
+							</li>
+							<li>
+								others?
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="size-75">
+					<div class="left-txt">
+						<p>
+							<span>
+								We make a note that real normal $2\times 2$ matrices 
+								are either symmetric or of
+								the form $\mat{cc}{a & b\\ -b & a}$ (which include the skew-symmetric examples).
+							</span>
+						</p>
+						
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								A class of matrix which is not generally normal is the class of complex
+								symmetric matrices.
+							</span>
+						</p>
+						
+					</div>
+				</div>
+				<br/><br/>
+			</section>
+
+			<section>
+				<h5 style="text-align:left">20.6.1 Example</h5>
+				<div class="size-75">
+					<div class="left-txt">
+						<p>
+							<span>
+								Classify the matrix $A=\mat{cc}{1&1+i\\ 1+i&-i}$.
+							</span>
+						</p>
+						
+						
+						
+					</div>
+				</div>
+				<br/><br/>
+			</section>
+
+		</section>
+
+		<section>
+ 
+			<section data-auto-animate>
+				<h4>20.7 Normal = unitarily diagonalisable</h4>
+				<div class="size-80">
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								The main result we have is completely analagous to the real case of orthogonal
+diagonalisation and symmetric matrices on Chapter ??. We will not
+							</span>
+						</p>
+
+						<div id="theorem" class="fragment" data-fragment-index="1">
+							<p>An $n\times n$ complex matrix is unitarily diagonalisable if and only
+								if it normal.</p>
+						</div>
+					</div>
+				</div>
+				<br/><br/><br/>
+			</section>
+
+			<section data-auto-animate>
+				<h4>20.7.1 Example</h4>
+				<div class="size-80">
+					<div class="left-txt">
+						<p>
+							<span>
+								If possible, diagonalise the matrix $\mat{cc}{6 & 2+2i\\ 2-2i& 4}.$
+							</span>
+						</p>
+
+						
+					</div>
+				</div>
+				<br/><br/><br/><br/>
+			</section>
+
+		</section>
 
         <section>
           <h4>Credits</h4>
