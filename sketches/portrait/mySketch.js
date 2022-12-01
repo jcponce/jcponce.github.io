@@ -1,5 +1,6 @@
 // A fork from Aaron Reuland
 // https://openprocessing.org/user/183691?view=sketches&o=48
+// CreativeCommons Attribution NonCommercial ShareAlike
 
 let bubbles=[]
 let self, c
