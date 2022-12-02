@@ -14,7 +14,7 @@
 	<body>
 
 		<div id="container"></div>
-		<div id="info">Money space -
+		<div id="info">Monkey space -
 			<a  href="https://github.com/jcponce/jcponce.github.io/blob/master/math2001/sketches/monkey-space/index.html" target="_blank">💾</a></div>
 
 		
@@ -44,7 +44,7 @@
 
 			let mesh;
 			
-			const amount = parseInt( window.location.search.slice( 1 ) ) || 15;
+			const amount = parseInt( window.location.search.slice( 1 ) ) || 20;
 			const count = Math.pow( amount, 3 );
 			const dummy = new THREE.Object3D();
 
@@ -54,7 +54,7 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
-				const p = 0.15;
+				const p = 1.0005;
 				//camera.position.set( p, p, p);
 				camera.position.set( amount * p, amount * p, amount * p );
 				camera.lookAt( 0, 0, 0 );
@@ -149,7 +149,7 @@
 					if (rot == true){
 						time = Date.now() * 0.00008;
 					} else {
-						time = 0;
+						time = 0.0;
 					}
 
 					
