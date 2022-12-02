@@ -44,7 +44,12 @@
 				}
 			},
 			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
-				themes: false,
+				themes: [
+					{ name: 'Black', theme: 'dist/theme/black.css' },
+					{ name: 'White', theme: 'dist/theme/white.css' },
+					{ name: 'Night', theme: 'dist/theme/night.css' },
+					{ name: 'Simple', theme: 'dist/theme/simple.css' },
+				],
 				transitions: false,
 				markers: true,
 				hideMissingTitles: true,
