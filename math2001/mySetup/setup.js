@@ -84,7 +84,7 @@
 				}
 			},
 			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
-				themes: false,
+				themes: true,
 				transitions: false,
 				markers: true,
 				hideMissingTitles: true,
