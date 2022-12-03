@@ -36,6 +36,11 @@
 
 		<script type="module">
 
+			/*
+				Forked from three.js Examples: Instancing / Dynamic
+				https://threejs.org/examples/#webgl_instancing_dynamic
+			*/
+
 			import * as THREE from 'three';
 			import { OrbitControls } from '../threejs/jsm/controls/OrbitControls.js';
 			import Stats from '../threejs/libs/stats.module.js';
@@ -56,7 +61,7 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
-				const p = 1.0005;
+				const p = 1;
 				//camera.position.set( p, p, p);
 				camera.position.set( amount * p, amount * p, amount * p );
 				camera.lookAt( 0, 0, 0 );
