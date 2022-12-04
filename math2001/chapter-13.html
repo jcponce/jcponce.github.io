@@ -298,7 +298,7 @@
                 <p> 
                   <strong>Solution 2.</strong>
                   <span class="fragment" data-fragment-index="1">
-                  Set $p(x) = \alpha_1 + \alpha x + \alpha_3 x^2.$
+                  Set $p(x) = \alpha_1 + \alpha_2 x + \alpha_3 x^2.$
                   </span>
                   <span class="fragment" data-fragment-index="2">
                     Then $\alpha_1, \alpha_2,\alpha_3$ are determined by
@@ -511,89 +511,8 @@
             <br/><br/>
           </section>
           <section data-auto-animate>
-            <h4 style="font-size:70%">13.2 Fourier coefficients</h4>
-            <div class="size-40">
-              <div class="left-txt size-80">
-                <p>
-                  In $C[0,2\pi]$, the set $$
-                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
-                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
-                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
-                  orthonormal with respect to the inner product $$ \langle{\bf
-                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
-                </p>
-              </div>
-            </div>
-            <div class="size-60">
-              <div class="left-txt">
-                <p>
-                  <strong>Proof:</strong>
-                  <span>
-                    Then 
-                  </span>
-                </p>
-                <table id="eqarray">
-                  <tr>
-                    <td>
-                      $\big\langle \cos \left(kx\right), \cos\left(k'x\right) \big\rangle$
-                    </td>
-                    <td class="fragment" data-fragment-index="0">
-                      $=$
-                    </td>
-                    <td class="fragment" data-fragment-index="0">
-                      $\ds\int_{0}^{2\pi} \cos \left(kx\right) \cos \left(k'x\right)dx$
-                    </td>
-                  </tr>
-                  <tr class="fragment" data-fragment-index="1">
-                    <td>
-                      
-                    </td>
-                    <td>
-                      $=$
-                    </td>
-                    <td>
-                      $\ds \int_{0}^{2\pi} \frac{1}{2}
-                      \big[\cos \left( \left( k -k' \right)x \right) +\cos \left( \left( k +k' \right)x \right) \big]dx$
-                    </td>
-                  </tr>
-                  <tr class="fragment" data-fragment-index="2">
-                    <td>
-                      
-                    </td>
-                    <td>
-                      $=$
-                    </td>
-                    <td>
-                      $\ds 
-                      \left\{
-                        \begin{array}{ll}
-                        \frac{1}{2} \left[ \dfrac{\sin \left( \left( k -k' \right)x \right)}{k-k'} + \dfrac{\sin \left( \left( k +k' \right)x \right)}{k+k'} \right]\Bigg|_0^{2\pi}, & k\neq k' \\
-                        \frac{1}{2} \left[  x + \dfrac{\sin \left( 2k x \right)}{2k} \right]\Big|_0^{2\pi}, & k= k' \\
-                        \end{array}
-                      \right.
-                      $
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <br/><br/>
-          </section>
-
-          <section data-auto-animate>
-            <h4 style="font-size:70%">13.2 Fourier coefficients</h4>
-            <div class="size-40">
-              <div class="left-txt size-80">
-                <p>
-                  In $C[0,2\pi]$, the set $$
-                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
-                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
-                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
-                  orthonormal with respect to the inner product $$ \langle{\bf
-                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
-                </p>
-              </div>
-            </div>
+            <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
+            
             <div class="size-65">
               <div class="left-txt">
                 <p>
@@ -607,18 +526,8 @@
                     <td>
                       $\big\langle \cos \left(kx\right), \cos\left(k'x\right) \big\rangle$
                     </td>
-                    <td>
-                      $=$
-                    </td>
-                    <td>
-                      $\ds 
-                      \left\{
-                        \begin{array}{ll}
-                        \frac{1}{2} \left[ \frac{\sin \left( \left( k -k' \right)x \right)}{k-k'} + \frac{\sin \left( \left( k +k' \right)x \right)}{k+k'} \right]\Big|_0^{2\pi}, & k\neq k' \\
-                        \frac{1}{2} \left[  x + \frac{\sin \left( 2k x \right)}{2k} \right]\Big|_0^{2\pi}, & k= k' \\
-                        \end{array}
-                      \right.
-                      $
+                    <td class="fragment" data-fragment-index="0">
+                      $ = \ds\int_{0}^{2\pi} \cos \left(kx\right) \cos \left(k'x\right)dx$
                     </td>
                   </tr>
                   <tr class="fragment" data-fragment-index="1">
@@ -626,22 +535,75 @@
                       
                     </td>
                     <td>
-                      $=$
+                      $=\ds \int_{0}^{2\pi} \frac{1}{2}
+                      \big[\cos \left( \left( k -k' \right)x \right) +\cos \left( \left( k +k' \right)x \right) \big]dx$
+                    </td>
+                  </tr>
+                  <tr class="fragment" data-fragment-index="2">
+                    <td>
+                      
                     </td>
                     <td>
-                      $\ds 
+                      $=\ds 
                       \left\{
-                        \begin{array}{cc}
-                        0, & k\neq k' \\
-                        \pi, & k= k' \\
+                        \begin{array}{ll}
+                        \frac{1}{2} \left[ \dfrac{\sin \left( \left( k -k' \right)x \right)}{k-k'} + \dfrac{\sin \left( \left( k +k' \right)x \right)}{k+k'} \right]\Bigg|_0^{2\pi}, & k\neq k' \\
+                        \frac{1}{2} \left[  x + \dfrac{\sin \left( 2k x \right)}{2k} \right]\Big|_0^{2\pi}, & k= k' \\
                         \end{array}
                       \right.
                       $
                     </td>
                   </tr>
-                  
                 </table>
-                <p class="fragment" data-fragment-index="2">
+              </div>
+            </div>
+            <br/><br/><br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
+            
+            <div class="size-65">
+              <div class="left-txt">
+                <p>
+                  <strong>Proof:</strong>
+                  <span>
+                    Then 
+                  </span>
+                </p>
+
+                
+                
+              </div>
+              <div>
+                <p>
+                  $\big\langle \cos \left(kx\right), \cos\left(k'x\right) \big\rangle 
+                  \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad  \qquad $<br/><br/>
+                  <span>
+                    $ \qquad \qquad =   \ds 
+                    \left\{
+                      \begin{array}{ll}
+                      \dfrac{1}{2} \left[ \dfrac{\sin \left( \left( k -k' \right)x \right)}{k-k'} + \dfrac{\sin \left( \left( k +k' \right)x \right)}{k+k'} \right]\Bigg|_0^{2\pi}, & k\neq k' \\
+                      \dfrac{1}{2} \left[  x + \dfrac{\sin \left( 2k x \right)}{2k} \right]\Bigg|_0^{2\pi}, & k= k' \\
+                      \end{array}
+                    \right.
+                    $
+                  </span><br/><br/>
+                  <span class="fragment" data-fragment-index="0">
+                    $ =\ds 
+                    \left\{
+                      \begin{array}{cc}
+                      0, & k\neq k' \\
+                      \pi, & k= k' \\
+                      \end{array}
+                    \right. . \qquad\qquad\qquad\qquad\qquad \quad
+                    $
+                  </span>
+                </p>
+
+              </div>
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="1">
                   Thus
                   $
                   \ds\left\{\frac{1}{\sqrt{ \pi }}\cos (kx )~|~ k=1, \ldots, n\right\}
@@ -653,19 +615,8 @@
             <br/>
           </section>
           <section data-auto-animate>
-            <h4 style="font-size:70%">13.2 Fourier coefficients</h4>
-            <div class="size-40">
-              <div class="left-txt size-80">
-                <p>
-                  In $C[0,2\pi]$, the set $$
-                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
-                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
-                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
-                  orthonormal with respect to the inner product $$ \langle{\bf
-                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
-                </p>
-              </div>
-            </div>
+            <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
+            
             <div class="size-65">
               <div class="left-txt">
                 <p>
@@ -721,18 +672,7 @@
           </section>
           <section data-auto-animate>
             <h4 style="font-size:80%">13.2 Fourier coefficients</h4>
-            <div class="size-40">
-              <div class="left-txt size-80">
-                <p>
-                  In $C[0,2\pi]$, the set $$
-                  \beta_n=\big\{\tfrac{1}{\sqrt{2\pi}}\big\}\cup\big\{\tfrac{1}{\sqrt{\pi}}\cos
-                  kx\,|\,k=1,\ldots,n\big\} \cup\big\{\tfrac{1}{\sqrt{\pi}}\sin
-                  kx\,|\,k=1,\ldots,n\big\}, $$ where $n\in\mathbb{N}_0$, is
-                  orthonormal with respect to the inner product $$ \langle{\bf
-                  f},{\bf g}\rangle=\int_0^{2\pi}f(x)g(x)dx. $$
-                </p>
-              </div>
-            </div>
+            
             <div class="size-65">
               <div class="left-txt">
                 <p>
