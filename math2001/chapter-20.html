@@ -1,126 +1,760 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-	<meta charset="utf-8">
+    <title>MATH2001/7000 - Chapter 20</title>
 
-	<title>MATH2001/7000 - Chapter 20</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
 
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="css/mylayout.css" />
 
-	<link rel="stylesheet" href="css/mylayout.css" />
+    <!-- Code syntax highlighting https://revealjs.com/-->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 
-	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css" />
 
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="css/fontawesome.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icon/infinity16.png"
+      sizes="16x16"
+    />
 
-	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "export/pdf.css"
+        : "export/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- This script is to display Github buttons -->
+    <script async defer src="js/buttons.js"></script>
 
+    <!--[if lt IE 9]>
+      <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
 
-	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"
+    ></script>
+    <script src="js/google-analytics-ga4.js"></script>
+  </head>
 
-	<!--[if lt IE 9]>
-		<script src="../reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Any section element inside of this container is displayed as a slide -->
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
+        <section>
+          <h2>Calculus & <br />Linear Algebra II</h2>
+          <p>Chapter 20</p>
+        </section>
 
+        <section data-auto-animate>
+          <h3>20 Complex matrices</h3>
+          <div class="left-txt size-80">
+            <p>
+              By the end of this section, you should be able to answer the
+              following questions:
+            </p>
+            <ul>
+              <li class="fragment" data-fragment-index="0">
+                What are unitary, Hermitian and normal matrices?
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Given a complex matrix, determine if it can be unitarily
+                diagonalised, and if so, diagonalise it.
+              </li>
+            </ul>
 
-</head>
+            <p class="fragment" data-fragment-index="2">
+              Unitary and Hermitian matrices are complex analogues of orthogonal
+              ($A^{-1}=A^{T}$) and symmetric ($A=A^{T}$) real matrices
+              respectively.
+            </p>
+          </div>
+          <br /><br />
+        </section>
 
-<body>
-	<div class="reveal">
-		<div class="slides">
+        <section>
+          <section data-auto-animate>
+            <h4>20.1 Definition (conjugate transpose)</h4>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Let $A$ be a complex matrix.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    The conjugate transpose of $A$, denoted $A^*$, is given by
+                    $(\overline{A})^T$,
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    where $\overline{A}$ is the matrix whose entries are complex
+                    conjugates of the corresponding entries of $A$.
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="3">
+                  Note that if $A$ is real, $A^* = A^T$.
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+          <section>
+            <h5>
+              20.1.1 Example
+            </h5>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  Let
+                  $A=\left(\begin{array}{cc}3+7i&0\\2i&4-i\end{array}\right).$
+                  Write down the conjugate transpose of $A$.
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
+        </section>
 
-			<section>
-				<h2>Calculus & <br />Linear Algebra II</h2>
-				<p>Chapter 20</p>
-			</section>
+        <section data-auto-animate>
+          <h4>20.2 Unitary matrices</h4>
+          <div class="size-85">
+            <div class="left-txt">
+              <p>
+                <span class="fragment" data-fragment-index="0">
+                  A complex matrix $A$ is said to be <em>unitary</em> if $A^{-1}
+                  = A^*$.
+                </span>
+                <span class="fragment" data-fragment-index="1">
+                  Compare this definition with that of real orthogonal matrices.
+                </span>
+              </p>
 
-			<section data-auto-animate>
-				<h3>20 Complex matrices</h3>
-				<div class="left-txt size-80">
+              <p>
+                <span class="fragment" data-fragment-index="2">
+                  Recall that a real matrix is orthogonal if and only if its
+                  columns form an orthonormal set of vectors.
+                </span>
+                <span class="fragment" data-fragment-index="3">
+                  For complex matrices, this property characterises unitary
+                  matrices.
+                </span>
+                <span class="fragment" data-fragment-index="4">
+                  In this case however, we must use the complex inner product.
+                </span>
+              </p>
+            </div>
+          </div>
+          <br /><br />
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>20.3 Complex inner product</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    Recall that in $\mathbb{R}^n$ the inner (or dot) product of
+                    two vectors $$ \u = \left( \begin{array}{c} u_1\\ u_2\\
+                    \vdots\\ u_n\end{array}\right),\quad \v = \left(
+                    \begin{array}{c} v_1\\ v_2\\ \vdots\\ v_n\end{array}\right)
+                    $$ is given by $$ \u\cdot\v = u_1v_1 + u_2v_2 + \cdots +
+                    u_nv_n $$
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    and the length (a real number!) of $\u$ by $$ ||\u|| =
+                    \sqrt{\u\cdot\u} = \sqrt{u_1^2 + u_2^2+\cdots +u_n^2}. $$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+          <section data-auto-animate>
+            <h4>20.3 Complex inner product</h4>
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    Recall that in $\mathbb{R}^n$ the inner (or dot) product of
+                    two vectors $$ \u = \left( \begin{array}{c} u_1\\ u_2\\
+                    \vdots\\ u_n\end{array}\right),\quad \v = \left(
+                    \begin{array}{c} v_1\\ v_2\\ \vdots\\ v_n\end{array}\right)
+                    $$ is given by $$ \u\cdot\v = u_1v_1 + u_2v_2 + \cdots +
+                    u_nv_n $$
+                  </span>
+                  <span>
+                    and the length (a real number!) of $\u$ by $$ ||\u|| =
+                    \sqrt{\u\cdot\u} = \sqrt{u_1^2 + u_2^2+\cdots +u_n^2}. $$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    These definitions are unsuitable for vectors in
+                    $\mathbb{C}^n$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+
+          <section data-auto-animate>
+            <h4>20.3 Complex inner product</h4>
+            <div class="size-75">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    To demonstrate, consider the vector $\u = (i,1)$ in
+                    $\mathbb{C}^2$.
+                  </span>
+                  <span class="fragment" data-fragment-index="0">
+                    Using the above expression for length, we would obtain
+                    $||\u|| = \sqrt{i^2+1} = 0,$ so $\u$ would be a non-zero
+                    vector with length $0$.
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="1">
+                    Instead, we introduce the complex inner product $$ \u\cdot\v
+                    = u_1\overline{v}_1 + u_2\overline{v}_2 + \cdots +
+                    u_n\overline{v}_n, $$ where as usual $\overline{v}_i$
+                    denotes the complex conjugate of $v_i$.
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="2">
+                    In matrix notation, we can write this as $\u\cdot\v =
+                    \v^*\u$. Note the length of a complex vector is always a
+                    real number.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+          <section data-auto-animate>
+            <h4>20.3 Complex inner product</h4>
+            <div class="size-75">
+              <div class="left-txt">
+                <p>
+                  So now we understand what is meant by the following statement:
+                  Columns of a unitary matrix form an orthonormal set with
+                  respect to the complex inner product.
+                </p>
+              </div>
+            </div>
+            <br /><br />
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h4>20.4 Hermitian (self-adjoint) matrices</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <span class="fragment" data-fragment-index="0">
+                    A complex matrix $A$ is called <em>Hermitian</em> (or
+                    <em>self-adjoint</em>) if $A=A^*$.
+                  </span>
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="1">
+                    As with symmetric matrices, we can recognise a Hermitian
+                    matrix by inspection.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    See if you can see the pattern in the following $2\times 2$,
+                    $3\times 3$ and $4\times 4$ Hermitian matrices.
+					$$
+\left( \begin{array}{cc} a_{11} & a_{12} + ib_{12}\\
+a_{12} - ib_{12} & a_{22}\end{array}\right),\quad
+\left( \begin{array}{ccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}\\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33}
+\end{array}\right),
+$$
+$$
+\left( \begin{array}{cccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}
+& a_{14}+ib_{14} \\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23} & a_{24}+ib_{24}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33} & a_{34} + ib_{34} \\
+a_{14}-ib_{14} & a_{24}-ib_{24} & a_{34} - ib_{34} & a_{44}
+\end{array}\right),
+$$
+                  </span>
+                </p>
+              </div>
+            </div>
+			<br/>
+          </section>
+          <section data-auto-animate>
+            <h4 style="font-size:70%">20.4 Hermitian (self-adjoint) matrices</h4>
+            <div class="size-70">
+              <div class="left-txt">
+                <p style="font-size:60%">
+                  <span>
+                    A complex matrix $A$ is called <em>Hermitian</em> (or
+                    <em>self-adjoint</em>) if $A=A^*$.
+                  </span>
+                </p>
+                <p style="font-size:70%">
+                  <span>
+                    As with symmetric matrices, we can recognise a Hermitian
+                    matrix by inspection.
+                  </span>
+                  <span>
+                    See if you can see the pattern in the following $2\times 2$,
+                    $3\times 3$ and $4\times 4$ Hermitian matrices.
+					$$
+\left( \begin{array}{cc} a_{11} & a_{12} + ib_{12}\\
+a_{12} - ib_{12} & a_{22}\end{array}\right),\quad
+\left( \begin{array}{ccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}\\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33}
+\end{array}\right),
+$$
+$$
+\left( \begin{array}{cccc} a_{11} & a_{12} + ib_{12} & a_{13}+ib_{13}
+& a_{14}+ib_{14} \\
+a_{12} - ib_{12} & a_{22} & a_{23} + ib_{23} & a_{24}+ib_{24}\\
+a_{13}-ib_{13} & a_{23} - ib_{23} & a_{33} & a_{34} + ib_{34} \\
+a_{14}-ib_{14} & a_{24}-ib_{24} & a_{34} - ib_{34} & a_{44}
+\end{array}\right),
+$$
+                  </span>
+                </p>
+				<p>
+					where $a_{ij},b_{ij}\in \mathbb{R}$. Note in particular that the
+					diagonal entries are real numbers.
+				</p>
+				<p class="fragment" data-fragment-index="0">
+					One of the most significant results on Hermitian matrices is that
+their eigenvalues are real.
+				</p>
+              </div>
+            </div>
+			<br/>
+          </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
 					<p>
-						By the end of this section, you should be 
-						able to answer the following questions:
+						<span class="fragment" data-fragment-index="0">
+							Let $\v\in \mathbb{C}^n$ be an eigenvector of 
+							the Hermitian matrix $A$,
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							with corresponding eigenvalue $\lambda$. In other words, 
+							\begin{equation}
+							A\v = \lambda \v. \qquad \qquad (11)
+							\end{equation}
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							In what follows, we use the fact that $(AB)^* = B^*A^*$ which holds
+							since the same is true for matrix transposition. 
+						</span>
 					</p>
-					<ul>
-						<li class="fragment" data-fragment-index="0">
-							What are unitary, Hermitian and normal matrices?
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							Given a complex matrix, determine if it 
-							can be unitarily diagonalised, and if so, diagonalise it.
-						</li>
-						
-					</ul>
-
-					<p class="fragment" data-fragment-index="2">
-						Unitary and Hermitian matrices are complex analogues 
-						of orthogonal ($A^{-1}=A^{T}$) and symmetric ($A=A^{T}$) real 
-						matrices respectively.
+					<p>
+						<span class="fragment" data-fragment-index="3">
+							We multiply
+(11) from the left by $\v^*$ (treat $\v$ as an $n\times 1$
+complex matrix) to obtain
+\begin{equation}
+\v^*A\v =\v^*(\lambda\v) = \lambda(\v^*\v). \qquad \qquad (12)
+\end{equation}
+						</span>
 						
 					</p>
 					
+
+				</div>
+			</div>
+			<br/><br/>
+		  </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
+					<p style="font-size:70%">
+						<span>
+							Let $\v\in \mathbb{C}^n$ be an eigenvector of 
+							the Hermitian matrix $A$,
+						</span>
+						<span>
+							with corresponding eigenvalue $\lambda$. In other words, 
+							\begin{equation}
+							A\v = \lambda \v. \qquad \qquad (11)
+							\end{equation}
+						</span>
+						<span>
+							In what follows, we use the fact that $(AB)^* = B^*A^*$ which holds
+							since the same is true for matrix transposition. 
+						</span>
+					</p>
+					<p style="font-size:70%">
+						<span>
+							We multiply
+(11) from the left by $\v^*$ (treat $\v$ as an $n\times 1$
+complex matrix) to obtain
+\begin{equation}
+\v^*A\v =\v^*(\lambda\v) = \lambda(\v^*\v). \qquad \qquad (12)
+\end{equation}
+						</span>
+						
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							Also note that
+$$
+(\v^*A\v)^* = \v^*A^*(\v^*)^* = \v^*A\v,
+$$
+
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							
+which yields, by applying (12),
+$$
+{\rm l.h.s.}=(\lambda \v^*\v)^*=\bar{\lambda}\v^*\v={\rm r.h.s.}=\lambda\v^*\v.
+$$
+						</span>
+						
+					</p>
+
+				</div>
+			</div>
+			<br/>
+		  </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
+					
+					<p>
+						<span>
+							Also note that
+$$
+(\v^*A\v)^* = \v^*A^*(\v^*)^* = \v^*A\v,
+$$
+
+						</span>
+						<span>
+							
+which yields, by applying (12),
+$$
+{\rm l.h.s.}=(\lambda \v^*\v)^*=\bar{\lambda}\v^*\v={\rm r.h.s.}=\lambda\v^*\v.
+$$
+						</span>
+						
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							It follows that 
+							$$
+							(\bar{\lambda}-\lambda)\v^*\v=0,~~~{\rm so}~\bar{\lambda}=\lambda~({\rm as}~\v^*\v\neq 0),
+							$$
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							i.e. $\lambda$ is real.
+						</span>
+					</p>
+					
+
+				</div>
+			</div>
+			<br/><br/>
+		  </section>
+
+		  <section data-auto-animate>
+			<h5>20.4.1 Proof that Hermitian matrices have real eigenvalues</h4>
+			<div class="size-70">
+				<div class="left-txt">
+					
+					<p style="font-size:70%">
+						<span>
+							Also note that
+$$
+(\v^*A\v)^* = \v^*A^*(\v^*)^* = \v^*A\v,
+$$
+
+						</span>
+						<span>
+							
+which yields, by applying (12),
+$$
+{\rm l.h.s.}=(\lambda \v^*\v)^*=\bar{\lambda}\v^*\v={\rm r.h.s.}=\lambda\v^*\v.
+$$
+						</span>
+						
+					</p>
+					<p style="font-size:70%">
+						<span>
+							It follows that 
+							$$
+							(\bar{\lambda}-\lambda)\v^*\v=0,~~~{\rm so}~\bar{\lambda}=\lambda~({\rm as}~\v^*\v\neq 0),
+							$$
+						</span>
+						<span>
+							i.e. $\lambda$ is real.
+						</span>
+					</p>
+					<p>
+						One consequence of this result is that a real symmetric matrix has
+						real eigenvalues, since every real symmetric matrix is Hermitian. 
+						This result was stated on <a href="chapter-18.html#/3/4/0" target="_blank">
+						Chapter 18</a> but not proved.
+					</p>
+
+				</div>
+			</div>
+			<br/><br/>
+		  </section>
+        </section>
+
+		<section data-auto-animate>
+			<h4>20.5 Unitary diagonalisation</h4>
+			<div class="size-75">
+				<div class="left-txt">
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							We have seen that real symmetric matrices are orthogonally
+							diagonalisable. There is an analogous concept for complex matrices.
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="1">
+							A square matrix $A$ with complex entries is said to be unitarily diagonalisable
+if there is a unitary matrix $P$ such that $P^*AP$ is diagonal.
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							It is natural to consider which matrices are unitarily 
+							diagonalisable. The answer lies in a more general class of matrix.
+						</span>
+					</p>
+					
+				</div>
+			</div>
+			<br/><br/><br/>
+		</section>
+
+		<section>
+ 
+			<section data-auto-animate>
+				<h4>20.6 Normal matrices</h4>
+				<div class="size-75">
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								A square complex matrix is called normal if it 
+								commutes with its own 
+								conjugate transpose, ie, if $AA^* = A^*A$.
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								Normal matrices are generally more difficult to identify by inspection. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								However,
+								we have some classes of matrices which are normal:
+							</span>
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="3">unitary,</li>
+							<li class="fragment" data-fragment-index="4">
+								Hermitian,
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								real skew-symmetric (satisfying $A^T=-A$),
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								any diagonal matrix,
+							</li>
+							<li class="fragment" data-fragment-index="7">
+								others?
+							</li>
+						</ul>
+					</div>
 				</div>
 				<br/><br/>
-
-				
-
 			</section>
-
-
-
-
-
+			<section data-auto-animate>
+				<h4>20.6 Normal matrices</h4>
+				<div class="size-45">
+					<div class="left-txt">
+						<p>
+							<span>
+								A square complex matrix is called normal if it 
+								commutes with its own 
+								conjugate transpose, ie, if $AA^* = A^*A$.
+							</span>
+						</p>
+						<p>
+							<span>
+								Normal matrices are generally more difficult to identify by inspection. 
+							</span>
+							<span >
+								However,
+								we have some classes of matrices which are normal:
+							</span>
+						</p>
+						<ul>
+							<li>unitary,</li>
+							<li>
+								Hermitian,
+							</li>
+							<li>
+								real skew-symmetric (satisfying $A^T=-A$),
+							</li>
+							<li>
+								any diagonal matrix,
+							</li>
+							<li>
+								others?
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="size-75">
+					<div class="left-txt">
+						<p>
+							<span>
+								We make a note that real normal $2\times 2$ matrices 
+								are either symmetric or of
+								the form $\mat{cc}{a & b\\ -b & a}$ (which include the skew-symmetric examples).
+							</span>
+						</p>
+						
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								A class of matrix which is not generally normal is the class of complex
+								symmetric matrices.
+							</span>
+						</p>
+						
+					</div>
+				</div>
+				<br/><br/>
+			</section>
 
 			<section>
-
-				<h4>Credits</h4>
-				<div include-html="creditsb.html"></div>
+				<h5 style="text-align:left">20.6.1 Example</h5>
+				<div class="size-75">
+					<div class="left-txt">
+						<p>
+							<span>
+								Classify the matrix $A=\mat{cc}{1&1+i\\ 1+i&-i}$.
+							</span>
+						</p>
+						
+						
+						
+					</div>
+				</div>
+				<br/><br/>
 			</section>
 
-			<!-- Ends sections -->
+		</section>
 
-		</div>
-	</div>
+		<section>
+ 
+			<section data-auto-animate>
+				<h4>20.7 Normal = unitarily diagonalisable</h4>
+				<div class="size-80">
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								The main result we have is completely analagous to the 
+								real case of orthogonal
+								diagonalisation and symmetric matrices on 
+								<a href="chapter-18.html#/3/4/0" target="_blank">
+									Chapter 18</a>. We will not
+							</span>
+						</p>
 
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="mySetup/setup.js"></script>
+						<div id="theorem" class="fragment" data-fragment-index="1">
+							<p>An $n\times n$ complex matrix is unitarily diagonalisable if and only
+								if it normal.</p>
+						</div>
+					</div>
+				</div>
+				<br/><br/><br/>
+			</section>
 
-	<script>
-		includeHTML();
-	</script>
+			<section data-auto-animate>
+				<h4>20.7.1 Example</h4>
+				<div class="size-80">
+					<div class="left-txt">
+						<p>
+							<span>
+								If possible, diagonalise the matrix $\mat{cc}{6 & 2+2i\\ 2-2i& 4}.$
+							</span>
+						</p>
 
+						
+					</div>
+				</div>
+				<br/><br/><br/><br/>
+			</section>
 
-</body>
+		</section>
 
+        <section>
+          <h4>Credits</h4>
+          <div include-html="creditsb.html"></div>
+        </section>
+
+        <!-- Ends sections -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="mySetup/setup.js"></script>
+
+    <script>
+      includeHTML();
+    </script>
+  </body>
 </html>

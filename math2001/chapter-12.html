@@ -82,7 +82,7 @@
             <h4 style="font-size: 75%;">
               12.1 Least squares problem - minimising distance to a subspace
             </h4>
-            <div class="left-txt size-65">
+            <div class="left-txt size-75">
               <p class="fragment" data-fragment-index="1">
                 A recurring problem in linear algebra, and in its myriad of
                 applications, is the following:
@@ -99,7 +99,7 @@
               </p>
             </div>
 
-            <div class="left-txt size-65">
+            <div class="left-txt size-75">
               <p class="fragment" data-fragment-index="4">
                 What do we mean by "best approximation"?
                 <span class="fragment" data-fragment-index="5">
@@ -112,7 +112,7 @@
               </p>
             </div>
 
-            <div class="size-65">
+            <div class="size-75">
               <p class="fragment" data-fragment-index="6">
                 <em
                   >find $\bfu\in U$ such that $d(\bfu,\bfv)$ is as small as
@@ -128,7 +128,7 @@
               12.1 Least squares problem - minimising distance to a subspace
             </h4>
 
-            <div class="left-txt size-60">
+            <div class="left-txt size-50">
               <p>
                 What do we mean by "best approximation"?
                 <span>
@@ -141,7 +141,7 @@
               </p>
             </div>
 
-            <div class="size-60">
+            <div class="size-50">
               <p>
                 <em
                   >find $\bfu\in U$ such that $d(\bfu,\bfv)$ is as small as
@@ -150,14 +150,14 @@
               </p>
             </div>
 
-            <div class="left-txt size-60">
+            <div class="left-txt size-75">
               <p>
                 That is, $\mathbf{u}\in U$ that minimises
                 $||\mathbf{v}-\mathbf{u}||.$
               </p>
             </div>
 
-            <div class="left-txt size-65">
+            <div class="left-txt size-75">
               <div class="fragment" data-fragment-index="0">
                 <p>
                   <strong>Theorem </strong>(Best Approximation Theorem). If $U$
@@ -169,7 +169,7 @@
                 </p>
               </div>
             </div>
-            <br /><br />
+            <br /><br /><br/>
           </section>
 
           <section data-auto-animate>
@@ -262,7 +262,7 @@
               12.1 Least squares problem - minimising distance to a subspace
             </h4>
 
-            <div class="left-txt size-60">
+            <div class="left-txt size-65">
               <p>
                 From the Best Approximation Theorem, $\u =
                 \mathrm{Proj}_U(\bfv)$ is the best approximation to $\v \in V$
@@ -303,7 +303,7 @@
               12.1 Least squares problem - minimising distance to a subspace
             </h4>
 
-            <div class="left-txt size-60">
+            <div class="left-txt size-65">
               <p>
                 <strong>Solution 2.</strong>
                 Let $\gamma=\{\bfu_1, \bfu_2,\cdots,\bfu_n\}$ be a basis of the
@@ -381,7 +381,7 @@
               12.1 Least squares problem - minimising distance to a subspace
             </h4>
 
-            <div class="left-txt size-60">
+            <div class="left-txt size-70">
               <p>
                 From MATH1052/MATH1072: we minimise $E$. Set $\nabla
                 E=\mathbf{0}$, which gives
@@ -422,7 +422,7 @@
               12.1 Least squares problem - minimising distance to a subspace
             </h4>
 
-            <div class="left-txt size-60">
+            <div class="left-txt size-70">
               <p>
                 This is $n$ equations in $n$ unknowns,
                 <span>
@@ -661,7 +661,7 @@
           <section data-auto-animate>
             <h4>12.2 Inconsistent linear systems</h4>
             
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                   It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus
@@ -704,7 +704,7 @@
 
           <section data-auto-animate>
             <h4>12.2 Inconsistent linear systems</h4>
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                   Consequently, we know that $$ A\hat{\bf
@@ -734,140 +734,171 @@
         </section>
 
         <section>
-          <h4 style="font-size:80%">12.3 $\mathrm{Col}(A)^\bot=N\left(A^T\right)$</h4>
-          <div class="size-65">
-            <div class="left-txt">
-              <p>
-                The orthogonal complement of the column space of $A$ is the null
-                space of $A^T$.
-              </p>
-              <p class="fragment" data-fragment-index="0">
-                <strong>Note:</strong>
-                Recall that $\left(A\v\right)\cdot \u = \left(A\v\right)^T \u  = \v^T A^T \u = \v \cdot \left(A^T\u\right)$. $\quad(\star)$
-              </p>
-              <p class="fragment" data-fragment-index="1">
-                <strong>Proof:</strong>
-                <span class="fragment" data-fragment-index="2">
-                  $\subseteq$ 
-                </span>
-                <span class="fragment" data-fragment-index="3">
-                  - Let $\u\in \mathrm{Col}(A)^{\perp}$,
-                </span>
-                <span class="fragment" data-fragment-index="4">
-                  then for $\v \in \R^n$
-                </span>
-              </p>
+          <section data-auto-animate>
+            <h4 style="font-size:80%">12.3 $\mathrm{Col}(A)^\bot=N\left(A^T\right)$</h4>
+            <div style="font-size:75%">
+              <div class="left-txt">
+                <p style="font-size:100%">
+                  The orthogonal complement of the column space of $A$ is the null
+                  space of $A^T$.
+                </p>
+                <p class="fragment" data-fragment-index="0">
+                  <strong>Note:</strong>
+                  Recall that $\left(A\v\right)\cdot \u = \left(A\v\right)^T \u  = \v^T A^T \u = \v \cdot \left(A^T\u\right)$. $\quad(\star)$
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  <strong>Proof:</strong>
+                  <span class="fragment" data-fragment-index="2">
+                    $\subseteq$ 
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    - Let $\u\in \mathrm{Col}(A)^{\perp}$,
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    then for $\v \in \R^n$
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="5">
+                  $
+                  0 = \left(A \v\right)\cdot \u
+                  $
+                  <span class="fragment" data-fragment-index="6">
+                    $
+                    = \left(A \v\right)^T \u
+                    $
+                  </span>
+                  <span class="fragment" data-fragment-index="7">
+                    $
+                    = \v^TA^T  \u
+                    $
+                  </span>
+                  <span class="fragment" data-fragment-index="8">
+                    $
+                    = \v \cdot \left(A^T \u\right)  
+                    $
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="9">
+                  Set $\v = A^T\u$,
+                  <span class="fragment" data-fragment-index="10">
+                    then $0 =  \left(A^T \u\right) \cdot   \left(A^T \u\right)  $
+                  </span>
+                  <span class="fragment" data-fragment-index="11">
+                   $\; \Ra\; A^T\u = \mathbf 0  $
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="fragment" data-fragment-index="12">
+                   $\; \Ra \;\u \in N\left(A^T\right)  $
+                  </span>
+                  <span class="fragment" data-fragment-index="13">
+                   $\; \Ra \; \mathrm{Col}(A)^{\perp} \subseteq N\left(A^T\right) .$
+                  </span>
+                </p>
+              </div>
+              
             </div>
-            <div>
-              <p class="fragment" data-fragment-index="5">
-                $
-                0 = \left(A \v\right)\cdot \u
-                $
-                <span class="fragment" data-fragment-index="6">
+            <br/><br/><br/>
+          </section>
+
+          <section data-auto-animate>
+            <h4 style="font-size:80%">12.3 $\mathrm{Col}(A)^\bot=N\left(A^T\right)$</h4>
+            <div class="size-75">
+              <div class="left-txt">
+                <p>
+                  The orthogonal complement of the column space of $A$ is the null
+                  space of $A^T$.
+                </p>
+                <p>
+                  <strong>Note:</strong>
+                  Recall that $\left(A\v\right)\cdot \u = \left(A\v\right)^T \u  = \v^T A^T \u = \v \cdot \left(A^T\u\right)$. $\quad(\star)$
+                </p>
+              </div>
+              
+              <div class="left-txt">
+                <p>
+                  
+                  $\supseteq$
+                  
+                  <span class="fragment" data-fragment-index="0">
+                    - Let $\u\in N\left(A^T\right)$,
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    then for $A^T \u = \mathbf 0$.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Thus for all  $\v \in \R^n$ we have 
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="2">
                   $
-                  = \left(A \v\right)^T \u
+                  0 =\v \cdot \mathbf 0
                   $
-                </span>
-                <span class="fragment" data-fragment-index="7">
-                  $
-                  = \v^TA^T  \u
-                  $
-                </span>
-                <span class="fragment" data-fragment-index="8">
-                  $
-                  = \v \cdot \left(A^T \u\right)  
-                  $
-                </span>
-              </p>
+                  <span class="fragment" data-fragment-index="3">
+                    $
+                    = \v \cdot \left(A^T \u\right)
+                    $
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    $
+                    = \v^TA^T  \u
+                    $
+                  </span>
+                  <span class="fragment" data-fragment-index="5">
+                    $
+                    = \left(A\v\right)^T \u
+                    $
+                  </span>
+                  <span class="fragment" data-fragment-index="6">
+                    $
+                    = \left(A\v\right) \cdot \u
+                    $
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p class="fragment" data-fragment-index="7">
+                  So $\u$ is perpendicular to all vectors of the form $A \v\in \mathrm{Col}(A)$
+                  
+                  
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="fragment" data-fragment-index="8">
+                    $
+                    \; \Ra \;\u \in \mathrm{Col}(A)^{\perp}
+                    $
+                  </span>
+                  <span class="fragment" data-fragment-index="9">
+                    $
+                    \; \Ra \;\mathrm{Col}(A)^{\perp} \supseteq N\left(A^T\right).
+                    $
+                  </span>
+                  <span class="fragment" data-fragment-index="10">
+                    $
+                    \quad \blacksquare
+                    $
+                  </span>
+                </p>
+              </div>
             </div>
-            <div>
-              <p class="fragment" data-fragment-index="9">
-                Set $\v = A^T\u$,
-                <span class="fragment" data-fragment-index="10">
-                  then $0 =  \left(A^T \u\right) \cdot   \left(A^T \u\right)  $
-                </span>
-                <span class="fragment" data-fragment-index="11">
-                 $\; \Ra\; A^T\u = \mathbf 0  $
-                </span>
-                <span class="fragment" data-fragment-index="12">
-                 $\; \Ra \;\u \in N\left(A^T\right)  $
-                </span>
-                <span class="fragment" data-fragment-index="13">
-                 $\; \Ra \; \mathrm{Col}(A)^{\perp} \subseteq N\left(A^T\right) .$
-                </span>
-              </p>
-            </div>
-            <div class="left-txt">
-              <p class="fragment" data-fragment-index="14">
-                
-                $\supseteq$
-                
-                <span class="fragment" data-fragment-index="15">
-                  - Let $\u\in N\left(A^T\right)$,
-                </span>
-                <span class="fragment" data-fragment-index="16">
-                  then for $A^T \u = \mathbf 0$.
-                </span>
-                <span class="fragment" data-fragment-index="17">
-                  Thus for all  $\v \in \R^n$ we have 
-                </span>
-              </p>
-            </div>
-            <div>
-              <p class="fragment" data-fragment-index="18">
-                $
-                0 =\v \cdot \mathbf 0
-                $
-                <span class="fragment" data-fragment-index="19">
-                  $
-                  = \v \cdot \left(A^T \u\right)
-                  $
-                </span>
-                <span class="fragment" data-fragment-index="20">
-                  $
-                  = \v^TA^T  \u
-                  $
-                </span>
-                <span class="fragment" data-fragment-index="21">
-                  $
-                  = \left(A\v\right)^T \u
-                  $
-                </span>
-                <span class="fragment" data-fragment-index="22">
-                  $
-                  = \left(A\v\right) \cdot \u
-                  $
-                </span>
-              </p>
-            </div>
-            <div>
-              <p class="fragment" data-fragment-index="23">
-                So $\u$ is perpendicular to all vectors of the form $A \v\in \mathrm{Col}(A)$
-                <span class="fragment" data-fragment-index="24">
-                  $
-                  \; \Ra \;\u \in \mathrm{Col}(A)^{\perp}
-                  $
-                </span>
-                <span class="fragment" data-fragment-index="25">
-                  $
-                  \; \Ra \;\mathrm{Col}(A)^{\perp} \supseteq N\left(A^T\right).
-                  $
-                </span>
-                <span class="fragment" data-fragment-index="26">
-                  $
-                  \quad \blacksquare
-                  $
-                </span>
-              </p>
-            </div>
-          </div>
-          <br/>
+            <br/><br/><br/>
+          </section>
         </section>
 
         <section>
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
-            <div class="size-70">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="0">
@@ -918,7 +949,7 @@
           
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                   <span>
@@ -946,7 +977,7 @@
 
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                   Since $A\in M_{m,n}(\mathbb{R})\; \Rightarrow\; A^T\!A\in
@@ -988,7 +1019,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                  
@@ -1068,7 +1099,7 @@
 
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
-            <div class="size-70">
+            <div class="size-75">
               <div>
                 <p>
                   <strong>$\{{\bf a}_1,\ldots,{\bf a}_n\}$ is linearly independent
@@ -1076,7 +1107,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-70">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   <span>
@@ -1119,7 +1150,7 @@
             <div class="size-70">
               <div class="left-txt">
                 <p>
-                  <span style="font-size:110%">
+                  <span style="font-size:120%">
                     🤔 But how does that help?
                   </span>
                   <br/><br/>
@@ -1145,7 +1176,7 @@
         <section>
           <section data-auto-animate>
             <h4>12.5 Fitting a curve to data</h4>
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="0">
@@ -1174,7 +1205,7 @@
 
           <section data-auto-animate>
             <h4>12.5 Fitting a curve to data</h4>
-            <div class="size-60">
+            <div class="size-50">
               <div class="left-txt">
                 <p>
                   We seek
@@ -1192,7 +1223,7 @@
 
           <section data-auto-animate>
             <h4>12.5 Fitting a curve to data</h4>
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                   <strong>Example: Quadratic fit.</strong>
@@ -1213,7 +1244,7 @@
           </section>
           <section data-auto-animate>
             <h4>12.5 Fitting a curve to data</h4>
-            <div class="size-50">
+            <div class="size-40">
               <div class="left-txt">
                 <p>
                   <strong>Example: Quadratic fit.</strong>
@@ -1229,7 +1260,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-60">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   Consider the quadratic function $p(t) = a_0 + a_1 t + a_2 t^2$. 
@@ -1355,7 +1386,7 @@
             <div class="size-60">
               <div class="left-txt">
                 
-                <div class="r-stack size-50" style="margin-top:-30px">
+                <div class="r-stack size-60" style="margin-top:-30px">
                   <p>
                     <span>
                       \[

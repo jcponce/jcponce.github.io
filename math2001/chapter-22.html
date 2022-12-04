@@ -60,27 +60,516 @@
 				<p>Chapter 22</p>
 			</section>
 
+			
+
+
 			<section>
-				<h3>22 Critical points in $n$-dimensions</h3>
-				<div class="left-txt size-80">
-					<p>
-						This chapter brings together a great deal of what 
-						we have studied so far in this course.
-					</p>
+ 
+				<section data-auto-animate>
+				
+					<h3>22 Critical points in $n$-dimensions</h3>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							This chapter brings together a great deal of what 
+							we have studied so far in this course.
+						</p>
+	
+						<p class="fragment" data-fragment-index="1">
+							The goal is to be able to classify critical 
+							points of functions of any number of variables.
+						</p>
+	
+						<p class="fragment" data-fragment-index="2">
+							Recall Taylor series of a smooth function $f$ in $n$ 
+							variables about a point $\mathbf{x}=\mathbf{x}_0$ is given by
+							\begin{align*}
+							f(\mathbf{x})=&\;f(\mathbf{x}_0)+(\nabla f(\mathbf{x}_0))^T(\mathbf{x}-\mathbf{x}_0)+\frac{1}{2}(\mathbf{x}-\mathbf{x}_0)^TH(\mathbf{x}_0)(\mathbf{x}-\mathbf{x}_0)\\
+							&\;+\langle \text{ higher order terms}\rangle,
+							\end{align*}
+						</p>
+	
+						
+					</div>
+					<br/><br/>
+				</section>	
+				<section data-auto-animate>
+				
+					<h3>22 Critical points in $n$-dimensions</h3>
+					<div class="left-txt size-70">
+						
+	
+						<p>
+							Recall Taylor series of a smooth function $f$ in $n$ 
+							variables about a point $\mathbf{x}=\mathbf{x}_0$ is given by
+							\begin{align*}
+							f(\mathbf{x})=&f(\mathbf{x}_0)+(\nabla f(\mathbf{x}_0))^T(\mathbf{x}-\mathbf{x}_0)+\frac{1}{2}(\mathbf{x}-\mathbf{x}_0)^TH(\mathbf{x}_0)(\mathbf{x}-\mathbf{x}_0)\\
+							&+\langle \text{ higher order terms}\rangle,
+							\end{align*}
+						</p>
 
-					<p class="fragment" data-fragment-index="0">
-						The goal is to be able to classify critical 
-						points of functions of any number of variables.
-					</p>
+						<p>
+							where 
+							$\mathbf{x}=
+							\left( \begin{array}{c}
+							x_1\\x_2\\\vdots \\ x_n
+							\end{array}\right)\;$ and 
+							$\;H(\mathbf{x}_0)=\left(
+							\begin{array}{cccc}
+							\frac{\partial^2 f}{\partial x_1 \partial x_1}(\mathbf{x}_0)&\frac{\partial^2 f}{\partial x_1 \partial x_2}(\mathbf{x}_0)&\dots \frac{\partial^2 f}{\partial x_1 \partial x_n}(\mathbf{x}_0)\\ 
+							\frac{\partial^2 f}{\partial x_2 \partial x_1}(\mathbf{x}_0)&\frac{\partial^2 f}{\partial x_2 \partial x_2}(\mathbf{x}_0)&\dots \frac{\partial^2 f}{\partial x_2 \partial x_n}(\mathbf{x}_0)\\
+							\vdots&\vdots&\vdots\\
+							\frac{\partial^2 f}{\partial x_n \partial x_1}(\mathbf{x}_0)&\frac{\partial^2 f}{\partial x_n \partial x_2}(\mathbf{x}_0)&\dots \frac{\partial^2 f}{\partial x_n \partial x_n}(\mathbf{x}_0)
+							\end{array}
+							\right).$
+							
+						</p>
+	
+						
+					</div>
+					<br/><br/>
+				</section>	
+				<section data-auto-animate>
+				
+					<h3>22 Critical points in $n$-dimensions</h3>
+					<div class="left-txt size-55">
+						
+	
+						<p>
+							Recall Taylor series of a smooth function $f$ in $n$ 
+							variables about a point $\mathbf{x}=\mathbf{x}_0$ is given by
+							\begin{align*}
+							f(\mathbf{x})=&f(\mathbf{x}_0)+(\nabla f(\mathbf{x}_0))^T(\mathbf{x}-\mathbf{x}_0)+\frac{1}{2}(\mathbf{x}-\mathbf{x}_0)^TH(\mathbf{x}_0)(\mathbf{x}-\mathbf{x}_0)\\
+							&+\langle \text{ higher order terms}\rangle,
+							\end{align*}
+						</p>
 
-					
-				</div>
-				<br/><br/><br/><br/><br/><br/>
+						<p>
+							where 
+							$\mathbf{x}=
+							\left( \begin{array}{c}
+							x_1\\x_2\\\vdots \\ x_n
+							\end{array}\right)\;$ and 
+							$\;H(\mathbf{x}_0)=\left(
+							\begin{array}{cccc}
+							\frac{\partial^2 f}{\partial x_1 \partial x_1}(\mathbf{x}_0)&\frac{\partial^2 f}{\partial x_1 \partial x_2}(\mathbf{x}_0)&\dots \frac{\partial^2 f}{\partial x_1 \partial x_n}(\mathbf{x}_0)\\ 
+							\frac{\partial^2 f}{\partial x_2 \partial x_1}(\mathbf{x}_0)&\frac{\partial^2 f}{\partial x_2 \partial x_2}(\mathbf{x}_0)&\dots \frac{\partial^2 f}{\partial x_2 \partial x_n}(\mathbf{x}_0)\\
+							\vdots&\vdots&\vdots\\
+							\frac{\partial^2 f}{\partial x_n \partial x_1}(\mathbf{x}_0)&\frac{\partial^2 f}{\partial x_n \partial x_2}(\mathbf{x}_0)&\dots \frac{\partial^2 f}{\partial x_n \partial x_n}(\mathbf{x}_0)
+							\end{array}
+							\right).$
+							
+						</p>
+	
+						
+					</div>
+					<div class="left-txt size-80">
+						<p>
+							Note that $H(\mathbf{x}_0)=H(\mathbf{x}_0)^T$, 
+							i.e. $H(\mathbf{x}_0)$ is a real symmetric matrix.
+						</p>
+	
+						
+					</div>
+					<br/><br/><br/>
+				</section>	
+
 			</section>
 
 
+			<section>
+ 
+				<section data-auto-animate>
+					<h4 style="font-size:95%">22.1 Classification of critical points in $n$ dimensions</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									In the following, let $f:\mathbb{R}^n\longrightarrow \mathbb{R}$.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+								<strong>Definition 1.</strong>
+								A point $\mathbf{x}_0$ is said to be a <em>critical point</em> if
+								$\nabla f(\mathbf{x}_0)=\mathbf{0}$
+								or $\nabla f(\mathbf{x}_0)$ is undefined.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									<strong>Definition 2.</strong>
+									A critical point $\mathbf{x}_0$ satisfying 
+									$
+									\nabla f(\mathbf{x}_0)=\mathbf{0}
+									$
+									is a <em>local maximum</em> if there exists some $\epsilon > 0$ such that
+									<br/>
+									
+									$\qquad \quad f(\mathbf{x}_0) \ge f(\mathbf{x})$ 
+									for all $\mathbf{x}$ such that $||\mathbf{x}-\mathbf{x}_0||\lt \epsilon.$
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:95%">22.1 Classification of critical points in $n$ dimensions</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									In the following, let $f:\mathbb{R}^n\longrightarrow \mathbb{R}$.
+								</span>
+							</p>
+							
+							<p>
+								<span>
+									<strong>Definition 3.</strong>
+									A critical point $\mathbf{x}_0$ satisfying 
+$
+\nabla f(\mathbf{x}_0)=\mathbf{0}
+$
+is a <em>local minimum</em> if there exists some $\epsilon > 0$ such that
+
+									<br/>
+									
+									$\qquad \quad f(\mathbf{x}_0) \le f(\mathbf{x})$
+for all $\mathbf{x}$ such that $||\mathbf{x}-\mathbf{x}_0||\lt \epsilon.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									<strong>Definition 4.</strong>
+									A critical point $\mathbf{x}_0$ satisfying 
+$
+\nabla f(\mathbf{x}_0)=\mathbf{0}
+$
+is a <em>saddle point</em> if it is neither a local maximum nor a local minimum, i.e. there exist $\mathbf{x}_1, \mathbf{x}_2$ around $\mathbf{x}_0$ such that $||\mathbf{x}_1-\mathbf{x}_0||<\epsilon,~~||\mathbf{x}_2-\mathbf{x}_0||<\epsilon$ for some $\epsilon > 0$, such that 
+$$f(\mathbf{x}_1)\lt f(\mathbf{x}_0)\lt f(\mathbf{x}_2).$$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:95%">22.1 Classification of critical points in $n$ dimensions</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								<span>
+									In the following, let $f:\mathbb{R}^n\longrightarrow \mathbb{R}$.
+								</span>
+							</p>
+							<p>
+								<span>
+								<strong>Definition 1.</strong>
+								A point $\mathbf{x}_0$ is said to be a <em>critical point</em> if
+								$\nabla f(\mathbf{x}_0)=\mathbf{0}$
+								or $\nabla f(\mathbf{x}_0)$ is undefined.
+								</span>
+							</p>
+							<p>
+								<span>
+									<strong>Definition 2.</strong>
+									A critical point $\mathbf{x}_0$ satisfying 
+									$
+									\nabla f(\mathbf{x}_0)=\mathbf{0}
+									$
+									is a <em>local maximum</em> if there exists some $\epsilon > 0$ such that
+									<br/>
+									
+									$\qquad \quad f(\mathbf{x}_0) \ge f(\mathbf{x})$ 
+									for all $\mathbf{x}$ such that $||\mathbf{x}-\mathbf{x}_0||\lt \epsilon.$
+								</span>
+							</p>
+							<p>
+								<span>
+									<strong>Definition 3.</strong>
+									A critical point $\mathbf{x}_0$ satisfying 
+$
+\nabla f(\mathbf{x}_0)=\mathbf{0}
+$
+is a <em>local minimum</em> if there exists some $\epsilon > 0$ such that
+
+									<br/>
+									
+									$\qquad \quad f(\mathbf{x}_0) \le f(\mathbf{x})$
+for all $\mathbf{x}$ such that $||\mathbf{x}-\mathbf{x}_0||\lt \epsilon.$
+								</span>
+							</p>
+							<p>
+								<span>
+									<strong>Definition 4.</strong>
+									A critical point $\mathbf{x}_0$ satisfying 
+$
+\nabla f(\mathbf{x}_0)=\mathbf{0}
+$
+is a <em>saddle point</em> if it is neither a local maximum nor a local minimum, i.e. there exist $\mathbf{x}_1, \mathbf{x}_2$ around $\mathbf{x}_0$ such that $||\mathbf{x}_1-\mathbf{x}_0||<\epsilon,~~||\mathbf{x}_2-\mathbf{x}_0||<\epsilon$ for some $\epsilon > 0$, such that 
+$$f(\mathbf{x}_1)\lt f(\mathbf{x}_0)\lt f(\mathbf{x}_2).$$
+								</span>
+							</p>
+						</div>
+					</div><br/>
+				</section>
+
+			</section>
 
 
+			<section>
+				<h4>
+					22.2 Example: In 2d.
+				</h4>
+			</section>
+
+
+			<section>
+ 
+				<section data-auto-animate>
+					<h4>22.3 Critical points by Taylor series</h4>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									In MATH1052: We used the "Second derivative test" for functions of two variables.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									In MATH2001/7000:  We consider a variant of this test that generalises easily to higher dimensions.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									Let $\mathbf{x_0}$ be a critical point satisfying $\nabla f(\mathbf{x}_0)=\mathbf{0}$
+
+$\implies$ Taylor series about $\mathbf{x}_0$ is
+$$f(\mathbf{x})=f(\mathbf{x}_0)+\frac{1}{2}(\mathbf{x}-\mathbf{x}_0)^TH(\mathbf{x}_0)
+(\mathbf{x}-\mathbf{x}_0)+
+\langle \text{ higher order terms }\rangle.$$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>22.3 Critical points by Taylor series</h4>
+					<div class="size-75">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Let $\mathbf{x_0}$ be a critical point satisfying $\nabla f(\mathbf{x}_0)=\mathbf{0}$
+
+$\implies$ Taylor series about $\mathbf{x}_0$ is
+$$f(\mathbf{x})=f(\mathbf{x}_0)+\frac{1}{2}(\mathbf{x}-\mathbf{x}_0)^TH(\mathbf{x}_0)
+(\mathbf{x}-\mathbf{x}_0)+
+\langle \text{ higher order terms }\rangle.$$
+								</span>
+							</p>
+							<p>
+								<span >
+									Without loss of generality, we take $\mathbf{x}_0=\mathbf{0}$ 
+									(i.e., by shifting/translating variables if necessary).
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									We have,
+									$$f(\mathbf{x})=f(\mathbf{0})+\frac{1}{2}\mathbf{x}^TH\mathbf{x}+\langle \text{ higher order terms }\rangle.$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Here $H=H(\mathbf{0}).$ 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Thus, the behaviour about $\mathbf{0}$ (i.e., the critical point) depends on this second order term.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>22.3 Critical points by Taylor series</h4>
+					<div class="size-55">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Let $\mathbf{x_0}$ be a critical point satisfying $\nabla f(\mathbf{x}_0)=\mathbf{0}$
+
+$\implies$ Taylor series about $\mathbf{x}_0$ is
+$$f(\mathbf{x})=f(\mathbf{x}_0)+\frac{1}{2}(\mathbf{x}-\mathbf{x}_0)^TH(\mathbf{x}_0)
+(\mathbf{x}-\mathbf{x}_0)+
+\langle \text{ higher order terms }\rangle.$$
+								</span>
+							</p>
+							<p>
+								<span >
+									Without loss of generality, we take $\mathbf{x}_0=\mathbf{0}$ 
+									(i.e. by shifting/translating variables if necessary).
+								</span>
+								<span>
+									We have,
+$$f(\mathbf{x})=f(\mathbf{0})+\frac{1}{2}\mathbf{x}^TH\mathbf{x}+\langle \text{ higher order terms }\rangle.$$
+								</span>
+								<span>
+									Here $H=H(\mathbf{0}).$ Thus, the behaviour about $\mathbf{0}$ (i.e., the critical point) depends on this second order term.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Observe that $H$ is real symmetric 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\implies~H$ is 
+									orthogonally diagonalisable, i.e., there exists an orthogonal matrix $P$ such that $P^THP=D$ with some diagonal matrix $D$.
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>22.3 Critical points by Taylor series</h4>
+					
+					<div class="size-50">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Observe that $H$ is real symmetric 
+								</span>
+								<span>
+									$\implies~H$ is 
+									orthogonally diagonalisable, i.e., there exists an orthogonal matrix $P$ such that $P^THP=D$ with some diagonal matrix $D$.
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>22.3 Critical points by Taylor series</h4>
+					
+					<div class="size-70">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									It follows that 
+$$
+\mathbf{x}^TH\mathbf{x} =(\mathbf{x}^TP)D(P^T\mathbf{x})=\mathbf{y}^T D \mathbf{y}
+$$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									i.e. the diagonalization suggets setting $\mathbf{y}=P^T\mathbf{x}$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Note that  the critical point is still at $\mathbf{y}=\mathbf{0},$ because $P^T\mathbf{0}=\mathbf{0}.$
+
+								</span>
+							</p>
+							
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									Let $F$ denote the function $f$ expressed in the new coordinates $\mathbf{y}=
+									\left(
+										\begin{array}{c}
+										y_1\\y_2\\ \vdots \\ y_n
+										\end{array}
+										\right),$
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>22.3 Critical points by Taylor series</h4>
+					
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Let $F$ denote the function $f$ expressed in the new coordinates $\mathbf{y}=
+									\left(
+										\begin{array}{c}
+										y_1\\y_2\\ \vdots \\ y_n
+										\end{array}
+										\right),$
+								</span>
+							</p>
+								
+								
+							<p>
+								<span>
+									i.e. $F(\mathbf{y})=f(\mathbf{x}(\mathbf{y})).$
+\begin{align*}
+\implies ~F(\mathbf{y})=& f(\mathbf{0})+\frac{1}{2}
+\mathbf{y}^TD\mathbf{y}+\langle \text{ higher order terms }\rangle\\
+=& f(\mathbf{0})+\frac{1}{2}\left(\lambda_1y_1^2 +\lambda_2y_2^2+\dots +\lambda_ny_n^2\right)\\
+&\qquad+\langle \text{ higher order terms }\rangle.
+\end{align*}
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section>
+					<h4>There are four cases to consider:</h4>
+					<br/><br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+ 
+				<section data-auto-animate>
+					<h4>22.4 Example: $Q=ax^2+bxy+cy^2$</h4>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+								 To do 
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>22.4 Example: $Q=ax^2+bxy+cy^2$</h4>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span>
+								 To do later too.
+								</span>
+							</p>
+						</div>
+					</div><br/><br/>
+				</section>
+
+			</section>
 
 
 			<section>
