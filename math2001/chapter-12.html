@@ -427,12 +427,10 @@
                 This is $n$ equations in $n$ unknowns,
                 <span>
                   which may be expressed in matrix form: \begin{align*} \left(
-                  \begin{array}{cccc} \langle \mathbf{u}_1,\mathbf{u}_1\rangle ~
-                  & \langle \mathbf{u}_1,\mathbf{u}_2\rangle ~\dots ~ \langle
-                  \mathbf{u}_1,\mathbf{u}_n\rangle \\ \langle
-                  \mathbf{u}_2,\mathbf{u}_1\rangle ~ & \langle
-                  \mathbf{u}_2,\mathbf{u}_2\rangle ~\dots ~ \langle
-                  \mathbf{u}_2,\mathbf{u}_n\rangle\\ \vdots&~\vdots & \\ \langle
+                  \begin{array}{cccc} 
+                  \langle \mathbf{u}_1,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_1,\mathbf{u}_2\rangle ~  \dots ~ \langle \mathbf{u}_1,\mathbf{u}_n\rangle \\ \langle
+                  \mathbf{u}_2,\mathbf{u}_1\rangle ~ & \langle \mathbf{u}_2,\mathbf{u}_2\rangle ~\dots ~ \langle \mathbf{u}_2,\mathbf{u}_n\rangle\\ 
+                  \vdots & ~\vdots & \\ \langle
                   \mathbf{u}_n,\mathbf{u}_1\rangle ~ & \langle
                   \mathbf{u}_n,\mathbf{u}_2\rangle ~\dots ~ \langle
                   \mathbf{u}_n,\mathbf{u}_n\rangle \end{array} \right)
@@ -1383,7 +1381,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-60">
+            <div class="size-75">
               <div class="left-txt">
                 
                 <div class="r-stack size-60" style="margin-top:-30px">
@@ -1428,7 +1426,74 @@
                   <span class="fragment" data-fragment-index="1">
                     Then $A^TA$ is invertible.
                   </span>
-                  <span class="fragment" data-fragment-index="2">
+                  
+                  
+                </p>
+              </div>
+              
+            </div>
+            <br /><br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4>12.5 Fitting a curve to data</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  <strong>Example: Quadratic fit.</strong>
+                  <span>
+                    Suppose some physical system is modeled by a quadratic
+                    function $p(t)$.
+                  </span>
+                  <span>
+                    Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
+                    (2,2),\ (4,7),\ (5,10). $$ Find the least squares
+                    approximation for $p(t)$.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="size-75">
+              <div class="left-txt">
+                
+                <div class="r-stack size-60" style="margin-top:-30px">
+                  <p>
+                    <span>
+                      \[
+                    \underbrace{\left(
+                    \begin{array}{ccc}
+                    1 &  1 &  1  \\
+                    1 &  2 &  4  \\
+                    1 &  4 &  16  \\
+                    1 &  5 &  25 \\
+                    \end{array}  
+                    \right)}_{A}
+                    \underbrace{\left(
+                    \begin{array}{c}
+                     a_0 \\
+                     a_1 \\
+                     a_2 \\
+                    \end{array}  
+                    \right)}_{\mathbf x}
+                    =
+                    \underbrace{\left(
+                    \begin{array}{c}
+                     5 \\
+                     2 \\
+                     7 \\
+                     10 \\
+                    \end{array}  
+                    \right)}_{\mathbf b}
+                    \]
+                    </span>
+                  </p>
+                  
+                </div>
+                <p style="margin-top:-5px">
+                  
+                  <span>
+                    $A^TA$ is invertible.
+                  </span>
+                  <span class="fragment" data-fragment-index="0">
                     Thus the least squares approximation is 
                   </span>
                   
@@ -1436,10 +1501,10 @@
               </div>
               <div>
                 <p >
-                  <span class="fragment" data-fragment-index="2">
+                  <span class="fragment" data-fragment-index="1">
                     $\ds \hat{\mathbf x} = \left(A^T A\right)^{-1}A^T \mathbf b$
                   </span>
-                  <span class="fragment" data-fragment-index="3">
+                  <span class="fragment" data-fragment-index="2">
                   $= 
                   \left(
                   \begin{array}{r}
@@ -1450,7 +1515,7 @@
                   \right)
                   $
                   </span>
-                  <span class="fragment" data-fragment-index="4">
+                  <span class="fragment" data-fragment-index="3">
                   $\;\,\Ra \;\, p(t) = 8 - \dfrac{9}{2}t+ t^2.
                   $
                   </span>
