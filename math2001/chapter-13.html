@@ -78,7 +78,7 @@
               13 Least squares function approximation
             </h4>
 
-            <div class="left-txt size-60">
+            <div class="left-txt size-70">
               <p class="fragment" data-fragment-index="0">
                 <em>Problem:</em> Given a function $f\in C[a, b]$, find the best
                 approximation to $f$ using only functions from a specified
@@ -114,7 +114,7 @@
             <div>
               <img width="85%" data-src="images/chapter-13/chapter-13-2-fitting-curves-03.svg">
             </div>
-            <div class="left-txt size-65">
+            <div class="left-txt size-70">
               <p>
                 At point $x_0$ the error is $|\,f(x_0)-g(x_0)|$. 
                 <span class="fragment" data-fragment-index="0">
@@ -221,6 +221,52 @@
           </section>
 
           <section data-auto-animate>
+            <h4>13.1 Example: $\sin(x)$</h4>
+            <div class="size-40">
+              <div class="left-txt">
+                <p>
+                  Find the least squares approximation for $\sin x$ in the
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
+                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-75">
+              <div class="left-txt">
+                <p class="fragment" data-fragment-index="0">
+                 We actually have two methods from Chapter 12.
+                </p>
+                <p>
+                  <span class="fragment" data-fragment-index="1">
+                    <strong>Solution 1.</strong>
+                  Use the Gram-Schimdt process to turn $\beta$ into 
+                  an orthonormal basis $\{\hat{\bfe}_1, \hat{\bfe}_2, \hat{\bfe}_3\}$.
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    Then $p(x) =  \mathrm{Proj}_{U}(\sin x)$ is given by
+                    \[
+                    p(x) =  \mathrm{Proj}_{U}(\sin x) \qquad \qquad \qquad \qquad \qquad \qquad \qquad \;
+                    \]
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    \[
+                    =
+                    \big\langle\sin x , \hat{\bfe}_1\big\rangle\hat{\bfe}_1 + 
+                    \big\langle\sin x , \hat{\bfe}_2\big\rangle\hat{\bfe}_2 + 
+                    \big\langle\sin x , \hat{\bfe}_3\big\rangle\hat{\bfe}_3.
+                    \]
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    This gives the best approximation for $\sin x$ by functions from $U$.
+                  </span>
+                </p>
+                
+              </div>
+            </div>
+            <br/><br/><br/>
+          </section>
+          <section data-auto-animate>
             <h4 style="font-size:80%">13.1 Example: $\sin(x)$</h4>
             <div class="size-40">
               <div class="left-txt">
@@ -232,30 +278,35 @@
                 </p>
               </div>
             </div>
-            <div class="size-65">
+            <div class="size-40">
               <div class="left-txt">
-                <p class="fragment" data-fragment-index="0">
+                <p>
                  We actually have two methods from Chapter 12.
                 </p>
                 <p>
-                  <span class="fragment" data-fragment-index="1">
+                  <span>
                     <strong>Solution 1.</strong>
                   Use the Gram-Schimdt process to turn $\beta$ into 
-                  an orthonormal basis $\{\hat{\bfe_1}, \hat{\bfe_2}, \hat{\bfe_3}\}$.
+                  an orthonormal basis $\{\hat{\bfe}_1, \hat{\bfe}_2, \hat{\bfe}_3\}$.
                   </span>
-                  <span class="fragment" data-fragment-index="2">
+                  <span>
                     Then $p(x) =  \mathrm{Proj}_{U}(\sin x)$ is given by
                     \[
                     p(x) =  \mathrm{Proj}_{U}(\sin x) = 
-                    \big\langle\sin x , \hat{\bfe_1}\big\rangle\hat{\bfe_1} + 
-                    \big\langle\sin x , \hat{\bfe_2}\big\rangle\hat{\bfe_2} + 
-                    \big\langle\sin x , \hat{\bfe_3}\big\rangle\hat{\bfe_3}.
+                    \big\langle\sin x , \hat{\bfe}_1\big\rangle\hat{\bfe}_1 + 
+                    \big\langle\sin x , \hat{\bfe}_2\big\rangle\hat{\bfe}_2 + 
+                    \big\langle\sin x , \hat{\bfe}_3\big\rangle\hat{\bfe}_3.
                     \]
                   </span>
-                  <span class="fragment" data-fragment-index="3">
+                  <span>
                     This gives the best approximation for $\sin x$ by functions from $U$.
                   </span>
                 </p>
+                
+              </div>
+            </div>
+            <div class="size-70">
+              <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="4">
                     <strong>
@@ -264,7 +315,7 @@
                     1) Find the orthonormal basis;
                   </span> 
                   <span class="fragment" data-fragment-index="5">
-                    2) Compute $\big\langle \sin x, \hat{\bfe_i} \big\rangle$ for $i=1,2,3$; 
+                    2) Compute $\big\langle \sin x, \hat{\bfe}_i \big\rangle$ for $i=1,2,3$; 
                   </span>
                   <span class="fragment" data-fragment-index="6">
                     and, 3) Verify the answer is given by
@@ -278,7 +329,7 @@
                 </p>
               </div>
             </div>
-            <br/>
+            <br/><br/>
           </section>
           <section>
             <h4 style="font-size:80%">13.1 Example: $\sin(x)$</h4>
@@ -286,9 +337,9 @@
               <div class="left-txt">
                 <p>
                   Find the least squares approximation for $\sin x$ in the
-                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
-                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
-                  p(x)q(x)~dx. $$
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$; with
+                   $ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $
                 </p>
               </div>
             </div>
@@ -371,7 +422,7 @@
                 </p>
               </div>
             </div>
-            <br/>
+            <br/><br/>
           </section>
           <section data-auto-animate>
             <h4 style="font-size:80%">13.1 Example: $\sin(x)$</h4>
@@ -379,13 +430,13 @@
               <div class="left-txt">
                 <p>
                   Find the least squares approximation for $\sin x$ in the
-                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
-                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
-                  p(x)q(x)~dx. $$
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$; with
+                   $ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $
                 </p>
               </div>
             </div>
-            <div class="size-65">
+            <div class="size-70">
               <div class="left-txt">
                 
                 <p>
@@ -441,7 +492,7 @@
                 </p>
               </div>
             </div>
-            <br/>
+            <br/><br/>
           </section>
         </section>
 
@@ -484,7 +535,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-65">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   <strong>Proof:</strong>
@@ -617,7 +668,7 @@
           <section data-auto-animate>
             <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
             
-            <div class="size-65">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   <strong>Proof:</strong>
@@ -671,9 +722,9 @@
             <br/><br/>
           </section>
           <section data-auto-animate>
-            <h4 style="font-size:80%">13.2 Fourier coefficients</h4>
+            <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
             
-            <div class="size-65">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   <strong>Proof:</strong>
@@ -725,7 +776,7 @@
 
           <section data-auto-animate>
             <h4>13.2 Fourier coefficients</h4>
-            <div class="size-65">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   It follows that $\beta_n$ is an orthonormal basis for the
@@ -743,8 +794,8 @@
                     kx), $$ 
                   </span>
                   <span class="fragment" data-fragment-index="2">
-                    where $$ a_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\cos
-                    kx\,dx,\qquad b_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\sin kx\,dx,
+                    $$ \text{where } \;a_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\cos
+                    kx\,dx,\quad b_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\sin kx\,dx,
                     $$ are the associated <strong>Fourier coefficients</strong>.
                   </span>
                 </p>
