@@ -855,20 +855,22 @@
 								Let $\{\bfv_1,\ldots,\bfv_n\}$ be a 
 								linearly independent set of vectors in the 
 								real inner product space $V$.
-								<span class="fragment" data-fragment-index="5">
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								
 									The corresponding <strong>Gram-Schmidt process</strong>
 									is the following algorithm:
-								</span>
+							
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>11.6 Construction of orthonormal basis</h4>
 					
-					<div class="size-60">
+					<div class="size-80">
 						<div class="left-txt">
 							<p style="font-size:80%">
 								<span>
@@ -901,7 +903,56 @@
 								\]
 								</span>
 							</p>
-							<p class="fragment" data-fragment-index="4">
+							
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.6 Construction of orthonormal basis</h4>
+					
+					<div class="size-50">
+						<div class="left-txt">
+							<p style="font-size:80%">
+								<span>
+									The corresponding <strong>Gram-Schmidt process</strong>
+									is the following algorithm:
+								</span>
+							</p>
+							<p>
+								<strong>
+									Step 1.
+								</strong>
+								Let $\w_1 = \v_1$. 
+								<span>
+									(Easy! 😃)
+								</span>
+							</p>
+							<p>
+								<strong>
+									Step 2.
+								</strong>
+								We can obtain a vector $\w_2$ that is 
+								orthogonal to $\w_1$ by computing the 
+								component of $\v_2$ that is 
+								orthogonal to the space $W_1$ spanned
+								by $\w_1$. 
+								<span>
+									To do this we use the formula:
+								\[
+								\w_2 = \v_2 - \mathrm{Proj}_{W_1} \v_2 = \v_2 - \frac{\langle \v_2, \w_1 \rangle}{\norm{\w_1}^2}\w_1.
+								\]
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							
+							<p>
 								<strong>
 									Step 3.
 								</strong>
@@ -909,7 +960,7 @@
 								to both $\w_1$ and $\w_2$, we compute the 
 								component of $\v_3$ orthogonal to the 
 								space $W_2$ spanned by $\w_1$ and $\w_2$. 
-								<span class="fragment" data-fragment-index="5">
+								<span class="fragment" data-fragment-index="0">
 									Here we use the 
 								formula:
 								\[
@@ -919,13 +970,13 @@
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
-					<h4 style="font-size:60%">11.6 Construction of orthonormal basis</h4>
+					<h4>11.6 Construction of orthonormal basis</h4>
 					
-					<div class="size-55">
+					<div class="size-40">
 						<div class="left-txt">
 							
 							<p>
@@ -969,7 +1020,14 @@
 								\]
 								</span>
 							</p>
-							<p class="fragment" data-fragment-index="0">
+							
+						</div>
+					</div>
+					<div class="size-75">
+						<div class="left-txt">
+							
+							
+							<p>
 								<strong>
 									Step <em>n</em>.
 								</strong>
@@ -987,7 +1045,7 @@
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
