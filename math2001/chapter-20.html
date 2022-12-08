@@ -457,7 +457,7 @@
           </section>
           <section data-auto-animate>
             <h4>20.3 Complex inner product</h4>
-            <div class="size-65">
+            <div class="size-60">
               <div class="left-txt">
                 
                 <p>
@@ -550,18 +550,19 @@
             </div>
             <br />
           </section>
+
           <section data-auto-animate>
             <h4>20.3 Complex inner product</h4>
-            <div class="size-75">
+            <div class="size-85">
               <div class="left-txt">
                 <p>
-                  So now we understand what is meant by the following statement:
+                  So now we understand what is meant by the following statement:<br/><br/>
                   Columns of a unitary matrix form an orthonormal set with
                   respect to the complex inner product.
                 </p>
               </div>
             </div>
-            <br /><br />
+            <br /><br /> <br /><br /> <br /><br />
           </section>
         </section>
 
@@ -963,13 +964,69 @@ if there is a unitary matrix $P$ such that $P^*AP$ is diagonal.
 
 			<section>
 				<h5 style="text-align:left">20.6.1 Example</h5>
-				<div class="size-75">
+				<div class="size-80">
 					<div class="left-txt">
 						<p>
 							<span>
 								Classify the matrix $A=\mat{cc}{1&1+i\\ 1+i&-i}$.
 							</span>
 						</p>
+
+            <p class="fragment" data-fragment-index="0">
+              $A^* = 
+              \left(
+              \begin{array}{cc}
+              1 & 1-i \\
+              1-i & i
+              \end{array}
+              \right)
+              $
+              <span class="fragment" data-fragment-index="1">
+                $\neq A.$
+              </span>
+              <span class="fragment" data-fragment-index="2">
+                Then $A$ is not Hermitian.
+              </span>
+            </p>
+            <p class="fragment" data-fragment-index="3">
+              $A^* A = 
+              \left(
+              \begin{array}{cc}
+              1 & 1-i \\
+              1-i & i
+              \end{array}
+              \right)
+              \left(
+                \begin{array}{cc}
+                1 & 1+i \\
+                1-i & -i
+                \end{array}
+                \right)
+              $
+              <span class="fragment" data-fragment-index="4">
+                $=
+                \left(
+                  \begin{array}{cc}
+                  3 & 0 \\
+                  0 & 3
+                  \end{array}
+                  \right)
+                $
+              </span>
+              <span class="fragment" data-fragment-index="5">
+                $=
+                3I
+                .$
+              </span>
+              <span class="fragment" data-fragment-index="6">
+                Then $A$ is not unitary.
+              </span>
+            </p>
+
+            <p class="fragment" data-fragment-index="7">Simarly $A~A^* = 3I $
+              <span class="fragment" data-fragment-index="8">$=A^*A.$</span>
+              <span class="fragment" data-fragment-index="9">Then $A$ is normal.</span>
+            </p>
 						
 						
 						
