@@ -723,9 +723,8 @@ $$f(\mathbf{x})=f(\mathbf{0})+\frac{1}{2}\mathbf{x}^TH\mathbf{x}+\langle \text{ 
 				<section data-auto-animate>
 					<h4>22.3 Critical points by Taylor series</h4>
 					
-					<div class="size-50">
+					<div class="size-45">
 						<div class="left-txt">
-							
 							<p>
 								<span>
 									Observe that $H$ is real symmetric 
@@ -738,13 +737,47 @@ $$f(\mathbf{x})=f(\mathbf{0})+\frac{1}{2}\mathbf{x}^TH\mathbf{x}+\langle \text{ 
 							
 						</div>
 					</div>
-					<br/><br/><br/>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $\left\{ \mathbf e_1, \mathbf e_2, \ldots, \mathbf e_n\right\}$ be
+									the orthonormal set of eigenvectors of $H$. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Form the orthogonal matrix
+									\[
+									P = \big ( \mathbf e_1~|~ \mathbf e_2~|~ \ldots~|~ \mathbf e_n \big).
+									\]
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Then $P^THP = D,$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									with $
+									D = 
+									\left(
+									\begin{array}{cccc}
+									\lambda_1 & 0 &\cdots & 0 \\
+									0 &  \lambda_2 & \ddots & \vdots \\
+									\vdots & \ddots & \ddots & 0 \\
+									0 & \cdots & 0 & \lambda_n \\
+									\end{array}
+									\right), \; \lambda_i\in \R.
+									$
+								</span>
+							</p>
+							
+							<p class="fragment" data-fragment-index="4">That is $H = PDP^T.$</p>
+						</div>
+					</div>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>22.3 Critical points by Taylor series</h4>
 					
-					<div class="size-70">
+					<div class="size-80">
 						<div class="left-txt">
 							
 							<p>
@@ -765,23 +798,25 @@ $$
 							
 							<p>
 								<span class="fragment" data-fragment-index="2">
-									Let $F$ denote the function $f$ expressed in the new coordinates $\mathbf{y}=
+									Let $F$ denote the function $f$ expressed in the new coordinates 
+									$$
+									\mathbf{y}=
 									\left(
 										\begin{array}{c}
 										y_1\\y_2\\ \vdots \\ y_n
 										\end{array}
-										\right),$
+										\right),$$
 								</span>
 							</p>
 							
 						</div>
 					</div>
-					<br/><br/><br/>
+					<br/>
 				</section>
 				<section data-auto-animate>
 					<h4>22.3 Critical points by Taylor series</h4>
 					
-					<div class="size-70">
+					<div class="size-65">
 						<div class="left-txt">
 							<p>
 								<span>
@@ -793,15 +828,24 @@ $$
 										\right),$
 								</span>
 							</p>
+							
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
 								
 								
 							<p>
 								<span>
-									i.e. $F(\mathbf{y})=f(\mathbf{x}(\mathbf{y})).$
+									i.e., $F(\mathbf{y})=f(\mathbf{x}(\mathbf{y})).$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									
 \begin{align*}
-\implies ~F(\mathbf{y})=& f(\mathbf{0})+\frac{1}{2}
+\implies ~F(\mathbf{y})=& \;f(\mathbf{0})+\frac{1}{2}
 \mathbf{y}^TD\mathbf{y}+\langle \text{ higher order terms }\rangle\\
-=& f(\mathbf{0})+\frac{1}{2}\left(\lambda_1y_1^2 +\lambda_2y_2^2+\dots +\lambda_ny_n^2\right)\\
+=&\; f(\mathbf{0})+\frac{1}{2}\left(\lambda_1y_1^2 +\lambda_2y_2^2+\dots +\lambda_ny_n^2\right)\\
 &\qquad+\langle \text{ higher order terms }\rangle.
 \end{align*}
 								</span>
