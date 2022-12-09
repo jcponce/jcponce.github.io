@@ -46,6 +46,9 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	<script src="js/google-analytics-ga4.js"></script>
 
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="mathcell/mathcell.js"></script>
+
 
 </head>
 
@@ -320,9 +323,358 @@ $$f(\mathbf{x}_1)\lt f(\mathbf{x}_0)\lt f(\mathbf{x}_2).$$
 
 
 			<section>
-				<h4>
-					22.2 Example: In 2d.
-				</h4>
+
+				<section data-auto-animate>
+					<h4 style="margin-top:-10px;font-size:80%">
+						22.2 Example: In 2d.
+					</h4>
+	
+					<div class="size-70">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								<strong>1.</strong> $f(x_1,x_2) = x_1^2+x_2^2.$
+								<span class="fragment" data-fragment-index="1">
+									Then 
+									$
+									\nabla f = \left(
+									\begin{array}{c}
+									2x_1\\
+									2x_2
+									\end{array}
+									\right)=\mathbf 0.
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Thus, the critical point at $(0,0)$ 
+									is a <em>minimum</em>.
+								</span>
+	
+							</p>
+							
+						</div>
+					</div>
+					
+					<div class="fragment" data-fragment-index="3">
+						<div class="mathcell" style="width:550px;height:470px;">
+							<script>
+							
+								var parent = document.currentScript.parentNode;
+	
+								var id = generateId();
+								parent.id = id;
+	
+								MathCell( id, [] );
+	
+								parent.update = function( id ) {
+	
+									  function z(x,y) { return [ x, y, ( x * x + y * y ) ]; }
+	
+									  var s = parametric( z, [-1.5,1.5,100], [-1.5,1.5,100],
+										 { colormap: (x,y) => colorFromHue( ( 1 - Math.sin(x * x + y * y) ) / 2 ) } );
+	
+									  var data = [ s ];
+	
+									  var config = { type: 'threejs',
+									                 viewpoint: [1,1,-0.1],
+													 axesLabels: true, 
+													 aspectRatio: [1,1,1] 
+													};
+	
+									  evaluate( id, data, config );
+								}
+	
+								parent.update( id );
+	
+								
+							</script>
+						</div>
+					</div>
+					
+				</section>
+				<section data-auto-animate>
+					<h4 style="margin-top:-10px;font-size:80%">
+						22.2 Example: In 2d.
+					</h4>
+	
+					<div class="size-70">
+						<div class="left-txt">
+							<span>
+								<strong>2.</strong> $f(x_1,x_2) = -x_1^2-x_2^2.$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								Then 
+								$
+								\nabla f = \left(
+								\begin{array}{c}
+								-2x_1\\
+								-2x_2
+								\end{array}
+								\right)=\mathbf 0.
+								$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Critical point at $(0,0)$ 
+								is a <em>maximum</em>.
+							</span>
+	
+							</p>
+							
+						</div>
+					</div>
+					
+					<div class="fragment" data-fragment-index="2">
+						<div class="mathcell" style="width:550px;height:470px;">
+							<script>
+							
+								var parent = document.currentScript.parentNode;
+	
+								var id = generateId();
+								parent.id = id;
+	
+								MathCell( id, [] );
+	
+								parent.update = function( id ) {
+	
+									  function z(x,y) { return [ x, y, ( -x * x - y * y ) ]; }
+	
+									  var s = parametric( z, [-1.5,1.5,100], [-1.5,1.5,100],
+										 { colormap: (x,y) => colorFromHue( ( 1 - Math.sin(-x * x - y * y) ) / 2 ) } );
+	
+									  var data = [ s ];
+	
+									  var config = { type: 'threejs' };
+	
+									  evaluate( id, data, config );
+								}
+	
+								parent.update( id );
+	
+								
+							</script>
+						</div>
+					</div>
+					
+				</section>
+				<section data-auto-animate>
+					<h4 style="margin-top:-10px;font-size:80%">
+						22.2 Example: In 2d.
+					</h4>
+	
+					<div class="size-70">
+						<div class="left-txt">
+							<span>
+								<strong>3.</strong> $f(x_1,x_2) = -x_1^2+x_2^2.$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								Then 
+								$
+								\nabla f = \left(
+								\begin{array}{r}
+								-2x_1\\
+								2x_2
+								\end{array}
+								\right)=\mathbf 0.
+								$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Critical point at $(0,0)$ 
+								is a <em>saddle point</em>.
+							</span>
+	
+							</p>
+							
+						</div>
+					</div>
+					
+					<div class="fragment" data-fragment-index="2">
+						<div class="mathcell" style="width:550px;height:470px;">
+							<script>
+							
+								var parent = document.currentScript.parentNode;
+	
+								var id = generateId();
+								parent.id = id;
+	
+								MathCell( id, [] );
+	
+								parent.update = function( id ) {
+	
+									  function z(x,y) { return [ x, y, ( -x * x + y * y ) ]; }
+	
+									  var s = parametric( z, [-1.5,1.5,100], [-1.5,1.5,100],
+										 { colormap: (x,y) => colorFromHue( ( 1 - Math.sin(-x * x + y * y) ) / 2 ) } );
+	
+									  var data = [ s ];
+	
+									  var config = { 
+										type: 'threejs',
+									    viewpoint: [1,0.8,0.9],
+										axesLabels: true, 
+										aspectRatio: [1,1,1] 
+									  };
+	
+									  evaluate( id, data, config );
+								}
+	
+								parent.update( id );
+	
+								
+							</script>
+						</div>
+					</div>
+					
+				</section>
+
+				<section  data-auto-animate>
+					<h4>
+						22.2 Example: In 2d.
+					</h4>
+	
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<strong>1.</strong> $f(x_1,x_2) = x_1^2+x_2^2.$
+								<span>
+									Then 
+									$
+									\nabla f = \left(
+									\begin{array}{c}
+									2x_1\\
+									2x_2
+									\end{array}
+									\right)=\mathbf 0.
+									$
+								</span>
+								<span>
+									Thus, the critical point at $(0,0)$ 
+									is a <em>minimum</em>.
+								</span>
+	
+							</p>
+							<p>
+								
+								<span>
+									<strong>2.</strong> $f(x_1,x_2) = -x_1^2-x_2^2.$
+								</span>
+								<span>
+									Then 
+									$
+									\nabla f = \left(
+									\begin{array}{c}
+									-2x_1\\
+									-2x_2
+									\end{array}
+									\right)=\mathbf 0.
+									$
+								</span>
+								<span>
+									Critical point at $(0,0)$ 
+									is a <em>maximum</em>.
+								</span>
+	
+							</p>
+							<p>
+								
+								<span>
+									<strong>3.</strong> $f(x_1,x_2) = -x_1^2+x_2^2.$
+								</span>
+								<span>
+									Then 
+									$
+									\nabla f = \left(
+									\begin{array}{r}
+									-2x_1\\
+									2x_2
+									\end{array}
+									\right)=\mathbf 0.
+									$
+								</span>
+								<span>
+									Critical point at $(0,0)$ 
+									is a <em>saddle point</em>.
+								</span>
+	
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						22.2 Example: In 2d.
+					</h4>
+	
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								<strong>1.</strong> $f(x_1,x_2) = x_1^2+x_2^2.$
+								<span class="fragment" data-fragment-index="1">
+									Then 
+									$
+									\nabla f = \left(
+									\begin{array}{c}
+									2x_1\\
+									2x_2
+									\end{array}
+									\right)=\mathbf 0.
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Thus, the critical point at $(0,0)$ 
+									is a <em>minimum</em>.
+								</span>
+	
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									<strong>2.</strong> $f(x_1,x_2) = -x_1^2-x_2^2.$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Then 
+									$
+									\nabla f = \left(
+									\begin{array}{c}
+									-2x_1\\
+									-2x_2
+									\end{array}
+									\right)=\mathbf 0.
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Critical point at $(0,0)$ 
+									is a <em>maximum</em>.
+								</span>
+	
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									<strong>3.</strong> $f(x_1,x_2) = -x_1^2+x_2^2.$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Then 
+									$
+									\nabla f = \left(
+									\begin{array}{r}
+									-2x_1\\
+									2x_2
+									\end{array}
+									\right)=\mathbf 0.
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Critical point at $(0,0)$ 
+									is a <em>saddle point</em>.
+								</span>
+	
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
 			</section>
 
 
