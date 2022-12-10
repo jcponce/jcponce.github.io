@@ -1096,7 +1096,7 @@ $$
 				</section>
 				<section data-auto-animate>
 					<h4>22.4 Example: $Q=ax^2+bxy+cy^2$</h4>
-					<div class="size-75">
+					<div class="size-80">
 						<div class="left-txt">
 							<p>
 								<span>
@@ -1104,11 +1104,16 @@ $$
 								</span>
 								<span>
 								\[
-								 Q= a \left[ u^2+ \frac{D}{4a^2}v^2 \right],\quad D = 4ac-b^2, u =  x+ \frac{b}{2a}y, v = y.
+								 Q= a \left[ u^2+ \frac{D}{4a^2}v^2 \right],\;\; D = 4ac-b^2, u =  x+ \frac{b}{2a}y, v = y.
 								\]
 								</span>
 
 							</p>
+						</div>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
+							
 							<p>
 								<span class="fragment" data-fragment-index="0">
 									<strong>Case 1.</strong>
@@ -1139,17 +1144,20 @@ $$
 				</section>
 
 				<section data-auto-animate>
-					<h4>22.4 Example: $Q=ax^2+bxy+cy^2$</h4>
-					<div class="size-80">
+					<h4 style="font-size:80%">22.4 Example: $Q=ax^2+bxy+cy^2$</h4>
+					<div class="size-85">
 						<div class="left-txt">
 							<p>
 								<span>
-								 In MATH2001: We analyse the same expression but in terms of matrices:
+								 In MATH2001: We analyse the same expression but using eigenvalues.
+								</span>
+								<span class="fragment"  data-fragment-index="0">
+									Consider $Q$ written as follows:
 								</span>
 							</p>
 							
 							<div class="r-stack">
-								<p  class="fragment fade-in-then-out"> 
+								<p  class="fragment fade-in-then-out"  data-fragment-index="0"> 
 									\[
 									Q = \frac{1}{2}
 									\left(
@@ -1171,7 +1179,7 @@ $$
 									\right)
 									\]
 								</p>
-								<p  class="fragment fade-in"> 
+								<p  class="fragment fade-in"  data-fragment-index="1"> 
 									\[
 									Q = \frac{1}{2}
 									\left(
@@ -1194,9 +1202,9 @@ $$
 									\]
 								</p>
 							</div>
-							<p>
+							<p class="fragment" data-fragment-index="2">
 								Thus $0 = \text{det}(H-\lambda I)$
-								<span>
+								<span class="fragment" data-fragment-index="3">
 									$
 									=\text{det}
 									\left(
@@ -1204,12 +1212,191 @@ $$
 										2a - \lambda & b\\
 										b & 2c - \lambda
 										\end{array}
-									 \right)
+									 \right).
+									$
+								</span>
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="4">
+								$\Ra$ $\lambda_{\pm} = (a+c)\pm \sqrt{(a+c)^2-D},\,$
+								<span class="fragment" data-fragment-index="5">
+									where 
+									$
+									\,D = \text{det}(H).
 									$
 								</span>
 							</p>
 						</div>
 					</div><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:80%">22.4 Example: $Q=ax^2+bxy+cy^2$</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							
+							<div>
+								
+								<p> 
+									\[
+									Q = \frac{1}{2}
+									\left(
+									   \begin{array}{cc}
+									   x & y
+									   \end{array}
+									\right)
+									\underbrace{\left(
+										\begin{array}{cc}
+										2a & b\\
+										b & 2c
+										\end{array}
+									 \right)}_{{\Large H}}
+									\left(
+									   \begin{array}{c}
+									   x \\
+									   y
+									   \end{array}
+									\right)
+									\]
+								</p>
+							</div>
+						</div>
+						<div>
+							<p>
+							$\Ra$ $\lambda_{\pm} = (a+c)\pm \sqrt{(a+c)^2-D},\,$
+							<span>
+								where 
+								$
+								\,D = \text{det}(H).
+								$
+							</span>
+						    </p>
+					    </div>
+					</div>
+					<br/>
+					<div class="size-95">
+						
+						<div>
+							<p > 
+								<span class="fragment" data-fragment-index="0">
+									$
+								Q = \frac{1}{2}\left(\lambda_{+}\zeta_{+}^2 + \lambda_{-}\zeta_{-}^2\right),
+								
+								$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+								$\;\;
+								\left(
+								   \begin{array}{c}
+								   \zeta_{+} \\
+								   \zeta_{-}
+								   \end{array}
+								\right)
+								=
+								P^T 
+								\left(
+								   \begin{array}{c}
+								   x \\
+								   y
+								   \end{array}
+								\right).
+								$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/>
+
+
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">22.4 Example: $Q=ax^2+bxy+cy^2$</h4>
+					
+					<div class="size-70">
+						
+						<div>
+							<p > 
+								<span>
+									$
+								Q = \frac{1}{2}\left(\lambda_{+}\zeta_{+}^2 + \lambda_{-}\zeta_{-}^2\right),
+								
+								$
+								</span>
+								<span>
+								$\;\;
+								\left(
+								   \begin{array}{c}
+								   \zeta_{+} \\
+								   \zeta_{-}
+								   \end{array}
+								\right)
+								=
+								P^T 
+								\left(
+								   \begin{array}{c}
+								   x \\
+								   y
+								   \end{array}
+								\right).
+								$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					<div class="size-85">
+
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								<strong>Case 1.</strong>
+								$D\lt 0$
+								<span class="fragment" data-fragment-index="1">
+									$\Ra$ $\lambda_{+}, \lambda_{-}$ have opposite sign
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\Ra$ Saddle.
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								<strong>Case 2.</strong>
+								$D= 0$
+								<span class="fragment" data-fragment-index="4">
+									$\Ra$ $ \lambda_{+}=0$ or $\lambda_{-} = 0$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\Ra$ Inconclusive.
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								<strong>Case 3.</strong>
+								$D\gt 0$
+								<span class="fragment" data-fragment-index="7">
+									$\Ra$ $4ac-b^2\gt 0$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\Ra$ $ac \gt 0$.
+								</span>
+
+							</p>
+							<ul>
+								<li class="fragment" data-fragment-index="9">
+									If $a\gt 0$, then $c\gt 0 $ and $\lambda_{\pm} \gt 0$ and we have a local minimum.
+								</li>
+								<li class="fragment" data-fragment-index="10">
+									If $a\lt 0$, then $c\lt 0 $ and $\lambda_{\pm} \lt 0$ and we have a local maximum.
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+					<br/><br/>
+
+
 				</section>
 
 			</section>
