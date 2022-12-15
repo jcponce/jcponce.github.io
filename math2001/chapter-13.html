@@ -190,7 +190,7 @@
         <section>
           <section data-auto-animate>
             <h4>13.1 Example: $\sin(x)$</h4>
-            <div class="size-70">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   Find the least squares approximation for $\sin x$ in the
@@ -200,7 +200,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-70">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="0">
@@ -209,7 +209,34 @@
                     $$\norm{\sin x - p(x)}^2 = \int_0^{\pi} \big(\sin x-  p(x) \big)dx$$
                     is minimal.
                   </span>
-                  <span class="fragment" data-fragment-index="1">
+                  
+                </p>
+              </div>
+            </div>
+            <br/>
+          </section>
+          <section data-auto-animate>
+            <h4>13.1 Example: $\sin(x)$</h4>
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  Find the least squares approximation for $\sin x$ in the
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$. Use the inner
+                  product $$ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $$
+                </p>
+              </div>
+            </div>
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  <span>
+                    Look for 
+                    $p(x)\in U$ such that 
+                    $$\norm{\sin x - p(x)}^2 = \int_0^{\pi} \big(\sin x-  p(x) \big)dx$$
+                    is minimal.
+                  </span>
+                  <span>
                     From <a href="chapter-12.html" target="_blank">Chapter 12</a>, the best approximation $p(x)$ for $\sin x$ is given
                     by 
                     $$p(x) = \mathrm{Proj}_{U}(\sin x).$$
@@ -217,7 +244,19 @@
                 </p>
               </div>
             </div>
-            <br/><br/>
+            <div class="size-80">
+              <div class="left-txt">
+                <p>
+                  
+                  <span>
+                    From <a href="chapter-12.html" target="_blank">Chapter 12</a>, the best approximation $p(x)$ for $\sin x$ is given
+                    by 
+                    $$p(x) = \mathrm{Proj}_{U}(\sin x).$$
+                  </span>
+                </p>
+              </div>
+            </div>
+            <br/>
           </section>
 
           <section data-auto-animate>
@@ -234,22 +273,22 @@
             </div>
             <div class="size-75">
               <div class="left-txt">
-                <p class="fragment" data-fragment-index="0">
+                <p>
                  We actually have two methods from Chapter 12.
                 </p>
                 <p>
-                  <span class="fragment" data-fragment-index="1">
+                  <span class="fragment" data-fragment-index="0">
                     <strong>Solution 1.</strong>
                   Use the Gram-Schmidt process to turn $\beta$ into 
                   an orthonormal basis $\{\hat{\bfe}_1, \hat{\bfe}_2, \hat{\bfe}_3\}$.
                   </span>
-                  <span class="fragment" data-fragment-index="2">
+                  <span class="fragment" data-fragment-index="1">
                     Then $p(x) =  \mathrm{Proj}_{U}(\sin x)$ is given by
                     \[
                     p(x) =  \mathrm{Proj}_{U}(\sin x) \qquad \qquad \qquad \qquad \qquad \qquad \qquad \;
                     \]
                   </span>
-                  <span class="fragment" data-fragment-index="3">
+                  <span class="fragment" data-fragment-index="2">
                     \[
                     =
                     \big\langle\sin x , \hat{\bfe}_1\big\rangle\hat{\bfe}_1 + 
@@ -257,7 +296,7 @@
                     \big\langle\sin x , \hat{\bfe}_3\big\rangle\hat{\bfe}_3.
                     \]
                   </span>
-                  <span class="fragment" data-fragment-index="4">
+                  <span class="fragment" data-fragment-index="3">
                     This gives the best approximation for $\sin x$ by functions from $U$.
                   </span>
                 </p>
@@ -436,7 +475,7 @@
                 </p>
               </div>
             </div>
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 
                 <p>
@@ -477,11 +516,74 @@
                   </span>
                   
                 </p>
+                
+              </div>
+            </div>
+            <br/><br/><br/>
+          </section>
+          <section data-auto-animate>
+            <h4 style="font-size:80%">13.1 Example: $\sin(x)$</h4>
+            <div class="size-40">
+              <div class="left-txt">
                 <p>
-                  <span class="fragment" data-fragment-index="0">
+                  Find the least squares approximation for $\sin x$ in the
+                  subspace of $C[0,\pi]$ spanned by $\{1,x,x^2\}$; with
+                   $ \langle \mathbf{p},\mathbf{q}\rangle =\int_0^\pi
+                  p(x)q(x)~dx. $
+                </p>
+              </div>
+            </div>
+            <div class="size-60">
+              <div class="left-txt">
+                
+                <p>
+                  <span>
+                    <strong>Solution 2.</strong>
+                  Set $p(x) = \alpha_1 + \alpha x + \alpha_3 x^2$.
+                  </span>
+                  <span>
+                    Then $\alpha_1, \alpha_2,\alpha_3$ are determined by
+                  </span>
+                </p>
+                <p>
+                  <span>
+                    \[
+                    \left(
+                    \begin{array}{ccc}
+                    \pi &  \dfrac{\pi^2}{2} &  \dfrac{\pi^3}{3}   \\
+                    \dfrac{\pi^2}{2}  & \dfrac{\pi^3}{3}  &  \dfrac{\pi^4}{4}  \\
+                    \dfrac{\pi^3}{3}  &  \dfrac{\pi^4}{4}  &  \dfrac{\pi^5}{5}  \\
+                    \end{array}  
+                    \right)
+                    \left(
+                    \begin{array}{c}
+                    \alpha_0 \\
+                    \alpha_1 \\
+                    \alpha_2 \\
+                    \end{array}  
+                    \right)
+                    =
+                    \left(
+                    \begin{array}{c}
+                    2\\
+                    \pi \\
+                    \pi^2-4 \\
+                    \end{array}  
+                    \right)
+                    \]
+                  </span>
+                  
+                </p>
+                
+              </div>
+            </div>
+            <div class="size-75">
+              <div class="left-txt">
+                <p>
+                  <span>
                     Solve this system to obtain the same result from <a href="#/2/1/6">Solution 1</a>. 😃
                   </span>
-                  <span class="fragment" data-fragment-index="1">
+                  <span>
                    That is:
                   \[
                   \alpha_1 = \frac{12\left(\pi^2-10\right)}{\pi^3},\;\;
@@ -634,7 +736,7 @@
           <section data-auto-animate>
             <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
             
-            <div class="size-65">
+            <div class="size-70">
               <div class="left-txt">
                 <p>
                   <strong>Proof:</strong>
@@ -651,7 +753,7 @@
                   $\big\langle \cos \left(kx\right), \cos\left(k'x\right) \big\rangle 
                   \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad  \qquad $<br/><br/>
                   <span>
-                    $ \qquad \qquad =   \ds 
+                    $ \qquad=   \ds 
                     \left\{
                       \begin{array}{ll}
                       \dfrac{1}{2} \left[ \dfrac{\sin \left( \left( k -k' \right)x \right)}{k-k'} + \dfrac{\sin \left( \left( k +k' \right)x \right)}{k+k'} \right]\Bigg|_0^{2\pi}, & k\neq k' \\
@@ -667,7 +769,7 @@
                       0, & k\neq k' \\
                       \pi, & k= k' \\
                       \end{array}
-                    \right. . \qquad\qquad\qquad\qquad\qquad \quad
+                    \right. . \qquad\qquad\qquad\qquad\qquad \;\;\qquad
                     $
                   </span>
                 </p>
@@ -688,7 +790,7 @@
           <section data-auto-animate>
             <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
             
-            <div class="size-70">
+            <div class="size-75">
               <div class="left-txt">
                 <p>
                   <strong>Proof:</strong>
@@ -744,7 +846,7 @@
           <section data-auto-animate>
             <h4 style="font-size:90%">13.2 Fourier coefficients</h4>
             
-            <div class="size-70">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   <strong>Proof:</strong>
@@ -784,7 +886,7 @@
                   $
                   \ds\left\{\frac{1}{\sqrt{ \pi }}\sin (kx )~|~ k=1, \ldots, n\right\}
                   $
-                  is $\perp$ to 
+                  is perpendicular to 
                   $
                   \ds\left\{\frac{1}{\sqrt{ \pi }}\cos (kx )~|~ k=1, \ldots, n\right\}
                   .$
