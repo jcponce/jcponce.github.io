@@ -102,7 +102,7 @@
 									Then the function
 									\[
 									\div \v = \frac{\partial v_1}{\partial x}+\frac{\partial v_2}{\partial
-									y}+\frac{\partial v_3}{\partial z}= \nabla \cdot \v
+									y}+\frac{\partial v_3}{\partial z}= \nabla \pd \v
 									\]
 									is called the divergence of $\v$.
 								</span>
@@ -160,7 +160,7 @@
 									$\div \v$
 								</td>
 								<td class="fragment" data-fragment-index="1">
-									$=\nabla \cdot \v$
+									$=\nabla \pd \v$
 								</td>
 							</tr>
 
@@ -249,7 +249,7 @@
 
 									<p>
 										We first approximate the flux across each of the four sides of the rectangle. In
-										each case the approximation will be $\v\cdot \n ~\Delta S$,
+										each case the approximation will be $\v\pd \n ~\Delta S$,
 										where we assume $\v$ is constant over
 										each edge. Also let $x^*\in [x, x + \Delta x]$ and
 										$y^*\in [y, y + \Delta y]$ represent chosen
@@ -261,7 +261,7 @@
 										and assume it is constant across the entire
 										edge. An outwardly pointing unit normal vector is $-\j$.
 										\[
-										\text{flux} \approx \v\left(x^*,y\right)\cdot (-\j)~\Delta x
+										\text{flux} \approx \v\left(x^*,y\right)\pd (-\j)~\Delta x
 										\]
 									</p>
 
@@ -304,7 +304,7 @@
 										and assume it is constant across the entire
 										edge. An outwardly pointing unit normal vector is $-\j$.
 										\[
-										\text{flux} \approx \v\left(x^*,y\right)\cdot (-\j)~\Delta x
+										\text{flux} \approx \v\left(x^*,y\right)\pd (-\j)~\Delta x
 										\]
 									</p>
 
@@ -313,7 +313,7 @@
 										and assume it is constant across the entire
 										edge. An outwardly pointing unit normal vector is $\i$.
 										\[
-										\text{flux} \approx \v\left(x+\Delta x,y^*\right)\cdot \left(~\i~\right)\Delta
+										\text{flux} \approx \v\left(x+\Delta x,y^*\right)\pd \left(~\i~\right)\Delta
 										y.
 										\]
 									</p>
@@ -356,7 +356,7 @@
 										and assume it is constant across the entire edge.
 										An outwardly pointing unit normal vector is $\j$.
 										\[
-										\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\cdot \left(~\j~\right)\Delta
+										\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\pd \left(~\j~\right)\Delta
 										x.
 										\]
 									</p>
@@ -366,7 +366,7 @@
 										and assume it is constant across the entire edge.
 										An outwardly pointing unit normal vector is $-\i$.
 										\[
-										\text{flux} \approx \v\left(x,y^*\right)\cdot (-\i)~\Delta y.
+										\text{flux} \approx \v\left(x,y^*\right)\pd (-\i)~\Delta y.
 										\]
 									</p>
 
@@ -405,14 +405,14 @@
 										<p>
 											<strong>Edge 1:</strong><br/>
 
-											$\;\;\text{flux} \approx \v\left(x^*,y\right)\cdot (-\j)~\Delta x.$
+											$\;\;\text{flux} \approx \v\left(x^*,y\right)\pd (-\j)~\Delta x.$
 
 										</p>
 
 										<p>
 											<strong>Edge 2:</strong><br/>
 
-											$\;\;\text{flux} \approx \v\left(x+\Delta x,y^*\right)\cdot
+											$\;\;\text{flux} \approx \v\left(x+\Delta x,y^*\right)\pd
 											\left(~\i~\right)\Delta
 											y.$
 
@@ -421,7 +421,7 @@
 										<p>
 											<strong>Edge 3:</strong><br/>
 
-											$\;\;\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\cdot
+											$\;\;\text{flux} \approx \v\left(x^*,y+ \Delta y\right)\pd
 											\left(~\j~\right)\Delta
 											x.
 											$
@@ -430,7 +430,7 @@
 										<p>
 											<strong>Edge 4:</strong><br/>
 
-											$\;\;\text{flux} \approx \v\left(x,y^*\right)\cdot (-\i)~\Delta y.$
+											$\;\;\text{flux} \approx \v\left(x,y^*\right)\pd (-\i)~\Delta y.$
 
 										</p>
 									</div>
@@ -481,9 +481,9 @@
 									</td>
 									<td>
 										$\displaystyle \approx \big( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^*
-										\right) \big) \cdot \i ~\Delta y +
+										\right) \big) \pd \i ~\Delta y +
 										\big( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \big)
-										\cdot \j ~\Delta x $
+										\pd \j ~\Delta x $
 									</td>
 								</tr>
 
@@ -496,19 +496,19 @@
 											<span class="fragment fade-in-then-out" data-fragment-index="2">
 												$\displaystyle =
 												\left( \v\left( x+\Delta x, y^* \right) - \v\left( x, y^* \right) \right)
-												\cdot \i ~ \frac{\Delta x}{\Delta x}~\Delta y +
+												\pd \i ~ \frac{\Delta x}{\Delta x}~\Delta y +
 												\left( \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y \right) \right)
-												\cdot \j ~ \Delta x~\frac{\Delta y}{\Delta y}$
+												\pd \j ~ \Delta x~\frac{\Delta y}{\Delta y}$
 											</span>
 											<span class="fragment fade-in" data-fragment-index="3">
 												$\displaystyle =
 												\left( \frac{\v\left( x+\Delta x, y^* \right) - \v\left( x, y^*
 												\right)}{\Delta
 												x} \right)
-												\cdot \i ~ \Delta x~\Delta y +
+												\pd \i ~ \Delta x~\Delta y +
 												\left( \frac{ \v\left( x^* , y + \Delta y \right) - \v\left( x^*, y
 												\right)}{\Delta y} \right)
-												\cdot \j ~ \Delta x~\Delta y$
+												\pd \j ~ \Delta x~\Delta y$
 											</span>
 										</div>
 									</td>
@@ -638,7 +638,7 @@
 								One can use the divergence to calculate the net outward flux
 								of $\v$ across a closed curve.
 								We have already seen that we can evaluate this quatity by
-								calculating $\displaystyle \oint_C \v \cdot \n ~dS.$
+								calculating $\displaystyle \oint_C \v \pd \n ~dS.$
 
 							</p>
 
@@ -871,7 +871,7 @@
 								Finally, the two ways of calculating the same
 								quantity must obviously be equal:
 								\[
-								\oint_C \v(x,y)\cdot \n ~dS = \iint_D \div\big(\v(x, y)\big)dA.
+								\oint_C \v(x,y)\pd \n ~dS = \iint_D \div\big(\v(x, y)\big)dA.
 								\]
 							</p>
 
@@ -940,7 +940,7 @@
 													$\text{Outward flux across $C$}$
 												</td>
 												<td>
-													$\displaystyle =\;\oint_C \v \cdot \n~dS $
+													$\displaystyle =\;\oint_C \v \pd \n~dS $
 
 												</td>
 											</tr>
@@ -949,7 +949,7 @@
 
 												</td>
 												<td class="fragment" data-fragment-index="0">
-													$\displaystyle =\;\iint_D \nabla \cdot \v~dA $
+													$\displaystyle =\;\iint_D \nabla \pd \v~dA $
 												</td>
 											</tr>
 										</table>
@@ -958,7 +958,7 @@
 									<p class="fragment" data-fragment-index="1">
 										First we have that
 										\[
-										\nabla \cdot \v = \displaystyle \frac{\partial }{\partial x} (xy) +
+										\nabla \pd \v = \displaystyle \frac{\partial }{\partial x} (xy) +
 										\frac{\partial }{\partial y} (xy) = x+y
 										\]
 									</p>
@@ -1001,7 +1001,7 @@
 													$\displaystyle \text{Outward flux}$
 												</td>
 												<td>
-													$\displaystyle = \iint_D \nabla \cdot \v ~dA = \iint_D(x+y)~dA$.
+													$\displaystyle = \iint_D \nabla \pd \v ~dA = \iint_D(x+y)~dA$.
 
 												</td>
 											</tr>
@@ -1084,7 +1084,7 @@
 												$\displaystyle \text{Outward flux}$
 											</td>
 											<td>
-												$\displaystyle = \oint_C \v \cdot \n~dS $
+												$\displaystyle = \oint_C \v \pd \n~dS $
 
 											</td>
 										</tr>
@@ -1094,7 +1094,7 @@
 
 											</td>
 											<td>
-												$\displaystyle = \iint_D \nabla \cdot \v ~dA $
+												$\displaystyle = \iint_D \nabla \pd \v ~dA $
 
 											</td>
 										</tr>

@@ -189,7 +189,7 @@
 									<span class="fragment" data-fragment-index="1">
 										Then
 									 \[
-									 \oint_C \F \cdot d\r = \iint_S \left(\curl \F \right) \cdot \n ~dS
+									 \oint_C \F \pd d\r = \iint_S \left(\curl \F \right) \pd \n ~dS
 									 \]
 									 where $\n$ is a unit normal vector fo $S$, and the integration
 									 around $C$ is taken in the direction using the
@@ -224,7 +224,7 @@
 												<span >
 													Then
 												 \[
-												 \oint_C \F \cdot d\r = \iint_S \left(\curl \F \right)\cdot \n ~dS
+												 \oint_C \F \pd d\r = \iint_S \left(\curl \F \right)\pd \n ~dS
 												 \]
 												 where $\n$ is a unit normal vector fo $S$, and the integration
 												 around $C$ is taken in the direction using the
@@ -312,49 +312,49 @@
 						<div class="r-stack">
 							<p class="fragment fade-out" data-fragment-index="0">
 								
-								$\displaystyle \oint_{C} \F \cdot d\r = \iint_{S}\left(\curl \F \right) \cdot \n ~dS$
+								$\displaystyle \oint_{C} \F \pd d\r = \iint_{S}\left(\curl \F \right) \pd \n ~dS$
 								
 							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="0">
 								$\displaystyle
-								\oint_{C} \F \cdot d\r = \iint_{D} \left(\curl \F \right) \cdot \k ~dA
+								\oint_{C} \F \pd d\r = \iint_{D} \left(\curl \F \right) \pd \k ~dA
 								$
 							</p>
 							<p class="fragment fade-in-then-out size-80" data-fragment-index="1">
 								$\displaystyle
-								\oint_{C} \F \cdot d\r = \iint_{D} \left( \left(\dfrac{\partial F_3}{\partial y} -
+								\oint_{C} \F \pd d\r = \iint_{D} \left( \left(\dfrac{\partial F_3}{\partial y} -
 								\dfrac{\partial F_2}{\partial z} \right)\i+
 								\left(\dfrac{\partial F_1}{\partial z} - \dfrac{\partial
 									F_3}{\partial x} \right)\j+ \left(\dfrac{\partial
 										F_2}{\partial x} - \dfrac{\partial F_1}{\partial y}
-								\right)\k \right) \cdot \k ~dA$
+								\right)\k \right) \pd \k ~dA$
 							</p>
 							<p class="fragment fade-in-then-out size-80" data-fragment-index="2">
 								$\displaystyle
-								\oint_{C} \F \cdot d\r = \iint_{D} \left( \left(0 -
+								\oint_{C} \F \pd d\r = \iint_{D} \left( \left(0 -
 								\dfrac{\partial F_2}{\partial z} \right)\i+
 								\left(\dfrac{\partial F_1}{\partial z} - 0 \right)\j+ \left(\dfrac{\partial
 										F_2}{\partial x} - \dfrac{\partial F_1}{\partial y}
-								\right)\k \right) \cdot \k ~dA
+								\right)\k \right) \pd \k ~dA
 								$
 							</p>
 							<p class="fragment fade-in-then-out size-90" data-fragment-index="3">
 								$\displaystyle
-								\oint_{C} \F \cdot d\r = \iint_{D} \left( \left(0 -
+								\oint_{C} \F \pd d\r = \iint_{D} \left( \left(0 -
 								0 \right)\i+
 								\left(0 - 0 \right)\j+ \left(\dfrac{\partial
 										F_2}{\partial x} - \dfrac{\partial F_1}{\partial y}
-								\right)\k \right) \cdot \k ~dA
+								\right)\k \right) \pd \k ~dA
 								$
 							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="4">
 								$\displaystyle
-								\oint_{C} \F \cdot d\r = \iint_{D} \left(\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right)\k \cdot \k ~dA
+								\oint_{C} \F \pd d\r = \iint_{D} \left(\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right)\k \pd \k ~dA
 								$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="5">
 								$\displaystyle
-								\oint_{C} \F \cdot d\r = \iint_{D}\left(\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right) dA
+								\oint_{C} \F \pd d\r = \iint_{D}\left(\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right) dA
 								$
 							</p>
 						</div>
@@ -367,7 +367,7 @@
 								since $\,\F(x,y) = F_1(x,y)\,\i + F_2(x,y)\,\j + 0 \,\k$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="5">
-								since $\, \k \cdot \k =1$
+								since $\, \k \pd \k =1$
 							</p>
 						</div>
 					</div>
@@ -380,7 +380,7 @@
 					</h5>
 					<div class="r-stack">
 						<p style="font-size:20px">
-							$\displaystyle \oint_{C} \F \cdot d\r = \iint_{D}\left(\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right) dA$
+							$\displaystyle \oint_{C} \F \pd d\r = \iint_{D}\left(\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \right) dA$
 						</p>
 					</div>
 					<div style="padding:15px">
@@ -438,7 +438,7 @@
 					  <div class="left-txt">
 						  <p>Here we must calculate
 							  \[
-							  \oint_C \F\cdot d\r \;\;\text{ and } \;\;\iint_S \nabla \times \F \cdot \n ~dS.
+							  \oint_C \F\pd d\r \;\;\text{ and } \;\;\iint_S \nabla \times \F \pd \n ~dS.
 							  \]
 						  </p>
 						  <p class="fragment" data-fragment-index="1">
@@ -484,7 +484,7 @@
 							  So 
 							  \[
 							 \begin{multline}
-							 \F\left(\r(t)\right) \cdot d\r  =  \left( \sin^3(t) + \cos^2(t) - 4\cos(t)\right. \\
+							 \F\left(\r(t)\right) \pd d\r  =  \left( \sin^3(t) + \cos^2(t) - 4\cos(t)\right. \\
 							   \left.+\,4 \cos(t)\sin (t)-\cos(t) \sin^2(t) \right)dt. \qquad\qquad
 							 \end{multline} 
 							 \]
@@ -510,10 +510,10 @@
 						  <table id="eqarray">
 							  <tr>
 								  <td>
-									  $\displaystyle \oint_C \F \cdot d\r$
+									  $\displaystyle \oint_C \F \pd d\r$
 								  </td>
 								  <td class="fragment" data-fragment-index="0">
-									  $\displaystyle = \int_0^{2\pi} \F\left(\r(t)\right) \cdot d\r $
+									  $\displaystyle = \int_0^{2\pi} \F\left(\r(t)\right) \pd d\r $
 								  </td>
 							  </tr>
 							  <tr>
@@ -560,7 +560,7 @@
 					  <div class="left-txt">
 						  
 						  <p>
-							  Now let's compute $\iint_S\nabla \times \F \cdot \n ~dS$. 
+							  Now let's compute $\iint_S\nabla \times \F \pd \n ~dS$. 
 							  <span class="fragment" data-fragment-index="0">
 								  First, we have that
 							  </span>
@@ -683,10 +683,10 @@
 						  <table id="eqarray">
 							  <tr  class="fragment" data-fragment-index="0">
 								  <td >
-									  $\displaystyle \iint_S\nabla \times \F \cdot \n ~dS$
+									  $\displaystyle \iint_S\nabla \times \F \pd \n ~dS$
 								  </td>
 								  <td>
-									  $\displaystyle =\iint_D \nabla \times \F \cdot (\r_x\times\r_y)~dx~dy$
+									  $\displaystyle =\iint_D \nabla \times \F \pd (\r_x\times\r_y)~dx~dy$
 								  </td>
 							  </tr>
 
@@ -711,7 +711,7 @@
 					  <div>
 						  <p class="fragment" data-fragment-index="3">
 							  
-							  $\displaystyle\iint_S\nabla \times \F \cdot \n ~dS = \int_{0}^{2\pi} \int_0^1 \left(1+2r\sin \theta\right) r~dr~d\theta$
+							  $\displaystyle\iint_S\nabla \times \F \pd \n ~dS = \int_{0}^{2\pi} \int_0^1 \left(1+2r\sin \theta\right) r~dr~d\theta$
 							  <span class="fragment" data-fragment-index="4">
 								  $=\large \pi.$
 							  </span>
@@ -740,8 +740,8 @@
 					  </div>
 					  <div>
 						  <p>
-							  $\displaystyle \oint_C  \F \cdot d\r $
-							  <span class="fragment" data-fragment-index="4">$\displaystyle \;= \iint_S\nabla \times \F \cdot \n ~dS $</span>
+							  $\displaystyle \oint_C  \F \pd d\r $
+							  <span class="fragment" data-fragment-index="4">$\displaystyle \;= \iint_S\nabla \times \F \pd \n ~dS $</span>
 							  <span class="fragment" data-fragment-index="5">
 								  $\,=\large \pi.$
 							  </span>
@@ -775,15 +775,15 @@
 								 <span class="fragment" data-fragment-index="0">
  								We have
 								 \[
-								 \oint_C \v\cdot d\r = \oint_C \v \cdot \T ~dS,
+								 \oint_C \v\pd d\r = \oint_C \v \pd \T ~dS,
 								 \]
 								 where $\T$ is a unit tangent vector in the direction 
 								 of the orientation of the curve. 
 								 </span>
 								 <span class="fragment" data-fragment-index="1">
 									The dot product 
-								 $\v \cdot \T$ is the component of $\v$ in the direction of $\T$ 
-								 (and hence the curve), so we can interpret $\oint_C \v \cdot \T~dS$  
+								 $\v \pd \T$ is the component of $\v$ in the direction of $\T$ 
+								 (and hence the curve), so we can interpret $\oint_C \v \pd \T~dS$  
 								 as a measure of the tendency of the fluid to move around $C$
 								 the curve $C$. We call this quantity the circulation of 
 								 $\v$ around $C$.
@@ -821,10 +821,10 @@
 							<table id="eqarray">
 								<tr>
 									<td class="fragment" data-fragment-index="0">
-										$\displaystyle \oint_{C_a} \v \cdot d\r$
+										$\displaystyle \oint_{C_a} \v \pd d\r$
 									</td>
 									<td class="fragment" data-fragment-index="0">
-										$ \displaystyle =\iint_{S_a} \curl \v \cdot \n ~dS $
+										$ \displaystyle =\iint_{S_a} \curl \v \pd \n ~dS $
 									</td>
 								</tr>
 							</table>
@@ -848,10 +848,10 @@
 							<table id="eqarray">
 								<tr>
 									<td>
-										$\displaystyle \oint_{C_a} \v \cdot d\r$
+										$\displaystyle \oint_{C_a} \v \pd d\r$
 									</td>
 									<td>
-										$ \displaystyle =\iint_{S_a} \curl \v \cdot \n ~dS $
+										$ \displaystyle =\iint_{S_a} \curl \v \pd \n ~dS $
 									</td>
 								</tr>
 
@@ -860,7 +860,7 @@
 										
 									</td>
 									<td class="fragment" data-fragment-index="0">
-										$ \displaystyle \approx \iint_{S_a} \curl \v(P_0) \cdot \n(P_0) ~dS $
+										$ \displaystyle \approx \iint_{S_a} \curl \v(P_0) \pd \n(P_0) ~dS $
 									</td>
 								</tr>
 
@@ -869,7 +869,7 @@
 										
 									</td>
 									<td class="fragment" data-fragment-index="1">
-										$ \displaystyle =  \curl \v(P_0) \cdot \n(P_0) \iint_{S_a}~dS $
+										$ \displaystyle =  \curl \v(P_0) \pd \n(P_0) \iint_{S_a}~dS $
 									</td>
 								</tr>
 
@@ -878,7 +878,7 @@
 										
 									</td>
 									<td class="fragment" data-fragment-index="2">
-										$ \displaystyle =  \curl \v(P_0) \cdot \n(P_0) \left( \pi a^2\right) $
+										$ \displaystyle =  \curl \v(P_0) \pd \n(P_0) \left( \pi a^2\right) $
 									</td>
 								</tr>
 
@@ -904,10 +904,10 @@
 							<table id="eqarray">
 								<tr>
 									<td>
-										$\displaystyle \oint_{C_a} \v \cdot d\r$
+										$\displaystyle \oint_{C_a} \v \pd d\r$
 									</td>
 									<td>
-										$ \displaystyle \approx \curl \v(P_0) \cdot \n(P_0) \left( \pi a^2\right) $
+										$ \displaystyle \approx \curl \v(P_0) \pd \n(P_0) \left( \pi a^2\right) $
 									</td>
 								</tr>
 
@@ -918,10 +918,10 @@
 							<table id="eqarray">
 								<tr class="fragment" data-fragment-index="0">
 									<td>
-										$\displaystyle \curl \v(P_0) \cdot \n(P_0) $
+										$\displaystyle \curl \v(P_0) \pd \n(P_0) $
 									</td>
 									<td>
-										$ \displaystyle \approx \frac{1}{\pi a^2} \oint_{C_a} \v \cdot d\r $
+										$ \displaystyle \approx \frac{1}{\pi a^2} \oint_{C_a} \v \pd d\r $
 									</td>
 								</tr>
 
@@ -952,7 +952,7 @@
 							<table id="eqarray">
 								<tr>
 									<td>
-										$\displaystyle \curl \v(P_0) \cdot \n(P_0) $
+										$\displaystyle \curl \v(P_0) \pd \n(P_0) $
 									</td>
 									<td>
 										$ \displaystyle \approx \frac{\text{circulation around disc}}{\text{area of disc}}$
@@ -965,7 +965,7 @@
 								<span class="fragment" data-fragment-index="1">
 									Indeed
 									\[
-									\curl \v(P_0) \cdot \n(P_0) = \lim_{a \to 0} \frac{1}{\pi a^2} \oint_{C_a} \v \cdot d\r 
+									\curl \v(P_0) \pd \n(P_0) = \lim_{a \to 0} \frac{1}{\pi a^2} \oint_{C_a} \v \pd d\r 
 									\]
 								</span>
 							</p>
@@ -991,7 +991,7 @@
 								<span>
 									Indeed
 									\[
-									\curl \v(P_0) \cdot \n(P_0) = \lim_{a \to 0} \frac{1}{\pi a^2} \oint_{C_a} \v \cdot d\r 
+									\curl \v(P_0) \pd \n(P_0) = \lim_{a \to 0} \frac{1}{\pi a^2} \oint_{C_a} \v \pd d\r 
 									\]
 								</span>
 							</p>
@@ -1039,7 +1039,7 @@
 								of Stokes' theorem, both with the same boundary curve $C$, 
 								then
 								\[
-								\iint_{S_1}\curl \F \cdot \n_1 ~dS = \oint_C \F \cdot d\r = \iint_{S_2}\curl \F \cdot \n_1 ~dS .
+								\iint_{S_1}\curl \F \pd \n_1 ~dS = \oint_C \F \pd d\r = \iint_{S_2}\curl \F \pd \n_1 ~dS .
 								\]
 							</p>
 							<br/><br/><br/><br/><br/><br/><br/>
@@ -1072,7 +1072,7 @@
 										<img width="80%" src="images/chapter-46/oiint.png">
 									</td>
 									<td style="width:70%">
-										$  \displaystyle =\iint_{S_1}\curl \F \cdot \n_1 ~dS + \iint_{S_2}\curl \F \cdot \n_2 ~dS $
+										$  \displaystyle =\iint_{S_1}\curl \F \pd \n_1 ~dS + \iint_{S_2}\curl \F \pd \n_2 ~dS $
 									</td>
 								</tr>
 								
@@ -1096,7 +1096,7 @@
 										<img width="80%" src="images/chapter-46/oiint.png">
 									</td>
 									<td style="width:70%">
-										$  \displaystyle =\iint_{S_1}\curl \F \cdot \n_1 ~dS + \iint_{S_2}\curl \F \cdot \n_2 ~dS $
+										$  \displaystyle =\iint_{S_1}\curl \F \pd \n_1 ~dS + \iint_{S_2}\curl \F \pd \n_2 ~dS $
 									</td>
 								</tr>
 								<tr>
@@ -1104,7 +1104,7 @@
 										
 									</td>
 									<td class="fragment" data-fragment-index="0">
-										$ \displaystyle =\oint_{C}\F \cdot d\r + \oint_{-C} \F \cdot d\r $
+										$ \displaystyle =\oint_{C}\F \pd d\r + \oint_{-C} \F \pd d\r $
 									</td>
 								</tr>
 
@@ -1113,7 +1113,7 @@
 										
 									</td>
 									<td class="fragment" data-fragment-index="1">
-										$ \displaystyle =\oint_{C} \F \cdot d\r - \oint_{C} \F \cdot d\r $
+										$ \displaystyle =\oint_{C} \F \pd d\r - \oint_{C} \F \pd d\r $
 										<span class="fragment" data-fragment-index="2">$=0,$</span>
 									</td>
 								</tr>

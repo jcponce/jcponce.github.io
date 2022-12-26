@@ -569,7 +569,7 @@
 
 									<p>
 										Consider the component of the flow
-										perpendicular to the net $\v\cdot \n = \norm{\v}\norm{\n}\cos\theta$, where $\n$
+										perpendicular to the net $\v\pd \n = \norm{\v}\norm{\n}\cos\theta$, where $\n$
 										is the unit vector
 										perpendicular to the surface.
 
@@ -580,7 +580,7 @@
 												$\Rightarrow \text{Flux}$
 											</td>
 											<td>
-												$=(\v \cdot \n) \times (\text{area of net})$
+												$=(\v \pd \n) \times (\text{area of net})$
 											</td>
 										</tr>
 										<tr>
@@ -709,7 +709,7 @@
 
 									<p>
 										Consider the component of the flow
-										perpendicular to the net $\v\cdot \n = \norm{\v}\norm{\n}\cos\theta$, where $\n=\i$
+										perpendicular to the net $\v\pd \n = \norm{\v}\norm{\n}\cos\theta$, where $\n=\i$
 										is the unit vector
 										perpendicular to the curve $C$.
 
@@ -720,7 +720,7 @@
 												$\Rightarrow \text{Flux}$
 											</td>
 											<td>
-												$=(\v \cdot \n) \times (\text{length of }C)$
+												$=(\v \pd \n) \times (\text{length of }C)$
 											</td>
 										</tr>
 										<tr>
@@ -752,7 +752,7 @@
 									<p class="fragment" data-fragment-index="6">
 										\[
 										\Rightarrow \text{Flux} =
-										(\v \cdot \n) \times (\text{length of }C)
+										(\v \pd \n) \times (\text{length of }C)
 										= -8 ~m^2/s.
 										\]
 									</p>
@@ -851,15 +851,15 @@
 
 							<p>
 								The component of $\v$ which is perpendicular to $C$ (over
-								$\Delta S$) is $\approx \v(P^*)\cdot \n (P^*)$.
+								$\Delta S$) is $\approx \v(P^*)\pd \n (P^*)$.
 							</p>
 						</div>
 
 						<p class="fragment" data-fragment-index="0">
-							flux through one arc $\approx \v(P^*)\cdot \n (P^*)~\Delta S$.
+							flux through one arc $\approx \v(P^*)\pd \n (P^*)~\Delta S$.
 						</p>
 						<p class="fragment" data-fragment-index="1">
-							$\Rightarrow $ total flux through $C$ $\approx \displaystyle \sum_{i}\v(P_i^*)\cdot \n
+							$\Rightarrow $ total flux through $C$ $\approx \displaystyle \sum_{i}\v(P_i^*)\pd \n
 							(P_i^*)~\Delta S_i$.
 						</p>
 
@@ -869,7 +869,7 @@
 								If we take the limit as $\Delta S$, we obtain an exact expression for the flux over the
 								entire curve C as a line integral:
 								\[
-								\text{Flux}= \int_C \v\cdot \n ~dS
+								\text{Flux}= \int_C \v\pd \n ~dS
 								\]
 								where $\n$ is a unit vector normal to $C$.
 							</p>
@@ -889,7 +889,7 @@
 								If we take the limit as $\Delta S$, we obtain an exact expression for the flux over the
 								entire curve C as a line integral:
 								\[
-								\text{Flux}= \int_C \v\cdot \n ~dS
+								\text{Flux}= \int_C \v\pd \n ~dS
 								\]
 								where $\n$ is a unit vector normal to $C$.
 							</p>
@@ -927,7 +927,7 @@
 							<p>
 								To evaluate the $2$D flux integral
 								\[
-								\int_C \v\cdot \n ~dS,
+								\int_C \v\pd \n ~dS,
 								\]
 								we need to parameterise $C$ and express all quantities in the line integral in terms of
 								this parameterisation (similar to the computation of line integral in the definition of
@@ -992,10 +992,10 @@
 									Evaluate the $2$D flux integral as a definite integral in terms of the parameter
 									$t$:
 									<div style="text-align:center" class="fragment" data-fragment-index="2">
-										$\displaystyle \int_C \v \cdot \n ~dS= \int_a^b \left[ \v\left(\r(t)\right)\cdot
+										$\displaystyle \int_C \v \pd \n ~dS= \int_a^b \left[ \v\left(\r(t)\right)\pd
 										\dfrac{\r'(t)\times \k}{\norm{\r'(t)}}\right]\norm{\r'(t)}~dt$<br />
 										<span class="fragment" data-fragment-index="3">
-											$\displaystyle \quad\;\,= \int_a^b \v\left(\r(t)\right)\cdot
+											$\displaystyle \quad\;\,= \int_a^b \v\left(\r(t)\right)\pd
 											\left( \r'(t) \times \k\right) dt$.
 										</span>
 									</div>
@@ -1040,10 +1040,10 @@
 									Evaluate the $2$D flux integral as a definite integral in terms of the parameter
 									$t$:
 									<div style="text-align:center" >
-										$\displaystyle \int_C \v \cdot \n ~dS= \int_a^b \left[ \v\left(\r(t)\right)\cdot
+										$\displaystyle \int_C \v \pd \n ~dS= \int_a^b \left[ \v\left(\r(t)\right)\pd
 										\dfrac{\r'(t)\times \k}{\norm{\r'(t)}}\right]\norm{\r'(t)}~dt$<br />
 										<span>
-											$\displaystyle \quad\;\,= \int_a^b \v\left(\r(t)\right)\cdot
+											$\displaystyle \quad\;\,= \int_a^b \v\left(\r(t)\right)\pd
 											\left( \r'(t) \times \k\right) dt$.
 										</span>
 									</div>
@@ -1137,7 +1137,7 @@
 								<td style="width:70%">
 
 									<p>
-										Flux $\displaystyle =\int_C\v \cdot \n ~dS=\;?\;\;$
+										Flux $\displaystyle =\int_C\v \pd \n ~dS=\;?\;\;$
 										<span class="fragment" data-fragment-index="0">
 											Parametrise the curve $C$:
 											\[
@@ -1155,12 +1155,12 @@
 									<table id="eqarray">
 										<tr class="fragment" data-fragment-index="2">
 											<td>
-												$\v\cdot \n $
+												$\v\pd \n $
 											</td>
 											<td>
-												$=\left(-y~\i + x~\j\right)\cdot \i$
+												$=\left(-y~\i + x~\j\right)\pd \i$
 												<span class="fragment" data-fragment-index="3">
-													$=\left(-t~\i+2~\j\right)\cdot \i$
+													$=\left(-t~\i+2~\j\right)\pd \i$
 												</span>
 												<span class="fragment" data-fragment-index="4">$= -t$.</span>
 											</td>
@@ -1176,9 +1176,9 @@
 												$\Rightarrow \text{Flux} $
 											</td>
 											<td>
-												$=\displaystyle \int_C \v\cdot \n~dS$
+												$=\displaystyle \int_C \v\pd \n~dS$
 												<span class="fragment" data-fragment-index="6">
-													$=\displaystyle \int_2^6 \v\cdot \n ~\norm{\r'(t)}~dt$
+													$=\displaystyle \int_2^6 \v\pd \n ~\norm{\r'(t)}~dt$
 												</span>
 											</td>
 										</tr>
@@ -1231,7 +1231,7 @@
 							<p class="fragment" data-fragment-index="0">
 								The net outward flux of $\v = v_1~\i + v_2~\j$ across $C$ is given by
 								\[
-								\text{Net outward flux} = \oint_C \v \cdot \n ~dS,
+								\text{Net outward flux} = \oint_C \v \pd \n ~dS,
 								\]
 								where $\n$ is a unit vector normal to $C$,
 								directed outward from the region bounded by $C$.
@@ -1315,7 +1315,7 @@
 								<td style="width:80%">
 
 									<p>
-										Net Outward Flux $\displaystyle =\oint_C\v \cdot \n ~dS=\;?\;\;$
+										Net Outward Flux $\displaystyle =\oint_C\v \pd \n ~dS=\;?\;\;$
 										<span class="fragment" data-fragment-index="0">
 											Where
 											$
@@ -1330,10 +1330,10 @@
 									<table id="eqarray">
 										<tr class="fragment" data-fragment-index="1">
 											<td>
-												$\displaystyle \oint_C\v \cdot \n ~dS$
+												$\displaystyle \oint_C\v \pd \n ~dS$
 											</td>
 											<td>
-												$\displaystyle =\int_{C_1}\v \cdot \n_1 ~dS+\int_{C_2}\v \cdot \n_2
+												$\displaystyle =\int_{C_1}\v \pd \n_1 ~dS+\int_{C_2}\v \pd \n_2
 												~dS$.
 
 											</td>
@@ -1456,14 +1456,14 @@
 								<td style="width:80%">
 
 									<p>
-										$$\Rightarrow \v \cdot \n_1 = 4 \cos^2 t \sin t + 4 \cos t \sin^2 t, \quad dS =
+										$$\Rightarrow \v \pd \n_1 = 4 \cos^2 t \sin t + 4 \cos t \sin^2 t, \quad dS =
 										2 ~dt$$
 									</p>
 
 									<table id="eqarray">
 										<tr class="fragment" data-fragment-index="0">
 											<td>
-												$ \displaystyle \int_{C_1} \v\cdot \n_1~dS $
+												$ \displaystyle \int_{C_1} \v\pd \n_1~dS $
 											</td>
 											<td>
 												$\displaystyle = \int_0^{\pi} \big( 4 \cos^2 t \sin t + 4 \cos t \sin^2
@@ -1610,14 +1610,14 @@
 								<td style="width:80%">
 
 									<p>
-										$$\Rightarrow \;\v \cdot \n_2 = \left( 0~\i + 0~\j\right)\cdot (-\j)=0, \quad dS =
+										$$\Rightarrow \;\v \pd \n_2 = \left( 0~\i + 0~\j\right)\pd (-\j)=0, \quad dS =
 										dt$$
 									</p>
 
 									<table id="eqarray">
 										<tr class="fragment" data-fragment-index="0">
 											<td>
-												$\Rightarrow \; \displaystyle \int_{C_2} \v\cdot \n_2~dS $
+												$\Rightarrow \; \displaystyle \int_{C_2} \v\pd \n_2~dS $
 											</td>
 											<td>
 												$ = 0$.
@@ -1629,8 +1629,8 @@
 									</table>
 
 									<p class="fragment" data-fragment-index="1">
-										$$\Rightarrow \text{Net Outward Flux} = \int_{C_1} \v\cdot \n_2+ \int_{C_2}
-										\v\cdot \n_2 = \frac{16}{3}.$$
+										$$\Rightarrow \text{Net Outward Flux} = \int_{C_1} \v\pd \n_2+ \int_{C_2}
+										\v\pd \n_2 = \frac{16}{3}.$$
 									</p>
 
 
