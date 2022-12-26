@@ -77,7 +77,7 @@
 						snorm: ["{\\|#1\\|}", 1],
 						norm: ["{\\|#1\\|}", 1],
 						epsilon: "\\varepsilon",
-						//cdot: "\\small\\bullet",
+						pd: "\\boldsymbol{\\cdot}",
 						//cdot: "{\\textstyle \\,\\bullet\\,}",
 						//cdot: "{\\scriptstyle \\,\\bullet\\,}",
 					}
