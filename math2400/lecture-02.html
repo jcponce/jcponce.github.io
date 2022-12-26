@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH2400/7400 - Lecture 1</title>
+	<title>MATH2400/7400 - Lecture 2</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -57,881 +57,17 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Lecture 1</p>
-			</section>
-
-			<section>
-
-				<section data-auto-animate>
-					<h3>1.1 Basic properties of $\R$</h3>
-					
-					<div class="left-txt size-90">
-						<p class="fragment" data-fragment-index="0"><strong>Definition 1.1.1 </strong> (Field Axioms). 
-							On the set $\R$ of real numbers there are two operations
-							$$+:\R\times \R \rightarrow \R \quad  \text{and} \quad  \boldsymbol{\cdot}  :\R\times \R \ra \R$$
-							called <em>addition</em> and <em>multiplication</em>, respectively.
-						</p>
-						
-					</div>
-	
-					<br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h3 style="font-size:70%">1.1 Basic properties of $\R$</h3>
-					
-					<div style="font-size:60%;margin-top:-10px">
-						<p>👉 &nbsp; $+:\R\times \R \rightarrow \R$ and $\boldsymbol{\cdot}  :\R\times \R \ra \R$
-						</p>
-					</div>
-
-					<div class="left-txt"  style="font-size:82%;margin-top:-10px">
-						<p>These operations satisfy the following properties:</p>
-						<p class="fragment" data-fragment-index="0">(A1) If $x \in F$ and $y \in F$, then $x+y \in F$.
-						</p>
-						<p class="fragment" data-fragment-index="1">(A2) (commutativity)
-							$x+y = y+x$ for all $x,y \in F$.
-						</p>
-						<p class="fragment" data-fragment-index="2">(A3) (associativity)}
-							$(x+y)+z = x+(y+z)$ for all $x,y,z \in F$.
-						</p>
-						<p class="fragment" data-fragment-index="3">(A4) There exists an element $0 \in F$ such that
-							$0+x = x$ for all $x \in F$.
-						</p>
-						<p class="fragment" data-fragment-index="4">(A5) For every element $x\in F$, there exists an element $-x \in F$
-							such that $x + (-x) = 0$.
-						</p>
-					</div>
-
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h3 style="font-size:60%">1.1 Basic properties of $\R$</h3>
-					
-					<div style="font-size:60%;margin-top:-10px">
-						<p>👉 &nbsp; $+:\R\times \R \rightarrow \R$ and $\boldsymbol{\cdot}  :\R\times \R \ra \R$
-						</p>
-					</div>
-
-					<div class="left-txt" style="font-size:82%;margin-top:-15px">
-					<p>(M1) If $x \in F$ and $y \in F$, then $xy \in F$.
-					</p>
-					<p class="fragment" data-fragment-index="0">(M2) (commutativity)
-						$xy = yx$ for all $x,y \in F$.
-					</p>
-					<p class="fragment" data-fragment-index="1">(M3) (associativity)
-						$(xy)z = x(yz)$ for all $x,y,z \in F$.
-					</p>
-					<p class="fragment" data-fragment-index="2">(M4) There exists an element $1 \in F$ (and $1 \not= 0$) such that
-						$1x = x$ for all $x \in F$.
-					</p>
-					<p class="fragment" data-fragment-index="3">(M5) For every $x\in F$ such that $x \not= 0$ there exists an element
-						$\dfrac{1}{x} \in F$
-						such that $x\left(\dfrac{1}{x}\right) = 1$.
-					</p>
-					<p class="fragment" data-fragment-index="4">(D) (distributive law) $x(y+z) = xy+xz$
-						for all $x,y,z \in F$.
-					</p>
-					</div>
-
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h3>1.1 Basic properties of $\R$</h3>
-					<div class="left-txt size-80">
-						<p class="fragment" data-fragment-index="0">
-							The previous definition establishes that $\R$ is a <strong>field</strong>. 
-							<span class="fragment" data-fragment-index="1">
-								The properties listed here should be familiar to you. 
-							
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								The first five are concerned with addition, the next five with 
-							multiplication, and the last one connects the two operations. 
-							</span>
-							
-						</p>
-
-						<p class="fragment" data-fragment-index="3">
-							The point of the list is that all the familiar techniques of
-							algebra can be derived from these nine properties, in much the 
-							same spirit that the theorems of Euclidean geometry can be deduced 
-							from the five basic axioms stated by Euclid in his <em>Elements</em>.
-						</p>
-						<br/><br/>
-					</div>
-				</section>
-
-			</section>
-
-			<section>
-
-				<section data-auto-animate>
-					<h4>Example 1.1.2</h4>
-					<div class="left-txt" style="font-size:90%">
-						<p>Claim: If $x\in \R$, then  $0\pd x = 0$.</p>
-					</div>
-	
-					<div class="left-txt size-85">
-						<p class="fragment" data-fragment-index="0">
-							<strong>Proof.</strong> 
-							<span class="fragment" data-fragment-index="1">
-								We can prove this by noting that 
-								for every $x\in \R$, 
-							</span>
-						</p>
-					</div>
-					<div class="size-85">
-						<p class="fragment" data-fragment-index="2">$x\pd x $
-							<span class="fragment" data-fragment-index="3">$= x\pd (0+x) $</span>
-							<span class="fragment" data-fragment-index="4">
-								$= 0\pd x + x\pd x,$ 
-							</span>
-							
-						</p>
-					</div>
-					<div class="left-txt size-85">
-						<p class="fragment" data-fragment-index="5">
-							<span>
-								using (A4), (D) and (M2).
-							</span>
-						</p>
-					</div>
-					<br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>Example 1.1.2</h4>
-					<div class="left-txt" style="font-size:90%">
-						<p><strong>Claim:</strong> If $x\in \R$, then  $0\pd x = 0$.</p>
-					</div>
-	
-					<div class="left-txt size-85">
-						<p >
-							<strong>Proof.</strong> Then
-							
-						</p>
-					</div>
-				
-					
-					<div class="size-85">
-						<table id="eqarray">
-							<tr>
-								<td>
-									$\;x\pd x  + (-x \pd x)$
-								</td>
-								<td class="fragment" data-fragment-index="0">
-									$ =\;( 0\pd x + x\pd x) + (-x \pd x)$
-								</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="1">
-								<td style="text-align:right">
-									$0$
-								</td>
-								<td>
-									$ =\;( 0\pd x + x\pd x)+ (-x \pd x) \;\;\,\text{by (A5)}$
-								</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="2">
-								<td style="text-align:right">
-									$0$
-								</td>
-								<td>
-									$ =\;0\pd x + \big(x\pd x + (-x \pd x) \big) \;\, \text{by (A3)}$
-								</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="3">
-								<td style="text-align:right">
-									$0$
-								</td>
-								<td>
-									$ =\;0\pd x + 0\qquad \quad \qquad \quad  \text{by (A5)}$
-								</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="4">
-								<td style="text-align:right">
-									$0$
-								</td>
-								<td>
-									$ =0\pd x \,\;\quad\quad  \qquad  \qquad \quad \,\,\text{by (A4)}$
-								</td>
-							</tr>
-						</table>
-
-						<div class="left-txt fragment" data-fragment-index="5">
-							<p>
-								Therefore, $0\pd x = 0$. $\qquad \blacksquare$
-							</p>
-						</div>
-					</div>
-					<br/>
-
-
-				</section>
-
-				
-
-
-				<section>
-					<h4>Example 1.1.2</h4>
-
-					<div class="left-txt">
-						<p>The set of natural numbers $$\N := \{ 0, 1, 2, 3, \ldots\}$$ 
-
-							<span class="left-txt fragment" data-fragment-index="0">
-								is not a field. 
-							</span>
-							<span class="left-txt fragment" data-fragment-index="1">
-								It does not satisfy (A5) and (M5).
-							</span>
-						</p>
-					</div>
-					<br/><br/><br/>
-				</section>
-
-				<section>
-					<h4>Example 1.1.3</h4>
-
-					<div class="left-txt">
-						<p>The set of integer numbers $$\Z := \left\{ \ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\right\}$$ 
-							<span class="left-txt fragment" data-fragment-index="0">
-								is not a field. 
-							</span>
-							<span class="left-txt fragment" data-fragment-index="1">
-								It does not satisfy (M5).
-							</span>
-						</p>
-						<p class="left-txt fragment" data-fragment-index="2">
-							For instance, there is no $x\in \Z$ such that $2x = 1$.
-						</p>
-					</div>
-					<br/><br/><br/>
-				</section>
-
-				<section>
-					<h4>Example 1.1.4</h4>
-
-					<div class="left-txt">
-						<p>The set $$\Q := \left\{ \frac{a}{b} : a,b \in \Z, b\neq 0\right\}$$
-							<span class="left-txt fragment" data-fragment-index="0">
-								of rational numbers satisfies all the Field Axioms. 
-							</span>
-							<span class="left-txt fragment" data-fragment-index="1">
-								Therefore $\Q $ is a field.
-							</span>
-						</p>
-					</div>
-					<br/><br/><br/>
-				</section>
-
+				<p>Lecture 2</p>
 			</section>
 
 			
-			<section>
+			
 
-				<section data-auto-animate>
-					<h3>1.1.2 Order Axioms</h3>
-					
-					<div class="left-txt">
-						<p class="fragment" data-fragment-index="0">
-							Other important properties of $\R$ are given by the order relation $\lt$. 
-						</p>
-						
-						
-					</div>
-	
-					<br/><br/><br/><br/>
-				</section>
+			<section>
+				<h3 style="font-size:100%">1.3 Archimedean property &amp; Density of $\Q$</h3>
 				
-				<section data-auto-animate>
-					<h3>1.1.2 Order Axioms</h3>
-					
-					<div class="left-txt size-90">
-						
-						<p><strong>Definition 1.1.2. </strong>  
-							There is an order relation $\lt$ in $\R$ with the following properties:
-						</p>
-						<p class="fragment" data-fragment-index="0">
-							(O1) (trichotomy) For all $x, y \in F$, exactly one of
-							$x \lt y$, $x=y$, or $y \lt x$ holds. 
-						</p> 
-						<p class="fragment" data-fragment-index="1">
-							(O2) (transitivity) If $x,y,z \in F$ are such that $x \lt y$ and $y \lt z$, then $x \lt z$. 
-						</p>
-						<p class="fragment" data-fragment-index="2">
-							(O3) For $x,y,z \in F$, $x \lt y$ implies $x+z \lt y+z$. 
-						</p> 
-						<p class="fragment" data-fragment-index="3">
-							(O4) For $x,y \in F$, $x > 0$ and $y \gt 0$ implies $xy > 0$.
-						</p>
-						
-					</div>
-	
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h3>1.1.2 Order Axioms</h3>
-					
-					<div class="left-txt">
-						
-						<p>
-							For $x\in \R$, if $x\gt 0$, we say that $x$ is <strong>
-								positive
-							</strong>. <br/><br/>
-							<span class="fragment" data-fragment-index="0">
-								If $x\lt0$, we say that $x$ is <strong>negative</strong>. 
-							</span><br/><br/>
-							<span class="fragment" data-fragment-index="1">
-								We also 
-							say $x$ is <strong>nonnegative</strong> if $x\geq 0$, and 
-							<strong>nonpositive</strong> if $x\leq 0$.
-							</span>
-						</p>
-						
-						
-					</div>
-	
-					<br/><br/>
-				</section>
-
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h3 class="fragment" data-fragment-index="3">1.2 The least-upper-bound property</h3>
-	
-					<p class="fragment" data-fragment-index="0">Do the Field and Order Axioms <br/>characterise the real numbers? </p>
-					<p class="fragment" data-fragment-index="1">What makes $\R$ so special? 🤔</p>
-					<br/><br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h3>1.2 The least-upper-bound property</h3>
-
-					<div class="size-90">
-						<div class="left-txt">
-							<p><strong>Definition 1.2.1. </strong>Let $A \subset \R$.</p>
-						</div>
-						<ol >
-							<li class="fragment" data-fragment-index="0">If there exists a number $b \in \R$ such that $x \leq b$ for
-								 all $x \in A$,
-								then we say $A$ is <strong>bounded above</strong> and $b$
-								is an <strong>upper bound</strong> of $A$.
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								If there exists a number $b \in \R$ such that
-								$x \geq b$ for all $x \in A$,
-								then we say $A$ is <strong>bounded below</strong> and $b$
-								is a <strong>lower bound</strong> of $A$.
-							</li>
-							
-						</ol>
-					</div>
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h3 style="font-size:80%">1.2 The least-upper-bound property</h3>
-
-					<div style="font-size:81%">
-						<div class="left-txt">
-							<p style="font-size:80%"><strong>Definition 1.2.1. </strong>Let $A \subset \R$.</p>
-						</div>
-						<ol  start="3">
-							<li>If there exists an upper bound $b_0$ of $A$ such that whenever
-								$b$ is an upper bound for $A$ we have $b_0 \leq b$, then $b_0$
-								is called the <strong>least upper bound</strong> or
-								the <strong>supremum</strong>
-								of $A$.    We write
-								\begin{equation*}
-								\sup\, A := b_0  .
-								\end{equation*}
-							</li>
-							<li class="fragment" data-fragment-index="0">
-								Similarly, if there exists a lower bound $b_0$ of $A$ such that whenever
-								$b$ is a lower bound for $A$ we have $b_0 \geq b$, then $b_0$
-								is called the <strong>greatest lower bound</strong> or
-								the <strong>infimum</strong>
-								of $A$.  We write
-								\begin{equation*}
-								\inf\, A := b_0  .
-								\end{equation*}
-							</li>
-							
-						</ol>
-					</div>
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Upper & Lower bound, Supremum & Infimum</h4>
-					<br/>
-					<div>
-	
-						<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/upper-lower-bounds.png" />
-	
-					</div>
-					
-					<div class="left-txt size-80">
-						<p class="fragment" data-fragment-index="0">
-							When a set $A$ is both bounded above 
-							and bounded below, we say simply that
-							$A$ is <strong>bounded</strong>.</p>
-					</div>
-					<br/><br/>
-				</section>
-
-
-			</section>
-
-
-			<section>
-				<section data-auto-animate>
-					<h4>Example 1.2.1</h4>
-					<div class="size-85">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">Let 
-								$A:= \left\{x\in \R : 0\leq x \leq 1 \right\} = [0,1].$
-							</p>
-							<p class="fragment" data-fragment-index="1">
-								Then 
-								$\sup\, A =  1 $ and $\inf\, A = 0$
-								with $1\in A$ and $0 \in A$.
-							</p>
-							<p class="fragment" data-fragment-index="2">The set
-								$$B:= \left\{x\in \R : 0\lt x \lt 1 \right\} = (0,1).$$
-								has the same upper and lower bounds
-								<span class="fragment" data-fragment-index="3">
-									$$\sup\, B =  1 \quad \text{and} \quad \inf\, B = 0,$$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									but in this case $1\notin B$ and $0 \notin B$.
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Example 1.2.2</h4>
-					<div class="size-95">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">The set 
-								$A := \{ x \in \Q : x \lt 1 \}$ 
-								<span class="fragment" data-fragment-index="1">
-									has a least upper bound of 1,
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									but 1 is not in the set $A$ itself.
-								</span>
-
-							</p>
-							<br/>
-							
-							<p class="fragment" data-fragment-index="3">
-								The set 
-								$B := \{ x \in \Q : x \leq 1 \}$
-								also has an upper bound of 1,
-								<span class="fragment" data-fragment-index="4">
-									and in this case $1 \in B$. 
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Example 1.2.3</h4>
-					<div class="size-95">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">The set 
-								$A := \{ x \in \Q : x \geq 0 \}$
-								<span class="fragment" data-fragment-index="1">
-									has no upper bound (why?) 
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									and therefore
-								it cannot have a least upper bound. 
-								</span>
-
-							</p>
-							<br/>
-							
-							<p class="fragment" data-fragment-index="3">
-								This set does have a greatest lower bound: $0$.
-								
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Example 1.2.5</h4>
-					<div class="size-90">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">Let 
-								$A:= \left\{ \dfrac{1}{n} : n \in \N \right\}.$
-							</p>
-							<p class="fragment" data-fragment-index="1">
-								The set $A$ is bounded above and below. 
-							</p>
-							<p class="fragment" data-fragment-index="2">Successful candidates for an upper bound 
-								include $$3,\,2,\, \text{ and }\, 3/2.$$
-							</p>
-							<p class="fragment" data-fragment-index="3">For the least upper bound, we claim ${\sup\, A = 1}$. </p>
-						</div>
-					</div>
-					<br/>
-				</section>
-				<section data-auto-animate>
-					<h4>Example 1.2.5</h4>
-					<div class="size-80">
-						<div class="left-txt">
-							<p>Let 
-								$A:= \left\{ \dfrac{1}{n} : n \in \N \right\}.$
-							</p>
-							<p>For the least upper bound, we claim ${\sup\, A = 1}$. </p>
-							
-						</div>
-					</div>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>An attempt to prove this claim: 
-								<span class="fragment" data-fragment-index="0">
-									Assume we already have other opper
-								bound $b$.
-								</span>
-							</p>
-							<p class="fragment" data-fragment-index="2">Because $1 \in A$ and $b$ is an upper bound for $A$, we must have $1\leq b$. 
-							</p>
-							<p class="fragment" data-fragment-index="3">Although we do not quite have the tools we need for a rigorous proof, it should be somewhat apparent that $\inf\, A = 0$.
-
-							</p>
-
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Example 1.2.5</h4>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>Consider now the set 
-								$$A:= \left\{ x\in \Q : x^2\lt 2 \right\}$$
-								<span class="fragment" data-fragment-index="0">
-									and pretend for the moment that our "world"
-									consists only of rational numbers. 
-								</span>
-							</p>
-
-							<p class="fragment" data-fragment-index="1">The set $A$ is certainly bounded above.</p>
-							
-							<p class="fragment" data-fragment-index="2">
-								Taking $b = 2$ works, 
-								<span class="fragment" data-fragment-index="3">
-								  $b = 3/2$ as well. 
-								</span>
-							</p>
-							<p  class="fragment" data-fragment-index="4">
-								But notice what happens as we go in search of the least upper bound.
-							</p>
-							
-						</div>
-					</div>
-					
-					<br/>
-				</section>
-				<section data-auto-animate>
-					<h4>Example 1.2.5</h4>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>Consider now the set 
-								$$A:= \left\{ x\in \Q : x^2\lt 2 \right\}$$
-								<span>
-									and pretend for the moment that our "world"
-									consists only of rational numbers. 
-								</span>
-							</p>
-
-							
-							
-							<p class="fragment" data-fragment-index="0">
-								We might try $b=142/100$, 
-								<span class="fragment" data-fragment-index="1">
-								  which is indeed an upper bound,
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									but
-									then we discover that $b = 1415/1000$ is an upper bound that is smaller still.
-								</span>
-							</p>
-							<p  class="fragment" data-fragment-index="4">
-								Is there a smallest one?
-							</p>
-							
-						</div>
-					</div>
-					
-					<br/>
-				</section>
-				<section data-auto-animate>
-					<h4>Example 1.2.5</h4>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>Consider now the set 
-								$$A:= \left\{ x\in \Q : x^2\lt 2 \right\}$$
-								<span>
-									and pretend for the moment that our "world"
-									consists only of rational numbers. 
-								</span>
-							</p>
-
-							<p>
-								Is there a smallest one?
-							</p>
-							
-							<p class="fragment" data-fragment-index="0">
-								In the rational numbers, <em>there is not</em>.
-								<span class="fragment" data-fragment-index="1">
-									In the real numbers, there is. 
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									Back in $\R$, we can say that $\sup\, A = \sqrt{2}$, 
-								but $\sqrt{2}\notin\Q$. 
-								</span>
-							</p>
-							
-							
-							
-						</div>
-					</div>
-					
-					<br/>
-				</section>
-				<section data-auto-animate>
-					<h4>Example 1.2.5</h4>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>Consider now the set 
-								$$A:= \left\{ x\in \Q : x^2\lt 2 \right\}$$
-								<span>
-									and pretend for the moment that our "world"
-									consists only of rational numbers. 
-								</span>
-							</p>
-
-							
-							
-							<p>
-								In the rational numbers, <em>there is not</em>.
-								<span>
-									In the real numbers, there is. 
-								</span>
-								<span>
-									Back in $\R$, we can say that $\sup\, A = \sqrt{2}$, 
-								but $\sqrt{2}\notin\Q$. 
-								</span>
-							</p>
-							<p>
-								
-								So, in $\Q$ <em>we don't always have least upper bounds</em>.
-							</p>
-							
-							
-						</div>
-					</div>
-					
-					<br/>
-				</section>
-				
-			</section>
-
-			<section>
-
-
-				<section data-auto-animate>
-					<h3>1.2.1 Theorem</h3>
-
-					<div>
-						<div class="left-txt">
-							<p>
-								There does not exist a rational number $r$ such that $$r^2=2.$$
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h3>1.2.1 Theorem</h3>
-
-					<div class="size-70">
-						<div class="left-txt">
-							<p>
-								There does not exist a rational number $r$ such that $r^2=2.$
-							</p>
-						</div>
-					</div>
-					<div class="size-85">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								<strong>Proof.</strong> 
-								<span class="fragment" data-fragment-index="1">
-									Suppose, on the contrary, that $p$ and $q$ are integers such that
-									$$\left(\frac{p}{q}\right)^2=2.$$
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									We  may also assume that $p$ and $q$ have no common integer 
-									factors other than 1, 
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									because, if they had one, we could 
-								simply cancel it out and rewrite the fraction in lowest terms. 
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h3>1.2.1 Theorem</h3>
-
-					<div class="size-85">
-						<div class="left-txt">
-							<p>
-								There does not exist a rational number $r$ such that $r^2=2.$
-							</p>
-						</div>
-					</div>
-					<div class="size-85">
-						<div class="left-txt">
-							<p>
-								<strong>Proof.</strong> Since $\left(\frac{p}{q}\right)^2=2$,
-								<span class="fragment" data-fragment-index="1">
-									 then $p^2 = 2q^2$. 
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									This implies that $p^2$ is even, 
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									which means that $p$ is also even (because if $p=2n-1$ is odd,
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									then its square $p^2=2(2n^2-2n+1)-1$ is also odd). 
-								</span>
-								<span class="fragment" data-fragment-index="5">
-									Therefore, since $p$ and $q$ do not have 2 as 
-									a common factor, then $q$ must be an odd natural number.
-								</span>
-							</p>
-							<p>
-								
-								<span class="fragment" data-fragment-index="7">
-									Now, since $p$ is even, then $p = 2m$ for some $m\in \N$, 
-									and hence $4m^2 = 2 q^2$, so that $2m^2=q^2$. 
-								</span>
-								<span class="fragment" data-fragment-index="8">
-									Therefore, $q^2$ is even, and it follows that $q$ is an even natural number. 
-
-								</span>
-								
-							</p>
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h3>1.2.1 Theorem</h3>
-
-					<div class="size-85">
-						<div class="left-txt">
-							<p>
-								There does not exist a rational number $r$ such that $r^2=2.$
-							</p>
-						</div>
-					</div>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>
-								<strong>Proof.</strong> 
-								<span>
-									Thus, since the hypothesis that $\left(\frac{p}{q}\right)^2=2$ leads 
-									to the contradictory conclusion that $q$ is both even and odd, 
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									it must be false, and thus the theorem is proved. $\;\blacksquare$
-								</span>
-								
-							</p>
-							
-						</div>
-					</div>
-					<br/><br/><br/><br/><br/><br/>
-				</section>
-
-				
-
-			</section>
-
-
-			<section>
-				<section>
-					<h3>1.2 The least-upper-bound property</h3>
-					
-					<div class="left-txt">
-						
-						<p class="fragment" data-fragment-index="0"><strong>Definition 1.2.2</strong>
-							An ordered set $S$ has the <strong>least-upper-bound</strong> property if every subset
-							$E\subset S$ that is bounded above has a least upper bound, that is
-							$\sup E$ exists in $S$.
-						</p>
-						<br />
-						<p class="fragment" data-fragment-index="1">
-							This is also know as the <strong>Axiom of Completeness</strong>
-						</p>
-						<br /><br /><br/>
-	
-					</div>
-				</section>
-
-				<section>
-					<h3>Existence of $\R$</h3>
-					
-					<div class="left-txt">
-						<p>
-							The properties from the Field and Order axioms, 
-							together with the least-upper-bound property characterise the 
-							real numbers $\R$. 
-							<span class="fragment" data-fragment-index="0">
-								We state this more precisely as a theorem without proof.
-							</span>
-						</p>
-						<p class="fragment" data-fragment-index="1"><strong>Theorem:</strong> There exists a unique
-							ordered field $\R$ with the least-upper-bound property
-							such that $\Q \subset \R$.</p>
-					</div>
-					<br /><br />
-				</section>
-
-			</section>
-			
-
-			
-
-			
-
-
-			
-
-			<section>
-				<h3>Real Numbers</h3>
-				<p class="size-60"><strong>Archimedean property &amp; Density of $\Q$</strong></p>
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong>
+				<div class="left-txt size-90">
+					<p><strong>Theorem 1.3.1.</strong>
 					</p>
 					<ol class="r">
 						<li>(Archimedean property)
@@ -945,6 +81,90 @@
 					</ol>
 				</div>
 				<p><br /></p>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>
+						Example 1.3.1
+					</h4>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<strong>Claim:</strong> $\inf\, \left\{\dfrac{1}{n} : n\in N\right\} = 0$.
+							</p>
+						</div>
+					</div>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Proof.</strong> 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Let $A := \{ \dfrac{1}{n} : n \in \N \}$.  Notice that $A$ is not empty.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Moreover,
+									$\dfrac{1}{n} > 0$ for all $n \in \N$, and so 0 is a lower bound.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									This means that $b := \inf\, A$ exists.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									As 0 is a lower bound, then $b \geq 0$.
+	
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Now take an arbitrary $a > 0$. 
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 1.3.1
+					</h4>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<strong>Claim:</strong> $\inf\, \left\{\dfrac{1}{n} : n\in N\right\} = 0$.
+							</p>
+						</div>
+					</div>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<span>
+									<strong>Proof.</strong> 
+								</span>
+								<span>
+									By the
+									Archimedean property there exists an $n$ such that
+									$na > 1$, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									or in other words $a > \dfrac{1}{n} \in A$.  
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Therefore,
+									$a$ cannot be a lower bound for $A$. 
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="4">
+									Hence $b=0.$ $\;\blacksquare$
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
 			</section>
 
 
