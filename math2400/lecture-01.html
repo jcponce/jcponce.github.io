@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Lecture 1</p>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h3>1.1 Basic properties of $\R$</h3>
+					
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0"><strong>Definition 1.1.1 </strong> (Field Axioms). 
+							On the set $\R$ of real numbers there are two operations
+							$$+:\R\times \R \rightarrow \R \quad  \text{and} \quad  \boldsymbol{\cdot}  :\R\times \R \ra \R$$
+							called <em>addition</em> and <em>multiplication</em>, respectively.
+						</p>
+						
+					</div>
+	
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h3 style="font-size:70%">1.1 Basic properties of $\R$</h3>
+					
+					<div style="font-size:60%;margin-top:-10px">
+						<p>👉 &nbsp; $+:\R\times \R \rightarrow \R$ and $\boldsymbol{\cdot}  :\R\times \R \ra \R$
+						</p>
+					</div>
+
+					<div class="left-txt"  style="font-size:82%;margin-top:-10px">
+						<p>These operations satisfy the following properties:</p>
+						<p class="fragment" data-fragment-index="0">(A1) If $x \in F$ and $y \in F$, then $x+y \in F$.
+						</p>
+						<p class="fragment" data-fragment-index="1">(A2) (commutativity)
+							$x+y = y+x$ for all $x,y \in F$.
+						</p>
+						<p class="fragment" data-fragment-index="2">(A3) (associativity)}
+							$(x+y)+z = x+(y+z)$ for all $x,y,z \in F$.
+						</p>
+						<p class="fragment" data-fragment-index="3">(A4) There exists an element $0 \in F$ such that
+							$0+x = x$ for all $x \in F$.
+						</p>
+						<p class="fragment" data-fragment-index="4">(A5) For every element $x\in F$, there exists an element $-x \in F$
+							such that $x + (-x) = 0$.
+						</p>
+					</div>
+
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h3 style="font-size:60%">1.1 Basic properties of $\R$</h3>
+					
+					<div style="font-size:60%;margin-top:-10px">
+						<p>👉 &nbsp; $+:\R\times \R \rightarrow \R$ and $\boldsymbol{\cdot}  :\R\times \R \ra \R$
+						</p>
+					</div>
+
+					<div class="left-txt" style="font-size:82%;margin-top:-15px">
+					<p>(M1) If $x \in F$ and $y \in F$, then $xy \in F$.
+					</p>
+					<p class="fragment" data-fragment-index="0">(M2) (commutativity)
+						$xy = yx$ for all $x,y \in F$.
+					</p>
+					<p class="fragment" data-fragment-index="1">(M3) (associativity)
+						$(xy)z = x(yz)$ for all $x,y,z \in F$.
+					</p>
+					<p class="fragment" data-fragment-index="2">(M4) There exists an element $1 \in F$ (and $1 \not= 0$) such that
+						$1x = x$ for all $x \in F$.
+					</p>
+					<p class="fragment" data-fragment-index="3">(M5) For every $x\in F$ such that $x \not= 0$ there exists an element
+						$\dfrac{1}{x} \in F$
+						such that $x\left(\dfrac{1}{x}\right) = 1$.
+					</p>
+					<p class="fragment" data-fragment-index="4">(D) (distributive law) $x(y+z) = xy+xz$
+						for all $x,y,z \in F$.
+					</p>
+					</div>
+
+					<br/>
+				</section>
+
+				<section>
+					<h3>1.1 Basic properties of $\R$</h3>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							The previous definition establishes that $\R$ is a <strong>field</strong>. 
+							<span class="fragment" data-fragment-index="1">
+								The properties listed here should be familiar to you. 
+							
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								The first five are concerned with addition, the next five with 
+							multiplication, and the last one connects the two operations. 
+							</span>
+							
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							The point of the list is that all the familiar techniques of
+							algebra can be derived from these nine properties, in much the 
+							same spirit that the theorems of Euclidean geometry can be deduced 
+							from the five basic axioms stated by Euclid in his <em>Elements</em>.
+						</p>
+						<br/><br/>
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Field Axioms</strong></p>
+				<div class="left-txt size-60">
+					<p>(M1) If $x \in F$ and $y \in F$, then $xy \in F$.
+					</p>
+					<p>(M2) (commutativity of multiplication)
+						$xy = yx$ for all $x,y \in F$.
+					</p>
+					<p>(M3) (associativity of multiplication)
+						$(xy)z = x(yz)$ for all $x,y,z \in F$.
+					</p>
+					<p>(M4) There exists an element $1 \in F$ (and $1 \not= 0$) such that
+						$1x = x$ for all $x \in F$.
+					</p>
+					<p>(M5) For every $x\in F$ such that $x \not= 0$ there exists an element
+						$\dfrac{1}{x} \in F$
+						such that $x\left(\dfrac{1}{x}\right) = 1$.
+					</p>
+					<p>(D) (distributive law) $x(y+z) = xy+xz$
+						for all $x,y,z \in F$.
+					</p>
+				</div>
+			</section>
+
+
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Ordered fields axioms</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						A field $F$ is said to be an ordered field if
+						$F$ together with a relation $\lt$ has the following properties:
+					</p>
+					<p>
+						(O1) (trichotomy) For all $x, y \in F$, exactly one of
+						$x < y$, $x=y$, or $y < x$ holds. </p> <p>
+							(O2) (transitivity) If $x,y,z \in F$ are such that $x < y$ and $y < z$, then $x < z$. </p>
+								<p>
+								(O3) For $x,y,z \in F$, $x < y$ implies $x+z < y+z$. </p> <p>
+									(O4) For $x,y \in F$, $x > 0$ and $y > 0$ implies $xy > 0$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Upper & Lower bound, Supremum & Infimum</strong></p>
+				<div class="left-txt size-60">
+
+					<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/upper-lower-bounds.png" />
+
+				</div>
+				<p><br /></p>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>The least-upper-bound property</strong></p>
+				<div class="left-txt size-70">
+					<br />
+					<p><strong>Definition:</strong>
+						An ordered set $S$ has the least-upper-bound property if every subset
+						$E\subset S$ that is bounded above has a least upper bound, that is
+						$\sup E$ exists in $S$.
+					</p>
+					<p><br /><br /><br /></p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Existence of $\R$</strong></p>
+				<div class="left-txt size-70">
+					<p><br /></p>
+					<p><strong>Theorem:</strong> There exists a unique
+						ordered field $\R$ with the least-upper-bound property
+						such that $\Q \subset \R$.</p>
+				</div>
+				<p><br /><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Archimedean property &amp; Density of $\Q$</strong></p>
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+					</p>
+					<ol class="r">
+						<li>(Archimedean property)
+							If $x, y \in \R$ and
+							$x \gt 0$, then there exists an $n \in \N$ such that
+							\begin{equation*}
+							nx \gt y .
+							\end{equation*}</li>
+						<li>($\Q$ is dense in $\R$) If $x, y \in \R$ and
+							$x \lt y$, then there exists an $r \in \Q$ such that $x \lt r \lt y$. </li>
+					</ol>
+				</div>
+				<p><br /></p>
+			</section>
+
+
+			<section>
+				<h3>Real Numbers</h3>
+				<p class="size-60"><strong>Absolute value</strong></p>
+				<div class="left-txt size-70">
+					<p>The absolute value is defined as
+						\begin{equation*}
+						\abs{x} :=
+						\begin{cases}
+						x &amp; \text{if } x \geq 0, \\
+						-x &amp; \text{if } x \lt 0 . \end{cases} \end{equation*} </p>
+				</div>
+
+
+				<div class="left-txt size-70">
+
+					<p><strong>Triangle inequality:</strong>
+						$\abs{x+y} \leq \abs{x}+\abs{y}$
+						for all $x, y \in \R$.
+					</p>
+
+				</div>
+
+				<p><br /></p>
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
