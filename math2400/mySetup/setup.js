@@ -39,7 +39,8 @@
 						sabs: ["{\\left|#1\\right|}", 1],
 						snorm: ["{\\|#1\\|}", 1],
 						norm: ["{\\|#1\\|}", 1],
-						epsilon: "\\varepsilon"
+						pd: "\\boldsymbol{\\cdot}",
+						epsilon: "\\varepsilon" 
 					}
 				}
 			},
