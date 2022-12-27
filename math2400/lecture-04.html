@@ -57,102 +57,207 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 2</p>
+				<p>Lecture 4</p>
 			</section>
 
+			
+
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Convergence of sequences</strong></p>
-				
-				<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/convergence-1d.png" />
 				
 
-				<div class="size-60 left-txt">
-					<p><strong>Definition:</strong>
-						A sequence $\{ x_n \}$ is said to <em>converge</em> to a number
-						$x \in \R$ if for every $\epsilon > 0$, there exists an $M \in \N$ such
-						that $\abs{x_n - x} < \epsilon$ for all $n \geq M$.  The number $x$
-						is said to be the <em>limit</em> of $\{ x_n \}$.  We write
-						\begin{equation*}
-						\lim_{n\to \infty} x_n := x .
-						\end{equation*}</p>
-				</div>
-				
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Convergence of sequences</strong></p>
-
-				<iframe scrolling="no" title="Conformal mapping"
-					src="https://www.geogebra.org/material/iframe/id/rmx2ud6p/width/572/height/402/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-					width="572px" height="402px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Bounded & Monotone</strong></p>
-				<br />
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong> A monotone sequence $\{ x_n \}$
-						is bounded if and only if it is convergent.
-					</p>
-				</div>
-				<p><br /><br /></p>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Bounded & Monotone</strong></p>
-				<div class="left-txt size-60">
-					<table style="width:100%;border:none">
-						<tr>
-							<th style="text-align:center">Increasing</th>
-							<th style="text-align:center">Decreasing</th>
+				<section data-auto-animate>
+					<h3>2.3 Limits and inequalities</h3>
+					<table style="width:100%;margin-top:-25px">
+						<tr  class="fragment" data-fragment-index="0">
+							<th style="width:99%">
+								<div class="size-80" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+									<p><strong>Theorem 2.3.1</strong> (Squeeze Theorem) Let $\{ a_n \}$,
+										$\{ b_n \}$, and
+										$\{ x_n \}$ be sequences such that
+										\begin{equation*}
+										a_n \leq x_n \leq b_n \quad \text{for all } n \in \N.
+										\end{equation*}
+										Suppose $\{ a_n \}$ and $\{ b_n \}$ converge and
+										\begin{equation*}
+										\lim_{n\to \infty} a_n
+										=
+										\lim_{n\to \infty} b_n .
+										\end{equation*}
+										Then $\{ x_n \}$ converges and
+										\begin{equation*}
+										\lim_{n\to \infty} x_n
+										=
+										\lim_{n\to \infty} a_n
+										=
+										\lim_{n\to \infty} b_n .
+										\end{equation*}
+									</p>
+								</div>
+							</th>
+							<th style="width:1%;">
+							</th>
+	
 						</tr>
 					</table>
-					<table style="width:100%;border:none">
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3>2.3 Limits and inequalities</h3>
+					<table style="width:100%;margin-top:-25px">
 						<tr>
-							<td style="width:50%;">
-								<img style="width: 100%; 
+	
+							<th style="width:35%">
+								<div class="size-45" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+									<p><strong>Theorem 2.3.1</strong> (Squeeze Theorem) Let $\{ a_n \}$,
+										$\{ b_n \}$, and
+										$\{ x_n \}$ be sequences such that
+										\begin{equation*}
+										a_n \leq x_n \leq b_n \quad \text{for all } n \in \N.
+										\end{equation*}
+										Suppose $\{ a_n \}$ and $\{ b_n \}$ converge and
+										\begin{equation*}
+										\lim_{n\to \infty} a_n
+										=
+										\lim_{n\to \infty} b_n .
+										\end{equation*}
+										Then $\{ x_n \}$ converges and
+										\begin{equation*}
+										\lim_{n\to \infty} x_n
+										=
+										\lim_{n\to \infty} a_n
+										=
+										\lim_{n\to \infty} b_n .
+										\end{equation*}
+									</p>
+								</div>
+							</th>
+							<th style="width:65%;"><img style="width: 100%; 
 						  display: block;
 						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-01.gif" />
-							</td>
-							<td style="width:50%">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-02.gif" />
-							</td>
+						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
+							</th>
+	
 						</tr>
 					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N
-								\}$</td>
-							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N
-								\}$</td>
-						</tr>
-					</table>
-				</div>
+					<br/><br/>
+				</section>
+			
+				<section data-auto-animate>
+						<h3>2.3 Limits and inequalities</h3>
+						<div class="size-70">
+							<img style="width: 80%;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
+		
+						</div>
+		
+						<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Proof of Theorem 2.3.1.</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $L := \lim\, a_n = \lim\, b_n$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Let $\vre > 0$ be given.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Find an $N_1$ such that for all $n \geq N_1$, we have
+that $\abs{a_n-L} \lt \vre$,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									and an $N_2$
+									such that for all $n \geq N_2$,
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									we have $\abs{b_n-L} \lt \vre$. 
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Set $N := \max \{N_1, N_2 \}$.
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									Suppose $n \geq N$.
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									In particular,
+									$L - a_n \lt \vre$, 
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									or 
+									$L - \vre \lt a_n$. 
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									Similarly, $b_n \lt L + \vre$.
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									Putting everything together, we find
+\begin{equation*}
+L - \vre \lt a_n \leq x_n \leq b_n \lt L + \vre .
+\end{equation*}
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="11">
+								In other words, $-\vre \lt x_n-L \lt \vre$ or $\abs{x_n-L} \lt \vre$.
+								<span class="fragment" data-fragment-index="12">
+									So $\{x_n\}$ converges to $L.$ $\blacksquare$
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 2.3.1.</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Consider
+the sequence $\left\{ \dfrac{1}{n\sqrt{n}} \right \}$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Since $\sqrt{n} \geq 1$ for all $n \in \N$,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we have
+\begin{equation*}
+0 \leq \frac{1}{n\sqrt{n}} \leq \frac{1}{n} \text{ for all  } n \in \N.  
+\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									We already know $\lim \dfrac{1}{n} = 0$. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Hence, using
+the constant sequence $\{ 0 \}$ and the sequence $\{ \frac{1}{n} \}$ in the
+squeeze lemma,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									
+\begin{equation*}
+\text{we conclude } \;\lim_{n\to\infty} \frac{1}{n\sqrt{n}} = 0 .
+\end{equation*}
+
+								</span>
+								
+							</p>
+							
+						</div>
+					</div>
+					<br/>
+				</section>
+
+
+				
 			</section>
 
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Squeeze Theorem</strong></p>
-				<div class="size-70">
-					<img style="width: 65%;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
-
-				</div>
-
-			</section>
-
 
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Squeeze Theorem</strong></p>
+				<h3>2.3 Limits and inequalities</h3>
 				<table style="width:100%;">
 					<tr>
 
