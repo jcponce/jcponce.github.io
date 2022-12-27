@@ -256,85 +256,87 @@ squeeze lemma,
 			</section>
 
 
-			<section>
-				<h3>2.3 Limits and inequalities</h3>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Theorem:</strong> Let $\{ a_n \}$,
-									$\{ b_n \}$, and
-									$\{ x_n \}$ be sequences such that
-									\begin{equation*}
-									a_n \leq x_n \leq b_n \quad \text{for all } n \in \N.
-									\end{equation*}
-									Suppose $\{ a_n \}$ and $\{ b_n \}$ converge and
-									\begin{equation*}
-									\lim_{n\to \infty} a_n
-									=
-									\lim_{n\to \infty} b_n .
-									\end{equation*}
-									Then $\{ x_n \}$ converges and
-									\begin{equation*}
-									\lim_{n\to \infty} x_n
-									=
-									\lim_{n\to \infty} a_n
-									=
-									\lim_{n\to \infty} b_n .
-									\end{equation*}
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
+			
 
 
 
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Algebraic properties</strong></p>
-				<div class="left-txt size-50">
-					<p><strong>Theorem:</strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
-					</p>
-					<ol class="r">
-						<li>The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} (x_n \pm y_n) =
-							\lim_{n \to \infty} z_n =
-							\lim_{n \to \infty} x_n \pm
-							\lim_{n \to \infty} y_n .
-							\end{equation*}
-						</li>
-						<li>
-							The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} (x_n y_n) =
-							\lim_{n \to \infty} z_n =
-							\left( \lim_{n \to \infty} x_n \right)
-							\left( \lim_{n \to \infty} y_n \right) .
-							\end{equation*}
-						</li>
-						<li>
-							If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
-							the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} \frac{x_n}{y_n} =
-							\lim_{n \to \infty} z_n =
-							%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
-							\frac{\lim\, x_n}{\lim\, y_n} .
-							\end{equation*}
-						</li>
-					</ol>
-				</div>
+				<section>
+					<h3 style="font-size:85%">2.3.2 Algebraic properties</h3>
+					
+					<div class="left-txt" style="font-size:67%">
+						<p><strong>Theorem 2.3.3. </strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
+						</p>
+						<ol class="r">
+							<li>The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
+								\begin{equation*}
+								\lim_{n \to \infty} (x_n \pm y_n) =
+								\lim_{n \to \infty} z_n =
+								\lim_{n \to \infty} x_n \pm
+								\lim_{n \to \infty} y_n .
+								\end{equation*}
+							</li>
+							<li>
+								The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
+								\begin{equation*}
+								\lim_{n \to \infty} (x_n y_n) =
+								\lim_{n \to \infty} z_n =
+								\left( \lim_{n \to \infty} x_n \right)
+								\left( \lim_{n \to \infty} y_n \right) .
+								\end{equation*}
+							</li>
+							<li>
+								If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
+								the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
+								\begin{equation*}
+								\lim_{n \to \infty} \frac{x_n}{y_n} =
+								\lim_{n \to \infty} z_n =
+								%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
+								\frac{\lim\, x_n}{\lim\, y_n} .
+								\end{equation*}
+							</li>
+						</ol>
+					</div>
+	
+					<br/>
+				</section>
 
+				<section>
+					<h3 style="font-size:85%">Proof of Theorem 2.3.3 ii)</h3>
+					
+					<div class="left-txt" style="font-size:85%">
+						<p><strong>Proof. </strong> 
+							<span>
+								Suppose again that $\{ x_n \}$ and $\{ y_n \}$ are convergent sequences 
+								
+							</span>
+							<span>
+								and
+write $z_n := x_n y_n$.  Let $L_1 := \lim\, x_n$,
+$L_2 := \lim\, y_n$, and $L := L_1 L_2$.
+							</span>
+						</p>
+						<p>
+							<span>
+								To prove that $x_n y_n$ converges to $L$
+								we make an estimate
+							</span>
+						</p>
+						
+					</div>
+					<div style="font-size:85%">
+						<p>
+							<span>
+								$\abs{x_ny_n - L_1L_2}$
+							</span>
+							<span>
+								$= \abs{\left( x_n y_n -x_n L_2\right) -\left( x_n L_2 -L_1L_2\right) }$
+							</span>
+						</p>
+					</div>
+	
+					<br/>
+				</section>
 			</section>
 
 			<section>
