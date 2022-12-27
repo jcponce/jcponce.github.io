@@ -498,6 +498,156 @@ C_2 := \max \{ \abs{x_1}, \abs{x_2}, \ldots, \abs{x_{N-1}} \} .
 
 			</section>
 
+			<section>
+				<section data-auto-animate id="monotone-sequences">
+					<h3>
+						2.2 Monote sequences
+					</h3>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>Definition 2.2.1</strong>
+								A sequence $\{ x_n \}$ is  called:
+							</p>
+							<ol style="line-height:60px">
+								<li class="fragment" data-fragment-index="0">
+									<strong>monotone increasing</strong> if $x_n \leq x_{n+1}$ for all $n \in \N$.
+								</li>
+								<li  class="fragment" data-fragment-index="1">
+									<strong>strictly monotone increasing</strong> if $x_n \lt x_{n+1}$ for all $n \in \N$. 
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									<strong>monotone decreasing</strong> if $x_n \geq x_{n+1}$ for all $n \in \N$. 
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									<strong>strictly  monotone decreasing</strong> 
+									if $x_n > x_{n+1}$ for all $n \in \N$. 
+								</li>
+							</ol>
+						</div>
+
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate id="theorem-2-2-1">
+					<h3>
+						2.2 Monote sequences
+					</h3>
+					<div>
+						<div class="left-txt">
+							<p><strong>Theorem 2.2.1.</strong> A monotone sequence $\{ x_n \}$
+								is bounded if and only if it is convergent.
+							</p>
+						</div>
+
+					</div>
+					<br/><br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:80%;margin-top:-10px">
+						2.2 Monote sequences
+					</h3>
+					<div class="size-60" style="margin-top:-10px">
+						<div class="left-txt">
+							<p><strong>Theorem 2.2.1.</strong> A monotone sequence $\{ x_n \}$
+								is bounded if and only if it is convergent.
+							</p>
+						</div>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
+							<p><strong>Proof.</strong> 
+								<span class="fragment" data-fragment-index="0">Let $\{ x_n \}$ be monotone and bounded.</span>
+								<span class="fragment" data-fragment-index="1">
+									To prove that $\{ x_n \}$  converges using the definition 
+									of convergence, we need a candidate for the limit.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Let's assume that the sequence is increasing (the decreasing case is handled similarly), 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									and consider the set of points $\{x_n : n\in \N\}$. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									By assumption, this set is bounded,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									so define
+$$s := \sup\, \{x_n : n \in \N\}.$$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									It seems reasonable to claim that $\lim \{x_n\} = s$.
+								</span>
+								
+							</p>
+						</div>
+						<div>
+							<p></p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:80%;margin-top:-10px">
+						2.2 Monote sequences
+					</h3>
+					<div class="size-60" style="margin-top:-10px">
+						<div class="left-txt">
+							<p><strong>Theorem 2.2.1.</strong> A monotone sequence $\{ x_n \}$
+								is bounded if and only if it is convergent.
+							</p>
+						</div>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
+							<p><strong>Proof.</strong> 
+								<span>
+									It seems reasonable to claim that $\lim \{x_n\} = s$.
+								</span>
+								
+								<span class="fragment" data-fragment-index="0">To prove this, let $\vre >0$.</span>
+								<span class="fragment" data-fragment-index="1">
+									Because $s$ is the least upper bound of $\{x_n : n \in \N\}$, $s-\vre$ is not an upper bound, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									so there exists a point in the sequence $x_N$ such that $s-\vre \lt x_N$. 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Now, the fact that $\{x_n \}$ is increasing implies that if $n\geq N$, 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									then $x_N\leq x_n$.
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Thus we have
+								</span>
+								
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$ s- \vre \lt x_N \leq x_n \leq s$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \lt s+\vre $
+								</span><br/>
+								<span class="fragment" data-fragment-index="7">
+									$ \Rightarrow s- \vre  \leq x_n \leq  s+\vre$
+								</span><br/>
+								<span class="fragment" data-fragment-index="8">
+									$ \Rightarrow  - \vre   \leq a_n - s\leq \vre.$
+								</span>
+							</p>
+						</div>
+						<div class="fragment" data-fragment-index="9">
+							<p>Therefore  $\abs{a_n-s}\lt\vre$, as desired. $\;\blacksquare$</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+			</section>
+
 			
 
 			<section>
