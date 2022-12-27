@@ -523,255 +523,86 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 			</section>
 
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Some convergence tests</strong></p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>Theorem:</strong> Let $\{ x_n \}$ be a sequence.
-						Suppose there is an $x \in \R$
-						and a convergent sequence $\{ a_n \}$
-						such that
-						\begin{equation*}
-						\lim_{n\to\infty} a_n = 0
-						\quad
-						\text{ and }
-						\quad
-						\abs{x_n - x} \leq a_n
-						\quad
-						\text{for all $n \in \N$.}
-						\end{equation*}
-						Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
-					</p>
-					<p>
-						<strong>Theorem:</strong> Let $c > 0$.
-
-						<ol class="r">
-							<li>
-								If $c \lt 1$, then
-
-								$\lim_{n\to\infty} c^n = 0.$
-
-							</li>
-							<li>
-								If $c \gt 1$, then $\{ c^n \}$ is unbounded.
-
-							</li>
-						</ol>
-
-					</p>
+				<section>
+					<h3>2.3.3 Some convergence tests</h3>
 					
-				</div>
+					<div class="left-txt size-80">
+						<p>
+							<strong>Theorem 2.3.4.</strong> Let $\{ x_n \}$ be a sequence.
+							Suppose there is an $x \in \R$
+							and a convergent sequence $\{ a_n \}$
+							such that
+							\begin{equation*}
+							\lim_{n\to\infty} a_n = 0
+							\quad
+							\text{ and }
+							\quad
+							\abs{x_n - x} \leq a_n
+							\quad
+							\text{for all $n \in \N$.}
+							\end{equation*}
+							Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
+						</p>
+						<p>
+							<strong>Theorem 2.3.5.</strong> Let $c > 0$.
+	
+							<ol class="r">
+								<li>
+									If $c \lt 1$, then
+	
+									$\lim_{n\to\infty} c^n = 0.$
+	
+								</li>
+								<li>
+									If $c \gt 1$, then $\{ c^n \}$ is unbounded.
+	
+								</li>
+							</ol>
+	
+						</p>
+						
+					</div>
+					<br/>
+				</section>
+
+				<section>
+					<h3>2.3.3 Some convergence tests</h3>
+					
+					<div class="left-txt size-80">
+						<p>
+							<strong>Theorem 2.3.6. (Ratio test for sequences)</strong>
+	
+							Let $\{ x_n \}$ be a sequence such that $x_n \not= 0$ for all $n$ and such that
+							the limit
+							\begin{equation*}
+							L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
+							\qquad
+							\text{exists.}
+							\end{equation*}
+	
+							<ol class="r">
+								<li>
+									If $L < 1$, then $\{ x_n \}$ converges and $\lim\, x_n = 0$.
+								</li>
+								<li>
+									If $L > 1$, then $\{ x_n \}$ is unbounded (hence diverges).
+								</li>
+							</ol>
+	
+						</p>
+						<p><br/><br/></p>
+					</div>
+					<br/>
+				</section>
 			</section>
 
 			<section>
 				<h3>Sequences</h3>
 				<p class="size-60"><strong>Some convergence tests</strong></p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>Theorem (Ratio test for sequences):</strong>
-
-						Let $\{ x_n \}$ be a sequence such that $x_n \not= 0$ for all $n$ and such that
-						the limit
-						\begin{equation*}
-						L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
-						\qquad
-						\text{exists.}
-						\end{equation*}
-
-						<ol class="r">
-							<li>
-								If $L < 1$, then $\{ x_n \}$ converges and $\lim\, x_n = 0$.
-							</li>
-							<li>
-								If $L > 1$, then $\{ x_n \}$ is unbounded (hence diverges).
-							</li>
-						</ol>
-
-					</p>
-					<p><br/><br/></p>
-				</div>
+				
 			</section>
 
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="left-txt size-70">
-					<p>
-						<strong>Definition:</strong> Let $\{ x_n \}$ be a bounded sequence. Define the sequences $\{ a_n
-						\}$
-						and $\{ b_n \}$ by
-						$a_n := \sup \{ x_k : k \geq n \}$ and
-						$b_n := \inf \{ x_k : k \geq n \}$.
-						Define, if the limits exist,
-						\begin{align*}
-						\limsup_{n \to \infty} \, x_n & := \lim_{n \to \infty} a_n ,
-						\\
-						\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
-						\end{align*}
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="size-60">
-					<img style="width: 70%;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-					<br />$x_n$ is bounded.
-				</div>
-
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Let $a_n$ and $b_n$
-									be as in
-									the definition above.
-									<ol>
-										<li>
-											The
-											sequence $\{ a_n \}$ is bounded monotone decreasing
-											and $\{ b_n \}$ is bounded monotone increasing. In particular,
-											$\liminf x_n$ and $\limsup x_n$ exist.
-										</li>
-										<li>
-											$\displaystyle \limsup_{n \to \infty} \, x_n = \inf \{ a_n : n \in \N \}$
-											and
-											$\displaystyle \liminf_{n \to \infty} \, x_n = \sup \{ b_n : n \in \N \}$.
-										</li>
-										<li>
-											$\displaystyle \liminf_{n \to \infty} \, x_n \leq
-											\limsup_{n \to \infty} \, x_n$.
-										</li>
-									</ol>
-
-
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="size-70">
-					<img style="width: 65%;" class="r-stretch"
-						data-src="images/summary-01/suplim-inflim-convergent.gif" />
-					<br />$x_n$ is bounded and convergent.
-				</div>
-
-
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Then $\{ x_n \}$
-									converges
-									if and only if
-									\begin{equation*}
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-									Furthermore, if $\{ x_n \}$ converges, then
-									\begin{equation*}
-									\lim_{n\to \infty} x_n =
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim-convergent.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Bolzano-Weierstrass Theorem</strong></p>
-				<div class="left-txt size-70">
-					<p><br /></p>
-					<p>
-						<strong>Theorem:</strong> Suppose a sequence $\{ x_n \}$ of real numbers is bounded.
-						Then there exists a convergent subsequence $\{ x_{n_i} \}$.
-					</p>
-				</div>
-				<p><br /><br /></p>
-			</section>
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Cauchy sequences</strong></p>
-				<div class="size-60">
-					<img style="width: 60%;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-					<br />if
-					for every $\epsilon > 0$ there exists an $M \in \N$ such that
-					for all $n \geq M$ and all $k \geq M$,
-					<br />we have
-					$\abs{x_n - x_k} < \epsilon .$ </div> </section> <section>
-						<h3>Sequences</h3>
-						<p class="size-60"><strong>Cauchy sequences</strong></p>
-
-
-						<table style="width:100%;">
-							<tr>
-
-								<th style="width:65%">
-									<div class="size-70"
-										style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-										<p>
-											<strong>Theorem:</strong> A Cauchy sequence is bounded.
-										</p>
-										<p>
-											<strong>Theorem:</strong> A sequence of real numbers is Cauchy if and only
-											if it converges.
-										</p>
-									</div>
-								</th>
-								<th style="width:35%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-								</th>
-
-							</tr>
-						</table>
-
-			</section>
+			
 
 			<section>
 
