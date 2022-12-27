@@ -648,402 +648,348 @@ $$s := \sup\, \{x_n : n \in \N\}.$$
 					</div>
 					<br/><br/><br/>
 				</section>
+
+				<section  data-auto-animate>
+					<h3>
+						2.2 Monote sequences
+					</h3>
+					<div>
+						<div>
+							<p>
+								If $\{ x_n \}$ is monotone increasing and bounded, then
+								\begin{equation*}
+								\lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N \} .
+								\end{equation*}
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								If $\{ x_n \}$ is monotone decreasing and bounded, then
+								\begin{equation*}
+								\lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N \} .
+								\end{equation*}
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section>
+					<h3>Bounded & Monotone</h3>
+					
+					<div class="left-txt size-70">
+						<table style="width:100%;border:none">
+							<tr>
+								<th style="text-align:center">Increasing</th>
+								<th style="text-align:center">Decreasing</th>
+							</tr>
+						</table>
+						<table style="width:100%;border:none">
+							<tr>
+								<td style="width:50%;">
+									<img style="width: 100%; 
+							  display: block;
+							  margin-left: auto;
+							  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-01.gif" />
+								</td>
+								<td style="width:50%">
+									<img style="width: 100%; 
+							  display: block;
+							  margin-left: auto;
+							  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-02.gif" />
+								</td>
+							</tr>
+						</table>
+						<table style="width:100%;border:none">
+							<tr>
+								<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N
+									\}$</td>
+								<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N
+									\}$</td>
+							</tr>
+						</table>
+					</div>
+					<br/><br/>
+				</section>
+				
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>
+						Example 2.2.1.
+					</h4>
+					<p style="font-size:100%;text-align:left"><strong>Claim:</strong>
+						The sequence $\left\{ \dfrac{1}{\sqrt{n}} \right\}$ is monotone and bounded and $$\lim \frac{1}{\sqrt{n}} = 0.$$
+					</p>
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 2.2.1.
+					</h4>
+					<p style="font-size:60%;text-align:left"><strong>Claim:</strong>
+						The sequence $\left\{ \dfrac{1}{\sqrt{n}} \right\}$ is monotone and bounded and $\ds\lim \frac{1}{\sqrt{n}} = 0.$
+					</p>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span><strong>Proof.</strong></span> 
+								<span class="fragment" data-fragment-index="0">The sequence is
+									bounded below as
+									$\dfrac{1}{\sqrt{n}} > 0$ for all $n \in \N$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Let us show that it is monotone decreasing. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									We start with $\sqrt{n+1} \geq \sqrt{n}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									 (why is that true?).
+								</span>
+								<span class="fragment" data-fragment-index="4"> 
+									From this inequality
+									we obtain
+									\begin{equation*}
+									\frac{1}{\sqrt{n+1}} \leq \frac{1}{\sqrt{n}} .
+									\end{equation*}
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									So the sequence is monotone decreasing and 
+									bounded below (hence
+									bounded). 
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 2.2.1.
+					</h4>
+					<p style="font-size:60%;text-align:left"><strong>Claim:</strong>
+						The sequence $\left\{ \dfrac{1}{\sqrt{n}} \right\}$ is monotone and bounded and $\ds\lim \frac{1}{\sqrt{n}} = 0.$
+					</p>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span><strong>Proof.</strong></span> 
+								<span>
+									Theorem ?? says that that the sequence is
+									convergent
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									and
+									\begin{equation*}
+									\lim_{n\to \infty} \frac{1}{\sqrt{n}}
+									=
+									\inf \left\{ \frac{1}{\sqrt{n}} : n \in \N \right\} .
+									\end{equation*}
+									
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									We already know that the infimum is greater 
+									than or equal to 0, as 0 is a lower bound. 
+								</span>
+								
+							</p>
+							
+						</div>
+					</div>
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 2.2.1.
+					</h4>
+					<p style="font-size:60%;text-align:left"><strong>Claim:</strong>
+						The sequence $\left\{ \dfrac{1}{\sqrt{n}} \right\}$ is monotone and bounded and $\ds\lim \frac{1}{\sqrt{n}} = 0.$
+					</p>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span><strong>Proof.</strong></span> 
+								<span>
+									Take a number $b \geq 0$ such
+									that $b \leq \frac{1}{\sqrt{n}}$ for all $n$. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									We square both sides to
+									obtain
+									\begin{equation*}
+									b^2 \leq \frac{1}{n} \quad \text{for all } \; n \in \N.
+									\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									This implies that $b^2 \leq 0$.  
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									As $b^2 \geq 0$ as
+									well, we have $b^2 = 0$
+									and so $b = 0$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Hence, $b=0$ is the greatest lower bound, 
+									and $$\lim \dfrac{1}{\sqrt{n}} = 0.$$
+								</span>
+								
+							</p>
+							
+						</div>
+					</div>
+
+					<br/>
+				</section>
+
+				<section>
+					<h4>Example 2.2.2.</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<strong>A warning:</strong>  
+								
+								<span class="fragment" data-fragment-index="0">
+									Before using Theorem ???  to conclude a sequence 
+									converges we must show that a monotone sequence is bounded.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The sequence 
+									$$\left\{ 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right\}$$
+									is a monotone increasing
+									sequence that grows very slowly.  
+								</span>
+
+								<span class="fragment" data-fragment-index="2">
+									We will see, once we get to series,
+									that this sequence has no upper bound and so does not converge.  
+								</span>
+
+							</p>
+
+							<p class="fragment" data-fragment-index="3">
+								It is not at all obvious that this sequence has no upper bound. 😥
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+
+				
+
+
+			</section>
+			
+
+			<section>
+				<section data-auto-animate>
+					<h4>
+						2.2.1 Subsequences
+					</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								<strong>Definition 2.2.2.</strong> Let $\{ x_n \}$ be a sequence.
+								Let $\{ n_i \}$ be a strictly increasing sequence of natural
+								numbers, that is, $n_i \lt n_{i+1}$ for all $i$ (in other words $n_1 < n_2 < n_3 < \cdots$).  
+								The sequence
+								\begin{equation*}
+								\{ x_{n_i} \}_{i=1}^\infty
+								\end{equation*}
+								is called 
+								a <strong>subsequence</strong> of $\{ x_n \}$.
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				
+				<section data-auto-animate>
+					<h4>
+						2.2.1 Subsequences
+					</h4>
+					<div>
+						<div class="left-txt">
+							<p>
+								<strong>Theorem 2.2.2.</strong> If $\{ x_n \}$ is a convergent sequence,
+								then every subsequence $\{ x_{n_i} \}$ is also convergent, and
+								\begin{equation*}
+								\lim_{n\to \infty} x_n = 
+								\lim_{i\to \infty} x_{n_i} .
+								\end{equation*}
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						2.2.1 Subsequences
+					</h4>
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<strong>Theorem 2.2.2.</strong> If $\{ x_n \}$ is a convergent sequence,
+								then every subsequence $\{ x_{n_i} \}$ is also convergent, and
+								\begin{equation*}
+								\lim_{n\to \infty} x_n = 
+								\lim_{i\to \infty} x_{n_i} .
+								\end{equation*}
+								
+							</p>
+						</div>
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<strong>Proof.</strong>
+								<span class="fragment" data-fragment-index="0">
+									Suppose $\lim_{n\to \infty} x_n = L$. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									So for every
+									$\vre > 0$ there is an $N \in \N$ such that for all $n \geq N$,
+									\begin{equation*}
+									\abs{x_n - L} \lt \vre .
+									\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									It is not hard to prove (do it! 📝) by Induction that
+									$n_i \geq i$. 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Hence $i \geq N$ implies $n_i \geq N$.  
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Thus,
+									for all $i \geq N$,
+								</span>
+								
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="5">$\abs{x_{n_i} - L} \lt \vre .$
+								<span class="fragment" data-fragment-index="6">$\;\blacksquare$</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
 			</section>
 
 			
 
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Bounded & Monotone</strong></p>
-				<br />
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong> A monotone sequence $\{ x_n \}$
-						is bounded if and only if it is convergent.
-					</p>
-				</div>
-				<p><br /><br /></p>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Bounded & Monotone</strong></p>
-				<div class="left-txt size-60">
-					<table style="width:100%;border:none">
-						<tr>
-							<th style="text-align:center">Increasing</th>
-							<th style="text-align:center">Decreasing</th>
-						</tr>
-					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="width:50%;">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-01.gif" />
-							</td>
-							<td style="width:50%">
-								<img style="width: 100%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-01/increase-decreasing-02.gif" />
-							</td>
-						</tr>
-					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N
-								\}$</td>
-							<td style="text-align:center">$\displaystyle \lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N
-								\}$</td>
-						</tr>
-					</table>
-				</div>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Squeeze Theorem</strong></p>
-				<div class="size-70">
-					<img style="width: 65%;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
-
-				</div>
-
-			</section>
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Squeeze Theorem</strong></p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p><strong>Theorem:</strong> Let $\{ a_n \}$,
-									$\{ b_n \}$, and
-									$\{ x_n \}$ be sequences such that
-									\begin{equation*}
-									a_n \leq x_n \leq b_n \quad \text{for all } n \in \N.
-									\end{equation*}
-									Suppose $\{ a_n \}$ and $\{ b_n \}$ converge and
-									\begin{equation*}
-									\lim_{n\to \infty} a_n
-									=
-									\lim_{n\to \infty} b_n .
-									\end{equation*}
-									Then $\{ x_n \}$ converges and
-									\begin{equation*}
-									\lim_{n\to \infty} x_n
-									=
-									\lim_{n\to \infty} a_n
-									=
-									\lim_{n\to \infty} b_n .
-									\end{equation*}
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/squeeze-theorem.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Algebraic properties</strong></p>
-				<div class="left-txt size-50">
-					<p><strong>Theorem:</strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
-					</p>
-					<ol class="r">
-						<li>The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} (x_n \pm y_n) =
-							\lim_{n \to \infty} z_n =
-							\lim_{n \to \infty} x_n \pm
-							\lim_{n \to \infty} y_n .
-							\end{equation*}
-						</li>
-						<li>
-							The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} (x_n y_n) =
-							\lim_{n \to \infty} z_n =
-							\left( \lim_{n \to \infty} x_n \right)
-							\left( \lim_{n \to \infty} y_n \right) .
-							\end{equation*}
-						</li>
-						<li>
-							If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
-							the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
-							\begin{equation*}
-							\lim_{n \to \infty} \frac{x_n}{y_n} =
-							\lim_{n \to \infty} z_n =
-							%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
-							\frac{\lim\, x_n}{\lim\, y_n} .
-							\end{equation*}
-						</li>
-					</ol>
-				</div>
-
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Some convergence tests</strong></p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>Theorem:</strong> Let $\{ x_n \}$ be a sequence.
-						Suppose there is an $x \in \R$
-						and a convergent sequence $\{ a_n \}$
-						such that
-						\begin{equation*}
-						\lim_{n\to\infty} a_n = 0
-						\quad
-						\text{ and }
-						\quad
-						\abs{x_n - x} \leq a_n
-						\quad
-						\text{for all $n \in \N$.}
-						\end{equation*}
-						Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
-					</p>
-					<p>
-						<strong>Theorem:</strong> Let $c > 0$.
-
-						<ol class="r">
-							<li>
-								If $c \lt 1$, then
-
-								$\lim_{n\to\infty} c^n = 0.$
-
-							</li>
-							<li>
-								If $c \gt 1$, then $\{ c^n \}$ is unbounded.
-
-							</li>
-						</ol>
-
-					</p>
-					
-				</div>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Some convergence tests</strong></p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>Theorem (Ratio test for sequences):</strong>
-
-						Let $\{ x_n \}$ be a sequence such that $x_n \not= 0$ for all $n$ and such that
-						the limit
-						\begin{equation*}
-						L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
-						\qquad
-						\text{exists.}
-						\end{equation*}
-
-						<ol class="r">
-							<li>
-								If $L < 1$, then $\{ x_n \}$ converges and $\lim\, x_n = 0$.
-							</li>
-							<li>
-								If $L > 1$, then $\{ x_n \}$ is unbounded (hence diverges).
-							</li>
-						</ol>
-
-					</p>
-					<p><br/><br/></p>
-				</div>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="left-txt size-70">
-					<p>
-						<strong>Definition:</strong> Let $\{ x_n \}$ be a bounded sequence. Define the sequences $\{ a_n
-						\}$
-						and $\{ b_n \}$ by
-						$a_n := \sup \{ x_k : k \geq n \}$ and
-						$b_n := \inf \{ x_k : k \geq n \}$.
-						Define, if the limits exist,
-						\begin{align*}
-						\limsup_{n \to \infty} \, x_n & := \lim_{n \to \infty} a_n ,
-						\\
-						\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
-						\end{align*}
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="size-60">
-					<img style="width: 70%;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-					<br />$x_n$ is bounded.
-				</div>
-
-			</section>
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Let $a_n$ and $b_n$
-									be as in
-									the definition above.
-									<ol>
-										<li>
-											The
-											sequence $\{ a_n \}$ is bounded monotone decreasing
-											and $\{ b_n \}$ is bounded monotone increasing. In particular,
-											$\liminf x_n$ and $\limsup x_n$ exist.
-										</li>
-										<li>
-											$\displaystyle \limsup_{n \to \infty} \, x_n = \inf \{ a_n : n \in \N \}$
-											and
-											$\displaystyle \liminf_{n \to \infty} \, x_n = \sup \{ b_n : n \in \N \}$.
-										</li>
-										<li>
-											$\displaystyle \liminf_{n \to \infty} \, x_n \leq
-											\limsup_{n \to \infty} \, x_n$.
-										</li>
-									</ol>
-
-
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="size-70">
-					<img style="width: 65%;" class="r-stretch"
-						data-src="images/summary-01/suplim-inflim-convergent.gif" />
-					<br />$x_n$ is bounded and convergent.
-				</div>
-
-
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Then $\{ x_n \}$
-									converges
-									if and only if
-									\begin{equation*}
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-									Furthermore, if $\{ x_n \}$ converges, then
-									\begin{equation*}
-									\lim_{n\to \infty} x_n =
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim-convergent.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Bolzano-Weierstrass Theorem</strong></p>
-				<div class="left-txt size-70">
-					<p><br /></p>
-					<p>
-						<strong>Theorem:</strong> Suppose a sequence $\{ x_n \}$ of real numbers is bounded.
-						Then there exists a convergent subsequence $\{ x_{n_i} \}$.
-					</p>
-				</div>
-				<p><br /><br /></p>
-			</section>
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Cauchy sequences</strong></p>
-				<div class="size-60">
-					<img style="width: 60%;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-					<br />if
-					for every $\epsilon > 0$ there exists an $M \in \N$ such that
-					for all $n \geq M$ and all $k \geq M$,
-					<br />we have
-					$\abs{x_n - x_k} < \epsilon .$ </div> </section> <section>
-						<h3>Sequences</h3>
-						<p class="size-60"><strong>Cauchy sequences</strong></p>
-
-
-						<table style="width:100%;">
-							<tr>
-
-								<th style="width:65%">
-									<div class="size-70"
-										style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-										<p>
-											<strong>Theorem:</strong> A Cauchy sequence is bounded.
-										</p>
-										<p>
-											<strong>Theorem:</strong> A sequence of real numbers is Cauchy if and only
-											if it converges.
-										</p>
-									</div>
-								</th>
-								<th style="width:35%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-								</th>
-
-							</tr>
-						</table>
-
-			</section>
+			
 
 			<section>
 
