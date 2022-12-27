@@ -264,10 +264,10 @@ squeeze lemma,
 				<section>
 					<h3 style="font-size:85%">2.3.2 Algebraic properties</h3>
 					
-					<div class="left-txt" style="font-size:67%">
+					<div class="left-txt" style="font-size:80%">
 						<p><strong>Theorem 2.3.3. </strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
 						</p>
-						<ol class="r">
+						<ol >
 							<li>The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
 								\begin{equation*}
 								\lim_{n \to \infty} (x_n \pm y_n) =
@@ -285,6 +285,20 @@ squeeze lemma,
 								\left( \lim_{n \to \infty} y_n \right) .
 								\end{equation*}
 							</li>
+							
+						</ol>
+					</div>
+					<br/><br/>
+					<br/>
+				</section>
+				<section>
+					<h3 style="font-size:85%">2.3.2 Algebraic properties</h3>
+					
+					<div class="left-txt" style="font-size:80%">
+						<p><strong>Theorem 2.3.3. </strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
+						</p>
+						<ol start="3">
+							
 							<li>
 								If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
 								the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
@@ -295,48 +309,217 @@ squeeze lemma,
 								\frac{\lim\, x_n}{\lim\, y_n} .
 								\end{equation*}
 							</li>
+							<li>
+								If $x_n \geq 0$,
+then
+\begin{equation*}
+\lim_{n\to\infty} \sqrt{x_n} =
+\sqrt{ \lim_{n\to\infty} x_n } .
+\end{equation*}
+							</li>
 						</ol>
 					</div>
 	
 					<br/>
 				</section>
 
-				<section>
-					<h3 style="font-size:85%">Proof of Theorem 2.3.3 ii)</h3>
+				<section data-auto-animate>
+					<h3 style="font-size:85%">Proof of Theorem 2.3.3, Part 2.</h3>
 					
-					<div class="left-txt" style="font-size:85%">
+					<div class="left-txt" style="font-size:90%">
 						<p><strong>Proof. </strong> 
-							<span>
-								Suppose again that $\{ x_n \}$ and $\{ y_n \}$ are convergent sequences 
+							<span class="fragment" data-fragment-index="0">
+								Suppose that $\{ x_n \}$ and $\{ y_n \}$ are convergent sequences 
 								
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="1">
 								and
-write $z_n := x_n y_n$.  Let $L_1 := \lim\, x_n$,
-$L_2 := \lim\, y_n$, and $L := L_1 L_2$.
+								write $z_n := x_n y_n$.  Let $x := \lim\, x_n$,
+								$y := \lim\, y_n$.
 							</span>
 						</p>
 						<p>
-							<span>
-								To prove that $x_n y_n$ converges to $L$
-								we make an estimate
+							<span class="fragment" data-fragment-index="2">
+								To prove that $x_n y_n$ converges to $xy$
+								we make the estimate
 							</span>
 						</p>
 						
 					</div>
-					<div style="font-size:85%">
+					<div style="font-size:90%">
 						<p>
-							<span>
-								$\abs{x_ny_n - L_1L_2}$
+							<span class="fragment" data-fragment-index="3">
+								$\abs{x_ny_n - xy}$
 							</span>
-							<span>
-								$= \abs{\left( x_n y_n -x_n L_2\right) -\left( x_n L_2 -L_1L_2\right) }$
+							<span class="fragment" data-fragment-index="4">
+								$= \abs{\left( x_n y_n -x_n y\right) -\left( x_n y -xy\right) }$
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="5">
+								$\qquad\quad \;\;\leq \abs{x_n\left(\, y_n - y\right) } + \abs{\left( x_n  -x\right)y }$
+							</span>
+							<span class="fragment" data-fragment-index="6"><br/><br/>
+								$\qquad\quad\;\; = \abs{x_n}\abs{\, y_n - y } + \abs{x_n  -x }\abs{y}.$
 							</span>
 						</p>
 					</div>
 	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:85%">Proof of Theorem 2.3.3, Part 2.</h3>
+					
+					<div class="left-txt" style="font-size:83%">
+						<p><strong>Proof. </strong> 
+							<span>
+								$\abs{x_ny_n - xy} = \abs{x_n}\abs{\, y_n - y } + \abs{x_n  -x }\abs{y}.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								According to Theorem ?? there exists a real number $M_1\gt 0$ such that
+								$\abs{x_n}\leq M_1$ for all $n\in \N$ 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								and we set $M:= \max \left\{M_1, |y|\right\}$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Hence we have 
+								\[
+								\abs{x_ny_n - xy } \leq M \abs{y_n-y} + M \abs{x_n-x}.
+								\]
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								Since $x_n$ and $y_n$ converge, we conclude that if $\vre \gt 0$ is given,
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								then there exist natural numbers $K_1$ and $K_2$ such that if $n\geq K_1$ then
+								$\abs{x_n-x}\lt \dfrac{\vre}{2M}$,
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								and $n\geq K_2$ then
+								$\abs{y_n-y}\lt \dfrac{\vre}{2M}.$
+							</span>
+						</p>
+						
+					</div>
+					
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:85%">Proof of Theorem 2.3.3, Part 2.</h3>
+					
+					<div class="left-txt" style="font-size:83%">
+						<p><strong>Proof. </strong> 
+							<span>
+								There exist natural numbers $K_1$, $K_2$ such that if $n\geq K_1$ then
+								$\abs{x_n-x}\lt \dfrac{\vre}{2M}$,
+							</span>
+							<span>
+								and $n\geq K_2$ then
+								$\abs{y_n-y}\lt \dfrac{\vre}{2M}.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">Now let $K_{\vre} = \max\{K_1,K_2\};$</span>
+							<span class="fragment" data-fragment-index="1">then if $n\geq K_{\vre}$ we infer that</span>
+						</p>
+						
+					</div>
+
+					<div>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$\abs{x_ny_n-xy}\leq M \abs{y_n-y} + M \abs{x_n-x}\qquad\quad$
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="3">
+								$\qquad\; \ds\leq M \left(\frac{\vre}{2M}\right) + M \left(\frac{\vre}{2M}\right)$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$=\vre$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt" style="font-size:85%">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								Since $\vre \gt 0$ is arbitrary,
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								this proves that the sequence $z_n = x_ny_n$ converges to $xy.$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\; \blacksquare$
+							</span>
+						</p>
+					</div>
+					
+	
 					<br/>
 				</section>
+				
+
+				<section data-auto-animate>
+					<h4>Some corollaries</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									By plugging in constant sequences in the previous Theorem, 
+									we get several easy corollaries.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+
+If $c \in \R$ and $\{ x_n \}$ is a convergent sequence, then
+for example
+\begin{equation*}
+\lim_{n \to \infty} c x_n = 
+c \left( \lim_{n \to \infty} x_n \right) 
+\text{ and }
+
+\lim_{n \to \infty} (c + x_n) = 
+c + \lim_{n \to \infty} x_n .
+\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Similarly, we find such equalities for constant subtraction and division.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Some corollaries</h4>
+
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									
+As we can take limits past multiplication we can show
+that 
+$$\lim\, x_n^k = {(\lim\, x_n)}^k \;\text{for all }\; k \in \N.$$ </span>
+								
+								<span class="fragment" data-fragment-index="0">
+Finally, we can also show a similar result for the $k$th roots (which is more challenging to prove).
+
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									That is,
+$$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
+
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				
 			</section>
 
 			<section>
