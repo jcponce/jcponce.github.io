@@ -40,7 +40,8 @@
 						snorm: ["{\\|#1\\|}", 1],
 						norm: ["{\\|#1\\|}", 1],
 						pd: "\\boldsymbol{\\cdot}",
-						epsilon: "\\varepsilon" 
+						epsilon: "\\varepsilon",
+						vre: "\\varepsilon" 
 					}
 				}
 			},
