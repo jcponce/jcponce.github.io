@@ -323,9 +323,250 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 			</section>
 
 			<section>
-				<section>
-					<p>Hola</p>
+				<section data-auto-animate>
+					<h4>Example 2.3.2</h4>
+					<div class="size-90 left-txt">
+						<p>Define $x_n$ recursively by
+							$
+							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
+							$
+						</p>
+						<p class="fragment" data-fragment-index="0">Does $x_n$ converge? 🤔
+						</p>
+					</div>
+					<br/><br/><br/><br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>Example 2.3.2</h4>
+					<div class="size-60 left-txt">
+						<p>Define $x_n$ recursively by
+							$
+							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
+							$
+							
+						</p>
+						
+					</div>
+					<div class="size-90 left-txt">
+						<p>
+							<strong>Claim 1:</strong> $\{x_n\}$ is bounded below.
+							<span class="fragment" data-fragment-index="0">
+								Use induction. 
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								1. $x_1 = 2>0.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								2. Assume $x_n\gt 0.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								3. $x_{n+1}$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								 $= x_n-\dfrac{x_n^2-2}{2x_n}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \dfrac{2x_n^2-x_n^2+2}{2x_n}$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$= \dfrac{x_n^2+ 2}{2x_n}$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\gt 0.$
+							</span>
+						</p>
+						
+					</div>
+					<br/><br/>
+					
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2.3.2</h4>
+					<div class="size-60 left-txt">
+						<p>Define $\{x_n\}$ recursively by
+							$
+							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
+							$
+							
+						</p>
+						
+					</div>
+					<div class="size-90 left-txt">
+						<p>
+							<strong>Claim 2:</strong> $\{ x_n \}$ is monotone decreasing.
+							<span class="fragment" data-fragment-index="0">
+								If we show that $x_n^2- 2 \geq 0$ for all $n$, then 
+								$x_{n+1}\leq x_n$ for all $n$.
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								Note that $x_1^2-2= 4-2$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$= 2>0.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								Now for an arbitrary $n$ we have
+							</span>
+						</p>
+					</div>
+					
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\ds x_{n+1}^2-2 =
+								{\left( \frac{x_n^2+2}{2x_n} \right)}^2 - 2$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\ds =
+								\frac{x_n^4+4x_n^2+4 - 8x_n^2}{4x_n^2}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\ds=
+								\frac{x_n^4-4x_n^2+4}{4x_n^2}$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\ds =
+								\frac{{\left( x_n^2-2 \right)}^2}{4x_n^2} .$
+							</span>
+						</p>
+					</div>
+					<br/>
+					
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2.3.2</h4>
+					<div class="size-60 left-txt">
+						<p>Define $\{x_n\}$ recursively by
+							$
+							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
+							$
+							
+						</p>
+						
+					</div>
+					<div class="size-90 left-txt">
+						<p>
+							<strong>Claim 2:</strong> $\{ x_n \}$ is monotone decreasing.
+							<span>
+								If we show that $x_n^2- 2 \geq 0$ for all $n$, then 
+								$x_{n+1}\leq x_n$ for all $n$.
+							</span>
+						</p>
+						
+					</div>
+					
+					<div class="size-85">
+						<p>
+							<span>
+								👉 $\;\ds x_{n+1}^2-2 $
+							</span>
+							<span>
+								$\ds =
+								\frac{{\left( x_n^2-2 \right)}^2}{4x_n^2} .$
+							</span>
+						</p>
+					</div>
+
+					<div class="size-90 left-txt">
+						<p>
+							
+							<span class="fragment" data-fragment-index="0">
+								Since squares are nonnegative,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$x_{n+1}^2-2 \geq 0$ for all $n$. 
+							</span>
+						</p>
+						
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								Therefore,
+								$\{ x_n \}$ is monotone decreasing and bounded, and 
+								so the limit exists. 
+							</span>
+						</p>
+					</div>
+					<br/>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 2.3.2</h4>
+					<div class="size-60 left-txt">
+						<p>Define $\{x_n\}$ recursively by
+							$
+							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
+							$
+							
+						</p>
+						
+					</div>
+					<div class="size-90 left-txt">
+						<p>
+							<strong>Claim 3:</strong> $\lim x_n = \sqrt{2}$.
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								Call $L = \lim x_n.$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Then
+							</span>
+						</p>
+					</div>
+					
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\ds x_{n+1} = x_n - \frac{x_n^2-2}{2x_n}$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\Rightarrow \ds 
+								\lim x_{n+1} =\lim x_n - \frac{ \lim x_n^2-2}{ 2  \lim x_n}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\Rightarrow \ds 
+								L =L - \frac{ L^2-2}{ 2  L}$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\Rightarrow \ds 
+								0 = \frac{ L^2-2}{ 2  L}$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\Rightarrow \ds 
+								  L^2-2=0$
+							</span>
+						</p>
+					</div>
+					<div class="size-90 left-txt">
+					
+						<p>
+							<span class="fragment" data-fragment-index="8">
+								$L = \pm\sqrt{2}.\,$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								But $x_n\gt 0$ for all $n.$
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								So $\,L = \lim x_n = \sqrt{2}.$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+					
+				</section>
+
+
 			</section>
 
 			<section>
@@ -398,11 +639,365 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 							</ol>
 	
 						</p>
-						<p><br/><br/></p>
+						<p><br/><br/><br/></p>
 					</div>
 					<br/>
 				</section>
 			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>2.4.1 Upper & lower limits</h4>
+					
+					<div class="left-txt size-95">
+						<p>
+							<strong>Definition 2.4.1.</strong> Let $\{ x_n \}$ be a bounded sequence. Define the sequences $\{ a_n
+							\}$
+							and $\{ b_n \}$ by
+							$a_n := \sup \{ x_k : k \geq n \}$ and
+							$b_n := \inf \{ x_k : k \geq n \}$.
+							Define, if the limits exist,
+							\begin{align*}
+							\limsup_{n \to \infty} \, x_n & := \lim_{n \to \infty} a_n ,
+							\\
+							\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
+							\end{align*}
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2.4.1 Upper & lower limits</h4>
+					<div class="size-80">
+						<img style="width: 90%;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
+						<br />$x_n$ is bounded.
+					</div>
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2.4.1 Upper & lower limits</h4>
+					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p>
+							<strong>Theorem 2.4.1. </strong> Let $\{ x_n \}$ be a bounded sequence. Let $a_n$ and $b_n$
+							be as in
+							the definition above.
+							<ol style="line-height:50px">
+								<li class="fragment" data-fragment-index="0">
+									The
+									sequence $\{ a_n \}$ is bounded monotone decreasing
+									and $\{ b_n \}$ is bounded monotone increasing. In particular,
+									$\liminf x_n$ and $\limsup x_n$ exist.
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									$\displaystyle \limsup_{n \to \infty} \, x_n = \inf \{ a_n : n \in \N \}$
+									<span  class="fragment" data-fragment-index="2">
+										and
+										$\displaystyle \liminf_{n \to \infty} \, x_n = \sup \{ b_n : n \in \N \}$.
+									</span>
+									
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									$\displaystyle \liminf_{n \to \infty} \, x_n \leq
+									\limsup_{n \to \infty} \, x_n$.
+								</li>
+							</ol>
+
+
+						</p>
+					</div>
+	
+					<br/><br/>
+				</section>
+
+				
+				
+
+				<section data-auto-animate>
+					<h4>2.4.1 Upper & lower limits</h4>
+					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p>
+							<strong>Proof. </strong>  The
+							sequence $\{ a_n \}$ is bounded monotone decreasing
+							and  $\limsup x_n = \inf \{ a_n : n \in \N \}$ exist.
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Note that $\{a_n\}$ is bounded below (since $\{x_n\}$ is)
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								and monotone decreasing:
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+						<span class="fragment" data-fragment-index="2">
+							$a_{n+1} = \sup \{x_n : k\geq n+1 \}$
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							$\leq  \sup \{x_n : k\geq n \}$
+						</span>
+					</p>
+					</div>
+					<div class="size-90 left-txt">
+						<p>
+						
+						<span class="fragment" data-fragment-index="4">
+							(taking $\sup$ of a subset is always $\leq$ than $\sup$ of the whole set).
+						</span>
+						<span class="fragment" data-fragment-index="5">
+							Hence $\{a_n\}$ converges.
+						</span>
+					    </p>
+
+						<p>
+						
+						<span class="fragment" data-fragment-index="6">
+							The rest of the proof is left as an exercise. 📝
+						</span>
+					    </p>
+					</div>
+	
+					<br/><br/>
+				</section>
+
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>2.4.1 Upper & lower limits</h4>
+					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p>
+							<strong>Theorem 2.4.2. </strong> Let $\{ x_n \}$ be a bounded sequence. 
+							<span class="fragment" data-fragment-index="0">
+								Then $\{ x_n \}$
+							converges
+							if and only if
+							\begin{equation*}
+							\liminf_{n\to \infty} \, x_n =
+							\limsup_{n\to \infty} \, x_n.
+							\end{equation*}
+							Furthermore, if $\{ x_n \}$ converges, then
+							\begin{equation*}
+							\lim_{n\to \infty} x_n =
+							\liminf_{n\to \infty} \, x_n =
+							\limsup_{n\to \infty} \, x_n.
+							\end{equation*}
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2.4.1 Upper & lower limits</h4>
+					
+					<div class="size-80">
+						<img style="width: 90%;" class="r-stretch"
+								data-src="images/summary-01/suplim-inflim-convergent.gif" />
+						<br />$x_n$ is bounded and convergent.
+					</div>
+		
+		
+					<br/><br/>
+				</section>
+				
+			</section>
+
+			
+			<section data-auto-animate id="bolzano-weierstrass">
+					<h3>2.5 Bolzano-Weierstrass' theorem</h3>
+					
+					<div class="size-95 left-txt">
+						<p>
+							<strong>Theorem 2.5.1</strong> (Bolzano-Weierstrass) Suppose a sequence $\{ x_n \}$ of real numbers is bounded.
+							Then there exists a convergent subsequence $\{ x_{n_i} \}$.
+						</p>
+					</div>
+		
+		
+					<br/><br/>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>2.6 Cauchy sequences</h4>
+					
+					<div class="size-90 left-txt">
+						<p>
+							<strong>Definition 2.6.1.</strong> 
+							A sequence $\{ x_n \}$ is a <strong>Cauchy sequence</strong> if
+for every $\vre > 0$ there exists an $N \in \N$ such that
+for all $n \geq N$ and all $k \geq N$, we have
+\begin{equation*}
+\abs{x_n - x_k} \lt \vre .
+\end{equation*}
+						</p>
+					</div>
+		
+		
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>2.6 Cauchy sequences</h4>
+					<div class="size-60" style="margin-top:-15px">
+						<img style="width: 84%;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
+						<br />if
+						for every $\epsilon > 0$ there exists an $M \in \N$ such that
+						for all $n \geq M$ and all $k \geq M$,
+						<br />we have
+						$\abs{x_n - x_k} \lt \epsilon .$ 
+					</div> 
+
+					<br/><br/>
+				</section> 
+
+				<section data-auto-animate>
+					<h4>2.6 Cauchy sequences</h4>
+					
+					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+							<p>
+								<strong>Theorem 2.6.1.</strong> A Cauchy sequence is bounded.
+							</p>
+							<p>
+								<strong>Theorem 2.6.2. </strong> A sequence of real numbers is Cauchy if and only
+										if it converges.
+							</p>
+					</div>
+					<div>
+						<img style="width: 60%;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
+					</div>
+		
+		
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2.6.1</h4>
+					
+					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+							<p>
+								<strong>Claim:</strong> The sequence $\left\{ \dfrac{1}{n} \right\}$ is a Cauchy sequence.
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Proof.
+									</strong>
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Given $\vre \gt 0$, find $N$ such that
+									$N \gt \dfrac{2}{\vre}$. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Then for $n,k \geq N$,
+									we have $\dfrac{1}{n} \lt \dfrac{\vre}{2}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									and
+$\dfrac{1}{k} \lt \dfrac{\vre}{2}$.  
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Therefore, for $n, k \geq N$,
+									we have
+								</span>
+							</p>
+					</div>
+
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$\ds \abs{\frac{1}{n} - \frac{1}{k}}$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\ds\leq
+								\abs{\frac{1}{n}} + \abs{\frac{1}{k}}$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\ds\lt \frac{\vre}{2} + \frac{\vre}{2}$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$= \vre. \; \blacksquare$
+							</span>
+						</p>
+					</div>
+					
+		
+		
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2.6.2</h4>
+					
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+							<p>
+								<strong>Claim:</strong> The sequence $\left\{ \dfrac{n+1}{n} \right\}$ is a Cauchy sequence.
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Proof.
+									</strong>
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Given $\vre \gt 0$, find $N$ such that
+									$N \gt \dfrac{2}{\vre}$. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Then for $n,k \geq M$,
+									we have 
+									$\dfrac{1}{n} \lt \dfrac{\vre}{2}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									and
+$\dfrac{1}{k} \lt \dfrac{\vre}{2}.$  
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Therefore, for $n, k \geq N$, 
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									we have
+								</span>
+							</p>
+					</div>
+
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$\ds \abs{\frac{n+1}{n} - \frac{k+1}{k}}$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\ds=
+								\abs{\frac{k-n}{nk}}$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\ds\leq
+								\abs{\frac{k}{nk}}
+								+
+								\abs{\frac{-n}{nk}}$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$ \ds= \frac{1}{n} + \frac{1}{k}$
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="9">
+								$ \ds \lt \frac{\vre}{2} + \frac{\vre}{2}$
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								$ \ds= \vre . \; \blacksquare$
+							</span>
+						</p>
+					</div>
+					
+		
+		
+					<br/><br/>
+				</section>
+			</section>
+			
 
 		
 
