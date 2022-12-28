@@ -764,6 +764,154 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 					<br/><br/>
 				</section>
 
+				<section data-auto-animate>
+					<h4>Example 2.4.1</h4>
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p>
+							Let $\{ x_n \}$ be defined by
+\begin{equation*}
+x_n :=
+\begin{cases}
+\dfrac{n+1}{n} & \text{if } n \text{ is odd,} \\
+0             & \text{if } n \text{ is even.}
+\end{cases}
+\end{equation*}
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								First the
+limit inferior:
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$\ds \liminf_{n\to\infty} \, x_n$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$= 
+								\ds \lim_{n\to\infty}
+								\bigl(
+								\inf \{ x_k : k \geq n \}
+								\bigr)$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$=\ds \lim_{n\to\infty} 0 $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$=0$
+							</span>
+						</p>
+					</div>
+					
+					
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2.4.1</h4>
+					<div class="size-70" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p>
+							Let $\{ x_n \}$ be defined by
+\begin{equation*}
+x_n :=
+\begin{cases}
+\dfrac{n+1}{n} & \text{if } n \text{ is odd,} \\
+0             & \text{if } n \text{ is even.}
+\end{cases}
+\end{equation*}
+						</p>
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								For the limit superior, we write
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span>
+								$\ds\limsup_{n\to\infty} \, x_n = 
+								\lim_{n\to\infty}
+								\bigl(
+								\sup \{ x_k : k \geq n \}
+								\bigr) .$
+							</span>
+							
+						</p>
+					</div>
+
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								In fact 
+								$\; \ds
+								\sup \{ x_k : k \geq n \} =
+								\begin{cases}
+								\ds\frac{n+1}{n}   & \text{if } n \text{ is odd,} \\
+								\ds\frac{n+2}{n+1} & \text{if } n \text{ is even.}
+								\end{cases}
+								\;$ 📝 
+							</span>
+							
+						</p>
+
+					</div>
+					
+					
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2.4.1</h4>
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p>
+							Let $\{ x_n \}$ be defined by
+\begin{equation*}
+x_n :=
+\begin{cases}
+\dfrac{n+1}{n} & \text{if } n \text{ is odd,} \\
+0             & \text{if } n \text{ is even.}
+\end{cases}
+\end{equation*}
+						</p>
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								Thus we have that
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span>
+								$\ds\limsup_{n\to\infty} \, x_n = 
+								\lim_{n\to\infty}
+								\bigl(
+								\sup \{ x_k : k \geq n \}
+								\bigr)$
+							</span>
+							<span>
+								$=1$
+							</span>
+							
+						</p>
+						
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">Note that $\{x_n\}$ does not converge.</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
 
 			</section>
 
@@ -773,7 +921,28 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 					<h4>2.4.1 Upper & lower limits</h4>
 					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 						<p>
-							<strong>Theorem 2.4.2. </strong> Let $\{ x_n \}$ be a bounded sequence. 
+							<strong>Theorem 2.4.2. </strong> If $\{ x_n \}$ is a bounded sequence, then there exists a subsequence
+							$\{ x_{n_k} \}$ such that
+							\begin{equation*}
+							\lim_{k\to \infty} x_{n_k} = \limsup_{n \to \infty} \, x_n .
+							\end{equation*}
+							<span class="fragment" data-fragment-index="0">
+								Similarly, there exists a (perhaps different) subsequence
+							$\{ x_{m_k} \}$ such that
+							\begin{equation*}
+							\lim_{k\to \infty} x_{m_k} = \liminf_{n \to \infty} \, x_n .
+							\end{equation*}
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>2.4.1 Upper & lower limits</h4>
+					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p>
+							<strong>Theorem 2.4.3. </strong> Let $\{ x_n \}$ be a bounded sequence. 
 							<span class="fragment" data-fragment-index="0">
 								Then $\{ x_n \}$
 							converges
