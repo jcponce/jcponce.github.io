@@ -57,191 +57,358 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Summary Week 2</p>
+				<p>Lecture 5</p>
 			</section>
 
 			
 
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="left-txt size-70">
-					<p>
-						<strong>Definition:</strong> Let $\{ x_n \}$ be a bounded sequence. Define the sequences $\{ a_n
-						\}$
-						and $\{ b_n \}$ by
-						$a_n := \sup \{ x_k : k \geq n \}$ and
-						$b_n := \inf \{ x_k : k \geq n \}$.
-						Define, if the limits exist,
-						\begin{align*}
-						\limsup_{n \to \infty} \, x_n & := \lim_{n \to \infty} a_n ,
-						\\
-						\liminf_{n \to \infty} \, x_n & := \lim_{n \to \infty} b_n .
-						\end{align*}
+				<h3>Series</h3>
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong> Given a sequence $\{ x_n \}$,
+						we write the formal object
+						\begin{equation*}
+						\sum_{n=1}^\infty x_n
+						\qquad
+						\text{or sometimes just}
+						\qquad
+						\sum x_n
+						\end{equation*}
+						and call it a <em>series</em>.
+						<br />
+						A series
+						<em>converges</em> if the sequence $\{ s_k \}$
+						defined by
+						$s_k := \displaystyle\sum_{n=1}^k x_n = x_1 + x_2 + \cdots + x_k ,$
+
+						converges.
+						The numbers $s_k$ are called
+						<em>partial sums</em>.
+						If $x := \lim\, s_k$, we write
+						\begin{equation*}
+						\sum_{n=1}^\infty x_n = x .
+						\end{equation*}
 					</p>
+
 				</div>
 			</section>
 
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="size-60">
-					<img style="width: 70%;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-					<br />$x_n$ is bounded.
-				</div>
+				<h3>Series</h3>
+				<p class="sbt"><strong>Sequence of Partial sums</strong></p>
+
+				<iframe scrolling="no" title="Representation of series"
+					src="https://www.geogebra.org/material/iframe/id/mzpzpmrm/width/824/height/495/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+					width="70%" height="400px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				<p class="size-40"><a href="https://teaching.smp.uq.edu.au/scims/Calculus/Series.html"
+						target="_blank">🔗 SciMS: Series</a></p>
 
 			</section>
 
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<table style="width:100%;">
-					<tr>
+				<h3>Series</h3>
+				<p class="size-70"><strong>Geometric series</strong></p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong> Suppose
+						$-1 < r < 1$. Then the <em>geometric series</em>
+							$\sum_{n=0}^\infty r^n$ converges, and
+							\begin{equation*}
+							\sum_{n=0}^\infty r^n = \frac{1}{1-r} .
+							\end{equation*}
 
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Let $a_n$ and $b_n$
-									be as in
-									the definition above.
-									<ol>
-										<li>
-											The
-											sequence $\{ a_n \}$ is bounded monotone decreasing
-											and $\{ b_n \}$ is bounded monotone increasing. In particular,
-											$\liminf x_n$ and $\limsup x_n$ exist.
-										</li>
-										<li>
-											$\displaystyle \limsup_{n \to \infty} \, x_n = \inf \{ a_n : n \in \N \}$
-											and
-											$\displaystyle \liminf_{n \to \infty} \, x_n = \sup \{ b_n : n \in \N \}$.
-										</li>
-										<li>
-											$\displaystyle \liminf_{n \to \infty} \, x_n \leq
-											\limsup_{n \to \infty} \, x_n$.
-										</li>
-									</ol>
-
-
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<div class="size-70">
-					<img style="width: 65%;" class="r-stretch"
-						data-src="images/summary-01/suplim-inflim-convergent.gif" />
-					<br />$x_n$ is bounded and convergent.
-				</div>
-
-
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Upper & lower limits</strong></p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:60%">
-							<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>Theorem:</strong> Let $\{ x_n \}$ be a bounded sequence. Then $\{ x_n \}$
-									converges
-									if and only if
-									\begin{equation*}
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-									Furthermore, if $\{ x_n \}$ converges, then
-									\begin{equation*}
-									\lim_{n\to \infty} x_n =
-									\liminf_{n\to \infty} \, x_n =
-									\limsup_{n\to \infty} \, x_n.
-									\end{equation*}
-								</p>
-							</div>
-						</th>
-						<th style="width:40%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/suplim-inflim-convergent.gif" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Bolzano-Weierstrass Theorem</strong></p>
-				<div class="left-txt size-70">
-					<p><br /></p>
-					<p>
-						<strong>Theorem:</strong> Suppose a sequence $\{ x_n \}$ of real numbers is bounded.
-						Then there exists a convergent subsequence $\{ x_{n_i} \}$.
 					</p>
+
 				</div>
 				<p><br /><br /></p>
 			</section>
 
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Geometric series $\sum_{n=0}^\infty r^n = \frac{1}{1-r}$</strong></p>
+
+				<iframe scrolling="no" title="Geometric series"
+					src="https://www.geogebra.org/material/iframe/id/tw5t6shb/width/725/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="725px" height="400px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+
+
 
 			<section>
-				<h3>Sequences</h3>
-				<p class="size-60"><strong>Cauchy sequences</strong></p>
-				<div class="size-60">
-					<img style="width: 60%;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-					<br />if
-					for every $\epsilon > 0$ there exists an $M \in \N$ such that
-					for all $n \geq M$ and all $k \geq M$,
-					<br />we have
-					$\abs{x_n - x_k} < \epsilon .$ </div> </section> 
+				<h3>Series</h3>
+				<p class="size-60"><strong>Cauchy series</strong></p>
+
+
+				<div class="left-txt size-70">
+					<p><strong>Definition:</strong> A series $\sum x_n$ is said to be <em>Cauchy</em> or a
+						<em>Cauchy series</em>
+						if the sequence of partial sums $\{ s_n \}$ is a Cauchy sequence.</p>
+				</div>
+
+				<p><br /><br /><br /></p>
+			</section>
+
 			<section>
-						<h3>Sequences</h3>
-						<p class="size-60"><strong>Cauchy sequences</strong></p>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Basic Properties</strong></p>
+
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+						Let $\sum x_n$ be a convergent series. Then
+						the sequence $\{ x_n \}$ is convergent and
+						\begin{equation*}
+						\lim_{n\to\infty} x_n = 0.
+						\end{equation*}
+					</p>
+					<p><br /><br /></p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Basic properties: $\sum x_n$ convergent $\implies \lim x_n =0$</p>
+
+				<iframe scrolling="no" title="Basic properties: Convergent series => sequence of terms goes to 0"
+					src="https://www.geogebra.org/material/iframe/id/gawqkpqf/width/710/height/419/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="710px" height="419px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 
 
-						<table style="width:100%;">
-							<tr>
+			</section>
 
-								<th style="width:65%">
-									<div class="size-70"
-										style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-										<p>
-											<strong>Theorem:</strong> A Cauchy sequence is bounded.
-										</p>
-										<p>
-											<strong>Theorem:</strong> A sequence of real numbers is Cauchy if and only
-											if it converges.
-										</p>
-									</div>
-								</th>
-								<th style="width:35%;"><img style="width: 100%; 
-					  display: block;
-					  margin-left: auto;
-					  margin-right: auto;" class="r-stretch" data-src="images/summary-01/cauchy-seq.gif" />
-								</th>
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Basic properties: But $\lim x_n =0$ does not implies $\sum x_n$ convergent</p>
 
-							</tr>
-						</table>
+				<iframe scrolling="no" title="Convergence criterion"
+					src="https://www.geogebra.org/material/iframe/id/jp7p6q6k/width/710/height/419/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="710px" height="419px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Basic Properties</strong></p>
+
+				<div class="left-txt size-60">
+
+					<p><strong>Theorem (Linearity of series):</strong>
+						Let $\alpha \in \R$ and $\sum x_n$ and $\sum y_n$ be
+						convergent series. Then
+					</p>
+					<ol class="r">
+						<li>
+							$\sum \alpha x_n$ is a convergent series and
+							\begin{equation*}
+							\qquad\qquad\qquad\qquad\qquad\sum_{n=1}^\infty \alpha x_n
+							=
+							\alpha \sum_{n=1}^\infty x_n .
+							\end{equation*}
+						</li>
+						<li>
+							$\sum ( x_n + y_n )$ is a convergent series and
+							\begin{equation*}
+							\qquad\qquad\qquad\qquad\qquad\sum_{n=1}^\infty ( x_n + y_n )
+							=
+							\left( \sum_{n=1}^\infty x_n \right)
+							+
+							\left( \sum_{n=1}^\infty y_n \right) .
+							\end{equation*}
+						</li>
+
+					</ol>
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Absolute convergence</p>
+
+				<div class="left-txt size-70">
+					<p><strong>Theorem:</strong>
+						If $x_n \geq 0$ for all $n$, then $\sum x_n$ converges if and only if
+						the sequence of partial sums is bounded above.
+					</p>
+					<p><strong>Definition:</strong>
+						A series $\sum x_n$
+						<em>converges absolutely</em> if
+						the series $\sum \abs{x_n}$ converges.
+						If a series converges, but does not converge absolutely, we say
+						it is <em>conditionally convergent</em>.
+					</p>
+
+					<p><strong>Theorem:</strong>
+						If the series $\sum x_n$ converges absolutely, then it converges.
+					</p>
+
+				</div>
+				<p><br /><br /></p>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Absolute convergence</p>
+
+				<iframe scrolling="no" title="Absolute convergence"
+					src="https://www.geogebra.org/material/iframe/id/skmyrfqu/width/708/height/417/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="708px" height="417px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Convergence tests</strong></p>
+
+				<div class="left-txt size-60">
+					<p><strong>Theorem (Comparison test):</strong>
+						Let $\sum x_n$ and $\sum y_n$ be series such that $0 \leq x_n \leq y_n$
+						for all $n \in \N$.
+					</p>
+					<ol class="r">
+						<li>
+							If $\sum y_n$ converges, then so does $\sum x_n$.
+						</li>
+						<li>
+							If $\sum x_n$ diverges, then so does $\sum y_n$.
+						</li>
+
+					</ol>
+
+
+					<p><strong>Theorem (Ratio test):</strong>
+						Let $\sum x_n$ be a series, $x_n \not= 0$ for all $n$, and such that
+						\begin{equation*}
+						L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
+						\qquad \text{exists.}
+						\end{equation*}
+					</p>
+
+					<ol class="r">
+						<li>
+							If $L \lt 1$, then $\sum x_n$ converges absolutely. </li>
+						<li>
+							If $L \gt 1$, then $\sum x_n$ diverges.
+						</li>
+
+					</ol>
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Ratio test</p>
+
+
+				<iframe scrolling="no" title="Ratio test for series"
+					src="https://www.geogebra.org/material/iframe/id/ymhnyu7d/width/710/height/419/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="710px" height="419px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+
+			</section>
+
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-70"><strong>Convergence tests</strong></p>
+				<div class="left-txt size-60">
+
+					<p><strong>Theorem ($p$-test):</strong>
+						For $p \in \R$,
+						the series
+						\begin{equation*}
+						\sum_{n=1}^\infty \frac{1}{n^p}
+						\end{equation*}
+						converges if and only if $p \gt 1$.
+					</p>
+
+				</div>
+
+				<p><br /><br /></p>
+
+			</section>
+
+
+			<section>
+				<h3>Series</h3>
+				<p class="size-60"><strong>Convergence test for</strong> $\sum_{n=1}^\infty \frac{1}{n^p}$</p>
+
+				<iframe scrolling="no" title="p-test real numbers"
+					src="https://www.geogebra.org/material/iframe/id/hwty63jq/width/725/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+					width="725px" height="400px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+			</section>
+
+
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Fun fact! 🧐</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:70%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p>The function
+									$$\zeta(s) := \sum_{n=1}^{\infty}\frac{1}{n^s}$$
+									is the famous <em><a href="https://en.wikipedia.org/wiki/Riemann_zeta_function"
+											target="_blank">Riemann Zeta</a></em> function. One of the
+									most important open problems in mathematics, the <em><a
+											href="https://youtu.be/zlm1aajH6gY" target="_blank">Riemann
+											hypothesis</a></em>, is concerned with the zeros of $\zeta(s)$,
+									when $s \in \C$. It encodes fundamental information on the distribution of prime
+									numbers.
+
+								</p>
+
+							</div>
+						</th>
+						<th style="width:30%;">
+							<img style="width: 60%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-03/Riemann-Zeta-Detail.png" />
+
+							<p class="size-40" style="text-align:center"><a
+									href="https://en.wikipedia.org/wiki/Riemann_zeta_function" target="_blank">🔗
+									Source: Wikipedia</a></p>
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h3>Series</h3>
+				<p class="sbt">Convergence tests</p>
+
+
+				<div class="left-txt size-60">
+					<p><strong>Theorem (Root test):</strong>
+						Let $\sum x_n$ be a series and let
+						$
+						\displaystyle L := \limsup_{n\to\infty} \, {\abs{x_n}}^{1/n} .
+						$
+					</p>
+					<ol class="r">
+						<li>
+							If $L \lt 1$, then $\sum x_n$ converges absolutely.
+						</li>
+						<li>
+							If $L \gt 1$, then $\sum x_n$ diverges.
+						</li>
+
+					</ol>
+
+					<p><strong>Theorem (Alternating series):</strong>
+						Let $\{ x_n \}$ be a monotone decreasing sequence of positive real numbers such
+						that $\lim\, x_n = 0$. Then
+						\begin{equation*}
+						\sum_{n=1}^\infty {(-1)}^n x_n
+						\end{equation*}
+						converges.
+					</p>
+
+
+
+				</div>
 			</section>
 
 			<section>
