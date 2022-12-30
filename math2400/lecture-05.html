@@ -228,6 +228,176 @@
 						</p>
 					</div>
 				</div>
+				<br/><br/><br/><br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h3>3.1 Series</h3>
+				<div class="size-60">
+					<div class="left-txt">
+						<p>
+							<strong>
+								Theorem 3.1.1.
+							</strong>
+							If $x_n \geq 0$ for all $n$, then $\sum x_n$ converges if and only if
+							the sequence of partial sums is bounded above.
+						</p>
+					</div>
+				</div>
+				<div class="size-90">
+					<div class="left-txt">
+						<p>
+							<strong>
+								Proof.
+							</strong>
+							<span class="fragment" data-fragment-index="0">
+								By definition, $\sum x_n$  converges as a series if and only if
+								$\{s_k \}$,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								with $s_k = \sum_{n=1}^{k} x_n$,  converges as a sequence.
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								If $\{s_k \}$ converges, then it is bounded, by Theorem 2.1.2.
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Now assume that the sequence of partial sums is bounded above.
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								Notice that 
+								\[
+								s_{k+1} = x_1 + x_2 + \cdots + x_k = s_k + x_{k+1} \geq s_k
+								\]
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								since $x_n \geq 0$. 
+							</span>
+						</p>
+					</div>
+				</div>
+				<br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h3>3.1 Series</h3>
+				<div class="size-60">
+					<div class="left-txt">
+						<p>
+							<strong>
+								Theorem 3.1.1.
+							</strong>
+							If $x_n \geq 0$ for all $n$, then $\sum x_n$ converges if and only if
+							the sequence of partial sums is bounded above.
+						</p>
+					</div>
+				</div>
+				<div class="size-90">
+					<div class="left-txt">
+						<p>
+							<strong>
+								Proof.
+							</strong>
+							<span>
+								So we have 
+								\[
+								s_{k+1}  \geq s_k.
+								\]
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Thus $\{s_k \}$ is monotone increasing, 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								that is,  $s_{k+1}\geq s_k$ for all $k \in \N$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Thus if $\{s_k \}$ is bounded above, 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								then by the Monotone Convergence Theorem 
+								(Theorem 2.2.1), it converges. 
+							</span>
+						</p>
+					</div>
+				</div>
+				<br/><br/>
+			</section>
+
+			<section data-auto-animate id="comparison-test">
+				<h3>3.1 Series</h3>
+				<div class="size-90">
+					<div class="left-txt">
+						<p>
+							<strong>
+								Theorem 3.1.2.
+							</strong> (Comparison test)
+							Let $\sum x_n$ and $\sum y_n$ be series such that $0 \leq x_n \leq y_n$
+							for all $n \in \N$.
+						</p>
+						<ol style="line-height:70px">
+							<li class="fragment" data-fragment-index="0">
+								If $\sum y_n$ converges, then so does $\sum x_n$.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								If $\sum x_n$ diverges, then so does $\sum y_n$.
+							</li>
+						</ol>
+					</div>
+				</div>
+				<br/><br/><br/><br/><br/>
+			</section>
+		</section>
+
+		<section>
+
+			<section>
+				<h4>Example 3.1.2.</h4>
+				<div class="size-85">
+					<div class="left-txt">
+						<p>
+							<strong>
+								Claim:
+							</strong> 
+							 The series $\ds\sum \frac{1}{n}$ diverges. 
+							 <span class="fragment" data-fragment-index="0">
+								<em>a.k.a.</em> <strong>harmonic series</strong>.
+						     </span>
+						</p>
+						
+						
+						<p class="fragment" data-fragment-index="1">
+							<strong>
+								Proof.
+							</strong> 
+							 Consider the partial sums $s_n$ for $n=2^k$: 
+						</p>
+					</div>
+					<div>
+						<p class="fragment" data-fragment-index="2">
+							$s_1  = 1,\;\;$
+							<span class="fragment" data-fragment-index="3">
+								$\ds s_2 = \left( 1 \right) + \left( \frac{1}{2} \right) ,$
+							</span>
+						</p>
+						
+						<p class="fragment" data-fragment-index="4">
+							$\ds s_4  = \left( 1 \right) + \left( \frac{1}{2} \right) +
+        \left( \frac{1}{3} + \frac{1}{4} \right) ,$
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							$\ds  s_{2^k}  = 
+							1 + 
+							\sum_{j=1}^k
+							\left(
+							\sum_{m=2^{j-1}+1}^{2^j} \frac{1}{m}
+							\right) .$
+						</p>
+					</div>
+				</div>
+
+				<br/>
 			</section>
 		</section>
 
