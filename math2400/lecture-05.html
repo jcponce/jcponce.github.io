@@ -78,9 +78,9 @@
             <div class="left-txt" style="font-size:81%">
               <p>
                 <span class="fragment" data-fragment-index="0">
-                  <strong>Definition:</strong> Given a sequence $\{ x_n \}$, we
+                  <strong>Definition 3.1.1.</strong> Given a sequence $\{ x_n \}$, we
                   write the formal object \begin{equation*} \sum_{n=1}^\infty
-                  x_n \quad \text{or sometimes just} \quad \sum x_n
+                  x_n \quad \text{or just} \quad \sum x_n
                   \end{equation*} and call it a <em>series</em>.
                 </span>
                 <span class="fragment" data-fragment-index="1">
@@ -325,29 +325,47 @@
 				<br/><br/>
 			</section>
 
-			<section data-auto-animate id="comparison-test">
-				<h3>3.1 Series</h3>
-				<div class="size-90">
-					<div class="left-txt">
-						<p>
-							<strong>
-								Theorem 3.1.2.
-							</strong> (Comparison test)
-							Let $\sum x_n$ and $\sum y_n$ be series such that $0 \leq x_n \leq y_n$
-							for all $n \in \N$.
-						</p>
-						<ol style="line-height:70px">
-							<li class="fragment" data-fragment-index="0">
-								If $\sum y_n$ converges, then so does $\sum x_n$.
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								If $\sum x_n$ diverges, then so does $\sum y_n$.
-							</li>
-						</ol>
-					</div>
+			
+		</section>
+
+		
+
+		<section>
+			<section data-auto-animate id="cauchy-series">
+				<h4>3.1.1 Cauchy series</h4>
+				
+	  
+				<div class="left-txt size-95">
+				  <p>
+					<strong>Definition 3.1.2</strong> A series $\sum x_n$ is said to be
+					<em>Cauchy</em> or a
+					<em>Cauchy series</em>
+					if the sequence of partial sums $\{ s_n \}$ is a Cauchy sequence.
+				  </p>
 				</div>
-				<br/><br/><br/><br/><br/>
+	  
+				<p><br /><br /><br /><br/></p>
 			</section>
+
+			<section data-auto-animate>
+				<h4>3.1.1 Cauchy series</h4>
+	  
+				<div class="left-txt size-95">
+				  <p>
+					<strong>Theorem 3.1.2</strong> The series $\sum x_n$ is Cauchy if for every $\vre > 0$, 
+there exists an $M \in \N$ such that for every $n \geq M$
+and every $k > n$, we have
+\begin{equation*}
+\abs{ \sum_{j={n+1}}^k x_j }
+\lt\vre .
+\end{equation*}
+				  </p>
+				</div>
+	  
+				<p><br /><br /></p>
+			</section>
+
+
 		</section>
 
 		<section>
@@ -581,44 +599,6 @@
 
 				<br/><br/><br/><br/>
 			</section>
-		</section>
-
-		<section>
-			<section data-auto-animate id="cauchy-series">
-				<h4>3.1.1 Cauchy series</h4>
-				
-	  
-				<div class="left-txt size-95">
-				  <p>
-					<strong>Definition 3.1.2</strong> A series $\sum x_n$ is said to be
-					<em>Cauchy</em> or a
-					<em>Cauchy series</em>
-					if the sequence of partial sums $\{ s_n \}$ is a Cauchy sequence.
-				  </p>
-				</div>
-	  
-				<p><br /><br /><br /><br/></p>
-			</section>
-
-			<section data-auto-animate>
-				<h4>3.1.1 Cauchy series</h4>
-	  
-				<div class="left-txt size-95">
-				  <p>
-					<strong>Theorem 3.1.3</strong> The series $\sum x_n$ is Cauchy if for every $\vre > 0$, 
-there exists an $M \in \N$ such that for every $n \geq M$
-and every $k > n$, we have
-\begin{equation*}
-\abs{ \sum_{j={n+1}}^k x_j }
-\lt\vre .
-\end{equation*}
-				  </p>
-				</div>
-	  
-				<p><br /><br /></p>
-			</section>
-
-
 		</section>
 
 		
