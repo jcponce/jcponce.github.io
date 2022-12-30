@@ -274,7 +274,7 @@ if $r \geq 1$ or $r \leq -1$, then the geometric series $\ds\sum_{n=0}^\infty r^
         <section>
           <section data-auto-animate id="comparison-test">
             <h3>3.2 Convergence tests</h3>
-            <div class="size-90">
+            <div class="size-95">
               <div class="left-txt">
                 <p>
                   <strong>
@@ -298,7 +298,7 @@ if $r \geq 1$ or $r \leq -1$, then the geometric series $\ds\sum_{n=0}^\infty r^
   
           <section data-auto-animate id="p-series">
             <h3>3.2 Convergence tests</h3>
-            <div class="left-txt size-90">
+            <div class="left-txt size-95">
               <p>
                 <strong>Theorem 3.2.2. </strong>($p$-test)
                 For $p \in \R$, the series \begin{equation*} \sum_{n=1}^\infty
@@ -330,11 +330,73 @@ if $r \geq 1$ or $r \leq -1$, then the geometric series $\ds\sum_{n=0}^\infty r^
             <br/><br/><br/>
           </section>
 
+          <section data-auto-animate>
+            <h3 style="font-size:90%">3.2 Convergence tests</h3>
+            <p class="sbt">Fun fact! 🧐</p>
+            <table style="width: 100%;margin-top:-30px">
+              <tr>
+                <th style="width: 60%;">
+                  <div
+                    class="size-75"
+                    style="
+                      text-align: left;
+                      margin-left: 0.1em;
+                      font-weight: normal;
+                    "
+                  >
+                    <p>
+                      The function $$\zeta(s) :=
+                      \sum_{n=1}^{\infty}\frac{1}{n^s}$$ is the famous
+                      <em><a
+                          href="https://en.wikipedia.org/wiki/Riemann_zeta_function"
+                          target="_blank"
+                          >Riemann Zeta</a></em>
+                      function. 
+                      
+                      <span class="fragment" data-fragment-index="0">
+                      One of the most important open problems in
+                      mathematics, the
+                      <em><a href="https://youtu.be/zlm1aajH6gY" target="_blank"
+                          >Riemann hypothesis</a></em>, is concerned with the zeros of $\zeta(s)$, when $s \in
+                      \C$. 
+                      </span>
+                      <span class="fragment" data-fragment-index="1">
+                      It encodes fundamental information on the distribution
+                      of prime numbers.
+                      </span>
+                      
+                    </p>
+                  </div>
+                </th>
+                <th style="width: 40%;">
+                  <img
+                    style="
+                      width: 55%;
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                    "
+                    data-src="images/summary-03/Riemann-Zeta-Detail.png"
+                  />
+  
+                  <p class="size-40" style="text-align: center;">
+                    <a
+                      href="https://en.wikipedia.org/wiki/Riemann_zeta_function"
+                      target="_blank"
+                      >🔗 Source: Wikipedia</a
+                    >
+                  </p>
+                </th>
+              </tr>
+            </table>
+            <br/><br/>
+          </section>
+
           <section data-auto-animate id="ratio-test">
             <h3>3.2 Convergence tests</h3>
             
   
-            <div class="left-txt size-90">
+            <div class="left-txt size-95">
   
               <p>
                 <strong>Theorem 3.2.3. </strong> (Ratio test)
@@ -345,10 +407,10 @@ if $r \geq 1$ or $r \leq -1$, then the geometric series $\ds\sum_{n=0}^\infty r^
               </p>
   
               <ol style="line-height:60px">
-                <li>
+                <li class="fragment" data-fragment-index="0">
                   If $L \lt 1$, then $\sum x_n$ converges absolutely.
                 </li>
-                <li>
+                <li class="fragment" data-fragment-index="1">
                   If $L \gt 1$, then $\sum x_n$ diverges.
                 </li>
               </ol>
@@ -377,17 +439,17 @@ if $r \geq 1$ or $r \leq -1$, then the geometric series $\ds\sum_{n=0}^\infty r^
           <section data-auto-animate>
             <h3>3.2 Convergence tests</h3>
   
-            <div class="left-txt size-90">
+            <div class="left-txt size-95">
               <p>
                 <strong>Theorem 3.2.4. </strong> (Root test)
                 Let $\sum x_n$ be a series and let $ \displaystyle L :=
                 \limsup_{n\to\infty} \, {\abs{x_n}}^{1/n} . $
               </p>
-              <ol class="r">
-                <li>
+              <ol  style="line-height:60px">
+                <li class="fragment" data-fragment-index="0">
                   If $L \lt 1$, then $\sum x_n$ converges absolutely.
                 </li>
-                <li>
+                <li class="fragment" data-fragment-index="1">
                   If $L \gt 1$, then $\sum x_n$ diverges.
                 </li>
               </ol>
@@ -400,7 +462,7 @@ if $r \geq 1$ or $r \leq -1$, then the geometric series $\ds\sum_{n=0}^\infty r^
             <h3>3.2 Convergence tests</h3>
           
   
-            <div class="left-txt size-90">
+            <div class="left-txt size-95">
               
   
               <p>
@@ -414,108 +476,347 @@ if $r \geq 1$ or $r \leq -1$, then the geometric series $\ds\sum_{n=0}^\infty r^
         </section>
 
         <section>
-          <h3>Series</h3>
-          <p class="sbt">Absolute convergence</p>
 
-          <div class="left-txt size-90">
-            <p>
-              <strong>Theorem :</strong>
-              If $x_n \geq 0$ for all $n$, then $\sum x_n$ converges if and only
-              if the sequence of partial sums is bounded above.
-            </p>
-            <p>
-              <strong>Definition:</strong>
-              A series $\sum x_n$
-              <em>converges absolutely</em> if the series $\sum \abs{x_n}$
-              converges. If a series converges, but does not converge
-              absolutely, we say it is <em>conditionally convergent</em>.
-            </p>
+          <section data-auto-animate id="absolute-convergence">
+            <h3>3.3 Absolute convergence</h3>
+            
+  
+            <div class="left-txt">
+              
+              <p class="fragment" data-fragment-index="0">
+                <strong>Definition 3.3.1</strong>
+                A series $\sum x_n$
+                <em>converges absolutely</em> if the series $\sum \abs{x_n}$
+                converges. If a series converges, but does not converge
+                absolutely, we say it is <em>conditionally convergent</em>.
+              </p>
+            </div>
+            <p><br /><br /><br /><br /><br /></p>
+          </section>
 
-            <p>
-              <strong>Theorem:</strong>
-              If the series $\sum x_n$ converges absolutely, then it converges.
-            </p>
-          </div>
-          <p><br /><br /></p>
+          <section data-auto-animate>
+            <h3>3.3 Absolute convergence</h3>
+            
+  
+            <div class="left-txt">
+              
+              
+  
+              <p>
+                <strong>Theorem 3.3.1.</strong>
+                If the series $\sum x_n$ converges absolutely, then it converges.
+              </p>
+            </div>
+            <p><br /><br /><br /><br /><br /><br /><br /></p>
+          </section>
+  
+          <section data-auto-animate>
+            <h3>3.3 Absolute convergence</h3>
+            <p class="sbt">Absolute convergence</p>
+  
+            <iframe
+              scrolling="no"
+              title="Absolute convergence"
+              src="https://www.geogebra.org/material/iframe/id/skmyrfqu/width/708/height/417/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+              width="708px"
+              height="417px"
+              style="border: 0px;"
+              data-preload
+              allowfullscreen=""
+            >
+            </iframe>
+            <br/><br/><br/>
+          </section>
+
+          <section data-auto-animate>
+            <h3 style="font-size:100%">3.3 Absolute convergence</h3>
+            
+  
+            <div class="left-txt size-65">
+  
+              <p>
+                <strong>Theorem 3.3.1.</strong>
+                If the series $\sum x_n$ converges absolutely, then it converges.
+              </p>
+            </div>
+            <div class="left-txt size-85">
+  
+              <p>
+                <strong>Proof. </strong>
+
+                <span class="fragment" data-fragment-index="0">
+                  Consider the partial sums 
+$$s_k = \sum_{n=1}^{k} x_n \quad \text{and}\quad t_k = \sum_{n=1}^{k}\abs{x_n}$$
+                </span>
+                <span class="fragment" data-fragment-index="1">
+                  By assumption $\{t_k\}$ is convergent. 
+                </span>
+                <span class="fragment" data-fragment-index="2">
+                  In particular, it is Cauchy. 
+                </span>
+                <span class="fragment" data-fragment-index="3">
+                  Given $\vre >0$ there exists $ N\in \N $ such that 
+                  $$\abs{t_k- t_j} \lt \vre\quad \forall k, j \geq N.$$
+                </span>
+                <span class="fragment" data-fragment-index="4">
+                  Let us show that $\{s_k\}$ is also Cauchy. 
+                </span>
+                
+              </p>
+            </div>
+            <p><br /><br /></p>
+          </section>
+          <section data-auto-animate>
+            <h3 style="font-size:100%">3.3 Absolute convergence</h3>
+            
+  
+            <div class="left-txt size-65">
+  
+              <p>
+                <strong>Theorem 3.3.1.</strong>
+                If the series $\sum x_n$ converges absolutely, then it converges.
+              </p>
+            </div>
+            <div class="left-txt size-85">
+  
+              <p>
+                <strong>Proof. </strong>
+
+                <span>
+                  By the triangle inequality, 
+                </span>
+                <span class="fragment" data-fragment-index="0">
+                  assuming $k>j$, we have
+                </span>
+                
+                
+              </p>
+            </div>
+
+            <div class="size-85">
+              <p>
+                <span class="fragment" data-fragment-index="0">
+                  $\abs{s_k-s_j}$
+                </span>
+                <span class="fragment" data-fragment-index="1">
+                 $=\abs{\left( x_1+ x_2 + \ldots + x_k \right) - \left( x_1+ x_2 + \ldots + x_j \right) }$
+                </span><br/>
+                <span class="fragment" data-fragment-index="2">
+                 $\;= \abs{x_{j+1}+ \ldots + x_k}$
+                </span>
+                <span class="fragment" data-fragment-index="3">
+                 $\leq \abs{x_{j+1}} + \ldots + \abs{x_k}$
+                </span><br/>
+                <span class="fragment" data-fragment-index="4">
+                 $=\abs{t_k - t_j}\lt \vre \quad \forall j, k \geq N.\qquad \qquad$
+                </span>
+              </p>
+            </div>
+
+            <div class="left-txt size-85">
+  
+              <p>
+                
+                <span class="fragment" data-fragment-index="5">
+                  Thus $\{s_k\}$ is Cauchy. 
+                </span>
+                <span class="fragment" data-fragment-index="6">
+                  Hence, by Theorem 2.6.1, $\sum x_n$ converges.
+                </span>
+                
+                
+              </p>
+            </div>
+            <p><br /><br /><br /></p>
+          </section>
+          <section data-auto-animate>
+            <h3 style="font-size:100%">3.3 Absolute convergence</h3>
+            
+  
+            <div class="left-txt size-65">
+  
+              <p>
+                <strong>Theorem 3.3.1.</strong>
+                If the series $\sum x_n$ converges absolutely, then it converges.
+              </p>
+            </div>
+            <div class="left-txt size-85">
+  
+              <p>
+                <strong>Proof. </strong>
+
+                <span>
+                  Notice that 
+                </span>
+                
+                
+              </p>
+            </div>
+
+            <div class="size-85">
+              <p>
+                <span>
+                  $\abs{s_k} $
+                </span>
+                <span class="fragment" data-fragment-index="1">
+                 $\ds =\abs{\sum_{n=1}^{k}x_k} $
+                </span>
+                <span class="fragment" data-fragment-index="2">
+                 $ \ds\leq \sum_{n=1}^{k} \abs{x_n} $
+                </span>
+                <span class="fragment" data-fragment-index="3">
+                 $= t_k .$
+                </span><br/><br/>
+                <span class="fragment" data-fragment-index="4">
+                  Then $\quad \ds\abs{\lim _{k\ra \infty } s_k} = \lim _{k\ra \infty } \abs{s_k}$
+                </span>
+                <span class="fragment" data-fragment-index="5">
+                  $\ds\leq \lim _{k\ra \infty } t_k $
+                </span><br/><br/>
+                <span class="fragment" data-fragment-index="6">
+                  Therefore
+                  $
+                  \quad \ds \abs{ \sum_{n=1}^\infty x_n }
+                  \leq
+                  \sum_{n=1}^\infty \abs{x_n} .\;\;\blacksquare
+                  $
+                </span>
+              </p>
+            </div>
+
+           
+            <p><br /><br /></p>
+          </section>
+          <section data-auto-animate>
+            <h4>Example 3.3.1.</h4>
+            
+  
+            <div class="left-txt size-90">
+  
+              <p>
+                <strong>Claim:</strong>
+                 $\ds\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2}$ converges.
+              </p>
+            </div>
+            <div class="left-txt size-85">
+  
+              <p class="fragment" data-fragment-index="0">
+                <strong>Proof. </strong>
+
+                <span class="fragment" data-fragment-index="1">
+                  The series $\ds\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2}$ converges absolutely
+                </span>
+                <span class="fragment" data-fragment-index="2">
+                  since  $\ds\sum_{n=1}^{\infty} \frac{1}{n^2}$ is convergent,
+                </span>
+                <span class="fragment" data-fragment-index="3">
+                  using the $p$-test (Theorem 3.2.2) with $p=2>1$.
+                </span>
+                <span class="fragment" data-fragment-index="4">
+                  By the previous theorem, $\ds\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2}$ converges.
+                </span>
+                
+                
+              </p>
+            </div>
+
+            
+
+           
+            <p><br /><br /><br /><br /></p>
+          </section>
         </section>
 
+        
         <section>
-          <h3>Series</h3>
-          <p class="sbt">Absolute convergence</p>
+          <section data-auto-animate>
+            <h3>3.4 Rearrangements</h3>
 
-          <iframe
-            scrolling="no"
-            title="Absolute convergence"
-            src="https://www.geogebra.org/material/iframe/id/skmyrfqu/width/708/height/417/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-            width="708px"
-            height="417px"
-            style="border: 0px;"
-            data-preload
-            allowfullscreen=""
-          >
-          </iframe>
+            <div class="left-txt">
+              <p class="fragment" data-fragment-index="0">
+                Consider a series $ \ds\sum_{n=1}^\infty x_n .$
+                <span class="fragment" data-fragment-index="1">
+                  Let  $\sigma \colon \N \to \N$ be a bijection. The corresponding
+rearrangement is the following
+series:
+\begin{equation*}
+\sum_{k=1}^\infty x_{\sigma(k)} .
+\end{equation*}
+                </span>
+              </p>
+            </div>
+            <br/>
+          </section>
+          <section data-auto-animate>
+            <h3>3.4 Rearrangements</h3>
+
+            <div class="left-txt size-80">
+              <p>
+                Consider a series $ \ds\sum_{n=1}^\infty x_n .$
+                <span>
+                  Let  $\sigma \colon \N \to \N$ be a bijection. The corresponding
+rearrangement is the following
+series:
+\begin{equation*}
+\sum_{k=1}^\infty x_{\sigma(k)} .
+\end{equation*}
+                </span>
+              </p>
+              
+            </div>
+            <div class="left-txt size-95">
+              <p>
+                In other words, we sum "the same numbers in a different
+                order."
+                <span class="fragment" data-fragment-index="0">
+                  Unlike with finite sums, with series we need to be careful.
+                </span>
+              </p>
+
+            </div>
+            <br/>
+          </section>
+
+          <section data-auto-animate>
+            <h3>3.4 Rearrangements</h3>
+            
+  
+            <div class="left-txt">
+              <p>
+                <strong>Theorem 3.4.1.</strong>
+                Let $\sum x_n$ be an absolutely convergent series with 
+$L=\sum x_n$.  
+<span class="fragment" data-fragment-index="0">
+  Then, for any bijection $\sigma \colon \N \to \N$, we have that 
+$\sum x_{\sigma(n)}$ is absolutely convergent and 
+$$\sum x_{\sigma(n)}=L.$$
+</span>
+              </p>
+            </div>
+            <p><br /><br /><br /><br /><br /></p>
+          </section>
+
+          <section>
+            <h3>3.4 Rearrangements</h3>
+            <div class="left-txt">
+              <p>
+                <span class="fragment" data-fragment-index="0">
+                  In general, absolutely convergent series have many wonderful properties.
+                </span>
+                <span class="fragment" data-fragment-index="1">
+                  Conditionally convergent series on the other hand do not behave as one would expect.
+                </span><br/><br/>
+                <span class="fragment" data-fragment-index="2">
+                  For example, any series $\sum a_n$ that is conditionally convergent 
+                  can be rearrange so that the new series diverges or converges to a different real number.
+                </span>
+               
+              </p>
+            </div>
+            <br/><br/>
+          </section>
+
         </section>
-
-        <section>
-          <h3>Series</h3>
-          <p class="sbt">Fun fact! 🧐</p>
-          <table style="width: 100%;">
-            <tr>
-              <th style="width: 70%;">
-                <div
-                  class="size-60"
-                  style="
-                    text-align: left;
-                    margin-left: 0.1em;
-                    font-weight: normal;
-                  "
-                >
-                  <p>
-                    The function $$\zeta(s) :=
-                    \sum_{n=1}^{\infty}\frac{1}{n^s}$$ is the famous
-                    <em
-                      ><a
-                        href="https://en.wikipedia.org/wiki/Riemann_zeta_function"
-                        target="_blank"
-                        >Riemann Zeta</a
-                      ></em
-                    >
-                    function. One of the most important open problems in
-                    mathematics, the
-                    <em
-                      ><a href="https://youtu.be/zlm1aajH6gY" target="_blank"
-                        >Riemann hypothesis</a
-                      ></em
-                    >, is concerned with the zeros of $\zeta(s)$, when $s \in
-                    \C$. It encodes fundamental information on the distribution
-                    of prime numbers.
-                  </p>
-                </div>
-              </th>
-              <th style="width: 30%;">
-                <img
-                  style="
-                    width: 60%;
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                  "
-                  class="r-stretch"
-                  data-src="images/summary-03/Riemann-Zeta-Detail.png"
-                />
-
-                <p class="size-40" style="text-align: center;">
-                  <a
-                    href="https://en.wikipedia.org/wiki/Riemann_zeta_function"
-                    target="_blank"
-                    >🔗 Source: Wikipedia</a
-                  >
-                </p>
-              </th>
-            </tr>
-          </table>
-        </section>
-
         
 
         <section>
