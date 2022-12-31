@@ -261,9 +261,9 @@
 					<h3 style="font-size:100%;margin-top:-20px">4.1 Limits of functions</h3>
 					<p class="sbt">Geometric interpretation</p>
 	
-					<img style="width: 100%;margin-top:-25px" class="r-stretch" data-src="images/summary-04/limits-definition.svg" />
+					<img style="width: 85%;margin-top:-20px"  data-src="images/summary-04/limits-definition.svg" />
 	
-					
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -322,7 +322,7 @@
 						<p>
 							<strong>Discussion:</strong>
 							<span>
-								If we choose $\delta := \vre/3$,
+								If we choose $\delta := \dfrac{\vre}{3}$,
 							</span>
 							<span class="fragment" data-fragment-index="0">
 								then $$\abs{(3x+1) - 7}  \lt \vre .$$
@@ -489,8 +489,8 @@
 								Let $\vre >0 $. 
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								Choose $\delta := \min\{1, \vre / 5\}$.
-							</span>
+								Choose $\delta := \min\left\{1, \dfrac{\vre }{5}\right\}$.
+							</span><br/>
 							<span class="fragment" data-fragment-index="2">
 								For all $x\in \R \setminus \{2\}$ and $\abs{x-2}\lt\delta$,
 							</span>
@@ -526,6 +526,53 @@
 					</div>
 					
 					<br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 4.2.3.</h4>
+					<div class="left-txt size-95">
+						<p>
+							Define $f \colon [0,\infty) \to \R$ by
+\begin{equation*}
+f(x) := 
+\begin{cases}
+x & \text{if } x > 0 , \\
+1 & \text{if } x = 0 .
+\end{cases}
+\end{equation*}
+							<span class="fragment" data-fragment-index="0">
+								<strong>Claim:</strong>
+							$\displaystyle\lim_{x\to 0} f(x) = 0 ,$
+							even though $f(0) = 1$.
+							</span>
+							
+							
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							<strong>Proof. </strong>
+							Given an arbitrary $\vre > 0$.
+							<span class="fragment" data-fragment-index="2">
+								Let $\delta := \vre.$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								For $x \in [0,\infty)$, $x \not= 0$, 
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								and $\abs{x-0} \lt \delta$,
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								we get
+								\begin{equation*}
+								\abs{f(x) - 0} = \abs{x} \lt \delta = \vre . \;\blacksquare
+								\end{equation*}
+							</span>
+							
+							
+						</p>
+	
+					</div>
+					
+					<br/><br/><br/>
 				</section>
 
 				<section data-auto-animate>
@@ -597,32 +644,29 @@
 
 			
 
-
-			
-
-
-			
-
-
-
 			<section>
-				<h3>Limits of functions</h3>
-				<p class="sbt">Sequential limits</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $S \subset \R$, let $c$ be a cluster point of $S$, let $f \colon S \to
-						\R$ be a function, and let $L \in \R$.
-
-						Then
-						$f(x) \to L$ as $x \to c$ if and only if for every sequence $\{ x_n \}$
-						of numbers such that $x_n \in S \setminus \{c\}$ for all $n$,
-						and such that $\lim\, x_n = c$,
-						we have that the sequence $\{ f(x_n) \}$ converges to $L$.
-					</p>
-
-				</div>
-
+				<section>
+					<h3>4.3 Sequential limits</h3>
+					<div class="left-txt size-95">
+						<p><strong>Theorem 4.3.1. </strong>
+							Let $S \subset \R$, let $c$ be a cluster point of $S$, let $f \colon S \to
+							\R$ be a function, and let $L \in \R$.
+							<span class="fragment" data-fragment-index="0">
+								Then
+							$$f(x) \to L \;\text{ as }\; x \to c$$ if and only if for every sequence $\{ x_n \}$
+							of numbers such that $x_n \in S \setminus \{c\}$ for all $n$,
+							and such that $\lim\, x_n = c$,
+							we have that the sequence $\{ f(x_n) \}$ converges to $L$.
+							</span>
+						</p>
+	
+					</div>
+	
+					<br/><br/><br/>
+				</section>
 			</section>
+
+			
 
 			<section>
 				<h3>Limits of functions</h3>
