@@ -645,7 +645,7 @@ x & \text{if } x > 0 , \\
 			
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h3>4.3 Sequential limits</h3>
 					<div class="left-txt size-95">
 						<p><strong>Theorem 4.3.1. </strong>
@@ -664,6 +664,163 @@ x & \text{if } x > 0 , \\
 	
 					<br/><br/><br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4>Example 4.2.3.</h4>
+					<div class="left-txt size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								<strong>Claim:</strong>
+							</span>
+							<span>
+								$\;\displaystyle \lim_{x \to 0} \, \sin\left( \dfrac{1}{x} \right)$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								does not exist, 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								but 
+							</span>
+							<span>
+								$\displaystyle \lim_{x \to 0} \, x\sin\left( \dfrac{1}{x} \right)$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$ = 0.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<strong>Proof. </strong>
+							For $\sin (1/x).$ Define a sequence
+by
+$x_n := \ds\frac{1}{\pi n + \dfrac{\pi}{2}}$
+							<span class="fragment" data-fragment-index="3">
+								$\Rightarrow x_n=0$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\;\Rightarrow \;\sin \left( \dfrac{1}{x} \right)
+								=
+								\sin \left(\pi n + \ds\frac{\pi}{2}\right)
+								$ 
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$
+								= {(-1)}^n .$ 
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="6">
+								Therefore, $\left\{ \sin \left( \dfrac{1}{x} \right) \right\}$ does not converge.
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								By Theorem 4.3.1, 
+$\lim_{x \to 0} \, \sin\left( \dfrac{1}{x} \right) $ does not exist.
+							</span>
+							
+							
+						</p>
+	
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 4.2.3.</h4>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								<strong>Claim:</strong>
+							</span>
+							<span>
+								$\;\displaystyle \lim_{x \to 0} \, \sin\left( \dfrac{1}{x} \right)$
+							</span>
+							<span>
+								does not exist, 
+							</span>
+							<span>
+								but 
+							</span>
+							<span>
+								$\displaystyle \lim_{x \to 0} \, x\sin\left( \dfrac{1}{x} \right)$
+							</span>
+							<span>
+								$ = 0.$
+							</span>
+						</p>
+						<p>
+							<strong>Proof. </strong>
+							Now for $x\sin (1/x).$ 
+							<span class="fragment" data-fragment-index="1">
+								Let $\{ x_n \}$ be a sequence
+								such that $x_n \not= 0$ for all $n$, and such that $\lim\, x_n = 0$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Note that $\abs{\sin(t)} \leq 1$ for all $t \in \R$. 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Then 
+							</span>
+							
+						</p>
+	
+					</div>
+
+					<div class="size-85">
+
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\abs{x_n\sin\left(\frac{1}{x_n}\right)-0}$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$=
+								\abs{x_n}\abs{\sin\left(\frac{1}{x_n}\right)}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\leq
+								\abs{x_n} .$
+							</span>
+						</p>
+					</div>
+					<div class="size-85 left-txt">
+
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								As $x_n$ goes to 0,
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								then $\abs{x_n}$ goes to zero,
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								and hence
+$\left\{ x_n\sin\left(\frac{1}{x_n}\right) \right\}$ converges to zero.
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								By
+								Theorem 4.3.1, 
+								$$\displaystyle \lim_{x \to 0} \, x\sin\left( \frac{1}{x} \right) = 0.$$
+
+							</span>
+						</p>
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>4.3 Sequential limits</h3>
+					<iframe scrolling="no" title="Sequencial limits: Convergent"
+					src="https://www.geogebra.org/material/iframe/id/bvjhwafv/width/746/height/386/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+					width="746px" height="386px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					<div class="left-txt size-70">
+						<table style="width:80%;border:none">
+							<tr>
+								<td style="text-align:center" class="fragment" data-fragment-index="0">Every $x_n\ra 0$ as
+								$n\ra \infty$.</td>
+								<td style="text-align:center" class="fragment" data-fragment-index="1">$f\left(x_n\right)$
+								converges to $0$.</td>
+							</tr>
+						</table>
+					</div>
+					<br/><br/>
+				</section>
 			</section>
 
 			
@@ -673,19 +830,7 @@ x & \text{if } x > 0 , \\
 
 				<p class="sbt">Sequential limits</p>
 
-				<iframe scrolling="no" title="Sequencial limits: Convergent"
-					src="https://www.geogebra.org/material/iframe/id/bvjhwafv/width/746/height/386/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="746px" height="386px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-				<div class="left-txt size-60">
-					<table style="width:80%;border:none">
-						<tr>
-							<td style="text-align:center" class="fragment" data-fragment-index="0">Every $x_n\ra 0$ as
-								$n\ra \infty$.</td>
-							<td style="text-align:center" class="fragment" data-fragment-index="1">$f\left(x_n\right)$
-								converges to $0$.</td>
-						</tr>
-					</table>
-				</div>
+				
 			</section>
 
 			<section>
