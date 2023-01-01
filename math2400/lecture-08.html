@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 8</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Leture 8</p>
+			</section>
+
+			
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>4.3.1 Properties of limits</h4>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+							<strong>Corollary 4.3.1.</strong>
+							Let $S \subset \R$ and let $c$ be an accumulation point of $S$.  
+
+							
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Suppose $f \colon S \to
+\R$ and $g \colon S \to \R$ are functions
+such that
+the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist,
+and
+\begin{equation*}
+f(x) \leq g(x) \qquad \text{for all } x \in S.
+\end{equation*}
+								
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Then $$\ds \lim_{x\to c} f(x) \leq \lim_{x\to c} g(x) .$$
+								
+							</span>
+							
+						</p>
+					</div>
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>4.3.1 Properties of limits</h4>
+					
+					<div class="left-txt size-90">
+						<p><strong>Corollary 4.3.2.</strong>
+							<span class="fragment" data-fragment-index="0">
+							
+							Let $S \subset \R$ and let $c$ be an accumulation point of $S$.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Suppose $f \colon S \to
+								\R$ is a function such that the limit of $f(x)$ as $x$ goes to $c$
+								exists.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Suppose there are two real numbers $a$ and $b$ such that
+\begin{equation*}
+a \leq f(x) \leq b \qquad \text{for all } x \in S.
+\end{equation*}
+
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Then
+\begin{equation*}
+a \leq \lim_{x\to c} f(x) \leq b .
+\end{equation*}
+							</span>
+							
+						</p>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>4.3.1 Properties of limits</h4>
+					<div class="left-txt size-80">
+						<p><strong>Corollary 4.3.3.</strong>
+							<span class="fragment" data-fragment-index="0">
+							
+							Let $S \subset \R$ and let $c$ be a cluster point of $S$.
+							
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Suppose $f \colon S \to \R$,
+								$g \colon S \to \R$, and $h \colon S \to \R$ are functions such that
+								\begin{equation*}
+								f(x) \leq g(x) \leq h(x) \qquad \text{for all } x \in S.
+								\end{equation*}
+								
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Suppose the limits of $f(x)$ and $h(x)$ as $x$ goes to $c$ both exist, and
+								\begin{equation*}
+								\lim_{x\to c} f(x) = \lim_{x\to c} h(x) .
+								\end{equation*}
+								
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Then the limit of $g(x)$ as $x$ goes to $c$ exists and
+								\begin{equation*}
+								\lim_{x\to c} g(x) =
+								\lim_{x\to c} f(x) = \lim_{x\to c} h(x) .
+								\end{equation*}
+							</span>
+						</p>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>4.3.1 Properties of limits</h4>
+					<div class="left-txt size-80">
+						<p><strong>Corollary 4.3.4</strong>
+							<span class="fragment" data-fragment-index="0">
+								
+							Let $S \subset \R$ and let $c$ be a cluster point of $S$.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+							Suppose $f \colon S \to \R$ and
+							$g \colon S \to \R$ are functions
+							such that
+							the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Then
+							</span>
+						</p>
+	
+						<ol>
+							<li class="fragment" data-fragment-index="3">
+								$\displaystyle
+								\lim_{x\to c} \bigl(f(x)+g(x)\bigr) = \lim_{x\to c} f(x) +
+								\lim_{x\to c} g(x).
+								$
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								$\displaystyle
+								\lim_{x\to c} \bigl(f(x)-g(x)\bigr) = \lim_{x\to c} f(x) -
+								\lim_{x\to c} g(x).
+								$
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								$\displaystyle
+								\lim_{x\to c} \bigl(f(x)\cdot g(x)\bigr) = \lim_{x\to c} f(x)\cdot \lim_{x\to c} g(x).
+								$
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								If
+								$\displaystyle \lim_{x\to c} g(x) \not= 0$,
+								and $g(x) \not= 0$ for all $x \in S \setminus \{ c \}$, then
+								\begin{equation*}
+								\lim_{x\to c} \frac{f(x)}{g(x)} =
+								\frac{\lim_{x\to c} f(x)}{\lim_{x\to c} g(x)} .
+								\end{equation*}
+							</li>
+						</ol>
+	
+					</div>
+					<br/><br/>
+	
+				</section>
+
+				<section data-auto-animate>
+					<h4>4.3.1 Properties of limits</h4>
+					<div class="left-txt size-90">
+						<p><strong>Corollary 4.3.5.</strong>
+							<span class="fragment" data-fragment-index="0">
+								Let $S \subset \R$ and let $c$ be an accumulation point of $S$.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Suppose $f \colon S \to \R$ is a function such that the limit of $f(x)$ as $x$ goes to $c$
+								exists.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Then
+								\begin{equation*}
+								\lim_{x\to c} \abs{\,f(x)} =
+								\abs{\lim_{x\to c} f(x)}.
+								\end{equation*}
+								
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>4.1 Limits of functions</h3>
+	
+					<div class="left-txt size-95">
+						<p>Why do we need the concept of cluster point in the definition of limit? <span style="font-size:1.8em">🤔</span></p>
+	
+						<p class="fragment" data-fragment-index="0">Suppose \(c\) is not a cluster point of \(S\).
+							<span class="fragment" data-fragment-index="1">
+								Then there exists some \(r\) such that the interval
+							\((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
+							</span>
+						</p>
+	
+						
+					</div>
+	
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:90%;margin-top:-10px">4.1 Limits of functions</h3>
+
+					<div class="left-txt size-60" style="margin-top:-20px">
+						<p>Why do we need the concept of cluster point in the definition of limit? <span style="font-size:1.8em">🤔</span></p>
+	
+						<p >Suppose \(c\) is not a cluster point of \(S\).
+							<span >
+								Then there exists some \(r\) such that the interval
+							\((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
+							</span>
+						</p>
+	
+						
+					</div>
+	
+					<div class="left-txt size-90">
+						
+						<p class="fragment" data-fragment-index="2">
+							Then, for any function \(f\), choose any number \(L\).
+						</p>
+	
+						<p class="fragment" data-fragment-index="3">
+							Let \(\varepsilon\gt0\) be arbitrary and choose \(\delta = r.\)
+							<span class="fragment" data-fragment-index="4">
+								Since there are no points \(x\in S\setminus\{c\}\)
+								such that \(|x-c|\lt\delta=r\), then the statement:
+							</span>
+						</p>
+	
+						
+	
+						<p class="fragment" data-fragment-index="5">
+							<strong>For every \(\varepsilon>0\) there exists a \(\delta>0\) such that
+	
+								if for every \(x\in S\setminus\{c\}\) and \(|x-c|\lt \delta\),
+								then \(|f(x)-L|\lt \varepsilon\).
+							</strong>
+						</p>
+					</div>
+	
+					<p class="fragment size-90" data-fragment-index="6">is vacuously true!</p>
+	
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>4.4 One-sided limits</h3>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+							<strong>Definition 4.4.1.</strong>
+							Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+							$S \cap (c,\infty)$. 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+							Then if the limit
+							of the restriction of $f$ to $S \cap (c,\infty)$
+							as $x \to c$ exists, define
+							\begin{equation*}
+							\lim_{x \to c^+} f(x) := \lim_{x\to c} f|_{S \cap (c,\infty)}(x) .
+							\end{equation*}
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Similarly, if $c$ is a cluster point of
+								$S \cap (-\infty,c)$ and the limit of the restriction as $x \to c$
+								exists, define
+								\begin{equation*}
+								\lim_{x \to c^-} f(x) := \lim_{x\to c} f|_{S \cap (-\infty,c)}(x) .
+								\end{equation*}
+							</span>
+							
+						</p>
+					</div>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h3>4.4 One-sided limits</h3>
+					<div class="left-txt size-90">
+						<p><strong>Definition 4.4.2.</strong>
+							Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+							$S \cap (c,\infty)=\{x\in S: x>c\}$. Then we say that $L\in \R$ is a
+							<em>right-hand limit of $f$ at $c$</em> and we write
+							\[
+							\lim_{x \to c^+} f(x) = L
+							\]
+							if given any $\epsilon>0$ there exists a $\delta>0$
+							such that for all $x\in S$ with $0 \lt x-c \lt \delta$, then $\abs{\,f(x)-L}\lt
+							\epsilon$.<br /><br />
+							
+						</p>
+					</div>
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3>4.4 One-sided limits</h3>
+					<div class="left-txt size-90">
+						<p><strong>Definition 4.4.2.</strong>
+							Similarly, if $c$ is a cluster point of
+							$S \cap (-\infty,c)=\{x\in S:x\lt c\}$. Then we say that $L\in \R$ is a
+							<em>left-hand limit of $f$ at $c$</em> and we write
+							\[
+							\lim_{x \to c^-} f(x) = L
+							\]
+							if given any $\epsilon>0$ there exists a $\delta>0$
+							such that for all $x\in S$ with $0\lt c-x \lt \delta$, then $\abs{\,f(x)-L}\lt \epsilon$.
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+	
+	
+				<section data-auto-animate>
+					<h3>4.4 One-sided limits</h3>
+					
+					<div class="left-txt size-95">
+						<p><strong>Theorem:</strong>
+							Let $S \subset \R$ be such that $c$ is a cluster point
+							of both $S \cap (-\infty,c)$ and $S \cap (c,\infty)$, let
+							$f \colon S \to \R$ be a function, and let $L \in \R$. Then $c$ is a cluster point of $S$ and
+							\begin{equation*}
+							\lim_{x \to c} f(x) = L
+							\;\; \text{iff} \;\;
+							\lim_{x \to c^-} f(x) =
+							\lim_{x \to c^+} f(x) =
+							L .
+							\end{equation*}
+						</p>
+					</div>
+	
+					<br/><br/><br/>
+				</section>
+			</section>
+
+
+			
+			<section>
+				<section data-auto-animate>
+					<h4>4.5.1 Limits at infinity</h4>
+					<div class="left-txt size-70">
+						<table style="width:100%;border:none">
+							<tr>
+								<th style="text-align:center" class="fragment" data-fragment-index="0">Limits at infinity</th>
+								<th style="text-align:center" class="fragment" data-fragment-index="1">Infinite limits</th>
+							</tr>
+						</table>
+						<table style="width:100%;border:none">
+							<tr>
+								<td style="width:50%;" class="fragment" data-fragment-index="0">
+									<img style="width: 100%; 
+							  display: block;
+							  margin-left: auto;
+							  margin-right: auto;" class="r-stretch" data-src="images/summary-04/limit-infinity.svg" />
+								</td>
+								<td style="width:50%" class="fragment" data-fragment-index="1">
+									<img style="width: 100%; 
+							  display: block;
+							  margin-left: auto;
+							  margin-right: auto;" class="r-stretch" data-src="images/summary-04/infinite-limit.svg" />
+								</td>
+							</tr>
+						</table>
+	
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>4.5.1 Limits at infinity</h4>
+					<div class="size-95" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p><strong>Definition 4.5.1. </strong>
+							We say $\infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+							$M \in \R$, there exists an $x \in S$ such that $x \geq M$. 
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Similarly,
+							$- \infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
+							$M \in \R$, there exists an $x \in S$ such that $x \leq M$.
+						</p>
+
+						
+					</div>
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>4.5.1 Limits at infinity</h4>
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						
+
+						<p>
+							<strong>Definition 4.5.2. </strong>
+							Let $f \colon S \to \R$ be a function, where
+							$\infty$ is a cluster point of $S$.
+							<span class="fragment" data-fragment-index="0">
+								If there exists an $L \in \R$
+							such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+							\begin{equation*}
+							\abs{\,f(x) - L} \lt \epsilon
+							\end{equation*}
+							whenever $x \in S$ and $x \geq M$, 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then we say $f(x)$
+							<em>converges</em> to $L$
+							as $x$ goes to $\infty$. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								We call $L$ the <em>limit</em>
+								and write
+								\begin{equation*}
+								\lim_{x \to \infty} f(x) := L .
+								\end{equation*}
+								
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								
+								Alternatively we write $f(x) \to L$ as $x \to \infty$.
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>4.5.1 Limits at infinity</h4>
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<p><strong>Definition 4.5.2. </strong>
+							If $-\infty$ is a cluster point of $S$
+							and
+							there exists an $L \in \R$
+							such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
+							\begin{equation*}
+							\abs{\,f(x) - L} \lt \epsilon
+							\end{equation*}
+							whenever $x \in S$ and $x \leq M$, then we say $f(x)$ <em>converges</em> to $L$
+							as $x$ goes to $-\infty$. We call $L$ the <em>limit</em> and write
+							\begin{equation*}
+							\lim_{x \to -\infty} f(x) := L .
+							\end{equation*}
+							Alternatively we write $f(x) \to L$ as $x \to -\infty$.
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 4.5.1.</h4>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>Claim:</strong>
+								$\displaystyle \lim_{x\ra \infty} \frac{1}{x} = 0.$ 
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Discussion:</strong> 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Given $\vre > 0$, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we are looking for $M$ such that if $x>M $,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then 								
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds\abs{\frac{1}{x} - 0}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds= \abs{\frac{1}{x}  } $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \frac{1}{\abs{x}} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\lt \vre.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									In order to use the inequality $x>M$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									we must choose $M>0$ so that 
+								</span>
+							</p>
+						</div>
+						<div style="margin-top:-40px">
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									$x > M >0 $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$\ds\;\implies\;  \frac{1}{M} > \frac{1}{x} > 0.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 4.5.1.</h4>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>Claim:</strong>
+								$\displaystyle \lim_{x\ra \infty} \frac{1}{x} = 0.$ 
+							</p>
+							<p>
+								<span>
+									<strong>Discussion:</strong> 
+								</span>
+								<span>
+									Also we need to choose  $M$ large enough so that $1/M \lt \vre$. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then  $x > M$ implies 								
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds \abs{\frac{1}{x} - 0 }$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds= \frac{1}{\abs{x}}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \frac{1}{x} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\lt \ds \frac{1}{M}$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\lt  \vre.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									Now we are ready to write the formal proof.
+								</span>
+								
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 4.5.1.</h4>
+
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<strong>Claim:</strong>
+								$\displaystyle \lim_{x\ra \infty} \frac{1}{x} = 0.$ 
+							</p>
+							<p>
+								<span>
+									<strong>Proof. </strong> 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Given an arbitrary $\vre>0$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Choose $M>0 $ large enough so that $1/M \lt \vre$.							
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									For any $x> M$,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds\abs{\frac{1}{x} - 0 } $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds \lt \frac{1}{M}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds \lt  \vre. \;\bs$
+								</span>
+							</p>
+						</div>
+						
+						
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 4.5.2.</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								Let $f(x) := \dfrac{1}{\abs{x}+1}$.  
+								<span class="fragment" data-fragment-index="0">
+									Then
+									$\ds \lim_{x\to \infty} f(x) = 0$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									 and
+									$\ds\lim_{x\to -\infty} f(x) = 0.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									<strong>Proof. </strong> 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Let $\vre > 0$ be given.  
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Choose $M>0$ 
+									large enough
+									so that $\frac{1}{M+1} \lt \vre$.						
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									If
+									$x > M$,
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									then 
+								</span>
+							</p>
+						</div>
+						<div style="margin-top:-20px">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									$\ds\abs{\frac{1}{\abs{x}+1} } $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\ds = \frac{1}{\abs{x}+1}$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$\ds = \overbrace{ \frac{1}{x+1} }^{ \text{since } x>0}$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$\ds \lt \frac{1}{M+1} $
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									$\ds \lt \vre.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="12">
+								So the first limit is proved. 😃
+							</p>
+							<p class="fragment" data-fragment-index="13">
+								Try to prove the second limit. 📝
+							</p>
+						</div>
+						
+						
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>4.5.1 Limits at infinity</h4>
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						
+
+						<p><strong>Theorem 4.5.1. </strong>
+							Suppose $f \colon S \to \R$ is a function, $\infty$ is a cluster
+							point of $S \subset \R$, and $L \in \R$. Then
+							\begin{equation*}
+							\lim_{x\to\infty} f(x) = L
+							\end{equation*}
+							if and only if
+							\begin{equation*}
+							\lim_{n\to\infty} f(x_n) = L
+							\end{equation*}
+							for all sequences $\{ x_n \}$ in $S$ such that $\lim\limits_{n\to\infty} x_n = \infty$.
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section>
+					<h4>4.5.2 Infinite limit</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Definition 4.5.3.
+									</strong>
+									Let $f \colon  (a,\infty) \to \R$ be a function.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									We say $f(x)$
+<strong>diverges to infinity</strong>
+as $x$ goes to $\infty$,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									f for every $N \in \R$
+there exists an $M > a$ such that for all $x > M$ then 
+\begin{equation*}
+f(x) > N.
+\end{equation*}
+
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									We write
+\begin{equation*}
+\lim_{x \to \infty} f(x) := \infty ,
+\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									or we say that $f(x) \to \infty$ as $x \to \infty$.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section>
+					<h4>Example 4.5.4.</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Claim:
+									</strong>
+								</span>
+								<span>
+									$\;\displaystyle \lim_{x \to \infty} \frac{1+x^2}{1+x}$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$= \infty.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									<strong>
+										Proof.
+									</strong>
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									First note that for $x >1$, we have
+								</span>
+							</p>
+
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds \frac{1+x^2}{1+x} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds > 
+									\frac{x^2}{x+x} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = 
+									\frac{x}{2} .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									Given $N \in \R$, 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									take $M := \max \{ 2N +1, 1 \}$.
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									If $x > M$, 
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									then $x > 1$ and $\dfrac{x}{2} > N$.
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									So
+								</span>
+							</p>
+							
+
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="11">
+									$\ds \frac{1+x^2}{1+x} $
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$\ds >
+									\frac{x}{2}$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									$\ds > N . \;\; \bs$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+			</section>
+
+			
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
