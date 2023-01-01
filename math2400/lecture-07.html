@@ -1282,13 +1282,13 @@ a \leq \lim_{x\to c} f(x) \leq b .
 						</table>
 						<table style="width:100%;border:none">
 							<tr>
-								<td style="width:50%;" class="fragment" data-fragment-index="2">
+								<td style="width:50%;" class="fragment" data-fragment-index="0">
 									<img style="width: 100%; 
 							  display: block;
 							  margin-left: auto;
 							  margin-right: auto;" class="r-stretch" data-src="images/summary-04/limit-infinity.svg" />
 								</td>
-								<td style="width:50%" class="fragment" data-fragment-index="3">
+								<td style="width:50%" class="fragment" data-fragment-index="1">
 									<img style="width: 100%; 
 							  display: block;
 							  margin-left: auto;
@@ -1303,9 +1303,12 @@ a \leq \lim_{x\to c} f(x) \leq b .
 				<section data-auto-animate>
 					<h4>4.5.1 Limits at infinity</h4>
 					<div class="size-95" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-						<p><strong>Definition:</strong>
+						<p><strong>Definition 4.5.1. </strong>
 							We say $\infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
-							$M \in \R$, there exists an $x \in S$ such that $x \geq M$. Similarly,
+							$M \in \R$, there exists an $x \in S$ such that $x \geq M$. 
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Similarly,
 							$- \infty$ is a <em>cluster point</em> of $S \subset \R$ if for every
 							$M \in \R$, there exists an $x \in S$ such that $x \leq M$.
 						</p>
@@ -1320,22 +1323,34 @@ a \leq \lim_{x\to c} f(x) \leq b .
 						
 
 						<p>
-							<strong>Definition:</strong>
+							<strong>Definition 4.5.2. </strong>
 							Let $f \colon S \to \R$ be a function, where
 							$\infty$ is a cluster point of $S$.
-							If there exists an $L \in \R$
+							<span class="fragment" data-fragment-index="0">
+								If there exists an $L \in \R$
 							such that for every $\epsilon \gt 0$, there is an $M \in \R$ such that
 							\begin{equation*}
 							\abs{\,f(x) - L} \lt \epsilon
 							\end{equation*}
-							whenever $x \in S$ and $x \geq M$, then we say $f(x)$
+							whenever $x \in S$ and $x \geq M$, 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then we say $f(x)$
 							<em>converges</em> to $L$
-							as $x$ goes to $\infty$. We call $L$ the <em>limit</em>
-							and write
-							\begin{equation*}
-							\lim_{x \to \infty} f(x) := L .
-							\end{equation*}
-							Alternatively we write $f(x) \to L$ as $x \to \infty$.
+							as $x$ goes to $\infty$. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								We call $L$ the <em>limit</em>
+								and write
+								\begin{equation*}
+								\lim_{x \to \infty} f(x) := L .
+								\end{equation*}
+								
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								
+								Alternatively we write $f(x) \to L$ as $x \to \infty$.
+							</span>
 						</p>
 					</div>
 					<br/><br/>
@@ -1343,7 +1358,7 @@ a \leq \lim_{x\to c} f(x) \leq b .
 				<section data-auto-animate>
 					<h4>4.5.1 Limits at infinity</h4>
 					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-						<p><strong>Definition:</strong>
+						<p><strong>Definition 4.5.2. </strong>
 							If $-\infty$ is a cluster point of $S$
 							and
 							there exists an $L \in \R$
@@ -1361,12 +1376,174 @@ a \leq \lim_{x\to c} f(x) \leq b .
 					</div>
 					<br/><br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4>Example 4.5.1.</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<strong>Claim:</strong>
+								$\displaystyle \lim_{x\ra \infty} \frac{1}{x} = 0.$ 
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Discussion:</strong> 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Given $\vre > 0$, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we are looking for $M$ such that if $x>M $,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then 								
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds\abs{\frac{1}{x} - 0}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds= \abs{\frac{1}{x}  } $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \frac{1}{\abs{x}} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\lt \vre.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									In order to use the inequality $x>M$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									we must choose $M>0$ so that 
+								</span>
+							</p>
+						</div>
+						<div style="margin-top:-40px">
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									$x > M >0 $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$\ds\;\implies\;  \frac{1}{M} > \frac{1}{x} > 0.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 4.5.1.</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<strong>Claim:</strong>
+								$\displaystyle \lim_{x\ra \infty} \frac{1}{x} = 0.$ 
+							</p>
+							<p>
+								<span>
+									<strong>Discussion:</strong> 
+								</span>
+								<span>
+									Also we need to choose  $M$ large enough so that $1/M \lt \vre$. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then  $x > M$ implies 								
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds \abs{\frac{1}{x} - 0 }$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds= \frac{1}{\abs{x}}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \frac{1}{x} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\lt \ds \frac{1}{M}$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\lt  \vre.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									Now we are ready to write the formal proof.
+								</span>
+								
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 4.5.1.</h4>
+
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<strong>Claim:</strong>
+								$\displaystyle \lim_{x\ra \infty} \frac{1}{x} = 0.$ 
+							</p>
+							<p>
+								<span>
+									<strong>Proof. </strong> 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Given an arbitrary $\vre>0$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Choose $M>0 $ large enough so that $1/M \lt \vre$.							
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									For any $x> M$,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds\abs{\frac{1}{x} - 0 } $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds \lt \frac{1}{M}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds \lt  \vre. \;\bs$
+								</span>
+							</p>
+						</div>
+						
+						
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
 				<section data-auto-animate>
 					<h4>4.5.1 Limits at infinity</h4>
 					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 						
 
-						<p><strong>Theorem:</strong>
+						<p><strong>Theorem 4.5.1. </strong>
 							Suppose $f \colon S \to \R$ is a function, $\infty$ is a cluster
 							point of $S \subset \R$, and $L \in \R$. Then
 							\begin{equation*}
