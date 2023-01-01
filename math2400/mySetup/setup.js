@@ -41,7 +41,9 @@
 						norm: ["{\\|#1\\|}", 1],
 						pd: "\\boldsymbol{\\cdot}",
 						epsilon: "\\varepsilon",
-						vre: "\\varepsilon" 
+						vre: "\\varepsilon",
+						Ra: "\\Rightarrow",
+						bs: "\\blacksquare"
 					}
 				}
 			},
