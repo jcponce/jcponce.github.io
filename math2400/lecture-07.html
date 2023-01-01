@@ -1380,7 +1380,7 @@ a \leq \lim_{x\to c} f(x) \leq b .
 				<section data-auto-animate>
 					<h4>Example 4.5.1.</h4>
 
-					<div class="size-85">
+					<div class="size-90">
 						<div class="left-txt">
 							<p>
 								<strong>Claim:</strong>
@@ -1443,7 +1443,7 @@ a \leq \lim_{x\to c} f(x) \leq b .
 				<section data-auto-animate>
 					<h4>Example 4.5.1.</h4>
 
-					<div class="size-85">
+					<div class="size-90">
 						<div class="left-txt">
 							<p>
 								<strong>Claim:</strong>
@@ -1537,6 +1537,75 @@ a \leq \lim_{x\to c} f(x) \leq b .
 					</div>
 					<br/><br/><br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>Example 4.5.2.</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								Let $f(x) := \dfrac{1}{\abs{x}+1}$.  
+								<span class="fragment" data-fragment-index="0">
+									Then
+									$\ds \lim_{x\to \infty} f(x) = 0$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									 and
+									$\ds\lim_{x\to -\infty} f(x) = 0.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									<strong>Proof. </strong> 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Let $\vre > 0$ be given.  
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Choose $M>0$ 
+									large enough
+									so that $\frac{1}{M+1} \lt \vre$.						
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									If
+									$x > M$,
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									then 
+								</span>
+							</p>
+						</div>
+						<div style="margin-top:-20px">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									$\ds\abs{\frac{1}{\abs{x}+1} } $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\ds = \frac{1}{\abs{x}+1}$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$\ds = \overbrace{ \frac{1}{x+1} }^{ \text{since } x>0}$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$\ds \lt \frac{1}{M+1} $
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									$\ds \lt \vre.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="12">
+								So the first limit is proved. 😃
+							</p>
+							<p class="fragment" data-fragment-index="13">
+								Try to prove the second limit. 📝
+							</p>
+						</div>
+						
+						
+					</div>
+					<br/><br/>
+				</section>
 
 				<section data-auto-animate>
 					<h4>4.5.1 Limits at infinity</h4>
@@ -1555,6 +1624,128 @@ a \leq \lim_{x\to c} f(x) \leq b .
 							\end{equation*}
 							for all sequences $\{ x_n \}$ in $S$ such that $\lim\limits_{n\to\infty} x_n = \infty$.
 						</p>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section>
+					<h4>4.5.2 Infinite limit</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Definition 4.5.3.
+									</strong>
+									Let $f \colon  (a,\infty) \to \R$ be a function.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									We say $f(x)$
+<strong>diverges to infinity</strong>
+as $x$ goes to $\infty$,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									f for every $N \in \R$
+there exists an $M > a$ such that for all $x > M$ then 
+\begin{equation*}
+f(x) > N.
+\end{equation*}
+
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									We write
+\begin{equation*}
+\lim_{x \to \infty} f(x) := \infty ,
+\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									or we say that $f(x) \to \infty$ as $x \to \infty$.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section>
+					<h4>Example 4.5.4.</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Claim:
+									</strong>
+								</span>
+								<span>
+									$\;\displaystyle \lim_{x \to \infty} \frac{1+x^2}{1+x}$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$= \infty.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									<strong>
+										Proof.
+									</strong>
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									First note that for $x >1$, we have
+								</span>
+							</p>
+
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds \frac{1+x^2}{1+x} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds > 
+									\frac{x^2}{x+x} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = 
+									\frac{x}{2} .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									Given $N \in \R$, 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									take $M := \max \{ 2N +1, 1 \}$.
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									If $x > M$, 
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									then $x > 1$ and $\dfrac{x}{2} > N$.
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									So
+								</span>
+							</p>
+							
+
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="11">
+									$\ds \frac{1+x^2}{1+x} $
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$\ds >
+									\frac{x}{2}$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									$\ds > N . \;\; \bs$
+								</span>
+							</p>
+						</div>
 					</div>
 					<br/><br/>
 				</section>
