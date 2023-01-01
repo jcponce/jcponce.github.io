@@ -592,69 +592,7 @@ x & \text{if } x > 0 , \\
 					<br/><br/><br/>
 				</section>
 
-				<section data-auto-animate>
-					<h3>4.1 Limits of functions</h3>
-	
-					<div class="left-txt size-95">
-						<p>Why do we need the concept of cluster point in the definition of limit? <span style="font-size:1.8em">🤔</span></p>
-	
-						<p class="fragment" data-fragment-index="0">Suppose \(c\) is not a cluster point of \(S\).
-							<span class="fragment" data-fragment-index="1">
-								Then there exists some \(r\) such that the interval
-							\((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
-							</span>
-						</p>
-	
-						
-					</div>
-	
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h3 style="font-size:90%;margin-top:-10px">4.1 Limits of functions</h3>
-
-					<div class="left-txt size-60" style="margin-top:-20px">
-						<p>Why do we need the concept of cluster point in the definition of limit? <span style="font-size:1.8em">🤔</span></p>
-	
-						<p >Suppose \(c\) is not a cluster point of \(S\).
-							<span >
-								Then there exists some \(r\) such that the interval
-							\((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
-							</span>
-						</p>
-	
-						
-					</div>
-	
-					<div class="left-txt size-90">
-						
-						<p class="fragment" data-fragment-index="2">
-							Then, for any function \(f\), choose any number \(L\).
-						</p>
-	
-						<p class="fragment" data-fragment-index="3">
-							Let \(\varepsilon\gt0\) be arbitrary and choose \(\delta = r.\)
-							<span class="fragment" data-fragment-index="4">
-								Since there are no points \(x\in S\setminus\{c\}\)
-								such that \(|x-c|\lt\delta=r\), then the statement:
-							</span>
-						</p>
-	
-						
-	
-						<p class="fragment" data-fragment-index="5">
-							<strong>For every \(\varepsilon>0\) there exists a \(\delta>0\) such that
-	
-								if for every \(x\in S\setminus\{c\}\) and \(|x-c|\lt \delta\),
-								then \(|f(x)-L|\lt \varepsilon\).
-							</strong>
-						</p>
-					</div>
-	
-					<p class="fragment size-90" data-fragment-index="6">is vacuously true!</p>
-	
-					<br/><br/>
-				</section>
+				
 				
 				
 			</section>
@@ -1173,81 +1111,148 @@ a \leq \lim_{x\to c} f(x) \leq b .
 					<br/><br/><br/><br/>
 				</section>
 
+				<section data-auto-animate>
+					<h3>4.1 Limits of functions</h3>
+	
+					<div class="left-txt size-95">
+						<p>Why do we need the concept of cluster point in the definition of limit? <span style="font-size:1.8em">🤔</span></p>
+	
+						<p class="fragment" data-fragment-index="0">Suppose \(c\) is not a cluster point of \(S\).
+							<span class="fragment" data-fragment-index="1">
+								Then there exists some \(r\) such that the interval
+							\((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
+							</span>
+						</p>
+	
+						
+					</div>
+	
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:90%;margin-top:-10px">4.1 Limits of functions</h3>
+
+					<div class="left-txt size-60" style="margin-top:-20px">
+						<p>Why do we need the concept of cluster point in the definition of limit? <span style="font-size:1.8em">🤔</span></p>
+	
+						<p >Suppose \(c\) is not a cluster point of \(S\).
+							<span >
+								Then there exists some \(r\) such that the interval
+							\((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
+							</span>
+						</p>
+	
+						
+					</div>
+	
+					<div class="left-txt size-90">
+						
+						<p class="fragment" data-fragment-index="2">
+							Then, for any function \(f\), choose any number \(L\).
+						</p>
+	
+						<p class="fragment" data-fragment-index="3">
+							Let \(\varepsilon\gt0\) be arbitrary and choose \(\delta = r.\)
+							<span class="fragment" data-fragment-index="4">
+								Since there are no points \(x\in S\setminus\{c\}\)
+								such that \(|x-c|\lt\delta=r\), then the statement:
+							</span>
+						</p>
+	
+						
+	
+						<p class="fragment" data-fragment-index="5">
+							<strong>For every \(\varepsilon>0\) there exists a \(\delta>0\) such that
+	
+								if for every \(x\in S\setminus\{c\}\) and \(|x-c|\lt \delta\),
+								then \(|f(x)-L|\lt \varepsilon\).
+							</strong>
+						</p>
+					</div>
+	
+					<p class="fragment size-90" data-fragment-index="6">is vacuously true!</p>
+	
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>One-sided limits</h3>
+					<div class="left-txt size-90">
+						<p><strong>Definition:</strong>
+							Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+							$S \cap (c,\infty)$. Then if the limit
+							of the restriction of $f$ to $S \cap (c,\infty)$
+							as $x \to c$ exists, define
+							\begin{equation*}
+							\lim_{x \to c^+} f(x) := \lim_{x\to c} f|_{S \cap (c,\infty)}(x) .
+							\end{equation*}
+							Similarly, if $c$ is a cluster point of
+							$S \cap (-\infty,c)$ and the limit of the restriction as $x \to c$
+							exists, define
+							\begin{equation*}
+							\lim_{x \to c^-} f(x) := \lim_{x\to c} f|_{S \cap (-\infty,c)}(x) .
+							\end{equation*}
+						</p>
+					</div>
+	
+				</section>
+	
+				<section data-auto-animate>
+					<h3>One-sided limits</h3>
+					<div class="left-txt size-80">
+						<p><strong>Definition:</strong>
+							Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
+							$S \cap (c,\infty)=\{x\in S: x>c\}$. Then we say that $L\in \R$ is a
+							<em>right-hand limit of $f$ at $c$</em> and we write
+							\[
+							\lim_{x \to c^+} f(x) = L
+							\]
+							if given any $\epsilon>0$ there exists a $\delta>0$
+							such that for all $x\in S$ with $0 \lt x-c \lt \delta$, then $\abs{\,f(x)-L}\lt
+							\epsilon$.<br /><br />
+							Similarly, if $c$ is a cluster point of
+							$S \cap (-\infty,c)=\{x\in S:x\lt c\}$. Then we say that $L\in \R$ is a
+							<em>left-hand limit of $f$ at $c$</em> and we write
+							\[
+							\lim_{x \to c^-} f(x) = L
+							\]
+							if given any $\epsilon>0$ there exists a $\delta>0$
+							such that for all $x\in S$ with $0\lt c-x \lt \delta$, then $\abs{\,f(x)-L}\lt \epsilon$.
+						</p>
+					</div>
+	
+				</section>
+	
+	
+				<section data-auto-animate>
+					<h3>One-sided limits</h3>
+					
+					<div class="left-txt size-95">
+						<p><strong>Theorem:</strong>
+							Let $S \subset \R$ be such that $c$ is a cluster point
+							of both $S \cap (-\infty,c)$ and $S \cap (c,\infty)$, let
+							$f \colon S \to \R$ be a function, and let $L \in \R$. Then $c$ is a cluster point of $S$ and
+							\begin{equation*}
+							\lim_{x \to c} f(x) = L
+							\;\; \text{iff} \;\;
+							\lim_{x \to c^-} f(x) =
+							\lim_{x \to c^+} f(x) =
+							L .
+							\end{equation*}
+						</p>
+					</div>
+	
+					<br/><br/><br/>
+				</section>
 			</section>
 
 
 			
 
-			<section>
-				<h3>Limits of functions</h3>
-				<p class="sbt">One-sided limits</p>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
-						$S \cap (c,\infty)$. Then if the limit
-						of the restriction of $f$ to $S \cap (c,\infty)$
-						as $x \to c$ exists, define
-						\begin{equation*}
-						\lim_{x \to c^+} f(x) := \lim_{x\to c} f|_{S \cap (c,\infty)}(x) .
-						\end{equation*}
-						Similarly, if $c$ is a cluster point of
-						$S \cap (-\infty,c)$ and the limit of the restriction as $x \to c$
-						exists, define
-						\begin{equation*}
-						\lim_{x \to c^-} f(x) := \lim_{x\to c} f|_{S \cap (-\infty,c)}(x) .
-						\end{equation*}
-					</p>
-				</div>
-
-			</section>
-
-			<section>
-				<h3>Limits of functions</h3>
-				<p class="sbt">One-sided limits</p>
-				<div class="left-txt size-50">
-					<p><strong>Definition:</strong>
-						Let $f \colon S \to \R$ be function and let $c$ be a cluster point of
-						$S \cap (c,\infty)=\{x\in S: x>c\}$. Then we say that $L\in \R$ is a
-						<em>right-hand limit of $f$ at $c$</em> and we write
-						\[
-						\lim_{x \to c^+} f(x) = L
-						\]
-						if given any $\epsilon>0$ there exists a $\delta>0$
-						such that for all $x\in S$ with $0 \lt x-c \lt \delta$, then $\abs{\,f(x)-L}\lt
-						\epsilon$.<br /><br />
-						Similarly, if $c$ is a cluster point of
-						$S \cap (-\infty,c)=\{x\in S:x\lt c\}$. Then we say that $L\in \R$ is a
-						<em>left-hand limit of $f$ at $c$</em> and we write
-						\[
-						\lim_{x \to c^-} f(x) = L
-						\]
-						if given any $\epsilon>0$ there exists a $\delta>0$
-						such that for all $x\in S$ with $0\lt c-x \lt \delta$, then $\abs{\,f(x)-L}\lt \epsilon$.
-					</p>
-				</div>
-
-			</section>
-
-
-			<section>
-				<h3>Limits of functions</h3>
-				<p class="sbt">One-sided limits</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $S \subset \R$ be such that $c$ is a cluster point
-						of both $S \cap (-\infty,c)$ and $S \cap (c,\infty)$, let
-						$f \colon S \to \R$ be a function, and let $L \in \R$. Then $c$ is a cluster point of $S$ and
-						\begin{equation*}
-						\lim_{x \to c} f(x) = L
-						\qquad \text{if and only if} \qquad
-						\lim_{x \to c^-} f(x) =
-						\lim_{x \to c^+} f(x) =
-						L .
-						\end{equation*}
-					</p>
-				</div>
-
-			</section>
+			
 
 			<section>
 				<h3>Limits of functions</h3>
