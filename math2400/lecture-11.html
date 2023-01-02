@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 11</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="css/mylayout.css" />
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/fontawesome.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="js/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="js/google-analytics-ga4.js"></script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Leture 11</p>
+			</section>
+
+			
+			<section>
+				<h4>The Derivative</h4>
+
+				<div class="left-txt size-60">
+					<p><strong>Definition:</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ be a function, and let $c \in I$. If
+						the limit
+						\begin{equation*}
+						L := \lim_{x \to c} \frac{f(x)-f(c)}{x-c}
+						\end{equation*}
+						exists, then we say $f$ is
+						<em>differentiable</em> at
+						$c$, that $L$ is the <em>derivative</em> of $f$ at $c$,
+						and write $f'(c) := L$.
+					</p>
+
+					<p>
+						If $f$ is differentiable at all $c \in I$, then we simply say that
+						$f$ is <em>differentiable</em>, and then we obtain a function
+						$f' \colon I \to \R$.
+					</p>
+
+					<p>
+						The expression $\displaystyle\frac{f(x)-f(c)}{x-c}$ is called the
+						<em>difference quotient</em>.
+					</p>
+
+				</div>
+
+
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Graphical interpretation of the derivative</p>
+
+					<iframe scrolling="no" title="The Derivative: Geometrical interpretation" src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="562px" height="390px" style="border:0px;"  data-preload allowfullscreen=""> </iframe>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+
+				<div class="left-txt size-80">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $f \colon I \to \R$ be differentiable at $c \in I$,
+						then it is continuous at $c$.
+					</p>
+
+					<p>
+						<strong>
+							Note:
+						</strong>
+						There exists a continuous function that is not differentiable at <em>any</em> point. 
+						This is known as the <em>Weierstrass function</em>.
+					</p>
+					
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Weierstrass function</p>
+				
+					<table style="width:100%;">
+						<tr>
+	
+							<td style="width:30%">
+								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+									<p>
+										$
+										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+										$
+										where $0\lt a\lt 1$, $b$ is a positive odd integer.
+									</p>
+
+	
+								</div>
+							</td>
+							<td class="size-40" style="width:70%;">
+								
+					<div class="mathcell" style="height: 4.1in">
+						<script>
+						
+						var parent = document.currentScript.parentNode;
+						
+						var id = generateId();
+						parent.id = id;
+						
+						MathCell( id, [ ]);
+
+					    
+						var a = .3, b = 3.0, direction = 1;
+
+						var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
+						
+						
+						
+						parent.update = function( id ) {
+						  
+
+						
+						  function f( x ) {
+						
+							var s = 0;
+							for ( var k = 0 ; k < terms ; k++ ) {
+							   s += a**k * Math.cos( b**k * Math.PI * x );
+							}
+						
+							return s;
+						
+						  }
+						
+						  var data = [ plot( f, [ -2, 2, 5000 ], { color: 'black' } ),
+                                       text( 'b = ' + b.toFixed(1), [1.8,1.7] )];
+						
+						  var config = { type: 'svg', yMin: -1.6, yMax: 1.6 };
+						
+						  evaluate( id, data, config );
+
+						  b += 2 * direction;
+
+                          if ( b < 3.5 || b > 9 ) direction *= -1;
+						
+						}
+						
+						parent.update( id );
+						
+						setInterval( parent.update, 1100, id );
+						
+						</script>
+					</div>
+						<p style="font-size:14px;text-align:center">Plot made with <a href="https://mathcell.org/" target="_blank">MathCell</a></p>
+							</td>
+	
+						</tr>
+					</table>
+					
+
+				
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Weierstrass function</p>
+				
+					<table style="width:100%;">
+						<tr>
+	
+							<td style="width:30%">
+								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+									<p>
+										$
+										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+										$
+										where $0\lt a\lt 1$, $b$ is a positive odd integer.
+									</p>
+
+									
+	
+								</div>
+							</td>
+							<td class="size-40" style="width:70%;">
+
+								<img style="width: 96%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-06/weierstrass-function.png" />
+							   <p style="font-size:14px;text-align:center">Plot made with <a href="https://pgfplots.net/weierstrass-function/" target="_blank">PGFplts.net</a></p>
+					
+							</td>
+	
+						</tr>
+					</table>
+					
+
+				
+			</section>
+
+
+			<section>
+				<h4>The Derivative</h4>
+
+				<div class="left-txt size-60">
+					
+
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c \in I$,
+						and let $\alpha \in \R$.
+					</p>
+					<ol class="r">
+						<li>
+							Define $h \colon I \to \R$ by $h(x) := \alpha f(x)$. Then
+							$h$ is differentiable at $c$ and
+							\[h'(c) = \alpha f'(c).\]
+						</li>
+						<li>
+							Define $h \colon I \to \R$ by $h(x) := f(x) + g(x)$. Then
+							$h$ is differentiable at $c$ and
+							\[h'(c) = f'(c) + g'(c).\]
+						</li>
+
+					</ol>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Product rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be
+						functions differentiable at $c$. If $h \colon I \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := f(x) g(x) ,
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = f(c) g'(c) + f'(c) g(c) .
+						\end{equation*}
+					</p>
+
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Quotient rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I$ be an interval, let
+						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c$
+						and $g(x) \not= 0$ for all $x \in I$.
+						If $h \colon I \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := \frac{f(x)}{g(x)},
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = \frac{f'(c) g(c) - f(c) g'(c)}{{\bigl(g(c)\bigr)}^2} .
+                        \end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Chain rule</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>
+							Theorem:
+						</strong>
+						Let $I_1, I_2$ be intervals, let
+						$g \colon I_1 \to I_2$ be differentiable at $c \in I_1$,
+						and
+						$f \colon I_2 \to \R$ be differentiable at $g(c)$.
+						If $h \colon I_1 \to \R$
+						is defined by
+						\begin{equation*}
+						h(x) := (f \circ g) (x) = f\bigl(g(x)\bigr) ,
+						\end{equation*}
+						then $h$ is differentiable at $c$ and
+						\begin{equation*}
+						h'(c) = f'\bigl(g(c)\bigr)g'(c) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Rolle's Theorem</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:45%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p>
+									<strong>
+										Theorem:
+									</strong>
+									Let $f \colon [a,b] \to \R$ be continuous function
+									differentiable on $(a,b)$ such that $f(a) = f(b)$.
+									Then there exists a $c \in (a,b)$ such that $f'(c) = 0$.
+								</p>
+
+							</div>
+						</th>
+						<th style="width:56%;">
+							<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-06/rolle-s-theorem.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<!--<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Mean Value Theorem</p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
+						differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
+						such that
+						\begin{equation*}
+						f(b)-f(a) = f'(c)(b-a) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>-->
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Mean Value Theorem</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:45%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
+						differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
+						such that
+						\begin{equation*}
+						f(b)-f(a) = f'(c)(b-a) .
+						\end{equation*}
+
+							</div>
+						</th>
+						<th style="width:55%;">
+							<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-06/mean-value-theorem.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Applications</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:55%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $I$ be an interval and
+								let $f \colon I \to \R$ be a differentiable function such that $f'(x) = 0$
+								for all $x \in I$.
+								Then $f$ is constant.
+
+							</div>
+						</th>
+						<th style="width:45%;">
+							<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-06/derivative-application-01.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Applications</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:55%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $I$ be an interval and
+								let $f \colon I \to \R$ be a differentiable function.
+
+								<ol class="r">
+									<li>
+										$f$ is increasing if and only if $f'(x) \geq 0$ for all $x \in I$.
+									</li>
+									<li>
+										$f$ is decreasing if and only if $f'(x) \leq 0$ for all $x \in I$.
+									</li>
+
+								</ol>
+
+							</div>
+						</th>
+						<th style="width:45%;">
+							<img style="width: 100%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-06/derivative-application-02.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Applications</p>
+				<table style="width:100%;">
+					<tr>
+
+						<th style="width:55%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<strong>Theorem:</strong> Let $I$ be an interval and
+								let $f \colon I \to \R$ be a differentiable function.
+
+								<ol class="r">
+									<li>
+										If $f'(x) > 0$ for all $x \in I$, then
+											$f$ is strictly increasing.
+									</li>
+									<li>
+										If $f'(x) < 0$ for all $x \in I$,
+									then $f$ is strictly decreasing.
+									</li>
+
+								</ol>
+
+							</div>
+						</th>
+						<th style="width:45%;">
+							<img style="width: 95%; 
+					           display: block;
+					           margin-left: auto;
+					           margin-right: auto;" 
+							   class="r-stretch" 
+							   data-src="images/summary-06/derivative-application-03.svg" />
+						</th>
+
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Taylor polynomial</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Definition:</strong> For an $n$ times differentiable function $f$ defined near a point $x_0 \in \R$, define the
+						$n$th order <em>Taylor polynomial</em>
+						for $f$ at $x_0$ as
+						\begin{equation*}
+						{\small
+						\begin{split}
+						P_n^{x_0}(x)
+						& :=
+						\sum_{k=0}^n
+						\frac{f^{(k)}(x_0)}{k!}{(x-x_0)}^k
+						\\
+						& =
+						f(x_0)
+						+ f'(x_0)(x-x_0)
+						+ \frac{f''(x_0)}{2}{(x-x_0)}^2
+						+ \cdots
+						+ \frac{f^{(n)}(x_0)}{n!}{(x-x_0)}^n .
+						\end{split}
+						}
+						\end{equation*}
+					</p>
+
+				</div>
+				
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Taylor's Theorem</p>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem:</strong> Suppose $f \colon [a,b] \to \R$ is a function with $n$ continuous
+						derivatives on $[a,b]$ and such that $f^{(n+1)}$ exists on $(a,b)$.
+						Given distinct points $x_0$ and $x$ in $[a,b]$,
+						we can find a point $c$ between $x_0$
+						and $x$ such that
+						\begin{equation*}
+						f(x)=P_{n}^{x_0}(x)+\frac{f^{(n+1)}(c)}{(n+1)!}{(x-x_0)}^{n+1} .
+						\end{equation*}
+					</p>
+
+				</div>
+				
+			</section>
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Taylor's Theorem</p>
+
+				<iframe scrolling="no" title="Taylor polynomial" src="https://www.geogebra.org/material/iframe/id/xnwbwuqa/width/788/height/430/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="788px" height="430px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				
+
+			</section>
+
+
+
+			<section>
+				<h4>The Derivative</h4>
+				<p class="sbt">Inverse function Theorem</p>
+				<div class="left-txt size-70">
+					<p>
+						<strong>Theorem:</strong> Let $f \colon (a,b) \to \R$ be a continuously differentiable function,
+						$x_0 \in (a,b)$ a point where $f'(x_0) \not= 0$.  Then there exists
+						an open interval $I \subset (a,b)$ with $x_0 \in I$, the
+						restriction $f|_{I}$ is injective with a continuously differentiable inverse
+						$g \colon J \to I$ defined on an interval $J := f(I)$,
+						and
+						\begin{equation*}
+						g'(y) = \frac{1}{f'\bigl( g(y) \bigr)} \qquad \text{for all } y \in J.
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
