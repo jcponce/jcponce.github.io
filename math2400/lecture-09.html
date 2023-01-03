@@ -791,7 +791,7 @@
 
 			<section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>5.4 Monotone functions and continuity</h4>
 					<div class="left-txt size-90">
 						<p><strong>Definition 5.4.1. </strong>
@@ -816,30 +816,80 @@
 				</section>
 	
 	
-				<section>
+				<section data-auto-animate>
 					<h4>5.4 Monotone functions and continuity</h4>
 					<div class="left-txt">
 	
 						<p><strong>Theorem 5.4.1. </strong>
 							If $I \subset \R$ is an interval and $f \colon I \to \R$ is 
-monotone and not constant, then $f(I)$ is an interval if and only if $f$
-is continuous.
+							monotone and not constant, then $f(I)$ is an interval if and only if $f$
+							is continuous.
 						</p>
 	
 	
 					</div><br/><br/><br/><br/><br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>5.4 Monotone functions and continuity</h4>
 					<div class="left-txt">
 	
 						<p><strong>Theorem 5.4.2. </strong>
 							If $I \subset \R$ is an interval and $f \colon I \to \R$ is strictly
-monotone, then the inverse $f^{-1} \colon f(I) \to I$ is continuous.
+							monotone, then the inverse $f^{-1} \colon f(I) \to I$ is continuous.
 						</p>
 	
 	
 					</div><br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section>
+					<h4>Example 5.4.1.</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								The proposition does not require $f$ itself to be continuous.
+							</p>
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let
+									$f \colon \R \to \R$ be defined by
+									$\ds
+									f(x):=
+									\begin{cases}
+									x & \text{if } x \lt 0, \\
+									x+1 & \text{if } x \geq 0. \\
+									\end{cases}
+									$
+								</span><br/>
+								<span class="fragment" data-fragment-index="1">
+									The function $f$ is not continuous at $0$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									The image of $I = \R$ is the set 
+									$(-\infty,0)\cup [1,\infty)$, not an interval.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Then $f^{-1} \colon (-\infty,0)\cup [1,\infty)
+									\to \R$ can be written as
+									\begin{equation*}
+									f^{-1}(y) =
+									\begin{cases}
+									y & \text{if } y \lt 0, \\
+									y-1 & \text{if } y \geq 1. 
+									\end{cases}
+									\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									It is not difficult to see that $f^{-1}$ is a continuous function.  
+								</span>
+							</p>
+
+						</div>
+					</div>
+
+					<br/>
 				</section>
 
 			</section>
