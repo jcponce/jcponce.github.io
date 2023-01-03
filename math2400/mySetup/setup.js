@@ -43,7 +43,9 @@
 						epsilon: "\\varepsilon",
 						vre: "\\varepsilon",
 						Ra: "\\Rightarrow",
-						bs: "\\blacksquare"
+						bs: "\\blacksquare",
+						nec: "{\\boxed{\\Rightarrow}}",
+						suf: "{\\boxed{\\Leftarrow}}",
 					}
 				}
 			},

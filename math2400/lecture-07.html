@@ -66,11 +66,15 @@
 				<section data-auto-animate id="cluster-point">
 					<h3>4.1 Cluster points</h3>
 					<div class="left-txt size-95">
-						<p><strong>Definition 4.1.1. </strong>
-							Let $S \subset \R$ be a set. A number $x \in \R$ is called
-							an <em>cluster point</em> of $S$
-							if for every $\epsilon \gt 0$, the set $(x-\epsilon,x+\epsilon) \cap S
-							\setminus \{ x \}$ is not empty.
+						<p class="fragment" data-fragment-index="0">
+							<strong>Definition 4.1.1. </strong>
+							Let $S \subset \R$ be a set.
+							<span class="fragment" data-fragment-index="1">
+								A number $x \in \R$ is called
+								an <em>cluster point</em> of $S$
+								if for every $\epsilon \gt 0$, the set $(x-\epsilon,x+\epsilon) \cap S
+								\setminus \{ x \}$ is not empty.
+							</span>
 						</p>
 
 						
@@ -78,7 +82,7 @@
 					</div>
 					<br/>
 
-					<p class="fragment" data-fragment-index="0">
+					<p class="fragment" data-fragment-index="2">
 						👉 &nbsp; cluster point = accumulation point</p>
 	
 					<br/><br/><br/><br/>
@@ -169,13 +173,100 @@
 				<section data-auto-animate>
 					<h4>4.1 Cluster points</h4>
 					
-					<div class="left-txt size-95">
+					<div class="left-txt">
 						<p><strong>Theorem 4.1.1.</strong> A number $c \in \R$ is a cluster point of $S\subset $
 							if and only if
 							there exists a convergent sequence of numbers $\{ x_n \}_{n=1}^\infty$ such that
 							$x_n \not= c$ and $x_n \in S$ for all $n$, and $\lim\limits_{n\to\infty} x_n = c$.
 	
 						</p>
+	
+					</div>
+					<p><br /><br /></p>
+				</section>
+				<section data-auto-animate>
+					<h4>4.1 Cluster points</h4>
+					
+					<div class="left-txt size-50">
+						<p><strong>Theorem 4.1.1.</strong> A number $c \in \R$ is a cluster point of $S\subset $
+							if and only if
+							there exists a convergent sequence of numbers $\{ x_n \}_{n=1}^\infty$ such that
+							$x_n \not= c$ and $x_n \in S$ for all $n$, and $\lim\limits_{n\to\infty} x_n = c$.
+	
+						</p>
+	
+					</div>
+					<div class="size-90">
+						
+						<div class="left-txt">
+						
+							<p>
+
+								<strong>Proof. </strong>
+								<span class="fragment" data-fragment-index="0">
+									$\nec$ Suppose $c$ is a cluster point of $S$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									For every $n \in \N$, pick $x_n$ to be an arbitrary point of
+$$\ds\left(x-\frac{1}{n},x+\frac{1}{n}\right) \cap S \setminus \{c\},$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									which
+is nonempty because $c$ is a cluster point of $S$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Then
+$\ds \abs{c-x_n} \lt \frac{1}{n} .$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Since $\left\{ \dfrac{1}{n} \right\}_{n=1}^\infty\to 0,$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+$\{ x_n \}_{n=1}^\infty \to c. \; \bs$
+								</span>
+							</p>
+	
+						</div>
+	
+					</div>
+					<p><br /><br /></p>
+				</section>
+				<section data-auto-animate>
+					<h4>4.1 Cluster points</h4>
+					
+					<div class="left-txt size-50">
+						<p><strong>Theorem 4.1.1.</strong> A number $c \in \R$ is a cluster point of $S\subset $
+							if and only if
+							there exists a convergent sequence of numbers $\{ x_n \}_{n=1}^\infty$ such that
+							$x_n \not= c$ and $x_n \in S$ for all $n$, and $\lim\limits_{n\to\infty} x_n = c$.
+	
+						</p>
+	
+					</div>
+					<div class="size-95">
+						
+						<div class="left-txt">
+						
+							<p>
+
+								<strong>Proof. </strong> $\suf$ 
+								<span class="fragment" data-fragment-index="0">
+									Suppose 
+									a sequence of numbers
+$\{ x_n \}_{n=1}^\infty$ in $S$
+converging to $c$ such that $x_n \not= c$ for all $n$, 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then for every
+									$\epsilon > 0$ there is an $M$ such that $$\abs{x_M - x} \lt
+									\epsilon.$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									That is, $x_M \in (x-\epsilon,x+\epsilon) \cap S \setminus \{x\}. \; \bs$
+								</span>
+							</p>
+	
+						</div>
 	
 					</div>
 					<p><br /><br /></p>
@@ -621,7 +712,7 @@ x & \text{if } x > 0 , \\
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example 4.2.3.</h4>
+					<h4>Example 4.3.1.</h4>
 					<div class="left-txt size-95">
 						<br/>
 						<p>
@@ -642,7 +733,7 @@ x & \text{if } x > 0 , \\
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example 4.2.3.</h4>
+					<h4>Example 4.3.1.</h4>
 	
 					<table style="width:100%;">
 						<tr>
@@ -671,7 +762,7 @@ x & \text{if } x > 0 , \\
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example 4.2.3.</h4>
+					<h4>Example 4.3.1.</h4>
 					<p style="font-size:70%">$f(x):=\sin (1/x)$</p>
 					<iframe scrolling="no" title="Sequenctial limits: divergent"
 						src="https://www.geogebra.org/material/iframe/id/hes77cgr/width/746/height/386/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
@@ -690,7 +781,7 @@ x & \text{if } x > 0 , \\
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example 4.2.3.</h4>
+					<h4>Example 4.3.1.</h4>
 					<p style="font-size:70%">$f(x):=x\sin (1/x)$</p>
 					<iframe scrolling="no" title="Sequencial limits: Convergent"
 					src="https://www.geogebra.org/material/iframe/id/bvjhwafv/width/746/height/386/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
@@ -709,7 +800,7 @@ x & \text{if } x > 0 , \\
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example 4.2.3.</h4>
+					<h4>Example 4.3.1.</h4>
 					<div class="left-txt size-85">
 						<p>
 							<span class="fragment" data-fragment-index="0">
@@ -767,7 +858,7 @@ x & \text{if } x > 0 , \\
 				</section>
 
 				<section data-auto-animate>
-					<h4 style="font-size:80%">Example 4.2.3.</h4>
+					<h4 style="font-size:80%">Example 4.3.1.</h4>
 					<div class="left-txt size-85" style="margin-top:-10px">
 						<p>
 							<span>
