@@ -61,167 +61,186 @@
 				<p>Leture 9</p>
 			</section>
 
+			<section>
+				<section data-auto-animate>
+					<h4>5.1 Definition and basic properties</h4>
+	
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">
+							<strong>Definition 5.1.1.</strong>
+							Let $S \subset \R$, $c \in S$, and let $f \colon S \to \R$ be a function.
+							<span class="fragment" data-fragment-index="1">
+								We say
+							that $f$ is <em>continuous at</em> $c$
+							if for every $\epsilon \gt 0$
+							there is a $\delta \gt 0$ such that whenever $x \in S$ and $\abs{x-c} \lt
+							\delta$, then
+							$\abs{\,f(x)-f(c)} \lt \epsilon$.
+							</span>
+	
+							<br /><br />
+	
+	
+							<span class="fragment" data-fragment-index="2">
+								When $f \colon S \to \R$ is continuous at all $c \in S$, then we simply say
+							$f$ is a <em>continuous function</em>.
+							</span>
+						</p>
+	
+					</div>
+	
+	
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+						<h4>5.1 Definition and basic properties</h4>
+	
+						<p style="font-size:60%"><strong>Example</strong></p>
+					<iframe scrolling="no" title="Definition of continuity"
+						src="https://www.geogebra.org/material/iframe/id/bxhpb99k/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="704px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+	
+						<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>5.1 Definition and basic properties</h4>
+	
+					<div class="left-txt size-80">
+						<p><strong>Theorem 5.1.1. </strong>
+							Consider a function $f \colon S \to \R$ defined on a set $S \subset \R$
+							and let $c \in S$.
+							<span class="fragment" data-fragment-index="0">Then</span>
+						</p>
+	
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								If $c$ is not a cluster point of $S$, then $f$ is continuous at $c$.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								If $c$ is a cluster point of $S$, then $f$ is continuous at $c$
+								if and only if the limit of $f(x)$ as $x \to c$ exists and
+								\begin{equation*}
+								\lim_{x\to c} f(x) = f(c) .
+								\end{equation*}
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								The function $f$ is continuous at $c$ if and only if for every sequence $\{ x_n \}$
+								where $x_n \in S$ and $\lim\, x_n = c$, the sequence $\{ \,f(x_n) \}$ converges
+								to $f(c)$.
+	
+							</li>
+						</ol>
+	
+					</div>
+	
+					<br/><br/>
+	
+				</section>
+				<section data-auto-animate>
+					<h4>5.1 Definition and basic properties</h4>
+				
+						<p class="sbt">Discontinuity criterion</p>
+						<div class="left-txt size-90">
+							<p class="fragment" data-fragment-index="0"><strong>Theorem 5.1.2. </strong>
+								Let $S\subset \R$, let $f \colon S \to \R$ and let $c\in S$.
+		
+							</p>
+						</div>
+		
+						<div class="size-90">
+							<p class="fragment" data-fragment-index="1">Then $f$ is <strong>discontinuous</strong> at $c$</p>
+							
+							<p class="fragment" data-fragment-index="2">if and only if</p>
+						</div>
+		
+						<div class="left-txt size-90">
+							<p class="fragment" data-fragment-index="2">
+								there exists a sequence $\{x_n\}$ in $S$
+								such that $\lim x_n = c$, 
+								<span class="fragment" data-fragment-index="3">
+									<strong>but the sequence
+										$\left\{\,f(x_n)\right\}$ does not converge to $f(c)$</strong>.
+								</span>
+							</p>
+		
+						</div>
+
+						<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>5.1 Definition and basic properties</h4>
+					<p class="size-70"><strong>Example 5.1.1.</strong> $\displaystyle f(x)=\sin\frac{1}{x}$, for $x\neq 0$ and $f(x)=0$ for $x=0$.</p>
+					<div class="left-txt size-70">
+	
+						<table style="width:100%;border:none">
+							<tr>
+								<td style="width:50%;">
+									<img style="width: 70%; 
+							  display: block;
+							  margin-left: auto;
+							  margin-right: auto;" class="r-stretch" data-src="images/summary-05/seq-limits-01a.gif" />
+								</td>
+								<td style="width:50%">
+									<img style="width: 70%; 
+							  display: block;
+							  margin-left: auto;
+							  margin-right: auto;" class="r-stretch" data-src="images/summary-05/seq-limits-01b.gif" />
+								</td>
+							</tr>
+						</table>
+						<table style="width:100%;border:none">
+							<tr>
+								<td style="text-align:center">$x_n\ra 0$ as $n\ra \infty$.</td>
+								<td style="text-align:center">$\qquad\qquad f\left(x_n\right)$ does not converge to $0$.
+								</td>
+							</tr>
+						</table>
+	
+					</div>
+					<br/><br/>
+				</section>
+
+				<section>
+					<h4>5.1 Definition and basic properties</h4>
+					<div class="left-txt size-80">
+						<p><strong>Theorem 5.1.3.</strong>
+							Let $f \colon S \to \R$ and $g \colon S \to \R$ be functions
+							continuous at $c \in S$.
+	
+						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								The function $h \colon S \to \R$ defined by
+								$h(x) := f(x)+g(x)$ is continuous at $c$.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								The function $h \colon S \to \R$ defined by
+								$h(x) := f(x)-g(x)$ is continuous at $c$.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								The function $h \colon S \to \R$ defined by
+								$h(x) := f(x)g(x)$ is continuous at $c$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								If $g(x)\not=0$ for all $x \in S$, the function $h \colon S \to \R$
+								defined by $h(x) := \dfrac{f(x)}{g(x)}$ is continuous at $c$.
+							</li>
+						</ol>
+					</div>
+					
+
+					<br/><br/>
+				</section>
+			</section>
+
+		
+
+
 			
 
-
-			<section>
-				<h4>Continuous functions</h4>
-
-				<div class="left-txt size-70">
-					<p><strong>Definition:</strong>
-						Let $S \subset \R$, $c \in S$, and let $f \colon S \to \R$ be a function.
-						We say
-						that $f$ is <em>continuous at</em> $c$
-						if for every $\epsilon \gt 0$
-						there is a $\delta \gt 0$ such that whenever $x \in S$ and $\abs{x-c} \lt
-						\delta$, then
-						$\abs{\,f(x)-f(c)} \lt \epsilon$.
-
-						<br /><br />
-
-
-						When $f \colon S \to \R$ is continuous at all $c \in S$, then we simply say
-						$f$ is a <em>continuous function</em>.
-					</p>
-
-				</div>
-
-
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Example</p>
-
-				<iframe scrolling="no" title="Definition of continuity"
-					src="https://www.geogebra.org/material/iframe/id/bxhpb99k/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="704px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-
-			</section>
-
-
-			<section>
-				<h4>Continuous functions</h4>
-
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Consider a function $f \colon S \to \R$ defined on a set $S \subset \R$
-						and let $c \in S$.
-						Then:
-					</p>
-
-					<ol class="r">
-						<li>
-							If $c$ is not a cluster point of $S$, then $f$ is continuous at $c$.
-						</li>
-						<li>
-							If $c$ is a cluster point of $S$, then $f$ is continuous at $c$
-							if and only if the limit of $f(x)$ as $x \to c$ exists and
-							\begin{equation*}
-							\lim_{x\to c} f(x) = f(c) .
-							\end{equation*}
-						</li>
-						<li>
-							The function $f$ is continuous at $c$ if and only if for every sequence $\{ x_n \}$
-							where $x_n \in S$ and $\lim\, x_n = c$, the sequence $\{ \,f(x_n) \}$ converges
-							to $f(c)$.
-
-						</li>
-					</ol>
-
-				</div>
-
-
-			</section>
-
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Discontinuity criterion</p>
-				<div class="left-txt size-70">
-					<p><strong>Theorem:</strong>
-						Let $S\subset \R$, let $f \colon S \to \R$ and let $c\in S$.
-
-					</p>
-				</div>
-
-				<div class="size-70">
-					Then $f$ is <strong>discontinuous</strong> at $c$
-					<br />
-					<p>if and only if</p>
-				</div>
-
-				<div class="left-txt size-70">
-					<p>
-						there exists a sequence $\{x_n\}$ in $S$
-						such that $\lim x_n = c$, <strong>but the sequence
-							$\left\{\,f(x_n)\right\}$ does not converge to $f(c)$</strong>.
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Example: $\displaystyle f(x)=\sin\frac{1}{x}$, for $x\neq 0$ and $f(x)=0$ for $x=0$.</p>
-				<div class="left-txt size-60">
-
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="width:50%;">
-								<img style="width: 70%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-05/seq-limits-01a.gif" />
-							</td>
-							<td style="width:50%">
-								<img style="width: 70%; 
-						  display: block;
-						  margin-left: auto;
-						  margin-right: auto;" class="r-stretch" data-src="images/summary-05/seq-limits-01b.gif" />
-							</td>
-						</tr>
-					</table>
-					<table style="width:100%;border:none">
-						<tr>
-							<td style="text-align:center">$x_n\ra 0$ as $n\ra \infty$.</td>
-							<td style="text-align:center">$\qquad\qquad f\left(x_n\right)$ does not converge to $0$.
-							</td>
-						</tr>
-					</table>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Properties</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon S \to \R$ and $g \colon S \to \R$ be functions
-						continuous at $c \in S$.
-
-					</p>
-					<ol class="r">
-						<li>
-							The function $h \colon S \to \R$ defined by
-							$h(x) := f(x)+g(x)$ is continuous at $c$.
-						</li>
-						<li>
-							The function $h \colon S \to \R$ defined by
-							$h(x) := f(x)-g(x)$ is continuous at $c$.
-						</li>
-						<li>
-							The function $h \colon S \to \R$ defined by
-							$h(x) := f(x)g(x)$ is continuous at $c$.
-						</li>
-						<li>
-							If $g(x)\not=0$ for all $x \in S$, the function $h \colon S \to \R$
-							defined by $h(x) := \frac{f(x)}{g(x)}$ is continuous at $c$.
-						</li>
-					</ol>
-				</div>
-			</section>
 
 
 			<section>
