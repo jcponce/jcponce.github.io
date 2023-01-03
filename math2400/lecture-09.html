@@ -586,6 +586,188 @@
 	
 						<br/><br/><br/>
 				</section>
+
+				<section>
+					<h4>Example 5.3.1.</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>$f \colon [0,1] \to \R$ defined by $f(x) := x^2$ is uniformly continuous.</p>
+						</div>
+					</div>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Proof. </strong>
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Note that $0 \leq x,c \leq 1$.  
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Then
+								</span>
+								
+
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\sabs{x^2-c^2}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= \sabs{x+c}\sabs{x-c}\qquad \qquad \qquad \qquad \qquad $
+								</span><br/>
+								<span class="fragment" data-fragment-index="4">
+									$ \quad\leq \bigl(\sabs{x}+\sabs{c}\bigr) \sabs{x-c}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\leq (1+1)\sabs{x-c} .$
+								</span>
+								
+						</div>
+						<div class="left-txt">
+							<p>
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									Therefore, given $\epsilon > 0$, let $\delta := \dfrac{\epsilon}{2}$.
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									If $\sabs{x-c} \lt \delta$, then $\sabs{x^2-c^2} \lt \epsilon$.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section>
+					<h4>Example 5.3.1.</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>On the other hand, $g \colon \R \to \R$ defined by $g(x):=x^2$ is not uniformly
+								continuous.
+								</p>
+						</div>
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Proof. </strong>
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Suppose it is uniformly continuous,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									then for every $\epsilon > 0$,
+there would exist a $\delta > 0$ such that
+if $\sabs{x-c} \lt \delta$, then $\sabs{x^2 -c^2} \lt \epsilon$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Take $x > 0$ and let
+$c := x+\dfrac{\delta}{2}$. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Write
+								</span>
+								
+
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$\epsilon \gt
+									\sabs{x^2-c^2} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \sabs{x+c}\sabs{x-c} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ =\ds
+									\left(2x+\frac{\delta}{2}\right)\frac{\delta}{2} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\geq 
+									\delta x .$
+								</span>
+								
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									Therefore, $x \lt \dfrac{\epsilon}{\delta}$ for all $x > 0$, 
+								</span>
+								<span class="fragment" data-fragment-index="9">which is a
+									contradiction❗$\bs$
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section>
+					<h4>Example 5.3.2.</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>The function $f \colon (0,1) \to \R$ defined by $f(x) := \dfrac{1}{x}$ is not
+								uniformly continuous.
+								</p>
+						</div>
+					</div>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Proof. </strong>
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Given $\epsilon > 0$,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									then $\epsilon >
+									\abs{\dfrac{1}{x}-\dfrac{1}{y}}$ holds if and only if
+								</span>
+								
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$\epsilon >
+									\ds\abs{\frac{1}{x}-\frac{1}{y}}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=
+									\ds\frac{\abs{y-x}}{\abs{xy}}  $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \ds=
+									\frac{\abs{y-x}}{xy} ,$
+								</span>
+								<br/><br/>
+								<span class="fragment" data-fragment-index="8">
+									or $\abs{x-y} \lt xy \epsilon .$
+
+								</span>
+								
+								
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="9">which is a
+									
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
 	
 				<section>
 					<h4>Continuous functions</h4>
