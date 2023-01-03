@@ -62,21 +62,28 @@
 
 			<section>
 				<section data-auto-animate>
-					<h3>2.1 Sequences</h3>
+					<h3 style="font-size:100%">2.1 Sequences</h3>
 					
-					<div class="size-85 left-txt">
+					<div class="left-txt" style="font-size:93%">
 						<p class="fragment" data-fragment-index="0"><strong>Definition 2.1.1.</strong>
 							A <strong>sequence</strong> (of real numbers) is a function $x \colon \N \to
-\R$.  Instead of $x(n)$, we 
-usually denote the $n$th element in the sequence by $x_n$.  We 
-use the notation $\{ x_n \}$, or more precisely
-\begin{equation*}
-\{ x_n \}_{n=1}^\infty
-\end{equation*}
-to denote a sequence.
+							\R$.  
+							<span class="fragment" data-fragment-index="1">
+								Instead of $x(n)$, we 
+								usually denote the $n$th element in the sequence by $x_n$.  
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								We 
+								use the notation $\{ x_n \}$, or more precisely
+								\begin{equation*}
+							
+								\{ x_n \}_{n=1}^\infty
+								\end{equation*}
+								to denote a sequence.
+							</span>
 						</p>
 
-						<p class="fragment" data-fragment-index="1">
+						<p class="fragment" data-fragment-index="3">
 							Other notations for $\{ x_n \}$ commonly used are:
 $$\left(x_n\right)_{n=1}^{\infty} \quad \text{and} \quad \{ x_n \}_{n\in\N}.$$
 
@@ -137,57 +144,78 @@ $$\left(x_n\right)_{n=1}^{\infty} \quad \text{and} \quad \{ x_n \}_{n\in\N}.$$
 					
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>Example 2.1.1</h4>
-					<div class="size-80">
+					<div class="size-95">
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
 									If we need to give a concrete sequence, we often give each term as a formula in terms of $n$.
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									For instance, $\left\{ \frac{1}{n} \right\}_{n=1}^\infty$, or simply $\left\{
-										\frac{1}{n} \right\}$, stands for
-										the sequence 
-										$$1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4},
-										\frac{1}{5}, \ldots $$
+									For instance, $\left\{ \dfrac{1}{n} \right\}_{n=1}^\infty$,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									or simply $\left\{
+										\dfrac{1}{n} \right\}$,
 								</span>
 								<span class="fragment" data-fragment-index="3">
-									The sequence $\left\{ \frac{1}{n} \right\}$ is a bounded sequence ($B=1$ suffices).  
+									 stands for
+										the sequence 
+										$$\ds 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4},
+										\frac{1}{5}, \ldots $$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									This is a bounded sequence.  
 								</span>
 
 							</p>
-							<p class="fragment" data-fragment-index="4">
+							
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2.1.1</h4>
+					<div class="">
+						<div class="left-txt">
+							<p>
 								<span>
 									On the other hand, the sequence $\{ n \}$ stands for
-$$1,2,3,4,\ldots,$$
-and this sequence is not bounded (why?).
+									$$1,2,3,4,\ldots,$$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									and this sequence is not bounded (why?).
 								</span>
 								
 
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br/><br/><br/><br/>
 				</section>
 			</section>
 
 			<section>
 				<section data-auto-animate>
 					<h3>2.1 Sequences</h3>
-					<p class="size-60"><strong>Convergence of sequences</strong></p>
-					<div class="size-70 left-txt">
+					<p class="size-60"><strong>Convergence</strong></p>
+					<div class="size-75 left-txt">
 						<p class="fragment" data-fragment-index="0"><strong>Definition 2.1.3.</strong>
 							A sequence $\{ x_n \}$ is said to <em>converge</em> to a number
 							$x \in \R$ if for every $\epsilon > 0$, there exists an $M \in \N$ such
-							that $\abs{x_n - x} \lt \epsilon$ for all $n \geq M$.  The number $L$
+							that $\abs{x_n - x} \lt \epsilon$ for all $n \geq M$.  
+							<span class="fragment" data-fragment-index="1">
+								The number $L$
 							is said to be the <em>limit</em> of $\{ x_n \}$.  We write
 							\begin{equation*}
 							\lim_{n\to \infty} x_n := L .
-							\end{equation*}</p>
+							\end{equation*}
+							</span>
+						</p>
 					</div>
 					
-					<div  class="fragment" data-fragment-index="1">
+					<div  class="fragment" data-fragment-index="2">
 						<img style="width: 100%;" class="r-stretch" data-src="images/summary-01/convergence-1d.png" />
 					</div>
 					
@@ -200,7 +228,7 @@ and this sequence is not bounded (why?).
 
 				<section data-auto-animate>
 					<h3>2.1 Sequences</h3>
-					<p class="size-60"><strong>Convergence of sequences</strong></p>
+					<p class="size-60"><strong>Convergence</strong></p>
 	
 					<iframe scrolling="no" title="Convergence of sequences"
 						src="https://www.geogebra.org/material/iframe/id/rmx2ud6p/width/572/height/402/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
@@ -1206,7 +1234,7 @@ squeeze lemma,
 					<h3 style="font-size:110%">2.3 Basic facts about limits of sequences</h3>
 					
 						<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-							<p><strong>Corollary 2.3.1</strong> 
+							<p><strong>Corollary 2.3.1.</strong> 
 							</p>
 							
 							<ol>

@@ -96,6 +96,176 @@
             </div>
             <br /><br /><br /><br /><br />
           </section>
+          <section data-auto-animate>
+            <h3>3.2 Convergence tests</h3>
+            <div class="size-50">
+              <div class="left-txt">
+                <p>
+                  <strong>
+                    Theorem 3.2.1.
+                  </strong>
+                  (Comparison test) Let $\sum x_n$ and $\sum y_n$ be series such
+                  that $0 \leq x_n \leq y_n$ for all $n \in \N$.
+                </p>
+                <ol style="line-height: 10px;">
+                  <li>
+                    If $\sum y_n$ converges, then so does $\sum x_n$.
+                  </li>
+                  <li>
+                    If $\sum x_n$ diverges, then so does $\sum y_n$.
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <div class="size-95">
+              <div class="left-txt">
+                <p>
+                  <strong>
+                    Proof.
+                  </strong>
+                  <span class="fragment" data-fragment-index="0">
+                    Let's prove item 1.
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                    Since $0 \leq x_n \leq y_n,$
+                  </span>
+                  <span class="fragment" data-fragment-index="2">
+                    the sequences of
+                    partial sums are both monotone increasing.
+                  </span>
+                  <span class="fragment" data-fragment-index="3">
+                    Since $x_n \leq y_n$ for all $n$,    
+                  </span>
+                  <span class="fragment" data-fragment-index="4">
+                    the partial sums  satisfy                                 
+                  </span>
+                  
+                </p>
+                
+              </div>
+              <div>
+                <p><span class="fragment" data-fragment-index="4">
+                  
+                  $
+                 \ds \sum_{n=1}^k x_n \leq \sum_{n=1}^k y_n, \;\; \forall k. \qquad (3.2)
+                  $                                 
+                </span></p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
+          <section data-auto-animate>
+            <h3 style="font-size:100%">3.2 Convergence tests</h3>
+            <div class="size-95">
+              <div class="left-txt">
+                <p>
+                  <strong>
+                    Proof.
+                  </strong>
+                </p>
+                
+              </div>
+              <div style="font-size:80%;margin-top:-20px">
+                <p><span>
+                  $
+                 \ds \sum_{n=1}^k x_n \leq \sum_{n=1}^k y_n, \;\; \forall k. \qquad (3.2)
+                  $                                 
+                </span></p>
+              </div>
+              <div class="left-txt">
+                <p>
+                  <span>
+                    If $\sum y_n$ converges, 
+                  </span>
+                  <span  class="fragment" data-fragment-index="1">
+                    the partial sums for the series
+                    are bounded.
+                  </span>
+                  <span  class="fragment" data-fragment-index="2">
+                    Therefore, 
+                    there exists some $B \in \R$ such that
+$\sum_{n=1}^k y_n \leq B$ for all $k$, and so
+                  </span>
+                  
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="fragment" data-fragment-index="3">
+$\ds \sum_{n=1}^k x_n \leq \sum_{n=1}^k y_n \leq B.$
+                  </span>
+                </p>
+              </div>
+              
+            </div>
+            <br /><br /><br />
+          </section>
+          <section data-auto-animate>
+            <h3 style="font-size:100%">3.2 Convergence tests</h3>
+            <div class="size-70">
+              <div class="left-txt">
+                <p>
+                  <strong>
+                    Proof.
+                  </strong>
+                </p>
+                
+              </div>
+              <div style="font-size:80%;margin-top:-20px">
+                <p><span>
+                  $
+                 \ds \sum_{n=1}^k x_n \leq \sum_{n=1}^k y_n, \;\; \forall k. \qquad (3.2)
+                  $                                 
+                </span></p>
+              </div>
+              <div class="left-txt">
+                <p>
+                  <span>
+                    If $\sum y_n$ converges, 
+                  </span>
+                  <span>
+                    the partial sums for the series
+                    are bounded.
+                  </span>
+                  <span>
+                    Therefore, 
+                    there exists some $B \in \R$ such that
+$\sum_{n=1}^k y_n \leq B$ for all $k$, and so
+                  </span>
+                  
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span>
+$\ds \sum_{n=1}^k x_n \leq \sum_{n=1}^k y_n \leq B.$
+                  </span>
+                </p>
+              </div>
+              
+            </div>
+
+            <div class="size-90">
+              <div class="left-txt">
+                <p>
+                  <span>
+                   This means that the partial sums for $\sum x_n$
+                    are also bounded.  
+                  </span>
+                  <span  class="fragment" data-fragment-index="0">
+                    Since the partial sums are a monotone increasing sequence,
+                  </span>
+                  <span  class="fragment" data-fragment-index="1">
+                    $\sum x_n$ converges. $\;\bs$
+                  </span>
+                </p>
+                <p class="fragment" data-fragment-index="2">
+                  The second item is left as an exercise. 📝
+                </p>
+              </div>
+            </div>
+            <br /><br /><br />
+          </section>
 
           <section data-auto-animate id="p-series">
             <h3>3.2 Convergence tests</h3>
@@ -288,8 +458,11 @@
                 <strong>Definition 3.3.1</strong>
                 A series $\sum x_n$
                 <em>converges absolutely</em> if the series $\sum \abs{x_n}$
-                converges. If a series converges, but does not converge
+                converges. 
+                <span class="fragment" data-fragment-index="1">
+                  If a series converges, but does not converge
                 absolutely, we say it is <em>conditionally convergent</em>.
+                </span>
               </p>
             </div>
             <p><br /><br /><br /><br /><br /></p>
@@ -701,6 +874,7 @@
             <h3>3.4 Rearrangements</h3>
             <div class="left-txt">
               <p>
+                <strong>Remark: </strong>
                 <span class="fragment" data-fragment-index="0">
                   In general, absolutely convergent series have many wonderful
                   properties.
