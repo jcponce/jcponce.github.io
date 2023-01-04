@@ -675,7 +675,7 @@
 						<p class="fragment" data-fragment-index="0">
 							<strong>
 								Theorem 6.2.2.
-							</strong>
+							</strong> (Rolle)
 							Let $f \colon [a,b] \to \R$ be continuous function
 							differentiable on $(a,b)$ such that $f(a) = f(b)$.
 							Then there exists a $c \in (a,b)$ such that $f'(c) = 0$.
@@ -697,7 +697,7 @@
 					<div class="size-90" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 	
 						<p>
-							<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
+							<strong>Theorem 6.2.3.</strong> (Mean value theorem) Let $f \colon [a,b] \to \R$ be a continuous function
 				differentiable on $(a,b)$. 
 				<span class="fragment" data-fragment-index="0">
 					Then there exists a point $c \in (a,b)$
@@ -718,7 +718,7 @@
 					<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 	
 						<p>
-							<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
+							<strong>Theorem 6.2.3.</strong> (Mean value theorem) Let $f \colon [a,b] \to \R$ be a continuous function
 				differentiable on $(a,b)$. 
 				<span>
 					Then there exists a point $c \in (a,b)$
@@ -737,6 +737,87 @@
 								   margin-left: auto;
 								   margin-right: auto;" 
 								   data-src="images/summary-06/mean-value-theorem.svg" />
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">6.2.2 Mean value theorem</h4>
+					<div class="size-45" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p>
+							<strong>Theorem 6.2.3.</strong> (Mean value theorem) Let $f \colon [a,b] \to \R$ be a continuous function
+				differentiable on $(a,b)$. 
+					Then there exists a point $c \in (a,b)$
+				such that
+				$
+				f(b)-f(a) = f'(c)(b-a) .
+				$
+						</p>
+
+					</div>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p><strong>Proof. </strong>
+								<span class="fragment" data-fragment-index="0">
+									Let $g \colon [a,b] \to \R$ defined by
+								</span>
+							</p>
+
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									
+$
+\ds g(x):= f(x)-f(b)-\frac{f(b)-f(a)}{b-a}(x-b) .
+$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Note that $g$ is differentiable on $(a,b)$,
+									
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									and also continuous on $[a,b]$ with $g(a) = 0$ and $g(b) = 0$. 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Thus there exists
+a
+$c \in (a,b)$ such that $g'(c) = 0.$
+								</span>
+								
+							</p>
+						</div>
+						<div>
+							<span class="fragment" data-fragment-index="4">
+							
+$
+\Ra\; 0 = g'(c)
+$
+
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								
+$
+ \ds= f'(c)-\frac{f(b)-f(a)}{b-a} .
+$
+
+							</span>
+							
+
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									In other words, $\;f(b)-f(a) = f'(c)(b-a). \; \bs$
+								</span>
+							</p>
+						</div>
 					</div>
 					
 					<br/><br/><br/>
