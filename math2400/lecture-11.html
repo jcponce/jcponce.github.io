@@ -668,11 +668,11 @@
 
 			<section>
 
-				<section>
+				<section id="rolle-s-theorem">
 					<h4>6.2.1 Rolle's theorem</h4>
 					<div class="size-80" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 	
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							<strong>
 								Theorem 6.2.2.
 							</strong>
@@ -682,7 +682,7 @@
 						</p>
 
 					</div>
-					<div>
+					<div class="fragment" data-fragment-index="1">
 						<img style="width: 70%; 
 								   display: block;
 								   margin-left: auto;
@@ -698,11 +698,14 @@
 	
 						<p>
 							<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
-				differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
+				differentiable on $(a,b)$. 
+				<span class="fragment" data-fragment-index="0">
+					Then there exists a point $c \in (a,b)$
 				such that
 				\begin{equation*}
 				f(b)-f(a) = f'(c)(b-a) .
 				\end{equation*}
+				</span> 
 						</p>
 
 					</div>
@@ -710,17 +713,20 @@
 					<br/><br/><br/><br/><br/><br/>
 				</section>
 
-				<section data-auto-animate>
+				<section data-auto-animate id="mean-value-theorem">
 					<h4>6.2.2 Mean value theorem</h4>
 					<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 	
 						<p>
 							<strong>Theorem:</strong> Let $f \colon [a,b] \to \R$ be a continuous function
-				differentiable on $(a,b)$.  Then there exists a point $c \in (a,b)$
+				differentiable on $(a,b)$. 
+				<span>
+					Then there exists a point $c \in (a,b)$
 				such that
 				\begin{equation*}
 				f(b)-f(a) = f'(c)(b-a) .
 				\end{equation*}
+				</span> 
 						</p>
 
 					</div>
@@ -739,120 +745,102 @@
 
 			</section>
 
-			
-
-			
-
-
-			
-
-
-			
-
 			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Applications</p>
-				<table style="width:100%;">
-					<tr>
 
-						<th style="width:55%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+				<section data-auto-animate>
+					<h4>6.3 Applications</h4>
 
-								<strong>Theorem:</strong> Let $I$ be an interval and
-								let $f \colon I \to \R$ be a differentiable function such that $f'(x) = 0$
-								for all $x \in I$.
-								Then $f$ is constant.
+					<div class="size-75" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p class="fragment" data-fragment-index="0">
+							<strong>Theorem 6.3.1.</strong> Let $I$ be an interval and
+						let $f \colon I \to \R$ be a differentiable function such that $f'(x) = 0$
+						for all $x \in I$.
+						Then $f$ is constant.
+						</p>
+						
 
-							</div>
-						</th>
-						<th style="width:45%;">
-							<img style="width: 100%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-06/derivative-application-01.svg" />
-						</th>
+					</div>
+					
+					<div class="fragment" data-fragment-index="1">
+						<img style="width: 70%; 
+								   display: block;
+								   margin-left: auto;
+								   margin-right: auto;" 
+								   data-src="images/summary-06/derivative-application-01.svg" />
+					</div>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4 style="font-size:90%">6.3 Applications</h4>
 
-					</tr>
-				</table>
+					<div class="size-75" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p>
+							<strong>Theorem 6.3.2. </strong> Let $I$ be an interval and
+						let $f \colon I \to \R$ be a differentiable function.
+						</p>
+
+						<ol class="r">
+							<li  class="fragment" data-fragment-index="0">
+								$f$ is increasing if and only if $f'(x) \geq 0$ for all $x \in I$.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								$f$ is decreasing if and only if $f'(x) \leq 0$ for all $x \in I$.
+							</li>
+
+						</ol>
+
+					</div>
+
+					<div class="fragment" data-fragment-index="2">
+						<img style="width: 60%; 
+								   display: block;
+								   margin-left: auto;
+								   margin-right: auto;" 
+								  
+								   data-src="images/summary-06/derivative-application-02.svg" />
+					</div>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4 style="font-size:90%">6.3 Applications</h4>
+					<div class="size-75" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p>
+							<strong>Theorem 6.3.3. </strong> Let $I$ be an interval and
+						let $f \colon I \to \R$ be a differentiable function.
+						</p>
+
+						<ol class="r">
+							<li class="fragment" data-fragment-index="0">
+								If $f'(x) > 0$ for all $x \in I$, then
+									$f$ is strictly increasing.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								If $f'(x) \lt 0$ for all $x \in I$,
+							then $f$ is strictly decreasing.
+							</li>
+
+						</ol>
+
+					</div>
+					
+					<div class="fragment" data-fragment-index="2">
+						<img style="width: 58%; 
+								   display: block;
+								   margin-left: auto;
+								   margin-right: auto;" 
+								   data-src="images/summary-06/derivative-application-03.svg" />
+					</div>
+					<br/>
+				</section>
+
 			</section>
 
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Applications</p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:55%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<strong>Theorem:</strong> Let $I$ be an interval and
-								let $f \colon I \to \R$ be a differentiable function.
-
-								<ol class="r">
-									<li>
-										$f$ is increasing if and only if $f'(x) \geq 0$ for all $x \in I$.
-									</li>
-									<li>
-										$f$ is decreasing if and only if $f'(x) \leq 0$ for all $x \in I$.
-									</li>
-
-								</ol>
-
-							</div>
-						</th>
-						<th style="width:45%;">
-							<img style="width: 100%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-06/derivative-application-02.svg" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Applications</p>
-				<table style="width:100%;">
-					<tr>
-
-						<th style="width:55%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<strong>Theorem:</strong> Let $I$ be an interval and
-								let $f \colon I \to \R$ be a differentiable function.
-
-								<ol class="r">
-									<li>
-										If $f'(x) > 0$ for all $x \in I$, then
-											$f$ is strictly increasing.
-									</li>
-									<li>
-										If $f'(x) < 0$ for all $x \in I$,
-									then $f$ is strictly decreasing.
-									</li>
-
-								</ol>
-
-							</div>
-						</th>
-						<th style="width:45%;">
-							<img style="width: 95%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-06/derivative-application-03.svg" />
-						</th>
-
-					</tr>
-				</table>
-			</section>
+			
 
 			<section>
 				<h4>The Derivative</h4>
