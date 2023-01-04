@@ -492,6 +492,88 @@
 				</section>
 				<section data-auto-animate>
 					<h4>5.2 Intermediate value theorem</h4>
+					<div class="left-txt size-75">
+						<p><strong>Theorem 5.2.1. </strong>
+							A continuous function $f \colon [a,b] \to \R$ is bounded.
+						</p>
+					</div>
+					<div class="left-txt">
+						<p><strong>Proof. </strong>
+							<span class="fragment" data-fragment-index="0">
+								Suppose that $f$ is not bounded on $[a,b].$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Then for any $n\in \N$ there is a number $x_n\in[a,b]$
+								such that $|\,f(x_n)|\gt n.$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Since $[a,b]$ is bounded, $\{x_n\}$ is bounded.
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								By the Bolzano-Weiestrass theorem, there is a subsequence
+								$\{x_{n_{i}}\}$ of $\{x_n\}$ that converges to some $c.$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								Since $[a,b] $ is closed and $x_{n_{i}}\in [a,b]$, 
+								$\Ra c\in [a,b]$ by Corollary 2.3.1.
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>5.2 Intermediate value theorem</h4>
+					<div class="left-txt size-75">
+						<p><strong>Theorem 5.2.1. </strong>
+							A continuous function $f \colon [a,b] \to \R$ is bounded.
+						</p>
+					</div>
+					<div class="left-txt size-60">
+						<p><strong>Proof. </strong>
+							<span>
+								Suppose that $f$ is not bounded on $[a,b].$
+							</span>
+							<span>
+								Then for any $n\in \N$ there is a number $x_n\in[a,b]$
+								such that $|\,f(x_n)|\gt n.$
+							</span>
+							<span>
+								Since $[a,b]$ is bounded, $\{x_n\}$ is bounded.
+							</span>
+							<span>
+								By the Bolzano-Weiestrass theorem, there is a subsequence
+								$\{x_{n_{i}}\}$ of $\{x_n\}$ that converges to some $c.$
+							</span>
+							<span>
+								Since $[a,b] $ is closed and $x_{n_{i}}\in [a,b]$, 
+								$\Ra c\in [a,b]$ by Corollary 2.3.1.
+							</span>
+						</p>
+					</div>
+					<div class="left-txt">
+						<p>
+							<span>
+								Then $f$ is continuous at $c$, so that $f(x_{n_i}) \to f(c).$
+							</span><br/>
+							<span class="fragment" data-fragment-index="0">
+								So the sequence $\{\,f(x_{n_i})\}$ is bounded.
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								However, this is a contradiction❗
+							</span><br/>
+							<span class="fragment" data-fragment-index="2">
+								since $\abs{\,f(x_{n_i})}\gt n_k \geq k, $
+								for $k\in \N.$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>5.2 Intermediate value theorem</h4>
 					<p class="sbt">Continuous functions on closed intervals</p>
 					<div class="left-txt">
 	
@@ -546,620 +628,7 @@
 				</section>
 			</section>
 			
-			<section>
-
-				<section data-auto-animate>
-					<h4>5.3 Uniform continuity</h4>
-					<div class="left-txt size-90">
-						<p><strong>Definition 5.3.1.</strong>
-							Let $S \subset \R$, and let $f \colon S \to \R$ be a function.
-							Suppose for every $\epsilon \gt 0$ there exists a $\delta > 0$
-							such that whenever $x, c \in S$ and
-							$\abs{x-c} \lt \delta$, then $\abs{\,f(x)-f(c)} \lt \epsilon$.
-							Then we say $f$ is <em>uniformly continuous</em>.
-						</p>
-	
-	
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>5.3 Uniform continuity</h4>
-					<p class="sbt">Uniform vs Nonuniform continuity</p>
-	
-					<iframe scrolling="no" title="Uniform continuity"
-						src="https://www.geogebra.org/material/iframe/id/fjydugxa/width/704/height/389/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-						width="704px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-						
-				
-						<br/><br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>5.3 Uniform continuity</h4>
-					<p class="sbt">Uniform vs Nonuniform continuity</p>
-	
-					<iframe scrolling="no" title="Uniform vs NonUniform continuity"
-						src="https://www.geogebra.org/material/iframe/id/sv5tazce/width/673/height/389/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-						width="673px" height="389px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-	
-						<br/><br/><br/>
-				</section>
-
-				<section>
-					<h4>Example 5.3.1.</h4>
-					<div class="size-95">
-						<div class="left-txt">
-							<p>$f \colon [0,1] \to \R$ defined by $f(x) := x^2$ is uniformly continuous.</p>
-						</div>
-					</div>
-					<div class="size-95">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									<strong>Proof. </strong>
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									Note that $0 \leq x,c \leq 1$.  
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									Then
-								</span>
-								
-
-							</p>
-						</div>
-						<div>
-							<p>
-								<span class="fragment" data-fragment-index="2">
-									$\sabs{x^2-c^2}$
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									$= \sabs{x+c}\sabs{x-c}\qquad \qquad \qquad \qquad \qquad $
-								</span><br/>
-								<span class="fragment" data-fragment-index="4">
-									$ \quad\leq \bigl(\sabs{x}+\sabs{c}\bigr) \sabs{x-c}$
-								</span>
-								<span class="fragment" data-fragment-index="5">
-									$\leq (1+1)\sabs{x-c} .$
-								</span>
-								
-						</div>
-						<div class="left-txt">
-							<p>
-								</span>
-								<span class="fragment" data-fragment-index="6">
-									Therefore, given $\epsilon > 0$, let $\delta := \dfrac{\epsilon}{2}$.
-								</span>
-								<span class="fragment" data-fragment-index="7">
-									If $\sabs{x-c} \lt \delta$, then $\sabs{x^2-c^2} \lt \epsilon$.
-								</span>
-
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-				<section>
-					<h4>Example 5.3.1.</h4>
-					<div class="size-95">
-						<div class="left-txt">
-							<p>On the other hand, $g \colon \R \to \R$ defined by $g(x):=x^2$ is not uniformly
-								continuous.
-								</p>
-						</div>
-					</div>
-					<div class="size-85">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									<strong>Proof. </strong>
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									Suppose it is uniformly continuous,
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									then for every $\epsilon > 0$,
-there would exist a $\delta > 0$ such that
-if $\sabs{x-c} \lt \delta$, then $\sabs{x^2 -c^2} \lt \epsilon$.
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									So consider $\epsilon =1.$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									If such $\delta$  existed and $c = x+ \delta/2$
-								</span>
-								<span class="fragment" data-fragment-index="5">
-									$\;\Ra \ds\sabs{x^2 - \left(x+ \frac{\delta}{2}\right)^2} \lt 1.$
-								</span>
-
-							</p>
-						</div>
-						<div>
-							<p>
-								
-								<span class="fragment" data-fragment-index="6">
-									However
-								</span>
-								<span class="fragment" data-fragment-index="6">
-									$ \;\ds
-									\abs{x\delta + \dfrac{\delta^2}{2}} \lt 1$
-								</span>
-								<span class="fragment" data-fragment-index="7">
-									❗
-								</span>
-								
-						</div>
-						<div class="left-txt">
-							<p>
-								
-								<span class="fragment" data-fragment-index="7">which is a
-									contradiction, 
-								</span>
-								<span class="fragment" data-fragment-index="8">
-									since we can choose $x$ large. $\;\bs$
-								</span>
-
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-
-				<section>
-					<h4>Continuous functions</h4>
-					<p class="sbt">Comparison between continuity and uniform continuity</p>
-					<p class="size-70">Let $S \subset \R$ and let $f \colon S \to \R$ be a function.</p>
-					<table style="width:100%;">
-						<tr>
-							<th style="width:50%; border-right: solid 1px black;">
-								<div class="size-65" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-									<p><strong>Continuous function</strong><br /><br />
-										We say
-										that 
-										<br/>
-										$f$ is <em>continuous</em>:<br /><br />
-										if <span class="fragment highlight-red" data-fragment-index="0">for every $c\in
-											S$</span> and every $\epsilon \gt 0$<br />
-										there exists a $\delta \gt 0$ such that <br />
-										<span class="fragment highlight-red" data-fragment-index="0">whenever $x \in
-											S$</span> and $\abs{x-c} \lt
-										\delta$, <br />then
-										$\abs{\,f(x)-f(c)} \lt \epsilon.$
-	
-										<br/>
-									</p>
-	
-	
-								</div>
-							</th>
-							<th style="width:50%;">
-								<div class="size-65" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-									<p><strong>Uniform continuous</strong><br /><br />
-	
-										We say that <br/>$f$ is <em>uniformly continuous</em>:<br /><br />
-										if for every $\epsilon \gt 0$ <br />
-										there exists a $\delta > 0$
-										such that
-										<br />
-										<span class="fragment highlight-red" data-fragment-index="0">whenever $x, c \in
-											S$</span> and
-										$\abs{x-c} \lt \delta$, <br />then $\abs{\,f(x)-f(c)} \lt \epsilon.$
-	
-									</p>
-								</div>
-							</th>
-	
-						</tr>
-					</table>
-					<br/><br/>
-				</section>
-
-				<section>
-					<h4>Example 5.3.2.</h4>
-					<div class="size-95">
-						<div class="left-txt">
-							<p>The function $f \colon (0,1) \to \R$ defined by $f(x) := \dfrac{1}{x}$ is not
-								uniformly continuous.
-								</p>
-						</div>
-					</div>
-					<div class="size-95">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									<strong>Proof. </strong>
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									Choose $\epsilon=2$ and $\delta \gt 0.$
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									Set $\delta_0 = \min\{\delta/2, 1/4\}$, 
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									$x= \delta_0$, and $y = 2 \delta_0.$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									Then $x,y\in(0,1)$ and $\abs{x-y}\lt \delta_0 \lt \delta$
-								</span>
-								<span class="fragment" data-fragment-index="5">
-									but
-								</span>
-								
-							</p>
-						</div>
-						<div>
-							<p>
-								<span class="fragment" data-fragment-index="5">
-									$\ds\abs{\frac{1}{x}-\frac{1}{y}}$
-								</span>
-								<span class="fragment" data-fragment-index="6">
-									$=\ds\abs{\frac{y-x}{xy}}
-									$
-								</span>
-								<span class="fragment" data-fragment-index="7">
-									$ \ds=
-									\abs{\frac{\delta_0}{2\delta_0^2} }$
-								</span>
-								<span class="fragment" data-fragment-index="8">
-									$=\ds\abs{ \frac{1}{2\delta_0}}$
-								</span>
-								<span class="fragment" data-fragment-index="9">
-									$\geq 2 $
-								</span>
-								<span class="fragment" data-fragment-index="10">
-									$= \epsilon. $
-								</span>
-								
-								
-								
-						</div>
-						<div class="left-txt">
-
-							<p>
-								<span class="fragment" data-fragment-index="11">
-									Hence $f$ is not uniformly continuous. $\; \bs$
-								</span>
-							</p>
-						</div>
-						
-					</div>
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate id="nonuniform-continuity-criterion">
-					<h4 style="font-size:90%">5.3 Uniform continuity</h4>
-					<p class="sbt">Nonuniform continuity criterion</p>
-					<div class="left-txt size-90">
-						<p><strong>Theorem 5.3.1. </strong>
-							Let $S\subseteq \R$ and let $f \colon S \to \R$. Then the following statements
-							are equivalent:
-						</p>
-	
-						<ol>
-							<li>
-								$f$ is not uniformly continuous on $S$.
-							</li>
-							<li>
-								There exists an $\epsilon_0>0$ such that for every $\delta>0$
-								there are points $x_{\delta}$, $y_{\delta}$ in $S$ such that
-								$|x_{\delta} - y_{\delta}|\lt \delta$ and $|\,f(x_{\delta}) - f(y_{\delta})|\geq\epsilon_0$.
-							</li>
-							<li>
-								There exists an $\epsilon_0\gt 0$ and two sequences $\{x_n\}$ and $\{y_n\}$
-								in $S$ such that $\lim (x_n-y_n)=0$ and $|\,f(x_{n}) - f(y_{n})|\geq\epsilon_0$
-								for all $n\in \N$.
-							</li>
-						</ol>
-	
-					</div>
-					<br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>5.3 Uniform continuity</h4>
-					<p class="sbt">Nonuniform continuity criterion</p>
-					<div class="left-txt size-85">
-						<p><strong>Example 5.3.3. </strong>
-							We can apply the previous result to show that $f(x)=\dfrac{1}{x}$ is not uniformly
-							continuous on $(0,\infty)$.
-						</p>
-	
-						<p class="fragment" data-fragment-index="0">
-							Consider $x_n=\dfrac{1}{n}$ and $y_n=\dfrac{1}{n+1}$ in $(0,\infty)$.
-							<span class="fragment" data-fragment-index="1">
-								Then
-							</span>
-						</p>
-	
-					</div>
-					<div class="size-85">
-						<p>
-							
-							<span class="fragment" data-fragment-index="1">
-								$
-							\ds\lim_{n\ra \infty} (x_n-y_n)
-							$
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								$\ds\lim_{n\ra \infty}
-							\left(\frac{1}{n}-\frac{1}{n+1}\right)
-							$
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								$\ds=\lim_{n\ra \infty}\frac{1}{n(n+1)} 
-							$
-							</span>
-							<span class="fragment" data-fragment-index="4">
-								$ =0,
-							$
-							</span>
-							
-						</p>
-	
-					</div>
-					<div class="left-txt size-85">
-						<p class="fragment" data-fragment-index="5">
-							but $\abs{\,f(x_n)- f(y_n)}=1$ for all $n\in \N$.
-						</p>
-	
-					</div>
-					<br/><br/>
-				</section>
-	
-				
-	
-	
-				<section data-auto-animate>
-					<h4>5.3 Uniform continuity</h4>
-					<div class="left-txt">
-						<p><strong>Theorem 5.3.2. </strong>
-							Let $f \colon [a,b] \to \R$ be a continuous function. Then $f$
-							is uniformly continuous.
-						</p>
-	
-	
-					</div><br/><br/><br/><br/><br/><br/>
-				</section>
-	
-				
-	
-	
-				<section data-auto-animate>
-					<h4>5.3.1 Lipschitz continuous functions</h4>
-					<div class="left-txt">
-						<p>
-							<span class="fragment" data-fragment-index="0">
-								<strong>Definition 5.3.2. </strong>
-							A function $f \colon S\subseteq \R \to \R$
-							is <em>Lipschitz continuous</em>,
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								if there exists a $K > 0$, such that
-							\begin{equation*}
-							\abs{\,f(x)-f(y)} \leq K \abs{x-y}
-							\;\;\text{for all } x \text{ and } y \text{ in } S.
-							\end{equation*}
-							</span>
-						</p>
-	
-	
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>5.3.1 Lipschitz continuous functions</h4>
-					<div class="left-txt">
-						
-	
-						<p><strong>Theorem 5.3.3. </strong>
-							A Lipschitz continuous function is uniformly continuous.
-						</p>
-	
-						
-	
-	
-					</div>
-					<br/><br/><br/><br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>5.3.1 Lipschitz continuous functions</h4>
-					<div class="left-txt size-60">
-						<p><strong>Theorem 5.3.3. </strong>
-							A Lipschitz continuous function is uniformly continuous.
-						</p>
-	
-					</div>
-					<div class="left-txt size-90">
-						
-	
-						<p><strong>Proof. </strong>
-							<span class="fragment" data-fragment-index="0">
-								Let $f \colon S \to \R$ be a function
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								and let $K$ be a constant such that
-								$\abs{f(x)-f(y)} \leq K \abs{x-y}$
-								for all $x, y$ in $S$.
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								For $\epsilon > 0$ be given. 
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								Take $\delta :=
-								\dfrac{\epsilon}{K}$.
-							</span>
-							<span class="fragment" data-fragment-index="4">
-								For all $x$ and $y$ in $S$ such that
-								$\abs{x-y} \lt \delta$,
-							</span>
-						</p>
-	
-					</div>
-					<div>
-						<p>
-							<span class="fragment" data-fragment-index="5">
-								$
-								\ds\abs{\,f(x)-f(y)}
-								$
-							</span>
-							<span class="fragment" data-fragment-index="6">
-								$\ds  \leq K \abs{x-y} $
-							</span>
-							<span class="fragment" data-fragment-index="7">
-								$\ds\lt K \delta $
-							</span>
-							<span class="fragment" data-fragment-index="8">
-								$\ds = K \frac{\epsilon}{K} $
-							</span>
-							<span class="fragment" data-fragment-index="9">
-								$\ds =
-								\epsilon .$
-							</span>
-						</p>
-					</div>
-					<div class="size-90 left-txt">
-						<p class="fragment" data-fragment-index="9">
-							Hence $f$ is uniformly continuous. $\; \bs$
-						</p>
-					</div>
-					<br/><br/><br/>
-				</section>
-
-				<section>
-					<h4>Example 5.3.4. </h4>
-					<div>
-						<div class="left-txt">
-							<p>Not every uniformly continuous function
-								is Lipschitz continuous. 
-							</p>
-							<p class="fragment" data-fragment-index="0">For example $f(x):=\sqrt{x}$ defined on
-								$I=[0,2]$. 
-							</p>
-							<p class="fragment" data-fragment-index="1">
-								$f$ is uniformly continuous on $I$ 
-								<span class="fragment" data-fragment-index="2">but there is no
-									number $K>0$  such that $$|\,f(x)-f(0)|\lt K|x-0|$$ for all $x\in I.$</span>
-							</p>
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-
-			</section>
-
-			<section>
-
-				<section data-auto-animate>
-					<h4>5.4 Monotone functions and continuity</h4>
-					<div class="left-txt size-90">
-						<p><strong>Definition 5.4.1. </strong>
-							Let $S \subset \R$.
-							We say $f \colon S \to \R$ is <em>increasing</em>
-							(resp. <em>strictly increasing</em>) if $x,y \in S$ with
-							$x \lt y$ implies $f(x) \leq f(y)$ (resp. $f(x) \lt f(y)$).
-							We define
-							<em>decreasing</em> and
-							<em>strictly decreasing</em> in the same way by switching the
-							inequalities for $f$.
-	
-							<br /><br />
-							If a function is either increasing or decreasing, we say it is
-							<em>monotone</em>. If it is
-							strictly increasing or strictly decreasing, we say it is
-							<em>strictly monotone</em>.
-						</p>
-	
-					</div>
-					<br/>
-				</section>
-	
-	
-				<section data-auto-animate>
-					<h4>5.4 Monotone functions and continuity</h4>
-					<div class="left-txt">
-	
-						<p><strong>Theorem 5.4.1. </strong>
-							If $I \subset \R$ is an interval and $f \colon I \to \R$ is 
-							monotone and not constant, then $f(I)$ is an interval if and only if $f$
-							is continuous.
-						</p>
-	
-	
-					</div><br/><br/><br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>5.4 Monotone functions and continuity</h4>
-					<div class="left-txt">
-	
-						<p><strong>Theorem 5.4.2. </strong>
-							If $I \subset \R$ is an interval and $f \colon I \to \R$ is strictly
-							monotone, then the inverse $f^{-1} \colon f(I) \to I$ is continuous.
-						</p>
-	
-	
-					</div><br/><br/><br/><br/><br/><br/>
-				</section>
-
-				<section>
-					<h4>Example 5.4.1.</h4>
-
-					<div class="size-85">
-						<div class="left-txt">
-							<p>
-								The proposition does not require $f$ itself to be continuous.
-							</p>
-
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									Let
-									$f \colon \R \to \R$ be defined by
-									$\ds
-									f(x):=
-									\begin{cases}
-									x & \text{if } x \lt 0, \\
-									x+1 & \text{if } x \geq 0. \\
-									\end{cases}
-									$
-								</span><br/>
-								<span class="fragment" data-fragment-index="1">
-									The function $f$ is not continuous at $0$.
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									The image of $I = \R$ is the set 
-									$(-\infty,0)\cup [1,\infty)$, not an interval.
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									Then $f^{-1} \colon (-\infty,0)\cup [1,\infty)
-									\to \R$ can be written as
-									\begin{equation*}
-									f^{-1}(y) =
-									\begin{cases}
-									y & \text{if } y \lt 0, \\
-									y-1 & \text{if } y \geq 1. 
-									\end{cases}
-									\end{equation*}
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									It is not difficult to see that $f^{-1}$ is a continuous function.  
-								</span>
-							</p>
-
-						</div>
-					</div>
-
-					<br/>
-				</section>
-
-			</section>
-
-
-
 			
-
-			
-
 
 			<section>
 
