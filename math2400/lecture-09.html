@@ -665,42 +665,40 @@ there would exist a $\delta > 0$ such that
 if $\sabs{x-c} \lt \delta$, then $\sabs{x^2 -c^2} \lt \epsilon$.
 								</span>
 								<span class="fragment" data-fragment-index="3">
-									Take $x > 0$ and let
-$c := x+\dfrac{\delta}{2}$. 
+									So consider $\epsilon =1.$
 								</span>
 								<span class="fragment" data-fragment-index="4">
-									Write
+									If such $\delta$  existed and $c = x+ \delta/2$
 								</span>
-								
+								<span class="fragment" data-fragment-index="5">
+									$\;\Ra \ds\sabs{x^2 - \left(x+ \frac{\delta}{2}\right)^2} \lt 1.$
+								</span>
 
 							</p>
 						</div>
 						<div>
 							<p>
-								<span class="fragment" data-fragment-index="4">
-									$\epsilon \gt
-									\sabs{x^2-c^2} $
-								</span>
-								<span class="fragment" data-fragment-index="5">
-									$= \sabs{x+c}\sabs{x-c} $
+								
+								<span class="fragment" data-fragment-index="6">
+									However
 								</span>
 								<span class="fragment" data-fragment-index="6">
-									$ =\ds
-									\left(2x+\frac{\delta}{2}\right)\frac{\delta}{2} $
+									$ \;\ds
+									\abs{x\delta + \dfrac{\delta^2}{2}} \lt 1$
 								</span>
 								<span class="fragment" data-fragment-index="7">
-									$\geq 
-									\delta x .$
+									❗
 								</span>
 								
 						</div>
 						<div class="left-txt">
 							<p>
-								<span class="fragment" data-fragment-index="8">
-									Therefore, $x \lt \dfrac{\epsilon}{\delta}$ for all $x > 0$, 
+								
+								<span class="fragment" data-fragment-index="7">which is a
+									contradiction, 
 								</span>
-								<span class="fragment" data-fragment-index="9">which is a
-									contradiction❗$\bs$
+								<span class="fragment" data-fragment-index="8">
+									since we can choose $x$ large. $\;\bs$
 								</span>
 
 							</p>
@@ -709,66 +707,6 @@ $c := x+\dfrac{\delta}{2}$.
 					<br/>
 				</section>
 
-				<section>
-					<h4>Example 5.3.2.</h4>
-					<div class="size-95">
-						<div class="left-txt">
-							<p>The function $f \colon (0,1) \to \R$ defined by $f(x) := \dfrac{1}{x}$ is not
-								uniformly continuous.
-								</p>
-						</div>
-					</div>
-					<div class="size-95">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									<strong>Proof. </strong>
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									Given $\epsilon > 0$,
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									then $\epsilon >
-									\abs{\dfrac{1}{x}-\dfrac{1}{y}}$ holds if and only if
-								</span>
-								
-							</p>
-						</div>
-						<div>
-							<p>
-								<span class="fragment" data-fragment-index="4">
-									$\epsilon >
-									\ds\abs{\frac{1}{x}-\frac{1}{y}}$
-								</span>
-								<span class="fragment" data-fragment-index="5">
-									$=
-									\ds\frac{\abs{y-x}}{\abs{xy}}  $
-								</span>
-								<span class="fragment" data-fragment-index="6">
-									$ \ds=
-									\frac{\abs{y-x}}{xy} ,$
-								</span>
-								<br/><br/>
-								<span class="fragment" data-fragment-index="8">
-									or $\abs{x-y} \lt xy \epsilon .$
-
-								</span>
-								
-								
-						</div>
-						<div class="left-txt">
-							<p>
-								
-								<span class="fragment" data-fragment-index="9">
-									0
-								</span>
-
-							</p>
-						</div>
-					</div>
-					<br/>
-				</section>
-	
 				<section>
 					<h4>Continuous functions</h4>
 					<p class="sbt">Comparison between continuity and uniform continuity</p>
@@ -817,25 +755,84 @@ $c := x+\dfrac{\delta}{2}$.
 					</table>
 					<br/><br/>
 				</section>
-	
-	
-				<section data-auto-animate>
-					<h4>5.3 Uniform continuity</h4>
-					<div class="left-txt">
-						<p><strong>Theorem 5.3.1. </strong>
-							Let $f \colon [a,b] \to \R$ be a continuous function. Then $f$
-							is uniformly continuous.
-						</p>
-	
-	
-					</div><br/><br/><br/><br/><br/><br/>
+
+				<section>
+					<h4>Example 5.3.2.</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>The function $f \colon (0,1) \to \R$ defined by $f(x) := \dfrac{1}{x}$ is not
+								uniformly continuous.
+								</p>
+						</div>
+					</div>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Proof. </strong>
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Choose $\epsilon=2$ and $\delta \gt 0.$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Set $\delta_0 = \min\{\delta/2, 1/4\}$, 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$x= \delta_0$, and $y = 2 \delta_0.$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Then $x,y\in(0,1)$ and $\abs{x-y}\lt \delta_0 \lt \delta$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									but
+								</span>
+								
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$\ds\abs{\frac{1}{x}-\frac{1}{y}}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$=\ds\abs{\frac{y-x}{xy}}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$ \ds=
+									\abs{\frac{\delta_0}{2\delta_0^2} }$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$=\ds\abs{ \frac{1}{2\delta_0}}$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$\geq 2 $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$= \epsilon. $
+								</span>
+								
+								
+								
+						</div>
+						<div class="left-txt">
+
+							<p>
+								<span class="fragment" data-fragment-index="11">
+									Hence $f$ is not uniformly continuous. $\; \bs$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/>
 				</section>
-	
-				<section data-auto-animate>
-					<h4>5.3 Uniform continuity</h4>
-					<p class="sbt">Nonuniform continuity criteria</p>
-					<div class="left-txt size-80">
-						<p><strong>Theorem 5.3.2. </strong>
+
+				<section data-auto-animate id="nonuniform-continuity-criterion">
+					<h4 style="font-size:90%">5.3 Uniform continuity</h4>
+					<p class="sbt">Nonuniform continuity criterion</p>
+					<div class="left-txt size-90">
+						<p><strong>Theorem 5.3.1. </strong>
 							Let $S\subseteq \R$ and let $f \colon S \to \R$. Then the following statements
 							are equivalent:
 						</p>
@@ -862,8 +859,8 @@ $c := x+\dfrac{\delta}{2}$.
 	
 				<section data-auto-animate>
 					<h4>5.3 Uniform continuity</h4>
-					<p class="sbt">Nonuniform continuity criteria</p>
-					<div class="left-txt size-80">
+					<p class="sbt">Nonuniform continuity criterion</p>
+					<div class="left-txt size-85">
 						<p><strong>Example 5.3.3. </strong>
 							We can apply the previous result to show that $f(x)=\dfrac{1}{x}$ is not uniformly
 							continuous on $(0,\infty)$.
@@ -877,7 +874,7 @@ $c := x+\dfrac{\delta}{2}$.
 						</p>
 	
 					</div>
-					<div class="size-80">
+					<div class="size-85">
 						<p>
 							
 							<span class="fragment" data-fragment-index="1">
@@ -902,7 +899,7 @@ $c := x+\dfrac{\delta}{2}$.
 						</p>
 	
 					</div>
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p class="fragment" data-fragment-index="5">
 							but $\abs{\,f(x_n)- f(y_n)}=1$ for all $n\in \N$.
 						</p>
@@ -911,18 +908,40 @@ $c := x+\dfrac{\delta}{2}$.
 					<br/><br/>
 				</section>
 	
+				
+	
+	
+				<section data-auto-animate>
+					<h4>5.3 Uniform continuity</h4>
+					<div class="left-txt">
+						<p><strong>Theorem 5.3.2. </strong>
+							Let $f \colon [a,b] \to \R$ be a continuous function. Then $f$
+							is uniformly continuous.
+						</p>
+	
+	
+					</div><br/><br/><br/><br/><br/><br/>
+				</section>
+	
+				
+	
 	
 				<section data-auto-animate>
 					<h4>5.3.1 Lipschitz continuous functions</h4>
 					<div class="left-txt">
-						<p><strong>Definition 5.3.2. </strong>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								<strong>Definition 5.3.2. </strong>
 							A function $f \colon S\subseteq \R \to \R$
 							is <em>Lipschitz continuous</em>,
-							if there exists a $K > 0$, such that
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								if there exists a $K > 0$, such that
 							\begin{equation*}
 							\abs{\,f(x)-f(y)} \leq K \abs{x-y}
 							\;\;\text{for all } x \text{ and } y \text{ in } S.
 							\end{equation*}
+							</span>
 						</p>
 	
 	
@@ -938,15 +957,74 @@ $c := x+\dfrac{\delta}{2}$.
 							A Lipschitz continuous function is uniformly continuous.
 						</p>
 	
-						<p class="fragment" data-fragment-index="0"><strong>Remark:</strong> Not every uniformly continuous function
-							is Lipschitz continuous. For example $f(x)=\sqrt{x}$ defined on
-							$I=[0,2]$. $f$ is uniformly continuous on $I$ but there is no
-							number $K>0$  such that $|\,f(x)-f(0)|\lt K|x-0|$ for all $x\in I.$
-						</p>
+						
 	
 	
 					</div>
-					<br/><br/>
+					<br/><br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>5.3.1 Lipschitz continuous functions</h4>
+					<div class="left-txt size-60">
+						<p><strong>Theorem 5.3.3. </strong>
+							A Lipschitz continuous function is uniformly continuous.
+						</p>
+	
+					</div>
+					<div class="left-txt size-90">
+						
+	
+						<p><strong>Proof. </strong>
+							<span class="fragment" data-fragment-index="0">
+								Let $f \colon S \to \R$ be a function
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								and let $K$ be a constant such that
+								$\abs{f(x)-f(y)} \leq K \abs{x-y}$
+								for all $x, y$ in $S$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								For $\epsilon > 0$ be given. 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Take $\delta :=
+								\dfrac{\epsilon}{K}$.
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								For all $x$ and $y$ in $S$ such that
+								$\abs{x-y} \lt \delta$,
+							</span>
+						</p>
+	
+					</div>
+					<div>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$
+								\ds\abs{\,f(x)-f(y)}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\ds  \leq K \abs{x-y} $
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\ds\lt K \delta $
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$\ds = K \frac{\epsilon}{K} $
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$\ds =
+								\epsilon .$
+							</span>
+						</p>
+					</div>
+					<div class="size-90 left-txt">
+						<p class="fragment" data-fragment-index="9">
+							Hence $f$ is uniformly continuous. $\; \bs$
+						</p>
+					</div>
+					<br/><br/><br/>
 				</section>
 
 				<section>
