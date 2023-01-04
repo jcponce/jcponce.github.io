@@ -158,7 +158,7 @@ class Fish extends Boid {
 			textAlign(CENTER);
 			fill(240);
 			textSize(36);
-        	text("😢 Oh no! You gave it too much food!", width/2, height/2); 
+        	text("😢 Oh no! You gave it too much food,\n I guess you did not have anything else to do.", width/2, height/2); 
 		}
 		
 	}
