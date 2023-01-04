@@ -66,191 +66,371 @@
 
 			
 			<section>
-				<h4>The Derivative</h4>
-
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ be a function, and let $c \in I$. If
-						the limit
-						\begin{equation*}
-						L := \lim_{x \to c} \frac{f(x)-f(c)}{x-c}
-						\end{equation*}
-						exists, then we say $f$ is
-						<em>differentiable</em> at
-						$c$, that $L$ is the <em>derivative</em> of $f$ at $c$,
-						and write $f'(c) := L$.
-					</p>
-
-					<p>
-						If $f$ is differentiable at all $c \in I$, then we simply say that
-						$f$ is <em>differentiable</em>, and then we obtain a function
-						$f' \colon I \to \R$.
-					</p>
-
-					<p>
-						The expression $\displaystyle\frac{f(x)-f(c)}{x-c}$ is called the
-						<em>difference quotient</em>.
-					</p>
-
-				</div>
-
-
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Graphical interpretation of the derivative</p>
-
-					<iframe scrolling="no" title="The Derivative: Geometrical interpretation" src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="562px" height="390px" style="border:0px;"  data-preload allowfullscreen=""> </iframe>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-
-				<div class="left-txt size-80">
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $f \colon I \to \R$ be differentiable at $c \in I$,
-						then it is continuous at $c$.
-					</p>
-
-					<p>
-						<strong>
-							Note:
-						</strong>
-						There exists a continuous function that is not differentiable at <em>any</em> point. 
-						This is known as the <em>Weierstrass function</em>.
-					</p>
-					
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Weierstrass function</p>
-				
-					<table style="width:100%;">
-						<tr>
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
 	
-							<td style="width:30%">
-								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+					<div class="left-txt size-95">
+						<p class="fragment" data-fragment-index="0">
+							<strong>Definition 6.1.1. </strong>
+							Let $I$ be an interval, let
+							$f \colon I \to \R$ be a function, and let $c \in I$. 
+							<span class="fragment" data-fragment-index="1">
+								If
+							the limit
+							\begin{equation*}
+							L := \lim_{x \to c} \frac{f(x)-f(c)}{x-c}
+							\end{equation*}
+							exists, 
+							
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then we say $f$ is
+							<em>differentiable</em> at
+							$c$, 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								that $L$ is the <em>derivative</em> of $f$ at $c$,
+							and write $f'(c) := L$.
+							</span>
+						</p>
 	
-									<p>
-										$
-										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
-										$
-										where $0\lt a\lt 1$, $b$ is a positive odd integer.
-									</p>
-
-	
-								</div>
-							</td>
-							<td class="size-40" style="width:70%;">
-								
-					<div class="mathcell" style="height: 4.1in">
-						<script>
-						
-						var parent = document.currentScript.parentNode;
-						
-						var id = generateId();
-						parent.id = id;
-						
-						MathCell( id, [ ]);
-
-					    
-						var a = .3, b = 3.0, direction = 1;
-
-						var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
-						
-						
-						
-						parent.update = function( id ) {
-						  
-
-						
-						  function f( x ) {
-						
-							var s = 0;
-							for ( var k = 0 ; k < terms ; k++ ) {
-							   s += a**k * Math.cos( b**k * Math.PI * x );
-							}
-						
-							return s;
-						
-						  }
-						
-						  var data = [ plot( f, [ -2, 2, 5000 ], { color: 'black' } ),
-                                       text( 'b = ' + b.toFixed(1), [1.8,1.7] )];
-						
-						  var config = { type: 'svg', yMin: -1.6, yMax: 1.6 };
-						
-						  evaluate( id, data, config );
-
-						  b += 2 * direction;
-
-                          if ( b < 3.5 || b > 9 ) direction *= -1;
-						
-						}
-						
-						parent.update( id );
-						
-						setInterval( parent.update, 1100, id );
-						
-						</script>
 					</div>
-						<p style="font-size:14px;text-align:center">Plot made with <a href="https://mathcell.org/" target="_blank">MathCell</a></p>
-							</td>
+					<br/><br/><br/><br/>
 	
-						</tr>
-					</table>
+	
+				</section>
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+	
+					<div class="left-txt size-60">
+						<p>
+							<strong>Definition 6.1.1. </strong>
+							Let $I$ be an interval, let
+							$f \colon I \to \R$ be a function, and let $c \in I$. 
+							<span>
+								If
+							the limit
+							\begin{equation*}
+							L := \lim_{x \to c} \frac{f(x)-f(c)}{x-c}
+							\end{equation*}
+							exists, 
+							
+							</span>
+							<span>
+								then we say $f$ is
+							<em>differentiable</em> at
+							$c$, 
+							</span>
+							<span>
+								that $L$ is the <em>derivative</em> of $f$ at $c$,
+							and write $f'(c) := L$.
+							</span>
+						</p>
+	
+					</div>
+					<div class="left-txt size-90">
+						
+	
+						<p>
+							<span>
+								If $f$ is differentiable at all $c \in I$, 
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								then we simply say that
+							$f$ is <em>differentiable</em>, and then we obtain a function
+							$f' \colon I \to \R$.
+							</span>
+						</p>
+	
+						<p class="fragment" data-fragment-index="1">
+							The expression $\displaystyle\frac{f(x)-f(c)}{x-c}$ is called the
+							<em>difference quotient</em>.
+						</p>
+	
+					</div>
+	
+	
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+					<p class="sbt">Graphical interpretation of the derivative
+
+					</p>
+	
+					<iframe scrolling="no" title="The Derivative: Geometrical interpretation" 
+					src="https://www.geogebra.org/material/iframe/id/pfucwaqw/width/562/height/390/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" 
+					width="562px" height="390px" style="border:0px;"  data-preload allowfullscreen=""> </iframe>
+				
+				
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 6.1.1.</h4>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								Let $f(x) :=x^2$ defined on the whole real line.  
+							</p>
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									For $c \in \R$ arbitrary and $x\neq c$,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we have
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds \frac{x^2-c^2}{x-c}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds =
+									\frac{(x+c)(x-c)}{x-c} $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\ds =
+									x+c . $
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="4">
+									Hence $\;\ds f'(c) $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = 
+									\lim_{x\to c} \frac{x^2-c^2}{x-c}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\ds=
+									\lim_{x\to c}\, (x+c) $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\ds=
+									2c. $
+								</span>
+							</p>
+						</div>
+					</div>
 					
+					<br/><br/><br/>
+				</section>
 
-				
-			</section>
+				<section data-auto-animate>
+					<h4>Example 6.1.2.</h4>
 
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Weierstrass function</p>
-				
-					<table style="width:100%;">
-						<tr>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								Let $f(x) := ax + b$ for numbers $a, b \in \R$. 
+							</p>
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Again for $c \in \R$ arbitrary and $x\neq c$,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we have
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds\frac{f(x)-f(c)}{x-c} $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds  =
+									\frac{ax + b - (ac + b)}{x-c}  $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\ds  =
+									\frac{a(x-c)}{x-c}  $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds =
+									a. $
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="5">
+									Hence $\;\ds f'(c) $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\ds 
+									=\lim_{x\to c} 
+									\frac{f(x)-f(c)}{x-c}$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\ds=
+									\lim_{x\to c} 
+									a $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\ds=
+									a. $
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
 	
-							<td style="width:30%">
-								<div class="size-50" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+					<div class="left-txt size-90">
+						<p>
+							<strong>
+								Theorem 6.1.1.
+							</strong>
+							Let $f \colon I \to \R$ be differentiable at $c \in I$,
+							then it is continuous at $c$.
+						</p>
 	
-									<p>
-										$
-										\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
-										$
-										where $0\lt a\lt 1$, $b$ is a positive odd integer.
-									</p>
-
+						<p>
+							<strong>
+								Note:
+							</strong>
+							There exists a continuous function that is not differentiable at <em>any</em> point. 
+							This is known as the <em>Weierstrass function</em>.
+						</p>
+						
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+					<p class="sbt">Weierstrass function</p>
+					
+						<table style="width:100%;">
+							<tr>
+		
+								<td style="width:30%">
+									<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+		
+										<p>
+											$
+											\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+											$
+											where $0\lt a\lt 1$, $b$ is a positive odd integer.
+										</p>
+	
+		
+									</div>
+								</td>
+								<td class="size-40" style="width:70%;">
 									
+						<div class="mathcell" style="height: 4.1in">
+							<script>
+							
+							var parent = document.currentScript.parentNode;
+							
+							var id = generateId();
+							parent.id = id;
+							
+							MathCell( id, [ ]);
 	
-								</div>
-							</td>
-							<td class="size-40" style="width:70%;">
-
-								<img style="width: 96%; 
-					           display: block;
-					           margin-left: auto;
-					           margin-right: auto;" 
-							   class="r-stretch" 
-							   data-src="images/summary-06/weierstrass-function.png" />
-							   <p style="font-size:14px;text-align:center">Plot made with <a href="https://pgfplots.net/weierstrass-function/" target="_blank">PGFplts.net</a></p>
-					
-							</td>
+							
+							var a = .3, b = 3.0, direction = 1;
 	
-						</tr>
-					</table>
+							var terms = Math.ceil( Math.log(.0001) / Math.log(a) ); // to speed up evaluation 
+							
+							
+							
+							parent.update = function( id ) {
+							  
+	
+							
+							  function f( x ) {
+							
+								var s = 0;
+								for ( var k = 0 ; k < terms ; k++ ) {
+								   s += a**k * Math.cos( b**k * Math.PI * x );
+								}
+							
+								return s;
+							
+							  }
+							
+							  var data = [ plot( f, [ -2, 2, 5000 ], { color: 'black' } ),
+										   text( 'b = ' + b.toFixed(1), [1.8,1.7] )];
+							
+							  var config = { type: 'svg', yMin: -1.6, yMax: 1.6 };
+							
+							  evaluate( id, data, config );
+	
+							  b += 2 * direction;
+	
+							  if ( b < 3.5 || b > 9 ) direction *= -1;
+							
+							}
+							
+							parent.update( id );
+							
+							setInterval( parent.update, 1100, id );
+							
+							</script>
+						</div>
+							<p style="font-size:14px;text-align:center">Plot made with <a href="https://mathcell.org/" target="_blank">MathCell</a></p>
+								</td>
+		
+							</tr>
+						</table>
+						
+	
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+					<p class="sbt">Weierstrass function</p>
 					
-
-				
+						<table style="width:100%;">
+							<tr>
+		
+								<td style="width:25%">
+									<div class="size-40" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+		
+										<p>
+											$
+											\displaystyle f(x):=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+											$
+											where $0\lt a\lt 1$, $b$ is a positive odd integer.
+										</p>
+	
+										
+		
+									</div>
+								</td>
+								<td class="size-40" style="width:75%;">
+	
+									<img style="width: 96%; 
+								   display: block;
+								   margin-left: auto;
+								   margin-right: auto;" 
+								   class="r-stretch" 
+								   data-src="images/summary-06/weierstrass-function.png" />
+								   <p style="font-size:14px;text-align:center">Plot made with <a href="https://pgfplots.net/weierstrass-function/" target="_blank">PGFplts.net</a></p>
+						
+								</td>
+		
+							</tr>
+						</table>
+						
+	
+					<br/>
+				</section>
 			</section>
+
+			
+
+			
 
 
 			<section>
