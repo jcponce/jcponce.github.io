@@ -379,7 +379,7 @@
 				<section data-auto-animate>
 					<h4>6.1 Definition and basic properties</h4>
 	
-					<div class="left-txt size-90">
+					<div class="left-txt">
 						<p>
 							<strong>
 								Theorem 6.1.1.
@@ -388,42 +388,23 @@
 							then it is continuous at $c$.
 						</p>
 	
+						<br/>
 						<p>
 							<strong>
 								Note:
 							</strong>
 							There exists a continuous function that is not differentiable at <em>any</em> point. 🤯
-							This is known as the <em>Weierstrass function</em>. 
+							
+							<span class="fragment" data-fragment-index="0">
+								This is known as the <em>Weierstrass function</em>. 
+							</span>
 						</p>
 						
 	
 					</div>
-					<br/><br/><br/>
+					<br/><br/><br/><br/>
 				</section>
-				<section data-auto-animate>
-					<h4>6.1 Definition and basic properties</h4>
-	
-					<div class="left-txt size-90">
-						<p>
-							<strong>
-								Theorem 6.1.1.
-							</strong>
-							Let $f \colon I \to \R$ be differentiable at $c \in I$,
-							then it is continuous at $c$.
-						</p>
-	
-						<p>
-							<strong>
-								Note:
-							</strong>
-							There exists a continuous function that is not differentiable at <em>any</em> point. 🤯
-							This is known as the <em>Weierstrass function</em>. 
-						</p>
-						
-	
-					</div>
-					<br/><br/><br/>
-				</section>
+				
 	
 				<section data-auto-animate>
 					<h4>6.1 Definition and basic properties</h4>
@@ -549,119 +530,148 @@
 				</section>
 			</section>
 
+			<section>
+
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+	
+					<div class="left-txt size-85">
+						
+	
+						<p>
+							<strong>
+								Theorem:
+							</strong>
+							Let $I$ be an interval, let
+							$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c \in I$,
+							and let $\alpha \in \R$.
+						</p>
+						<ol class="r">
+							<li class="fragment" data-fragment-index="0">
+								Define $h \colon I \to \R$ by $h(x) := \alpha f(x)$. Then
+								$h$ is differentiable at $c$ and
+								\[h'(c) = \alpha f'(c).\]
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Define $h \colon I \to \R$ by $h(x) := f(x) + g(x)$. Then
+								$h$ is differentiable at $c$ and
+								\[h'(c) = f'(c) + g'(c).\]
+							</li>
+	
+						</ol>
+	
+					</div>
+					<br/>
+				</section>
+	
+	
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+					<p class="sbt">Product rule</p>
+					<div class="left-txt size-90">
+						<p>
+							<strong>
+								Theorem:
+							</strong>
+							Let $I$ be an interval, let
+							$f \colon I \to \R$ and $g \colon I \to \R$ be
+							functions differentiable at $c$. 
+							<span  class="fragment" data-fragment-index="0">
+							If $h \colon I \to \R$
+							is defined by
+							\begin{equation*}
+							h(x) := f(x) g(x) ,
+							\end{equation*}
+							then $h$ is differentiable at $c$ 
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+							and
+							\begin{equation*}
+							h'(c) = f(c) g'(c) + f'(c) g(c) .
+							\end{equation*}
+							</span>
+							
+						</p>
+	
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+					<p class="sbt">Quotient rule</p>
+					<div class="left-txt size-85">
+						<p>
+							<strong>
+								Theorem:
+							</strong>
+							Let $I$ be an interval, let
+							$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c$
+							and $g(x) \not= 0$ for all $x \in I$.
+							<span  class="fragment" data-fragment-index="0">
+							If $h \colon I \to \R$
+							is defined by
+							\begin{equation*}
+							h(x) := \frac{f(x)}{g(x)},
+							\end{equation*}
+							then $h$ is differentiable at $c$ 
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								and
+							\begin{equation*}
+							h'(c) = \frac{f'(c) g(c) - f(c) g'(c)}{{\bigl(g(c)\bigr)}^2} .
+							\end{equation*}
+							</span>
+							
+						</p>
+	
+					</div>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>6.1 Definition and basic properties</h4>
+					<p class="sbt">Chain rule</p>
+					<div class="left-txt size-85">
+						<p>
+							<strong>
+								Theorem:
+							</strong>
+							Let $I_1, I_2$ be intervals, let
+							$g \colon I_1 \to I_2$ be differentiable at $c \in I_1$,
+							and
+							$f \colon I_2 \to \R$ be differentiable at $g(c)$.
+							<span  class="fragment" data-fragment-index="0">
+								If $h \colon I_1 \to \R$
+							is defined by
+							\begin{equation*}
+							h(x) := \left(\,f \circ g\right) (x) = f\bigl(g(x)\bigr) ,
+							\end{equation*}
+							then $h$ is differentiable at $c$ 
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								and
+							\begin{equation*}
+							h'(c) = f'\bigl(g(c)\bigr)g'(c) .
+							\end{equation*}
+							</span>
+							
+						</p>
+	
+					</div>
+					<br/><br/>
+				</section>
+
+
+			</section>
+
 			
 
 			
 
 
-			<section>
-				<h4>The Derivative</h4>
-
-				<div class="left-txt size-60">
-					
-
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c \in I$,
-						and let $\alpha \in \R$.
-					</p>
-					<ol class="r">
-						<li>
-							Define $h \colon I \to \R$ by $h(x) := \alpha f(x)$. Then
-							$h$ is differentiable at $c$ and
-							\[h'(c) = \alpha f'(c).\]
-						</li>
-						<li>
-							Define $h \colon I \to \R$ by $h(x) := f(x) + g(x)$. Then
-							$h$ is differentiable at $c$ and
-							\[h'(c) = f'(c) + g'(c).\]
-						</li>
-
-					</ol>
-
-				</div>
-			</section>
-
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Product rule</p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ and $g \colon I \to \R$ be
-						functions differentiable at $c$. If $h \colon I \to \R$
-						is defined by
-						\begin{equation*}
-						h(x) := f(x) g(x) ,
-						\end{equation*}
-						then $h$ is differentiable at $c$ and
-						\begin{equation*}
-						h'(c) = f(c) g'(c) + f'(c) g(c) .
-						\end{equation*}
-					</p>
-
-
-				</div>
-			</section>
-
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Quotient rule</p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I$ be an interval, let
-						$f \colon I \to \R$ and $g \colon I \to \R$ be differentiable at $c$
-						and $g(x) \not= 0$ for all $x \in I$.
-						If $h \colon I \to \R$
-						is defined by
-						\begin{equation*}
-						h(x) := \frac{f(x)}{g(x)},
-						\end{equation*}
-						then $h$ is differentiable at $c$ and
-						\begin{equation*}
-						h'(c) = \frac{f'(c) g(c) - f(c) g'(c)}{{\bigl(g(c)\bigr)}^2} .
-                        \end{equation*}
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Derivative</h4>
-				<p class="sbt">Chain rule</p>
-				<div class="left-txt size-60">
-					<p>
-						<strong>
-							Theorem:
-						</strong>
-						Let $I_1, I_2$ be intervals, let
-						$g \colon I_1 \to I_2$ be differentiable at $c \in I_1$,
-						and
-						$f \colon I_2 \to \R$ be differentiable at $g(c)$.
-						If $h \colon I_1 \to \R$
-						is defined by
-						\begin{equation*}
-						h(x) := (f \circ g) (x) = f\bigl(g(x)\bigr) ,
-						\end{equation*}
-						then $h$ is differentiable at $c$ and
-						\begin{equation*}
-						h'(c) = f'\bigl(g(c)\bigr)g'(c) .
-						\end{equation*}
-					</p>
-
-				</div>
-			</section>
+			
 
 
 			<section>
