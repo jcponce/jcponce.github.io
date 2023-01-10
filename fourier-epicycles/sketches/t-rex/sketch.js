@@ -167,4 +167,5 @@ function epicycles(x, y, rotation, fourier, terms, t) {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   scl = 0.003 * width;
+  sliderTerms.position(windowWidth/2-200, windowHeight-70);
 }

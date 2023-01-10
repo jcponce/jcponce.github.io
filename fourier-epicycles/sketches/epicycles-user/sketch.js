@@ -181,6 +181,13 @@ function epicycles(x, y, rotation, fourier, size_f) {
   return createVector(x, y);
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  if (state == FOURIER) {
+    orbits.position(windowWidth/2-150, windowHeight-50);
+  }
+}
+
 function mousePressed() {
   starting = true;
 }
