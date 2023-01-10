@@ -51,7 +51,7 @@ function setup() {
   sel.style('font-size:16px');
   sel.changed(options);
 
-  sliderTerms = createSlider(1, fourierX.length, 203, 1);
+  sliderTerms = createSlider(1, fourierX.length, 283, 1);
   sliderTerms.style('width', '400px');
   sliderTerms.position(windowWidth/2-200, windowHeight-70);
   sliderTerms.changed(clearPath);

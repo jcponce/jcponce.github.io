@@ -63,7 +63,7 @@ function setup() {
   sliderTerms.position(windowWidth/2-200, windowHeight-70);
   sliderTerms.changed(clearPath);
 
-  console.log(fourierX.length);
+  //console.log(fourierX.length);
   // Maybe to change speed
   frameRate(47);
 }
