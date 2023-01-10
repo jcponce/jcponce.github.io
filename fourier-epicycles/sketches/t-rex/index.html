@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Drawing a T-Rex with epicycles</title>
+  <script src="p5.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="images/png" href="https://jcponce.github.io/images/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="images/png" href="https://jcponce.github.io/images/icon/infinity16.png" sizes="16x16">
+  <meta charset="utf-8">
+
+
+  <!--MathJax starts-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+            });
+       </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+       </script>
+  <!---<script type="text/x-mathjax-config">//left-side eq
+         MathJax.Hub.Config({
+               displayAlign: "left",
+               displayIndent: "5em"
+               });
+</script>--->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+  <!--MathJax Ends-->
+
+  <script>
+    function myFunction() {
+      location.reload();
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://jcponce.github.io/ext/w3.css">
+  <link rel="stylesheet" href="https://jcponce.github.io/calculus/chladni-patterns/libraries/stylecp.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" >
+  <style>
+    div.sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+  <script src="signal.js"></script>
+  <script src="fourier.js"></script>
+  <script src="sketch.js"></script>
+
+  <!-- Navbar Stars-->
+  <div class="w3-container w3-black w3-xlarge sticky">
+    <div class="w3-display-topright">
+      <a href="https://jcponce.github.io/fourier-epicycles/" class="w3-button w3-hover-light-grey w3-opacity w3-round-xxlarge">
+        <i class="fas fa-arrow-left"></i></a>
+      &nbsp;
+      <a class="myBtn_multi w3-button w3-hover-light-grey w3-opacity w3-round-xxlarge" id="myBtn"> <i
+          class="fas fa-question"></i> </a>
+      &nbsp;
+      <a onclick="myFunction()" class="w3-button w3-hover-light-grey w3-opacity w3-round-xxlarge"> <i
+          class="fas fa-redo"></i></a>
+      &nbsp;
+    </div>
+  </div>
+  <!-- Navbar Ends-->
+
+
+  <!-- The Modal -->
+  <div class="modal modal_multi">
+
+    <!-- Modal content -->
+    <div class="modal-content w3-large">
+      <span class="close close_multi">×</span>
+      <div style="text-align:center">
+
+        <h1>Discrete Fourier Transform</h1>
+        <hr>
+      </div>
+
+      <p>The Discrete Fourier Transform is defined as
+        \begin{aligned}
+        X_{k}&=\dfrac{1}{n}\sum _{n=0}^{N-1}x_{n}\cdot e^{-{\frac {i\,2\pi }{N}}\,kn}\\
+        &=\sum _{n=0}^{N-1}x_{n}\cdot \left[\cos \left({\frac {2\pi }{N}}kn\right)-i\cdot \sin \left({\frac {2\pi
+        }{N}}kn\right)\right],
+        \end{aligned}
+        where the last expression follows from the first one by Euler's formula.
+        Essentially, it transforms a sequence of $N$ complex numbers
+        $$\displaystyle \mathbf {x} :=x_{0},x_{1},\ldots ,x_{N-1}$$
+        into another sequence of complex numbers, 
+        $$\displaystyle \mathbf {X} :=X_{0},X_{1},\ldots
+        ,X_{N-1}.$$
+        </p>
+
+        <p>A few important notes:
+        <ul>
+          <li>$N =$ number of time samples we have</li>
+          <li>$n =$ current sample we're considering $(0 \ldots N-1)$</li>
+          <li> $x_n =$ value of the signal at time $n$</li>
+          <li>$k =$ current frequency we're considering (0 Hertz up to $N-1$ Hertz)</li>
+          <li>$X_k =$ amount of frequency $k$ in the signal (amplitude and phase, a complex number)</li>
+        </ul>
+
+      </p>
+
+      <hr>
+
+      <h3 class="w3-center">Drawing T-Rex with epicycles</h3>
+
+      <p>Originally the T-Rex curve (signal) is defined with 203 points. After calculating
+        the Fourier coefficient $X_k$, we can easily determine its phase and amplitude 
+        for every value of $k$.</p>
+
+      <p>The animation with epicycles demonstrates
+        how a simple sum of complex numbers in terms of phases/amplitudes can be nicely
+        visualized as a set of concatenated circles in the complex plane. Each circle
+        represents a Fourier coefficient $X_k$ sorted by amplitude.
+      </p>
+
+      <hr>
+
+      <h3 class="w3-center">Aproximating T-Rex with parametric equations</h3>
+
+      <p>It is possible to approximate the T-Rex curve. In this case we can use the Fourier coefficients 
+        $X_k$ to define the parametric equations:
+        \begin{eqnarray*}
+        x &amp; = \sum_{k=0}^{N-1} \big( a_k \, \cos\left( k \,t \right) - b_k \, \sin\left( k \,t \right) \big), \\
+        y &amp; = \sum_{k=0}^{N-1} \big( b_k \, \cos\left( k \,t \right) + a_k \, \sin\left( k \,t \right) \big)
+        \end{eqnarray*}
+        with $t\in[0, 2\pi)$. The coefficients $a_k$ and $b_k$ are the real and imaginary parts
+        of $X_k$.
+      </p>
+
+
+
+
+      <p><span style="font-weight: bold;" class="w3-large">That's it!</span>
+        If you liked this applet, please let me know: <a href="mailto:j.ponce@uq.edu.au">j.ponce@uq.edu.au</a></p>
+
+      <p class="w3-center w3-xlarge"><i class="fas fa-infinity"></i></p>
+
+      <br><br>
+    </div>
+
+  </div>
+
+
+
+
+  <script>
+    //XXXXXXXXXX    script for Modal button instructions    XXXXXXXXXXXXXXXXXX
+    // Get the modal
+
+    var modalparent = document.getElementsByClassName("modal_multi");
+
+    // Get the button that opens the modal
+
+    var modal_btn_multi = document.getElementsByClassName("myBtn_multi");
+
+    // Get the <span> element that closes the modal
+    var span_close_multi = document.getElementsByClassName("close_multi");
+
+    // When the user clicks the button, open the modal
+    function setDataIndex() {
+
+      for (i = 0; i < modal_btn_multi.length; i++) {
+        modal_btn_multi[i].setAttribute('data-index', i);
+        modalparent[i].setAttribute('data-index', i);
+        span_close_multi[i].setAttribute('data-index', i);
+      }
+    }
+
+
+
+    for (i = 0; i < modal_btn_multi.length; i++) {
+      modal_btn_multi[i].onclick = function () {
+        var ElementIndex = this.getAttribute('data-index');
+        modalparent[ElementIndex].style.display = "block";
+      };
+
+      // When the user clicks on <span> (x), close the modal
+      span_close_multi[i].onclick = function () {
+        var ElementIndex = this.getAttribute('data-index');
+        modalparent[ElementIndex].style.display = "none";
+      };
+
+    }
+
+    window.onload = function () {
+
+      setDataIndex();
+    };
+
+    window.onclick = function (event) {
+      if (event.target === modalparent[event.target.getAttribute('data-index')]) {
+        modalparent[event.target.getAttribute('data-index')].style.display = "none";
+      }
+
+      // OLD CODE
+      //if (event.target === modal) {
+      //    modal.style.display = "none";
+      //}
+    };
+
+    //XXXXXXXXXXXXXXXXXXXXXXX    Modified old code    XXXXXXXXXXXXXXXXXXXXXXXXXX
+    /*
+     // Get the modal
+     
+     var modal = document.getElementById('myModal');
+     
+     // Get the button that opens the modal
+     var btn = document.getElementById("myBtn");
+     
+     // Get the <span> element that closes the modal
+     var span = modal.getElementsByClassName("close")[0]; // Modified by dsones uk
+     
+     // When the user clicks on the button, open the modal
+     
+     btn.onclick = function() {
+     
+     modal.style.display = "block";
+     }
+     
+     // When the user clicks on <span> (x), close the modal
+     span.onclick = function() {
+     modal.style.display = "none";
+     }
+     */
+  </script>
+
+</body>
+
+</html>
