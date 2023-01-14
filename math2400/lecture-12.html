@@ -103,7 +103,7 @@ is analogous.
 	
 						<p>
 							<strong>
-								Theorem 6.2.2.
+								Lemma 6.2.1.
 							</strong> 
 							Suppose $f \colon (a,b) \to \R$ is differentiable at $c \in (a,b)$, 
 							and $f$ has
@@ -115,6 +115,148 @@ is analogous.
 					</div>
 					
 					<br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:90%">6.2 Mean value theorem</h3>
+					<div class="size-65" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p >
+							<strong>
+								Lemma 6.2.1.
+							</strong> 
+							Suppose $f \colon (a,b) \to \R$ is differentiable at $c \in (a,b)$, 
+							and $f$ has
+							a relative minimum or a relative maximum at $c$. 
+							 Then
+							$f'(c) = 0$.
+						</p>
+
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Proof.</strong>
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Suppose $c$ is a relative maximum of $f$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									That is, there is a $\delta > 0$ such
+									that for every $x \in (a,b)$ where
+									$\abs{x-c}\lt \delta$, we have $f(x)-f(c) \leq 0$.
+								</span>
+								
+								
+
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									If $\,c \lt x \lt c+\delta$, 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then $\ds \frac{f(x)-f(c)}{x-c} \leq 0 ,$
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="4">
+									and if $\,c-\delta \lt y \lt c$,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									then $\ds \frac{f(y)-f(c)}{y-c} \geq 0 .$
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:90%">6.2 Mean value theorem</h3>
+					<div class="size-65" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p >
+							<strong>
+								Lemma 6.2.1.
+							</strong> 
+							Suppose $f \colon (a,b) \to \R$ is differentiable at $c \in (a,b)$, 
+							and $f$ has
+							a relative minimum or a relative maximum at $c$. 
+							 Then
+							$f'(c) = 0$.
+						</p>
+
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Proof.</strong>
+									
+								</span>
+								<span style="font-size:80%">
+									$\quad \ds \frac{f(x)-f(c)}{x-c} \leq 0 \;\;$
+								</span>
+								<span style="font-size:80%">
+									and $\;\;\ds \frac{f(y)-f(c)}{y-c} \geq 0 $
+								</span>
+
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Because $c\in(a,b)$, we can construct two sequences
+									$\{x_n\}$ and $\{y_n\},$ 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									which converge to $c$ and satisfy $y_n\lt c\lt x_n$ for all
+									$n\in \N.$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Hence
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$
+									\ds 0\leq 
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									\ds \lim_{n\to\infty} \frac{f(y_n)-f(c)}{y_n-c} =
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$
+									\ds f'(c) = \lim_{n\to \infty} \frac{f(x_n)-f(c)}{x_n-c}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$
+									\ds \leq 0
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									This completes the prove for a maximum.
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									The proof for a minimum is left as an exercise. 📝
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					<br/><br/>
 				</section>
 
 				<section id="rolle-s-theorem">
@@ -132,12 +274,17 @@ is analogous.
 
 					</div>
 					<div class="fragment" data-fragment-index="1">
-						<img style="width: 70%; 
+						<img style="width: 68%; 
 								   display: block;
 								   margin-left: auto;
 								   margin-right: auto;" 
 								   data-src="images/summary-06/rolle-s-theorem.svg" />
 					</div>
+					<p>
+						<span style="font-size:60%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
 					<br/>
 				</section>
 
@@ -218,10 +365,9 @@ is analogous.
 						<div>
 							<p>
 								<span class="fragment" data-fragment-index="0">
-									
-$
-\ds g(x):= f(x)-f(b)-\frac{f(b)-f(a)}{b-a}(x-b) .
-$
+									$
+									\ds g(x):= f(x)-f(b)-\frac{f(b)-f(a)}{b-a}(x-b) .
+									$
 								</span>
 							</p>
 						</div>
@@ -451,7 +597,12 @@ $
 						</p>
 	
 					</div>
-					<br/><br/><br/>
+					<p>
+						<span style="font-size:60%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+					<br/><br/>
 				</section>
 	
 				<section data-auto-animate>
@@ -710,7 +861,7 @@ Q(x) :=
 
 				<section data-auto-animate id="inverse-function-theorem">
 					<h4>6.5 Inverse function theorem</h4>
-					<div class="left-txt size-90">
+					<div class="left-txt size-85">
 						<p>
 							<strong>Theorem 6.5.2. </strong> (Inverse function theorem) Let $f \colon (a,b) \to \R$ be a continuously differentiable function,
 							$x_0 \in (a,b)$ a point where $f'(x_0) \not= 0$.  
@@ -724,7 +875,7 @@ Q(x) :=
 	
 								and
 							\begin{equation*}
-							g'(y) = \frac{1}{f'\bigl( g(y) \bigr)} \qquad \text{for all } y \in J.
+							g'(y) = \frac{1}{f'\bigl( g(y) \bigr)} \; \text{ for all }\; y \in J.
 							\end{equation*}
 							</span>
 							
@@ -732,11 +883,75 @@ Q(x) :=
 						</p>
 
 						<p class="fragment" data-fragment-index="3">
-							<strong>Proof. </strong> Follows from previous lemma. 📝
+							<strong>Proof. </strong> Follows from previous lemma and Theorems 5.4.1 and 6.3.3. 📝
 						</p>
 	
 						<br/>
 					</div>
+				</section>
+
+				<section>
+					<h4>
+						Example 6.5.1. 
+					</h4>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span>
+									Consider the function $f:\R\to \R$ defined by 
+									\[f(x):=x^5+4x+3.\]
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$f$ is
+									continuous and strictly monotone increasing, 									
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									and $f'(x) = 5x^4+ 4$ is never zero. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Therefore, by the inverse function theorem, 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									the function $g=f^{-1}$ is differentiable at every point. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									If we take $x_0=1$,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									then since $f(1)=8$ 
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									 we have that $
+									\ds\ g'(8)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$
+									\ds  = g'(\,f(1))
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									\ds = \frac{1}{f'(1)}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$
+									\ds =\frac{1}{9}.
+									$
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/>
 				</section>
 			</section>
 
