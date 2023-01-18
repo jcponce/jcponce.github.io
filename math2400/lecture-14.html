@@ -334,100 +334,31 @@ $\ds \underline{\int_a^b} f \coloneqq
 					<br/><br/><br/><br/><br/>
 				</section>
 
-				<section data-auto-animate>
-					<h4>Example 7.1.1.</h4>
-					<div  class="size-90">
-						<div class="left-txt">
-							<p>
-								Consider the Dirichlet function
-								$f \colon [0,1] \to \R$, where $f(x) \coloneqq 1$ if
-								$x \in \Q$ and $f(x) \coloneqq 0$ if $x \notin \Q$. 
-							</p>
-							<p>
-								<span  class="fragment" data-fragment-index="0">
-									Note that  for any partition $P$ and every $i$:
-								</span>
-							</p>
-							
-						</div>
-						<div>
-							<p>
-								<span  class="fragment" data-fragment-index="1">
-									$\ds m_i = \inf \bigl\{ f(x) : x \in [x_{i-1},x_i] \bigr\} = 0\;\;$
-								</span><br/>
-								<span  class="fragment" data-fragment-index="2">
-									and $\;\;\ds M_i = \sup \bigl\{ f(x) : x \in [x_{i-1},x_i] \bigr\} = 1 .\qquad\;\,$
-								</span>
-							</p>
-						</div>
-						<div>
-							<p>
-								<span  class="fragment" data-fragment-index="3">
-									Thus $\;\ds L(P,f) $
-								</span>
-								<span  class="fragment" data-fragment-index="4">
-									$= \ds \sum_{i=1}^n 0 \cdot \Delta x_i $
-								</span>
-								<span  class="fragment" data-fragment-index="5">
-									$= 0 \qquad\qquad$
-								</span><br/>
-								<span  class="fragment" data-fragment-index="6">
-									and $\;\;\ds U(P,f) $
-								</span>
-								<span  class="fragment" data-fragment-index="7">
-									$= \ds  \sum_{i=1}^n 1 \cdot \Delta x_i $
-								</span>
-								<span  class="fragment" data-fragment-index="8">
-									$= \ds \sum_{i=1}^n \Delta x_i $
-								</span>
-								<span  class="fragment" data-fragment-index="9">
-									$= 0 .$
-								</span>
-							</p>
-						</div>
-
-						
-					</div>
-					<br/>
-				</section>
-				<section data-auto-animate>
-					<h4>Example 7.1.1.</h4>
-					<div  class="size-90">
-						<div class="left-txt">
-							<p>
-								Consider the Dirichlet function
-								$f \colon [0,1] \to \R$, where $f(x) \coloneqq 1$ if
-								$x \in \Q$ and $f(x) \coloneqq 0$ if $x \notin \Q$. 
-							</p>
-							<p>
-								<span>
-									Therefore
-								</span>
-							</p>
-							
-						</div>
-						
-						
-						<div>
-							<p>
-								<span  class="fragment" data-fragment-index="0">
-									$\ds \underline{\int_0^1} f = 0\;\;\;$
-								</span>
-								<span  class="fragment" data-fragment-index="1">
-									and $\;\;\;\ds \overline{\int_0^1} f = 1 .$
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/><br/>
-				</section>
-
 				
 			</section>
 
 			
 
-			
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Lower and Upper Darboux Integrals</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						As the sets of lower and upper Darboux sums are bounded, we define
+						\begin{align*}
+						& \underline{\int_a^b} f(x)~dx :=
+						\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\} , \\
+						& \overline{\int_a^b} f(x)~dx :=
+						\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\} .
+						\end{align*}
+						We call $\underline{\int}$
+						the <em>lower Darboux integral</em> and
+						$\overline{\int}$ the
+						<em>upper Darboux integral</em>.
+					</p>
+
+				</div>
+			</section>
 
 			<section>
 				<h4>The Riemann Integral</h4>
@@ -510,10 +441,341 @@ $\ds \underline{\int_a^b} f \coloneqq
 
 
 
-			
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Properties</p>
+				<div class="left-txt size-60">
+					<p><strong>Theorem:</strong>
+						Let $f$ and $g$ be in $\mathcal R[a,b]$ and $\alpha \in \R$.
+					</p>
+
+					<ol class="r">
+						<li>
+							$\alpha \,f$ is in $\mathcal R[a,b]$ and
+							\begin{equation*}
+							\int_a^b \alpha \,f(x) ~dx = \alpha \int_a^b f(x) ~dx .
+							\end{equation*}
+						</li>
+						<li>
+							$f+g$ is in $\mathcal R[a,b]$ and
+							\begin{equation*}
+							\int_a^b \bigl( f(x)+g(x) \bigr) ~dx =
+							\int_a^b f(x) ~dx
+							+
+							\int_a^b g(x) ~dx .
+							\end{equation*}
+						</li>
+					</ol>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				
+				<p class="sbt">Continuous functions on closed intervals</p>
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p><strong>Theorem:</strong>
+									If $f \colon [a,b] \to \R$ is a continuous function,
+									then $f \in \mathcal R[a,b]$.
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:50%;">
+							<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-src="images/summary-07/continuous-closed-interval.svg" />
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Bounded functions with finitely many discontinuities</p>
+
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									<strong>
+										Theorem:
+									</strong>
+									Let $f \colon [a,b] \to \R$ be a bounded function with finitely
+									many discontinuities. Then $f \in \mathcal R[a,b]$.
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:50%;">
+							<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-src="images/summary-07/finite-discontinuities-integrable.svg" />
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
 
 			
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">An example of a bounded function with a dense set of discontinuities</p>
+				<div class="size-50" >
+					<p>
+						Thomae's function (Popcorn function): Riemann integrable.
+					</p>
+				</div>
+				
+
+				<img style="width: 60%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/summary-07/thomaeblack.png" />
+				<p style="font-size:14px" >More details here 🔗: <a href="https://en.wikipedia.org/wiki/Thomae%27s_function" target="_blank">Wiki: Thomae's function</a> or Thomae's book: <a href="https://archive.org/embed/einleitungindie00neumgoog" target="_blank">Einleitung in die Theorie der bestimmten Integrale</a></p>
+			</section>
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Another example of a bounded function with a dense set of discontinuities</p>
+				<div class="size-50" >
+					<p>
+						Riemanns's example: 
+						$
+						\;\;\displaystyle f(x):=\sum_{n=1}^{\infty}\frac{(nx)}{n^2}
+						$
+						where $(nx)= nx -  \text{round} (nx) $.   
+					</p>
+				</div>
+
+				<img style="width: 75%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" data-src="images/summary-07/non-riemann-integrable.svg" />
+				<p style="font-size:14px" >Source 🔗: <a href="https://archive.org/details/bernardrgesamm00riemrich" target="_blank">Bernhard Riemann's Gesammelte mathematische Werke und Wissenschaftlicher Nachlass, p. 228</a></p>
+			</section>
+
 			
+
+			<section>
+				<h4>The Riemann Integral</h4>
+				<p class="sbt">Monotone functions</p>
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									<strong>
+										Theorem:
+									</strong>
+									Let $f:[a,b]\ra \R$ be a monotone function. Then
+									$f\in \mathcal R[a,b]$.
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:50%;">
+							<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-src="images/summary-07/monotone-integrable.svg" />
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			
+			<section>
+				<section data-auto-animate>
+					<h4>The Integral: A Crux for Analysis</h4>
+					
+					<div class="left-txt size-90">
+						<p  class="fragment" data-fragment-index="0">
+							There are many theories of the integral.
+							
+							<span class="fragment" data-fragment-index="1">
+								The Riemann integral 
+							is relatively simple, and it does the job nicely.
+							</span>
+							<br/><br/>
+							<span class="fragment" data-fragment-index="2">
+								It is 
+							certainly the most common and widely-used integral in 
+							the world today.
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="3">
+								Mathematicians, physicists, engineers,
+							 and many others use the Riemann integral regularly.
+							</span>
+						</p>
+	
+						
+	
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>The Integral: A Crux for Analysis</h4>
+					
+					<div class="left-txt size-90">
+						
+	
+						<p >
+							However, there exist examples of continuous function possessing 
+							a bounded derivative which is not Riemann integrable. 
+						</p>
+	
+						<span  class="fragment" data-fragment-index="0">
+							<img style="width: 70%; 
+									display: block;
+									margin-left: auto;
+									margin-right: auto;" data-src="images/summary-07/volterra.png" />
+						</span>
+	
+						<p   class="fragment" data-fragment-index="0">
+							This example was given by the italian
+							mathematician 
+							Vito Volterra in 1881. 
+						</p>
+	
+						<div   class="fragment" data-fragment-index="0">
+							<p   style="font-size:18px" >More details here 🔗: 
+								<a href="https://doi.org/10.1080/17498430.2015.1010771" 
+								target="_blank">
+								Vito Volterra's construction of a nonconstant function 
+								with a bounded, non-Riemann integrable derivative
+								</a>
+							</p>
+						</div>
+						
+	
+					</div>
+					<br/>
+				</section>
+	
+				
+	
+				<section data-auto-animate>
+					<h4>The Integral: A Crux for Analysis</h4>
+					
+					<div class="left-txt size-80">
+						<p>
+							This example was surprising since it 
+							shows that within the context of Riemann's theory of 
+							integration the fundamental operations of differentiation 
+							and integration are not entirely reversible. 
+						</p>
+						<p  class="fragment" data-fragment-index="0">Thus, the 
+							process of differentiation could produce bounded functions
+							$F'$ which fails to be integrable in Riemann's sense. 
+							<span  class="fragment" data-fragment-index="1">
+							In this case, the formula:
+							\[
+							\int_{a}^{b}F'(x)~dx=F(b)-F(a)
+							\]
+							provided by the fundamental theorem of integral calculus, 
+							<strong>turns out to be meaningless</strong>.
+							</span>
+							
+						</p>
+	
+						
+	
+					</div>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>The Integral: A Crux for Analysis</h4>
+					
+					<div class="left-txt size-85">
+						
+	
+						<p>
+							On the other hand, more advanced studies in analysis require an 
+							integral with better convergence properties. 
+							<span class="fragment" data-fragment-index="0">
+For example, if $f_n$ is a sequence of functions on 
+							a bounded interval $[a, b]$, then we would like to know that
+							\[
+							\lim_{n\ra \infty} \int_a^b f_n = \int_a^b \lim_{n\ra \infty} f_n \qquad (*)
+							\]
+							</span>
+							
+							
+						</p>
+	
+						<p  class="fragment" data-fragment-index="1">For the Riemann integral, the standard condition to 
+							guarantee (*) is <em>uniform convergence</em> of the sequence 
+							of functions $\{f_n \}$. 
+						</p>
+	
+						
+	
+					</div>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>Garden of integrals</h4>
+					
+					<div class="left-txt size-70">
+						
+	
+						<ol >
+							<li class="fragment" data-fragment-index="0">
+								The <strong>Riemann integral</strong> is based on subdividing the domain of the function (by way of a partition). 
+							</li>
+							<li  class="fragment" data-fragment-index="1">
+								The <strong>Lebesgue integral</strong> is based on subdividing the range of the function (you need <em>measure theory</em>). 
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								The <strong>Riemann-Stieltjes</strong> integral where the partition of a closed interval $I$
+								is determined with a monotonically increasing function defined on $I$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								The <strong>Daniel integral</strong> which is equivalent to the 
+								Lebesgue integral but avoids the necessity of 
+								first developing measure theory. 
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								The <strong>Henstock-Kurzweil integral</strong> where a partition is measured in a more
+								general way using a function called <em>gauge.</em>
+							</li>
+						</ol>
+	
+						<br/>
+						<br/>
+						<div style="font-size:18px"  class="fragment" data-fragment-index="5">
+							For more details consult: <br/>
+						<ul>
+							<li><a href="https://www.morganclaypool.com/doi/abs/10.2200/S00327ED1V01Y201101MAS009" target="_blank">The Integral: A Crux for Analysis</a> by Steven G. Krantz</li>
+							<li><a href="https://www.maa.org/press/maa-reviews/a-garden-of-integrals" target="_blank">A Garden of Integrals</a> by Frank E. Burk  </li>
+						</ul>
+						</div>
+						
+	
+					</div>
+					<br/>
+				</section>
+			</section>
 
 
 			<section>
