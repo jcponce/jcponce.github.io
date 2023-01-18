@@ -423,51 +423,404 @@ $\ds \underline{\int_a^b} f \coloneqq
 				</section>
 
 				
+
+				
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+
+					<div>
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Definition 7.1.4.
+									</strong>
+									Let $P = \{ x_0, x_1, \ldots, x_n \}$ and
+$\widetilde{P} = \{ \widetilde{x}_0, \widetilde{x}_1, \ldots,
+\widetilde{x}_{\ell} \}$ be
+partitions of $[a,b]$. 
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								We say $\widetilde{P}$ is a
+								<em>refinement</em> of $P$
+								if as sets $P \subset \widetilde{P}$.
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Theorem 7.1.2.
+									</strong>
+									Let $f \colon [a,b] \to \R$ be a bounded function, and let $P$
+									be a partition of $[a,b]$.  
+									
+									
+
+								</span>
+								<span  class="fragment" data-fragment-index="0">
+									Let $\widetilde{P}$ be a refinement of $P$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+\begin{equation*}
+L(P,f) \leq L(\widetilde{P},f) 
+\;\;\text{and} \;\;
+U(\widetilde{P},f) \leq U(P,f) .
+\end{equation*}
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Theorem 7.1.3.
+									</strong>
+									Let $f \colon [a,b] \to \R$ be a bounded function.  
+									
+
+								</span>
+								<span  class="fragment" data-fragment-index="0">
+									Let $m, M \in \R$ be 
+									such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								\begin{equation}
+								m(b-a) \leq
+								\underline{\int_a^b} f \leq \overline{\int_a^b} f
+								\leq M(b-a) .
+								\end{equation}
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Proof of Theorem 7.1.3.</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									We know that for every partition $P$:
+									\begin{equation*}
+									m(b-a) \leq L(P,f) \leq U(P,f) \leq M(b-a).
+									\end{equation*}
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then $\;m(b-a) \leq L(P,f)$
+								</span>
+								<span class="fragment" data-fragment-index="2">$\;\Ra\;$ $\ds m(b-a) \leq \underline{\int_a^b} f,$
+								</span>
+								<br/><br/>
+								<span class="fragment" data-fragment-index="3">
+									and
+									$\;U(P,f) \leq M(b-a)$ 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\;\Ra\;$ $\ds \overline{\int_a^b} f \leq M(b-a)$.
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 7.1.3.</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									We know that for every partition $P$:
+									\begin{equation*}
+									m(b-a) \leq L(P,f) \leq U(P,f) \leq M(b-a).
+									\end{equation*}
+								</span>
+								
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds m(b-a) \leq \underline{\int_a^b} f\quad$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\boxed{?}$
+								</span>
+								
+								<span>
+									$\quad \ds \overline{\int_a^b} f \leq M(b-a)$.
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Consider $P_1, P_2$  partitions of $[a,b]$. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Define $\widetilde{P} \coloneqq P_1 \cup P_2$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									The set $\widetilde{P}$ is a partition of $[a,b]$, 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									which
+									is a refinement of $P_1$ and a refinement of $P_2$.
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									By Theorem 7.1.2 
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$\;L(P_1,f) \leq L(\widetilde{P},f)\;$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									and
+									$\;U(\widetilde{P},f) \leq U(P_2,f).$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 7.1.3.</h4>
+
+					<div class="size-85">
+						
+						<div>
+							<p>
+								<span>
+									$\ds m(b-a) \leq \underline{\int_a^b} f\quad$
+								</span>
+								<span>
+									$\boxed{?}$
+								</span>
+								
+								<span>
+									$\quad \ds \overline{\int_a^b} f \leq M(b-a)$.
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+									Consider $P_1, P_2$  partitions of $[a,b]$. 
+								</span>
+								<span>
+									Define $\widetilde{P} \coloneqq P_1 \cup P_2$.
+								</span>
+								<span>
+									The set $\widetilde{P}$ is a partition of $[a,b]$, 
+								</span>
+								<span>
+									which
+									is a refinement of $P_1$ and a refinement of $P_2$.
+								</span>
+								<span>
+									By Theorem 7.1.2 
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\;L(P_1,f) \leq L(\widetilde{P},f)\;$
+								</span>
+								<span>
+									and
+									$\;U(\widetilde{P},f) \leq U(P_2,f).$
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								
+								<span>
+									$\Ra L(P_1,f)  $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\leq L(\widetilde{P},f) $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ \leq U(\widetilde{P},f)$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\leq U(P_2,f) .$
+								</span>
+							</p>
+							
+							
+
+						</div>
+						<div>
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									So $\; L(P_1,f)  $
+								</span>
+								
+								<span class="fragment" data-fragment-index="4">
+									$\leq U(P_2,f) .$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									Take the supremum and infimum over all partitions!
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 7.1.3.</h4>
+
+					<div class="size-85">
+						
+						
+						<div>
+							<p>
+								
+								<span=>
+									So $\; L(P_1,f)  $
+								</span>
+								
+								<span>
+									$\leq U(P_2,f) .$
+								</span>
+							</p>
+							<p>
+								<span>
+									Take the supremum and infimum over all partitions!
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								
+								<span>
+									$\ds \underline{\int_a^b} f $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds = 
+									\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\}\qquad\qquad$
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="1">
+									$\quad \ds \leq
+									\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds =
+									\overline{\int_a^b} f .$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\;\bs$
+								</span>
+							</p>
+							
+
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
 			</section>
 
 			
 
 			
 
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux Integrals</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
-						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then
-						\begin{equation}
-						\label{intulbound:eq}
-						m(b-a) \leq
-						\underline{\int_a^b} f \leq \overline{\int_a^b} f
-						\leq M(b-a) .
-						\end{equation}
-					</p>
-
-				</div>
-			</section>
+			
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function such that
-						\begin{equation*}
-						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
-						\end{equation*}
-						Then $f$ is said to be <em>Riemann integrable</em>.
-						The set of Riemann integrable functions on $[a,b]$ is denoted
-						by $\mathcal R[a,b]$.
-						When $f \in \mathcal R[a,b]$, we define
-						\begin{equation*}
-						\int_a^b f(x)~dx :=
-						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
-						\end{equation*}
-						The number $\int_a^b f$ is called the <em>Riemann integral</em>
-						of $f$, or sometimes simply the <em>integral</em> of $f$.
-					</p>
-
-				</div>
+				<section data-auto-animate>
+					<h4>7.2 The Riemann Integral</h4>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0"><strong>Definition 7.2.1. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function such that
+							\begin{equation*}
+							\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+							\end{equation*}
+							<span  class="fragment" data-fragment-index="1">
+								Then $f$ is said to be <em>Riemann integrable</em>.
+							</span>
+						</p>
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>7.2 The Riemann Integral</h4>
+					<div class="left-txt size-50">
+						<p><strong>Definition 7.2.1. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function such that
+							\begin{equation*}
+							\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+							\end{equation*}
+							Then $f$ is said to be <em>Riemann integrable</em>.
+							
+						</p>
+	
+					</div>
+					<div class="left-txt size-80">
+						<p>
+							
+							The set of Riemann integrable functions on $[a,b]$ is denoted
+							by $\mathcal R[a,b]$.
+							
+							<span class="fragment" data-fragment-index="0">
+								When $f \in \mathcal R[a,b]$, we define
+							\begin{equation*}
+							\int_a^b f(x)~dx :=
+							\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+							\end{equation*}
+							
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								The number $\int_a^b f$ is called the <em>Riemann integral</em>
+								of $f$, or sometimes simply the <em>integral</em> of $f$.
+							</span>
+						</p>
+	
+					</div>
+					<br/>
+				</section>
 			</section>
 
 
