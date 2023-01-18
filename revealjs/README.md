@@ -9,6 +9,8 @@ The main folders from revealjs are:
 - js
 - plugin
 
+So now I can update revealjs to the latest version. :)
+
 The extra folders for my Setup are:
 
 - mySetup: It contains JS and CSS files for personalised options, display of buttons and analytics.
