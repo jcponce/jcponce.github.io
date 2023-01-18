@@ -8,15 +8,15 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="../revealjs/latest/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/latest/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/latest/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/latest/third-party-plugin/customcontrols/style.css">
 
-	<link rel="stylesheet" href="css/mylayout.css" />
+	<link rel="stylesheet" href="../revealjs/latest/mySetup/mylayout.css" />
 
-	<!-- Code syntax highlighting -->
-	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/latest/plugin/highlight/zenburn.css">
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/fontawesome.css">
@@ -34,21 +34,16 @@
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 
-
 	<!-- This script is to display Github buttons -->
-	<script async defer src="js/buttons.js"></script>
+	<script async defer src="../revealjs/latest/mySetup/buttons.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="js/google-analytics-ga4.js"></script>
-
-	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
-	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+	<script src="../revealjs/latest/mySetup/google-analytics-ga4.js"></script>
 
 
 </head>
@@ -66,67 +61,115 @@
 
 			
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Partitions</p>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						A <em>partition</em> $P$ of the interval $[a,b]$ is
-						a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
-						\begin{equation*}
-						a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
-						\end{equation*}
-						We write
-						\begin{equation*}
-						\Delta x_i := x_i - x_{i-1} .
-						\end{equation*}
-					</p>
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+					<div class="left-txt size-95">
+						<p><strong>Definition 7.1.1.</strong>
+							A <em>partition</em> $P$ of the interval $[a,b]$ is
+							a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
+							\begin{equation*}
+							a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
+							\end{equation*}
+							We write
+							\begin{equation*}
+							\Delta x_i := x_i - x_{i-1} .
+							\end{equation*}
+						</p>
+	
+					</div>
+	
+	
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+					<div class="left-txt size-95">
+						
+						<p><strong>Definition 7.1.2. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
+							$[a,b]$.
+							Define
+							\begin{array}{cc}
+							 m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,  \\
+							 L(P,f) :=
+							\ds\sum_{i=1}^n m_i \Delta x_i ,
+							\end{array}
+						</p>
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+					<div class="left-txt size-95">
+						
+						<p><strong>Definition 7.1.2. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
+							$[a,b]$.
+							Define
+							\begin{array}{cc}
+							 M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,  \\
+							 U(P,f) :=
+							\ds\sum_{i=1}^n M_i \Delta x_i .
+							\end{array}
+						</p>
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+					<div class="left-txt size-75">
+						
+						<p><strong>Definition 7.1.2. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
+							$[a,b]$.
+							Define
+							\begin{array}{cc}
+							 m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,
+							& M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} , \\
+							 L(P,f) :=
+							\ds\sum_{i=1}^n m_i \Delta x_i ,
+							& U(P,f) :=
+							\ds\sum_{i=1}^n M_i \Delta x_i .
+							\end{array}
+							
+						</p>
+	
+					</div>
+					<div class="left-txt size-95">
+						
+						<p>
+							We call $L(P,f)$ the <em>lower Darboux sum</em> and
+							$U(P,f)$ the <em>upper Darboux sum</em>.
+						</p>
+	
+					</div>
+					<br/><br/>
+				</section>
 
-				</div>
-
-
+				<section data-auto-animate>
+					<h4>7.1 Partitions and lower and upper integrals</h4>
+					<div class="left-txt size-90">
+						<p><strong>Theorem 7.1.1. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
+							such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
+							of $[a,b]$,
+							\begin{equation}
+							\label{sumulbound:eq}
+							m(b-a) \leq
+							L(P,f) \leq U(P,f)
+							\leq M(b-a) .
+							\end{equation}
+						</p>
+	
+					</div>
+					<br/><br/><br/><br/>
+				</section>
 			</section>
 
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux sums</p>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
-						$[a,b]$.
-						Define
-						\begin{array}{cc}
-						& m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,
-						& M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} , \\
-						& L(P,f) :=
-						\sum_{i=1}^n m_i \Delta x_i ,
-						& U(P,f) :=
-						\sum_{i=1}^n M_i \Delta x_i .
-						\end{array}
-						We call $L(P,f)$ the <em>lower Darboux sum</em> and
-						$U(P,f)$ the <em>upper Darboux sum</em>.
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux sums</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
-						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
-						of $[a,b]$,
-						\begin{equation}
-						\label{sumulbound:eq}
-						m(b-a) \leq
-						L(P,f) \leq U(P,f)
-						\leq M(b-a) .
-						\end{equation}
-					</p>
-
-				</div>
-			</section>
+			
 
 			<section>
 				<h4>The Riemann Integral</h4>
@@ -533,12 +576,12 @@
 		</div>
 	</div>
 
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/math/math.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-    <script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
+	<script src="../revealjs/latest/dist/reveal.js"></script>
+	<script src="../revealjs/latest/plugin/math/math.js"></script>
+	<script src="../revealjs/latest/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/latest/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/latest/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/latest/third-party-plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
 
 	<script>
