@@ -16,5 +16,7 @@ The extra folders for my Setup are:
     - mylayout.css
     - buttons.js
     - Google analytics
+    - chartjs.min for Charts
+    - setup.js (Reveal.js custom options and more)
 - third-party-plugin: It contains Chalkboard, Menu, CustomColtrols.
 - export: Files to create and export PDF.
