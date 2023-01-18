@@ -811,33 +811,107 @@ U(\widetilde{P},f) \leq U(P,f) .
 					</div>
 					<br/><br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4>7.2 The Riemann Integral</h4>
+					
+					<div class="left-txt size-90">
+						<p><strong>Theorem 7.2.1</strong>
+							Let $f \colon [a,b] \to \R$ be a Riemann integrable function.
+							Let $m, M \in \R$ be
+							such that $m \leq f(x) \leq M$ for all $x \in [a,b]$. Then
+							\begin{equation*}
+							m(b-a) \leq
+							\int_a^b f
+							\leq M(b-a) .
+							\end{equation*}
+						</p>
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 7.2.1. </h4>
+					
+					<div class="left-txt size-90">
+						<p>
+							We can use Theorem 
+							7.1.3 to integrate constant functions.
+							<span class="fragment" data-fragment-index="0">
+								If $f(x) \coloneqq c$ for some constant $c$, 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then we take $m = M = c$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Thus 
+							</span>
+
+						</p>
+	
+					</div>
+					<div class="size-90 r-stack">
+						<p class="fragment fade-in-then-out" data-fragment-index="2" >
+							
+							$\ds m(b-a) \leq
+								\underline{\int_a^b} f \leq \overline{\int_a^b} f
+								\leq M(b-a)$
+
+
+						</p>
+						<p class="fragment fade-in" data-fragment-index="3" >
+							
+							$\ds c(b-a)=
+								\underline{\int_a^b} f = \overline{\int_a^b} f
+								= c(b-a)$
+
+
+						</p>
+	
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="3">
+							All the inequalities must be equalities! 😃
+							<span class="fragment" data-fragment-index="5">
+								Thus $f$ is integrable on $[a,b]$ and $\int_a^b f = c(b-a)$.
+							</span>
+
+
+
+						</p>
+	
+					</div>
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 7.2.2. </h4>
+					
+					<div class="left-txt size-90">
+						<p>Let $f \colon [0,2] \to \R$ be defined by
+							\begin{equation*}
+							f(x) \coloneqq
+							\begin{cases}
+							1               & \text{if } x \lt 1,\\
+							1/2 & \text{if } x = 1,\\
+							0               & \text{if } x \gt 1.
+							\end{cases}
+							\end{equation*}
+						</p>
+	
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
 			</section>
 
 
 
-			<section>
-				<h4>The Riemann Integral</h4>
-				
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a Riemann integrable function.
-						Let $m, M \in \R$ be
-						such that $m \leq f(x) \leq M$ for all $x \in [a,b]$. Then
-						\begin{equation*}
-						m(b-a) \leq
-						\int_a^b f
-						\leq M(b-a) .
-						\end{equation*}
-					</p>
-
-				</div>
-			</section>
+			
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Criterion for Riemann integrability</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
+				<h4>7.2 The Riemann Integral</h4>
+				<div class="left-txt size-95">
+					<p><strong>Theorem 7.2.2. </strong>
 						Let $f \colon [a,b] \to \R$ be a bounded function. If for every $\epsilon > 0$, there exists a partition $P$ of
 						$[a,b]$ such that
 						\begin{equation*}
@@ -849,6 +923,7 @@ U(\widetilde{P},f) \leq U(P,f) .
 					</p>
 
 				</div>
+				<br/><br/><br/>
 			</section>
 
 
