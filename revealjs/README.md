@@ -2,7 +2,7 @@
 
 This folder contains the latest version of reveal.js to make mathematics lecture slides.
 
-The main folders from source are:
+The main folders from revealjs are:
 
 - css
 - dist
