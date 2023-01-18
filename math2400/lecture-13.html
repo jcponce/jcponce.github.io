@@ -97,7 +97,16 @@
 						</p>
 	
 					</div>
-					<br/><br/><br/>
+					<div class="left-txt size-95">
+						
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								We call $L(P,f)$ the <em>lower Darboux sum</em>.
+							</span>
+						</p>
+	
+					</div>
+					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>7.1 Partitions and lower and upper integrals</h4>
@@ -117,9 +126,20 @@
 						</p>
 	
 					</div>
-					<br/><br/><br/>
+					<div class="left-txt size-95">
+						
+						<p>
+							
+							<span class="fragment" data-fragment-index="1">
+							We call
+							$U(P,f)$ the <em>upper Darboux sum</em>.
+							</span>
+						</p>
+	
+					</div>
+					<br/><br/>
 				</section>
-				<section data-auto-animate>
+				<section data-auto-animate id="lower-upper-darboux-sums">
 					<h4>7.1 Partitions and lower and upper integrals</h4>
 					<div class="left-txt size-75">
 						
@@ -141,11 +161,16 @@
 						</p>
 	
 					</div>
-					<div class="left-txt size-95">
+					<div class="left-txt size-75">
 						
 						<p>
-							We call $L(P,f)$ the <em>lower Darboux sum</em> and
+							<span>
+								We call $L(P,f)$ the <em>lower Darboux sum</em>
+							</span>
+							<span>
+								and
 							$U(P,f)$ the <em>upper Darboux sum</em>.
+							</span>
 						</p>
 	
 					</div>
@@ -184,7 +209,7 @@
 						</p>
 	
 					</div>
-					<div class="left-txt size-85">
+					<div class="left-txt size-95">
 						<p>
 							<strong>Proof. </strong>
 							<span class="fragment" data-fragment-index="0">
@@ -195,27 +220,67 @@
 							</span>
 							<span class="fragment" data-fragment-index="2">
 								and
-								$M_i \leq M$ for all $i$.  
+								$M_i \leq M$ for all $i,$  
 							</span>
 							<span class="fragment" data-fragment-index="3">
-								Also $m_i \leq M_i$ for all $i$.  
+								and also $m_i \leq M_i$ for all $i$.  
 							</span>
 							<span class="fragment" data-fragment-index="4">
 								Finally,
-$\sum_{i=1}^n \Delta x_i = (b-a)$.
+								$\ds \sum_{i=1}^n \Delta x_i = (b-a)$.
 							</span>
-							<span class="fragment" data-fragment-index="5">
-								Therefore
+							
+						</p>
+	
+					</div>
+
+					
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">7.1 Partitions and lower and upper integrals</h4>
+					<div class="left-txt size-50">
+						<p><strong>Theorem 7.1.1. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
+							such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
+							of $[a,b]$,
+							\begin{equation}
+							m(b-a) \leq
+							L(P,f) \leq U(P,f)
+							\leq M(b-a) .
+							\end{equation}
+						</p>
+	
+					</div>
+					<div class="left-txt size-70">
+						<p>
+							<strong>Proof. </strong>
+							<span>
+								Let $P$ be a partition of $[a,b]$.
+							</span>
+							<span>
+								Note that $m \leq m_i$ for all $i$ 
+							</span>
+							<span>
+								and
+								$M_i \leq M$ for all $i,$  
+							</span>
+							<span>
+								and also $m_i \leq M_i$ for all $i$.  
+							</span>
+							<span>
+								Finally,
+								$\ds \sum_{i=1}^n \Delta x_i = (b-a)$.
 							</span>
 						</p>
 	
 					</div>
 
-					<div class="size-85">
+					<div class="size-80">
 						<p>
 							
 							<span class="fragment" data-fragment-index="5">
-								$m(b-a) $
+								Hence $\,m(b-a) $
 							</span>
 							<span class="fragment" data-fragment-index="6">
 								$\ds  =
@@ -228,7 +293,7 @@ $\sum_{i=1}^n \Delta x_i = (b-a)$.
 							</span>
 							<span class="fragment" data-fragment-index="8">
 								$\ds \leq
-								\sum_{i=1}^n m_i \Delta x_i \qquad\quad$
+								\sum_{i=1}^n m_i \Delta x_i $
 							</span>
 							
 						</p>
@@ -247,7 +312,7 @@ $\sum_{i=1}^n \Delta x_i = (b-a)$.
 							</span>
 							<span class="fragment" data-fragment-index="12">
 								$\ds =
-								M(b-a) .$
+								M(b-a) .\,\bs$
 							</span>
 						</p>
 	
