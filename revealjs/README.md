@@ -11,7 +11,7 @@ The main folders from source are:
 
 The extra folders for my Setup are:
 
-- mySetup: It contains js files for personalised options, display of buttons and analytics.
+- mySetup: It contains JS and CSS files for personalised options, display of buttons and analytics.
     - Fontawesome
     - mylayout.css
     - buttons.js
