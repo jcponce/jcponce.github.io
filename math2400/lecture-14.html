@@ -58,37 +58,243 @@
 
 			
 			
-
-
-
 			<section>
-				<h4>7.3 Basic properties</h4>
-				<div class="left-txt size-90">
-					<p><strong>Theorem:</strong>
-						Let $f$ and $g$ be in $\mathcal R[a,b]$ and $\alpha \in \R$.
-					</p>
 
-					<ol>
-						<li class="fragment" data-fragment-index="0">
-							$\alpha \,f \in\mathcal R[a,b]$ and
-							\begin{equation*}
-							\int_a^b \alpha \,f(x) ~dx = \alpha \int_a^b f(x) ~dx .
-							\end{equation*}
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							$f+g \in\mathcal R[a,b]$ and
-							\begin{equation*}
-							\int_a^b \bigl( f(x)+g(x) \bigr) ~dx =
-							\int_a^b f(x) ~dx
-							+
-							\int_a^b g(x) ~dx .
-							\end{equation*}
-						</li>
-					</ol>
+				<section data-auto-animate id="linearity-integral">
+					<h4>7.3 Basic properties</h4>
+					<div class="left-txt size-90">
+						<p><strong>Theorem 7.3.1. </strong> (Linearity)
+							Let $f$ and $g$ be in $\mathcal R[a,b]$ and $\alpha \in \R$.
+						</p>
+	
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								$\alpha \,f \in\mathcal R[a,b]$ and
+								\begin{equation*}
+								\int_a^b \alpha \,f(x) ~dx = \alpha \int_a^b f(x) ~dx .
+								\end{equation*}
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								$f+g \in\mathcal R[a,b]$ and
+								\begin{equation*}
+								\int_a^b \bigl( f(x)+g(x) \bigr) ~dx =
+								\int_a^b f(x) ~dx
+								+
+								\int_a^b g(x) ~dx .
+								\end{equation*}
+							</li>
+						</ol>
+	
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 7.3.1, item 1</h4>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Consider $\alpha \geq 0$. 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Let $P$ be a partition of $[a,b]$,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and
+								$m_i \coloneqq \inf \bigl\{ f(x) : x \in [x_{i-1},x_i] \bigr\}$.
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								As $\alpha \geq 0$, 
+							</span>
+							
+						</p>
+	
+					</div>
+					<div class=" size-90">
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$
+								\ds \inf \bigl\{ \alpha f(x) : x \in [x_{i-1},x_i] \bigr\}\qquad \qquad\qquad\qquad
+								$
+							</span>
+						</p>
+						<p>
+							
+							<span class="fragment" data-fragment-index="5">
+								$=
+								\alpha \inf \bigl\{ f(x) : x \in [x_{i-1},x_i] \bigr\}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$ = \alpha m_i .
+								$
+							</span>
+						</p>
+					</div>
+					<div class=" size-90">
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								Then $\,
+								L(P,\alpha f) 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$\ds =
+								\sum_{i=1}^n \alpha m_i \Delta x_i 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$ \ds = \alpha \sum_{i=1}^n m_i \Delta x_i 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								$ \ds = \alpha
+								L(P,f).
+								
+								$
+							</span>
+						</p>
+					</div>
+					<div class=" size-90">
+						<p>
+							<span class="fragment" data-fragment-index="11">
+								Similarly $\,
+								U(P,\alpha f) 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="12">
+								$ \ds = \alpha
+								U(P,f).
+								\qquad
+								$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Proof of Theorem 7.3.1, item 1</h4>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								Again, as $\alpha \geq 0$,
+							</span>
+						</p>
+	
+					</div>
+					<div class=" size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$
+								\ds \underline{\int_a^b} \alpha f(x)\,dx
+								$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds =
+								\sup \, \bigl\{ L(P,\alpha f) : P \text{ a partition of } [a,b] \bigr\}
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$
+								\ds =
+								\sup \, \bigl\{ \alpha L(P,f) : P \text{ a partition of } [a,b] \bigr\}
+								
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\ds =
+\alpha \,
+\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\}
 
-				</div>
-				<br/>
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$\ds  =
+								\alpha
+								\underline{\int_a^b} f(x)\,dx . \qquad\qquad\qquad\qquad\quad
+
+								$
+							</span>
+						</p>
+					</div>
+					<div class=" size-85">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								Similarly, we have $
+								\; \ds \overline{\int_a^b} \alpha f(x)\,dx
+								=
+								\alpha
+								\overline{\int_a^b} f(x)\,dx .
+								
+								$
+							</span>
+							
+						</p>
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:100%">Proof of Theorem 7.3.1, item 1</h4>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								Therefore, for $\alpha\geq 0$, $\alpha f\in \mathcal R[a,b]$ and
+								\[
+								\int_a^b \alpha f(x)\,dx
+								=
+								\alpha
+								\int_a^b f(x)\,dx .
+								\]
+							</span>
+						</p>
+	
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								
+								To finish the proof of the first item 
+								(for $\alpha \lt 0$), 
+								
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								 we need to show 
+								that $-f$ is Riemann integrable
+								
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								 and
+								\[\int_a^b - f(x)\,dx =
+								-
+								\int_a^b f(x)\,dx.\]
+								
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Try it! 📝 
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								The proof of item 2 is also left as an Exercise 📝.
+							</span>
+						</p>
+						
+					</div>
+					
+					
+					<br/><br/>
+				</section>
+
 			</section>
+
+
+
+			
 
 
 			<section>
