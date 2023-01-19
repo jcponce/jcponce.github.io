@@ -496,20 +496,20 @@
 
 			<section>
 
-				<section>
-					<h3>The exponential</h3>
-					<div class="left-txt size-70">
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
+					<div class="left-txt size-90">
 						<p><span class="fragment" data-fragment-index="0">
-								<strong>Proposition 5.4.2:</strong>
+								<strong>Proposition 8.4.1. </strong>
 								There exists a unique function $E \colon \R \to (0,\infty)$ such that
 							</span>
-							<ol class="r">
+							<ol>
 								<li class="fragment" data-fragment-index="1">$E(0) = 1$.</li>
 								<li class="fragment" data-fragment-index="2">$E$ is differentiable and $E'(x) =
 									E(x)$.</li>
 								<li class="fragment" data-fragment-index="3">$E$ is strictly increasing, bijective, and
 									\begin{equation*}
-									\lim_{x\to -\infty} E(x) = 0 , \qquad \text{and} \qquad
+									\lim_{x\to -\infty} E(x) = 0 , \quad \text{and} \quad
 									\lim_{x\to \infty} E(x) = \infty .
 									\end{equation*}</li>
 								<li class="fragment" data-fragment-index="4">$E(x+y) = E(x)E(y)$ for all $x,y \in
@@ -521,13 +521,14 @@
 	
 	
 					</div>
+					<br/>
 				</section>
 	
-				<section>
-					<h3>The exponential</h3>
-					<div class="left-txt size-70">
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
+					<div class="left-txt size-80">
 						<p><span>
-								<strong>Proof:</strong>
+								<strong>Proof.</strong>
 							</span>
 							<span class="fragment" data-fragment-index="0">As we did before for $\ln x$, we prove existence
 								of such a function by defining a candidate
@@ -536,14 +537,14 @@
 								invertible. Let $E$ be the
 								inverse function of $L$.
 							</span>
-							<span class="fragment" data-fragment-index="2">Property (i) is immediate.
+							<span class="fragment" data-fragment-index="2">Property (1) is immediate.
 							</span>
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="3">
-								Property (ii) follows
-								via the inverse function theorem, in particular
-								Lemma 4.4.1:
+								Property (2) follows
+								via the inverse function theorem (Lemma 6.5.1)
+								
 							</span>
 							<span class="fragment" data-fragment-index="4">$L$ satisfies
 								all the hypotheses of the lemma, and hence
@@ -556,14 +557,14 @@
 					</div>
 				</section>
 	
-				<section>
-					<h3>The exponential</h3>
-					<div class="left-txt size-70">
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
+					<div class="left-txt size-80">
 						<p><span>
-								<strong>Proof (cont.):</strong>
+								<strong>Proof. </strong>
 							</span>
 							<span class="fragment" data-fragment-index="0">Now let us prove
-								property (iii).
+								property (3).
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								The function $E$ is strictly increasing since
@@ -587,7 +588,9 @@
 							<span class="fragment" data-fragment-index="5">
 								Similarly, for every $\varepsilon > 0$, there is
 								an $x_0$ such that $E(x_0) = \varepsilon$ and
-								$E(x) < \varepsilon$ for all $x < x_0$. </span> <span class="fragment"
+								$E(x) \lt \varepsilon$ for all $x \lt x_0$. 
+							</span> 
+							<span class="fragment"
 									data-fragment-index="6">
 									Therefore,
 									\begin{equation*}
@@ -598,13 +601,14 @@
 						</p>
 	
 					</div>
+					<br/>
 				</section>
 	
-				<section>
-					<h3>The exponential</h3>
-					<div class="left-txt size-70">
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
+					<div class="left-txt size-80">
 						<p><span>
-								<strong>Proof (cont.):</strong>
+								<strong>Proof. </strong>
 								To prove property (iv),
 							</span>
 							<span class="fragment" data-fragment-index="0">we use the corresponding
@@ -619,7 +623,7 @@
 							<span class="fragment" data-fragment-index="3">
 								Then<br /><br />
 								$
-								\qquad E(x+y) =
+								E(x+y) =
 								E\bigl(L(a)+L(b)\bigr)
 								$
 							</span>
@@ -643,37 +647,38 @@
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="7">
-								Property (v) is left as an exercise.
+								Property (5) is left as an exercise.
 							</span>
 						</p>
 	
 					</div>
+					<br/><br/><br/>
 				</section>
 	
-				<section>
-					<h3>The exponential</h3>
-					<div class="left-txt size-60">
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
+					<div class="left-txt size-75">
 						<p><span>
-								<strong>Proof (cont.):</strong>
+								<strong>Proof. </strong>
 								Uniqueness follows from
-								(i) and
-								(ii).
+								(1) and
+								(2).
 							</span>
 							<span class="fragment" data-fragment-index="0">Let $E$ and $F$
 								be two functions satisfying
-								(i) and
-								(ii).<br /><br />
+								(1) and
+								(2).<br /><br />
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								$
-								\qquad\displaystyle\frac{d}{dx} \Bigl( F(x)E(-x) \Bigr)
+								\quad\displaystyle\frac{d}{dx} \Bigl( F(x)E(-x) \Bigr)
 								=
 								F'(x)E(-x) - E'(-x)F(x)
 								$
 							</span>
 							<span class="fragment" data-fragment-index="2">
 								$
-								\qquad\qquad\qquad\qquad
+								\qquad\qquad\qquad\quad\;\;\,
 								=
 								F(x)E(-x) - E(-x)F(x)
 								$
@@ -684,49 +689,72 @@
 								$<br /><br />
 							</span>
 	
+							<span class="fragment" data-fragment-index="4">
+								Therefore, by Theorem 6.3.1,
+								$F(x)E(-x) $ 
+	
+							</span>
 							<span class="fragment" data-fragment-index="5">
-								Therefore, by Proposition 4.2.6,
-								$F(x)E(-x) = F(0)E(-0) = 1$ for all $x \in \R$.
+								$= F(0)E(-0) $ 
 	
 							</span>
 							<span class="fragment" data-fragment-index="6">
+								$ = 1$ for all $x \in \R$.
 	
-								Next, $1 = E(0) = E(x-x) = E(x)
+							</span>
+							<span class="fragment" data-fragment-index="7">
+	
+								Next, $1 = E(0)$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+	
+								$ E(x-x) $
+							</span>
+							<span class="fragment" data-fragment-index="9">
+	
+								$  =E(x)
 								E(-x)$.
 							</span>
 	
-							<span class="fragment" data-fragment-index="7">
+							<span class="fragment" data-fragment-index="10">
 								Then<br /><br />
 								$
-								\qquad
-								0 = 1-1 = F(x)E(-x) - E(x)E(-x)
+								
+								0 = 1-1 
 								$
 							</span>
-							<span class="fragment" data-fragment-index="8">
+							<span class="fragment" data-fragment-index="11">
+								
+								$
+								=F(x)E(-x) - E(x)E(-x)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="12">
 								$
 								= \bigl(F(x)-E(x)\bigr) E(-x) .
 								$
 							</span>
 	
 						</p>
-						<p class="fragment" data-fragment-index="9">
+						<p class="fragment" data-fragment-index="13">
 							Finally, $E(-x) \not= 0$
 							for all $x \in \R$.
-							<span class="fragment" data-fragment-index="10">
+							<span class="fragment" data-fragment-index="14">
 								So
 								$F(x)-E(x) = 0$ for all $x$, 
 							</span>
-							<span class="fragment" data-fragment-index="11">
+							<span class="fragment" data-fragment-index="15">
 								and this completes the proof.
 								$\blacksquare$</span>
 						</p>
 	
 	
 					</div>
+					<br/>
 				</section>
 	
-				<section>
-					<h3>The exponential</h3>
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
 					<div class="left-txt size-60">
 						<p>
 							Now we can define the
@@ -755,8 +783,8 @@
 					</div>
 				</section>
 	
-				<section>
-					<h3>The exponential</h3>
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
 					<div class="left-txt size-60">
 						<p>
 							Define the number $e$,
@@ -779,7 +807,7 @@
 	
 						<span class="fragment" data-fragment-index="3">
 							<p >
-							<strong>Proposition 5.4.3:</strong> Let $x, y \in \R$.
+							<strong>Theorem 8.3.2. </strong> Let $x, y \in \R$.
 							<ol class="r">
 								<li>
 									$\exp(xy) = {\bigl(\exp(x)\bigr)}^y$.
