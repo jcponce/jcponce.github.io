@@ -343,7 +343,7 @@
 								\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\}$
 							</span>
 							<br/><br/>
-							<span class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="2">
 								$\ds\overline{\int_a^b} f(x)\,dx :=
 								\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\} .$
 							</span>
@@ -353,11 +353,17 @@
 					</div>
 					<div class="left-txt size-90">
 					
-						<p class="fragment" data-fragment-index="2">
-We call $\underline{\int}$
-the <em>lower Darboux integral</em> and
-$\overline{\int}$ the
-<em>upper Darboux integral</em>.
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								We call $\underline{\int}$
+								the <em>lower Darboux integral</em>
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and
+								$\overline{\int}$ the
+								<em>upper Darboux integral</em>.
+							</span>
+
 
 						</p>
 						
@@ -893,6 +899,7 @@ U(\widetilde{P},f) \leq U(P,f) .
 						</p>
 	
 					</div>
+					
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
@@ -938,7 +945,13 @@ U(\widetilde{P},f) \leq U(P,f) .
 						<p class="fragment" data-fragment-index="3">
 							All the inequalities must be equalities! 😃
 							<span class="fragment" data-fragment-index="5">
-								Thus $f$ is integrable on $[a,b]$ and $\int_a^b f = c(b-a)$.
+								Thus $f$ is integrable on $[a,b]$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								and 
+								\[
+								\int_a^b f = c\left(b-a\right).
+								\]
 							</span>
 
 
@@ -947,49 +960,458 @@ U(\widetilde{P},f) \leq U(P,f) .
 	
 					</div>
 
+					<br/>
+				</section>
+				
+			</section>
+
+
+
+			<section>
+
+				<section>
+					<h4>7.2 The Riemann Integral</h4>
+					
+					<div class="left-txt size-95">
+						
+						<p><strong>Theorem 7.2.2. </strong>
+							Let $f \colon [a,b] \to \R$ be a bounded function. 
+							<span class="fragment" data-fragment-index="0">
+								If for every $\epsilon > 0$, there exists a partition $P$ of
+								$[a,b]$ such that
+								\begin{equation*}
+								U(P,f) - L(P,f) \lt \epsilon  
+								\end{equation*}
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then   $f$ is Riemann
+							integrable.
+							</span>
+							
+							
+	
+						</p>
+	
+					</div>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="2">
+							<strong>Proof. </strong> 📝 Exercise.
+						</p>
+					</div>
 					<br/><br/>
 				</section>
+
 				<section data-auto-animate>
 					<h4>Example 7.2.2. </h4>
 					
-					<div class="left-txt size-90">
+					<div class="left-txt size-85">
 						<p>Let $f \colon [0,2] \to \R$ be defined by
-							\begin{equation*}
+							$
 							f(x) \coloneqq
 							\begin{cases}
 							1               & \text{if } x \lt 1,\\
 							1/2 & \text{if } x = 1,\\
 							0               & \text{if } x \gt 1.
 							\end{cases}
-							\end{equation*}
+							$
 						</p>
 	
 					</div>
-					<br/><br/><br/><br/><br/>
+					<div style="margin-top:-20px" class="fragment" data-fragment-index="0">
+						<img width="70%" src="images/summary-07/example-7-2-2.svg">
+					</div>
+					<br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>Example 7.2.2. </h4>
+					
+					<div class="left-txt size-85">
+						<p>
+							<strong>Claim: </strong> 
+							$f$ is Riemann integrable and $\ds\int_0^2 f = 1$.
+						</p>
+	
+					</div>
+					<div style="margin-top:-10px" class="fragment" data-fragment-index="0">
+						<img style="width:48%; float: right; padding: 25px;margin-top:-10px" src="images/summary-07/example-7-2-2.svg">
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">
+							<strong>Proof. </strong> 
+							<span class="fragment" data-fragment-index="1">
+								Consider $0 \lt \epsilon \lt 1$ arbitrary.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Let 
+								\[
+								P \coloneqq \{0, 1-\epsilon, 1+\epsilon, 2\}
+								\]
+								be a partition.
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Using Darboux sums, 
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								then
+							</span>
+						</p>
+	
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$m_1 = \inf  \bigl\{ f(x) : x \in [0,1-\epsilon] \bigr\}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$ = 1 ,$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								$m_2 = \inf  \bigl\{ f(x) : x \in [1-\epsilon,1+\epsilon] \bigr\}$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$ = 0 ,$
+							</span>
+						</p>
+	
+					</div>
+					
+					<br/><br/>
+				</section>
+				
+				<section data-auto-animate>
+					<h4>Example 7.2.2. </h4>
+					
+					
+					<div style="margin-top:-10px">
+						<img style="width:48%; float: right; padding: 25px;margin-top:-10px" src="images/summary-07/example-7-2-2.svg">
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong> 
+							<span>
+								Consider $0 \lt \epsilon \lt 1$ arbitrary.
+							</span>
+							<span>
+								Let 
+								\[
+								P \coloneqq \{0, 1-\epsilon, 1+\epsilon, 2\}
+								\]
+								be a partition.
+							</span>
+							<span>
+								Using Darboux sums, 
+							</span>
+							<span>
+								then
+							</span>
+						</p>
+	
+					</div>
+					<div class="size-85">
+						<p>
+							<span>
+								$m_1 = \inf  \bigl\{ f(x) : x \in [0,1-\epsilon] \bigr\}$
+							</span>
+							<span>
+								$ = 1 ,$
+							</span>
+						</p>
+						<p>
+							<span>
+								$m_2 = \inf  \bigl\{ f(x) : x \in [1-\epsilon,1+\epsilon] \bigr\}$
+							</span>
+							<span>
+								$ = 0 ,$
+							</span>
+						</p>
+						<p>
+							<span>
+								$m_3 = \inf  \bigl\{ f(x) : x \in [1+\epsilon,2] \bigr\} $
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$ = 0 ,$
+							</span>
+						</p>
+	
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 7.2.2. </h4>
+					
+					
+					<div style="margin-top:-10px">
+						<img style="width:48%; float: right; padding: 25px;margin-top:-10px" src="images/summary-07/example-7-2-2.svg">
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong> 
+							<span>
+								Consider $0 \lt \epsilon \lt 1$ arbitrary.
+							</span>
+							<span>
+								Let 
+								\[
+								P \coloneqq \{0, 1-\epsilon, 1+\epsilon, 2\}
+								\]
+								be a partition.
+							</span>
+							<span>
+								Using Darboux sums, 
+							</span>
+							<span>
+								then
+							</span>
+						</p>
+	
+					</div>
+					<div class="size-80">
+						<p>
+							<span>
+								$M_1 = \sup  \bigl\{ f(x) : x \in [0,1-\epsilon] \bigr\}$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$ = 1 ,$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$M_2 = \sup  \bigl\{ f(x) : x \in [1-\epsilon,1+\epsilon] \bigr\}$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ = 1 ,$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$M_3 = \sup  \bigl\{ f(x) : x \in [1+\epsilon,2] \bigr\}  $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ = 0 ,$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								Moreover $\Delta x_1 = 1-\epsilon$, 
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								 $\Delta x_2 = 2\epsilon$, 
+							</span>
+							<span class="fragment" data-fragment-index="7">and
+								$\Delta x_3 = 1-\epsilon$.
+							</span>
+						</p>
+	
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 7.2.2. </h4>
+					
+					
+					
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong> 
+							Now we compute
+						</p>
+	
+					</div>
+					<div class="size-85">
+						<p>
+							<span>
+								$\ds L(P,f) = \sum_{i=1}^3 m_i \Delta x_i \qquad\qquad\qquad\qquad\qquad\qquad\qquad$
+							</span><br/>
+							<span class="fragment" data-fragment-index="0">
+								$=
+								1 \cdot (1-\epsilon) $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$
+								\,+ \,0 \cdot 2\epsilon $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\,+ \,0 \cdot (1-\epsilon)$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$=1- \epsilon$
+							</span>
+						</p>
+						
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$\ds U(P,f) = \sum_{i=1}^3 M_i \Delta x_i \qquad\qquad\qquad\qquad\qquad\qquad\qquad$
+							</span><br/>
+							<span class="fragment" data-fragment-index="5">
+								$\,=
+								1 \cdot (1-\epsilon)  $
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$
+								\,+ \,1 \cdot 2\epsilon $
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\,+ \,0 \cdot (1-\epsilon)$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$\,=1+ \epsilon$
+							</span>
+						</p>
+	
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 7.2.2. </h4>
+					
+					
+					
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong> 
+							So
+							$
+							\;L(P,f) = 1 - \epsilon\;$ and $\; U(P,f) = 1+\epsilon.
+							$
+						</p>
+	
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Then $\;\ds\overline{\int_0^2} f - 
+								\underline{\int_0^2} f
+								$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\,\leq \,
+								U(P,f) - L(P,f)\qquad \qquad
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$ \qquad \qquad \qquad =
+								(1+\epsilon) \,$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\,- (1-\epsilon)$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$=2 \epsilon.$
+							</span>
+						</p>
+						
+						
+	
+					</div>
+
+					<div class="left-txt size-85">
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								Using Theorem 7.1.3 $\Ra \underline{\int_0^2} f \leq \overline{\int_0^2} f.$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								Since $\epsilon$ was arbitrary,
+							</span>
+						</p>
+
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="8">
+								$\ds \overline{\int_0^2} f = \underline{\int_0^2} f.\;$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								So  $f$ is Riemann
+								integrable.
+							</span>
+						</p>
+
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 7.2.2. </h4>
+					
+					
+					
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong> 
+							Finally, we have that 
+						</p>
+	
+					</div>
+					<div class="size-85">
+						<p>
+							<span>
+								$\ds 1-\epsilon
+								$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$=L(P,f) 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds \leq \int_0^2 f
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\ds \leq U(P,f)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$=
+								1+\epsilon.
+								 
+								$
+							</span>
+						</p>
+						
+						
+						
+	
+					</div>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="4">
+							Hence 
+							\[
+							\left|\int_0^2 f - 1 \right| \leq \epsilon.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							Since $\epsilon$ was arbitrary,
+							<span class="fragment" data-fragment-index="6">
+								we conclude $\ds\int_0^2 f = 1$.
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\; \bs$
+							</span>
+						</p>
+						
+	
+					</div>
+
+					
+					
+					<br/><br/>
+				</section>
+
+				
+
 			</section>
-
-
 
 			
-
-			<section>
-				<h4>7.2 The Riemann Integral</h4>
-				<div class="left-txt size-95">
-					<p><strong>Theorem 7.2.2. </strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. If for every $\epsilon > 0$, there exists a partition $P$ of
-						$[a,b]$ such that
-						\begin{equation*}
-						U(P,f) - L(P,f) \lt \epsilon  
-						\end{equation*}
-						then   $f$ is Riemann
-						integrable.
-
-					</p>
-
-				</div>
-				<br/><br/><br/>
-			</section>
 
 
 
