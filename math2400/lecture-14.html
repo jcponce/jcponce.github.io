@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH2400/7400 - Lecture 13</title>
+	<title>MATH2400/7400 - Lecture 14</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -53,411 +53,30 @@
 
 			<section>
 				<h2>Mathematical Analysis</h2>
-				<p>Leture 13</p>
+				<p>Leture 14</p>
 			</section>
 
 			
-			<section>
-				<section data-auto-animate>
-					<h4>7.1 Partitions and lower and upper integrals</h4>
-					<div class="left-txt size-95">
-						<p><strong>Definition 7.1.1.</strong>
-							A <em>partition</em> $P$ of the interval $[a,b]$ is
-							a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
-							\begin{equation*}
-							a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
-							\end{equation*}
-							We write
-							\begin{equation*}
-							\Delta x_i := x_i - x_{i-1} .
-							\end{equation*}
-						</p>
-	
-					</div>
-	
-	
-					<br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>7.1 Partitions and lower and upper integrals</h4>
-					<div class="left-txt size-95">
-						
-						<p><strong>Definition 7.1.2. </strong>
-							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
-							$[a,b]$.
-							Define
-						</p>
-						<p>
-							\begin{array}{cc}
-							 m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,  \\
-							 L(P,f) :=
-							\ds\sum_{i=1}^n m_i \Delta x_i ,
-							\end{array}
-						</p>
-	
-					</div>
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>7.1 Partitions and lower and upper integrals</h4>
-					<div class="left-txt size-95">
-						
-						<p><strong>Definition 7.1.2. </strong>
-							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
-							$[a,b]$.
-							Define
-						</p>
-						<p>
-							\begin{array}{cc}
-							 M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,  \\
-							 U(P,f) :=
-							\ds\sum_{i=1}^n M_i \Delta x_i .
-							\end{array}
-						</p>
-	
-					</div>
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>7.1 Partitions and lower and upper integrals</h4>
-					<div class="left-txt size-75">
-						
-						<p><strong>Definition 7.1.2. </strong>
-							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
-							$[a,b]$.
-							Define
-						</p>
-						<p>
-
-							\begin{array}{cc}
-							 m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,
-							& M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} , \\
-							 L(P,f) :=
-							\ds\sum_{i=1}^n m_i \Delta x_i ,
-							& U(P,f) :=
-							\ds\sum_{i=1}^n M_i \Delta x_i .
-							\end{array}
-						</p>
-	
-					</div>
-					<div class="left-txt size-95">
-						
-						<p>
-							We call $L(P,f)$ the <em>lower Darboux sum</em> and
-							$U(P,f)$ the <em>upper Darboux sum</em>.
-						</p>
-	
-					</div>
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>7.1 Partitions and lower and upper integrals</h4>
-					<div class="left-txt size-90">
-						<p><strong>Theorem 7.1.1. </strong>
-							Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
-							such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
-							of $[a,b]$,
-							\begin{equation}
-							m(b-a) \leq
-							L(P,f) \leq U(P,f)
-							\leq M(b-a) .
-							\end{equation}
-						</p>
-	
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4 style="font-size:90%">7.1 Partitions and lower and upper integrals</h4>
-					<div class="left-txt size-50">
-						<p><strong>Theorem 7.1.1. </strong>
-							Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
-							such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then for every partition $P$
-							of $[a,b]$,
-							\begin{equation}
-							m(b-a) \leq
-							L(P,f) \leq U(P,f)
-							\leq M(b-a) .
-							\end{equation}
-						</p>
-	
-					</div>
-					<div class="left-txt size-85">
-						<p>
-							<strong>Proof. </strong>
-							<span class="fragment" data-fragment-index="0">
-								Let $P$ be a partition of $[a,b]$.
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								Note that $m \leq m_i$ for all $i$ 
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								and
-								$M_i \leq M$ for all $i$.  
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								Also $m_i \leq M_i$ for all $i$.  
-							</span>
-							<span class="fragment" data-fragment-index="4">
-								Finally,
-$\sum_{i=1}^n \Delta x_i = (b-a)$.
-							</span>
-							<span class="fragment" data-fragment-index="5">
-								Therefore
-							</span>
-						</p>
-	
-					</div>
-
-					<div class="size-85">
-						<p>
-							
-							<span class="fragment" data-fragment-index="5">
-								$m(b-a) $
-							</span>
-							<span class="fragment" data-fragment-index="6">
-								$\ds  =
-								m \left( \sum_{i=1}^n \Delta x_i \right)
-								$
-							</span>
-							<span class="fragment" data-fragment-index="7">
-								$\ds =
-								\sum_{i=1}^n m \Delta x_i$
-							</span>
-							<span class="fragment" data-fragment-index="8">
-								$\ds \leq
-								\sum_{i=1}^n m_i \Delta x_i \qquad\quad$
-							</span>
-							
-						</p>
-						<p>
-							<span class="fragment" data-fragment-index="9">
-								$\ds  \leq \ds \sum_{i=1}^n M_i \Delta x_i
-								$
-							</span>
-							<span class="fragment" data-fragment-index="10">
-								$\ds\leq
-								\sum_{i=1}^n M \Delta x_i $
-							</span>
-							<span class="fragment" data-fragment-index="11">
-								$\ds =
-								M \left( \sum_{i=1}^n \Delta x_i \right)$
-							</span>
-							<span class="fragment" data-fragment-index="12">
-								$\ds =
-								M(b-a) .$
-							</span>
-						</p>
-	
-					</div>
-
-
-
-					<br/><br/>
-				</section>
-
-				
-				<section data-auto-animate>
-					<h4>7.1 Partitions and lower and upper integrals</h4>
-					<div class="left-txt size-85">
-						
-						<p><strong>Definition 7.1.2. </strong>
-							As the sets of lower and upper Darboux sums are bounded, 
-							<span class="fragment" data-fragment-index="0">
-								we define
-							</span>
-						</p>
-					</div>
-					<div class="size-85">
-						
-						<p>
-							<span class="fragment" data-fragment-index="0">
-								$\ds  \underline{\int_a^b} f(x)\,dx :=
-								\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\}$
-							</span>
-							<br/><br/>
-							<span class="fragment" data-fragment-index="1">
-								$\ds\overline{\int_a^b} f(x)\,dx :=
-								\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\} .$
-							</span>
-						</p>
-						
-	
-					</div>
-					<div class="left-txt size-90">
-					
-						<p class="fragment" data-fragment-index="2">
-We call $\underline{\int}$
-the <em>lower Darboux integral</em> and
-$\overline{\int}$ the
-<em>upper Darboux integral</em>.
-
-						</p>
-						
-	
-					</div>
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>7.1 Partitions and lower and upper integrals</h4>
-					
-					<div class="left-txt size-90">
-						
-						<p>
-							To avoid worrying about the variable of integration, 
-
-							<span  class="fragment" data-fragment-index="0">
-								we often simply write
-
-							</span>
-
-						</p>
-					</div>
-					<div class="size-90">
-						
-<p>
-	<span class="fragment" data-fragment-index="0">
-$\ds \underline{\int_a^b} f \coloneqq
-\underline{\int_a^b} f(x)\,dx \;$
-	</span>
-
-	<span class="fragment" data-fragment-index="1">
-     and $\;\ds \overline{\int_a^b} f \coloneqq
-	 \overline{\int_a^b} f(x)\,dx  .$
-	</span>
-						</p>
-						
-	
-					</div>
-					<br/><br/><br/><br/><br/>
-				</section>
-
-				
-			</section>
-
 			
 
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux Integrals</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						As the sets of lower and upper Darboux sums are bounded, we define
-						\begin{align*}
-						& \underline{\int_a^b} f(x)~dx :=
-						\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\} , \\
-						& \overline{\int_a^b} f(x)~dx :=
-						\inf \, \bigl\{ U(P,f) : P \text{ a partition of } [a,b] \bigr\} .
-						\end{align*}
-						We call $\underline{\int}$
-						the <em>lower Darboux integral</em> and
-						$\overline{\int}$ the
-						<em>upper Darboux integral</em>.
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Lower and Upper Darboux Integrals</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. Let $m, M \in \R$ be
-						such that for all $x \in [a,b]$, we have $m \leq f(x) \leq M$. Then
-						\begin{equation}
-						\label{intulbound:eq}
-						m(b-a) \leq
-						\underline{\int_a^b} f \leq \overline{\int_a^b} f
-						\leq M(b-a) .
-						\end{equation}
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<div class="left-txt size-60">
-					<p><strong>Definition:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function such that
-						\begin{equation*}
-						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
-						\end{equation*}
-						Then $f$ is said to be <em>Riemann integrable</em>.
-						The set of Riemann integrable functions on $[a,b]$ is denoted
-						by $\mathcal R[a,b]$.
-						When $f \in \mathcal R[a,b]$, we define
-						\begin{equation*}
-						\int_a^b f(x)~dx :=
-						\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
-						\end{equation*}
-						The number $\int_a^b f$ is called the <em>Riemann integral</em>
-						of $f$, or sometimes simply the <em>integral</em> of $f$.
-					</p>
-
-				</div>
-			</section>
-
 
 
 			<section>
-				<h4>The Riemann Integral</h4>
-				
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a Riemann integrable function.
-						Let $m, M \in \R$ be
-						such that $m \leq f(x) \leq M$ for all $x \in [a,b]$. Then
-						\begin{equation*}
-						m(b-a) \leq
-						\int_a^b f
-						\leq M(b-a) .
-						\end{equation*}
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Criterion for Riemann integrability</p>
-				<div class="left-txt size-60">
-					<p><strong>Theorem:</strong>
-						Let $f \colon [a,b] \to \R$ be a bounded function. If for every $\epsilon > 0$, there exists a partition $P$ of
-						$[a,b]$ such that
-						\begin{equation*}
-						U(P,f) - L(P,f) \lt \epsilon  
-						\end{equation*}
-						then   $f$ is Riemann
-						integrable.
-
-					</p>
-
-				</div>
-			</section>
-
-
-
-			<section>
-				<h4>The Riemann Integral</h4>
-				<p class="sbt">Properties</p>
-				<div class="left-txt size-60">
+				<h4>7.3 Basic properties</h4>
+				<div class="left-txt size-90">
 					<p><strong>Theorem:</strong>
 						Let $f$ and $g$ be in $\mathcal R[a,b]$ and $\alpha \in \R$.
 					</p>
 
-					<ol class="r">
-						<li>
-							$\alpha \,f$ is in $\mathcal R[a,b]$ and
+					<ol>
+						<li class="fragment" data-fragment-index="0">
+							$\alpha \,f \in\mathcal R[a,b]$ and
 							\begin{equation*}
 							\int_a^b \alpha \,f(x) ~dx = \alpha \int_a^b f(x) ~dx .
 							\end{equation*}
 						</li>
-						<li>
-							$f+g$ is in $\mathcal R[a,b]$ and
+						<li class="fragment" data-fragment-index="1">
+							$f+g \in\mathcal R[a,b]$ and
 							\begin{equation*}
 							\int_a^b \bigl( f(x)+g(x) \bigr) ~dx =
 							\int_a^b f(x) ~dx
@@ -468,6 +87,7 @@ $\ds \underline{\int_a^b} f \coloneqq
 					</ol>
 
 				</div>
+				<br/>
 			</section>
 
 
