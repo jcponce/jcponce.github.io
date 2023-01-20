@@ -252,6 +252,38 @@
 					</div>
 					<br/><br/>
 				</section>
+
+				<section>
+					<h4>Example 8.1.1.</h4>
+					<div class="left-txt size-90">
+						<p>
+							Compute $\ds \int_0^1x^2~dx.$
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">
+							Note that $x^2$ is the derivative of $\ds\frac{x^3}{3}.$
+							<span class="fragment" data-fragment-index="1">
+								The FTC says that
+							</span>
+						</p>
+					</div>
+					<div class=" size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="1">
+								$\ds \int_0^1x^2~dx$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\ds= \frac{1^3}{3}-\frac{0^3}{3}$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\ds=\frac{1}{3}.$
+							</span>
+						</p>
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
 			</section>
 
 			
@@ -260,19 +292,30 @@
 				<section data-auto-animate id="second-form-ftc">
 					<h4 style="font-size:100%">8.2 Second form of the FTC</h4>
 					<div class="left-txt size-90">
-						<p><span>
+						<p>
+							<span class="fragment" data-fragment-index="0">
 								<strong>Theorem 8.2.1. </strong>
+								Let $f \colon [a,b] \to \R$ be a Riemann integrable function. 
 							</span>
-							Let $f \colon [a,b] \to \R$ be a Riemann integrable function. Define
-							\begin{equation*}
-							F(x) := \int_a^x f .
-							\end{equation*}
-							First, $F$ is continuous on $[a,b]$. Second,
-							if $f$ is continuous at $c \in [a,b]$, then $F$ is differentiable at $c$
-							and $F'(c) = f(c)$.
+							<span class="fragment" data-fragment-index="1">
+								Define
+								\begin{equation*}
+								F(x) := \int_a^x f .
+								\end{equation*}
+							</span>
+							
 						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="2">
+								$F$ is continuous on $[a,b]$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								If $f$ is continuous at $c \in [a,b]$, then $F$ is differentiable at $c$
+							and $F'(c) = f(c)$.
+							</li>
+						</ol>
 					</div>
-					<br/><br/>
+					<br/><br/><br/>
 				</section>
 	
 				<section data-auto-animate>
@@ -285,7 +328,7 @@
 							is represented with the shaded region between the graph of
 							 the function and the $x$-axis.</p>
 							
-							<p>The bottom graph shows the <b>accumulation function</b>
+							<p>The graph below shows the <b>accumulation function</b>
 							$$A(x)=\int_a^xf(t)dt$$
 							for each upper limit $x$, with lower limit $a$.
 							</p>
@@ -305,6 +348,281 @@
 					</div>	
 					
 					<br/><br/>
+				</section>
+
+				<section  data-auto-animate >
+					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
+						<div class="left-txt size-90">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Take $x,y\in[a,b]$ and observe that 
+								</span>
+							</p>
+						</div>
+						<div class="size-90">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\abs{F(x)-F(y)}$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds = \abs{\int_a^xf - \int_a^y f\,}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds = \abs{\int_y^x f\,}$
+								</span>
+								
+							
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\;\;\qquad \leq \ds \int_y^x \abs{f}\,$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds\leq M \abs{x-y},$
+								</span>
+								
+							
+							</p>
+						</div>
+						<div class="left-txt size-90">
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									where $M\gt0$ (since $f$ is continuous/bounded).
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									This means that $F$ is Lipschitz continuous 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\Ra$ $F$ is uniformly continuous on $[a,b].$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<br/><br/>
+				</section>
+				<section  data-auto-animate >
+					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
+						<div class="left-txt size-90">
+							<p>
+								<span>
+									Assuming that $f$ is continuous at $c\in[a,b],$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									we would like to show that $F'(c)= f(c).$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									To do this we rewrite the limit of $F'(c)$ as
+								</span>
+							</p>
+						</div>
+						<div class="size-85">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds \lim_{x\to c}\frac{F(x)-F(c)}{x-c}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds = \lim_{x\to c}\frac{1}{x-c}\left(\int_a^x f(t)~dt -\int_a^c f(t)~dt \right)$
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									$\;\,\quad \ds= \lim_{x\to c}\frac{1}{x-c}\left(\int_c^x f(t)~dt \right)$
+								</span>
+								
+							
+							</p>
+						</div>
+
+						<div class="left-txt size-90">
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									If we can show that this limit equals $g(c)$, we are done!
+								</span>
+							</p>
+						</div>
+						
+						<br/><br/>
+				</section>
+				<section  data-auto-animate >
+					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
+						
+						<div class="size-75">
+							<p>
+								<span>
+									$\ds \lim_{x\to c}\frac{F(x)-F(c)}{x-c}$
+								</span>
+								<span>
+									$\ds= \lim_{x\to c}\frac{1}{x-c}\left(\int_c^x f(t)~dt \right)$
+								</span>
+								
+							
+							</p>
+						</div>
+
+						<div class="left-txt size-90">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									Given $\epsilon\gt 0 $
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we must prodive a $\delta\gt 0$ such that if $\abs{x-c}\lt \delta,$
+
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									then
+
+								</span>
+							</p>
+						</div>
+						<div class="size-90">
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									$\ds \abs{\frac{1}{x-c} \left(\int_c^x f(t)~dt \right) - f(c)}\lt \epsilon.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt size-90">
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									The assumption of continuity of $f$ 
+									gives us control over the difference $\abs{f(t)-f(c)}.$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									In particular, we know that there exists a $\delta\gt 0$
+									such that
+								</span>
+							</p>
+						</div>
+						<div class="size-90">
+							<p>
+								
+								<span class="fragment" data-fragment-index="5">
+									$\abs{t-c}\lt \delta $ implies $\abs{f(t)-f(c)}\lt \epsilon.$
+								</span>
+							</p>
+						</div>
+						
+						<br/><br/>
+				</section>
+				<section  data-auto-animate >
+					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
+						
+						
+
+						
+						
+						<div class="size-90">
+							<p>
+								
+								<span>
+									$\abs{t-c}\lt \delta $ implies $\abs{f(t)-f(c)}\lt \epsilon.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt size-90">
+							<p>
+								
+								<span>
+									To use this fact, 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									we rewrite the constant $f(c)$ as
+								</span>
+							</p>
+						</div>
+						<div class="size-90">
+							<p>
+
+								<span class="fragment" data-fragment-index="0">
+									$\ds f(c) = $
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds \frac{1}{x-c}(x-c)f(c)$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds = \frac{1}{x-c}\int_c^x f(c) ~dt.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt size-90">
+							<p>
+
+								<span class="fragment" data-fragment-index="3">
+									Keeping in mind that $\abs{x-c}\geq \abs{t-c}$,
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									we have that for all  $\abs{x-c}\lt \delta$,
+								</span>
+							</p>
+						</div>
+						<div class="size-85">
+							<p>
+
+								<span class="fragment" data-fragment-index="5">
+									$\ds \abs{\frac{1}{x-c} \left(\int_c^x f(t)~dt \right) - f(c)} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\ds = \abs{\frac{1}{x-c}\int_c^x \big[f(t)-f(c)\big] }$
+								</span>
+							</p>
+						</div>
+						
+						<br/><br/>
+				</section>
+				<section  data-auto-animate >
+					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
+						
+						
+
+						
+						<div class="left-txt size-90">
+							<p>
+
+								<span>
+									Keeping in mind that $\abs{x-c}\geq \abs{t-c}$,
+								</span>
+								<span>
+									we have that for all  $\abs{x-c}\lt \delta$,
+								</span>
+							</p>
+						</div>
+						<div class="size-85">
+							<p>
+
+								<span>
+									$\ds \abs{\frac{1}{x-c} \left(\int_c^x f(t)~dt \right) - f(c)} $
+								</span>
+								<span>
+									$\ds = \abs{\frac{1}{x-c}\int_c^x \big[f(t)-f(c)\big] }$
+								</span>
+							</p>
+						</div>
+						<div class="size-85">
+							<p>
+
+								<span>
+									$\qquad \qquad \ds \leq \frac{1}{x-c}\int_c^x \abs{f(t)-f(c)} $
+								</span>
+							</p>
+							<p>
+
+								<span class="fragment" data-fragment-index="0">
+									$\;\;\qquad \quad \ds \lt \frac{1}{x-c} \int_c^x \epsilon~dt $
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds= \epsilon .\;\bs$
+								</span>
+							</p>
+						</div>
+						
+						<br/><br/>
 				</section>
 				
 			</section>
