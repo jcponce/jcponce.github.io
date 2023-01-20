@@ -1,116 +1,150 @@
-Reveal.initialize({
-	
-	history: true,
-	slideNumber: "c/t",
-	center: true,
+        // Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
 
-	// Transition style
-	transition: 'fade',
+			// Display presentation control arrows
+			controls: true,
 
-	// PDF exporting properties
-	pdfSeparateFragments: false,
-	pdfMaxPagesPerSlide: 1,
+			// Push each slide change to the browser history.  Implies `hash: true`
+			history: true,
+			
+			// Display the page number of the current slide
+			slideNumber: "c/t",
 
-	// MathJax user-defined functions
-	math: {
-		//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-		config: "TeX-AMS_HTML-full",
-		TeX: {
-			Macros: {
-				R: "\\mathbb{R}",
-				C: "\\mathbb{C}",
-				N: "\\mathbb{N}",
-				Z: "\\mathbb{Z}",
-				Q: "\\mathbb{Q}",
-				Re: "{\\mbox{Re}}\\,",
-				Im: "{\\mbox{Im}}\\,",
-				arg: "{\\mbox{arg}}\\,",
-				Arg: "{\\mbox{Arg}}\\,",
-				Log: "\\mbox{Log}\\,",
-				Int: "\\mbox{Int}\\,",
-				ra: "\\rightarrow",
-				ds: "\\displaystyle",
-				res: "\\mbox{res}\\,",
-				conj: ["{\\overline{#1}}", 1]
-			}
-		}
-	},
+			// Vertical centering of slides
+			center: true,
 
-	plugins: [RevealMath, RevealHighlight, RevealMenu],
+			// Global override for preloading lazy-loaded iframes
+			//preloadIframes: true,
 
-	menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
-		// Uncomment the following two lines, if you don't want to show the menu to toggle themes
-		//themes: true,
-		//themesPath: 'dist/theme/',
-		transitions: false,
-		markers: true,
-		hideMissingTitles: true,
-		custom: [{
-			title: 'Info',
-			icon: '<i class="fa fa-info"></i>',
-			src: 'about.html'
-		}]
-	},
+			// Enables touch navigation on devices with touch input
+  			touch: false,
 
-	// ...
+			// Transition style
+			transition: 'fade',
 
-	chalkboard: {
-		// optionally load pre-recorded chalkboard drawing from file
-		//src: "chalkboard.json",
-		boardmarkerWidth: 4,
-		chalkWidth: 4,
-		toggleChalkboardButton: {
-			left: "80px"
-		},
-		toggleNotesButton: {
-			left: "130px"
-		}
-	},
+			// PDF exporting properties
+			pdfSeparateFragments: true,
+			pdfMaxPagesPerSlide: 1,
 
-	dependencies: [
-		// Here I need to add the third party plugins
-		// The plugin Menu is now available for reveal.js 4.0.2
-		// {
-		// 	src: 'plugin/menu/menu.js'
-		// },
-		{
-			src: 'plugin/chalkboard/chalkboard.js'
-		},
-	],
+			// MathJax user-defined functions
+			math: {
+				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+				config: "TeX-AMS_HTML-full",
+				TeX: {
+					Macros: {
+						R: "\\mathbb{R}",
+						C: "\\mathbb{C}",
+						N: "\\mathbb{N}",
+						Z: "\\mathbb{Z}",
+						Q: "\\mathbb{Q}",
+						r: "{\\mathbf{r}}",
+						i: "{\\mathbf{i}}",
+						j: "{\\mathbf{j}}",
+						k: "{\\mathbf{k}}",
+						u: "{\\mathbf{u}}",
+						v: "{\\mathbf{v}}",
+						w: "{\\mathbf{w}}",
+						bfu: "{\\mathbf{u}}",
+						bfv: "{\\mathbf{v}}",
+						bfw: "{\\mathbf{w}}",
+						bfe: "{\\mathbf{e}}",
+						n: "{\\mathbf{n}}",
+						F: "{\\mathbf{F}}",
+						BF: "{\\mathbb{F}}",
+						T: "{\\mathbf{T}}",
+						div: "{\\mbox{div}}\\,",
+						nec: "{\\boxed{\\Rightarrow}}",
+						suf: "{\\boxed{\\Leftarrow}}",
+						curl: "{\\mbox{curl}}\\,",
+						Re: "{\\mbox{Re}}\\,",
+						Im: "{\\mbox{Im}}\\,",
+						arg: "{\\mbox{arg}}\\,",
+						Arg: "{\\mbox{Arg}}\\,",
+						Log: "\\mbox{Log}\\,",
+						Int: "\\mbox{Int}\\,",
+						ra: "\\rightarrow",
+						Ra: "\\Rightarrow",
+						ds: "\\displaystyle",
+						res: "\\mbox{res}\\,",
+						arcosh: "\\mbox{arcosh}\\,",
+						arsinh: "\\mbox{arsinh}\\,",
+						artanh: "\\mbox{artanh}\\,",
+						mat: ["{\\left(\\begin{array}{#1} #2\\end{array}\\right)}", 2],
+						conj: ["{\\overline{#1}}", 1],
+						abs: ["{\\left|#1\\right|}", 1],
+						sabs: ["{\\left|#1\\right|}", 1],
+						snorm: ["{\\|#1\\|}", 1],
+						norm: ["{\\|#1\\|}", 1],
+						epsilon: "\\varepsilon",
+						pd: "\\boldsymbol{\\cdot}",
+						//cdot: "{\\textstyle \\,\\bullet\\,}",
+						//cdot: "{\\scriptstyle \\,\\bullet\\,}",
+					}
+				}
+			},
+			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
+				themes: [
+					{ name: 'Black', theme: 'revealjs/dist/theme/black.css' },
+					{ name: 'White', theme: 'revealjs/dist/theme/white.css' },
+					{ name: 'Night', theme: 'revealjs/dist/theme/night.css' },
+					{ name: 'Simple', theme: 'revealjs/dist/theme/simple.css' },
+				],
+				transitions: false,
+				markers: true,
+				hideMissingTitles: true,
+				custom: [{
+					title: 'Info',
+					icon: '<i class="fa fa-info"></i>',
+					src: 'about.html'
+				}]
+			},
 
-	keyboard: {
-		67: function () {
-			RevealChalkboard.toggleNotesCanvas()
-		}, // toggle notes canvas when 'c' is pressed
-		66: function () {
-			RevealChalkboard.toggleChalkboard()
-		}, // toggle chalkboard when 'b' is pressed
-		46: function () {
-			RevealChalkboard.clear()
-		}, // clear chalkboard when 'DEL' is pressed
-		8: function () {
-			RevealChalkboard.reset()
-		}, // reset chalkboard data on current slide when 'BACKSPACE' is pressed
-		//68: function () {
-		//	RevealChalkboard.download()
-		//}, // downlad recorded chalkboard drawing when 'd' is pressed
-		88: function () {
-			RevealChalkboard.colorNext()
-		}, // cycle colors forward when 'x' is pressed
-		89: function () {
-			RevealChalkboard.colorPrev()
-		}, // cycle colors backward when 'y' is pressed
-	},
-	// ...
-});
 
-// This function allows you to toggle themes, I don't need it now :)
-// toggleMenu = () => {
-//   let menu = Reveal.getPlugin('menu');
-//	 if (menu) menu.toggle();
-//  };
+			chalkboard: { 
+				// -> font-awesome.min.css must be available
+				//src: "chalkboard/chalkboard.json",
+				//storage: "chalkboard-demo",
+				boardmarkerWidth: 4,
+				chalkWidth: 3,
+				grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 1},
+				//grid: false,
+				chalkEffect: 0.4,
+				colorButtons: 5
+			},
 
-// Reveal.getPlugins(); // Not required now for v.4.0.2
+			customcontrols: {
+				controls: [
+			  {
+					  id: 'toggle-overview',
+					  title: 'Toggle overview (O)',
+					  icon: '<i class="fa fa-th"></i>',
+					  action: 'Reveal.toggleOverview();'
+					},
+					{ icon: '<i class="fa fa-pen-square"></i>',
+					  title: 'Toggle chalkboard (B)',
+					  action: 'RevealChalkboard.toggleChalkboard();'
+					},
+					{ icon: '<i class="fa fa-pen"></i>',
+					  title: 'Toggle notes canvas (C)',
+					  action: 'RevealChalkboard.toggleNotesCanvas();'
+					}
+				]
+			},
+			// ...
+			plugins: [
+				RevealCustomControls, 
+				RevealMath, 
+				RevealMenu, 
+				RevealChalkboard, 
+				RevealHighlight, 
+				RevealZoom, 
+				RevealSearch
+			],
+		});
+
+		
+
 
 /* 
 The follwing function is to include an HTML file in the slides
