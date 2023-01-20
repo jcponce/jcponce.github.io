@@ -8,15 +8,15 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel="stylesheet" href="../revealjs/latest/dist/reveal.css">
-	<link rel="stylesheet" href="../revealjs/latest/dist/theme/white.css" id="theme">
-	<link rel="stylesheet" href="../revealjs/latest/third-party-plugin/chalkboard/style.css">
-	<link rel="stylesheet" href="../revealjs/latest/third-party-plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
 
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="../revealjs/latest/plugin/highlight/zenburn.css">
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
@@ -104,6 +104,36 @@
 					<br/><br/><br/><br/>
 			</section>
 
+			<section data-auto-animate>
+				<h4>9.2 Uniform convergence</h4>
+				<p class="sbt">Nonuniform convergence criterion</p>
+				<div class="left-txt size-90">
+					<p><strong>Theorem:</strong>
+						Let $f_n \colon S \to \R$
+						and $f \colon S \to \R$
+						be functions.
+					</p>
+				</div>
+
+				<div class="size-90">
+					The sequence $\{ f_n \}$ <strong>does not converge uniformly</strong>
+					<br />
+					<p>if and only if</p>
+				</div>
+
+				<div class="left-txt size-90">
+					<p>
+						for some $\epsilon_0\gt 0$ there is a subsequence $\{ f_{n_k} \}$
+						of $\{ f_n \}$ and a sequence $\{ x_k \}$ in $S$ such that
+						\[
+						\abs{\,f_{n_k}\left(x_k\right)-f(x_k)}\geq \epsilon_0 \text{ for all } k\in \N.
+						\]
+					</p>
+
+				</div>
+				<br/><br/>
+			</section>
+
 			<!--Section with table-->
 			<section data-auto-animate>
 				<h3>Vector Calculus</h3>
@@ -181,12 +211,14 @@
 		</div>
 	</div>
 
-	<script src="../revealjs/latest/dist/reveal.js"></script>
-	<script src="../revealjs/latest/plugin/math/math.js"></script>
-	<script src="../revealjs/latest/plugin/highlight/highlight.js"></script>
-	<script src="../revealjs/latest/third-party-plugin/chalkboard/plugin.js"></script>
-	<script src="../revealjs/latest/third-party-plugin/customcontrols/plugin.js"></script>
-	<script src="../revealjs/latest/third-party-plugin/menu/menu.js"></script>
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
 
 	<script>
