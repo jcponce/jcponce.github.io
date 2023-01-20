@@ -790,13 +790,13 @@
 					<div class="size-90">
 						<p>
 							<span class="fragment" data-fragment-index="0">
-								$\ds \Ra \int_{g(a)}^{g(b)} f(s)$
+								$\ds \Ra \int_{g(a)}^{g(b)} f(s)~ds $
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								$\ds  = F\bigl(g(b)\bigr) $
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								$\ds   = F\bigl(g(b)\bigr)-F\bigl(g(a)\bigr)\qquad \quad$
+								$\ds   = F\bigl(g(b)\bigr)-F\bigl(g(a)\bigr)\;\;$
 							</span>
 						</p>
 						<p>
@@ -816,6 +816,125 @@
 					</div>
 	
 					<br/><br/><br/>
+				</section>
+
+				<section>
+					<h4>Example 8.2.1.</h4>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								We know that the derivative of $\sin(x)$ is $\cos(x)$.
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								Using $g(x) \coloneqq x^2$,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								we solve
+							</span>
+						</p>
+					</div>
+					<div class="size-95">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$\ds \int_0^{\sqrt{\pi}} x \cos(x^2) \, dx$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\ds  = \int_0^\pi \frac{\cos(s)}{2} \, ds \qquad  \qquad  \qquad $
+							</span>
+						</p>
+						<p>
+							
+							<span class="fragment" data-fragment-index="4">
+								$\; \quad \ds  =
+								\frac{1}{2}
+								\int_0^\pi \cos(s) \, ds$
+							</span>
+							
+						</p>
+						<p>
+							
+							
+							<span class="fragment" data-fragment-index="5">
+								$ \quad  \quad\;\;\; \ds  =
+								\frac{
+								\sin(\pi) - \sin(0)
+								}{2}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\ds =
+								0 .$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section>
+					<h4 style="font-size:85%">Example 8.2.2.</h4>
+					<div class="left-txt size-80" style="margin-top:-15px">
+						<p>
+							<span >
+								Consider $
+								\ds \int_{-1}^{1} \frac{\ln \abs{x}}{x} \,dx .
+								$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								&nbsp; ⚠️ Careful! ⚠️
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-80" style="margin-top:-30px">
+						
+						<p>
+							
+							<span class="fragment" data-fragment-index="1">
+								If we consider $g(x) \coloneqq \ln \abs{x},$  
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then $g'(x) =
+\dfrac{1}{x}.$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								So
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\ds\ds \int_{-1}^{1} \frac{\ln \abs{x}}{x} \,dx$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\ds = \int_{-1}^{1} \underbrace{\ln\abs{x}}_{\large g(x)}\overbrace{\frac{dx}{x}}^{\large g'(x)dx}$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\ds = \int_{g(-1)}^{g(1)} s \,ds$
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="6">
+								$\ds  = 
+								\int_{0}^{0} s \,ds  $
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\ds  = 
+								0 .\quad $
+							</span>
+						</p>
+						
+						
+					</div>
+
+					<div class="left-txt size-90">
+						
+						<p>
+							<span class="fragment" data-fragment-index="8">
+								What's going on? 🤔
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/>
 				</section>
 			</section>
 
