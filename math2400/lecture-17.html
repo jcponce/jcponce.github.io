@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 17</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/latest/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/latest/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/latest/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/latest/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/latest/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="../revealjs/latest/mySetup/google-analytics-ga4.js"></script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Lecture 17</p>
+			</section>
+
+			<section>
+				<section>
+					<h4>9.1 Pointwise convergence</h4>
+					<div class="left-txt size-90">
+						<p><span>
+								<strong>Definition 9.1.1. </strong>
+							</span>
+							For every $n \in \N$,
+							let $f_n \colon S \to \R$ be a function. The sequence
+							$\{ f_n \}_{n=1}^\infty$
+							<em>converges pointwise</em> to $f \colon S \to \R$ if for every $x
+							\in S$,
+							we have
+							\begin{equation*}
+							f(x) =
+							\lim_{n\to\infty} f_n(x) .
+							\end{equation*}
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 9.1.1.</h4>
+					<div class="left-txt size-90">
+						<p>
+							On $[-1,1]$, the sequence of functions defined by $f_n(x) \coloneqq x^{2n}$
+converges pointwise to $f \colon [-1,1] \to \R$, where
+\begin{equation*}
+f(x) =
+\begin{cases}
+1 & \text{if } x=-1 \text{ or } x=1, \\
+0 & \text{otherwise.}
+\end{cases}
+\end{equation*}
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.1.1.</h4>
+	
+					<p style="font-size:26px">
+						<strong>Pointwise convergence:</strong>
+						$\;x^{2n} \ra f(x)=\left\{\begin{array}{ll}
+						1 & \text{if }x=-1,1 \\
+						0 & \text{otherwise}
+						\end{array}
+						\right.$</p>
+	
+					<iframe scrolling="no" title="Pointwise convergence"
+						src="https://www.geogebra.org/material/iframe/id/tqawquk4/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="507px" height="459px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+	
+	
+						<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.1.3.</h4>
+					<p class="sbt">No Pointwise convergence</p>
+	
+	
+					<div class="size-95" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p>
+							Define $f_n$ on $\R$ as
+							\[
+							\displaystyle f_n(x):=\sin(nx).
+							\]
+							Then $f_n$ does not converge to any function
+							on any interval.
+						</p>
+	
+	
+					</div>
+					<br/><br/><br/><br/>
+	
+				</section>
+	
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.1.3.</h4>
+	
+	
+					<p style="font-size:22px">
+						<strong>No Pointwise convergence: </strong>
+						$f_n(x)=\sin(nx)$ does not converge to any function
+						on any interval.
+					</p>
+	
+					<iframe scrolling="no" title="No pointwise convergence"
+						src="https://www.geogebra.org/material/iframe/id/uvmzrkpg/width/505/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="505px" height="459px" style="border:0px;" data-preload allowfullscreen="">
+					</iframe>
+	
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>9.1 Pointwise convergence</h4>
+	
+					<div class="left-txt size-90">
+						<p><span>
+								<strong>Theorem 9.1.1. </strong>
+							</span>
+							Let $f_n \colon S \to \R$ and $f \colon S \to \R$ be functions.
+							Then $\{ f_n \}$ converges pointwise to $f$ if and only if
+							for every $x \in S$, and every $\epsilon \gt 0$, there exists
+							an $N \in \N$ such that for all
+							$n \geq N$, we have
+							\begin{equation*}
+							\abs{\,f_n(x)-f(x)} \lt \epsilon .
+							\end{equation*}
+						</p>
+					</div>
+					<br/><br/><br/>
+				</section>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>9.2 Uniform convergence</h4>
+	
+					<div class="left-txt size-90">
+						<p><span>
+								<strong>Definition 9.2.1. </strong>
+							</span>
+							Let $f_n \colon S \to \R$
+							and $f \colon S \to \R$
+							be functions. The sequence $\{ f_n \}$
+							<em>converges uniformly</em> to $f$ if for
+							every $\epsilon > 0$, there exists an $N \in \N$ such that
+							for all $n \geq N$, we have
+							\begin{equation*}
+							\abs{\,f_n(x) - f(x)} \lt \epsilon \quad \text{for all } x \in S.
+							\end{equation*}
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+	
+	
+				<section data-auto-animate>
+					<h4>9.2 Uniform convergence</h4>
+	
+					<iframe scrolling="no" title="Sequences of functions: Uniform convergence"
+						src="https://www.geogebra.org/material/iframe/id/k8vhgx2b/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="507px" height="459px" style="border:0px;" data-preload allowfullscreen="">
+					</iframe>
+	
+					<br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>9.2 Uniform convergence</h4>
+					<div class="left-txt size-95">
+						<p><span>
+								<strong>Theorem 9.2.1. </strong>
+							</span>
+							Let $\{ f_n \}$ be a sequence of functions
+							$f_n \colon S \to \R$.
+							If $\{ f_n \}$ converges uniformly to $f \colon S \to \R$,
+							then converges pointwise to $f$.
+						</p>
+					</div>
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>9.2 Uniform convergence</h4>
+					<p class="sbt">Nonuniform convergence criterion</p>
+					<div class="left-txt size-90">
+						<p><strong>Theorem:</strong>
+							Let $f_n \colon S \to \R$
+							and $f \colon S \to \R$
+							be functions.
+						</p>
+					</div>
+	
+					<div class="size-90">
+						The sequence $\{ f_n \}$ <strong>does not converge uniformly</strong>
+						<br />
+						<p>if and only if</p>
+					</div>
+	
+					<div class="left-txt size-90">
+						<p>
+							for some $\epsilon_0\gt 0$ there is a subsequence $\{ f_{n_k} \}$
+							of $\{ f_n \}$ and a sequence $\{ x_k \}$ in $S$ such that
+							\[
+							\abs{\,f_{n_k}\left(x_k\right)-f(x_k)}\geq \epsilon_0 \text{ for all } k\in \N.
+							\]
+						</p>
+	
+					</div>
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>9.2 Uniform convergence</h4>
+					<p class="sbt">Nonuniform convergence criterion</p>
+					<div class="left-txt size-60">
+						<p><strong>Example:</strong>
+							Let $f_n(x) := \dfrac{x}{n}$ defined on $\R$ for every $n\in \N$.
+							Observe that $\{f_n\}$ converges to $f=0$, since
+							\[
+							\lim f_n(x) = \lim \frac{x}{n} = x\lim\frac{1}{n}=0 \;\text{ for all }\,x\in \R.
+							\]
+	
+						</p>
+	
+						<p>If we let $n_k:=k$ and $x_k := k $. Then $f_{n_k}(x_k)=1$
+							so that
+							\[
+							\abs{\,f_{n_k}(x_k)-f(x_k)}= \abs{1-0}=1.
+							\]
+							Therefore the sequence $\{f_n\}$ <strong>does not converges uniformly</strong> to $f$.
+						</p>
+					</div>
+	
+	
+				</section>
+	
+	
+				<section data-auto-animate>
+					<h4>9.2 Uniform convergence</h4>
+					<p class="sbt">Convergence in uniform norm</p>
+					<div class="left-txt size-70">
+						<p><span>
+								<strong>Definition:</strong>
+							</span>
+							Let $f \colon S \to \R$ be a bounded function. Define
+							\begin{equation*}
+							\norm{\,f}_u :=
+							\sup \bigl\{ \abs{\,f(x)} : x \in S \bigr\} .
+							\end{equation*}
+							We call $\norm{\cdot}_u$ the <em>uniform norm</em>.
+	
+						</p>
+					</div>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>9.2 Uniform convergence</h4>
+					<p class="sbt">Convergence in uniform norm</p>
+					<div class="left-txt size-70">
+						<p><span>
+								<strong>Theorem:</strong>
+							</span>
+							A sequence of bounded functions $f_n \colon S \to \R$ converges
+							uniformly to $f \colon S \to \R$, if and only if
+							\begin{equation*}
+							\lim_{n\to\infty} \norm{\,f_n - f}_u = 0 .
+							\end{equation*}
+	
+						</p>
+	
+						<p><span>
+								<strong>Theorem:</strong>
+							</span>
+							Let $f_n \colon S \to \R$ be bounded functions.
+							Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+							there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+							uniformly to $f$.
+	
+						</p>
+					</div>
+				</section>
+
+			</section>
+
+			
+
+			
+
+
+
+
+			
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Interchange of limits</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $\{ f_n \}$ be
+						a sequence of continuous functions $f_n \colon S \to \R$ converging
+						uniformly to $f \colon S \to \R$. Then $f$ is continuous.
+
+					</p>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Integral of the limit</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $\{ f_n \}$ be a sequence of Riemann integrable
+						functions
+						$f_n \colon [a,b] \to \R$
+						converging uniformly to $f \colon [a,b]
+						\to \R$. Then $f$ is Riemann integrable, and
+						\begin{equation*}
+						\int_a^b f = \lim_{n\to\infty} \int_a^b f_n .
+						\end{equation*}
+
+
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>Sequences of functions</h4>
+
+				<p class="sbt">Derivative of the limit</p>
+				<div class="left-txt size-70">
+					<p><span>
+							<strong>Theorem:</strong>
+						</span>
+						Let $I$ be a bounded interval and let
+						$f_n \colon I \to \R$ be continuously differentiable functions.
+						Suppose $\{ f_n' \}$ converges uniformly to $g \colon I \to \R$,
+						and suppose $\bigl\{ f_n(c) \bigr\}_{n=1}^\infty$ is a
+						convergent sequence for some $c \in I$. Then $\{ f_n \}$ converges uniformly to
+						a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
+
+					</p>
+				</div>
+			</section>
+
+			<section id="fourier-series">
+				<h5>Fourier series</h5>
+				<div class="left-txt size-60">
+					<p>The <b>Fourier series</b> of a real function $f$ defined on the interval $(-p,p)$ is given by
+						\[
+						f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\,\cos \left(\frac{n\, \pi}{p}x\right)+b_n\,\sin
+						\left(\frac{n\, \pi}{p}x\right) \right),
+						\]
+						<span class="fragment" data-fragment-index="0">
+							where
+						\begin{eqnarray*}
+						a_0&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,dx,\\
+						a_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\cos \left(\frac{n\, \pi}{p}x\right)\,dx,\\
+						b_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\sin \left(\frac{n\, \pi}{p}x\right)\,dx.
+						\end{eqnarray*}
+						</span>
+					</p>
+
+						<p style="font-size:18px"  class="fragment" data-fragment-index="0">The <em>Fourier series</em> is named in honor of <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
+							target="_blank">Jean Baptiste Joseph Fourier (1768-1830).</a></p>
+				</div>
+				<br/><br/>
+			</section>
+
+			<section id="fourier-example">
+				<h5>Fourier series</h5>
+				<div class="left-txt size-60">
+					<p><strong>Example:</strong> Consider the function
+						defined by $f(x)=x+\pi$ for $-\pi &lt; x &lt; \pi $
+						and $f(x)=f(x+2\pi)$ for $-\infty &lt; x &lt; \infty$.
+						<span class="fragment" data-fragment-index="0">Its Fourier series expansion is
+							\[
+							f(x)=\pi+2\sum_{n=1}^{\infty}\frac{\left(-1\right)^{n+1}}{n}\sin (n\,x).
+							\]
+						</span>
+					</p>
+				</div>
+
+				<img  class="fragment" data-fragment-index="1" width="72%" src="https://teaching.smp.uq.edu.au/scims/Num_analysis/images/fourierfunc.gif">
+
+				<br/><br/>
+			</section>
+
+			<section id="square-wave">
+				<h5>Fourier series</h5>
+				<p class="sbt">The square wave</p>
+				
+				<div  class="fourier" style="height:450px;width:700px">
+					<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-function" width="650px"
+					height="600px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				</div>
+						<br/><br/>
+			</section>
+
+			<section id="fourier-square-wave">
+				<h5>Fourier series</h5>
+
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:40%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									<strong>The square wave</strong><br /><br />
+									The Fourier series expansion is given by
+									\[
+									f(x):=\frac{4}{\pi}\sum_{1,3,5\ldots}^{\infty} \frac{1}{n}\sin\left(\frac{n\pi
+									x}{L}\right)
+									\]
+								</p>
+							</div>
+
+							<br />
+							<p style="font-size:14px">Original Fourier applets by: <a href="https://www.jezzamon.com/fourier/"
+									target="_blank">Jez Swanson</a></p>
+						</td>
+						<td style="width:60%;">
+							<div  class="fourier" style="height: 465px;width:450px">
+								<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-wave" width="400px"
+								height="500px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+							</div>
+						</td>
+
+					</tr>
+				</table>
+				<br/><br/>
+			</section>
+
+
+			<section id="fourier-general-example" data-background-iframe="sketches/fourier/user-wave" data-preload>
+
+				<!--<p style="text-align:center;font-size:24px;font-weight: bold;">FOURIER SERIES: General example</p>-->
+
+
+			</section>
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="../revealjs/latest/dist/reveal.js"></script>
+	<script src="../revealjs/latest/plugin/math/math.js"></script>
+	<script src="../revealjs/latest/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/latest/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/latest/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/latest/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
