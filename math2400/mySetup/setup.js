@@ -52,10 +52,10 @@
 			},
 			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
 				themes: [
-					{ name: 'Black', theme: '../revealjs/latest/dist/theme/black.css' },
-					{ name: 'White', theme: '../revealjs/latest/dist/theme/white.css' },
-					{ name: 'Night', theme: '../revealjs/latest/dist/theme/night.css' },
-					{ name: 'Simple', theme: '../revealjs/latest/dist/theme/simple.css' },
+					{ name: 'Black', theme: 'revealjs/dist/theme/black.css' },
+					{ name: 'White', theme: 'revealjs/dist/theme/white.css' },
+					{ name: 'Night', theme: 'revealjs/dist/theme/night.css' },
+					{ name: 'Simple', theme: 'revealjs/dist/theme/simple.css' },
 				],
 				transitions: false,
 				markers: true,
@@ -98,7 +98,7 @@
 				]
 			},
 			// ...
-			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight],
+			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight, RevealZoom, RevealSearch],
 		});
 
 		
