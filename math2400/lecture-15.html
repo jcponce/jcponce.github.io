@@ -56,22 +56,205 @@
 				<p>Leture 15</p>
 			</section>
 
-			<section id="first-form-ftc">
+			<section>
+				<section  data-auto-animate  id="first-form-ftc">
 				<h4 style="font-size:90%">8.1 First form of the Fundamental Theorem of Calculus (FTC)</h4>
-				<div class="left-txt size-90">
-					<p><span>
+					<div class="left-txt size-90">
+						<p>
+							<span>
 							<strong>Theorem 8.1.1. </strong>
-						</span>
-						Let $F \colon [a,b] \to \R$ be a continuous function, differentiable
-						on $(a,b)$. Let $f \in \mathcal R[a,b]$ be such that $f(x) = F'(x)$ for $x \in
-						(a,b)$. Then
-						\begin{equation*}
-						\int_a^b f = F(b)-F(a) .
-						\end{equation*}
-					</p>
-				</div>
-				<br/><br/><br/><br/>
+							</span>
+							Let $F \colon [a,b] \to \R$ be a continuous function, differentiable
+							on $(a,b)$. Let $f \in \mathcal R[a,b]$ be such that $f(x) = F'(x)$ for $x \in
+							(a,b)$. Then
+							\begin{equation*}
+							\int_a^b f = F(b)-F(a) .
+							\end{equation*}
+						
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section  data-auto-animate >
+				<h4 style="font-size:90%">Proof of the FTC (first form)</h4>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Let $P$ a partition of $[a,b].$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								We apply the mean value theorem to $F$ on each subinterval
+								$[x_{k-1},x_k]$ of $P$.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								This yields a point $t_k\in (x_{k-1},x_k)$
+								where
+							</span>
+							
+						
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$ F(x_k) - F(x_{k-1})$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ = F'(t_k) (x_k - x_{k-1}) \qquad\qquad$
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$ \qquad =f(t_k) (x_k - x_{k-1}) $
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								Now, consider upper and lower sums $U(P, f)$ and $L(P,f)$.
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								Since $m_k\leq f(t_k)\leq M_k,$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								we have
+							</span>
+							
+						
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="8">
+								$ L(P,f)$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$ \leq \ds \sum_{k=1}^n \left[ F(x_k) - F(x_{k-1})\right]$
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								$ \leq U(P,f).$
+							</span>
+						</p>
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section  data-auto-animate >
+				<h4 style="font-size:90%">Proof of the FTC (first form)</h4>
+					
+					
+					<div class="size-90">
+						<p>
+							<span>
+								$ L(P,f)$
+							</span>
+							<span>
+								$ \leq \ds \sum_{k=1}^n \left[ F(x_k) - F(x_{k-1})\right]$
+							</span>
+							<span>
+								$ \leq U(P,f).$
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Note that the sum in the middle is a telescoping sum 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								so that
+							</span>
+							
+						
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\ds \sum_{k=1}^n \left[ F(x_k) - F(x_{k-1})\right]$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$=F(b)-F(a),$
+							</span>
+							
+						
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								which is independent of the partition $P.$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								Thus we have
+							</span>
+							
+						
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$L(P,f)$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\leq F(b)-F(a)$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\leq U(P,f).$
+							</span>
+							
+						
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section  data-auto-animate >
+				<h4 style="font-size:90%">Proof of the FTC (first form)</h4>
+					<div class="size-90">
+						<p>
+							<span>
+								$L(P,f)$
+							</span>
+							<span>
+								$\leq F(b)-F(a)$
+							</span>
+							<span>
+								$\leq U(P,f).$
+							</span>
+							
+						
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span>
+								Since $f\in \mathcal R[a,b],$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								\[
+								L(P,f) = U(P,f) = \int_a^bf.
+								\]
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Therefore
+								\[
+								\int_a^bf = F(b)-F(a).\; \bs
+								\]
+							</span>
+							
+						
+						</p>
+					</div>
+					<br/><br/>
+				</section>
 			</section>
+
+			
 
 			<section>
 				<section data-auto-animate id="second-form-ftc">
