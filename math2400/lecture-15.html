@@ -393,7 +393,13 @@
 									This means that $F$ is Lipschitz continuous 
 								</span>
 								<span class="fragment" data-fragment-index="7">
-									$\Ra$ $F$ is uniformly continuous on $[a,b].$
+									$\Ra$ $F$ is uniformly continuous on $[a,b]$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\Ra$ $F$ is continuous on $[a,b].$
+								</span><br/>
+								<span class="fragment" data-fragment-index="9">
+									This proves item 1. 😃
 								</span>
 								
 							
@@ -407,13 +413,13 @@
 						<div class="left-txt size-90">
 							<p>
 								<span>
-									Assuming that $f$ is continuous at $c\in[a,b],$
+									Now to prove item 2, we assume that $f$ is continuous at $c\in[a,b],$
 								</span>
 								<span class="fragment" data-fragment-index="0">
 									we would like to show that $F'(c)= f(c).$
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									To do this we rewrite the limit of $F'(c)$ as
+									To do this we rewrite the limit of $F'(c)$ as follows
 								</span>
 							</p>
 						</div>
@@ -440,7 +446,7 @@
 							<p>
 								
 								<span class="fragment" data-fragment-index="4">
-									If we can show that this limit equals $g(c)$, we are done!
+									If we can show the last limit equals $g(c)$, we are done! 😃
 								</span>
 							</p>
 						</div>
@@ -450,13 +456,13 @@
 				<section  data-auto-animate >
 					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
 						
-						<div class="size-75">
+						<div class="size-70">
 							<p>
 								<span>
 									$\ds \lim_{x\to c}\frac{F(x)-F(c)}{x-c}$
 								</span>
 								<span>
-									$\ds= \lim_{x\to c}\frac{1}{x-c}\left(\int_c^x f(t)~dt \right)$
+									$\ds= \lim_{x\to c}\frac{1}{x-c}\left(\int_c^x f(t)~dt \right)=\,{\large ?}$
 								</span>
 								
 							
@@ -580,8 +586,6 @@
 					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
 						
 						
-
-						
 						<div class="left-txt size-90">
 							<p>
 
@@ -608,18 +612,34 @@
 							<p>
 
 								<span>
-									$\qquad \qquad \ds \leq \frac{1}{x-c}\int_c^x \abs{f(t)-f(c)} $
+									$ \ds \leq \frac{1}{x-c}\int_c^x \abs{f(t)-f(c)} $
 								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lt \frac{1}{x-c} \int_c^x \epsilon~dt $
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds= \epsilon .$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt size-80">
+							<p class="fragment" data-fragment-index="2">
+								Therefore
 							</p>
 							<p>
 
-								<span class="fragment" data-fragment-index="0">
-									$\;\;\qquad \quad \ds \lt \frac{1}{x-c} \int_c^x \epsilon~dt $
+								<span class="fragment" data-fragment-index="2">
+									$F'(c)=\ds\lim_{x\to c}\frac{F(x)-F(c)}{x-c}$
 								</span>
-								<span class="fragment" data-fragment-index="1">
-									$\ds= \epsilon .\;\bs$
+								<span class="fragment" data-fragment-index="3">
+									$\ds =\lim_{x\to c}\frac{1}{x-c}\left(\int_c^x f(t)~dt \right)$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds= f(c).\,\bs$
 								</span>
 							</p>
+							
 						</div>
 						
 						<br/><br/>
