@@ -647,25 +647,175 @@
 				
 			</section>
 
-			<section id="change-of-variables">
-				<h4>8.2 Second form of the FTC</h4>
+			<section>
+				<section data-auto-animate id="change-of-variables">
+					<h4>8.2 Second form of the FTC</h4>
+	
+					<div class="left-txt size-90">
+						<p><span>
+								<strong>Theorem 8.2.2. </strong> (Change of variables)
+							</span>
+							Let $g \colon [a,b] \to \R$ be a continuously differentiable function,
+							let $f \colon [c,d] \to \R$ be continuous, and suppose
+							$g\bigl([a,b]\bigr) \subset [c,d]$. Then
+							\begin{equation*}
+							\int_a^b f\bigl(g(x)\bigr)\, g'(x)~ dx =
+							\int_{g(a)}^{g(b)} f(s)~ ds .
+							\end{equation*}
+	
+						</p>
+					</div>
+	
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 8.2.2 (Change of variables)</h4>
+	
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Since $g$, $g'$, and $f$ are continuous,
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$f\bigl(g(x)\bigr)\,g'(x)$
+								is a continuous function of $[a,b]$, 
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								therefore it is Riemann integrable.
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								In a similarly way we can see that $f$ is integrable on every subinterval of $[c,d]$.
+							</span>
+	
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Define $F \colon [c,d] \to \R$ by
+								$
+								\ds F(y) \coloneqq \int_{g(a)}^{y} f(s)\,ds .
+								$
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="0">
+								$\Ra \, F$ is a differentiable function and $F'(y) = f(y)$<br/> (by the FCT).  
+							</span>
+							
+	
+						</p>
+					</div>
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 8.2.2 (Change of variables)</h4>
+	
+					
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Define $F \colon [c,d] \to \R$ by
+								$
+								\ds F(y) \coloneqq \int_{g(a)}^{y} f(s)\,ds .
+								$
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="0">
+								$\Ra \, F$ is a differentiable function and $F'(y) = f(y)$<br/> (by the FCT).  
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Applying  the chain rule we have
 
-				<div class="left-txt size-90">
-					<p><span>
-							<strong>Theorem 8.2.2. </strong> (Change of variables)
-						</span>
-						Let $g \colon [a,b] \to \R$ be a continuously differentiable function,
-						let $f \colon [c,d] \to \R$ be continuous, and suppose
-						$g\bigl([a,b]\bigr) \subset [c,d]$. Then
-						\begin{equation*}
-						\int_a^b f\bigl(g(x)\bigr)\, g'(x)~ dx =
-						\int_{g(a)}^{g(b)} f(s)~ ds .
-						\end{equation*}
-
-					</p>
-				</div>
-
-				<br/><br/>
+							</span>
+						</p>
+					</div>
+					<div class=" size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$\ds \bigl( F \circ g \bigr)' (x) $
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds =
+								F'\bigl(g(x)\bigr) g'(x)$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds 
+								=
+								f\bigl(g(x)\bigr) g'(x) .$
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Observe  that $F\bigl(g(a)\bigr) = 0$.
+							</span>
+						</p>
+					</div>
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 8.2.2 (Change of variables)</h4>
+	
+					
+					
+					<div class=" size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$\ds \bigl( F \circ g \bigr)' (x) $
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds =
+								F'\bigl(g(x)\bigr) g'(x)$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds 
+								=
+								f\bigl(g(x)\bigr) g'(x) .$
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Observe  that $F\bigl(g(a)\bigr) = 0$.
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$\ds \Ra \int_{g(a)}^{g(b)} f(s)$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds  = F\bigl(g(b)\bigr) $
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds   = F\bigl(g(b)\bigr)-F\bigl(g(a)\bigr)\qquad \quad$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$\ds =
+								\int_a^b 
+								\bigl( F \circ g \bigr)' (x) \,dx$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds  =
+								\int_a^b 
+								f\bigl(g(x)\bigr) g'(x)
+								\,dx . \;\bs
+								$
+							</span>
+						</p>
+					</div>
+	
+					<br/><br/><br/>
+				</section>
 			</section>
 
 
