@@ -62,157 +62,363 @@
 
 		
 			<section>
-				<h4>Sequences of functions</h4>
+				<section data-auto-animate>
+					<h4>9.4 Interchange of limits</h4>
+					<div style="font-size:120%">
+						<p class="fragment" data-fragment-index="0">
+							Can we always interchange <br/>limits operations? 🤔
+						</p>
+					</div>
+					<div style="font-size:90%">
+						<p class="fragment" data-fragment-index="1">For example<br/><br/>
+							<span class="fragment" data-fragment-index="4">
+								$0=$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								
+	$\ds \lim_{n\to\infty}
+	\left(
+	\lim_{k\to\infty}
+	\frac{n}{n + k}
+	\right)$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\ds \neq $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds \lim_{k\to\infty}
+	\left(
+	\lim_{n\to\infty}
+	\frac{n}{n + k}
+	\right)$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$=1$
+							</span>
+						</p>
+						<p class="fragment fade-in-then-out" data-fragment-index="1">Are these limits equal?</p>
+						<p class="fragment fade-in" data-fragment-index="2">Of course, no!</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>9.4 Interchange of limits</h4>
+					<div style="font-size:100%">
+						<p>
+							In general, we would like to find conditions on the sequence $\{ f_n \}_{n=1}^\infty$
+so that the equation below holds:
+						</p><br/>
+					</div>
+					<div style="font-size:100%">
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$\ds \lim_{k \to \infty} 
+								\Bigl(
+								\lim_{n \to \infty} f_n(x_k)
+								\Bigr)
+								\overset{?}{=}
+								\lim_{n \to \infty}
+								\Bigl(
+								\lim_{k \to \infty} 
+								f_n(x_k)
+								\Bigr)$
+							</span>
+							
+						</p>
+						
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
 
-				<p class="sbt">Interchange of limits</p>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-						</span>
-						Let $\{ f_n \}$ be
-						a sequence of continuous functions $f_n \colon S \to \R$ converging
-						uniformly to $f \colon S \to \R$. Then $f$ is continuous.
+				<section>
+					<h4>Example 9.4.1.</h4>
+					<div class="left-txt size-95">
+						<p>
+							Define $f_n \colon [0,1] \to \R$ as
+							\begin{equation*}
+							f_n(x) \coloneqq
+							\begin{cases}
+							1-nx &  \text{if } x \lt \dfrac{1}{n},\\
+							0 &  \text{if } x \geq \dfrac{1}{n}.
+							\end{cases}
+							\end{equation*}
+						</p>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section>
+					<h4>Example 9.4.1.</h4>
+					<div class="left-txt size-55">
+						<p>
+							Define $f_n \colon [0,1] \to \R$ as
+							$
+							f_n(x) \coloneqq
+							\begin{cases}
+							1-nx &  \text{if } x \lt \frac{1}{n},\\
+							0 &  \text{if } x \geq \frac{1}{n}.
+							\end{cases}$
+						</p>
+					</div>
 
-					</p>
-				</div>
+					<iframe scrolling="no" title="Example 9.4.1: Sequences of functions" src="https://www.geogebra.org/material/iframe/id/frc3jqsp/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="507px" height="459px" style="border:0px;" allowfullscreen=""> </iframe>
+
+					<br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>9.4.1 Continuity of the limit</h4>
+					<div class="left-txt size-95">
+						<p><span>
+								<strong>Theorem 9.4.1. </strong>
+							</span>
+							Let $\{ f_n \}$ be
+							a sequence of continuous functions $f_n \colon S \to \R$ converging
+							uniformly to $f \colon S \to \R$. Then $f$ is continuous.
+	
+						</p>
+					</div>
+	
+					<br/><br/><br/><br/><br/>
+				</section>
 			</section>
-
 
 			<section>
-				<h4>Sequences of functions</h4>
+				<section>
+					<h4>Example 9.4.2.</h4>
+					<div class="left-txt size-95">
+						<p>
+							Define $f_n \colon [0,1] \to \R$ as
+	\begin{equation*}
+	f_n(x) \coloneqq
+	\begin{cases}
+	0 &  \text{if } x = 0,\\
+	n-n^2x &  \text{if } 0 \lt x \lt \dfrac{1}{n},\\
+	0 &  \text{if } x \geq \dfrac{1}{n}.
+	\end{cases}
+	\end{equation*}
+						</p>
+					</div>
+					<br/><br/><br/>
+				</section>
+	
+				<section>
+					<h4>9.4.2 Integral of the limit</h4>
+					<div class="left-txt size-95">
+						<p><span>
+								<strong>Theorem 9.4.2. </strong>
+							</span>
+							Let $\{ f_n \}$ be a sequence of Riemann integrable
+							functions
+							$f_n \colon [a,b] \to \R$
+							converging uniformly to $f \colon [a,b]
+							\to \R$. Then $f$ is Riemann integrable, and
+							\begin{equation*}
+							\int_a^b f = \lim_{n\to\infty} \int_a^b f_n .
+							\end{equation*}
+	
+	
+						</p>
+					</div>
+					<br/><br/>
+				</section>
 
-				<p class="sbt">Integral of the limit</p>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-						</span>
-						Let $\{ f_n \}$ be a sequence of Riemann integrable
-						functions
-						$f_n \colon [a,b] \to \R$
-						converging uniformly to $f \colon [a,b]
-						\to \R$. Then $f$ is Riemann integrable, and
-						\begin{equation*}
-						\int_a^b f = \lim_{n\to\infty} \int_a^b f_n .
-						\end{equation*}
+				<section>
+					<h4>Example 9.4.3.</h4>
+					<div class="left-txt size-95">
+						<p>
+							Suppose we wish to compute
+\begin{equation*}
+\lim_{n\to\infty} \int_0^1 \frac{nx+ \sin(nx^2)}{n} \,dx .
+\end{equation*}
+						</p>
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
 
+				<section>
+					<h4>Example 9.4.4.</h4>
+					<div class="left-txt size-85">
+						<p>
+							If convergence is only pointwise, the limit need not even be Riemann
+integrable.  On $[0,1]$ define
+\begin{equation*}
+f_n(x) \coloneqq
+\begin{cases}
+1 & \text{if } x = \dfrac{p}{q} \text{ in lowest terms and } q \leq n, \\
+0 & \text{otherwise.}
+\end{cases}
+\end{equation*}
+The function $f_n$ differs from the zero function at finitely many points;
+there are only finitely many fractions in $[0,1]$ with denominator less than
+or equal to $n$.   So $f_n$ is integrable and $\int_0^1 f_n = \int_0^1 0 =
+0$. 
+						</p>
+					</div>
+					<br/><br/>
+				</section>
 
-					</p>
-				</div>
+				<section>
+					<h4>Example 9.4.5.</h4>
+					<div class="left-txt size-85">
+						<p>
+							If the convergence is only pointwise, the limit of bounded
+functions is not even necessarily bounded.
+Define $f_n \colon [0,1] \to \R$ by
+\begin{equation*}
+f_n(x) \coloneqq
+\begin{cases}
+0 & \text{if } x \lt \dfrac{1}{n},\\
+\dfrac{1}{x} & \text{else.}
+\end{cases}
+\end{equation*}
+						</p>
+					</div>
+					<br/><br/>
+				</section>
 			</section>
 
 			<section>
-				<h4>Sequences of functions</h4>
+				<section>
+					<h4>Example 9.4.6.</h4>
+					<div class="left-txt size-85">
+						<p>
+							Let $\ds f_n(x) \coloneqq \frac{\sin(nx)}{n}$.  Then $f_n$ converges uniformly to
+0.  
+						</p>
+					</div>
+					<br/><br/>
+				</section>
 
-				<p class="sbt">Derivative of the limit</p>
-				<div class="left-txt size-70">
-					<p><span>
-							<strong>Theorem:</strong>
-						</span>
-						Let $I$ be a bounded interval and let
-						$f_n \colon I \to \R$ be continuously differentiable functions.
-						Suppose $\{ f_n' \}$ converges uniformly to $g \colon I \to \R$,
-						and suppose $\bigl\{ f_n(c) \bigr\}_{n=1}^\infty$ is a
-						convergent sequence for some $c \in I$. Then $\{ f_n \}$ converges uniformly to
-						a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
+				<section>
+					<h4>Example 9.4.7.</h4>
+					<div class="left-txt size-85">
+						<p>
+							Let $\ds f_n(x) \coloneqq \dfrac{1}{1+nx^2}$.
+If $x \not= 0$, then $\lim_{n \to \infty} f_n(x) = 0$,
+but $\lim_{n \to \infty} f_n(0) = 1$.
 
-					</p>
-				</div>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section>
+					<h4>Sequences of functions</h4>
+	
+					<p class="sbt">Derivative of the limit</p>
+					<div class="left-txt size-90">
+						<p><span>
+								<strong>Theorem 9.4.3. </strong>
+							</span>
+							Let $I$ be a bounded interval and let
+							$f_n \colon I \to \R$ be continuously differentiable functions.
+							Suppose $\{ f_n' \}$ converges uniformly to $g \colon I \to \R$,
+							and suppose $\bigl\{ f_n(c) \bigr\}_{n=1}^\infty$ is a
+							convergent sequence for some $c \in I$. Then $\{ f_n \}$ converges uniformly to
+							a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
+	
+						</p>
+					</div>
+				</section>
 			</section>
 
-			<section id="fourier-series">
-				<h5>Fourier series</h5>
-				<div class="left-txt size-60">
-					<p>The <b>Fourier series</b> of a real function $f$ defined on the interval $(-p,p)$ is given by
-						\[
-						f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\,\cos \left(\frac{n\, \pi}{p}x\right)+b_n\,\sin
-						\left(\frac{n\, \pi}{p}x\right) \right),
-						\]
-						<span class="fragment" data-fragment-index="0">
-							where
-						\begin{eqnarray*}
-						a_0&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,dx,\\
-						a_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\cos \left(\frac{n\, \pi}{p}x\right)\,dx,\\
-						b_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\sin \left(\frac{n\, \pi}{p}x\right)\,dx.
-						\end{eqnarray*}
-						</span>
-					</p>
+			
 
-						<p style="font-size:18px"  class="fragment" data-fragment-index="0">The <em>Fourier series</em> is named in honor of <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
-							target="_blank">Jean Baptiste Joseph Fourier (1768-1830).</a></p>
-				</div>
-				<br/><br/>
-			</section>
-
-			<section id="fourier-example">
-				<h5>Fourier series</h5>
-				<div class="left-txt size-60">
-					<p><strong>Example:</strong> Consider the function
-						defined by $f(x)=x+\pi$ for $-\pi &lt; x &lt; \pi $
-						and $f(x)=f(x+2\pi)$ for $-\infty &lt; x &lt; \infty$.
-						<span class="fragment" data-fragment-index="0">Its Fourier series expansion is
+			<section>
+				<section data-auto-animate id="fourier-series">
+					<h5>Fourier series</h5>
+					<div class="left-txt size-65">
+						<p>The <b>Fourier series</b> of a real function $f$ defined on the interval $(-p,p)$ is given by
 							\[
-							f(x)=\pi+2\sum_{n=1}^{\infty}\frac{\left(-1\right)^{n+1}}{n}\sin (n\,x).
+							f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\,\cos \left(\frac{n\, \pi}{p}x\right)+b_n\,\sin
+							\left(\frac{n\, \pi}{p}x\right) \right),
 							\]
-						</span>
-					</p>
-				</div>
-
-				<img  class="fragment" data-fragment-index="1" width="72%" src="https://teaching.smp.uq.edu.au/scims/Num_analysis/images/fourierfunc.gif">
-
-				<br/><br/>
-			</section>
-
-			<section id="square-wave">
-				<h5>Fourier series</h5>
-				<p class="sbt">The square wave</p>
-				
-				<div  class="fourier" style="height:450px;width:700px">
-					<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-function" width="650px"
-					height="600px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-				</div>
-						<br/><br/>
-			</section>
-
-			<section id="fourier-square-wave">
-				<h5>Fourier series</h5>
-
-				<table style="width:100%;">
-					<tr>
-
-						<td style="width:40%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-								<p>
-									<strong>The square wave</strong><br /><br />
-									The Fourier series expansion is given by
-									\[
-									f(x):=\frac{4}{\pi}\sum_{1,3,5\ldots}^{\infty} \frac{1}{n}\sin\left(\frac{n\pi
-									x}{L}\right)
-									\]
-								</p>
-							</div>
-
-							<br />
-							<p style="font-size:14px">Original Fourier applets by: <a href="https://www.jezzamon.com/fourier/"
-									target="_blank">Jez Swanson</a></p>
-						</td>
-						<td style="width:60%;">
-							<div  class="fourier" style="height: 465px;width:450px">
-								<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-wave" width="400px"
-								height="500px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-							</div>
-						</td>
-
-					</tr>
-				</table>
-				<br/><br/>
-			</section>
-
-
-			<section id="fourier-general-example" data-background-iframe="sketches/fourier/user-wave" data-preload>
-
-				<!--<p style="text-align:center;font-size:24px;font-weight: bold;">FOURIER SERIES: General example</p>-->
-
-
+							<span class="fragment" data-fragment-index="0">
+								where
+							\begin{eqnarray*}
+							a_0&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,dx,\\
+							a_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\cos \left(\frac{n\, \pi}{p}x\right)\,dx,\\
+							b_n&amp;=&amp;\frac{1}{p}\int_{-p}^pf(x)\,\sin \left(\frac{n\, \pi}{p}x\right)\,dx.
+							\end{eqnarray*}
+							</span>
+						</p>
+	
+							<p style="font-size:18px"  class="fragment" data-fragment-index="0">The <em>Fourier series</em> is named in honor of <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
+								target="_blank">Jean Baptiste Joseph Fourier (1768-1830).</a></p>
+					</div>
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate id="fourier-example">
+					<h5>Fourier series</h5>
+					<div class="left-txt size-70">
+						<p><strong>Example:</strong> Consider the function
+							defined by $f(x)=x+\pi$ for $-\pi &lt; x &lt; \pi $
+							and $f(x)=f(x+2\pi)$ for $-\infty &lt; x &lt; \infty$.
+							<span class="fragment" data-fragment-index="0">Its Fourier series expansion is
+								\[
+								f(x)=\pi+2\sum_{n=1}^{\infty}\frac{\left(-1\right)^{n+1}}{n}\sin (n\,x).
+								\]
+							</span>
+						</p>
+					</div>
+	
+					<img  class="fragment" data-fragment-index="1" width="72%" src="https://teaching.smp.uq.edu.au/scims/Num_analysis/images/fourierfunc.gif">
+	
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate id="square-wave">
+					<h5>Fourier series</h5>
+					<p class="sbt">The square wave</p>
+					
+					<div  class="fourier" style="height:450px;width:700px">
+						<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-function" width="650px"
+						height="600px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					</div>
+							<br/><br/>
+				</section>
+	
+				<section data-auto-animate id="fourier-square-wave">
+					<h5>Fourier series</h5>
+	
+					<table style="width:100%;">
+						<tr>
+	
+							<td style="width:40%">
+								<div class="size-65" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+									<p>
+										<strong>The square wave</strong><br /><br />
+										The Fourier series expansion is given by
+										\[
+										f(x):=\frac{4}{\pi}\sum_{1,3,5\ldots}^{\infty} \frac{1}{n}\sin\left(\frac{n\pi
+										x}{L}\right)
+										\]
+									</p>
+								</div>
+	
+								<br />
+								<p style="font-size:16px">Original Fourier applets by: <a href="https://www.jezzamon.com/fourier/"
+										target="_blank">Jez Swanson</a></p>
+							</td>
+							<td style="width:60%;">
+								<div  class="fourier" style="height: 465px;width:450px">
+									<iframe scrolling="no" title="Square wave" src="sketches/fourier/square-wave" width="400px"
+									height="500px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+								</div>
+							</td>
+	
+						</tr>
+					</table>
+					<br/><br/>
+				</section>
+	
+	
+				<section data-auto-animate id="fourier-general-example" data-background-iframe="sketches/fourier/user-wave" data-preload>
+	
+					<!--<p style="text-align:center;font-size:24px;font-weight: bold;">FOURIER SERIES: General example</p>-->
+	
+	
+				</section>
 			</section>
 
 
