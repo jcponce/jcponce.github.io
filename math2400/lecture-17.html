@@ -43,9 +43,6 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	<script src="mySetup/google-analytics-ga4.js"></script>
 
-	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
-	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
-
 
 </head>
 
@@ -63,7 +60,7 @@
 			<section>
 				<section>
 					<h4>9.1 Pointwise convergence</h4>
-					<div class="left-txt size-90">
+					<div class="left-txt size-95">
 						<p>
 							<span class="fragment" data-fragment-index="0">
 								<strong>Definition 9.1.1. </strong>
@@ -91,13 +88,13 @@
 				</section>
 				<section data-auto-animate>
 					<h4>Example 9.1.1.</h4>
-					<div class="left-txt size-90">
+					<div class="left-txt size-95">
 						<p>
-							Consider the sequence of functions defined by $f_n(x) \coloneqq x^{2n}$ on $[-1,1]$, 
+							Consider the sequence of functions defined by $f_n(x) \coloneqq x^{2n}.$ 
 							<span  class="fragment" data-fragment-index="0">
-								converges pointwise to $f \colon [-1,1] \to \R$,
+								It converges pointwise on $[-1,1]$ to $f \colon [-1,1] \to \R$,
 							</span>
-							<span  class="fragment" data-fragment-index="0">
+							<span  class="fragment" data-fragment-index="1">
 								where
 								\begin{equation*}
 								f(x) =
@@ -252,13 +249,15 @@
 							
 							
 						</p>
+						<p class="fragment" data-fragment-index="1">
+							<strong>Proof. </strong> It follows from Theorem 9.1.1. 📝
+						</p>
 					</div>
-					<br/><br/><br/><br/><br/><br/>
+					<br/><br/><br/><br/><br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4 style="font-size:90%;">9.2 Uniform convergence</h4>
-					<p class="sbt" style="margin-top:-15px">Nonuniform convergence criterion</p>
 					<div class="left-txt size-90">
 						<p><strong>Example 9.2.1. </strong>
 							Let $f_n(x) := \dfrac{x}{n}$ defined on $\R$ for every $n\in \N$.
@@ -306,7 +305,7 @@
 								$\ds \abs{\,f_{n_k}(x_k)-f(x_k)}$
 							</span>
 							<span class="fragment" data-fragment-index="7">
-								$=\abs{1-x}$
+								$=\abs{1-0}$
 							</span>
 							<span class="fragment" data-fragment-index="8">
 								$\ds=1.$
@@ -328,38 +327,32 @@
 				<section data-auto-animate>
 					<h4>9.2 Uniform convergence</h4>
 					<p class="sbt">Nonuniform convergence criterion</p>
-					<div class="left-txt size-90">
-						<p><strong>Theorem:</strong>
+					<div class="left-txt size-85">
+						<p><strong>Theorem 9.2.2. </strong>
 							Let $f_n \colon S \to \R$
 							and $f \colon S \to \R$
 							be functions.
 						</p>
 					</div>
 	
-					<div class="size-90">
-						The sequence $\{ f_n \}$ <strong>does not converge uniformly</strong>
+					<div class="size-85">
+						The sequence $\{ f_n \}$ <strong>does not converge uniformly</strong> to $f$
 						<br />
-						<p>if and only if</p>
+						<p class="fragment" data-fragment-index="0">if and only if</p>
 					</div>
 	
-					<div class="left-txt size-90">
-						<p>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">
 							for some $\epsilon_0\gt 0$ there is a subsequence $\{ f_{n_k} \}$
 							of $\{ f_n \}$ and a sequence $\{ x_k \}$ in $S$ such that
 							\[
-							\abs{\,f_{n_k}\left(x_k\right)-f(x_k)}\geq \epsilon_0 \text{ for all } k\in \N.
+							\abs{\,f_{n_k}\left(x_k\right)-f(x_k)}\geq \epsilon_0\, \text{ for all }\, k\in \N.
 							\]
 						</p>
 	
 					</div>
 					<br/><br/>
 				</section>
-	
-				
-	
-	
-				
-
 			</section>
 
 			
@@ -370,15 +363,20 @@
 					<h4>9.3 Convergence in uniform norm</h4>
 					
 					<div class="left-txt size-95">
-						<p><span>
+						<p class="fragment" data-fragment-index="0"><span>
 								<strong>Definition 9.3.1. </strong>
 							</span>
-							Let $f \colon S \to \R$ be a bounded function. Define
+							Let $f \colon S \to \R$ be a bounded function. 
+							<span  class="fragment" data-fragment-index="0">
+								Define
 							\begin{equation*}
 							\norm{\,f}_u :=
 							\sup \bigl\{ \abs{\,f(x)} : x \in S \bigr\} .
 							\end{equation*}
+							</span>
+							<span  class="fragment" data-fragment-index="1">
 							We call $\norm{\cdot}_u$ the <em>uniform norm</em>.
+							</span>
 	
 						</p>
 					</div>
@@ -404,6 +402,147 @@
 					</div>
 					<br/><br/><br/><br/>
 				</section>
+				
+				<section data-auto-animate>
+					<h4>9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+								<strong>Theorem 9.3.1. </strong>
+							</span>
+							A sequence of bounded functions $f_n \colon S \to \R$ converges
+							uniformly to $f \colon S \to \R$, if and only if 
+							$\lim_{n\to\infty} \norm{\,f_n - f}_u = 0 .$
+	
+						</p>
+	
+						
+					</div>
+					<div class="left-txt size-95">
+						<p>
+							<strong>Proof. </strong>
+							<span class="fragment" data-fragment-index="0">
+								$\nec$ Suppose 
+								$\{ f_n \}_{n=1}^\infty$ converges uniformly to $f$.
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								Let $\epsilon > 0$ be given. 
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								Then find $N$ such that 
+$\abs{f_n(x)-f(x)} \lt \epsilon$ for all $x \in S$.
+							</span>
+							<span  class="fragment" data-fragment-index="3">
+								Taking the supremum we see that
+$\snorm{f_n - f}_S \leq \epsilon$.
+							</span>
+							<span  class="fragment" data-fragment-index="4">
+								Therefore
+							</span>
+						</p>
+					</div>
+					<div class="size-95">
+						<p>
+							<span  class="fragment" data-fragment-index="4">
+								 $\ds\lim_{n\to\infty} \snorm{f_n-f}_S = 0.$
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+								<strong>Theorem 9.3.1. </strong>
+							</span>
+							A sequence of bounded functions $f_n \colon S \to \R$ converges
+							uniformly to $f \colon S \to \R$, if and only if 
+							$\lim_{n\to\infty} \norm{\,f_n - f}_u = 0 .$
+	
+						</p>
+	
+						
+					</div>
+					<div class="left-txt size-95">
+						<p>
+							<strong>Proof. </strong>
+							<span>
+								$\suf$ Suppose 
+								$\lim_{n\to \infty} \norm{f_n - f}_S = 0$.
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								Let $\epsilon > 0$ be given. 
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								Then there exists an $N$ such that
+for $n \geq N$, we have $\snorm{f_n - f}_S \lt  \epsilon$. 
+							</span>
+							<span  class="fragment" data-fragment-index="3">
+								As $\norm{f_n-f}_S$
+								is the supremum of $\abs{f_n(x)-f(x)}$,
+							</span>
+							<span  class="fragment" data-fragment-index="4">
+								then
+							</span>
+						</p>
+					</div>
+					<div class="size-95">
+						<p>
+							<span  class="fragment" data-fragment-index="4">
+								$\abs{f_n(x)-f(x)}$
+							</span>
+							<span  class="fragment" data-fragment-index="5">
+								$\leq \snorm{f_n - f}_S $
+							</span>
+							<span  class="fragment" data-fragment-index="6">
+								$ \lt \epsilon\,$
+								for all $\,x\in S.\;\bs$
+							</span>
+						</p>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 9.3.1.</h4>
+					
+					<div class="left-txt size-90">
+						<p>
+							Let $f_n \colon [0,1] \to \R$ be defined by 
+							\[
+							f_n(x) \coloneqq \frac{nx+ \sin(nx^2)}{n}.
+							\]
+                            <span>
+								We claim $\{ f_n \}_{n=1}^\infty$ converges uniformly to $f(x) \coloneqq x$.  
+							</span>
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>9.3 Convergence in uniform norm</h4>
+					
+					<div class="left-txt size-95">
+						<p><span>
+								<strong>Definition 9.3.2. </strong>
+							</span>
+							Let $f_n \colon S \to \R$ be bounded functions.
+The sequence is <em>Cauchy in the uniform norm</em>
+or <em>uniformly Cauchy</em>
+if for every $\epsilon > 0$, there exists an $N \in \N$ such
+that for all $m,k \geq N$,
+\begin{equation*}
+\norm{f_m-f_k}_S \lt \epsilon .
+\end{equation*}
+	
+						</p>
+					</div>
+
+					<br/><br/><br/>
+				</section>
+
 				<section data-auto-animate>
 					<h4>9.3 Convergence in uniform norm</h4>
 					<div class="left-txt size-95">
@@ -417,6 +556,28 @@
 							there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
 							uniformly to $f$.
 	
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+							<strong>Theorem 9.3.2. </strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+	
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong>
 						</p>
 					</div>
 					<br/><br/><br/><br/>
