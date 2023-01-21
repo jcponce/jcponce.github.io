@@ -130,7 +130,7 @@ so that the equation below holds:
 					<br/><br/><br/><br/><br/>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>Example 9.4.1.</h4>
 					<div class="left-txt size-95">
 						<p>
@@ -146,9 +146,9 @@ so that the equation below holds:
 					</div>
 					<br/><br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Example 9.4.1.</h4>
-					<div class="left-txt size-55">
+					<div class="size-55">
 						<p>
 							Define $f_n \colon [0,1] \to \R$ as
 							$
@@ -164,16 +164,121 @@ so that the equation below holds:
 
 					<br/><br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.4.1.</h4>
+					<div class="size-55">
+						<p>
+							Define $f_n \colon [0,1] \to \R$ as
+							$
+							f_n(x) \coloneqq
+							\begin{cases}
+							1-nx &  \text{if } x \lt \frac{1}{n},\\
+							0 &  \text{if } x \geq \frac{1}{n}.
+							\end{cases}$
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							Note that $f_n$ is continuous.
+							<span class="fragment" data-fragment-index="0">
+								Consider a fix $x \in (0,1]$.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								<br/>
+								If $n \geq \dfrac{1}{x}$,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then $x \geq \dfrac{1}{n}$.
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Thus for $n \geq \dfrac{1}{x}$,
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								we have that  $f_n(x) = 0,$
+							</span>
+							<span class="fragment" data-fragment-index="5"> and so
+\begin{equation*}
+\lim_{n \to \infty} f_n(x) = 0.
+\end{equation*}
+							</span>
+						</p>
+						<p>
+							
+							<span class="fragment" data-fragment-index="6">
+								Now if $x=0$,
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								then
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								$\ds 
+								\lim_{n \to \infty} f_n(0)$
+							</span><span class="fragment" data-fragment-index="8">
+								$\ds = 
+								\lim_{n \to \infty} 1 $
+							</span><span class="fragment" data-fragment-index="9">
+								$ = 1.$
+							</span>
+
+						</p>
+					</div>
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.4.1.</h4>
+					<div class="size-55">
+						<p>
+							Define $f_n \colon [0,1] \to \R$ as
+							$
+							f_n(x) \coloneqq
+							\begin{cases}
+							1-nx &  \text{if } x \lt \frac{1}{n},\\
+							0 &  \text{if } x \geq \frac{1}{n}.
+							\end{cases}$
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							Thus $f_n$ converges pointwise to the function
+$f \colon [0,1] \to \R$ defined by
+\begin{equation*}
+f(x) \coloneqq
+\begin{cases}
+1 &  \text{if } x = 0,\\
+0 &  \text{if } x > 0.
+\end{cases}
+\end{equation*}
+							<span class="fragment" data-fragment-index="0">
+								Observe that the function $f$ is not continuous at 0.
+							</span>
+							
+						</p>
+						
+					</div>
+					
+
+					<br/><br/><br/><br/>
+				</section>
 	
 				<section data-auto-animate>
 					<h4>9.4.1 Continuity of the limit</h4>
 					<div class="left-txt size-95">
-						<p><span>
+						<p class="fragment" data-fragment-index="0">
+							<span>
 								<strong>Theorem 9.4.1. </strong>
 							</span>
 							Let $\{ f_n \}$ be
 							a sequence of continuous functions $f_n \colon S \to \R$ converging
-							uniformly to $f \colon S \to \R$. Then $f$ is continuous.
+							uniformly to $f \colon S \to \R$.
+							<span class="fragment" data-fragment-index="1">
+								Then $f$ is continuous.
+							</span> 
 	
 						</p>
 					</div>
