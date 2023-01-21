@@ -507,18 +507,98 @@ for $n \geq N$, we have $\snorm{f_n - f}_S \lt  \epsilon$.
 				<section data-auto-animate>
 					<h4>Example 9.3.1.</h4>
 					
-					<div class="left-txt size-90">
+					<div class="left-txt size-95">
 						<p>
 							Let $f_n \colon [0,1] \to \R$ be defined by 
 							\[
 							f_n(x) \coloneqq \frac{nx+ \sin(nx^2)}{n}.
 							\]
-                            <span>
+                            <span class="fragment" data-fragment-index="0">
 								We claim $\{ f_n \}_{n=1}^\infty$ converges uniformly to $f(x) \coloneqq x$.  
 							</span>
 						</p>
 					</div>
 					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.3.1.</h4>
+					
+					<div class="left-txt size-45">
+						<p>
+							Let $f_n \colon [0,1] \to \R$ be defined by 
+							$
+							f_n(x) \coloneqq \frac{nx+ \sin(nx^2)}{n}.
+							$
+                            <span >
+								We claim $\{ f_n \}_{n=1}^\infty$ converges uniformly to $f(x) \coloneqq x$.  
+							</span>
+						</p>
+					</div>
+					
+					<iframe scrolling="no" title="Example 9.3.1: Sequence of functions" src="https://www.geogebra.org/material/iframe/id/zbtzepxr/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="507px" height="459px" style="border:0px;" allowfullscreen=""> </iframe>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.3.1.</h4>
+					
+					<div class="left-txt size-45">
+						<p>
+							Let $f_n \colon [0,1] \to \R$ be defined by 
+							$
+							f_n(x) \coloneqq \frac{nx+ \sin(nx^2)}{n}.
+							$
+                            <span >
+								We claim $\{ f_n \}_{n=1}^\infty$ converges uniformly to $f(x) \coloneqq x$.  
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong>
+							<span class="fragment" data-fragment-index="0">
+								Let's use the uniform norm:
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span  class="fragment" data-fragment-index="1">
+								$\norm{f_n-f}_{[0,1]}$
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								$=
+								\ds \sup \left\{ \abs{\frac{nx+ \sin(nx^2)}{n} - x} : x \in [0,1] \right\} $
+							</span>
+							
+						</p>
+						<p>
+							<span  class="fragment" data-fragment-index="3">
+								$\;\quad =
+								\ds\sup \left\{ \frac{\abs{\sin(nx^2)}}{n} : x \in [0,1] \right\}$
+							</span>
+							
+						</p>
+						<p>
+							<span  class="fragment" data-fragment-index="4">
+								$\;\leq
+								\ds \sup \left\{ \frac{1}{n} : x \in [0,1]\right\}
+								$
+							</span>
+							<span  class="fragment" data-fragment-index="5">
+								$
+								\ds = \frac{1}{n}.
+								$
+							</span>
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								Since $\ds \lim_{n\to \infty} \frac{1}{n}=0$, then $\{f_n\}$ converges uniformly.
+							</span>
+						</p>
+					</div>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
@@ -558,9 +638,11 @@ that for all $m,k \geq N$,
 	
 						</p>
 					</div>
-					<br/><br/><br/><br/>
+					<br/><br/><br/><br/><br/>
 				</section>
-				<section data-auto-animate>
+				
+				<!--
+					<section data-auto-animate>
 					<h4>9.3 Convergence in uniform norm</h4>
 					<div class="left-txt size-55">
 						<p><span>
@@ -582,6 +664,7 @@ that for all $m,k \geq N$,
 					</div>
 					<br/><br/><br/><br/>
 				</section>
+				-->
 			</section>
 
 
