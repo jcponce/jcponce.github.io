@@ -293,16 +293,229 @@ f(x) \coloneqq
 					<div class="left-txt size-95">
 						<p>
 							Define $f_n \colon [0,1] \to \R$ as
-	\begin{equation*}
-	f_n(x) \coloneqq
-	\begin{cases}
-	0 &  \text{if } x = 0,\\
-	n-n^2x &  \text{if } 0 \lt x \lt \dfrac{1}{n},\\
-	0 &  \text{if } x \geq \dfrac{1}{n}.
-	\end{cases}
-	\end{equation*}
+							\begin{equation*}
+							f_n(x) \coloneqq
+							\begin{cases}
+							n^2x &  \text{if } 0\leq x\leq \dfrac{1}{n},\\
+							-n^2\left(x-\dfrac{2}{n}\right) &  \text{if } \dfrac{1}{n} \leq x \leq  \dfrac{2}{n},\\
+							0 &  \text{if } \dfrac{2}{n}\leq  x \leq 1.
+							\end{cases}
+							\end{equation*}
 						</p>
 					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 9.4.2.</h4>
+					<div class="size-50">
+						<p>
+							Define $f_n \colon [0,1] \to \R$ as
+							$
+							f_n(x) \coloneqq
+							\begin{cases}
+							n^2x &  \text{if } 0\leq x\leq \frac{1}{n},\\
+							-n^2\left(x-\frac{2}{n}\right) &  \text{if } \frac{1}{n} \leq x \leq  \frac{2}{n},\\
+							0 &  \text{if } \frac{2}{n}\leq  x \leq 1.
+							\end{cases}$
+						</p>
+					</div>
+
+					<iframe scrolling="no" title="Example 9.4.2: Sequences of functions" src="https://www.geogebra.org/material/iframe/id/upeec5tj/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="507px" height="459px" style="border:0px;" allowfullscreen=""> </iframe>
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Example 9.4.2.</h4>
+					
+					<div class=" left-txt size-85">
+						<p>
+							Since each of the functions $f_n$ is continuous on $[0,1]$,
+							<span class="fragment" data-fragment-index="0">
+								then $f$ Riemann integrable.
+							</span> 
+							<span class="fragment" data-fragment-index="1">
+								For $n\geq 2$, using the FTC,
+							</span> 
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="1">
+								$\ds \int_0^1 f_n $
+							</span> 
+							<span class="fragment" data-fragment-index="2">
+								$\ds =
+								\int_0^{1/n} n^2x\,dx $
+							</span> 
+							<span class="fragment" data-fragment-index="3">
+								$\ds 
+								 + \int_{1/n}^{2/n} n^2(x-2/n) \,dx$
+							</span> <br/><br/>
+							<span class="fragment" data-fragment-index="4">
+								$\ds =
+								\frac{1}{2} + \frac{1}{2}$
+							</span> 
+							<span class="fragment" data-fragment-index="5">
+								$\ds =
+								1. \qquad \qquad \quad \;\;\;$
+							</span> 
+						</p>
+					</div>
+					<div class=" left-txt size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="6">
+								Now to compute $\lim f_n$
+							</span> 
+							<span class="fragment" data-fragment-index="7">
+								fix an $x\in[0,1].$
+							</span> 
+							<span class="fragment" data-fragment-index="8">
+								For $n\geq \dfrac{2}{x}$,
+							</span> 
+							<span class="fragment" data-fragment-index="9">
+								we have $x \geq \dfrac{2}{n}$ and so $f_n(x) = 0$.  
+							</span> 
+							<span class="fragment" data-fragment-index="10">
+								Therefore, $\lim f_n = 0.$
+							</span> 
+						</p>
+					</div>
+
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:100%">Example 9.4.2.</h4>
+					
+					<div class=" left-txt size-85">
+						<p>
+							Thus we have
+						</p>
+					</div>
+					<div class="size-80">
+						<p>
+							
+							<span class="fragment" data-fragment-index="2">
+								$\ds 1 = $
+							</span> 
+							<span>
+								$\ds 
+								\lim_{n\to\infty} \int_0^1 f_n (x)\,dx $
+							</span> 
+							<span class="fragment" data-fragment-index="0">
+								$\ds 
+								\not=
+								\int_0^1
+								\left(
+								\lim_{n\to\infty}
+								f_n(x)\right)\,dx$
+							</span> 
+							<span class="fragment" data-fragment-index="1">
+								$\ds=
+								\int_0^1 0\,dx$
+							</span> 
+							<span class="fragment" data-fragment-index="2">
+								$\ds =0$
+							</span> 
+						</p>
+					</div>
+					
+
+					
+
+					<br/><br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 9.4.3.</h4>
+					<div class="left-txt">
+						<p>
+							Consider the functions $$f_n(x):= 2n x e^{-n x^2} \,\text{ for } \,x\in [0,1].$$
+						</p>
+					</div>
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 9.4.3.</h4>
+					<div class="size-60">
+						<p>
+							$f_n(x):= 2n x e^{-n x^2}$ for $x\in [0,1].$
+						</p>
+					</div>
+
+					<iframe scrolling="no" title="Example 9.4.3: Sequences of functions" src="https://www.geogebra.org/material/iframe/id/uzgsggu3/width/507/height/459/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="507px" height="459px" style="border:0px;" allowfullscree=""> </iframe>
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 9.4.3.</h4>
+					<div class="size-60">
+						<p>
+							$f_n(x):= 2n x e^{-n x^2}$ for $x\in [0,1].$
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							
+							<span>
+								Since $f_n = F'_n$ where $F_n(x):= -e^{-nx^2} ,$
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								then
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="0">
+								$\ds \int_0^1 f_n $ 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$ = F_n(1)- F_n(0)$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ = 1- e^{-n}.$
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="3">
+								We also have that $f(x)= \lim f_n = 0$ for all $x\in[0,1]$.
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								Hence
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="5">
+								$0=$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\ds \int_0^1 f $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\ds \,\neq \,$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\ds \lim \int_0^1 f_n$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\ds = 1 - e^{-n}.$
+							</span>
+						</p>
+					</div>
+
+					
+
 					<br/><br/><br/>
 				</section>
 	
@@ -326,6 +539,8 @@ f(x) \coloneqq
 					</div>
 					<br/><br/>
 				</section>
+
+				
 
 				<section>
 					<h4>Example 9.4.3.</h4>
