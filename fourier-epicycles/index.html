@@ -96,13 +96,98 @@
     </header>
 
     <h3>Introduction</h3>
-    <p>A set of sketches inspired by Daniel Shiffman&apos;s
+
+    <p>The Discrete Fourier Transform is defined as
+      \begin{aligned}
+      X_{k}&=\dfrac{1}{n}\sum _{n=0}^{N-1}x_{n}\cdot e^{-{\frac {i\,2\pi }{N}}\,kn}\\
+      &=\sum _{n=0}^{N-1}x_{n}\left[\cos \left({\frac {2\pi }{N}}kn\right)-i\cdot \sin \left({\frac {2\pi
+      }{N}}kn\right)\right],
+      \end{aligned}
+      where the last expression follows from the first one by Euler's formula.
+      Essentially, it transforms a sequence of $N$ complex numbers
+      $$\displaystyle \mathbf {x} :=x_{0},x_{1},\ldots ,x_{N-1}$$
+      into another sequence of complex numbers, 
+      $$\displaystyle \mathbf {X} :=X_{0},X_{1},\ldots
+      ,X_{N-1}.$$
+      </p>
+
+      <p>A few important notes:
+      <ul>
+        <li>$N =$ number of time samples we have</li>
+        <li>$n =$ current sample we're considering $(0 \ldots N-1)$</li>
+        <li> $x_n =$ value of the signal at time $n$</li>
+        <li>$k =$ current frequency we're considering (0 Hertz up to $N-1$ Hertz)</li>
+        <li>$X_k =$ amount of frequency $k$ in the signal (amplitude and phase, a complex number)</li>
+      </ul>
+
+    </p>
+
+    <hr>
+
+    <h3 class="w3-center">Drawing a T-Rex with epicycles</h3>
+
+    <p>The below animation with epicycles demonstrates
+      how a simple sum of complex numbers in terms of phases/amplitudes can be nicely
+      visualized as a set of concatenated circles in the complex plane. Each circle
+      represents a Fourier coefficient $X_k$ sorted by amplitude.
+    </p>
+
+    <div class="box alt">
+      <div class="row gtr-50 aln-center">
+        <div class="col-0"><span class="image">
+          <img width="85%" class="w3-border" src="https://1.bp.blogspot.com/-fiolsZyw_ac/XCMMzZk7XSI/AAAAAAAAXMA/71Jzs5-eqx0iioviiyv3UtwCUK4oku9VwCLcBGAs/s1600/TRex.gif" alt="t-rex">
+          </span></div>
+      </div>
+      <div class="row gtr-50 aln-center">
+        <div class="col-0"><span class="image fit">
+            <a href="sketches/t-rex" class="button small primary" target="_blank">Live Demo</a>
+          </span></div>
+      </div>
+    </div>
+
+    <p>Originally the T-Rex curve (signal) is defined with 203 points. After calculating
+      the Fourier coefficient $X_k$, we can easily determine its phase and amplitude 
+      for every value of $k$.</p>
+
+    
+    <h4 class="w3-center">Aproximating T-Rex with parametric equations</h4>
+
+    <p>It is possible to approximate the T-Rex curve. In this case we can use the Fourier coefficients 
+      $X_k$ to define the parametric equations:
+      \begin{eqnarray*}
+      x &amp; = \sum_{k=0}^{N-1} \big( a_k \, \cos\left( k \,t \right) - b_k \, \sin\left( k \,t \right) \big), \\
+      y &amp; = \sum_{k=0}^{N-1} \big( b_k \, \cos\left( k \,t \right) + a_k \, \sin\left( k \,t \right) \big)
+      \end{eqnarray*}
+      with $t\in[0, 2\pi)$. The coefficients $a_k$ and $b_k$ are the real and imaginary parts
+      of $X_k$.
+    </p>
+
+
+    For more details see:
+    <br/><br/>
+
+    <ul>
+      <li>
+        <strong>How it works?</strong> - <a href="https://mathed.miamioh.edu/index.php/ggbj/article/view/197" target="_blank">Tracing closed curves with epicycles A fun application of the discrete Fourier transform</a>
+      </li>
+      <li>
+        <strong>p5.js implementation</strong> - Daniel Shiffman&apos;s
       Coding Challenges <a href="https://thecodingtrain.com/CodingChallenges/130.1-fourier-transform-drawing.html" target="_blank">#130.1</a>,
       <a href="https://thecodingtrain.com/CodingChallenges/130.2-fourier-transform-drawing.html" target="_blank">#130.2</a>
       and
       <a href="https://thecodingtrain.com/CodingChallenges/130.3-fourier-transform-drawing.html" target="_blank">#130.3</a>.</p>
+      </li>
+    </ul>
 
-    <hr>
+    <p>If you like this project, you can support it in: 
+      <strong><a href="https://www.patreon.com/jcponce"><i class="fab fa-patreon"></i>
+        Patreon</a></strong>
+       or 
+      <strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=WTMTR7D8RYZ26&amp;item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+site.+Sincerely+appreciate+it%21&amp;currency_code=AUD&amp;source=url">&#x2764;&#xFE0F;
+        PayPal</a></strong>
+      </p>
+
+    <hr/>
 
     <section>
 
@@ -167,20 +252,7 @@
 
       <hr>
 
-      <div class="box alt">
-        <div class="row gtr-50 aln-center">
-          <div class="col-0"><span class="image fit">
-            <img class="w3-border" src="https://1.bp.blogspot.com/-fiolsZyw_ac/XCMMzZk7XSI/AAAAAAAAXMA/71Jzs5-eqx0iioviiyv3UtwCUK4oku9VwCLcBGAs/s1600/TRex.gif" alt="t-rex">
-            </span></div>
-        </div>
-        <div class="row gtr-50 aln-center">
-          <div class="col-0"><span class="image fit">
-              <a href="sketches/t-rex" class="button small primary" target="_blank">Live Demo</a>
-            </span></div>
-        </div>
-      </div>
-
-      <hr>
+      
 
       <div class="box alt">
         <div class="row gtr-50 aln-center">
@@ -231,15 +303,7 @@
 
     </section>
 
-    <section class="row gtr-50 aln-center">
-      <p>You can also support this project with: 
-        <strong><a href="https://www.patreon.com/jcponce"><i class="fab fa-patreon"></i>
-          Patreon</a></strong>
-         or 
-        <strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=WTMTR7D8RYZ26&amp;item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+site.+Sincerely+appreciate+it%21&amp;currency_code=AUD&amp;source=url">&#x2764;&#xFE0F;
-          PayPal</a></strong>
-        </p>
-    </section>
+    
 
   </div>
 </section>
