@@ -707,8 +707,8 @@ that for all $m,k \geq N$,
 					<br/><br/><br/><br/><br/>
 				</section>
 				
-				<!--
-					<section data-auto-animate>
+				
+				<section data-auto-animate>
 					<h4>9.3 Convergence in uniform norm</h4>
 					<div class="left-txt size-55">
 						<p><span>
@@ -726,11 +726,452 @@ that for all $m,k \geq N$,
 					<div class="left-txt size-85">
 						<p>
 							<strong>Proof. </strong>
+							<span class="fragment" data-fragment-index="0">
+								$\nec$ First suppose $\{ f_n \}_{n=1}^\infty$ is Cauchy in the uniform norm.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Fix $x$,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then
+								the sequence $\bigl\{ f_n(x) \bigr\}_{n=1}^\infty$ is Cauchy because
+							</span>
 						</p>
 					</div>
-					<br/><br/><br/><br/>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="2">
+								$\ds \abs{f_m(x)-f_k(x)}
+								$ 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\ds \leq
+								\norm{f_m-f_k}_S .$
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="4">
+								Thus $\bigl\{ f_n \bigr\}_{n=1}^\infty$ converges to some $f$. 
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								Define $f \colon S \to \R$ by
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="5">
+								$\ds f(x) \coloneqq \lim_{n \to \infty} f_n(x) .
+								$ 
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/>
 				</section>
-				-->
+				<section data-auto-animate>
+					<h4>9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+							<strong>Theorem 9.3.2. </strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+	
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong>
+							<span>
+								$\nec$  To prove that the convergence
+								is uniform,
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								let $\epsilon > 0$ be arbitrary. 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Find an $N$ such that
+								for all $m, k \geq N$,
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="2">
+								$\Ra \;\ds
+								\norm{f_m-f_k}_S \lt \dfrac{\epsilon}{2}.$ 
+								 
+							</span>
+							
+							
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="3">
+								That is, for
+								all $x$, we have $\ds 
+								\abs{f_m(x)-f_k(x)} \lt \dfrac{\epsilon}{2}.
+								$ 
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="4">
+								For any fixed $x$, take the limit as $k$ goes to infinity. 
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+							<strong>Theorem 9.3.2. </strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+	
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong>
+							<span>
+								$\nec$  
+							</span>
+							<span>
+								That is, or
+								all $x$, we have $\ds 
+								\abs{f_m(x)-f_k(x)} \lt \dfrac{\epsilon}{2}.
+								$ 
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							<span>
+								For any fixed $x$, take the limit as $k$ goes to infinity. 
+							</span>
+							
+						</p>
+					</div>
+					
+					
+					<div class="left-txt size-85">
+						<p>
+							
+							
+							<span class="fragment" data-fragment-index="0">
+								Then $\abs{f_m(x)-f_k(x)}\to \abs{f_m(x)-f(x)}.$
+							</span>
+							
+						</p>
+						<p>
+							
+							<span class="fragment" data-fragment-index="1">
+								This implies that for all $x$,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\ds \abs{f_m(x)-f(x)}$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\ds \leq \frac{\epsilon}{2}$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\lt  \epsilon .$
+							</span>
+							
+						</p>
+					</div>
+					
+					<div class="left-txt size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="5">
+								Therefore $\{ f_n \}_{n=1}^\infty$ converges uniformly. $\; \bs$
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+							<strong>Theorem 9.3.2. </strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+	
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong>
+							<span>
+								$\suf$ Now suppose $\{ f_n \}_{n=1}^\infty$ converges uniformly to
+								$f$.
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Given $\epsilon > 0$,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								find $N$ such that for all $n \geq N$,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								we have 
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="2">
+								$\ds \abs{f_n(x)-f(x)} \lt \frac{\epsilon}{4}$ for all $x \in S$.
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="3">
+								Therefore, for all $m, k \geq N$, 
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="4">
+								$\ds \abs{f_m(x)-f_k(x)} 
+								$ 
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\ds  = 
+								\abs{f_m(x)-f(x)+f(x)-f_k(x)}
+								$ 
+							</span>
+							
+						</p>
+						<p>
+							
+							<span class="fragment" data-fragment-index="6">
+								$\ds  \qquad  \qquad  \qquad \;\;\leq
+								\abs{f_m(x)-f(x)}+\abs{f(x)-f_k(x)}
+								$ 
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+							<strong>Theorem 9.3.2. </strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+	
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong>
+							<span>
+								$\suf$ Now suppose $\{ f_n \}_{n=1}^\infty$ converges uniformly to
+								$f$.
+							</span>
+						</p>
+					</div>
+					
+					<div class="size-85">
+						<p>
+							
+							<span>
+								$\ds \abs{f_n(x)-f(x)} \lt \frac{\epsilon}{4}$ for all $x \in S$.
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							<span>
+								Therefore, for all $m, k \geq N$, 
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span>
+								$\ds \abs{f_m(x)-f_k(x)} 
+								$ 
+							</span>
+							<span>
+								$\ds  = 
+								\abs{f_m(x)-f(x)+f(x)-f_k(x)}
+								$ 
+							</span>
+							
+						</p>
+						<p>
+							
+							<span>
+								$\ds  \qquad  \qquad  \qquad \;\;\leq
+								\abs{f_m(x)-f(x)}+\abs{f(x)-f_k(x)}
+								$ 
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span>
+								$\ds \lt \frac{\epsilon}{4} +
+								\frac{\epsilon}{4} .\qquad\,
+								$ 
+							</span>
+							
+							
+						</p>
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">9.3 Convergence in uniform norm</h4>
+					<div class="left-txt size-55">
+						<p><span>
+							<strong>Theorem 9.3.2. </strong>
+						</span>
+						Let $f_n \colon S \to \R$ be bounded functions.
+						Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+						there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+						uniformly to $f$.
+
+					</p>
+	
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Proof. </strong>
+							<span>
+								$\suf$ Now suppose $\{ f_n \}_{n=1}^\infty$ converges uniformly to
+								$f$.
+							</span>
+						</p>
+					</div>
+					
+					
+					<div class="left-txt size-85">
+						<p>
+							
+							<span>
+								Therefore, for all $m, k \geq N$, 
+							</span>
+							
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span>
+								$\ds \abs{f_m(x)-f_k(x)} 
+								$ 
+							</span>
+							<span>
+								$\ds \lt \frac{\epsilon}{4} +
+								\frac{\epsilon}{4} .\qquad\,
+								$ 
+							</span>
+							
+							
+						</p>
+						
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							<span>
+								Take supremum over all $x$ to obtain
+							</span>
+							
+							
+						</p>
+						
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span>
+								$\ds \norm{f_m-f_k}_S $
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								$\ds \leq \frac{\epsilon}{2} $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds \lt \epsilon .\;\bs $
+							</span>
+							
+							
+						</p>
+						
+					</div>
+					<br/><br/><br/>
+				</section>
+
+
+				
 			</section>
 
 
