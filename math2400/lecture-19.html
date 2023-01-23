@@ -69,68 +69,141 @@
 
 		
 			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-80">
-					<p><strong>Definition:</strong>
-						Let $X$ be a set, and let
-						$d \colon X \times X \to \R$
-						be a function such that for all $x,y,z \in X$
-					</p>
-					<ol>
-						<li>
-							$d(x,y) \geq 0$. (<em>nonnegativity</em>)
-						</li>
-						<li>
-							$d(x,y) = 0$ if and only if $x = y$. (<em>identity of indiscernibles</em>)
-						</li>
-						<li>
-							$d(x,y) = d(y,x)$. (<em>symmetry</em>)
-						</li>
-						<li>
-							$d(x,z) \leq d(x,y)+ d(y,z)$. (<em>triangle inequality</em>)
-						</li>
-					</ol>
-					<p class="fragment" data-fragment-index="0">The pair $(X,d)$ is called a <em>metric space</em>. The
-						function $d$ is called the <em>metric</em> or the
-						<em>distance function</em>.
-						Sometimes we write just $X$ as the metric space instead of $(X,d)$
-						if the metric is clear from context.</p>
-				</div>
-			</section>
+				<section>
+					<h4>10.1 Metric spaces </h4>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0"><strong>Definition 10.1.1. </strong>
+							Let $X$ be a set, and let
+							$d \colon X \times X \to \R$
+							be a function such that for all $x,y,z \in X$
+						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="1">
+								$d(x,y) \geq 0$. 
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$d(x,y) = 0$ if and only if $x = y$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$d(x,y) = d(y,x)$.
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								$d(x,z) \leq d(x,y)+ d(y,z)$. 
+							</li>
+						</ol>
+						<p class="fragment" data-fragment-index="5">
+							The pair $(X,d)$ is called a <em>metric space</em>. 
+							<span class="fragment" data-fragment-index="6">
+								The
+							function $d$ is called the <em>metric</em> or the
+							<em>distance function</em>.
+							</span>
+							<span class="fragment" data-fragment-index="7">
+							Sometimes we write just $X$ as the metric space instead of $(X,d)$
+							if the metric is clear from context.
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>Example 10.1.1. </h4>
+					<div class="left-txt size-95">
+						<p>
+							The set of real numbers $\R$ is a metric space with the metric
+							\begin{equation*}
+							d(x,y) := \abs{x-y} .
+							\end{equation*}
+	
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							Items (1)-(3) of the definition
+							are easy to verify. 
+	
+						</p>
+						
+	
+					</div>
+					<div class="left-txt size-95">
+						<p class="fragment" data-fragment-index="1">
+							The
+						   triangle inequality follows immediately
+						   from the standard triangle inequality for real numbers.
+   
+					   </p>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 10.1.1. </h4>
+					<div class="left-txt size-65">
+						<p>
+							The set of real numbers $\R$ is a metric space with the metric
+								$
+								d(x,y) := \abs{x-y} .
+								$
+	
+						</p>
+					</div>
 
-			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-60">
-					<p><strong>Example:</strong>
-						The set of real numbers $\R$ is a metric space with the metric
-						\begin{equation*}
-						d(x,y) := \abs{x-y} .
-						\end{equation*}
+					<div class="left-txt size-95">
+						<p>
+							The
+						   triangle inequality follows immediately
+						   from the standard triangle inequality for real numbers.
+   
+					   </p>
+					   
+					</div>
+					<div class="size-95">
+	
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								That is, $\;d(x,z)$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$ = \abs{x-z}$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$  =
+								\abs{x-y+y-z}\qquad \quad \;$
+							</span>
+							
+	
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$ \ds\leq
+							\abs{x-y}+\abs{y-z}\;\;$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$=
+							d(x,y)+ d(y,z) .\;\;$
+							</span>
+						</p>
+	
+					</div>
+					<div class="left-txt size-95">
+						
 
-					</p>
-
-					<p class="fragment" data-fragment-index="0">
-						Items (i)-(iii) of the definition
-						are easy to verify. The
-						triangle inequality follows immediately
-						from the standard triangle inequality for real numbers:
-						\begin{equation*}
-						d(x,z) = \abs{x-z} =
-						\abs{x-y+y-z} \leq
-						\abs{x-y}+\abs{y-z} =
-						d(x,y)+ d(y,z) .
-						\end{equation*}
-
-					</p>
-
-					<p class="fragment" data-fragment-index="1">
-
-						This metric is the <em>standard metric on</em> $\R$. If we talk
-						about $\R$ as a metric space without mentioning a specific metric, we
-						mean this particular metric.
-					</p>
-
-				</div>
+						<p class="fragment" data-fragment-index="5">
+	
+							This is the <em>standard metric on</em> $\R$. 
+							<span class="fragment" data-fragment-index="6">
+								If we talk
+							about $\R$ as a metric space without mentioning a specific metric, we
+							mean this particular metric.
+							</span>
+						</p>
+	
+						
+	
+					</div>
+					<br/><br/>
+				</section>
 			</section>
 
 			<section>
