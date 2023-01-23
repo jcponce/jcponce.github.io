@@ -60,13 +60,15 @@
 				<p>Lecture 19</p>
 			</section>
 
-			<!--
 			<section data-background-iframe="sketches/topology/index.html"
 				data-background-interactive>
 				<br /><br /><br /><br /><br /><br /><br />
-				<h3 style="line-height:0.89;color:white">Metric spaces <br />&<br /> Topology</h3>
+				<h3 style="line-height:7.89;color:white">Metric spaces</h3>
 
 			</section>
+
+			<!--
+			
 			
 			-->
 
@@ -132,7 +134,7 @@
 						<p class="fragment" data-fragment-index="1">
 							1. $d(x,y)=\abs{x-y}$
 							<span class="fragment" data-fragment-index="2">
-								$\geq 0 $ by properties of $\abs{\cdot}$.
+								$\geq 0 $ (properties of $\abs{\cdot}$).
 							</span>
    
 					   </p>
@@ -156,12 +158,12 @@
 								$=\abs{y-x}  $
 							</span>
 							<span class="fragment" data-fragment-index="8">
-								$d(y,x). $
+								$=d(y,x). $
 							</span>
    
 					   </p>
 					</div>
-					<br/><br/><br/>
+					<br/>
 				</section>
 				
 				<section data-auto-animate>
@@ -324,6 +326,8 @@
 	
 	
 					</div>
+
+					
 	
 					<br/><br/><br/><br/>
 				</section>
@@ -557,9 +561,85 @@
 								$
 							</span>
 						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								Again proving items (1)-(3) is super easy!  😃
+							</span>
+						</p>
 	
 					</div>
-					<br/><br/><br/><br/>
+
+					
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 10.1.2.</h4>
+					<div class="left-txt size-60">
+						<p>
+							The standard metric for $\R^n$: 
+							
+							<span>
+								$\ds 
+								d(x,y) \ds =
+								\sqrt{
+								\sum_{k=1}^n
+								{\left(x_k-y_k\right)}^2
+								} .
+								$
+							</span>
+						</p>
+	
+					</div>
+
+					<div class="left-txt size-85">
+						<p>
+							1. $d(x,y)=\sqrt{
+								\sum_{k=1}^n
+								{\left(x_k-y_k\right)}^2
+								}$
+							<span class="fragment" data-fragment-index="0">
+								$\geq 0 $.
+							</span>
+   
+					   </p>
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="1">
+							2. $d(x,y) = 0$
+							<span class="fragment" data-fragment-index="2">
+								$\iff \sqrt{
+									\sum_{k=1}^n
+									{\left(x_k-y_k\right)}^2
+									} = 0 $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\iff x_k = y_k $ <br/>
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$\qquad \quad \qquad \iff x = y. $
+							</span>
+   
+					   </p>
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="5">
+							3. $d(x,y) =\sqrt{
+								\sum_{k=1}^n
+								{\left(x_k-y_k\right)}^2
+								}$
+							<span class="fragment" data-fragment-index="6">
+								$=\sqrt{
+									\sum_{k=1}^n
+									{\left(y_k-x_k\right)}^2
+									} $
+							</span><br/>
+							<span class="fragment" data-fragment-index="7">
+								$\qquad \quad \;\;=d(y,x). $
+							</span>
+   
+					   </p>
+					</div>
+					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>Example 10.1.2.</h4>
@@ -876,7 +956,7 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 						Fractals
 					</h4>
 
-					<iframe name="Julia-Mandelbrot" src="https://complex-analysis.com/applets/p5js/julia-mandelbrot-content/index.html" width="800px" height="400px" style="border:none;" scrolling="no"></iframe>
+					<iframe name="Julia-Mandelbrot" data-src="https://complex-analysis.com/applets/p5js/julia-mandelbrot-content/index.html" width="800px" height="400px" style="border:none;" scrolling="no"></iframe>
 				
 					<br/>
 
