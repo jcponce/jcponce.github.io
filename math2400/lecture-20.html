@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 20</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Lecture 20</p>
+			</section>
+
+			<section data-background-iframe="sketches/topology/index.html"
+				data-background-interactive>
+				<br /><br /><br /><br /><br /><br /><br />
+				<h3 style="line-height:0.89;color:white">Metric spaces <br />&<br /> Topology</h3>
+
+			</section>
+
+		
+			<section>
+				<h3>Topology</h3>
+				<p class="size-60"><strong>Open and Closed Balls</strong></p>
+				
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:65%">
+							<div class="size-70" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p><strong>Definition:</strong>
+									Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Define
+									the <em>open ball</em>, or simply <em>ball</em>, of radius $\delta$
+									around $x$ as
+									\begin{equation*}
+									B(x,\delta) := \bigl\{ y \in X : d(x,y) \lt \delta \bigr\} .
+									\end{equation*}
+								</p>
+			
+								<p>
+									Define the <em>closed ball</em> as
+									\begin{equation*}
+									C(x,\delta) := \bigl\{ y \in X : d(x,y) \leq \delta \bigr\} .
+									\end{equation*}
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:35%;">
+
+							<img style="width: 100%; 
+						   display: block;
+						   margin-left: auto;
+						   margin-right: auto;" 
+						   class="r-stretch" 
+						   data-src="images/summary-10/open-ball.svg" />
+						   <p style="font-size:14px;text-align:center">Open ball</p>
+				
+						</td>
+
+					</tr>
+				</table>
+			</section>
+
+			
+
+			<section>
+				<h3>Topology</h3>
+				<p class="size-60"><strong>Open and Closed Sets</strong></p>
+				
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:65%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p><strong>Definition:</strong>
+									Let $(X,d)$ be a metric space. A subset $V \subset X$
+									is <em>open</em>
+									if for every $x \in V$, there exists a $\delta \gt 0$ such that
+									$B(x,\delta) \subset V$.
+									<span>
+										A subset $E \subset X$ is
+										<em>closed</em> if the complement $E^c = X \setminus E$ is open.
+									</span>
+									<span>
+										When the ambient space $X$ is not clear from context,
+										we say $V$ <em>is open in</em> $X$ and $E$ <em>is closed in</em> $X$.
+									</span>
+								</p>
+			
+								<p>
+									If $x \in V$ and $V$ is open, then we say
+									$V$ is an <em>open neighborhood</em> of $x$ (or
+									sometimes just <em>neighborhood</em>).
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:35%;">
+
+							<img style="width: 100%; 
+						   display: block;
+						   margin-left: auto;
+						   margin-right: auto;" 
+						   class="r-stretch" 
+						   data-src="images/summary-10/open-nb.gif" />
+						   <p style="font-size:14px;text-align:center">Open neighborhood</p>
+				
+						</td>
+
+					</tr>
+				</table>
+			</section>
+
+
+
+			<section>
+				<h3>Topology</h3>
+				<p class="size-60"><strong>Open and Closed Sets</strong></p>
+				<div class="left-txt size-80">
+					<p><strong>Theorem:</strong>
+						Suppose $(X,d)$ is a metric space, and $Y \subset X$. Then $U \subset Y$
+						is open in $Y$ (in the subspace topology), if and only if
+						there exists an open set $V \subset X$ (so open in $X$), such that
+						$V \cap Y = U$.
+
+					</p>
+
+					<p><strong>Theorem:</strong>
+						Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
+						and $E \subset X$ is closed.
+					</p>
+					<ol>
+						<li>
+							$U \subset V$ is open in the subspace topology if and only if $U$ is open
+							in $X$.
+						</li>
+						<li>
+							$F \subset E$ is closed in the subspace topology if and only if $F$ is
+							closed in $X$.
+
+						</li>
+					</ol>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Sequences and convergence</h3>
+
+				<div class="left-txt size-80">
+
+					<p><strong>Definition:</strong>
+						A <em>sequence</em> in a metric space $(X,d)$ is a function
+						$x \colon \N \to X$. As before we write $x_n$ for the $n$th element in
+						the sequence and use the notation $\{ x_n \}$, or more precisely
+						\begin{equation*}
+						\{ x_n \}_{n=1}^\infty .
+						\end{equation*}
+					</p>
+
+					<p>
+						A sequence $\{ x_n \}$ is <em>bounded</em> if
+						there exists a point $p \in X$ and $B \in \R$ such that
+						\begin{equation*}
+						d(p,x_n) \leq B \qquad \text{for all } n \in \N.
+						\end{equation*}
+						In other words, the sequence $\{x_n\}$ is bounded whenever
+						the set $\{ x_n : n \in \N \}$
+						is bounded.
+					</p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Sequences and convergence</h3>
+
+				<div class="left-txt size-80">
+
+					<p><strong>Definition:</strong>
+						A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
+						to <em>converge</em> to a point
+						$p \in X$ if for every $\epsilon \gt 0$, there exists an $M \in \N$ such
+						that $d(x_n,p) \lt \epsilon$ for all $n \geq M$. The point $p$
+						is said to be the <em>limit</em>
+						of $\{ x_n \}$. We write
+						\begin{equation*}
+						\lim_{n\to \infty} x_n := p .
+						\end{equation*}
+
+
+					</p>
+
+					<p>
+						A sequence
+						that converges is <em>convergent</em>.
+						Otherwise, the sequence is
+						<em>divergent</em>.
+					</p>
+
+					<p><strong>Note:</strong> Compare this with the definition of <a href="summary-02.html#/1" target="_blank">convergence in $\R$</a></p>
+
+				</div>
+			</section>
+
+
+
+			<section>
+				<h3>Sequences and convergence</h3>
+
+				<div class="left-txt size-80">
+
+					<p>
+						<strong>Theorem:</strong>
+						A convergent sequence in a metric space has a unique limit.
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						A convergent sequence in a metric space is bounded.
+					</p>
+
+					<p><strong>Theorem:</strong>
+						Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$,
+						where we write $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
+						Then $\{ x_j \}_{j=1}^\infty$ converges if and only if
+						$\{ x_{j,k} \}_{j=1}^\infty$ converges for every $k=1,2,\ldots,n$, in which case
+						\begin{equation*}
+						\lim_{j\to\infty}
+						x_j =
+						\Bigl(
+						\lim_{j\to\infty} x_{j,1},
+						\lim_{j\to\infty} x_{j,2},
+						\ldots,
+						\lim_{j\to\infty} x_{j,n}
+						\Bigr) .
+						\end{equation*}
+					</p>
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Sequences and convergence</h3>
+				
+				
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p><strong>Theorem:</strong>
+									Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$. Then
+									$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
+									$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
+									we have $x_n \in U$.
+								</p>
+			
+								<p><strong>Theorem:</strong>
+									Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
+									and $\{ x_n \}$ a sequence in $E$ that converges to some $x \in X$.
+									Then $x \in E$.
+			
+								</p>
+
+							</div>
+						</td>
+						<td class="size-40" style="width:50%;">
+
+							<img style="width: 100%; 
+						   display: block;
+						   margin-left: auto;
+						   margin-right: auto;" 
+						   class="r-stretch" 
+						   data-src="images/summary-10/convergence.gif" />
+						   <p style="font-size:14px;text-align:center">Convergent sequence</p>
+				
+						</td>
+
+					</tr>
+				</table>
+			</section>
+
+
+			<section>
+				<h3>Continuous functions</h3>
+				<p class="sbt">Continuity in metric spaces</p>
+
+				<div class="left-txt size-80">
+
+
+					<p><strong>Definition:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+						Then $f \colon X \to Y$ is
+						<em>continuous at $c$</em>
+						if for every $\epsilon \gt 0$
+						there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
+						\delta$, then
+						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+					</p>
+
+					<p>
+						When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+						that $f$ is a <em>continuous function</em>.
+
+					</p>
+
+					<p><strong>Note:</strong> Compare this with the definition of <a href="summary-05.html#/1" target="_blank">continuity in $\R$</a></p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Continuous functions</h3>
+				<p class="sbt">Continuity in metric spaces and sequences</p>
+
+				<div class="left-txt size-80">
+
+
+					<p><strong>Theorem:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+						Then $f \colon X \to Y$ is
+						continuous at $c \in X$
+						if and only if for every sequence $\{ x_n \}$ in $X$
+						converging to $c$, the sequence $\bigl\{ f(x_n) \bigr\}$ converges
+						to $f(c)$.
+					</p>
+
+					<p><strong>Note:</strong> Compare this Theorem with its <a href="summary-05.html#/3" target="_blank">version in $\R$</a></p>
+
+
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Continuous functions</h3>
+				<p class="sbt">Continuity and Topology</p>
+
+				<div class="left-txt size-80">
+
+
+					<p><strong>Lemma:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+						A function $f \colon X \to Y$ is continuous at $c \in X$
+						if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
+						$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
+					</p>
+
+					<p>
+						<strong>Theorem:</strong>
+						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
+						\to Y$
+						is continuous if and only if
+						for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Continuous functions</h4>
+				<p class="sbt">Continuity and Topology</p>
+
+				<div class="iframe">
+					<iframe scrolling="no" title="Topology: Continuous function" src="https://www.geogebra.org/material/iframe/id/tw5krmzn/width/616/height/433/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="616px" height="433px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				</div>
+				<p style="font-size:18px">For every neighborhood $U$ of $f(c)$, the set $f^{-1}(U)$ contains an open neighborhood $W$ of $c$.</p>
+
+			</section>
+
+			<section>
+				<h3>The Essence of Topology</h3>
+
+				
+				<iframe scrolling="no" title="Helicoid transformation" src="sketches/hyperbolic-helicoid/smooth.html" width="380px" height="380px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				<p style="font-size:12px;line-height:0.1">Source: <a href="https://www.geogebra.org/m/uxqktfym" target="_blank">Helicoid transformation</a></p>
+
+				<p style="font-size:24px">Geometric properties of subsets of metric spaces 
+					will be preserved when <br/>continuous transformations (functions or mappings) 
+					are applied.</p>
+
+			</section>
+
+			<section>
+				<h3>The Essence of Topology</h3>
+
+				<img style="width: 390px; 
+				display: block;
+				margin-left: auto;
+				margin-right: auto;" 
+				data-src="https://1.bp.blogspot.com/-u3ciN4CJGKU/YE1LkXWJ3VI/AAAAAAAAaRo/abkFniQGszUWe1n4QqZyhtn83ZHupoYvwCLcBGAsYHQ/w1152/topological-delight.gif" />
+				
+				<p style="font-size:16px;line-height:0.1">Source: <a href="https://www.geogebra.org/m/fcmt837m" target="_blank">A coffee cup and a doughnut</a> by <a target="_blank" href="https://twitter.com/jcponcemath">jcponce</a></p>
+
+				<p style="font-size:24px">Geometric properties of subsets of metric spaces 
+					will be preserved when <br/>continuous transformations (functions or mappings) 
+					are applied.</p>
+
+			</section>
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

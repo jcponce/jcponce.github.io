@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>MathBox - Hyperbolic Helicoid</title>
+	<script src="../mathbox/mathbox-bundle.min.js"></script>
+	<script src="../mathbox/dat.gui.js"></script>
+
+
+	<link rel="stylesheet" href="../mathbox/mathbox.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+	<style>
+		body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		overflow: hidden;
+		}
+		</style>
+</head>
+
+<body>
+	<script>
+		// Load mathbox with controls
+		var mathbox = mathBox({
+			plugins: ['core', 'cursor', 'controls'],
+			controls: {
+				klass: THREE.OrbitControls,
+			},
+		});
+		if (mathbox.fallback) throw "WebGL error";
+
+		// Set renderer background
+		var three = mathbox.three;
+		three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
+
+		// Set mathbox units and place camera
+		mathbox.set({
+			scale: 720,
+			focus: 3
+		});
+		mathbox.camera({
+			proxy: true,
+			position: [0.9, -0.9, 4]
+		});
+
+		var xMin = -3,
+			xMax = 3,
+			yMin = -3,
+			yMax = 3,
+			zMin = -3,
+			zMax = 3;
+		var uMin = -6,
+			uMax = 6,
+			vMin = -2.5,
+			vMax = 2.5;
+		var play = true;
+		var torsion = 2.5;
+
+		var updateGraph = function () {
+
+			view.set("range", [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			]);
+			domain.set("range", [
+				[uMin, uMax],
+				[vMin, vMax]
+			]);
+
+		};
+
+		// Create cartesian view
+		var sc = 6;
+		var view = mathbox.cartesian({
+			range: [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			],
+			scale: [sc, sc, sc],
+		});
+
+		// Create u,v domain
+		var domain = mathbox.cartesian({
+			range: [
+				[uMin, uMax],
+				[vMin, vMax]
+			]
+		});
+
+		/* 
+		// 3D axes / grid
+		domain.axis({
+			axis: 1,
+			width: 3
+		});
+		domain.axis({
+			axis: 2,
+			width: 3
+		});
+		domain.axis({
+			axis: 3,
+			width: 3
+		});
+		domain.grid({
+			width: 1,
+			divideX: 20,
+			divideY: 20
+		});
+		*/
+
+
+		var Fx = (x, y, t) => {
+			return (Math.sinh(y) * Math.cos(t * x)) / (1 + Math.cosh(x) * Math.cosh(y));
+		};
+		var Fy = (x, y, t) => {
+			return (Math.sinh(y) * Math.sin(t * x)) / (1 + Math.cosh(x) * Math.cosh(y));
+		};
+		var Fz = (x, y, t) => {
+			return (Math.cosh(y) * Math.sinh(x)) / (1 + Math.cosh(x) * Math.cosh(y));
+		};
+
+		// Data for plotting
+		var resolution = 600;
+		var graphData = domain.area({
+			axes: [1, 2], // u, v
+			width: resolution,
+			height: resolution,
+			channels: 3,
+			expr: function (emit, u, v, i, j, t) {
+				
+				var autoTorsion = 5 * Math.cos(0.25 * t)
+
+				if (play) {
+					emit(
+						Fx(u, v, autoTorsion),
+						Fy(u, v, autoTorsion),
+						Fz(u, v, 0)
+					)
+				} else {
+					emit(
+						Fx(u, v, torsion),
+						Fy(u, v, torsion),
+						Fz(u, v, torsion)
+					)
+				}
+			},
+		});
+		view.surface({
+			points: graphData,
+			fill: true,
+			lineX: false,
+			lineY: false,
+			width: 0.1,
+			color: '#cce6ff',
+			zBias: 1,
+			shaded: true,
+
+		});
+
+		// GUI controls
+
+		//var gui = new dat.GUI();
+
+		//var vminGUI = gui.add(this, 'vMin').min(-6).max(0).step(0.01).name('vMin = ').onChange(updateGraph);
+		//var vmaxGUI = gui.add(this, 'vMax').min(0).max(6).step(0.01).name('vMax = ').onChange(updateGraph);
+		//var torsionGUI = gui.add(this, 'torsion').min(-10).max(10).step(0.01).name('torsion = ').onChange(updateGraph);
+		//var animateGUI = gui.add(this, 'play')
+
+		//gui.add(this, 'updateGraph').name("Update Graph");
+
+		gui.close();
+	</script>
+</body>
+
+</html>
