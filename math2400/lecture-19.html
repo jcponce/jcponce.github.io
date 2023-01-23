@@ -60,12 +60,14 @@
 				<p>Lecture 19</p>
 			</section>
 
+			<!--
 			<section data-background-iframe="sketches/topology/index.html"
 				data-background-interactive>
 				<br /><br /><br /><br /><br /><br /><br />
 				<h3 style="line-height:0.89;color:white">Metric spaces <br />&<br /> Topology</h3>
 
 			</section>
+			-->
 
 		
 			<section>
@@ -207,191 +209,646 @@
 			</section>
 
 			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-90">
-					<p>An important metric space is the
-						$n$-dimensional <em>euclidean space</em>
-						$\R^n = \R \times \R \times \cdots \times \R$. We use the following
-						notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.
-					</p>
-					<p class="fragment" data-fragment-index="0">We will not write
-						$\vec{x}$ nor $\mathbf{x}$ for a vector, we simply give it a name such as
-						$x$ and we will remember that $x$ is a vector.
-					</p>
-					<p class="fragment" data-fragment-index="1">
-						We also
-						write simply $0 \in \R^n$ to mean the point $(0,0,\ldots,0)$. Before
-						making $\R^n$ a metric space, we prove an important inequality, the
-						so-called Cauchy-Schwarz inequality.
-					</p>
+				<section data-auto-animate>
+					<h4>10.1 Metric spaces </h4>
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="0">An well-known metric space is the
+							$n$-dimensional <em>euclidean space</em>
+						</p>
+						
+	
+					</div>
+					<div class="">
+						<p class="fragment" data-fragment-index="0">$\R^n = \R \times \R \times \cdots \times \R.$
+						</p>
+						
+	
+					</div>
+					<div class="left-txt">
+						
+						<p class="fragment" data-fragment-index="1">
+							We use the following
+							notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.
+						</p>
+						
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>10.1 Metric spaces </h4>
+					<div class="size-80">
+						<p>$\R^n = \R \times \R \times \cdots \times \R.$
+						</p>
+					</div>
+					<div class="left-txt size-90">
+					
+						<p>
+							We use the following
+							notation for points: 
+						</p>
+	
+					</div>
+					<div class=" size-90">
+					
+						<p>
+							$x =(x_1,x_2,\ldots,x_n) \in \R^n$.
+						</p>
+						
+	
+					</div>
+					<div class="left-txt  size-90">
+					
+						<p class="fragment" data-fragment-index="0">
+							<strong>Remark 1: </strong> We will not write
+							$\vec{x}$ nor $\mathbf{x}$ for a vector, 
+							<span class="fragment" data-fragment-index="1">
+								we just give it a name such as
+							$x$ and keep in mind that $x$ is a vector.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<strong>Remark 2: </strong>We also
+							write simply $0 \in \R^n$ to mean the point $(0,0,\ldots,0)$. 
+						</p>
+	
+					</div>
+					
+					<br/>
+				</section>
 
-				</div>
-			</section>
-
-			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-60">
-					<p><strong>Lemma (Cauchy-Schwarz inequality):</strong> If $x =(x_1,x_2,\ldots,x_n) \in \R^n$ and $y
-						=(y_1,y_2,\ldots,y_n) \in
-						\R^n$, then
-						\begin{equation*}
-						{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
-						\leq
-						\biggl(\sum_{j=1}^n x_j^2 \biggr)
-						\biggl(\sum_{j=1}^n y_j^2 \biggr) .
-						\end{equation*}
-
-					</p>
-					<p class="fragment" data-fragment-index="0">
-						<strong>Proof:</strong>
-						Any square of a real number is nonnegative. Hence any sum of squares is
-						nonnegative:
-						\begin{equation*}
-						\begin{split}
-						0 & \leq
-						\sum_{j=1}^n \sum_{k=1}^n {(x_j y_k - x_k y_j)}^2
-						=
-						\sum_{j=1}^n \sum_{k=1}^n \bigl( x_j^2 y_k^2 + x_k^2 y_j^2 - 2 x_j x_k y_j
-						y_k \bigr)
-						\\
-						& =
-						\biggl( \sum_{j=1}^n x_j^2 \biggr)
-						\biggl( \sum_{k=1}^n y_k^2 \biggr)
-						+
-						\biggl( \sum_{j=1}^n y_j^2 \biggr)
-						\biggl( \sum_{k=1}^n x_k^2 \biggr)
-						-
-						2
-						\biggl( \sum_{j=1}^n x_j y_j \biggr)
-						\biggl( \sum_{k=1}^n x_k y_k \biggr) .
-						\end{split}
-						\end{equation*}
-
-					</p>
-
-
-				</div>
-
-			</section>
-
-			<section>
-				<h3>Metric spaces </h3>
-				<p><br /></p>
-				<div class="left-txt size-60">
-					<p><strong>Proof (cont.):</strong>
-						We relabel and divide by 2 to obtain
-						\begin{equation*}
-						0 \leq
-						\biggl( \sum_{j=1}^n x_j^2 \biggr)
-						\biggl( \sum_{j=1}^n y_j^2 \biggr)
-						-
-						{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 ,
-						\end{equation*}
-						which is precisely what we wanted. $\blacksquare$
-					</p>
-				</div>
-				<p><br /><br /></p>
-			</section>
-
-			<section>
-				<h3>Metric spaces </h3>
-				<div class="left-txt size-60">
-					<p><strong>Example:</strong>
-						Using the previous result we can construct the
-						standard metric for $\R^n$.
-						<span class="fragment" data-fragment-index="0">
-							Define
+				<section data-auto-animate id="cauchy-schwarz-inequality">
+					<h4>10.1 Metric spaces </h4>
+					<div class="left-txt size-90">
+						<p>
+							<strong>Theorem 10.1.1. </strong> (Cauchy-Schwarz inequality)
+							If $x =(x_1,x_2,\ldots,x_n) \in \R^n$ and $y
+							=(y_1,y_2,\ldots,y_n) \in
+							\R^n$, then
 							\begin{equation*}
-							d(x,y) :=
-							\sqrt{
-							{(x_1-y_1)}^2 +
-							{(x_2-y_2)}^2 +
-							\cdots +
-							{(x_n-y_n)}^2
-							} =
-							\sqrt{
-							\sum_{j=1}^n
-							{(x_j-y_j)}^2
-							} .
+							{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
+							\leq
+							\biggl(\sum_{j=1}^n x_j^2 \biggr)
+							\biggl(\sum_{j=1}^n y_j^2 \biggr) .
 							\end{equation*}
-						</span>
-					</p>
+	
+						</p>
+						
+	
+	
+					</div>
+	
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Proof of Theorem 10.1.1 (Cauchy-Schwarz inequality)</h4>
+					<div class="left-txt size-95">
+						
+						<p>
+							<strong>Proof. </strong>
+							
+							<span class="fragment" data-fragment-index="0">
+							Any square of a real number is nonnegative. 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Thus any sum of squares is nonnegative.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								That is:
+							</span>
+							
+							
+						</p>
+	
+	
+					</div>
+					<div class="size-95">
+						
+						<p>
+							<span class="fragment" data-fragment-index="2">
+							
+								$\ds 
+								
+								0  \leq
+								$
+								
+		
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								
+								$\ds 
+								\sum_{j=1}^n \sum_{k=1}^n {(x_j y_k - x_k y_j)}^2
+								\qquad \qquad \qquad 
+								$
+								
+		
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							
+							$\ds 
+							=
+							\sum_{j=1}^n \sum_{k=1}^n \bigl( x_j^2 y_k^2 + x_k^2 y_j^2 - 2 x_j x_k y_j
+							y_k \bigr)
+							\;
+							$
+							
+	
+						</p>
+						
+	
+	
+					</div>
+					<br/><br/><br/>
+	
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:70%">Proof of Theorem 10.1.1 (Cauchy-Schwarz inequality)</h4>
+					<div class="left-txt size-60" style="margin-top:-15px">
+						
+						<p>
+							<strong>Proof. </strong>
+							
+							<span>
+							Any square of a real number is nonnegative. 
+							</span>
+							<span>
+								Thus any sum of squares is nonnegative.
+							</span>
+							<span>
+								That is:
+							</span>
+							
+							
+						</p>
+	
+	
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						
+						<p>
+							<span>
+							
+								$\ds 
+								
+								0  \leq
+								$
+								
+		
+							</span>
+							<span>
+								
+								$\ds 
+								\sum_{j=1}^n \sum_{k=1}^n {(x_j y_k - x_k y_j)}^2
+								\qquad \qquad \qquad \qquad \qquad 
+								$
+								
+		
+							</span>
+						</p>
+						<p>
+							
+							$\ds 
+							=
+							\sum_{j=1}^n \sum_{k=1}^n \bigl( x_j^2 y_k^2 + x_k^2 y_j^2 - 2 x_j x_k y_j
+							y_k \bigr)
+							\qquad \qquad \;
+							$
+							
+	
+						</p>
+	
+	
+					</div>
+					<div class="size-85">
+						
+						
+						
+						<p class="fragment" data-fragment-index="0">
+							
+							$\ds \;\;=
+							\biggl( \sum_{j=1}^n x_j^2 \biggr)
+							\biggl( \sum_{k=1}^n y_k^2 \biggr)
+							$
+							<span class="fragment" data-fragment-index="1">
+							
+								$\ds \;
+								+\;
+								\biggl( \sum_{j=1}^n y_j^2 \biggr)
+								\biggl( \sum_{k=1}^n x_k^2 \biggr)
+								\qquad 
+								$
+		
+							</span>
+	
+						</p>
+						
+						<p class="fragment" data-fragment-index="2">
+							
+							$\ds\quad \,
+							-
+							\;2
+							\biggl( \sum_{j=1}^n x_j y_j \biggr)
+							\biggl( \sum_{k=1}^n x_k y_k \biggr) .
+							
+							$
+	
+						</p>
+	
+	
+					</div>
+					<br/>
+	
+				</section>
+	
+				<section data-auto-animate>
+					<h4 style="font-size:90%">Proof of Theorem 10.1.1 (Cauchy-Schwarz inequality)</h4>
+					
+					<div class="left-txt size-90">
+						<p><strong>Proof. </strong>
+							We relabel and divide by 2 to obtain
+							\begin{equation*}
+							0 \leq
+							\biggl( \sum_{j=1}^n x_j^2 \biggr)
+							\biggl( \sum_{j=1}^n y_j^2 \biggr)
+							-
+							{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2.
+							\end{equation*}
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">That is
+							$\ds 
+							{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 \leq
+							\biggl( \sum_{j=1}^n x_j^2 \biggr)
+							\biggl( \sum_{j=1}^n y_j^2 \biggr).
+							$
+							<span class="fragment" data-fragment-index="0">
+								 $\;\blacksquare$
+							</span>
+						</p>
+					</div>
+					
+					<p><br /><br /></p>
+				</section>
 
-					<p class="fragment" data-fragment-index="1">Using the Cauchy-Schwarz inequality we can determine the
-						triangle inequality working with
-						the square of the metric:
-						\begin{equation*}
-						\begin{split}
-						{\bigl(d(x,z)\bigr)}^2 & =
-						\sum_{j=1}^n
-						{(x_j-z_j)}^2 =
-						\sum_{j=1}^n
-						{(x_j-y_j+y_j-z_j)}^2
-						\\
-						& =
-						\sum_{j=1}^n
-						{(x_j-y_j)}^2
-						+
-						\sum_{j=1}^n
-						{(y_j-z_j)}^2
-						+
-						2
-						\sum_{j=1}^n
-						(x_j-y_j)(y_j-z_j)
+				<section data-auto-animate>
+					<h4>Example 10.1.3.</h4>
+					<div class="left-txt size-85">
+						<p>
+							Using the previous result we can construct the
+							standard metric for $\R^n$.
+							<span class="fragment" data-fragment-index="0">
+								Define
+							</span>
+						</p>
+	
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span class="fragment" data-fragment-index="0">
+								$\ds 
+								d(x,y) :=
+								\sqrt{
+								{(x_1-y_1)}^2 +
+								{(x_2-y_2)}^2 +
+								\cdots +
+								{(x_n-y_n)}^2
+								} 
+								$
+							</span>
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\ds =
+								\sqrt{
+								\sum_{k=1}^n
+								{\left(x_k-y_k\right)}^2
+								} . \qquad \qquad \qquad \;\;\;
+								$
+							</span>
+						</p>
+	
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 10.1.3.</h4>
+					<div class="left-txt size-80">
+						
+	
+						<p >Using the Cauchy-Schwarz inequality we can determine the
+							triangle inequality working with
+							the square of the metric:
+						</p>
+	
+					</div>
+					<div class="size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="0">
+								$\ds 
+								{\bigl(d(x,z)\bigr)}^2
+								$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds 
+								=
+							\sum_{k=1}^n
+							{(x_k-z_k)}^2 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\ds =
+								\sum_{k=1}^n
+								{(x_k-y_k+y_k-z_k)}^2 
+								$
+							</span>
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\ds 
+								=
+							\sum_{k=1}^n
+							{(x_k-y_k)}^2
+							+
+							\sum_{j=1}^n
+							{(y_k-z_k)}^2
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\ds \qquad \qquad
+							+\;
+							2
+							\sum_{j=1}^n
+							(x_k-y_k)(y_k-z_k)
+								$
+							</span>
+						</p>
+	
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 10.1.3.</h4>
+					<div class="left-txt size-60" style="margin-top:-10px">
+						
+	
+						<p >Using the <strong>Cauchy-Schwarz inequality</strong> we can determine the
+							triangle inequality working with
+							the square of the metric:
+						</p>
+	
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+						<p>
+							
+							<span>
+								$\ds 
+								{\bigl(d(x,z)\bigr)}^2
+								$
+							</span>
+							<span>
+								$\ds 
+								=
+							\sum_{k=1}^n
+							{(x_k-y_k)}^2
+							+
+							\sum_{j=1}^n
+							{(y_k-z_k)}^2 \qquad\qquad\qquad
+								$
+							</span>
+						</p>
+						<p>
+							<span>
+								$\ds \qquad 
+							+\;
+							2
+							\sum_{k=1}^n
+							(x_k-y_k)(y_k-z_k)
+								$
+							</span>
+						</p>
+	
+					</div>
+					<div class="size-80">
+						<p>
+							
+							
+							<span class="fragment" data-fragment-index="0">
+								$\ds 
+								\leq 
+							\sum_{k=1}^n
+							{(x_k-y_k)}^2
+							+
+							\sum_{k=1}^n
+							{(y_k-z_k)}^2\qquad
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$\ds \,\quad\qquad \qquad
+							+\;
+							2
+							\sqrt{
+							\sum_{k=1}^n
+							{(x_k-y_k)}^2
+							\sum_{k=1}^n
+							{(y_k-z_k)}^2
+							}
+								$
+							</span>
+						</p>
+	
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 10.1.3.</h4>
 
-						\end{split}
-						\end{equation*}
-					</p>
+					<div class="size-80">
+						<p>
+							
+							
+							<span>
+								${\bigl(d(x,z)\bigr)}^2 \ds 
+								\leq 
+							\sum_{k=1}^n
+							{(x_k-y_k)}^2
+							+
+							\sum_{k=1}^n
+							{(y_k-z_k)}^2\qquad\qquad\qquad
+								$
+							</span>
+						</p>
+						<p>
+							<span>
+								$\ds \,\quad\qquad \qquad
+							+\;
+							2
+							\sqrt{
+							\sum_{k=1}^n
+							{(x_k-y_k)}^2
+							\sum_{k=1}^n
+							{(y_k-z_k)}^2
+							}
+								$
+							</span>
+						</p>
+	
+					</div>
+					<div class="size-80">
+						<p>
+							
+							
+							<span class="fragment" data-fragment-index="0">
+								$\ds = {\left(
+									\sqrt{
+									\sum_{k=1}^n
+									{(x_k-y_k)}^2
+									}
+									+
+									\sqrt{
+									\sum_{k=1}^n
+									{(y_k-z_k)}^2
+									}
+									\right)}^2 
+								$
+							</span>
+						</p>
+						
+	
+					</div>
+					<div class="size-80">
+						<p>
+							
+							
+							<span class="fragment" data-fragment-index="1">
+								$\ds = {\bigl( d(x,y) + d(y,z) \bigr)}^2 .\qquad\qquad\qquad\;\;\,
+								$
+							</span>
+						</p>
+						
+	
+					</div>
+	
+					<div class="left-txt size-80">
 
-				</div>
+						
+	
+					</div>
+	
+					<p><br /><br /></p>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 10.1.3.</h4>
+
+					<div class=" left-txt">
+						<p> Thus we have that 
+							
+							
+							
+						</p>
+						
+	
+					</div>
+					
+					<div class="">
+						<p>
+							
+							
+							<span>
+								${\bigl(d(x,z)\bigr)}^2 \leq {\bigl( d(x,y) + d(y,z) \bigr)}^2 .
+								$
+							</span>
+						</p>
+						
+	
+						<br/>
+					</div>
+					<div class=" left-txt ">
+						<p class="fragment" data-fragment-index="0"> Therefore
+							
+							
+							
+						</p>
+						
+	
+					</div>
+					
+					<div class="">
+						<p>
+							
+							
+							<span class="fragment" data-fragment-index="0">
+								$d(x,z) \leq  d(x,y) + d(y,z)  .
+								$
+							</span>
+						</p>
+						
+	
+					</div>
+	
+	
+					<p><br /><br /><br /></p>
+				</section>
+
+				<section>
+					<h4>
+						Example 10.1.4. 
+					</h4>
+
+					<div class="left-txt size-85">
+						<p>
+							Consider the set of complex numbers 
+							$$\C = \left\{ x+iy ~|~  x,y\in \R, i^2=-1\right\}.$$ 
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							For $z=x+iy\in \C$, we define the modulus by
+							\[
+							\abs{z} := \sqrt{x^2+y^2}.
+							\]
+							<span class="fragment" data-fragment-index="1">
+								Then for two complex numbers
+$z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$, 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								the distance is
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						
+						<p>
+							
+							<span class="fragment" data-fragment-index="3">
+								$
+								d(z_1,z_2) $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$
+								 = \sqrt{{\left(x_1-x_2\right)}^2+ {\left(y_1-y_2\right)}^2} $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$=\sabs{z_1-z_2}.$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+
 			</section>
 
-			<section>
-				<h3>Metric spaces </h3>
+			
 
-				<div class="left-txt size-60">
-					<p><strong>Example (cont.):</strong>
-						Thus
-						\begin{equation*}
-						\begin{split}
-						{\bigl(d(x,z)\bigr)}^2 &
-						\leq
-						\sum_{j=1}^n
-						{(x_j-y_j)}^2
-						+
-						\sum_{j=1}^n
-						{(y_j-z_j)}^2
-						+
-						2
-						\sqrt{
-						\sum_{j=1}^n
-						{(x_j-y_j)}^2
-						\sum_{j=1}^n
-						{(y_j-z_j)}^2
-						}
-						\\
-						& =
-						{\left(
-						\sqrt{
-						\sum_{j=1}^n
-						{(x_j-y_j)}^2
-						}
-						+
-						\sqrt{
-						\sum_{j=1}^n
-						{(y_j-z_j)}^2
-						}
-						\right)}^2
-						=
-						{\bigl( d(x,y) + d(y,z) \bigr)}^2 .
-						\end{split}
-						\end{equation*}
-					</p>
-
-				</div>
-
-				<p><br /><br /></p>
-			</section>
+			
 
 			<section>
 				<h3>Metric spaces </h3>
