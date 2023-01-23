@@ -283,14 +283,14 @@
 					<div class="left-txt size-90">
 						<p>
 							<strong>Theorem 10.1.1. </strong> (Cauchy-Schwarz inequality)
-							If $x =(x_1,x_2,\ldots,x_n) \in \R^n$ and $y
+							If $x =(x_1,x_2,\ldots,x_n), y
 							=(y_1,y_2,\ldots,y_n) \in
 							\R^n$, then
 							\begin{equation*}
-							{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
+							{\biggl( \sum_{k=1}^n x_k y_k \biggr)}^2
 							\leq
-							\biggl(\sum_{j=1}^n x_j^2 \biggr)
-							\biggl(\sum_{j=1}^n y_j^2 \biggr) .
+							\biggl(\sum_{k=1}^n x_k^2 \biggr)
+							\biggl(\sum_{k=1}^n y_k^2 \biggr) .
 							\end{equation*}
 	
 						</p>
@@ -470,19 +470,19 @@
 							We relabel and divide by 2 to obtain
 							\begin{equation*}
 							0 \leq
-							\biggl( \sum_{j=1}^n x_j^2 \biggr)
-							\biggl( \sum_{j=1}^n y_j^2 \biggr)
+							\biggl( \sum_{k=1}^n x_k^2 \biggr)
+							\biggl( \sum_{k=1}^n y_k^2 \biggr)
 							-
-							{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2.
+							{\biggl( \sum_{k=1}^n x_k y_k \biggr)}^2.
 							\end{equation*}
 						</p>
 					</div>
 					<div class="left-txt size-90">
 						<p class="fragment" data-fragment-index="0">That is
 							$\ds 
-							{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 \leq
-							\biggl( \sum_{j=1}^n x_j^2 \biggr)
-							\biggl( \sum_{j=1}^n y_j^2 \biggr).
+							{\biggl( \sum_{k=1}^n x_k y_k \biggr)}^2 \leq
+							\biggl( \sum_{k=1}^n x_k^2 \biggr)
+							\biggl( \sum_{k=1}^n y_k^2 \biggr).
 							$
 							<span class="fragment" data-fragment-index="0">
 								 $\;\blacksquare$
@@ -494,7 +494,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example 10.1.3.</h4>
+					<h4>Example 10.1.2.</h4>
 					<div class="left-txt size-85">
 						<p>
 							Using the previous result we can construct the
@@ -536,7 +536,7 @@
 					<br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>Example 10.1.3.</h4>
+					<h4>Example 10.1.2.</h4>
 					<div class="left-txt size-80">
 						
 	
@@ -596,7 +596,7 @@
 					<br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4 style="font-size:80%">Example 10.1.3.</h4>
+					<h4 style="font-size:80%">Example 10.1.2.</h4>
 					<div class="left-txt size-60" style="margin-top:-10px">
 						
 	
@@ -672,7 +672,7 @@
 				</section>
 	
 				<section data-auto-animate>
-					<h4 style="font-size:80%">Example 10.1.3.</h4>
+					<h4 style="font-size:80%">Example 10.1.2.</h4>
 
 					<div class="size-80">
 						<p>
@@ -749,7 +749,7 @@
 					<p><br /><br /></p>
 				</section>
 				<section data-auto-animate>
-					<h4>Example 10.1.3.</h4>
+					<h4>Example 10.1.2.</h4>
 
 					<div class=" left-txt">
 						<p> Thus we have that 
@@ -803,7 +803,7 @@
 
 				<section data-auto-animate>
 					<h4>
-						Example 10.1.4. 
+						Example 10.1.3. 
 					</h4>
 
 					<div class="left-txt size-85">
@@ -860,6 +860,53 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 						<a href="https://complex-analysis.com/applets/p5js/julia-mandelbrot/" target="_blank" class="button">Open fullscreen <i class="fa fa-external-link-alt"></i></a>
 					</div>
 					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Example 10.1.4. 
+					</h4>
+
+					<div class="left-txt">
+						<p>
+							For any set $X$, define
+							\begin{equation*}
+							d(x,y) \coloneqq
+							\begin{cases}
+							1 & \text{if } x \not= y, \\
+							0 & \text{if } x = y.
+							\end{cases}
+							\end{equation*}
+							<span class="fragment" data-fragment-index="0">
+								This metric is known as the <em>discrete metric.</em>
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							That is, all points are equally distant from each other.  
+						</p>
+						
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 10.1.5. 
+					</h4>
+
+					<div class="left-txt">
+						<p>
+							Let $C\bigl([a,b],\R\bigr)$ be the set of
+							continuous real-valued functions on the interval $[a,b]$.
+							<span class="fragment" data-fragment-index="5">
+								Define the metric on $C\bigl([a,b],\R\bigr)$ as
+								\begin{equation*}
+								d(f,g) \coloneqq \sup_{x \in [a,b]} \abs{f(x)-g(x)} .
+								\end{equation*}
+							</span>
+						</p>
+						
+					</div>
+					<br/><br/><br/>
 				</section>
 
 			</section>
