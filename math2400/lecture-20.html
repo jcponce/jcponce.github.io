@@ -295,8 +295,49 @@
 					   </tr>
 				    </table><br/>
 			   </section>
+
+			   <section data-auto-animate id="topology">
+				<h4 style="font-size:70%;">10.2 Topology</h4>
+					<div style="font-size: 83%;text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+						<p><strong>Theorem 10.2.1. </strong>
+							Let $(X,d)$ be a metric space. 
+						</p>
+						<ol style="line-height:70px">
+							<li class="fragment" data-fragment-index="0">
+								$\emptyset$ and $X$ are open.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								If $V_1, V_2, \ldots, V_k$ are open subsets of $X$, then
+$\ds
+\bigcap_{j=1}^k V_j$
+is also open. 
+<span class="fragment" data-fragment-index="2">
+	That is, a finite intersection of open sets is open.
+
+</span>
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								If $\{ V_\lambda \}_{\lambda \in I}$ is
+an arbitrary collection of open subsets of $X$, then
+$\ds
+\bigcup_{\lambda \in I} V_\lambda
+$
+is also open.
+<span class="fragment" data-fragment-index="4">
+	That is, a union of open sets is open.
+</span>
+							</li>
+						</ol>
+	
+					</div>
+					<br/>
+			   </section>
+
+
 			   
 			</section>
+
 
 			
 			
@@ -333,233 +374,297 @@
 				</div>
 			</section>
 
-			<section>
-				<h3>Sequences and convergence</h3>
-
-				<div class="left-txt size-80">
-
-					<p><strong>Definition:</strong>
-						A <em>sequence</em> in a metric space $(X,d)$ is a function
-						$x \colon \N \to X$. As before we write $x_n$ for the $n$th element in
-						the sequence and use the notation $\{ x_n \}$, or more precisely
-						\begin{equation*}
-						\{ x_n \}_{n=1}^\infty .
-						\end{equation*}
-					</p>
-
-					<p>
-						A sequence $\{ x_n \}$ is <em>bounded</em> if
-						there exists a point $p \in X$ and $B \in \R$ such that
-						\begin{equation*}
-						d(p,x_n) \leq B \qquad \text{for all } n \in \N.
-						\end{equation*}
-						In other words, the sequence $\{x_n\}$ is bounded whenever
-						the set $\{ x_n : n \in \N \}$
-						is bounded.
-					</p>
-
-				</div>
-			</section>
-
-
-			<section>
-				<h3>Sequences and convergence</h3>
-
-				<div class="left-txt size-80">
-
-					<p><strong>Definition:</strong>
-						A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
-						to <em>converge</em> to a point
-						$p \in X$ if for every $\epsilon \gt 0$, there exists an $M \in \N$ such
-						that $d(x_n,p) \lt \epsilon$ for all $n \geq M$. The point $p$
-						is said to be the <em>limit</em>
-						of $\{ x_n \}$. We write
-						\begin{equation*}
-						\lim_{n\to \infty} x_n := p .
-						\end{equation*}
-
-
-					</p>
-
-					<p>
-						A sequence
-						that converges is <em>convergent</em>.
-						Otherwise, the sequence is
-						<em>divergent</em>.
-					</p>
-
-					<p><strong>Note:</strong> Compare this with the definition of <a href="summary-02.html#/1" target="_blank">convergence in $\R$</a></p>
-
-				</div>
-			</section>
-
-
-
-			<section>
-				<h3>Sequences and convergence</h3>
-
-				<div class="left-txt size-80">
-
-					<p>
-						<strong>Theorem:</strong>
-						A convergent sequence in a metric space has a unique limit.
-					</p>
-
-					<p>
-						<strong>Theorem:</strong>
-						A convergent sequence in a metric space is bounded.
-					</p>
-
-					<p><strong>Theorem:</strong>
-						Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$,
-						where we write $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
-						Then $\{ x_j \}_{j=1}^\infty$ converges if and only if
-						$\{ x_{j,k} \}_{j=1}^\infty$ converges for every $k=1,2,\ldots,n$, in which case
-						\begin{equation*}
-						\lim_{j\to\infty}
-						x_j =
-						\Bigl(
-						\lim_{j\to\infty} x_{j,1},
-						\lim_{j\to\infty} x_{j,2},
-						\ldots,
-						\lim_{j\to\infty} x_{j,n}
-						\Bigr) .
-						\end{equation*}
-					</p>
-
-				</div>
-			</section>
-
-
-			<section>
-				<h3>Sequences and convergence</h3>
-				
-				
-				<table style="width:100%;">
-					<tr>
-
-						<td style="width:50%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-
-								<p><strong>Theorem:</strong>
-									Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$. Then
-									$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
-									$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
-									we have $x_n \in U$.
-								</p>
 			
-								<p><strong>Theorem:</strong>
-									Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
-									and $\{ x_n \}$ a sequence in $E$ that converges to some $x \in X$.
-									Then $x \in E$.
-			
-								</p>
 
-							</div>
-						</td>
-						<td class="size-40" style="width:50%;">
 
-							<img style="width: 100%; 
-						   display: block;
-						   margin-left: auto;
-						   margin-right: auto;" 
-						   class="r-stretch" 
-						   data-src="images/summary-10/convergence.gif" />
-						   <p style="font-size:14px;text-align:center">Convergent sequence</p>
+			<section>
+
+				<section data-auto-animate>
+					<h4>10.3 Sequences and convergence</h4>
+	
+					<div class="left-txt size-90">
+	
+						<p class="fragment" data-fragment-index="0">
+							<strong>Definition 10.3.1. </strong>
+							A <em>sequence</em> in a metric space $(X,d)$ is a function
+							$x \colon \N \to X$.  
+							<span class="fragment" data-fragment-index="1">
+								As before we write $x_n$ for the $n$th element in
+								the sequence, and for the whole sequence use the notation
+								\begin{equation*}
+								\{ x_n \}_{n=1}^\infty .
+								\end{equation*}
+							</span>
+						</p>
+	
+						<p class="fragment" data-fragment-index="2">
+							A sequence $\{ x_n \}$ is <em>bounded</em> if
+							there exists a point $p \in X$ and $B \in \R$ such that
+							\begin{equation*}
+							d(p,x_n) \leq B \quad \text{for all } n \in \N.
+							\end{equation*}
+						</p>
+	
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>10.3 Sequences and convergence</h4>
+	
+					<div class="left-txt size-85">
+	
+						<p>
+							<strong>Definition 10.3.2. </strong>
+							A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
+							to <em>converge</em> to a point
+							$p \in X$ if for every $\epsilon \gt 0$, there exists an $M \in \N$ such
+							that $d(x_n,p) \lt \epsilon$ for all $n \geq M$. 
+							<span  class="fragment" data-fragment-index="0">
+								The point $p$
+							is said to be the <em>limit</em>
+							of $\{ x_n \}$. We write
+							\begin{equation*}
+							\lim_{n\to \infty} x_n := p .
+							\end{equation*}
+							</span>
+	
+	
+						</p>
+	
+						<p class="fragment" data-fragment-index="1">
+							A sequence
+							that converges is <em>convergent</em>.
+							Otherwise, the sequence is
+							<em>divergent</em>.
+						</p>
+	
+						<p class="fragment" data-fragment-index="2"><strong>Note:</strong> 
+							Compare this with the definition of 
+							<a href="summary-02.html#/1" target="_blank">convergence in $\R.$</a></p>
+	
+					</div>
+					<br/>
+				</section>
+
 				
-						</td>
+	
+	
+	
+				<section data-auto-animate>
+					<h4>10.3 Sequences and convergence</h4>
+	
+					<div class="left-txt size-95">
+	
+						<p>
+							<strong>Theorem 10.3.1. </strong>
+							A convergent sequence in a metric space has a unique limit.
+						</p>
+						<br/>
+	
+						<p>
+							<strong>Theorem 10.3.2. </strong>
+							A convergent sequence in a metric space is bounded.
+						</p>
+	
+						
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">10.3 Sequences and convergence</h4>
+	
+					<div class="left-txt size-85">
+	
+						<p>
+							<strong>Theorem 10.3.1. </strong>
+							A convergent sequence in a metric space has a unique limit.
+						</p>
+	
+						<p>
+							<strong>Theorem 10.3.2. </strong>
+							A convergent sequence in a metric space is bounded.
+						</p>
+	
+						<p><strong>Theorem 10.3.3. </strong>
+							Let $\{ x_k \}_{k=1}^\infty$ be a sequence in $\R^n$,
+							where we write $x_k = \bigl(x_{k,1},x_{k,2},\ldots,x_{k,n}\bigr) \in \R^n$.
+							Then $\{ x_k \}_{k=1}^\infty$ converges if and only if
+							$\{ x_{k,i} \}_{i=1}^\infty$ converges for every $i=1,2,\ldots,n$, in which case
+							\begin{equation*}
+							\lim_{j\to\infty}
+							x_k =
+							\Bigl(
+							\lim_{k\to\infty} x_{k,1},
+							\lim_{k\to\infty} x_{k,2},
+							\ldots,
+							\lim_{k\to\infty} x_{k,n}
+							\Bigr) .
+							\end{equation*}
+						</p>
+	
+					</div>
+					<br/>
+				</section>
+	
+	
+				<section data-auto-animate>
+					<h4>10.3 Sequences and convergence</h4>
+					
+					
+					<div class="" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p><strong>Theorem 10.3.4. </strong>
+							Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$. 
+							<span class="fragment" data-fragment-index="0">
+								Then
+							$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
+							$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
+							we have $x_n \in U$.
+							</span>
+							
+						</p>
 
-					</tr>
-				</table>
+					</div>
+					
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>10.3 Sequences and convergence</h4>
+					<div class="size-55" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p><strong>Theorem 10.3.4. </strong>
+							Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$. Then
+							$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
+							$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
+							we have $x_n \in U$.
+						</p>
+
+					</div>
+
+					<img style="width: 60%; 
+							   display: block;
+							   margin-left: auto;
+							   margin-right: auto;"
+							   data-src="images/summary-10/convergence.gif" />
+							  
+					
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>10.3 Sequences and convergence</h4>
+					
+					<div class="" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+	
+						<p><strong>Theorem 10.3.5 </strong>
+							Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
+							and $\{ x_n \}$ a sequence in $E$ that converges to some $p \in X$.
+							Then $p \in E$.
+	
+						</p>
+
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
 			</section>
 
 
 			<section>
-				<h3>Continuous functions</h3>
-				<p class="sbt">Continuity in metric spaces</p>
-
-				<div class="left-txt size-80">
-
-
-					<p><strong>Definition:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
-						Then $f \colon X \to Y$ is
-						<em>continuous at $c$</em>
-						if for every $\epsilon \gt 0$
-						there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
-						\delta$, then
-						$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
-					</p>
-
-					<p>
-						When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
-						that $f$ is a <em>continuous function</em>.
-
-					</p>
-
-					<p><strong>Note:</strong> Compare this with the definition of <a href="summary-05.html#/1" target="_blank">continuity in $\R$</a></p>
-
-
-				</div>
-			</section>
-
-			<section>
-				<h3>Continuous functions</h3>
-				<p class="sbt">Continuity in metric spaces and sequences</p>
-
-				<div class="left-txt size-80">
-
-
-					<p><strong>Theorem:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
-						Then $f \colon X \to Y$ is
-						continuous at $c \in X$
-						if and only if for every sequence $\{ x_n \}$ in $X$
-						converging to $c$, the sequence $\bigl\{ f(x_n) \bigr\}$ converges
-						to $f(c)$.
-					</p>
-
-					<p><strong>Note:</strong> Compare this Theorem with its <a href="summary-05.html#/3" target="_blank">version in $\R$</a></p>
-
-
-				</div>
-			</section>
-
-
-			<section>
-				<h3>Continuous functions</h3>
-				<p class="sbt">Continuity and Topology</p>
-
-				<div class="left-txt size-80">
-
-
-					<p><strong>Lemma:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
-						A function $f \colon X \to Y$ is continuous at $c \in X$
-						if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
-						$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
-					</p>
-
-					<p>
-						<strong>Theorem:</strong>
-						Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
-						\to Y$
-						is continuous if and only if
-						for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
-					</p>
-
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Continuous functions</h4>
-				<p class="sbt">Continuity and Topology</p>
-
-				<div class="iframe">
-					<iframe scrolling="no" title="Topology: Continuous function" src="https://www.geogebra.org/material/iframe/id/tw5krmzn/width/616/height/433/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="616px" height="433px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-				</div>
-				<p style="font-size:18px">For every neighborhood $U$ of $f(c)$, the set $f^{-1}(U)$ contains an open neighborhood $W$ of $c$.</p>
+				<section data-auto-animate>
+					<h4>10.4 Continuity</h4>
+					<p class="sbt">in metric spaces</p>
+	
+					<div class="left-txt size-80">
+	
+	
+						<p><strong>Definition:</strong>
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+							Then $f \colon X \to Y$ is
+							<em>continuous at $c$</em>
+							if for every $\epsilon \gt 0$
+							there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
+							\delta$, then
+							$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+						</p>
+	
+						<p>
+							When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+							that $f$ is a <em>continuous function</em>.
+	
+						</p>
+	
+						<p><strong>Note:</strong> Compare this with the definition of <a href="summary-05.html#/1" target="_blank">continuity in $\R$</a></p>
+	
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>10.4 Continuity</h4>
+					<p class="sbt">in metric spaces and sequences</p>
+	
+					<div class="left-txt size-80">
+	
+	
+						<p><strong>Theorem:</strong>
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+							Then $f \colon X \to Y$ is
+							continuous at $c \in X$
+							if and only if for every sequence $\{ x_n \}$ in $X$
+							converging to $c$, the sequence $\bigl\{ f(x_n) \bigr\}$ converges
+							to $f(c)$.
+						</p>
+	
+						<p><strong>Note:</strong> Compare this Theorem with its <a href="summary-05.html#/3" target="_blank">version in $\R$</a></p>
+	
+	
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+	
+	
+				<section data-auto-animate>
+					<h4>10.4 Continuity</h4>
+					<p class="sbt">with Topology</p>
+	
+					<div class="left-txt size-80">
+	
+	
+						<p><strong>Lemma:</strong>
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+							A function $f \colon X \to Y$ is continuous at $c \in X$
+							if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
+							$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
+						</p>
+	
+						<p>
+							<strong>Theorem:</strong>
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
+							\to Y$
+							is continuous if and only if
+							for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
+						</p>
+	
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>10.4 Continuity</h4>
+					<p class="sbt">with Topology</p>
+	
+					<div class="iframe">
+						<iframe scrolling="no" title="Topology: Continuous function" src="https://www.geogebra.org/material/iframe/id/tw5krmzn/width/616/height/433/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="616px" height="433px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					</div>
+					<p style="font-size:20px;margin-top:-5px">For every neighborhood $U$ of $f(c)$, the set $f^{-1}(U)$ contains an open neighborhood $W$ of $c$.</p>
+	
+					<br/>
+				</section>
 
 			</section>
 
@@ -567,8 +672,8 @@
 				<h3>The Essence of Topology</h3>
 
 				
-				<iframe scrolling="no" title="Helicoid transformation" data-src="sketches/hyperbolic-helicoid/smooth.html" width="380px" height="380px" style="border:0px;" allowfullscreen=""> </iframe>
-				<p style="font-size:12px;line-height:0.1">Source: <a href="https://www.geogebra.org/m/uxqktfym" target="_blank">Helicoid transformation</a></p>
+				<iframe scrolling="no" title="hyperbolic-helicoid" data-src="sketches/hyperbolic-helicoid/smooth.html" width="380px" height="380px" style="border:0px;" allowfullscreen=""> </iframe>
+				<p style="font-size:16px;line-height:0.1">Source: <a href="" target="_blank">Hyperbolic Helicoid</a></p>
 
 				<p style="font-size:24px">Geometric properties of subsets of metric spaces 
 					will be preserved when <br/>continuous transformations (functions or mappings) 
