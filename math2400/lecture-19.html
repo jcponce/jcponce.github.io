@@ -1048,16 +1048,67 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 						<p>
 							Let $C\bigl([a,b],\R\bigr)$ be the set of
 							continuous real-valued functions on the interval $[a,b]$.
-							<span class="fragment" data-fragment-index="5">
+							<span class="fragment" data-fragment-index="0">
 								Define the metric on $C\bigl([a,b],\R\bigr)$ as
 								\begin{equation*}
 								d(f,g) \coloneqq \sup_{x \in [a,b]} \abs{f(x)-g(x)} .
 								\end{equation*}
 							</span>
 						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							Again, items 1-3 of the metric definition are easy to check. Try it! 📝
+						</p>
 						
 					</div>
-					<br/><br/><br/>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 10.1.5. 
+					</h4>
+
+					<div class="left-txt">
+						<p>
+							Let's prove the triangle inequality:
+						</p>
+					</div>
+					<div class=" size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$d(f,g)\,$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds =
+								\sup_{x \in [a,b]} \abs{f(x)-g(x)}\qquad \qquad \qquad \qquad \qquad \,$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$ =\ds
+								\sup_{x \in [a,b]} \abs{f(x)-h(x)+h(x)-g(x)}\quad \qquad \qquad $
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$ \ds \leq
+								\sup_{x \in [a,b]} \bigl( \abs{f(x)-h(x)}+\abs{h(x)-g(x)} \bigr) \qquad \quad \;\;$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$\ds \leq
+								\sup_{x \in [a,b]} \abs{f(x)-h(x)}+
+								\sup_{x \in [a,b]} \abs{h(x)-g(x)} \qquad$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$ = d(f,h) + d(h,g) .\; \bs\qquad \qquad \qquad \qquad \quad\;$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
 				</section>
 			</section>
 			
