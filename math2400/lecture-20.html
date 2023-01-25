@@ -585,6 +585,42 @@
 					</div>
 					<br/>
 				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">10.3 Sequences and convergence</h4>
+	
+					<div class="left-txt size-50">
+	
+						<p>
+							<strong>Definition 10.3.2. </strong>
+							A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
+							to <em>converge</em> to a point
+							$p \in X$ if for every $\epsilon \gt 0$, there exists an $M \in \N$ such
+							that $d(x_n,p) \lt \epsilon$ for all $n \geq M$. 
+							<span>
+								The point $p$
+							is said to be the <em>limit</em>
+							of $\{ x_n \}$. We write
+							\begin{equation*}
+							\lim_{n\to \infty} x_n := p .
+							\end{equation*}
+							</span>
+	
+	
+						</p>
+	
+						
+	
+					</div>
+
+					<div style="margin-top:-10px">
+						<img style="width: 60%; 
+							   display: block;
+							   margin-left: auto;
+							   margin-right: auto;"
+							   data-src="images/summary-10/convergence-def.gif" />
+					</div>
+					<br/>
+				</section>
 
 				
 	
@@ -593,7 +629,7 @@
 				<section data-auto-animate>
 					<h4>10.3 Sequences and convergence</h4>
 	
-					<div class="left-txt size-95">
+					<div class="left-txt">
 	
 						<p>
 							<strong>Theorem 10.3.1. </strong>
@@ -601,7 +637,7 @@
 						</p>
 						<br/>
 	
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							<strong>Theorem 10.3.2. </strong>
 							A convergent sequence in a metric space is bounded.
 						</p>
@@ -609,28 +645,24 @@
 						
 	
 					</div>
-					<br/><br/><br/><br/><br/>
+					<br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4 style="font-size:80%">10.3 Sequences and convergence</h4>
+					<h4>10.3 Sequences and convergence</h4>
 	
-					<div class="left-txt size-85">
+					<div class="left-txt">
 	
-						<p>
-							<strong>Theorem 10.3.1. </strong>
-							A convergent sequence in a metric space has a unique limit.
-						</p>
-	
-						<p>
-							<strong>Theorem 10.3.2. </strong>
-							A convergent sequence in a metric space is bounded.
-						</p>
+						
 	
 						<p><strong>Theorem 10.3.3. </strong>
 							Let $\{ x_k \}_{k=1}^\infty$ be a sequence in $\R^n$,
 							where we write $x_k = \bigl(x_{k,1},x_{k,2},\ldots,x_{k,n}\bigr) \in \R^n$.
-							Then $\{ x_k \}_{k=1}^\infty$ converges if and only if
-							$\{ x_{k,i} \}_{i=1}^\infty$ converges for every $i=1,2,\ldots,n$, in which case
+							<span  class="fragment" data-fragment-index="0">
+								Then $\{ x_k \}_{k=1}^\infty$ converges if and only if
+							$\{ x_{k,i} \}_{i=1}^\infty$ converges for every $i=1,2,\ldots,n$, 
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								in which case
 							\begin{equation*}
 							\lim_{j\to\infty}
 							x_k =
@@ -641,11 +673,14 @@
 							\lim_{k\to\infty} x_{k,n}
 							\Bigr) .
 							\end{equation*}
+							</span>
+							
 						</p>
 	
 					</div>
-					<br/>
+					<br/><br/><br/>
 				</section>
+				
 	
 	
 				<section data-auto-animate>
@@ -719,23 +754,96 @@
 					<div class="left-txt size-95">
 	
 	
-						<p><strong>Definition 10.4.1. </strong>
+						<p class="fragment" data-fragment-index="0">
+							<strong>Definition 10.4.1. </strong>
 							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
-							Then $f \colon X \to Y$ is
+							<span class="fragment" data-fragment-index="1">
+								Then $f \colon X \to Y$ is
 							<em>continuous at $c$</em>
 							if for every $\epsilon \gt 0$
 							there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
 							\delta$, then
 							$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+							</span>
+							
 						</p>
 	
+						<p class="fragment" data-fragment-index="2">
+							When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+							that $f$ is a <em>continuous function</em>.
+	
+						</p>
+
+						<p class="fragment" data-fragment-index="3"><strong>Note:</strong> 
+							Compare this with the definition of 
+							<a href="summary-05.html#/1" target="_blank">continuity in $\R.$</a></p>
+	
+	
+						
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">10.4 Continuity</h4>
+					<p class="sbt" style="margin-top:-15px">in metric spaces</p>
+	
+					<div class="size-55" style="margin-top:-10px">
+	
+	
+						<p>
+							
+							
+							<span>
+								$f \colon X \to Y$ is
+							<em>continuous at $c$</em>
+							if for every $\epsilon \gt 0$
+							there is a $\delta \gt 0$ such that 
+							<br/>whenever $x \in X$ and $d_X(x,c) \lt
+							\delta$, then
+							$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+							</span>
+							
+						</p>
+
+
+	
+						
+	
+					</div>
+
+					<iframe scrolling="no" title="Conitnuity in metric spaces" data-src="https://www.geogebra.org/material/iframe/id/zafxykrr/width/607/height/468/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="607px" height="468px" style="border:0px;" allowfullscreen=""> </iframe>
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>10.4 Continuity</h4>
+					<p class="sbt">in metric spaces</p>
+	
+					<div class="left-txt size-95">
+	
+	
 						<p class="fragment" data-fragment-index="0">
+							<strong>Definition 10.4.1. </strong>
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+							<span class="fragment" data-fragment-index="1">
+								Then $f \colon X \to Y$ is
+							<em>continuous at $c$</em>
+							if for every $\epsilon \gt 0$
+							there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
+							\delta$, then
+							$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+							</span>
+							
+						</p>
+	
+						<p class="fragment" data-fragment-index="2">
 							When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
 							that $f$ is a <em>continuous function</em>.
 	
 						</p>
 	
-						<p class="fragment" data-fragment-index="1"><strong>Note:</strong> 
+						<p class="fragment" data-fragment-index="3"><strong>Note:</strong> 
 							Compare this with the definition of 
 							<a href="summary-05.html#/1" target="_blank">continuity in $\R.$</a></p>
 	
@@ -753,14 +861,17 @@
 	
 						<p><strong>Theorem 10.4.1. </strong>
 							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
-							Then $f \colon X \to Y$ is
+							<span  class="fragment" data-fragment-index="0">
+								Then $f \colon X \to Y$ is
 							continuous at $c \in X$
 							if and only if for every sequence $\{ x_n \}$ in $X$
 							converging to $c$, the sequence $\bigl\{ f(x_n) \bigr\}$ converges
 							to $f(c)$.
+							</span>
+							
 						</p>
 	
-						<p  class="fragment" data-fragment-index="0">
+						<p  class="fragment" data-fragment-index="1">
 							<strong>Note:</strong> 
 							Compare this Theorem with its 
 							<a href="summary-05.html#/3" target="_blank">version in $\R.$</a></p>
@@ -775,7 +886,7 @@
 					<h4>10.4 Continuity</h4>
 					<p class="sbt">with Topology</p>
 	
-					<div class="left-txt size-80">
+					<div class="left-txt">
 	
 	
 						<p><strong>Lemma 10.4.2. </strong>
@@ -784,6 +895,62 @@
 							if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
 							$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
 						</p>
+	
+	
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>10.4 Continuity</h4>
+					<p class="sbt" style="margin-top:-15px">with Topology</p>
+	
+					<div class="left-txt size-55">
+	
+	
+						<p><strong>Lemma 10.4.2. </strong>
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+							A function $f \colon X \to Y$ is continuous at $c \in X$
+							if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
+							$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
+						</p>
+	
+	
+					</div>
+					<div class="left-txt size-90">
+	
+	
+						<p>
+							<strong>Proof. </strong>
+							$\nec$
+							<span class="fragment" data-fragment-index="0">
+								First suppose that $f$ is continuous at $c$.
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								Let $U$ be an open neighborhood of $f(c)$
+								in $Y$,
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								then $B_Y\bigl(f(c),\epsilon\bigr) \subset U$ for some $\epsilon >
+								0$.  
+							</span>
+						</p>
+	
+	
+					</div>
+
+
+					<br/><br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>10.4 Continuity</h4>
+					<p class="sbt">with Topology</p>
+	
+					<div class="left-txt size-95">
+	
+	
+						
 	
 						<p>
 							<strong>Theorem 10.4.3. </strong>
