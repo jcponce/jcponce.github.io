@@ -93,7 +93,7 @@ void main() {
 
     float u = coord.x * 2.0 - 1.0;
     float v = coord.y * 2.0 - 1.0;
-    const float scale = 1.1;
+    const float scale = 1.21;
 
     // Make sure pixels are square
     u = u * scale * u_resolution.x / u_resolution.y;
