@@ -61,13 +61,12 @@
 			</section>
 
 			<!--
-				<section data-background-iframe="sketches/hyperbolic-helicoid/smooth.html"
+				
+			-->
+			<section data-background-iframe="sketches/hyperbolic-helicoid/smooth.html"
 				data-background-interactive>
 				<br /><br /><br /><br /><br /><br /><br />
-				<h3 style="line-height:8.89;color:white">Topology</h3>
-
-			</section>
-			-->
+				<h3 style="line-height:8.89;color:white">Topology</h3></section>
 
 		
 			<section>
@@ -478,10 +477,8 @@
 			</section>
 
 
-			
-			
-
-			<section>
+			<!--
+				<section>
 				<h3>Topology</h3>
 				<p class="size-60"><strong>Open and Closed Sets</strong></p>
 				<div class="left-txt size-80">
@@ -512,9 +509,7 @@
 
 				</div>
 			</section>
-
-			
-
+			-->
 
 			<section>
 
@@ -846,41 +841,7 @@
 
 					<br/><br/><br/>
 				</section>
-				<section data-auto-animate>
-					<h4>10.4 Continuity</h4>
-					<p class="sbt">in metric spaces</p>
-	
-					<div class="left-txt size-95">
-	
-	
-						<p class="fragment" data-fragment-index="0">
-							<strong>Definition 10.4.1. </strong>
-							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
-							<span class="fragment" data-fragment-index="1">
-								Then $f \colon X \to Y$ is
-							<em>continuous at $c$</em>
-							if for every $\epsilon \gt 0$
-							there is a $\delta \gt 0$ such that whenever $x \in X$ and $d_X(x,c) \lt
-							\delta$, then
-							$d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
-							</span>
-							
-						</p>
-	
-						<p class="fragment" data-fragment-index="2">
-							When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
-							that $f$ is a <em>continuous function</em>.
-	
-						</p>
-	
-						<p class="fragment" data-fragment-index="3"><strong>Note:</strong> 
-							Compare this with the definition of 
-							<a href="summary-05.html#/1" target="_blank">continuity in $\R.$</a></p>
-	
-	
-					</div>
-					<br/><br/><br/>
-				</section>
+				
 	
 				<section data-auto-animate>
 					<h4>10.4 Continuity</h4>
@@ -930,11 +891,25 @@
 					</div>
 					<br/><br/><br/>
 				</section>
+
 				<section data-auto-animate>
 					<h4>10.4 Continuity</h4>
+					<p class="sbt" style="margin-top:-20px">with Topology</p>
+	
+					<div class="iframe">
+						<iframe scrolling="no" title="Topology: Continuous function" data-src="https://www.geogebra.org/material/iframe/id/tw5krmzn/width/616/height/433/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="616px" height="433px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+					</div>
+					<p style="font-size:22px;margin-top:-5px">For every neighborhood $U$ of $f(c)$, the set $f^{-1}(U)$ contains an open neighborhood $W$ of $c$.</p>
+	
+					<br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4 style="font-size:80%">10.4 Continuity</h4>
 					<p class="sbt" style="margin-top:-15px">with Topology</p>
 	
-					<div class="left-txt size-55">
+					<div class="left-txt size-45">
 	
 	
 						<p><strong>Lemma 10.4.2. </strong>
@@ -951,17 +926,123 @@
 	
 						<p>
 							<strong>Proof. </strong>
-							$\nec$
+							
 							<span class="fragment" data-fragment-index="0">
-								First suppose that $f$ is continuous at $c$.
+								$\nec$ Suppose that $f$ is continuous at $c$.
 							</span>
-							<span class="fragment" data-fragment-index="0">
+							<span class="fragment" data-fragment-index="1">
 								Let $U$ be an open neighborhood of $f(c)$
 								in $Y$,
 							</span>
-							<span class="fragment" data-fragment-index="0">
+							<span class="fragment" data-fragment-index="2">
 								then $B_Y\bigl(f(c),\epsilon\bigr) \subset U$ for some $\epsilon >
 								0$.  
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								By continuity of $f$, there exists a $\delta > 0$
+								such that whenever $x$ is such that $d_X(x,c) \lt \delta$,
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								implies $d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$. 
+							</span>
+						</p>
+	
+	
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								Thus $B_X(c,\delta)  $
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$ \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr)$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$ \subset
+								f^{-1}(U) ,$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="8">
+								and $B_X(c,\delta)$ is an open neighborhood of $c$.
+							</span>
+						</p>
+
+					</div>
+
+
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">10.4 Continuity</h4>
+					<p class="sbt" style="margin-top:-15px">with Topology</p>
+	
+					<div class="left-txt size-45">
+	
+	
+						<p><strong>Lemma 10.4.2. </strong>
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+							A function $f \colon X \to Y$ is continuous at $c \in X$
+							if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
+							$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
+						</p>
+	
+	
+					</div>
+					<div class="left-txt size-90">
+	
+	
+						<p>
+							<strong>Proof. </strong>
+							
+							<span>
+								$\suf$ Now, let $\epsilon > 0$ be given.
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								If
+								$f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr)$ contains an open
+								neighborhood $W$ of $c$,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								it contains a ball. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								That is, there is some $\delta > 0$
+								such that
+							</span>
+						</p>
+	
+	
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$B_X(c,\delta) $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$  \subset W $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) .
+								$
+							</span>
+						</p>
+
+					</div>
+
+					<div class="left-txt size-90">
+	
+	
+						<p>
+							
+							<span class="fragment" data-fragment-index="5">
+								This means that if $d_X(x,c) \lt \delta$,
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								then $d_Y\bigl(f(x),f(c)\bigr) \lt \epsilon$.
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								Therefore $f$ is continuous at $c.\;\bs $ 
 							</span>
 						</p>
 	
@@ -975,37 +1056,39 @@
 
 				<section data-auto-animate>
 					<h4>10.4 Continuity</h4>
-					<p class="sbt">with Topology</p>
+					<p class="sbt" style="margin-top:-15px">with Topology</p>
 	
 					<div class="left-txt size-95">
 	
-	
-						
-	
 						<p>
 							<strong>Theorem 10.4.3. </strong>
-							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f \colon X
+							Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. 
+							<span  class="fragment" data-fragment-index="0">
+								A function $f \colon X
 							\to Y$
 							is continuous if and only if
 							for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
+
+							</span>
 						</p>
 	
 	
 					</div>
-					<br/><br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>10.4 Continuity</h4>
-					<p class="sbt">with Topology</p>
-	
-					<div class="iframe">
-						<iframe scrolling="no" title="Topology: Continuous function" src="https://www.geogebra.org/material/iframe/id/tw5krmzn/width/616/height/433/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="616px" height="433px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+
+					
+					<div class="fragment" data-fragment-index="0">
+						<img style="width: 65%; 
+							   display: block;
+							   margin-left: auto;
+							   margin-right: auto;"
+							   data-src="images/summary-10/continuity-still-img.svg" />
 					</div>
-					<p style="font-size:20px;margin-top:-5px">For every neighborhood $U$ of $f(c)$, the set $f^{-1}(U)$ contains an open neighborhood $W$ of $c$.</p>
-	
+
+
 					<br/>
 				</section>
+	
+				
 
 			</section>
 
