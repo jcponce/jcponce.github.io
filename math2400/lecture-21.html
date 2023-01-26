@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 21</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Lecture 21</p>
+			</section>
+
+			
+
+			<section>
+				<section data-auto-animate>
+					<h4>11.1. Vector spaces</h4>
+					<div class="left-txt size-75">
+						<p><strong>Definition 11.1.1. </strong>
+							Let $X$ be a set together with
+							the operations of addition, $+\, \colon X \times X \to X$,
+							and multiplication, $\cdot \,\colon \R \times X \to X$,
+							(we usually write $ax$ instead of $a
+							\cdot x$). $X$ is called a <em>vector space</em> (or a
+							<em>real vector space</em>)
+							if the following conditions are satisfied:
+						</p>
+						<ol>
+							<li>
+								If $u, v, w \in X$, then $u+(v+w) = (u+v)+w$.
+							</li>
+							<li>
+								If $u, v \in X$, then $u+v = v+u$.
+							</li>
+							<li>
+								There is a $0 \in X$ such that $v+0=v$ for all $v \in X$.
+							</li>
+							<li>
+								For every $v \in X$, there is a $-v \in X$, such that $v+(-v)=0$.
+							</li>
+							<li>
+								If $a \in \R$, $u,v \in X$, then
+								$a(u+v) = au+av$.
+							</li>
+							<li>
+								If $a,b \in \R$, $v \in X$, then
+								$(a+b)v = av+bv$.
+							</li>
+							<li>
+								If $a,b \in \R$, $v \in X$, then
+								$(ab)v = a(bv)$.
+							</li>
+							<li>
+								$1v = v$ for all $v \in X$.
+							</li>
+						</ol>
+	
+					</div>
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>11.1. Vector spaces</h4>
+					
+					<div class="left-txt size-90">
+						<p><strong>Remark:</strong>
+							If $X$ is a vector space, to check that a subset $S \subset X$
+							is a vector subspace, we only need
+						</p>
+						<ol>
+							<li>
+								$0 \in S$,
+							</li>
+							<li>
+								$S$ is closed under addition, adding two vectors in $S$ gets us a vector in
+								$S$, and
+							</li>
+							<li>
+								$S$ is closed under scalar multiplication, multiplying a vector in
+								$S$ by a scalar gets us a vector in $S$.
+							</li>
+	
+						</ol>
+	
+					</div>
+					<br/><br/>
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>11.2 Linear combinations and dimension</h4>
+					<iframe scrolling="no" title="Span in R²"
+						data-src="https://www.geogebra.org/material/iframe/id/nmk2nqwh/width/835/height/447/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+						width="835px" height="447px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+
+						<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>11.2 Linear combinations and dimension</h4>
+					<iframe scrolling="no" title="Span in R^3"
+						data-src="https://www.geogebra.org/material/iframe/id/mbgxwtyn/width/750/height/490/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+						width="750px" height="490px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				
+						<br/><br/>
+				</section>
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>11.3 Linear mappings</h4>
+					<div class="left-txt size-85">
+						<p><strong>Definition:</strong> A mapping $A \colon X \to Y$ of vector spaces $X$ and $Y$
+							is <em>linear</em> (we also say $A$ is a
+							<em>linear transformation</em>
+							or a <em>linear operator</em>)
+							if for all $a \in \R$ and all $x,y \in X$,
+							\begin{equation*}
+							A(a x) = a A(x), \;\;\text{and} \;\; A(x+y) = A(x)+A(y) .
+							\end{equation*}
+						</p>
+	
+						<p>
+							We usually write $Ax$ instead of $A(x)$ if $A$ is linear.
+							If $A$ is one-to-one and onto, then we say $A$ is
+							<em>invertible</em>,
+							and we denote the inverse by $A^{-1}$.
+							If $A \colon X \to X$ is linear, then we say $A$ is a
+							<em>linear operator on $X$</em>.
+						</p>
+	
+	
+					</div>
+	
+					<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>11.3 Linear mappings</h4>
+					<div class="left-txt size-80">
+	
+						<p>
+							We write $L(X,Y)$ for the set of all linear transformations from $X$ to
+							$Y$, and just $L(X)$ for the set of linear operators on $X$.
+							If $a \in \R$ and $A,B \in L(X,Y)$, define
+							the transformations $aA$ and $A+B$ by
+							\begin{equation*}
+							(aA)(x) := aAx ,
+							\qquad
+							(A+B)(x) := Ax + Bx .
+							\end{equation*}
+							If $A \in L(Y,Z)$ and $B \in L(X,Y)$, define the
+							transformation $AB$ as the composition $A \circ B$, that is,
+							\begin{equation*}
+							ABx := A(Bx) .
+							\end{equation*}
+							Finally, denote by $I \in L(X)$ the <em>identity</em>:
+							the linear operator such that $Ix = x$ for all $x$.
+						</p>
+	
+	
+					</div>
+	
+				</section>
+	
+				<section data-auto-animate>
+					<h4>11.3 Linear mappings</h4>
+					<div class="left-txt size-80">
+	
+						<p>
+							<strong>Theorem:</strong>
+							If $A \in L(X,Y)$ is invertible, then $A^{-1}$ is linear.
+						</p>
+	
+						<p>
+							<strong>Theorem:</strong>
+							If $A \in L(X,Y)$ is linear, then it is completely determined
+							by its values on a basis of $X$.
+							Furthermore, if $B$ is a basis of $X$,
+							then every function $\widetilde{A} \colon B \to Y$ extends to a linear
+							function $A$ on $X$.
+						</p>
+	
+						<p>
+							<strong>Theorem:</strong>
+							If $X$ is a finite-dimensional vector space and $A \in L(X)$, then $A$ is one-to-one if and only
+							if it is onto.
+						</p>
+	
+						<p>
+							<strong>
+								Theorem:
+							</strong>
+							If $X$ and $Y$ are finite-dimensional vector spaces, then $L(X,Y)$
+							is also finite-dimensional.
+						</p>
+	
+	
+					</div>
+					<br/><br/>
+	
+				</section>
+			</section>
+
+
+
+			<section>
+				<h4>Convexity</h4>
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:55%">
+							<div class="size-80" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+
+								<p>
+									A subset $U$ of a vector space is <em>convex</em>
+									if whenever $x,y \in U$, the line segment from
+									$x$ to $y$ lies in $U$. That is, if the <em>convex combination</em>
+									$(1-t)x+ty$ is in $U$ for all $t \in [0,1]$.
+									Sometimes we write $[x,y]$ for this line segment.
+								</p>
+
+								
+
+							</div>
+						</td>
+						<td class="size-40" style="width:45%;">
+
+							<img style="width: 100%; 
+						   display: block;
+						   margin-left: auto;
+						   margin-right: auto;" class="r-stretch" data-src="images/summary-11/convex.gif" />
+
+
+						</td>
+
+					</tr>
+				</table>
+				<br/><br/>
+			</section>
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
