@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 23</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Lecture 23</p>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div class="left-txt size-90">
+						<p>
+							<strong>Definition 12.1.1.  </strong>
+							Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ a function. We
+							say $f$ is <em>differentiable</em> at $x \in U$ if there exists
+							an $A \in L(\R^n,\R^m)$ such that
+							\begin{equation*}
+							\lim_{\substack{h \to 0\\h\in \R^n}}
+							\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0 .
+							\end{equation*}
+							We write $Df(x) := A$, or $f'(x) := A$, and
+							we say $A$ is the <em>derivative</em> of $f$ at $x$.
+							When $f$ is differentiable at
+							every $x \in U$, we say simply that $f$ is <em>differentiable</em>.
+						</p>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Theorem:</strong>
+							Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$ a function.  If
+$x \in U$ and there exist 
+$A,B \in L(\R^n,\R^m)$ such that
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							$\ds \lim_{h \to 0}
+\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0$
+						</p>
+						<p>
+							and
+							$\;\;\ds \lim_{h \to 0}
+\frac{\snorm{f(x+h)-f(x) - Bh}}{\snorm{h}} = 0 , \quad\;\;\;$
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							then $A=B$.
+						</p>
+					</div>
+				</section>
+	
+				<section>
+					<h5>The Derivative of a function $f:\R^2\to \R$</h5>
+					<iframe scrolling="no" title="Tangent plane"
+						data-src="https://www.geogebra.org/material/iframe/id/a6cxj48f/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="800px" height="500px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
+						<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div class="left-txt size-95">
+						<p>
+							<strong>Theorem:</strong>
+							Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ be
+							differentiable at $p \in U$. Then $f$ is continuous at $p$.
+						</p>
+	
+						
+	
+	
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div class="left-txt size-90">
+						
+	
+						<p>
+							<strong>Theorem:</strong>
+							Suppose $U \subset \R^n$ is open,
+							$f \colon U \to \R^m$ and
+							$g \colon U \to \R^m$ are differentiable at $p$,
+							and $\alpha \in \R$. Then the functions $f+g$ and $\alpha f$
+							are differentiable at $p$ and
+							\begin{equation*}
+							(f+g)'(p) = f'(p) + g'(p) , \;\; \text{and} \;\; (\alpha f)'(p) = \alpha
+							f'(p) .
+							\end{equation*}
+						</p>
+	
+	
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div class="left-txt size-95">
+						<p>
+							<strong>Theorem:</strong> (Chain rule)
+							Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+							differentiable at $p \in U$. Let $V \subset \R^m$ be open,
+							$f(U) \subset V$ and let $g \colon V \to \R^\ell$ be differentiable
+							at $f(p)$. Then
+							\begin{equation*}
+							F(x) = g\bigl(f(x)\bigr)
+							\end{equation*}
+							is differentiable at $p$ and
+							\begin{equation*}
+							F'(p) = g'\bigl(f(p)\bigr) f'(p) .
+							\end{equation*}
+						</p>
+					</div>
+				</section>
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h4 style="margin-top:-200px">12.1.1 Partial derivatives</h4>
+	
+					<div class="left-txt size-90">
+						<p>
+							<strong>Definition:</strong>
+							Let
+							$f \colon U \to \R$ be a function on an open set $U \subset \R^n$.
+							If the following limit exists, we write
+	
+						</p>
+					</div>
+					<div class="size-80">
+						<p>
+							
+							$
+							\ds\frac{\partial f}{\partial x_j} (x) :=
+							\lim_{h\to 0}\frac{f(x_1,\ldots,x_{j-1},x_j+h,x_{j+1},\ldots,x_n)-f(x)}{h}$
+							
+							
+	
+						</p>
+						<p>
+							$=
+							\ds \lim_{h\to 0}\frac{f(x+h e_j)-f(x)}{h} .\qquad \qquad \;\;\;\;\;
+							$
+						</p>
+					</div>
+					
+	
+				</section>
+				<section data-auto-animate>
+					<h4 style="margin-top:-50px">12.1.1 Partial derivatives</h4>
+	
+					<div class="left-txt size-55">
+						<p>
+							<strong>Definition:</strong>
+							Let
+							$f \colon U \to \R$ be a function on an open set $U \subset \R^n$.
+							If the following limit exists, we write
+	
+						</p>
+					</div>
+					<div class="size-55">
+						<p>
+							
+							$
+							\ds\frac{\partial f}{\partial x_j} (x) :=
+							\lim_{h\to 0}\frac{f(x_1,\ldots,x_{j-1},x_j+h,x_{j+1},\ldots,x_n)-f(x)}{h}$
+							
+							
+	
+						</p>
+						<p>
+							$=
+							\ds \lim_{h\to 0}\frac{f(x+h e_j)-f(x)}{h} .\qquad \qquad \;\;\;\;\;
+							$
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							
+							We call
+							$\dfrac{\partial f}{\partial x_j} (x)$ the <em>partial derivative</em>
+							of $f$
+							with respect to $x_j$.
+							<strong>Here $h$ is a number not a vector.</strong>
+	
+							For a mapping $f \colon U \to \R^m$ we write
+							$f = (f_1,f_2,\ldots,f_m)$, where $f_k$ are real-valued
+							functions. We then take partial derivatives of
+							the components,
+							$\dfrac{\partial f_k}{\partial x_j}$.
+	
+						</p>
+					</div>
+	
+				</section>
+	
+				<section data-auto-animate>
+					<h4>12.1.1 Partial derivatives</h4>
+					<iframe scrolling="no" title="Directional derivatives"
+						src="https://www.geogebra.org/material/iframe/id/jvuhpyce/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="800px" height="500px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
+						<br/><br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4 style="font-size:80%;margin-top:-15px">12.1.1 Partial derivatives</h4>
+					<div class="left-txt size-80">
+						<p>
+							<strong>Theorem:</strong>
+							Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+							differentiable at $p \in U$. Then all the partial derivatives at $p$
+							exist and, in terms of the standard bases of $\R^n$ and $\R^m$,
+							$f'(p)$ is represented by the matrix
+							\begin{equation*}
+							\begin{bmatrix}
+							\dfrac{\partial f_1}{\partial x_1}(p)
+							&
+							\dfrac{\partial f_1}{\partial x_2}(p)
+							& \ldots &
+							\dfrac{\partial f_1}{\partial x_n}(p)
+							\\[6pt]
+							\dfrac{\partial f_2}{\partial x_1}(p)
+							&
+							\dfrac{\partial f_2}{\partial x_2}(p)
+							& \ldots &
+							\dfrac{\partial f_2}{\partial x_n}(p)
+							\\
+							\vdots & \vdots & \ddots & \vdots
+							\\
+							\dfrac{\partial f_m}{\partial x_1}(p)
+							&
+							\dfrac{\partial f_m}{\partial x_2}(p)
+							& \ldots &
+							\dfrac{\partial f_m}{\partial x_n}(p)
+							\end{bmatrix} .
+							\end{equation*}
+						</p>
+					</div>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>12.1.1 Partial derivatives</h4>
+					<div class="left-txt size-90">
+						<p>
+							<strong>Remark:</strong>
+							The converse of the previous <a href="#/7">Theorem</a> is not true. Just because the partial
+							derivatives exist, does not mean that the function is differentiable.
+	
+							<br/><br/>
+							However, when the partial derivatives are continuous, the
+							converse holds.
+							One of the consequences of the Theorem is that if $f$
+							is differentiable on $U$, then $f' \colon U \to
+							L(\R^n,\R^m)$ is a continuous function if and only if
+							all the $\dfrac{\partial f_k}{\partial x_j}$ are continuous functions.
+						</p>
+					</div>
+					<br/>
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>12.1.2 Gradients & directional derivatives</h4>
+					<div class="left-txt size-90">
+						<p>
+							<strong>Definition:</strong>
+							Let $U \subset \R^n$ be open and $f \colon U \to \R$ a differentiable
+							function. We define
+							the <em>gradient</em> as
+							\begin{equation*}
+							\nabla f (x) := \sum_{j=1}^n \frac{\partial f}{\partial x_j} (x)\, e_j .
+							\end{equation*}
+							The gradient gives a way to represent the action of
+							the derivative as a dot product: $f'(x)\,v = \nabla f(x) \cdot v$.
+						</p>
+					</div>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>12.1.2 Gradients and directional derivatives</h4>
+					<div class="left-txt size-85">
+						<p>
+							<strong>Definition:</strong>
+							Pick a vector $u \in \R^n$
+							such that $\snorm{u} = 1$, and fix $x \in U$.
+							We define the
+							<em>directional derivative</em> as
+							\begin{equation*}
+							D_u f (x) := \frac{d}{dt}\Big|_{t=0} \bigl[ f(x+tu) \bigr] =
+							\lim_{h\to 0}
+							\frac{f(x+hu)-f(x)}{h} ,
+							\end{equation*}
+							where the notation
+							$\frac{d}{dt}\big|_{t=0}$ represents the derivative evaluated at $t=0$.
+							Taking the standard basis vector $e_j$ we find
+							$\frac{\partial f}{\partial x_j} = D_{e_j} f$.
+							For this reason, sometimes the notation $\frac{\partial f}{\partial u}$
+							is used instead of $D_u f$.
+						</p>
+					</div>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>12.1.2 Gradients and directional derivatives</h4>
+					<iframe scrolling="no" title="Directional derivatives and Gradient"
+						src="https://www.geogebra.org/material/iframe/id/hpm3wx5z/width/788/height/520/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/true"
+						width="788px" height="520px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
+	
+				</section>
+	
+				<section data-auto-animate>
+					<h4>12.1.2 Gradients and directional derivatives</h4>
+					<div class="left-txt size-90">
+						<p>
+							<strong>Definition:</strong>
+							Let $U \subset \R^n$ and
+							$f \colon U \to \R^n$ be a differentiable mapping. Define the
+							<em>Jacobian</em>,
+							or the
+							<em>Jacobian determinant</em>,
+							of $f$ at $x$ as
+							\begin{equation*}
+							J_f(x) := \det\bigl( f'(x) \bigr) .
+							\end{equation*}
+							Sometimes $J_f$ is written as
+							\begin{equation*}
+							\frac{\partial(f_1,f_2,\ldots,f_n)}{\partial(x_1,x_2,\ldots,x_n)} .
+							\end{equation*}
+						</p>
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>
+						12.2 Continuously differentiable functions</h4>
+					<div class="left-txt size-95">
+						<p>
+							<strong>Definition:</strong>
+							Let $U \subset \R^n$ be open.
+							We say $f \colon U \to \R^m$ is
+							<em>continuously differentiable</em>,
+							or $C^1(U)$,
+							if $f$ is differentiable and $f' \colon U \to L(\R^n,\R^m)$
+							is continuous.
+						</p>
+	
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						12.2 Continuously differentiable functions</h4>
+					<div class="left-txt size-90">
+						
+	
+						<p>
+							<strong>Theorem:</strong>
+							Let $U \subset \R^n$ be open and
+							$f \colon U \to \R^m$. The function
+							$f$ is continuously differentiable if and only if
+							the partial derivatives $\frac{\partial f_j}{\partial x_\ell}$
+							exist for all $j$ and $\ell$ and are continuous.
+						</p>
+					</div>
+				</section>
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH2400/7400 - Lecture 25</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>Mathematical Analysis</h2>
+				<p>Lecture 25</p>
+			</section>
+
+			<section>
+				<h3>Inverse function theorem</h3>
+				<div class="left-txt size-60">
+					<p>
+						<strong>Theorem:</strong>
+						Let $U \subset \R^n$ be an open set and let
+						$f \colon U \to \R^n$ be a continuously differentiable function.
+						Suppose $p \in U$ and $f'(p)$ is invertible
+						(that is, $J_f(p) \not=0$).
+						Then there exist open sets $V, W \subset \R^n$ such that
+						$p \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one.
+						Hence a function $g \colon W \to V$ exists such that
+						$g(y) := (f|_V)^{-1}(y)$.
+						Furthermore, $g$ is continuously differentiable
+						and
+						\begin{equation*}
+						g'(y) = {\bigl(f'(x)\bigr)}^{-1}, \qquad \text{for all } x \in V, y = f(x).
+						\end{equation*}
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h4>One-to-one vs Not one-to-one</h4>
+				<p class="sbt">For functions $f:\R^2 \to \R^2$</p>
+				<iframe scrolling="no" title="One-to-one vs not one-to-one"
+					src="https://www.geogebra.org/material/iframe/id/vwfm3m7s/width/611/height/430/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+					width="611px" height="430px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
+			</section>
+
+			<section>
+				<h4>Transformations from $\R^2 \to \R^2$</h4>
+				<div>
+					<iframe scrolling="no" title="Transformations"
+					src="https://www.geogebra.org/material/iframe/id/msqh9rxd/width/772/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true"
+					width="772px" height="472px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
+
+				</div>
+			</section>
+
+			<section>
+				<h4>Transformations from $\R^2 \to \R^2$</h4>
+				<div>
+					<iframe scrolling="no" title="Zoom in: Transformations"
+					src="https://www.geogebra.org/material/iframe/id/fyxym965/width/782/height/434/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/true"
+					width="782px" height="434px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
+				</div>
+
+			</section>
+
+
+
+
+			<section>
+				<h3>Real Analysis</h3>
+				<div class="left-txt size-60">
+					<p>
+						You have studied concepts such as sequences and their limits, continuity,
+						differentiation, integration, sequences of functions, vector spaces
+						and a little bit of topology.
+					</p>
+					<p class="fragment" data-fragment-index="0">
+						The most challenging part of this course was to
+						<strong>read</strong>
+
+						and <strong>write</strong> proofs.
+
+					</p>
+
+
+				</div>
+
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:50%">
+							<span class="fragment" data-fragment-index="0">
+								<img style="width: 70%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-preloaded
+									data-src="images/summary-13/homer.gif" />
+
+							</span>
+						</td>
+						<td class="size-40" style="width:50%;">
+							<span class="fragment" data-fragment-index="0">
+								<img style="width: 70%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-preloaded
+									data-src="images/summary-13/maths.gif" />
+
+							</span>
+
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			<section>
+				<h3>Real Analysis</h3>
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:45%">
+							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									However, you challenged yourself and began reading advanced mathematics.
+									<br />
+									<span class="fragment" data-fragment-index="1">
+										<em>
+											This actually helps you to develop your critical mathematical thinking.
+										</em>
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="2">
+									Furthermore, you started writing
+									your own mathematical proofs.
+									<br />
+									<span class="fragment" data-fragment-index="3">
+										<em>This allowed
+											you to develop a repertoire of mathematical strategies
+											to improve your problem solving skills.
+										</em>
+									</span>
+								</p>
+
+							</div>
+						</td>
+						<td style="width:55%;">
+							<div class="size-80" style="text-align: left; margin-left: 1.5em;font-weight:normal;">
+								<p class="fragment" data-fragment-index="4">
+									Learning Real Analysis <br />is not an easy task.
+
+								</p>
+
+
+								<p class="fragment" data-fragment-index="9">
+									The best way to learn <br />
+									mathematics is
+									<br />by <strong>doing</strong> mathematics.
+								</p>
+								<br />
+
+							</div>
+
+
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			<section>
+				<h3>Real Analysis</h3>
+				<div class="left-txt size-70">
+					<p>
+						Can we prove everything in Real Analysis?
+						<span class="fragment" data-fragment-index="1">
+							Or in Mathematics?
+						</span>
+					</p>
+
+					<p class="fragment" data-fragment-index="2">
+						Unfortunately, the answer is "No".
+						<span class="fragment" data-fragment-index="3">
+							People have tried. 
+						</span>
+						<span class="fragment" data-fragment-index="5">One example is:</span>
+					</p>
+
+
+				</div>
+
+
+
+
+
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:60%">
+							<div class="size-80" style="text-align: center; margin-left: 0.1em;font-weight:normal;">
+
+
+								<p class="fragment" data-fragment-index="5">
+									<a href="https://en.wikipedia.org/wiki/Principia_Mathematica" target="_blank">
+										<strong>
+											Principia Mathematica
+										</strong>
+									</a>
+								</p>
+
+							</div>
+							<div class="size-60" style="text-align: center; margin-left: 0.1em;font-weight:normal;">
+								<p class="fragment" data-fragment-index="5">
+									by <br />
+									Alfred N. Whitehead
+									and
+									Bertrand Russell
+									<br />
+									(1910-1913)
+								</p>
+							</div>
+						</td>
+						<td style="width:40%;" class="fragment" data-fragment-index="5">
+							<img style="width: 55%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-preloaded data-src="images/summary-13/principia.jpeg" />
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			<section>
+				<h3>Real Analysis</h3>
+				<div class="left-txt size-70">
+					<p>
+						Can we prove everything in Real Analysis?
+						<span>
+							Or in Mathematics?
+						</span>
+					</p>
+
+					<p>
+						Unfortunately, the answer is "No".
+						<span>
+							People have tried. One example is:
+						</span>
+					</p>
+
+
+				</div>
+
+
+
+
+
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:35%">
+							<div class="size-60" style="text-align: center; margin-left: 0.1em;font-weight:normal;">
+
+
+								<p>
+									<a href="https://en.wikipedia.org/wiki/Principia_Mathematica" target="_blank">
+										<strong>
+											Principia Mathematica
+										</strong>
+									</a>
+								</p>
+
+							</div>
+							<div class="size-40" style="text-align: center; margin-left: 0.1em;font-weight:normal;">
+								<p>
+									by <br />
+									Alfred N. Whitehead
+									and <br />
+									Bertrand Russell
+									<br />
+									(1910-1913)
+								</p>
+							</div>
+						</td>
+						<td style="width:75%;">
+							<img style="width: 100%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-preloaded data-src="images/summary-13/1plus1two.png" />
+							<p style="line-height:2.5;font-size:14px;text-align:center">Source: <a target="_blank"
+									href="https://quod.lib.umich.edu/cgi/t/text/pageviewer-idx?c=umhistmath&cc=umhistmath&idno=aat3201.0001.001&frm=frameset&view=image&seq=401">
+									Principia Mathematica</a></p>
+
+						</td>
+
+					</tr>
+				</table>
+
+			</section>
+
+			<section>
+				<h3>Real Analysis</h3>
+				<div class="left-txt size-70">
+					<p>
+						At some point we will find statements that cannot
+						be proved.
+					</p>
+				</div>
+
+
+
+				<table style="width:100%;">
+					<tr>
+
+						<td style="width:60%">
+							<div style="font-size:32px;text-align: center; margin-left: 0.1em;font-weight:normal;">
+
+
+								<p>
+									We know this thanks to <br />
+									<a href="https://youtu.be/I4pQbo5MQOs" target="_blank">
+										<strong>
+											🔗 Gödel's Incompleteness
+											Theorem
+										</strong>
+									</a>
+								</p>
+
+							</div>
+						</td>
+						<td style="width:40%;">
+							<img style="width: 70%; 
+								display: block;
+								margin-left: auto;
+								margin-right: auto;" class="r-stretch" data-preloaded
+								data-src="images/summary-13/loop.gif" />
+						</td>
+
+					</tr>
+				</table>
+
+				<br /><br />
+			</section>
+
+
+			<section data-background-iframe="sketches/lorenz/" data-background-interactive data-preloaded>
+
+				<br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<h3 style="background: rgba(220, 220, 220, 0.0);">
+					Mathematics are awesome!
+				</h3>
+
+				<p class="" style="font-size:12px;">
+					<a href="https://www.dynamicmath.xyz/">https://www.dynamicmath.xyz/
+
+					</a>
+				</p>
+
+
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="creditsb.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
