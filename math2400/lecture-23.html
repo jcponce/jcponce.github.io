@@ -63,20 +63,193 @@
 			<section>
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
-					<div class="left-txt size-90">
+					<div style="font-size:28px;margin-top:-10px;">
+						<p><strong>Motivation</strong></p>
+					</div>
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="0">
+							Recall that for $f \colon \R \to \R$, 
+							<span class="fragment" data-fragment-index="1">
+								we defined
+							the derivative at $c$ as
+							</span>
+							
+						</p>
+						
+					</div>
+					
+					<div class="">
 						<p>
-							<strong>Definition 12.1.1.  </strong>
-							Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ a function. We
-							say $f$ is <em>differentiable</em> at $x \in U$ if there exists
-							an $A \in L(\R^n,\R^m)$ such that
-							\begin{equation*}
-							\lim_{\substack{h \to 0\\h\in \R^n}}
-							\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0 .
-							\end{equation*}
+						
+							<span class="fragment" data-fragment-index="1">
+								$\ds\lim_{x \to c} \frac{f(x)-f(c)}{x-c} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\ds=
+								\lim_{h\to 0}\frac{f(c+h)-f(c)}{h}$
+							</span>
+							
+							
+						</p>
+						
+					</div>
+
+					
+					
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div style="font-size:28px;margin-top:-20px;">
+						<p><strong>Motivation</strong></p>
+					</div>
+					<div class="left-txt">
+						<p>
+							So, in general, the derivative at any $x\in \R$ is
+							
+						</p>
+						
+					</div>
+					
+					<div class="r-stack">
+						<p  class="fragment fade-out" data-fragment-index="0">
+							$$\ds
+							 \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}= f'(x).$$
+						</p>
+						<p  class="fragment fade-in" data-fragment-index="0">
+							$$\ds
+							 \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = a.$$
+						</p>
+						
+					</div>
+					<div class="r-stack">
+						<p  class="fragment fade-in-then-out" data-fragment-index="2">
+							$$\ds
+							\iff  \lim_{h\to 0}\abs{\frac{f(x+h)-f(x)}{h} - a }= 0$$
+						</p>
+						<p  class="fragment fade-in-then-out" data-fragment-index="3">
+							$$\ds
+							\iff  \lim_{h\to 0}\abs{\frac{f(x+h)-f(x)-ah}{h} }= 0$$
+						</p>
+						<p  class="fragment fade-in" data-fragment-index="4">
+							$$\ds
+							\iff  \lim_{h\to 0}\frac{\abs{f(x+h)-f(x)-ah}}{\abs{h}} = 0.$$
+						</p>
+						
+					</div>
+					<div class="">
+						<p  class="fragment" data-fragment-index="5">
+							In this context, we consider $a\in L(\R^1,\R^1)$. 
+						</p>
+						
+						
+					</div>
+
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div style="font-size:28px;margin-top:-20px;">
+						<p><strong>Motivation</strong></p>
+					</div>
+					
+					<div>
+						
+						<p>
+							$$\ds
+							\iff  \lim_{h\to 0}\frac{\abs{f(x+h)-f(x)-ah}}{\abs{h}} = 0.$$
+						</p>
+						
+					</div>
+					<div>
+						<p>
+							In this context, we consider $a\in L\left(\R^1, \R^1\right)$. 
+						</p>
+						
+						
+					</div>
+					<div>
+						<p>
+							<span>
+								That is, $a$ is a linear map in one dimension.
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Can we extend this to $L\left(\R^n, \R^m\right)$? 🤔
+							</span>
+						</p>
+
+						
+						
+					</div>
+
+					
+					<br/>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div class="left-txt">
+						<p>
+							
+							<span>
+								<strong>Definition 12.1.1.  </strong>
+								Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ a function.
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								We
+							say $f$ is <em>differentiable</em> at $x \in U$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								if there exists
+								an $A \in L(\R^n,\R^m)$ such that
+								\begin{equation*}
+								\lim_{\substack{h \to 0\\h\in \R^n}}
+								\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0 .
+								\end{equation*}
+							</span>
+							
+						</p>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div class="left-txt size-65">
+						<p>
+							
+							<span>
+								<strong>Definition 12.1.1.  </strong>
+								Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ a function.
+							</span>
+							<span>
+								We
+							say $f$ is <em>differentiable</em> at $x \in U$
+							</span>
+							<span>
+								if there exists
+								an $A \in L(\R^n,\R^m)$ such that
+								\begin{equation*}
+								\lim_{\substack{h \to 0\\h\in \R^n}}
+								\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0 .
+								\end{equation*}
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt">
+						<p>
+							
 							We write $Df(x) := A$, or $f'(x) := A$, and
 							we say $A$ is the <em>derivative</em> of $f$ at $x$.
-							When $f$ is differentiable at
+							<span class="fragment" data-fragment-index="1">
+								When $f$ is differentiable at
 							every $x \in U$, we say simply that $f$ is <em>differentiable</em>.
+							</span>
 						</p>
 					</div>
 					<br/>
@@ -84,30 +257,40 @@
 
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
-					<div class="left-txt size-85">
+					<div class="left-txt size-95">
 						<p>
-							<strong>Theorem:</strong>
-							Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$ a function.  If
-$x \in U$ and there exist 
-$A,B \in L(\R^n,\R^m)$ such that
+							<strong>Theorem 12.2.1. </strong>
+							Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$ a function.  
+							<span class="fragment" data-fragment-index="0">
+								If
+							$x \in U$ and there exist 
+							$A,B \in L(\R^n,\R^m)$ such that
+							</span>
 						</p>
 					</div>
-					<div class="size-85">
+					<div class="size-95">
 						<p>
-							$\ds \lim_{h \to 0}
-\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0$
+							<span class="fragment" data-fragment-index="1">
+								$\ds \lim_{h \to 0}
+								\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0$
+							</span>
 						</p>
 						<p>
-							and
-							$\;\;\ds \lim_{h \to 0}
-\frac{\snorm{f(x+h)-f(x) - Bh}}{\snorm{h}} = 0 , \quad\;\;\;$
+							<span class="fragment" data-fragment-index="2">
+								and
+								$\;\;\ds \lim_{h \to 0}
+								\frac{\snorm{f(x+h)-f(x) - Bh}}{\snorm{h}} = 0 , \quad\;\;\;$
+							</span>
 						</p>
 					</div>
-					<div class="left-txt size-85">
+					<div class="left-txt size-95">
 						<p>
-							then $A=B$.
+							<span class="fragment" data-fragment-index="3">
+								then $A=B$.
+							</span>
 						</p>
 					</div>
+					<br/>
 				</section>
 	
 				<section>
