@@ -1,0 +1,112 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+ 
+%<<<<<<<WARNING>>>>>>>
+% PGF/Tikz doesn't support the following mathematical functions:
+% cosh, acosh, sinh, asinh, tanh, atanh,
+% x^r with r not integer
+
+% Plotting will be done using GNUPLOT
+% GNUPLOT must be installed and you must allow Latex to call external
+% programs by adding the following option to your compiler
+% shell-escape    OR    enable-write18 
+% Example: pdflatex --shell-escape file.tex 
+
+\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.429280598094438,-6.161331102389977) rectangle (25.092929323353847,3.658522078703047);
+\draw [line width=2.pt] (0.,0.) circle (1.cm);
+\draw [line width=2.pt] (4.,0.) circle (1.cm);
+\draw [line width=2.pt] (4.,2.5) circle (1.cm);
+\draw [line width=2.pt] (4.,-2.5) circle (1.cm);
+\draw [line width=2.pt] (4.,-5.) circle (1.cm);
+\draw [line width=2.pt] (8.,2.5) circle (1.cm);
+\draw [line width=2.pt] (8.,0.) circle (1.cm);
+\draw [line width=2.pt] (8.,-2.5) circle (1.cm);
+\draw [line width=2.pt] (8.,-5.) circle (1.cm);
+\draw [line width=2.pt] (12.,2.5) circle (1.cm);
+\draw [line width=2.pt] (12.,0.) circle (1.cm);
+\draw [line width=2.pt] (16.,0.) circle (1.cm);
+\draw [line width=2.pt] (20.,0.) circle (1.cm);
+\draw [line width=2.pt] (24.,0.) circle (1.cm);
+\draw [line width=2.pt] (12.,-5.) circle (1.cm);
+\draw [line width=2.pt] (16.,-5.) circle (1.cm);
+\draw [->,line width=1.2pt] (22.9,0.) -- (21.1,0.);
+\draw [->,line width=1.2pt] (18.9,0.) -- (17.1,0.);
+\draw [->,line width=1.2pt] (14.9,0.) -- (13.1,0.);
+\draw [->,line width=1.2pt] (10.9,0.) -- (9.1,0.);
+\draw [->,line width=1.2pt] (10.9,2.5) -- (9.1,2.5);
+\draw [->,line width=1.2pt] (14.9,-5.) -- (13.1,-5.);
+\draw [->,line width=1.2pt] (10.9,-5.) -- (9.1,-5.);
+\draw [->,line width=1.2pt] (6.9,2.5) -- (5.1,2.5);
+\draw [->,line width=1.2pt] (6.9,-5.) -- (5.1,-5.);
+\draw [->,line width=1.2pt] (6.9,-2.5) -- (5.1,-2.5);
+\draw [->,line width=1.2pt] (2.9,0.) -- (1.1,0.);
+\draw [->,line width=1.2pt] (2.9161707558606706,2.071930628638888) -- (0.9017926909061678,0.65505636652886);
+\draw [->,line width=1.2pt] (2.8552730493842318,-2.361422402845837) -- (0.9205899064458638,-0.6419515057101894);
+\draw [->,line width=1.2pt] (2.9039912145653823,-4.724253414131652) -- (0.7044219277393551,-0.9051125232659389);
+\draw [shift={(-1.7149292385785193,0.)},line width=1.2pt,dash pattern=on 3pt off 3pt]  plot[domain=0.6886644068950143:5.5945209002845715,variable=\t]({1.*1.5735479194333362*cos(\t r)+0.*1.5735479194333362*sin(\t r)},{0.*1.5735479194333362*cos(\t r)+1.*1.5735479194333362*sin(\t r)});
+\draw [shift={(-1.6347221242957255,-9.544227896253445E-4)},line width=1.2pt]  plot[domain=0.7579104774548421:5.487517438438167,variable=\t]({1.*1.3126716425500407*cos(\t r)+0.*1.3126716425500407*sin(\t r)},{0.*1.3126716425500407*cos(\t r)+1.*1.3126716425500407*sin(\t r)});
+\draw [shift={(-1.253526896417036,-0.08037495939629458)},line width=1.2pt]  plot[domain=1.0903081305784719:5.2718333481135575,variable=\t]({1.*1.0126382791922186*cos(\t r)+0.*1.0126382791922186*sin(\t r)},{0.*1.0126382791922186*cos(\t r)+1.*1.0126382791922186*sin(\t r)});
+\draw [shift={(-1.2078428380818116,-0.03219715902757899)},line width=1.2pt,dash pattern=on 3pt off 3pt]  plot[domain=1.1446015501474354:5.195984259431098,variable=\t]({1.*0.7913889598374106*cos(\t r)+0.*0.7913889598374106*sin(\t r)},{0.*0.7913889598374106*cos(\t r)+1.*0.7913889598374106*sin(\t r)});
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.46553139110750713] plot[parametric] function{0.6070175865527614*t**(3.0)+1.4861530467401107*t+0.845158903748111,-0.8094060363599364*t**(3.0)+1.9773496457690978*t+0.834294478786516};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.46553139110750713:1.0] plot[parametric] function{-0.5287228039083396*t**(3.0)+1.586168411725019*t**(2.0)+0.7477418594989774*t+0.9597434328166811,0.705006639881535*t**(3.0)-2.115019919644605*t**(2.0)+2.961957811181339*t+0.6815058091397923};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5133515424314885] plot[parametric] function{0.012507882023506887*t**(3.0)+1.7427877680762742*t+1.1218107410724174,-0.5326960570798145*t**(3.0)+0.45499101256949565*t+0.22767884833704605};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5133515424314885:1.0] plot[parametric] function{-0.013194207090267808*t**(3.0)+0.03958262127080343*t**(2.0)+1.7224679683934259*t+1.1252878079087805,0.561925838448993*t**(3.0)-1.6857775153469792*t**(2.0)+1.3203875002691896*t+0.07959464107856912};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5008598749075781] plot[parametric] function{-0.510912942843321*t**(3.0)+2.241617302369205*t+0.9999999999999998,-0.5877713940414014*t**(3.0)-1.172815742963159*t-0.5};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5008598749075781:1.0] plot[parametric] function{0.5126732550178892*t**(3.0)-1.5380197650536676*t**(2.0)+3.0119496894993674*t+0.8713904723149102,0.5897965162374372*t**(3.0)-1.7693895487123117*t**(2.0)-0.28659951493233427*t-0.6479567163708616};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5027047478073225] plot[parametric] function{-0.6411223341121399*t**(3.0)+2.622517512890204*t+0.8230257750439289,-0.3883482801495409*t**(3.0)-3.236583953629799*t-0.8624825141993016};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5027047478073225:1.0] plot[parametric] function{0.6480963569678557*t**(3.0)-1.9442890709035672*t**(2.0)+3.599920859943315*t+0.6592440073484734,0.39257266859717077*t**(3.0)-1.1777180057915124*t**(2.0)-2.644539520540234*t-0.961690363341641};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.4944793907698897] plot[parametric] function{0.005676658851027211*t**(3.0)+1.810284093945815*t+5.104165487153048,-0.6526439618505738*t**(3.0)+0.49807901146953487*t+2.832618171134574};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.4944793907698897:1.0] plot[parametric] function{-0.005552673341131202*t**(3.0)+0.016658020023393606*t**(2.0)+1.8020470463532148*t+5.1055231705781585,0.6383893806763057*t**(3.0)-1.9151681420289173*t**(2.0)+1.4450901875618956*t+2.676525667999099};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.501347542825372] plot[parametric] function{0.022232087292922517*t**(3.0)+1.7832952543153633*t+5.10314776557761,-0.6610219131905734*t**(3.0)+0.5580894109942044*t-2.1964991471136397};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.501347542825372:1.0] plot[parametric] function{-0.022352245889530536*t**(3.0)+0.0670567376685916*t**(2.0)+1.7496765236553293*t+5.108765988247382,0.6645945631343063*t**(3.0)-1.9937836894029188*t**(2.0)+1.5576679646016622*t-2.363544564350986};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.4998191606223087] plot[parametric] function{0.01130936271622446*t**(3.0)+1.7669458931766768*t+5.1154344497967505,-0.8122425636957896*t**(3.0)+0.6336083792076989*t-4.7152694120374905};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.4998191606223087:1.0] plot[parametric] function{-0.011301184961481858*t**(3.0)+0.03390355488444558*t**(2.0)+1.7500002468322209*t+5.118257702707447,0.8116552343613193*t**(3.0)-2.434965703083958*t**(2.0)+1.8506508930672325*t-4.918036467943804};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5101039833791337] plot[parametric] function{-0.0026092410286414364*t**(3.0)+1.82041229255366*t+9.071746768360097,-0.44301463578637545*t**(3.0)+0.33054861967003935*t+2.8901881196106496};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5101039833791337:1.0] plot[parametric] function{0.002716870921888557*t**(3.0)-0.008150612765665671*t**(2.0)+1.824569952592407*t+9.071039822044328,0.4612887689282363*t**(3.0)-1.383866306784709*t**(2.0)+1.0364643352250897*t+2.770157980132462};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5099202104114103] plot[parametric] function{-0.003921366684689009*t**(3.0)+1.8214088043250432*t+9.071746768360095,-0.5891271202420482*t**(3.0)+0.4414882867254159*t+0.35298782835806597};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5099202104114103:1.0] plot[parametric] function{0.004080119538566399*t**(3.0)-0.012240358615699196*t**(2.0)+1.8276504105658715*t+9.07068586130422,0.6129773793877088*t**(3.0)-1.8389321381631263*t**(2.0)+1.379196949549862*t+0.19360229547405136};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5109315520776258] plot[parametric] function{0.0017103114566920027*t**(3.0)+1.780267986204381*t+9.090176794688809,-0.7222360079131469*t**(3.0)+0.5617725443283131*t-4.690696043599248};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5109315520776258:1.0] plot[parametric] function{-0.0017867684795779123*t**(3.0)+0.005360305438733737*t**(2.0)+1.7775292370269589*t+9.090643232478133,0.7545225337210527*t**(3.0)-2.2635676011631585*t**(2.0)+1.7183006520232338*t-4.887664943961235};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.49834456152437145] plot[parametric] function{-0.00481991763255906*t**(3.0)+1.8036061840426019*t+13.10177919223833,-0.7899000755322411*t**(3.0)+0.5788285767504703*t-4.690696043599248};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.49834456152437145:1.0] plot[parametric] function{0.004788106646426647*t**(3.0)-0.01436431993927994*t**(2.0)+1.8107645647643382*t+13.100590078870997,0.7846868120982337*t**(3.0)-2.354060436294701*t**(2.0)+1.7519617926776236*t-4.885570896299545};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.4901567534717829] plot[parametric] function{0.0057955164449323545*t**(3.0)+1.751856327909229*t+13.140633298470412,-0.5900810520617635*t**(3.0)+0.4482488909949867*t+0.34977687162450566};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.4901567534717829:1.0] plot[parametric] function{-0.005571735125814111*t**(3.0)+0.016715205377442338*t**(2.0)+1.743663257107808*t+13.141971928132076,0.5672963498748643*t**(3.0)-1.701889049624593*t**(2.0)+1.2824413023281551*t+0.21348185692121774};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5287405596368236] plot[parametric] function{0.005749466563623344*t**(3.0)+1.6939048240090877*t+17.10351393964303,-0.6321038942271255*t**(3.0)+0.526383573652253*t+0.3151161079990886};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5287405596368236:1.0] plot[parametric] function{-0.0064507485857909904*t**(3.0)+0.01935224575737297*t**(2.0)+1.683672506757105*t+17.105317353359762,0.709203759450845*t**(3.0)-2.127611278352535*t**(2.0)+1.65133795165799*t+0.11684643886820587};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.0:0.5029496399193967] plot[parametric] function{0.003267767191792973*t**(3.0)+1.7622258742665808*t+21.113273388399524,-0.7655955823495947*t**(3.0)+0.5862520699179882*t+0.30254786489651425};
+\draw[line width=1.2pt,dash pattern=on 3pt off 3pt, smooth,samples=100,domain=0.5029496399193967:1.0] plot[parametric] function{-0.0033065509341672623*t**(3.0)+0.009919652802501788*t**(2.0)+1.757236788461437*t+21.11410980803593,0.7746821114950351*t**(3.0)-2.3240463344851054*t**(2.0)+1.7551303370032656*t+0.10658556371646459};
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (22.487554371641203,0.4296943793762145) -- (22.877952652559838,0.31235394604704064);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (18.375717298394544,0.45786847233647776) -- (18.801884567181187,0.34977877056753026);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (14.524532661335767,0.444672377424226) -- (14.896771636710037,0.3613321318741595);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (10.481309130198657,0.4433739933891687) -- (10.890168794595768,0.34684631925253095);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (10.491294678324788,2.955444076470264) -- (10.89016879057165,2.8840461626228437);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (14.522162892669545,-4.583164555007478) -- (14.90177126793904,-4.702980327198922);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (10.462563153387116,-4.562383648065998) -- (10.871738897929147,-4.678407185353532);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (6.457070438260915,-2.0377633163172093) -- (6.903139760208831,-2.1350639871867503);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (6.432136179896494,-4.554197092764727) -- (6.890853206883591,-4.690693713885429);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (6.4959304588509585,2.9461000275188303) -- (6.918668312278937,2.8448389684499213);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (2.4022812443022907,2.098429612066818) -- (2.764921594629843,2.2334469637432965);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (2.4891798366117683,0.3501215554314239) -- (2.8741371650343517,0.27613192129142555);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (2.603894315617799,-1.7661922042327673) -- (2.857987775092168,-2.114141066371513);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (2.8075276347135163,-4.03405706619832) -- (2.9629655522086664,-4.391359981404244);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (-1.035260379565687,1.166843700928785) -- (-0.6813629129813826,0.9013831278847971);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (-1.1593001265840268,0.9278698523097786) -- (-0.785473182183438,0.8176016578257304);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (-1.1962775195901996,-0.8235016068608553) -- (-0.839874529148757,-0.7328367306858511);
+\draw [->,line width=1.2pt,dash pattern=on 3pt off 3pt] (-0.7767650615997491,-1.263289765567159) -- (-0.5,-1.);
+\begin{scriptsize}
+\draw [fill=black] (5.4656791837819805,0.012519678793541445) circle (1.5pt);
+\draw [fill=black] (6.,0.) circle (1.5pt);
+\draw [fill=black] (6.526771591863739,-0.02678004002430023) circle (1.5pt);
+\draw [fill=black] (-2.8,0.) circle (1.5pt);
+\draw [fill=black] (-2.6,0.) circle (1.5pt);
+\draw [fill=black] (-2.4,0.) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{document}
