@@ -100,31 +100,105 @@
 				</section>
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
-					<div style="font-size:28px;margin-top:-20px;">
+					<div style="font-size:28px;margin-top:-10px;">
 						<p><strong>Motivation</strong></p>
 					</div>
 					<div class="left-txt">
 						<p>
-							So, in general, we have that for $f \colon \R \to \R$  the derivative at any $x\in \R$ is
+							So, in general, we have that for $f \colon U\subseteq \R \to \R$  
+							the derivative at any $x_0\in U$ is
 							
 						</p>
 						
 					</div>
 					
-					<div class="r-stack">
-						<p  class="fragment fade-out" data-fragment-index="0">
+					<div>
+						<p  class="fragment" data-fragment-index="0">
 							$$\ds
-							 \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}= f'(x).$$
-						</p>
-						<p  class="fragment fade-in" data-fragment-index="0">
-							$$\ds
-							 \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = A.$$
+							 \lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}= f'(x_0).$$
 						</p>
 						
 					</div>
 					
-
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div style="font-size:28px;margin-top:-20px;">
+						<p><strong>Motivation</strong></p>
+					</div>
 					
+					
+					<div class="size-70">
+						<p >
+							$$\ds
+							 \lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}= f'(x_0).$$
+						</p>
+						
+					</div>
+					<img width="65%" data-src="images/summary-12/derivative-mapping.svg">
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div style="font-size:28px;margin-top:-20px;">
+						<p><strong>Motivation</strong></p>
+					</div>
+
+					<div style="margin-top:-20px;">
+						<img width="40%" data-src="images/summary-12/derivative-mapping.svg">
+					</div>
+					
+					<div class=" left-txt size-95"  style="margin-top:-30px;">
+						<p >
+						 To generalize this, we interpret $f'(x_0)$ as a linear map 
+						 acting on the vector $h$. 
+						</p>
+						
+					</div>
+					
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div style="font-size:28px;margin-top:-20px;">
+						<p><strong>Motivation</strong></p>
+					</div>
+
+					<div style="margin-top:-20px;">
+						<img width="40%" data-src="images/summary-12/derivative-mapping.svg">
+					</div>
+					
+					<div class=" left-txt size-90"  style="margin-top:-30px;">
+						<p >
+						
+						 <span>
+							Then we can say that $f'(x_0)$ is the <strong>unique linear map</strong> from 
+							$\R$ to $\R$ such that  the mapping $g:U\to \R$ given by
+						 </span>
+						</p>
+						
+					</div>
+					<div class=" size-90">
+						<p >
+						 
+						 <span>
+							 $u \mapsto g(u) = f(x_0) + f'(x_0)(u-x_0)$
+						 </span>
+						
+						</p>
+						
+					</div>
+					<div class="left-txt size-90">
+						<p >
+						 
+						 <span>
+							 is tangent to $f$ at $x_0.$
+						 </span>
+						</p>
+						
+					</div>
 					
 					<br/>
 				</section>
@@ -133,15 +207,51 @@
 					<div style="font-size:28px;margin-top:-20px;">
 						<p><strong>Motivation</strong></p>
 					</div>
-					<div class="left-txt">
+
+					<div style="margin-top:-20px;">
+						<img width="45%" data-src="images/summary-12/derivative-mapping.svg">
+					</div>
+					
+					<div class=" left-txt size-90"  style="margin-top:-30px;">
+						<p >
+						
+						 <span>
+							Thus $f'(x_0)\in L\left(\R^1,\R^1\right),$ 
+						 </span>
+						 <span>
+							which is the best linear approximation of how $f$ changes near $x_0$.
+						 </span>
+						</p>
+						
+					</div>
+					<div style="font-size:120%">
 						<p>
-							So, in general, we have that for $f \colon \R \to \R$  the derivative at any $x\in \R$ is
+							<span class="fragment" data-fragment-index="0">
+								Can we extend this to $L\left(\R^n, \R^m\right)$? 🤔
+							</span>
+						</p>
+					</div>
+					
+					
+					<br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					<div style="font-size:28px;margin-top:-20px;">
+						<p><strong>Motivation</strong></p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							In general, we have that for 
+							$f \colon U\subseteq \R \to \R$  the derivative at any $x\in U$ is
 							
 						</p>
 						
 					</div>
 					
-					<div class="r-stack">
+					<div class="r-stack size-90">
 						<p  class="fragment fade-out" data-fragment-index="0">
 							$$\ds
 							 \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}= f'(x).$$
@@ -152,7 +262,7 @@
 						</p>
 						
 					</div>
-					<div class="r-stack">
+					<div class="r-stack size-90">
 						<p  class="fragment fade-in-then-out" data-fragment-index="2">
 							$$\ds
 							\iff  \lim_{h\to 0}\abs{\frac{f(x+h)-f(x)}{h} - A }= 0$$
@@ -167,9 +277,9 @@
 						</p>
 						
 					</div>
-					<div class="">
+					<div class=" size-90">
 						<p  class="fragment" data-fragment-index="5">
-							In this context, we consider $A\in L(\R^1,\R^1).$
+							In this context, $A\in L\left(\R^1,\R^1\right).$
 						</p>
 						
 						
@@ -190,13 +300,13 @@
 						
 						<p>
 							$$\ds
-							\iff  \lim_{h\to 0}\frac{\abs{f(x+h)-f(x)-ah}}{\abs{h}} = 0.$$
+							\iff  \lim_{h\to 0}\frac{\abs{f(x+h)-f(x)-Ah}}{\abs{h}} = 0.$$
 						</p>
 						
 					</div>
 					<div>
 						<p>
-							In this context, we consider $a\in L\left(\R^1, \R^1\right).$
+							In this context, $A\in L\left(\R^1, \R^1\right).$
 						</p>
 						
 						
@@ -204,12 +314,13 @@
 					<div>
 						<p>
 							<span>
-								That is, $a$ is a linear map in one dimension.
+								That is, $A$ is a linear map in one dimension.
 							</span>
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="0">
-								Can we extend this to $L\left(\R^n, \R^m\right)$? 🤔
+								Now we can extend this to vector valued <br/>mappings  of a
+								vector variable. 😃
 							</span>
 						</p>
 
@@ -246,7 +357,7 @@
 							
 						</p>
 					</div>
-					<br/><br/><br/>
+					<br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
@@ -283,7 +394,7 @@
 							</span>
 						</p>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
