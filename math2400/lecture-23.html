@@ -359,6 +359,11 @@
 					</div>
 					<br/><br/><br/><br/>
 				</section>
+				
+				
+			</section>
+
+			<section>
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
 					<div class="left-txt size-65">
@@ -428,7 +433,7 @@
 							</li>
 							<li class="fragment" data-fragment-index="2">
 								It is also common to set $y := x + h\in \R^n$
-								<span class="fragment" data-fragment-index="1">
+								<span class="fragment" data-fragment-index="3">
 									and rewrite the limit as 
 									$$ \lim_{\substack{y \to x}}
 									\frac{\snorm{f(y)-f(x) - A(y-x)}}{\snorm{y-x}} = 0 .$$
@@ -476,6 +481,7 @@
 					</div>
 					<br/>
 				</section>
+
 	
 				<section>
 					<h5>The Derivative of a function $f:\R^2\to \R$</h5>
@@ -484,6 +490,469 @@
 						width="800px" height="500px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
 						<br/><br/>
 				</section>
+			</section>
+
+			<section>
+				<section>
+					<h4>Example 12.1.1.</h4>
+					<div class="left-txt size-90">
+						<p>If $f(x) = Ax$ for a linear mapping $A$,
+							<span class="fragment" data-fragment-index="0">
+								then
+								$f'(x) = A$. 
+							</span><br/>
+							<span class="fragment" data-fragment-index="1">
+								To prove this note that
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\dfrac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ =
+								\dfrac{\snorm{A(x+h)-Ax - Ah}}{\snorm{h}}
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="size-90">
+						
+					
+						<p>
+							
+							<span class="fragment" data-fragment-index="3">
+								$\quad \quad \;\,= \dfrac{0}{\snorm{h}}$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ = 0 . $
+							</span>
+						</p>
+					</div>
+					<div class="size-90" style="margin-top:50px">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								
+								$\Ra \ds
+								\lim_{\substack{h \to 0\\h\in \R^n}} 
+								\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0.
+								$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								Hence $f'(x) = A.$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 12.1.2.</h4>
+					<div class="size-90" >
+						<div class="left-txt" >
+							<p>
+								Let $f \colon \R^2 \to \R^2$ be defined by
+								\begin{equation*}
+								f(x,y)  \coloneqq (1+x+2y+x^2,2x+3y+xy).
+								\end{equation*}
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Claim:</strong> 
+									$f$ is differentiable at the origin.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-90" >
+						<div class="left-txt" >
+							
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									<strong>Proof. </strong> 
+									
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									If the
+									derivative exists,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									it is in $L\left(\R^2,\R^2\right)$, 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									so it can be represented by a $2$-by-$2$ matrix 
+									$$A = \left[\begin{matrix}a&b\\c&d\end{matrix}\right].$$ 
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 12.1.2.</h4>
+					<div class="size-65" style="margin-top:-10px">
+						<div class="left-txt" >
+							<p>
+								Let $f \colon \R^2 \to \R^2$ be defined by
+								$
+								f(x,y)  \coloneqq (1+x+2y+x^2,2x+3y+xy).
+								$
+							</p>
+							<p>
+								<span>
+									<strong>Claim:</strong> 
+									$f$ is differentiable at the origin.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-90" >
+						<div class="left-txt" >
+							
+							<p>
+								<span>
+									<strong>Proof. </strong> 
+									
+								</span>
+								<span>
+									For $h = (h_1,h_2)$, 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									using the definition of derivative we have that
+								</span>
+								
+
+							</p>
+						</div>
+						<div class="" >
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									$\ds\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}}$
+								</span>
+								
+								
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds= \frac{\snorm{f\big((0,0)+(h_1,h_2)\big)-f(0,0) - A(h_1,h_2)}}{\snorm{(h_1,h_2)}}$
+								</span>
+								
+								
+
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									$\ds =\frac{\snorm{
+										f(h_1,h_2)-f(0,0)
+										-
+										(ah_1 +bh_2 , ch_1+dh_2)}
+										}{\snorm{(h_1,h_2)}}
+										$
+								</span>
+								
+
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 12.1.2.</h4>
+					<div class="size-65" style="margin-top:-10px">
+						<div class="left-txt" >
+							<p>
+								Let $f \colon \R^2 \to \R^2$ be defined by
+								$
+								f(x,y)  \coloneqq (1+x+2y+x^2,2x+3y+xy).
+								$
+							</p>
+							<p>
+								<span>
+									<strong>Claim:</strong> 
+									$f$ is differentiable at the origin.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-90" >
+						<div class="left-txt" >
+							
+							<p>
+								<span>
+									<strong>Proof. </strong> 
+									
+								</span>
+								<span>
+									For $h = (h_1,h_2)$, 
+								</span>
+								<span>
+									using the definition of derivative we have that
+								</span>
+								
+
+							</p>
+						</div>
+						<div class="" >
+							
+							<p>
+								
+								<span>
+									$\ds\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}}$
+								</span>
+								
+								
+
+							</p>
+							<p>
+								<span>
+									$\ds=\frac{\snorm{
+										f(h_1,h_2)-f(0,0)
+										-
+										(ah_1 +bh_2 , ch_1+dh_2)}
+										}{\snorm{(h_1,h_2)}}$
+								</span>
+								
+								
+
+							</p>
+							<p>
+								
+								<span style="font-size:73%">
+									$\ds =\frac{\sqrt{
+										{\bigl((1-a)h_1 + (2-b)h_2 + h_1^2\bigr)}^2
+										+
+										{\bigl((2-c)h_1 + (3-d)h_2 + h_1h_2\bigr)}^2}}{\sqrt{h_1^2+h_2^2}} .
+										$
+								</span>
+								
+
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 12.1.2.</h4>
+					<div class="size-65" style="margin-top:-10px">
+						<div class="left-txt" >
+							<p>
+								Let $f \colon \R^2 \to \R^2$ be defined by
+								$
+								f(x,y)  \coloneqq (1+x+2y+x^2,2x+3y+xy).
+								$
+							</p>
+							<p>
+								<span>
+									<strong>Claim:</strong> 
+									$f$ is differentiable at the origin.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-90" >
+						<div class="left-txt" >
+							
+							<p>
+								<span>
+									<strong>Proof. </strong> 
+									
+								</span>
+								<span>
+									For $h = (h_1,h_2)$, 
+								</span>
+								<span>
+									using the definition of derivative we have that
+								</span>
+								
+
+							</p>
+						</div>
+						<div class="" >
+							
+							<p>
+								
+								<span>
+									$\ds\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}}$
+								</span>
+								
+
+							</p>
+							<p>
+								
+								<span style="font-size:73%">
+									$\ds =\frac{\sqrt{
+										{\bigl((1-a)h_1 + (2-b)h_2 + h_1^2\bigr)}^2
+										+
+										{\bigl((2-c)h_1 + (3-d)h_2 + h_1h_2\bigr)}^2}}{\sqrt{h_1^2+h_2^2}} .
+										$
+								</span>
+								
+
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								If we choose $a=1$, $b=2$, $c=2$, $d=3$,
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 12.1.2.</h4>
+					<div class="size-65" style="margin-top:-10px">
+						<div class="left-txt" >
+							<p>
+								Let $f \colon \R^2 \to \R^2$ be defined by
+								$
+								f(x,y)  \coloneqq (1+x+2y+x^2,2x+3y+xy).
+								$
+							</p>
+							<p>
+								<span>
+									<strong>Claim:</strong> 
+									$f$ is differentiable at the origin.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-90" >
+						<div class="left-txt" >
+							
+							<p>
+								<span>
+									<strong>Proof. </strong> 
+									
+								</span>
+							</p>
+						</div>
+						<div class="" >
+							
+							
+							<p>
+								
+								<span style="font-size:65%">
+									$\ds \frac{\sqrt{
+										{\bigl((1-a)h_1 + (2-b)h_2 + h_1^2\bigr)}^2
+										+
+										{\bigl((2-c)h_1 + (3-d)h_2 + h_1h_2\bigr)}^2}}{\sqrt{h_1^2+h_2^2}} .
+										$
+								</span>
+								
+
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								If we choose $a=1$, $b=2$, $c=2$, $d=3$,
+								<span class="fragment" data-fragment-index="0">
+									the expression becomes
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									$\ds\frac{\sqrt{
+										h_1^4 + h_1^2h_2^2}}{\sqrt{h_1^2+h_2^2}}$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds=
+									\sabs{h_1}
+									\frac{\sqrt{
+									h_1^2 + h_2^2}}{\sqrt{h_1^2+h_2^2}}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds= \sabs{h_1} .$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%">Example 12.1.2.</h4>
+					<div class="size-65" style="margin-top:-10px">
+						<div class="left-txt" >
+							<p>
+								Let $f \colon \R^2 \to \R^2$ be defined by
+								$
+								f(x,y)  \coloneqq (1+x+2y+x^2,2x+3y+xy).
+								$
+							</p>
+							<p>
+								<span>
+									<strong>Claim:</strong> 
+									$f$ is differentiable at the origin.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-90" >
+						<div class="left-txt" >
+							
+							<p>
+								<span>
+									<strong>Proof. </strong> 
+									
+								</span>
+								<span>
+									This implies that
+								</span>
+								
+
+							</p>
+						</div>
+						<div class="" >
+							
+							<p>
+								
+								<span>
+									$\ds\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = \abs{h_1}.$
+								</span>
+								
+
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								This expression goes to $0$ as $h\to 0.$
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Therefore $f$ is differentiable at the origin.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Furthermore, the derivative $f'(0)$ is represented by the matrix
+									\[
+									\left[\begin{matrix}1&2\\2&3\end{matrix}\right].
+									\]
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+
+
+
 
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
@@ -548,323 +1017,7 @@
 			</section>
 
 
-			<section>
-				<section data-auto-animate>
-					<h4 style="margin-top:-200px">12.1.1 Partial derivatives</h4>
-	
-					<div class="left-txt size-90">
-						<p>
-							<strong>Definition 12.1.2.</strong>
-							Let
-							$f \colon U \to \R$ be a function on an open set $U \subset \R^n.$
-							If the following limit exists, we write
-	
-						</p>
-					</div>
-					<div class="size-80">
-						<p>
-							
-							$
-							\ds\frac{\partial f}{\partial x_j} (x) :=
-							\lim_{h\to 0}\frac{f(x_1,\ldots,x_{j-1},x_j+h,x_{j+1},\ldots,x_n)-f(x)}{h}$
-							
-						</p>
-						<p>
-							$=
-							\ds \lim_{h\to 0}\frac{f(x+h e_j)-f(x)}{h} .\qquad \qquad \;\;\;\;\;
-							$
-						</p>
-					</div>
-					
-	
-				</section>
-				<section data-auto-animate>
-					<h4 style="margin-top:-30px">12.1.1 Partial derivatives</h4>
-	
-					<div class="left-txt size-50">
-						<p>
-							<strong>Definition 12.1.2. </strong>
-							Let
-							$f \colon U \to \R$ be a function on an open set $U \subset \R^n$.
-							If the following limit exists, we write
-	
-						</p>
-					</div>
-					<div class="size-50">
-						<p>
-							$
-							\ds\frac{\partial f}{\partial x_j} (x) =
-							\ds \lim_{h\to 0}\frac{f(x+h e_j)-f(x)}{h} .\qquad \qquad \;\;\;\;\;
-							$
-						</p>
-					</div>
-					<div class="left-txt size-85">
-						<p>
-							
-							We call
-							$\dfrac{\partial f}{\partial x_j} (x)$ the <em>partial derivative</em>
-							of $f$
-							with respect to $x_j$.
-							<strong>Here $h$ is a number not a vector.</strong>
-	
-						</p>
-						<p>
-							For a mapping $f \colon U \to \R^m$ we write
-							$f = (f_1,f_2,\ldots,f_m)$, where $f_k$ are real-valued
-							functions. 
-	
-						</p>
-						<p>
-							
-							We then take partial derivatives of
-							the components,
-							$\dfrac{\partial f_k}{\partial x_j}$.
-	
-						</p>
-					</div>
-	
-				</section>
-	
-				<section data-auto-animate>
-					<h4>12.1.1 Partial derivatives</h4>
-					<iframe scrolling="no" title="Directional derivatives"
-						src="https://www.geogebra.org/material/iframe/id/jvuhpyce/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-						width="800px" height="500px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
-						<br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4 style="font-size:80%;margin-top:-15px">12.1.1 Partial derivatives</h4>
-					<div class="left-txt size-80">
-						<p>
-							<strong>Theorem 12.1.5. </strong>
-							Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
-							differentiable at $p \in U$. Then all the partial derivatives at $p$
-							exist and, in terms of the standard bases of $\R^n$ and $\R^m$,
-							$f'(p)$ is represented by the matrix
-							\begin{equation*}
-							\begin{bmatrix}
-							\dfrac{\partial f_1}{\partial x_1}(p)
-							&
-							\dfrac{\partial f_1}{\partial x_2}(p)
-							& \ldots &
-							\dfrac{\partial f_1}{\partial x_n}(p)
-							\\[6pt]
-							\dfrac{\partial f_2}{\partial x_1}(p)
-							&
-							\dfrac{\partial f_2}{\partial x_2}(p)
-							& \ldots &
-							\dfrac{\partial f_2}{\partial x_n}(p)
-							\\
-							\vdots & \vdots & \ddots & \vdots
-							\\
-							\dfrac{\partial f_m}{\partial x_1}(p)
-							&
-							\dfrac{\partial f_m}{\partial x_2}(p)
-							& \ldots &
-							\dfrac{\partial f_m}{\partial x_n}(p)
-							\end{bmatrix} .
-							\end{equation*}
-						</p>
-					</div>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>12.1.1 Partial derivatives</h4>
-					<div class="left-txt size-90">
-						<p>
-							<strong>Remark:</strong>
-							The converse of the previous <a href="#/7">Theorem</a> is not true. Just because the partial
-							derivatives exist, does not mean that the function is differentiable.
-	
-							<br/><br/>
-							However, when the partial derivatives are continuous, the
-							converse holds.
-							One of the consequences of the Theorem is that if $f$
-							is differentiable on $U$, then $f' \colon U \to
-							L(\R^n,\R^m)$ is a continuous function if and only if
-							all the $\dfrac{\partial f_k}{\partial x_j}$ are continuous functions.
-						</p>
-					</div>
-					<br/>
-				</section>
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h4>12.1.2 Gradients & directional derivatives</h4>
-					<div class="left-txt size-95">
-						<p>
-							<strong>Definition 12.1.3. </strong>
-							Let $U \subset \R^n$ be open and $f \colon U \to \R$ a differentiable
-							function. We define
-							the <em>gradient</em> as
-							\begin{equation*}
-							\nabla f (x) := \sum_{j=1}^n \frac{\partial f}{\partial x_j} (x)\, e_j .
-							\end{equation*}
-							The gradient gives a way to represent the action of
-							the derivative as a dot product. That is 
-							$$f'(x)\,v = \nabla f(x) \cdot v.$$
-						</p>
-					</div>
-					<br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>12.1.2 Gradients and directional derivatives</h4>
-					<div class="left-txt size-90">
-						<p>
-							<strong>Definition 12.1.4. </strong>
-							Let $u \in \R^n$ be a vector 
-							such that $\snorm{u} = 1$, and fix $x \in U\subset \R^n$.
-							We define the
-							<em>directional derivative</em> as
-							
-						</p>
-						
-					</div>
-					<div class="size-90">
-						<p>
-							<span>
-								$\ds D_u f (x) := \frac{d}{dt}\Big|_{t=0} \bigl[ f(x+tu) \bigr]\qquad \qquad\quad$
-							</span>
-						</p>
-						<p>
-							<span>
-								$\ds =
-								\lim_{h\to 0}
-								\frac{f(x+hu)-f(x)}{h} ,$
-							</span>
-						</p>
-						
-					</div>
-					<div class="left-txt size-90">
-						
-						<p>
-							<span>
-								where the notation
-							$\dfrac{d}{dt}\bigg|_{t=0}$ represents the derivative evaluated at $t=0$.
-							</span>
-						</p>
-						
-					</div>
-					<br/><br/>
-
-				</section>
-				<section data-auto-animate>
-					<h4>12.1.2 Gradients and directional derivatives</h4>
-					<div class="left-txt size-50">
-						<p>
-							<strong>Definition 12.1.4. </strong>
-							Let $u \in \R^n$ be a vector 
-							such that $\snorm{u} = 1$, and fix $x \in U\subset \R^n$.
-							We define the
-							<em>directional derivative</em> as
-							\begin{equation*}
-							D_u f (x) := \frac{d}{dt}\Big|_{t=0} \bigl[ f(x+tu) \bigr] =
-							\lim_{h\to 0}
-							\frac{f(x+hu)-f(x)}{h} ,
-							\end{equation*}
-							where the notation
-							$\frac{d}{dt}\big|_{t=0}$ represents the derivative evaluated at $t=0$.
-							
-						</p>
-						
-					</div>
-					<div class="left-txt size-90">
-						
-						<p>
-							Taking the standard basis vector $e_j$ we find that
-							
-						</p>
-						
-					</div>
-					<div class="size-90">
-						
-						<p>
-							$\dfrac{\partial f}{\partial x_j} = D_{e_j} f.$
-							
-						</p>
-					</div>
-					<div class="left-txt size-90">
-						<p>
-							For this reason, sometimes the notation 
-							$\dfrac{\partial f}{\partial u}$
-							is used instead of $D_u f$.
-						</p>
-					</div>
-					<br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>12.1.2 Gradients and directional derivatives</h4>
-					<iframe scrolling="no" title="Directional derivatives and Gradient"
-						src="https://www.geogebra.org/material/iframe/id/hpm3wx5z/width/788/height/520/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/true"
-						width="788px" height="520px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
-	
-						<br/><br/>
-				</section>
-	
-				<section data-auto-animate>
-					<h4>12.1.2 Gradients and directional derivatives</h4>
-					<div class="left-txt size-90">
-						<p>
-							<strong>Definition 12.1.5. </strong>
-							Let $U \subset \R^n$ and
-							$f \colon U \to \R^n$ be a differentiable mapping. Define the
-							<em>Jacobian</em>,
-							or the
-							<em>Jacobian determinant</em>,
-							of $f$ at $x$ as
-							\begin{equation*}
-							J_f(x) := \det\bigl( f'(x) \bigr) .
-							\end{equation*}
-							Sometimes $J_f$ is written as
-							\begin{equation*}
-							\frac{\partial(f_1,f_2,\ldots,f_n)}{\partial(x_1,x_2,\ldots,x_n)} .
-							\end{equation*}
-						</p>
-					</div>
-					<br/>
-				</section>
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h4>
-						12.2 Continuously differentiable functions</h4>
-					<div class="left-txt">
-						<p>
-							<strong>Definition 12.2.1. </strong>
-							Let $U \subset \R^n$ be open.
-							We say $f \colon U \to \R^m$ is
-							<em>continuously differentiable</em>,
-							or $C^1(U),$
-							if $f$ is differentiable and $f' \colon U \to L(\R^n,\R^m)$
-							is continuous.
-						</p>
-	
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>
-						12.2 Continuously differentiable functions</h4>
-					<div class="left-txt size-95">
-						
-	
-						<p>
-							<strong>Theorem 12.2.1. </strong>
-							Let $U \subset \R^n$ be open and
-							$f \colon U \to \R^m.$ The function
-							$f$ is continuously differentiable if and only if
-							the partial derivatives $\dfrac{\partial f_j}{\partial x_\ell}$
-							exist for all $j$ and $\ell$ and are continuous.
-						</p>
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-			</section>
+			
 
 			<section>
 
