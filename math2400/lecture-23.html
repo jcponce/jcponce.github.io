@@ -333,6 +333,13 @@
 					<br/>
 				</section>
 
+				
+				
+				
+			</section>
+
+			<section>
+
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
 					<div class="left-txt">
@@ -359,11 +366,7 @@
 					</div>
 					<br/><br/><br/><br/>
 				</section>
-				
-				
-			</section>
 
-			<section>
 				<section data-auto-animate>
 					<h4>12.1 The derivative in $\mathbb R^n$</h4>
 					<div class="left-txt size-65">
@@ -482,14 +485,6 @@
 					<br/>
 				</section>
 
-	
-				<section>
-					<h5>The Derivative of a function $f:\R^2\to \R$</h5>
-					<iframe scrolling="no" title="Tangent plane"
-						data-src="https://www.geogebra.org/material/iframe/id/a6cxj48f/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-						width="800px" height="500px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
-						<br/><br/>
-				</section>
 			</section>
 
 			<section>
@@ -971,12 +966,148 @@
 								Then $f$ is continuous at $p$.
 							</span>
 						</p>
+					</div>
+					
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1.1 Properties of the derivative</h4>
+					<div class="left-txt size-55">
+						<p>
+							<span>
+								<strong>Theorem 12.1.2. </strong>
+							Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ be
+							differentiable at $p \in U.$ 
+							</span>
+							<span>
+								Then $f$ is continuous at $p$.
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-95" style="margin-top:30px">
 	
+						<p class="fragment" data-fragment-index="2">What is the definition of continuity for  $f \colon \R^n \to \R^m$?</p>
 						
 	
 	
 					</div>
-					<br/><br/><br/><br/><br/><br/><br/>
+					<div class="">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$f$ is <em>continuous</em> at $p\in\R^n$
+							</span> 
+							<span class="fragment" data-fragment-index="4">
+								if $\ds \forall \epsilon > 0, \exists \delta > 0 $ 
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								such that $ ||x - p || \lt \delta $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\Rightarrow || f(x) - f( p) || \lt \epsilon.$
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								i.e., $\ds \lim_{x\to p} f(x) = f(p) $
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								or  $\ds  f(x)\to f(p) \text{ as } x\to p.  $
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="8">
+								If $h:=x-p$,
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$\ds  f(p+h)\to f(p) \text{ as } h\to 0.
+								$
+							</span>
+
+						</p>
+	
+	
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="margin-top:-10px">12.1.1 Properties of the derivative</h4>
+					<div class="left-txt size-55">
+						<p>
+							<span>
+								<strong>Theorem 12.1.2. </strong>
+							Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ be
+							differentiable at $p \in U.$ 
+							</span>
+							<span>
+								Then $f$ is continuous at $p$.
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-90" style="margin-top:-10px">
+	
+						<p>
+							<strong>
+								Proof. 
+							</strong>
+							<span class="fragment" data-fragment-index="0">
+								Since $f$ is differentiable at $p$,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\ds \lim_{\substack{h \to 0\\h\in \R^n}}
+								\frac{\snorm{f(p+h)-f(p) - f'(p)h}}{\snorm{h}} = 0.$
+							</span> 
+						</p>
+						
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								This means that the mapping $h\mapsto f'(p) h$ is 
+								a linear mapping between finite-dimensional spaces.
+							</span> <br/>
+							<span class="fragment" data-fragment-index="3">
+								Then $f'(p)$ is continuous 
+							</span> 
+							<span class="fragment" data-fragment-index="4">
+								and
+							</span> 
+						</p>
+						
+					</div>
+					<div class="size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="4">
+								$f'(p) h \to 0$ as $h \to 0$
+							</span> 
+							<span class="fragment" data-fragment-index="5">
+								$\Ra$
+								$f(p+h) \to f(p)$ as $h \to 0$.
+							</span> 
+						</p>
+						
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="6">
+								Therefore, $f$ is continuous at $p.$ $\; \bs$
+							</span> 
+						</p>
+						
+					</div>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
