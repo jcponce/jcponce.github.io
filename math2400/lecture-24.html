@@ -151,8 +151,8 @@
 					<div class="left-txt" style="font-size:82%;margin-top:-5px">
 						<p>
 							<strong>Theorem 12.1.5. </strong>
-							Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
-							differentiable at $p \in U$. 
+							Suppose that $U \subset \R^n$ is an open set and that 
+							 $f \colon U \to \R^m$ is differentiable.
 							<span  class="fragment" data-fragment-index="0">
 								Then all the partial derivatives at $p$
 							exist
@@ -189,6 +189,165 @@
 							
 						</p>
 					</div>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%;margin-top:-15px">Proof of Theorem 12.1.5</h4>
+					<div class="left-txt" style="font-size:90%;margin-top:-5px">
+						<p>
+							
+							<span>
+								The $(i,j)$-th matrix element $a_{i,j}$ of $f'(p)$ is given by
+								the <br/>$i$-th component vector $f'(p)e_j$,
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								where $e_1, e_2, \ldots, e_n$ is the standard basis of $\R^n.$
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+							 Setting $x:= p+ h e_j$
+							</span>
+							<span  class="fragment" data-fragment-index="3">
+							we see that
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt " style="font-size:90%;">
+						<p>
+							<span  class="fragment" data-fragment-index="4">
+								$\ds \frac{\snorm{f(x) - f(p) - f'(p)(x-p)}}{\snorm{x-p}}$
+							</span>
+						</p>
+						
+					</div>
+					<div class="" style="font-size:83%;">
+						
+						<p>
+							
+							
+							<span  class="fragment" data-fragment-index="5">
+								$\ds =\frac{\snorm{ f\left(p_1, \ldots, p_j+ h, \ldots, p_n\right) - f\left(p_1, \ldots, p_n\right) -  f'(p)he_j}}{\snorm{he_j}} $
+							</span>
+						</p>
+					</div>
+					<div class="left-txt" style="font-size:90%;">
+						<p>
+							<span  class="fragment" data-fragment-index="6">
+								which approches zero as $h\to 0,$
+							</span>
+							<span  class="fragment" data-fragment-index="7">
+								since $f$ is differentiable at $p.$
+							</span>
+						</p>
+						
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%;margin-top:-15px">Proof of Theorem 12.1.5</h4>
+					<div class="left-txt" style="font-size:90%;margin-top:-5px">
+						<p>
+							
+							<span>
+								Thus 
+							</span>
+							
+						</p>
+					</div>
+					
+					<div class="r-stack" style="font-size:76%;">
+						
+						<p>
+							<span  class="fragment fade-out" data-fragment-index="0">
+								$\ds \lim_{h\to 0}\frac{\snorm{ f\left(p_1, \ldots, p_j+ h, \ldots, p_n\right) - f\left(p_1, \ldots, p_n\right) -  f'(p)he_j}}{\snorm{he_j}} =0$
+							</span>
+						</p>
+						<p>
+							<span  class="fragment fade-in" data-fragment-index="0">
+								$\ds \lim_{h\to 0}\frac{\snorm{ f\left(p_1, \ldots, p_j+ h, \ldots, p_n\right) - f\left(p_1, \ldots, p_n\right) -  f'(p)he_j}}{\snorm{h}} =0$
+							</span>
+						</p>
+					</div>
+					<div class="" style="font-size:85%;">
+
+						<p>
+							<span  class="fragment" data-fragment-index="1">
+								This implies that $\ds\; \lim_{h\to 0} \frac{f\left(p+he_j \right) - f(p) - f'(p) h e_j}{h} = 0 $
+							</span>
+						</p>
+						
+						<p>
+							<span  class="fragment" data-fragment-index="2">
+								$\ds \iff \lim_{h\to 0} \frac{f\left(p+he_j \right) - f(p)}{h}  $
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								$\ds = f'(p )e_j. $
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:80%;margin-top:-10px">Proof of Theorem 12.1.5</h4>
+					<div class="" style="font-size:80%;margin-top:-5px">
+						<p>
+							<span>
+								👉 $\ds \;\,\lim_{h\to 0} \frac{f\left(p+he_j \right) - f(p)}{h}  $
+							</span>
+							<span>
+								$\ds = f'(p )e_j. $
+							</span>
+						</p>
+					</div>
+					
+					
+					<div class="left-txt" style="font-size:95%;">
+
+						<p>
+							<span  class="fragment" data-fragment-index="0">
+								Since $f=(f_1,f_2,\ldots, f_m),$
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								we can take the limit in $\R^m,$
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								which is the same as taking the limit in each component
+								separately.
+							</span>
+						</p>
+						<p>
+							<span  class="fragment" data-fragment-index="3">
+								Thus, for every $k$, the partial derivative
+								
+							</span>
+						</p>
+						
+						
+					</div>
+					<div class="" style="font-size:95%;">
+
+						<p>
+							<span  class="fragment" data-fragment-index="3">
+								$\ds
+								\frac{\partial f_i}{\partial x_j} $
+							</span>
+							<span  class="fragment" data-fragment-index="4">
+								$\ds = \lim_{h\to 0} \frac{f_i\left(p+he_j \right) - f_i(p)}{h} \;$
+							</span>
+							<span  class="fragment" data-fragment-index="5">
+								does exist!
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt" style="font-size:95%;">
+
+						<p>
+							
+							<span  class="fragment" data-fragment-index="6">
+								And is equal to the $i$-th component of $f'(p)e_j.$
+							</span>
+						</p>
+					</div>
+					<br/>
 				</section>
 	
 				<section data-auto-animate>
