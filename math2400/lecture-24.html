@@ -128,8 +128,8 @@
 						</p>
 						<p class="fragment" data-fragment-index="2">
 							
-							We then take partial derivatives of
-							the components,
+							Then we take partial derivatives of
+							the components:
 							$\dfrac{\partial f_k}{\partial x_j}.$
 	
 						</p>
@@ -203,17 +203,17 @@
 								where $e_1, e_2, \ldots, e_n$ is the standard basis of $\R^n.$
 							</span>
 							<span  class="fragment" data-fragment-index="2">
-							 Setting $x:= p+ h e_j$
+							 Set $x:= p+ h e_j,$
 							</span>
 							<span  class="fragment" data-fragment-index="3">
-							we see that
+							 then 
 							</span>
 							
 						</p>
 					</div>
 					<div class="left-txt " style="font-size:90%;">
 						<p>
-							<span  class="fragment" data-fragment-index="4">
+							<span  class="fragment" data-fragment-index="3">
 								$\ds \frac{\snorm{f(x) - f(p) - f'(p)(x-p)}}{\snorm{x-p}}$
 							</span>
 						</p>
@@ -224,17 +224,17 @@
 						<p>
 							
 							
-							<span  class="fragment" data-fragment-index="5">
+							<span  class="fragment" data-fragment-index="4">
 								$\ds =\frac{\snorm{ f\left(p_1, \ldots, p_j+ h, \ldots, p_n\right) - f\left(p_1, \ldots, p_n\right) -  f'(p)he_j}}{\snorm{he_j}} $
 							</span>
 						</p>
 					</div>
 					<div class="left-txt" style="font-size:90%;">
 						<p>
-							<span  class="fragment" data-fragment-index="6">
+							<span  class="fragment" data-fragment-index="5">
 								which approches zero as $h\to 0,$
 							</span>
-							<span  class="fragment" data-fragment-index="7">
+							<span  class="fragment" data-fragment-index="6">
 								since $f$ is differentiable at $p.$
 							</span>
 						</p>
@@ -332,8 +332,8 @@
 							<span  class="fragment" data-fragment-index="4">
 								$\ds = \lim_{h\to 0} \frac{f_k\left(p+he_j \right) - f_k(p)}{h} \;$
 							</span>
-							<span  class="fragment" data-fragment-index="5">
-								does exist!
+							<span  class="fragment" data-fragment-index="3">
+								 exist, 😃
 							</span>
 							
 						</p>
@@ -343,7 +343,7 @@
 						<p>
 							
 							<span  class="fragment" data-fragment-index="6">
-								And is equal to the $k$-th component of $f'(p)e_j.$
+								and is equal to the $k$-th component of $f'(p)e_j.$
 							</span>
 						</p>
 					</div>
@@ -424,6 +424,74 @@
 					</div>
 					<br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4>
+					 Example 
+					</h4>
+					<div class="size-90 left-txt">
+						<p>
+							Let $f:\R^3\to \R$ defined by $f(x, y, z) = x^2y^3z^4.$
+						</p>
+					</div>
+		
+					<div class="size-80">
+					  <div class="left-txt">
+						<table id="eqarray">
+						  <tr>
+							<td class="fragment" data-fragment-index="0">
+							  $\displaystyle \nabla f$
+							</td>
+							<td class="fragment" data-fragment-index="1">
+							  $\displaystyle =\frac{\partial}{\partial
+							  x}\left(x^2y^3z^4\right)e_1$
+							  <span class="fragment" data-fragment-index="2">
+								$\displaystyle +  \frac{\partial}{\partial
+								y}\left(x^2y^3z^4\right)e_2 $
+							  </span>
+							  <span class="fragment" data-fragment-index="3">
+								$\displaystyle+  \frac{\partial}{\partial
+								z}\left(x^2y^3z^4\right)e_3$
+							  </span>
+							</td>
+						  </tr>
+						  <tr>
+							<td></td>
+							<td class="fragment" data-fragment-index="4">
+							  $\displaystyle = 2x~y^3z^4~e_1 $
+							  <span class="fragment" data-fragment-index="5">
+								$\displaystyle + \,3x^2y^2z^4~e_2 $
+							  </span>
+							  <span class="fragment" data-fragment-index="6">
+								$\displaystyle + \,4x^2y^3z^3~e_3 $
+							  </span>
+							</td>
+						  </tr>
+						</table>
+						
+					  </div>
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="7">
+							Note $\nabla f$ is a vector.
+							<span class="fragment" data-fragment-index="8">
+							  It's length and direction are independent of the choice of
+							  coordinates.
+							</span>
+							<span class="fragment" data-fragment-index="9">
+							  $\nabla f$ (evaluated at a given point $P$) is in the
+							  direction of maximum increase of $f$ at $P$.
+							</span>
+							<span class="fragment" data-fragment-index="10">
+							  For example at $(1,1,1),$
+							</span>
+							<span class="fragment" data-fragment-index="11">
+							  we have that \[ \nabla f (1,1,1) = 2e_1 + 3 e_2 + 4e_3. \]
+							</span>
+						  </p>
+					</div>
+					<br/>
+				  </section>
 	
 				<section data-auto-animate id="directional-derivative">
 					<h4>12.1.2 Gradients and directional derivatives</h4>
