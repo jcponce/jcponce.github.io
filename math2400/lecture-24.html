@@ -1095,7 +1095,7 @@ $
 				<section data-auto-animate>
 					<h5 style="font-size:70%">Non-differentiable at $(0,0)$: <br/>$f(x,y):= x^2y/\left(x^2+y^2\right)$ for $(x,y)\neq (0,0)$ and $f(0,0)=0.$</h5>
 
-					<div class="mathcell size-40 left-txt" style="width: 500px; height: 500px">
+					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px;margin-top:-10px">
 						<script>
 						
 						var parent = document.currentScript.parentNode;
@@ -1161,7 +1161,7 @@ $
 									var sum = 0;
 									for ( var k = 0 ; k < terms ; k++ ) {
 										
-										sum += (a**k * Math.cos( b**k * 2 * Math.PI * x ) - a**k * Math.cos( b**k * Math.PI  ) ) + (a**k * Math.cos( b**k * 2 * Math.PI * y ) - 2 * a**k * Math.cos( b**k * Math.PI  ) ) ;
+										sum += (a**k * Math.cos( b**k * 2 * Math.PI * (x ) ) - a**k * Math.cos( b**k * Math.PI  ) ) + (a**k * Math.cos( b**k * 2 * Math.PI * (y) ) -  a**k * Math.cos( b**k * Math.PI  ) ) ;
 										
 									}
 									
@@ -1170,21 +1170,18 @@ $
 		
 								}
 							
-							  function z(x,y) { 
-								if(x == 0 && y == 0) {return [ x, y, 0]; }
-								else {return [ x, y, x * x * y / (x * x + y * y)]; }
-							  }
+							 
 							
 							  var lim = 0.5;
 							  var s = parametric( w, [-lim,lim,200], [-lim,lim,200], 
-													 { colormap: 'cool' } );
+													 { colormap: 'spring' } );
 							
 							  var data = [ s ];
 							
 							  var config = { type: 'threejs',
-											   aspectRatio: [1,1,1], 
+											   aspectRatio: [1,1,0.15], 
 											   viewpoint: [1,1,1],
-											   //zMax: 11,
+											   //zMax: 5,
 											   //zMax: 4,
 											};
 							
