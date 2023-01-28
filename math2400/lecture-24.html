@@ -1141,6 +1141,73 @@ $
 					<h5 style="font-size:80%">Non-differentiable anywhere: 
 						<span class="fragment" data-fragment-index="0">Weierstrass in 3D 🤯</span> </h5>
 
+					<div class="fragment" data-fragment-index="0">
+						<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
+							<script>
+							
+							var parent = document.currentScript.parentNode;
+							
+							var id = generateId();
+							parent.id = id;
+							
+							MathCell( id, [ ] );
+							var a = 0.5, b = 3, direction = 1;
+		
+							var terms = 40; // to speed up evaluation 
+							
+							parent.update = function( id ) {
+		
+								function w( x , y) {
+									var sum = 0;
+									for ( var k = 0 ; k < terms ; k++ ) {
+										
+										sum += (a**k * Math.cos( b**k * 2 * Math.PI * x ) - a**k * Math.cos( b**k * Math.PI  ) ) + (a**k * Math.cos( b**k * 2 * Math.PI * y ) - 2 * a**k * Math.cos( b**k * Math.PI  ) ) ;
+										
+									}
+									
+		
+									return [x, y, sum];
+		
+								}
+							
+							  function z(x,y) { 
+								if(x == 0 && y == 0) {return [ x, y, 0]; }
+								else {return [ x, y, x * x * y / (x * x + y * y)]; }
+							  }
+							
+							  var lim = 0.5;
+							  var s = parametric( w, [-lim,lim,200], [-lim,lim,200], 
+													 { colormap: 'cool' } );
+							
+							  var data = [ s ];
+							
+							  var config = { type: 'threejs',
+											   aspectRatio: [1,1,1], 
+											   viewpoint: [1,1,1],
+											   //zMax: 11,
+											   //zMax: 4,
+											};
+							
+							  evaluate( id, data, config );
+							
+							}
+							
+							parent.update( id );
+							
+							</script>
+						</div>
+					</div>
+						
+					
+	
+					<br />
+				</section>
+
+				<!--
+					<section data-auto-animate>
+					<h5 style="font-size:80%">Non-differentiable anywhere: 
+						<span class="fragment" data-fragment-index="0">Weierstrass in 3D 🤯</span> </h5>
+
 					<div style="margin-top:-40px"  class="fragment" data-fragment-index="0">
 						<img width="70%" src="images/summary-12/weierstrass.png">
 					</div>
@@ -1148,6 +1215,7 @@ $
 						<p>Source: <a href="http://infinity77.net/global_optimization/test_functions_nd_W.html" targe="_blank">N-D Test functions W</a></p>
 					</div>
 				</section>
+				-->
 			</section>
 
 			<section>

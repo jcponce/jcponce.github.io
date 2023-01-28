@@ -1281,50 +1281,7 @@
 			</section>
 
 
-			<section data-auto-animate>
-				<h5 style="font-size:70%">Non-differentiable at $(0,0)$: <br/>$f(x,y):= x^2y/\left(x^2+y^2\right)$ for $(x,y)\neq (0,0)$ and $f(0,0)=0.$</h5>
-
-				<div class="mathcell size-40 left-txt" style="width: 500px; height: 500px">
-					<script>
-					
-					var parent = document.currentScript.parentNode;
-					
-					var id = generateId();
-					parent.id = id;
-					
-					MathCell( id, [ ] );
-					
-					parent.update = function( id ) {
-					
-					  function z(x,y) { 
-						if(x == 0 && y == 0) {return [ x, y, 0]; }
-						else {return [ x, y, x * x * y / (x * x + y * y)]; }
-					  }
-					
-					  var lim = 1.0;
-					  var s = parametric( z, [-lim,lim,100], [-lim,lim,100], 
-											 { colormap: 'winter' } );
-					
-					  var data = [ s ];
-					
-					  var config = { type: 'threejs',
-									   aspectRatio: [1,1,1], 
-									 viewpoint: [1,1,1],
-									};
-					
-					  evaluate( id, data, config );
-					
-					}
-					
-					parent.update( id );
-					
-					</script>
-				</div>
-					
-				
-
-				<br />
-			</section>
+			
 			
 
 			<section>
