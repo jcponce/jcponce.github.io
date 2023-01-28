@@ -1050,7 +1050,7 @@ $
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h5 style="font-size:70%">Non-differentiable at $(0,0)$: $f(x,y):= \sqrt{x^2+y^2}$</h5>
+					<h5 style="font-size:70%">Non-differentiable at $(0,0)$: $f(x,y):= -\sqrt{x^2+y^2}$</h5>
 
 					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
 						<script>
@@ -1065,7 +1065,7 @@ $
 						parent.update = function( id ) {
 						
 						  function z(x,y) { 
-							return [ x, y, Math.sqrt(x * x + y * y)]; 
+							return [ x, y, -Math.sqrt(x * x + y * y)]; 
 						  }
 						
 						  var lim = 5.0;
@@ -1076,7 +1076,7 @@ $
 						
 						  var config = { type: 'threejs',
 						  				 aspectRatio: [1,1,1], 
-										 viewpoint: [1.0,1.0,0.2],
+										 viewpoint: [1.0,0.5,0.1],
 										};
 						
 						  evaluate( id, data, config );
