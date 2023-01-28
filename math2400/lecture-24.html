@@ -78,7 +78,7 @@
 	
 						</p>
 					</div>
-					<div class="size-80">
+					<div style="font-size:83%">
 						<p class="fragment" data-fragment-index="2">
 							
 							$
@@ -315,7 +315,7 @@
 						</p>
 						<p>
 							<span  class="fragment" data-fragment-index="3">
-								Thus, for every $k$, the partial derivative
+								Thus, for every $k$, the partial derivative exists 😃
 								
 							</span>
 						</p>
@@ -332,9 +332,6 @@
 							<span  class="fragment" data-fragment-index="4">
 								$\ds = \lim_{h\to 0} \frac{f_k\left(p+he_j \right) - f_k(p)}{h} \;$
 							</span>
-							<span  class="fragment" data-fragment-index="3">
-								 exist, 😃
-							</span>
 							
 						</p>
 					</div>
@@ -343,7 +340,7 @@
 						<p>
 							
 							<span  class="fragment" data-fragment-index="6">
-								and is equal to the $k$-th component of $f'(p)e_j.$
+								and is equal to the $k$-th component of $f'(p)e_j. \;\bs$
 							</span>
 						</p>
 					</div>
@@ -391,6 +388,166 @@
 						</p>
 					</div>
 					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Example 12.1.3. 
+					</h4>
+					<div class="left-txt">
+						<p>Let $f:\R^3\to \R^3$ defined by 
+							\[
+							f(x,y,z):= \left( x^2+y-z, xyz^2, 2xy -y^2z  \right)
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							Note that $f$ is differentiable at any 
+							\[
+							p = (x,y,z)\in \R^3.
+							\]
+						</p>
+						<br/><br/><br/>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 12.1.3. 
+					</h4>
+					<div class="size-70">
+						<p>$
+							f(x,y,z):= \left( x^2+y-z, xyz^2, 2xy -y^2z  \right)
+							$
+						</p>
+					</div>
+					<div  style="font-size:90%;margin-top:50px">
+						<div class="">
+							<p>
+								<span>
+									$\Ra$ $f'(p)$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$=\begin{bmatrix}
+									\dfrac{\partial f_1}{\partial x_1}(p)
+									&
+									\dfrac{\partial f_1}{\partial x_2}(p)
+									& \dfrac{\partial f_1}{\partial x_3}(p)
+									\\[6pt]
+									\dfrac{\partial f_2}{\partial x_1}(p)
+									&
+									\dfrac{\partial f_2}{\partial x_2}(p)
+									& \dfrac{\partial f_2}{\partial x_3}(p)
+									\\[6pt]
+									\dfrac{\partial f_3}{\partial x_1}(p)
+									&
+									\dfrac{\partial f_3}{\partial x_2}(p)
+									& \dfrac{\partial f_3}{\partial x_3}(p)
+									\end{bmatrix}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 12.1.3. 
+					</h4>
+					<div class="size-70">
+						<p>$
+							f(x,y,z):= \left( x^2+y-z, xyz^2, 2xy -y^2z  \right)
+							$
+						</p>
+					</div>
+					<div class="" style="font-size:65%;margin-top:50px">
+						<div class="">
+							<p>
+								<span  style="font-size:120%;">
+									$f'(p)$
+								</span>
+								<span>
+									$= \begin{bmatrix} 
+									\dfrac{\partial \left(x^2+y-z\right)}{\partial x}(p)
+									&
+									\dfrac{\partial \left(x^2+y-z\right)}{\partial y}(p)
+									& \dfrac{\partial \left(x^2+y-z\right)}{\partial z}(p)
+									\\[6pt]
+									\dfrac{\partial \left(xyz^2\right)}{\partial x}(p)
+									&
+									\dfrac{\partial  \left(xyz^2\right)}{\partial y}(p)
+									& \dfrac{\partial  \left(xyz^2\right)}{\partial z}(p)
+									\\[6pt]
+									\dfrac{\partial  \left(2xy-y^2z\right)}{\partial x}(p)
+									&
+									\dfrac{\partial \left(2xy-y^2z\right)}{\partial y}(p)
+									& \dfrac{\partial \left(2xy-y^2z\right)}{\partial z}(p)
+									\end{bmatrix}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 12.1.3. 
+					</h4>
+					<div class="size-70">
+						<p>$
+							f(x,y,z):= \left( x^2+y-z, xyz^2, 2xy -y^2z  \right)
+							$
+						</p>
+					</div>
+					<div class="" style="font-size:90%;margin-top:50px">
+						<div class="">
+							<p>
+								<span>
+									$f'(p)$
+								</span>
+								<span>
+									$=  \begin{bmatrix}
+									2x
+									&
+									1
+									& -1
+									\\[6pt]
+									yz^2
+									&
+									xz^2
+									& 2xyz
+									\\[6pt]
+									2y
+									&
+									2x-2yz
+									& -y^2
+									\end{bmatrix}.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									In particular at $p_0=(1,1,1),$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$f'(p_0)=  \begin{bmatrix}
+									2
+									&
+									1
+									& -1
+									\\[6pt]
+									1
+									&
+									1
+									& 2
+									\\[6pt]
+									2
+									&
+									0
+									& -1
+									\end{bmatrix}.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
 				</section>
 			</section>
 
