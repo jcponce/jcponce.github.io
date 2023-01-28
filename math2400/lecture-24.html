@@ -1008,68 +1008,131 @@ $
 				-->
 
 				<section data-auto-animate>
-					<h5 style="font-size:60%">Another plot I need for MATH2400</h5>
+					<h5 style="font-size:60%">Differentiable: $f(x,y):= \sin(x-y)+\sin(x+y)$</h5>
 
-					<div class="mathcell size-40 left-txt" style="width:500px;height:500px;">
+					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
 						<script>
-							//https://paulmasson.github.io/mathcell/docs/examples/schwarz-primitive-surface.html
-
-							var parent = document.currentScript.parentNode;
-
-							var id = generateId();
-							parent.id = id;
-
-							MathCell(id, [ ]);
-
-
-							parent.update = function (id) {
-
-								//var part = getVariable(id, 'part');
-
-								var lim = 2;
-								var res = 100;
-
-								var s = isosurface((x, y, z) => x*x - y*y + Math.cos(x*y)*z + 1,
-									[-lim, lim, res], [-1, 3, res], [-lim, lim, res], {
-										colormap: 'hot',
-									});
-
-								var t = isosurface((x, y, z) => Math.exp(x) - y/(x+z+1),
-									[-lim, lim, res], [-1, 3, res], [-lim, lim, res], {
-										colormap: 'cool',
-									});
-								/*
-									parametric( (x,y) => [ x, y, (x-y)/x ], [-1,1], [-1,1],
-                           			{ colormap: (x,y) => colorFromHue( (x-y)/x ) } )
-						   		*/
-
-								var data = [s,t];
-
-								//if (part === 'ƒ(x,y)')
-
-								//	data.push(s);
-
-								//else
-
-									//data.push(t);
-
-								var config = {
-									type: 'threejs',
-									frame: true,
-									viewpoint: [1,1,0.7],
-									axesLabels: true, 
-									aspectRatio: [1,1,1],
-									
-								};
-
-								evaluate(id, data, config);
-
-							}
-
-							parent.update(id);
+						
+						var parent = document.currentScript.parentNode;
+						
+						var id = generateId();
+						parent.id = id;
+						
+						MathCell( id, [ ] );
+						
+						parent.update = function( id ) {
+						
+						  function z(x,y) { 
+							return [ x, y, Math.sin(x  -  y)/2 +  Math.sin(x  +  y)]; 
+						  }
+						
+						  var lim = 5.0;
+						  var s = parametric( z, [-lim,lim,100], [-lim,lim,100],
+												 { colormap: 'cool' } );
+						
+						  var data = [ s ];
+						
+						  var config = { type: 'threejs',
+						  				 aspectRatio: [1,1,1], 
+										};
+						
+						  evaluate( id, data, config );
+						
+						}
+						
+						parent.update( id );
+						
 						</script>
 					</div>
-					<br/>
+						
+					
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5 style="font-size:60%">Non-differentiable: $f(x,y):= \sqrt{x^2+y^2}$</h5>
+
+					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
+						<script>
+						
+						var parent = document.currentScript.parentNode;
+						
+						var id = generateId();
+						parent.id = id;
+						
+						MathCell( id, [ ] );
+						
+						parent.update = function( id ) {
+						
+						  function z(x,y) { 
+							return [ x, y, Math.sqrt(x * x + y * y)]; 
+						  }
+						
+						  var lim = 5.0;
+						  var s = parametric( z, [-lim,lim,100], [-lim,lim,100], 
+												 { colormap: 'hot' } );
+						
+						  var data = [ s ];
+						
+						  var config = { type: 'threejs',
+						  				 aspectRatio: [1,1,1], 
+										 viewpoint: [1.0,1.0,0.2],
+										};
+						
+						  evaluate( id, data, config );
+						
+						}
+						
+						parent.update( id );
+						
+						</script>
+					</div>
+						
+					
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5 style="font-size:60%">Non-differentiable: $f(x,y):= x^2y/\left(x^2+y^2\right)$ for $(x,y)\neq (0,0)$ and $f(0,0)=0.$</h5>
+
+					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
+						<script>
+						
+						var parent = document.currentScript.parentNode;
+						
+						var id = generateId();
+						parent.id = id;
+						
+						MathCell( id, [ ] );
+						
+						parent.update = function( id ) {
+						
+						  function z(x,y) { 
+							if(x == 0 && y == 0) {return [ x, y, 0]; }
+							else {return [ x, y, x * x * y / (x * x + y * y)]; }
+						  }
+						
+						  var lim = 1.0;
+						  var s = parametric( z, [-lim,lim,100], [-lim,lim,100], 
+												 { colormap: 'winter' } );
+						
+						  var data = [ s ];
+						
+						  var config = { type: 'threejs',
+						  				 aspectRatio: [1,1,1], 
+										 viewpoint: [1.0,1,1.1],
+										};
+						
+						  evaluate( id, data, config );
+						
+						}
+						
+						parent.update( id );
+						
+						</script>
+					</div>
+						
+					
 
 					<br />
 				</section>
