@@ -601,28 +601,608 @@ $
 					</div>
 					<br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4 style="margin-top:-10px;font-size:90%">
+						13.2 Invertible functions
+					</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									The crucial difference between the functions of Examples 13.2.1 and 13.2.2 is 
+									that the matrix representation of $f$ is non-singular while the matrix representation of $g$ is singular.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									In other words, considering
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds f =  
+									\underbrace{
+									\begin{bmatrix}
+									1
+									&
+									-1
+									\\[6pt]
+									1
+									&
+									1
+									\\
+									\end{bmatrix}
+									}_{\large A}
+									\begin{bmatrix}
+									x
+									\\[6pt]
+									y
+									\\
+									\end{bmatrix} 
+									$
+									
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									and 
+									$\ds g =  
+									\underbrace{
+									\begin{bmatrix}
+									1
+									&
+									1
+									\\[6pt]
+									2
+									&
+									2
+									\\
+									\end{bmatrix} 
+									}_{\large B}
+									\begin{bmatrix}
+									x
+									\\[6pt]
+									y
+									\\
+									\end{bmatrix}, 
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									then $A$ is invertible (non-singular),
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									 and $B$ is not (singular).
+								</span>
+							</p>
+						</div>
+						
+					</div><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="margin-top:00px;">
+						13.2 Invertible functions
+					</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Theorem 13.2.1. </strong>
+								</span>
+								<span>
+									The function $f:\R^n\to \R^n$ defined by
+\[
+f(x) := Ax, \quad A\in M_{n\times n}
+\]
+is invertible if and only if $A$ is nonsingular;
+
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									in which case
+									$R(f)= \R^n$ and
+									\[
+									f^{-1}(u) = A^{-1}u.
+									\]
+								</span>
+							</p>
+						</div>
+						
+						
+					</div><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="margin-top:00px;">
+						Example 13.2.3.
+					</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								
+								<span>
+									Let $f:\R^2\to \R^2$ be the function defined by
+\[
+f(x, y) := \left(e^x\cos y, e^x \sin y\right).
+\]
+
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									This function is not one-to-one. Why?
+								</span>
+							</p>
+						</div>
+						
+						
+					</div><br/><br/><br/><br/>
+				</section>
+
+				<section>
+					<h4>
+						13.2.1 Local Invertibility
+					</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								
+								<span>
+									A function $f$ may fail to be one-to-one, but be one-to-one on a subset $S$ of $D_F$. 
+
+								</span>
+							</p>
+							<p>
+								
+							
+								<span class="fragment" data-fragment-index="0">
+									If $f$ is one-to-one on a neighborhood of $p$,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we say that $f$ is <em>locally invertible</em> at $p$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									If
+this is true for every $p$ in a set $S$,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then $f$ is locally invertible on $S$.
+								</span>
+							</p>
+						</div>
+						
+						
+					</div><br/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="margin-top:00px;">
+						Example 13.2.4.
+					</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								
+								<span>
+									Let $f:\R^2\to \R^2$ be the function defined by
+\[
+f(x, y) := \left(x^2-y^2, 2xy\right).
+\]
+
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$f$ is not one-to-one since
+									$
+									f(-x,-y) = f(x,y).
+									$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									However, $f$ is one-to-one on every set $S$ of the form
+\[
+S= \left\{(x,y)~:~ ax+by >0 \right\},
+\]
+where $a,b\in \R$, not both zero.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Geometrically $S$ is an open half-plane.
+								</span>
+							</p>
+						</div>
+						
+						
+					</div><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="margin-top:00px;">
+						Example 13.2.4.
+					</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								
+								<span>
+									Let $f:\R^2\to \R^2$ be the function defined by
+\[
+f(x, y) := \left(x^2-y^2, 2xy\right).
+\]
+
+								</span>
+								<span>
+									Therefore, $f$ is locally invertible at every $(x,y)\neq (0,0)$ since every such point lies in a half-plane of this form. 
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="1">
+									Thus, $f$ is locally invertible on the entire plane with $(0,0)$ removed.
+								</span>
+							</p>
+						</div>
+						
+						
+					</div><br/>
+				</section>
+
 			</section>
 
+			
+
 			<section>
-				<h4>13.1 Inverse function theorem</h4>
-				<div class="left-txt size-90">
-					<p>
-						<strong>Theorem:</strong>
-						Let $U \subset \R^n$ be an open set and let
-						$f \colon U \to \R^n$ be a continuously differentiable function.
-						Suppose $p \in U$ and $f'(p)$ is invertible
-						(that is, $J_f(p) \not=0$).
-						Then there exist open sets $V, W \subset \R^n$ such that
-						$p \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one.
-						Hence a function $g \colon W \to V$ exists such that
-						$g(y) := (f|_V)^{-1}(y)$.
-						Furthermore, $g$ is continuously differentiable
-						and
-						\begin{equation*}
-						g'(y) = {\bigl(f'(x)\bigr)}^{-1}, \; \text{for all } x \in V, y = f(x).
-						\end{equation*}
-					</p>
-				</div>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								The question of invertibility of an arbitrary function $f:\R^n\to \R^n$ is too general to have a useful answer.
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									However, there is a useful and easily applicable sufficient condition 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									which implies that one-to-one restrictions of continuously differentiable functions have continuously differentiable inverses.
+
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									To motivate our study of this question, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									let us first consider the function $f$ as a linear transformation
+									
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									\[
+									f(x)  = A x = 
+									\begin{bmatrix}
+									a_{1,1}
+									&
+									a_{1,2}
+									&
+									\ldots
+									&
+									a_{1,n}\\
+									a_{2,1}
+									&
+									a_{2,2}
+									&
+									\ldots
+									&
+									a_{2,n}\\
+									\vdots
+									&
+									\vdots
+									&
+									\ddots
+									&
+									\vdots\\
+									a_{n,1}
+									&
+									a_{n,2}
+									&
+									\ldots
+									&
+									a_{n,n}
+									\end{bmatrix}
+									\begin{bmatrix}
+									x_{1} \\
+									x_{2} \\
+									\vdots \\
+									x_{n}
+									\end{bmatrix}
+									\]
+									
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									From Theorem 13.2.1,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$f$ is invertible if and only if$ A$ is non-singular,
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									in which case $R(f)= \R^n$ 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									and
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									$
+									f^{-1}(u)= A^{-1}u, \quad u \in \R^n.
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="size-90">
+						
+						
+						<div class="left-txt">
+							
+							
+							<p>
+								<span>
+									Also we have that
+\[
+f'=A \quad \text{and}\quad \left(f^{-1}\right)'= A^{-1}.
+\]
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Since $A$ and $A^{-1}$ are the differential matrices of $f$ and $f^{-1}$, respectively,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we can say that a linear transformation is invertible if and only if its differential matrix $f'$ is nonsingular,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									in which case the differential matrix of $f^{-1}$ is given by
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$
+									\left(f^{-1}\right)'= A^{-1} = \left(f'\right)^{-1}.
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="size-90">
+						<div>
+							<p>
+								<span>
+									$
+									\left(f^{-1}\right)'= A^{-1} = \left(f'\right)^{-1}.
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+							
+							<p>
+								<span>
+									Because of this, it is tempting to conjecture that if $f:\R^n\to \R^n$ is continuously differentiable and $f'(p)$ is nonsingular,
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									or, equivalently, $J_f(p)\neq 0$, for $p\in S$, 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then $f$ is one-to-one on $S$. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									However, this is false.
+								</span>
+							</p>
+
+						</div>
+						
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="size-90">
+
+						
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Because of this, it is tempting to conjecture that if $f:\R^n\to \R^n$ is continuously differentiable and $f'(p)$ is nonsingular,
+								</span>
+								<span>
+									or, equivalently, $J_f(p)\neq 0$, for $p\in S$, 
+								</span>
+								<span>
+									then $f$ is one-to-one on $S$. 
+								</span>
+								<span>
+									However, this is false.
+								</span>
+							</p>
+							
+							<p>
+								
+								<span>
+									For example, if
+\[
+f(x,y):= \left(e^x \cos y , e^x \sin y \right),
+\]
+
+								</span>
+								
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									then
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$J_f(x,y)$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds= 
+									\left|
+									\begin{array}{cc}
+									e^x \cos y & -e^x \sin y \\
+									e^x \sin y & e^x \cos y \\
+									\end{array}
+									\right|$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds= e^{2x} $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ \neq 0,$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="size-90">
+
+						
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Because of this, it is tempting to conjecture that if $f:\R^n\to \R^n$ is continuously differentiable and $f'(p)$ is nonsingular,
+								</span>
+								<span>
+									or, equivalently, $J_f(p)\neq 0$, for $p\in S$, 
+								</span>
+								<span>
+									then $f$ is one-to-one on $S$. 
+								</span>
+								<span>
+									However, this is false.
+								</span>
+							</p>
+							
+							<p>
+								
+								<span>
+									For example, if
+\[
+f(x,y):= \left(e^x \cos y , e^x \sin y \right),
+\]
+
+								</span>
+								
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+									$J_f(x,y)= e^{2x}\neq 0,$  
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									but $f$ is not one-to-one on $\R^2.$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="size-95">
+
+						
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									The best that can be said in general is that if $f$ is 
+									continuously differentiable and $J_f(p)\neq 0$ in 
+									an open set $U\subset S$,
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									then
+								</span>
+							</p>
+							<ol>
+								<li class="fragment" data-fragment-index="0">
+									$f$ is locally invertible on $U$, and 
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									the local inverses are continuously differentiable. 
+								</li>
+							</ol>
+							
+							
+
+						</div>
+						
+						
+					</div>
+					<br/><br/><br/>
+				</section>
+				
+
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="left-txt size-90">
+						<p>
+							<strong>Theorem:</strong>
+							Let $U \subset \R^n$ be an open set and let
+							$f \colon U \to \R^n$ be a continuously differentiable function.
+							Suppose $p \in U$ and $f'(p)$ is invertible
+							(that is, $J_f(p) \not=0$).
+							Then there exist open sets $V, W \subset \R^n$ such that
+							$p \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one.
+							Hence a function $g \colon W \to V$ exists such that
+							$g(y) := (f|_V)^{-1}(y)$.
+							Furthermore, $g$ is continuously differentiable
+							and
+							\begin{equation*}
+							g'(y) = {\bigl(f'(x)\bigr)}^{-1}, \; \text{for all } x \in V, y = f(x).
+							\end{equation*}
+						</p>
+					</div>
+				</section>
 			</section>
 
 			<section>
