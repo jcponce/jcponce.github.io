@@ -61,6 +61,275 @@
 			</section>
 
 			<section>
+				<section data-auto-animate>
+					<h4>13.1 Geometric interpretation of vector functions</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Now we restrict our attention to functions from $\R^n$ to itself.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									It is useful to interpret such functions as transformations geometrically.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									If $f=\left(f_1,f_2,\ldots f_n\right),$ 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we can think of the components of
+	\[
+	f(x) = \left(f_1(x),f_2(x),\ldots f_n(x)\right)
+	\]
+	as the coordinates of a point $p = f(x)$ in another "copy" of $\R^n$. 
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>13.1 Geometric interpretation of vector functions</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									If $f=\left(f_1,f_2,\ldots f_n\right),$ 
+								</span>
+								<span>
+									we can think of the components of
+	\[
+	f(x) = \left(f_1(x),f_2(x),\ldots f_n(x)\right)
+	\]
+	as the coordinates of a point $p = f(x)$ in another "copy" of $\R^n$. 
+								</span>
+							</p>
+							<p>
+								<span>
+									Thus if $p =\left(p_1, p_2, \ldots, p_n\right),$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+	\[
+	\Ra p_1 = f_1(x), p_2 = f_2(x), \ldots, p_n = f_n(x).
+	\]
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Transformations from $\R^2 \to \R^2$</h4>
+						<div>
+							<iframe scrolling="no" title="Transformations"
+							src="https://www.geogebra.org/material/iframe/id/msqh9rxd/width/772/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="772px" height="472px" style="border:0px;" allowfullscreen=""> </iframe>
+
+						</div>
+						<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>13.1 Geometric interpretation of vector functions</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									We say that $f$ maps $x$ to $p$, and that $p$ is the image of $x$ under $f$. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									If $S\subset D_f$, where  $D_f$ is the domain of $f$,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then the set
+									\[
+									f(S) := \left\{ u : u = f(x), \,x\in S\right\}
+									\]
+									is the <em>image of</em> $S$ <em>under</em> $f$.
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									<strong>Remark: </strong>
+									We will often denote the components of elements in $S$ by $x, y, z\ldots,$ 
+									and the components of elements in $f(S)$ by $u, v, w\ldots.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Example 13.1.1.
+					</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								Let $f:\R^2\to \R^2$ be the function defined by
+\[
+f(x,y) := \left(x^2+y^2, x^2-y^2\right).
+\]
+
+<span class="fragment" data-fragment-index="0">Then</span>
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$u = f_1(x,y) = x^2+y^2\;$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									and $\;v = f_2(x,y) = x^2-y^2.$
+								</span>
+								
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 13.1.1.
+					</h4>
+					<div class="size-90">
+						<div class="">
+							<p>
+								$f(x,y) := \left(x^2+y^2, x^2-y^2\right).$
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+								<span>
+									$u = f_1(x,y) = x^2+y^2\;$
+								</span>
+								<span>
+									and $\;v = f_2(x,y) = x^2-y^2.$
+								</span>
+								
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>For $p=(x,y)\in R^2,$ 
+								<span  class="fragment" data-fragment-index="0">
+									we have that
+								</span>
+								</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$f'(p)$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds=
+									\begin{bmatrix}
+\dfrac{\partial f_1}{\partial x}(p)
+&
+\dfrac{\partial f_1}{\partial y}(p)
+\\[6pt]
+\dfrac{\partial f_2}{\partial x}(p)
+&
+\dfrac{\partial f_2}{\partial y}(p)
+\\
+\end{bmatrix} 
+									$
+								</span>
+								
+							</p>
+							
+						</div>
+					</div>
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 13.1.1.
+					</h4>
+					<div class="size-90">
+						<div class="">
+							<p>
+								$f(x,y) := \left(x^2+y^2, x^2-y^2\right).$
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+								<span>
+									$u = f_1(x,y) = x^2+y^2\;$
+								</span>
+								<span>
+									and $\;v = f_2(x,y) = x^2-y^2.$
+								</span>
+								
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>For $p=(x,y)\in R^2,$ 
+								<span>
+									we have that
+								</span>
+								</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$f'(p)$
+								</span>
+								<span>
+									$\ds=
+									\begin{bmatrix}
+u_x(p)
+&
+u_y(p)
+\\[6pt]
+v_x(p)
+&
+v_y(p)
+\\
+\end{bmatrix} 
+									$
+								</span>
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									$\quad\ds=
+									\begin{bmatrix}
+2x
+&
+2y
+\\[6pt]
+2x
+&
+-2y
+\\
+\end{bmatrix} 
+									$
+								</span>
+								
+							</p>
+
+							
+						</div>
+					</div>
+
+					<br/>
+				</section>
+			</section>
+
+			<section>
 				<h4>13.1 Inverse function theorem</h4>
 				<div class="left-txt size-90">
 					<p>
