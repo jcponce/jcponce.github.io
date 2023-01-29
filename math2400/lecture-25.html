@@ -1180,62 +1180,382 @@ f(x,y):= \left(e^x \cos y , e^x \sin y \right),
 					</div>
 					<br/><br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>13.3 Inverse function theorem</h4>
+					<div class="size-95">
+
+						
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Intuitively, if a function is continuously differentiable,
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									then it
+									locally behaves like the derivative (which is a linear function).
+								</span>
+								<br/><br/>
+								<span class="fragment" data-fragment-index="1">
+									The idea of the inverse function theorem is that
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									if a function is
+continuously differentiable and the derivative is invertible,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									the function is
+(locally) invertible.
+								</span>
+							</p>
+							
+							
+
+						</div>
+						
+						
+					</div>
+					<br/><br/>
+				</section>
 				
 
 				<section data-auto-animate>
 					<h4>13.3 Inverse function theorem</h4>
-					<div class="left-txt size-90">
+					<div class="left-txt size-95">
 						<p>
-							<strong>Theorem:</strong>
-							Let $U \subset \R^n$ be an open set and let
+							<strong>Theorem 13.3.1. </strong> (Inverse function theorem)
+							<span  class="fragment" data-fragment-index="0">
+								Let $U \subset \R^n$ be an open set and let
 							$f \colon U \to \R^n$ be a continuously differentiable function.
-							Suppose $p \in U$ and $f'(p)$ is invertible
-							(that is, $J_f(p) \not=0$).
-							Then there exist open sets $V, W \subset \R^n$ such that
-							$p \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one.
-							Hence a function $g \colon W \to V$ exists such that
-							$g(y) := (f|_V)^{-1}(y)$.
-							Furthermore, $g$ is continuously differentiable
-							and
-							\begin{equation*}
-							g'(y) = {\bigl(f'(x)\bigr)}^{-1}, \; \text{for all } x \in V, y = f(x).
-							\end{equation*}
+							</span>
+							
+							<span  class="fragment" data-fragment-index="1">
+								Suppose $p \in U$ and $f'(p)$ is invertible
+								(that is, $J_f(p) \not=0$).
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								Then there exist open sets $V, W \subset \R^n$ such that
+								$p \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one.
+							</span>
+							<span  class="fragment" data-fragment-index="3">
+								Hence a function $g \colon W \to V$ exists such that
+								$g(y) := (f|_V)^{-1}(y)$.
+							</span>
+							<span  class="fragment" data-fragment-index="4">
+								Moreover, $g$ is continuously differentiable
+							</span>
+							<span  class="fragment" data-fragment-index="5">
+								and
+							</span>
 						</p>
 					</div>
+					<div class="size-95">
+						<p>
+							<span  class="fragment" data-fragment-index="5">
+							$g'(y) = {\bigl(f'(x)\bigr)}^{-1},\;$ for all $\,x \in V, y = f(x).$
+							</span>
+						</p>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Example 13.3.1. 
+					</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								Let $f:\R^2\to \R^2$ be the function defined by 
+								\[
+								f(x,y) := \left(2 x + 3x, x + 4y\right).
+								\]
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Is $f$ invertible?
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									If so, is it globally or locally invertible? 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									To answer this questions first we need the Jacobian:
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$J_f(x,y)$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\ds = 
+									\left|
+									\begin{array}{cc}
+									2 & 3 \\
+									1 & 4 \\
+									\end{array}
+									\right| $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\neq 0.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									Since  $J_f(x,y) \neq 0$ for all $(x,y)\in \R^2$, 
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									then the inverse function theorem guarantees the existence 
+									of an open set $U$ where $f$ is invertible.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 13.3.1. 
+					</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								In fact, since $f$ is one-to-one and $R(f) = \R^2$,
+								<span class="fragment" data-fragment-index="0">
+									then it is globally invertible. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Also $f^{-1}$ is continuously differentiable and
+\[
+\left(f^{-1}\right)'(u,v) = \left(f'(x,y)\right)^{-1}, \;f(x,y) = (u,v)\in \R^2.
+\]
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									Can we compute it inverse? 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Yes, we just need to solve the system
+									\begin{eqnarray*}
+									u &=& 2x + 3 y, \\
+									v &=& x+ 4 y.
+									\end{eqnarray*}
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%">
+						Example 13.3.1. 
+					</h4>
+					<div class="size-60">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									
+									\begin{eqnarray*}
+									u &=& 2x + 3 y, \\
+									v &=& x+ 4 y.
+									\end{eqnarray*}
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								
+								<span>
+									Thus we have that
+\[
+f^{-1}(u,v) =\left(\frac{4u-3v}{5}, \frac{-u+2v}{5}\right).
+\]
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									and 
+								</span>
+								
+								
+							</p>
+							
+						</div>
+						
+						
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div>
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \left(f^{-1}(u,v)\right)'  $
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\ds =
+									\begin{bmatrix}
+									\dfrac{4}{5} & \dfrac{-3}{5}\\
+									\dfrac{-1}{5} & \dfrac{2}{5}
+									\end{bmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds = 
+									\begin{bmatrix}
+									2 & 3 \\
+									1 & 4 \\
+									\end{bmatrix}^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\ds 
+									=\left(f'(x,y)\right)^{-1}.$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+
+					
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Example 13.3.2.
+					</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								Is $f(x,y)= \left(e^x \cos y, e^x \sin y \right)$ invertible?
+								
+								<span class="fragment" data-fragment-index="0">
+									If so, is it globally or locally invertible?
+								</span>
+							</p>
+							<p>
+
+								<span class="fragment" data-fragment-index="0">
+									We know that $J_f(x,y) = e^{2x}\neq 0$ for any $(x,y)\in\R^2.$ 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The inverse function theorem tells us that there exists an open set $U$ where $f$ is invertible. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Since $f$ is not one-to-one,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$f$ is locally invertible. 
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							
+							<p>
+
+								<span class="fragment" data-fragment-index="4">
+									In particular, $f$ is one-to-one on the open set
+									\[
+									U = \left\{(x,y): -\infty \lt x\lt \infty, 0\leq y\leq 2\pi \right\}.
+									\]
+									
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 13.3.2.
+					</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								Is $f(x,y)= \left(e^x \cos y, e^x \sin y \right)$ invertible?
+								
+								<span>
+									If so, is it globally or locally invertible?
+								</span>
+							</p>
+							<p>
+
+								
+								<span>
+									In particular, $f$ is one-to-one on the open set
+									\[
+									U = \left\{(x,y): -\infty \lt x\lt \infty, 0\leq y\leq 2\pi \right\}.
+									\]
+									
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									In this case we have that
+\[
+ (f|_U)^{-1}(u, v) = \left( \ln \left(u^2 + v^2\right)^{1/2} , \,\arg (u, v) \right),
+\]
+where $\; 0 \leq \arg (u,v) \lt 2\pi .$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									(Not easy to find it! 😥)
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
 				</section>
 			</section>
 
-			<section>
+			<!--
+				<section>
 				<h4>One-to-one vs Not one-to-one</h4>
 				<p class="sbt">For functions $f:\R^2 \to \R^2$</p>
 				<iframe scrolling="no" title="One-to-one vs not one-to-one"
 					data-src="https://www.geogebra.org/material/iframe/id/vwfm3m7s/width/611/height/430/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
-					width="611px" height="430px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
+					width="611px" height="430px" style="border:0px;" allowfullscreen=""> </iframe>
 			
 					<br/><br/>
 			</section>
+			-->
 
-			<section>
-				<h4>Transformations from $\R^2 \to \R^2$</h4>
-				<div>
-					<iframe scrolling="no" title="Transformations"
-					data-src="https://www.geogebra.org/material/iframe/id/msqh9rxd/width/772/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true"
-					width="772px" height="472px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
-
-				</div>
-				<br/><br/>
-			</section>
-
-			<section>
-				<h4>Transformations from $\R^2 \to \R^2$</h4>
-				<div>
-					<iframe scrolling="no" title="Zoom in: Transformations"
-					src="https://www.geogebra.org/material/iframe/id/fyxym965/width/782/height/434/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/true"
-					width="782px" height="434px" style="border:0px;" data-preloaded allowfullscreen=""> </iframe>
-				</div>
-				<br/><br/>
-
-			</section>
+			
 
 
 
