@@ -143,7 +143,7 @@
 				   </span>
                   <span class="fragment" data-fragment-index="2"
                     >First we prove the following equality \begin{equation*}
-                    \left( \sum_{n=1}^k \frac{1}{2^n} \right) + \frac{1}{2^k} =
+                     \sum_{n=1}^k \frac{1}{2^n}  + \frac{1}{2^k} =
                     1 . \end{equation*}
 				   </span>
                 </p>
@@ -153,62 +153,121 @@
             <br />
           </section>
           <section data-auto-animate>
-            <h4 style="font-size:70%;margin-top:-15px">Example 3.1.1.</h4>
+            <h4 style="font-size:70%;margin-top:-10px">Example 3.1.1.</h4>
             <div class="size-85">
-				<div style="font-size:70%;margin-top:-15px">
+				<div style="font-size:70%;margin-top:-10px">
 					<p><span>
 						👉
-					  $\;\ds \left( \sum_{n=1}^k \frac{1}{2^n} \right) +
+					  $\;\ds  \sum_{n=1}^k \frac{1}{2^n}+
 					  \frac{1}{2^k} = 1 .$
 					  </span></p>
 				</div>
-              <div class="left-txt">
+              <div class="left-txt" style="margin-top:-10px">
                 <p>
                   
 				  <span>
-					 The equality is immediate
+					 The equality is true
                   when $k=1$.
 				  </span>
-				  <span class="fragment" data-fragment-index="1">
-					The proof for general $k$ follows by induction. 📝
-				  </span>
-				  
-                  
-                </p>
-
-				<p>
+					<span class="fragment" data-fragment-index="0">
+						Assume it is true for $k.$
+					</span>
+					<span class="fragment" data-fragment-index="1">
+						We need to prove for $k+1.$
+					</span>
 					<span class="fragment" data-fragment-index="2">
-						Let $s_k$ be the partial sum. We write
+						Thus we start with
 					</span>
 				</p>
               </div>
 			  <div>
 
 				<p>
+					<span class="fragment" data-fragment-index="2">
+						$ \ds \sum_{n=1}^{k+1} \frac{1}{2^n}  +
+						\frac{1}{2^{k+1}}  $
+					</span>
 					<span class="fragment" data-fragment-index="3">
+						$ \ds = \left( \sum_{n=1}^{k} \frac{1}{2^n} + \frac{1}{2^{k+1}} \right) +
+						\frac{1}{2^{k+1}}  \qquad \quad$
+					</span>
+				</p>
+				<p>
+					<span class="fragment" data-fragment-index="4">
+						$ \ds = \sum_{n=1}^{k} \frac{1}{2^n} +
+						\frac{1}{2^{k+1}}  + \frac{1}{2^{k+1}}  $
+					</span>
+					<span class="fragment" data-fragment-index="5">
+						$ \ds = \sum_{n=1}^{k} \frac{1}{2^n} +
+						\frac{2}{2^{k+1}}   $
+					</span>
+					
+				</p>
+				<p>
+					<span class="fragment" data-fragment-index="6">
+						$ \ds = \left(\sum_{n=1}^{k} \frac{1}{2^n}\right) +
+						\frac{1}{2^{k}}   $
+					</span>
+					<span class="fragment" data-fragment-index="7">
+						$ \ds = 1 .\qquad \qquad \qquad \;\;\;$
+					</span>
+					
+				</p>
+				
+			  </div>
+			 
+            </div>
+			<br/>
+          </section>
+          <section data-auto-animate>
+            <h4 style="font-size:100%;margin-top:-15px">Example 3.1.1.</h4>
+            <div class="size-85">
+				<div style="font-size:90%;margin-top:-15px">
+					<p><span>
+						👉
+					  $\;\ds  \sum_{n=1}^k \frac{1}{2^n}  +
+					  \frac{1}{2^k} = 1 .$
+					  </span></p>
+				</div>
+              <div class="left-txt">
+                
+
+				<p>
+					<span class="fragment" data-fragment-index="0">
+						Let $s_k$ be the partial sum.
+					</span>
+					<span class="fragment" data-fragment-index="1">
+						We write
+					</span>
+				</p>
+              </div>
+			  <div>
+
+				<p>
+					<span class="fragment" data-fragment-index="1">
 						$ \abs{
 							1 - s_k }$
 					</span>
-					<span class="fragment" data-fragment-index="4">
+					<span class="fragment" data-fragment-index="2">
 						$\ds= \abs{ 1 - \sum_{n=1}^k \frac{1}{2^n} }$
 					</span>
-					<span class="fragment" data-fragment-index="5">
+					<span class="fragment" data-fragment-index="3">
 						$\ds =
 						\abs{\frac{1}{2^k}}$
 					</span>
-					<span class="fragment" data-fragment-index="6">
+					<span class="fragment" data-fragment-index="4">
 						$\ds= \frac{1}{2^k} . $
 					</span>
 				</p>
 				
 			  </div>
 			  <div class="left-txt" style="margin-top:-10px">
-				<p class="fragment" data-fragment-index="7">
+				<p class="fragment" data-fragment-index="5">
 					So we get the sequence $\ds\left\{ \frac{1}{2^k} \right\}$, 
-					<span class="fragment" data-fragment-index="8">
+					<span class="fragment" data-fragment-index="6">
 						which means that $\bigl\{ \abs{1-s_k} \bigr\}$ converges to zero.
-					</span>
-					<span class="fragment" data-fragment-index="9">
+					</span><br/><br/>
+					<span class="fragment" data-fragment-index="7">
 					  Hence, $\{ s_k \}$ converges to 1. $\;\bs$
 					</span>
 				</p>
@@ -236,7 +295,7 @@
 				<br/><br/><br/><br/><br/>
 			</section>
 			<section data-auto-animate>
-				<h3>3.1 Series</h3>
+				<h3 style="font-size:80%">3.1 Series</h3>
 				<div class="size-60">
 					<div class="left-txt">
 						<p>
@@ -271,11 +330,37 @@
 							</span>
 							<span class="fragment" data-fragment-index="4">
 								Notice that 
-								\[
-								s_{k+1} = x_1 + x_2 + \cdots + x_k = s_k + x_{k+1} \geq s_k
-								\]
+							</span>
+						</p>
+					</div>
+					<div>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$
+								s_{k+1}
+								$
 							</span>
 							<span class="fragment" data-fragment-index="5">
+								$
+								= x_1 + x_2 + \cdots +  x_k+ x_{k+1} 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$
+							     = s_k + x_{k+1} 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$
+							     \geq s_k
+								$
+							</span>
+							
+						</p>
+					</div>
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="8">
 								since $x_n \geq 0$. 
 							</span>
 						</p>
@@ -305,24 +390,21 @@
 							<span>
 								So we have 
 								\[
-								s_{k+1}  \geq s_k.
+								s_{k+1}  \geq s_k \,\text{ for all }\, k\in \N.
 								\]
 							</span>
 
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="0">
-								Thus $\{s_k \}$ is monotone increasing, 
+								Then $\{s_k \}$ is monotone increasing. 
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								that is,  $s_{k+1}\geq s_k$ for all $k \in \N$.
+								If $\{s_k \}$ is bounded above, 
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								Thus if $\{s_k \}$ is bounded above, 
-							</span>
-							<span class="fragment" data-fragment-index="3">
 								then by the Monotone Convergence Theorem 
-								(Theorem 2.2.1), it converges. 
+								(Theorem 2.2.1), it converges. $\;\bs$
 							</span>
 						</p>
 					</div>
@@ -480,18 +562,21 @@ and every $k > n$, we have
 				<br/><br/>
 			</section>
 			<section data-auto-animate>
-				<h4>Example 3.1.2.</h4>
+				<h4  style="font-size:80%">Example 3.1.2.</h4>
 				<div class="size-85">
-					<div class="left-txt">
+					<div class=""  style="font-size:83%">
 						<p>
-							<strong>
-								Claim:
-							</strong> 
-							 The series $\ds\sum \frac{1}{n}$ diverges. 
-							 <span>
-								<em>a.k.a.</em> <strong>harmonic series</strong>.
-						     </span>
+							$\ds s_{2^k}  = 
+							1 + 
+							\sum_{j=1}^k
+							\left(
+							\sum_{m=2^{j-1}+1}^{2^j} \frac{1}{m}
+							\right) .
+							$
 						</p>
+					</div>
+					<div class="left-txt">
+						
 						
 						
 						<p >
@@ -501,31 +586,48 @@ and every $k > n$, we have
 							 In general
 						</p>
 					</div>
+
 					<div>
 						<p>
 							$\ds \sum_{m=2^{k-1}+1}^{2^k} \frac{1}{m}
-							\geq
-							\sum_{m=2^{k-1}+1}^{2^k} \frac{1}{2^k}
+							
 							$
 							<span class="fragment" data-fragment-index="0">
-								=
-							$\ds(2^{k-1}) \frac{1}{2^k} = \frac{1}{2} .$
+								
+							$\ds \geq
+							\sum_{m=2^{k-1}+1}^{2^k} \frac{1}{2^k} $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								
+							$=\ds\left(2^{k-1}\right) \frac{1}{2^k} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								
+							$\ds= \frac{1}{2} .$
 							</span>
 							
 						</p>
 						
-						<p class="fragment" data-fragment-index="1">
-						 $\Rightarrow \;\ds s_{2^k} = 
-							1 + 
-							\sum_{j=1}^k
-							\left(
-							\sum_{m=2^{j-1}+1}^{2^j} \frac{1}{m}
-							\right) $
-							<span class="fragment" data-fragment-index="2">
+						<p>
+						
+							<span class="fragment" data-fragment-index="3">
+								$\Rightarrow \,\ds s_{2^k}  $
+							</span>
+							<!--
+								<span class="fragment" data-fragment-index="4">
+								$ \ds= 
+								1 + 
+								\sum_{j=1}^k
+								\left(
+								\sum_{m=2^{j-1}+1}^{2^j} \frac{1}{m}
+								\right) $
+							</span>
+							-->
+							<span class="fragment" data-fragment-index="5">
 								$\ds \geq
 								1 + \sum_{j=1}^k \frac{1}{2}  $
 							</span>
-							<span class="fragment" data-fragment-index="3">
+							<span class="fragment" data-fragment-index="6">
 								$\ds = 1 + \frac{k}{2} .$
 							</span>
 						</p>
@@ -533,14 +635,14 @@ and every $k > n$, we have
 					</div>
 					<div class="left-txt">
 						<p>
-							<span class="fragment" data-fragment-index="4">
-								As $\left\{ \frac{k}{2} \right\}$ is unbounded
+							<span class="fragment" data-fragment-index="7">
+								Since $\left\{ \frac{k}{2} \right\}$ is unbounded
 								(Archimedean property),
 							</span>
-							<span class="fragment" data-fragment-index="5">
+							<span class="fragment" data-fragment-index="8">
 								$\left\{ s_{2^k} \right\}$ is unbounded,
 							</span>
-							<span class="fragment" data-fragment-index="6">
+							<span class="fragment" data-fragment-index="9">
 								and therefore $\{ s_n \}$ is unbounded.
 							</span>
 						</p>
@@ -576,7 +678,7 @@ and every $k > n$, we have
 					<div class="left-txt">
 						<p>
 							<span>
-								As $\left\{ \frac{k}{2} \right\}$ is unbounded
+								Since $\left\{ \frac{k}{2} \right\}$ is unbounded
 								(Archimedean property),
 							</span>
 							<span>
