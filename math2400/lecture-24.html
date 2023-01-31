@@ -1019,28 +1019,34 @@ $
 						parent.id = id;
 						
 						MathCell( id, [ ] );
+
+						var move = 0.0
 						
 						parent.update = function( id ) {
 						
 						  function z(x,y) { 
-							return [ x, y, 0.3 * ( y * Math.sin(x) - x *  Math.cos(y))]; 
+							return [ x, y, 0.3 * ( y * Math.sin(x + move) - x *  Math.cos(y + move))]; 
 						  }
 						
-						  var lim = 6.0;
+						  var lim = 7.0;
 						  var s = parametric( z, [-lim,lim,100], [-lim,lim,100],
 												 { colormap: 'cool' } );
 						
 						  var data = [ s ];
 						
 						  var config = { type: 'threejs',
-						  				 aspectRatio: [1,1,1], 
+						  				 aspectRatio: [1,1,1], animate: true, animateOnInteraction: true 
 										};
 						
 						  evaluate( id, data, config );
+
+						  //move += 1.1
 						
 						}
 						
 						parent.update( id );
+
+						//setInterval( parent.update, 100, id );
 						
 						</script>
 					</div>
