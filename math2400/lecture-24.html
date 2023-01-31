@@ -1010,7 +1010,7 @@ $
 				<section data-auto-animate>
 					<h5 style="font-size:70%">Differentiable: $f(x,y):= \sin(x-y)+\sin(x+y)$</h5>
 
-					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
+					<div class="mathcell size-40 left-txt" style="width: 650px; height: 550px">
 						<script>
 						
 						var parent = document.currentScript.parentNode;
@@ -1023,10 +1023,10 @@ $
 						parent.update = function( id ) {
 						
 						  function z(x,y) { 
-							return [ x, y, Math.sin(x  -  y)/2 +  Math.sin(x  +  y)]; 
+							return [ x, y, 0.3 * ( y * Math.sin(x) - x *  Math.cos(y))]; 
 						  }
 						
-						  var lim = 5.0;
+						  var lim = 6.0;
 						  var s = parametric( z, [-lim,lim,100], [-lim,lim,100],
 												 { colormap: 'cool' } );
 						
@@ -1052,7 +1052,7 @@ $
 				<section data-auto-animate>
 					<h5 style="font-size:70%">Non-differentiable at $(0,0)$: $f(x,y):= -\sqrt{x^2+y^2}$</h5>
 
-					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
+					<div class="mathcell size-40 left-txt" style="width: 650px; height: 550px">
 						<script>
 						
 						var parent = document.currentScript.parentNode;
@@ -1095,7 +1095,7 @@ $
 				<section data-auto-animate>
 					<h5 style="font-size:70%">Non-differentiable at $(0,0)$: <br/>$f(x,y):= x^2y/\left(x^2+y^2\right)$ for $(x,y)\neq (0,0)$ and $f(0,0)=0.$</h5>
 
-					<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px;margin-top:-10px">
+					<div class="mathcell size-40 left-txt" style="width: 650px; height: 550px;margin-top:-10px">
 						<script>
 						
 						var parent = document.currentScript.parentNode;
@@ -1142,7 +1142,7 @@ $
 						<span class="fragment" data-fragment-index="0">Weierstrass in 3D 🤯</span> </h5>
 
 					<div class="fragment" data-fragment-index="0">
-						<div class="mathcell size-40 left-txt" style="width: 550px; height: 550px">
+						<div class="mathcell size-40 left-txt" style="width: 650px; height: 550px">
 							<script>
 							
 							var parent = document.currentScript.parentNode;
