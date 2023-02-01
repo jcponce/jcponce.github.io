@@ -156,42 +156,7 @@
 					<br/><br/>
 				</section>
 	
-				<section data-auto-animate>
-					<h4>11.1. Vector spaces</h4>
-					
-					<div class="left-txt size-95">
-						<p><strong>Remark:</strong>
-							If $X$ is a vector space, to check that a subset $S \subset X$
-							is a <em>vector subspace</em>, we only need to show
-						</p>
-						<ol>
-							<li class="fragment" data-fragment-index="0">
-								$0 \in S$,
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								$S$ is closed under addition,
-								<span  class="fragment" data-fragment-index="2">
-									adding two vectors in $S$ gets us a vector in
-									$S$,
-								</span> 
-								<span  class="fragment" data-fragment-index="3">
-									and
-								</span> 
-							</li>
-							<li class="fragment" data-fragment-index="3">
-								$S$ is closed under scalar multiplication,
-								<span class="fragment" data-fragment-index="4">
-									multiplying a vector in
-									$S$ by a scalar gets us a vector in $S$.
-								</span> 
-							</li>
-	
-						</ol>
-	
-					</div>
-					<br/><br/>
-				</section>
-
+				
 				<section>
 					<h4>
 						Example 11.1.1.
@@ -309,16 +274,135 @@
 					</div>
 					<br/><br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4>11.1. Vector spaces</h4>
+					
+					<div class="left-txt size-95">
+						<p><strong>Remark:</strong>
+							If $X$ is a vector space, to check that a subset $S \subset X$
+							is a <em>vector subspace</em>, we only need to show
+						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								$0 \in S$,
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								$S$ is closed under addition,
+								<span  class="fragment" data-fragment-index="2">
+									adding two vectors in $S$ gets us a vector in
+									$S$,
+								</span> 
+								<span  class="fragment" data-fragment-index="3">
+									and
+								</span> 
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$S$ is closed under scalar multiplication,
+								<span class="fragment" data-fragment-index="4">
+									multiplying a vector in
+									$S$ by a scalar gets us a vector in $S$.
+								</span> 
+							</li>
+	
+						</ol>
+	
+					</div>
+					<br/><br/>
+				</section>
 			</section>
 
 			<section>
+				<!--
+					<section data-auto-animate>
+					<h4>11.2 Linear combinations and dimension</h4>
+					<br/>
+					<div class="">
+						<div class="">
+							<p>
+
+								<span>
+									The following concepts should be familiar to you from 
+									MATH1051 and MATH1052.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+				-->
+
+				<section data-auto-animate>
+					<h4>11.2 Linear combinations and dimension</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+
+								<span>
+									<strong>Definition 11.2.1.</strong>
+									Suppose $X$ is a vector space,
+$x_1, x_2, \ldots, x_k \in X$ are vectors, and
+$a_1, a_2, \ldots, a_k \in \R$ are scalars.  Then
+\begin{equation*}
+a_1 x_1 + 
+a_2 x_2 +  \cdots
++ a_k x_k
+\end{equation*}
+is called a <em>linear combination</em> of the vectors $x_1, x_2,
+\ldots, x_k$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h4>11.2 Linear combinations and dimension</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+
+								<span>
+									<strong>Definition 11.2.2.</strong>
+									A set of vectors $\{ x_1, x_2, \ldots, x_k \} \subset X$ is 
+<em>linearly independent</em>
+if the equation
+\begin{equation}
+a_1 x_1 + a_2 x_2 + \cdots + a_k x_k = 0
+\end{equation}
+has only the trivial solution $a_1 = a_2 = \cdots = a_k = 0$.
+
+								</span>
+								<br/><br/>
+								<span class="fragment" data-fragment-index="1">
+									
+A set that is not linearly independent is
+<em>linearly dependent</em>.
+								</span>
+								<br/><br/>
+								<span class="fragment" data-fragment-index="2">
+									
+
+A linearly independent set of vectors $B$ such that
+$\text{span}(B) = X$ 
+is called a <em>basis</em> of $X$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
 				<section data-auto-animate>
 					<h4>11.2 Linear combinations and dimension</h4>
 					<iframe scrolling="no" title="Span in R²"
 						data-src="https://www.geogebra.org/material/iframe/id/nmk2nqwh/width/835/height/447/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
 						width="835px" height="447px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 
-						<br/><br/>
+						<br/><br/><br/>
 				</section>
 	
 				<section data-auto-animate>
@@ -329,6 +413,41 @@
 				
 						<br/><br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4>11.2 Linear combinations and dimension</h4>
+					<div class="">
+						<div class="left-txt">
+							<p>
+
+								<span>
+									For $\R^n$
+we define
+the <em>standard basis</em> of $\R^n$:
+								</span>
+							</p>
+						</div>
+						<di>
+							<p>
+								$e_1 \coloneqq (1,0,0,\ldots,0) ,$
+							</p>
+							<p>
+								$e_2 \coloneqq (0,1,0,\ldots,0) , $
+							</p>
+							<p>
+								$\vdots $
+							</p>
+							<p>
+								$e_n \coloneqq (0,0,0,\ldots,1). $
+							</p>
+						</di>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+
+
+				
 			</section>
 
 
@@ -336,7 +455,7 @@
 				<section data-auto-animate>
 					<h4>11.3 Linear mappings</h4>
 					<div class="left-txt size-85">
-						<p><strong>Definition:</strong> A mapping $A \colon X \to Y$ of vector spaces $X$ and $Y$
+						<p><strong>Definition 11.3.1.</strong> A mapping $A \colon X \to Y$ of vector spaces $X$ and $Y$
 							is <em>linear</em> (we also say $A$ is a
 							<em>linear transformation</em>
 							or a <em>linear operator</em>)
@@ -372,7 +491,7 @@
 							the transformations $aA$ and $A+B$ by
 							\begin{equation*}
 							(aA)(x) := aAx ,
-							\qquad
+							\quad
 							(A+B)(x) := Ax + Bx .
 							\end{equation*}
 							If $A \in L(Y,Z)$ and $B \in L(X,Y)$, define the
@@ -391,12 +510,25 @@
 	
 				<section data-auto-animate>
 					<h4>11.3 Linear mappings</h4>
-					<div class="left-txt size-80">
+					<div class="left-txt size-95">
 	
 						<p>
-							<strong>Theorem:</strong>
+							<strong>Theorem 11.3.1.</strong>
 							If $A \in L(X,Y)$ is invertible, then $A^{-1}$ is linear.
 						</p>
+	
+						
+	
+	
+					</div>
+					<br/><br/>
+	
+				</section>
+				<section data-auto-animate>
+					<h4>11.3 Linear mappings</h4>
+					<div class="left-txt size-95">
+	
+						
 	
 						<p>
 							<strong>Theorem:</strong>
@@ -407,15 +539,41 @@
 							function $A$ on $X$.
 						</p>
 	
+						
+	
+	
+					</div>
+					<br/><br/>
+	
+				</section>
+				<section data-auto-animate>
+					<h4>11.3 Linear mappings</h4>
+					<div class="left-txt size-95">
+	
+						
+	
 						<p>
-							<strong>Theorem:</strong>
+							<strong>Theorem 11.3.2. </strong>
 							If $X$ is a finite-dimensional vector space and $A \in L(X)$, then $A$ is one-to-one if and only
 							if it is onto.
 						</p>
 	
+						
+	
+	
+					</div>
+					<br/><br/>
+	
+				</section>
+				<section data-auto-animate>
+					<h4>11.3 Linear mappings</h4>
+					<div class="left-txt size-95">
+	
+						
+	
 						<p>
 							<strong>
-								Theorem:
+								Theorem 11.3.3.
 							</strong>
 							If $X$ and $Y$ are finite-dimensional vector spaces, then $L(X,Y)$
 							is also finite-dimensional.
