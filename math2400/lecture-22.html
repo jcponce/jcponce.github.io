@@ -76,7 +76,7 @@
 							</span>
 							
 						</p>
-						<ol>
+						<ol style="line-height:60px">
 							<li class="fragment" data-fragment-index="2">
 								$\snorm{x} \geq 0$, with $\snorm{x}=0$ if and only if $x=0$.
 	
@@ -154,7 +154,7 @@
 						</p>
 						<p class="fragment" data-fragment-index="4">
 							
-							$\ds  \quad \qquad  \qquad  =\sqrt{(x_1)^2+(x_2)^2 + \cdots + (x_n)^2}.$
+							$\ds  \;\;\;\, \qquad  \qquad  =\sqrt{(x_1)^2+(x_2)^2 + \cdots + (x_n)^2}.$
 							
 						</p>
 	
@@ -384,24 +384,26 @@
 	
 	
 						<p class="fragment" data-fragment-index="0">
-							Consider the vector space $M_{m\times n}$ consisting of all $m\times n$ matrices.
-	
+							Consider the vector space $M_{m\times n}$ consisting of all $m\times n$ matrices,
+							<span class="fragment" data-fragment-index="1">
+								and let $X$ and  $Y$ be vector spaces.
+							</span>
 						</p>
 	
 						<p>
-							<span  class="fragment" data-fragment-index="1">
+							<span  class="fragment" data-fragment-index="2">
 								If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y$, 
 							</span>
-							<span  class="fragment" data-fragment-index="2">
+							<span  class="fragment" data-fragment-index="3">
 								then for
 								each $A\in L(X,Y)$, we have a matrix 
 								$\mathcal M(A)\in M_{m\times n}$. 
 							</span>
-							<span  class="fragment" data-fragment-index="3">
+							<span  class="fragment" data-fragment-index="4">
 								In other words, once
 								bases have been fixed for $X$ and $Y$,
 							</span>
-							<span  class="fragment" data-fragment-index="4">
+							<span  class="fragment" data-fragment-index="5">
 								 $\mathcal M$ becomes a linear mapping from $L(X,Y)$ to
 								 $M_{m\times n}$.
 							</span>
@@ -409,7 +411,7 @@
 							
 						</p>
 	
-						<p class="fragment" data-fragment-index="5">
+						<p class="fragment" data-fragment-index="6">
 							Moreover $\mathcal M$ is a one-to-one correspondence between
 							$L(X,Y)$ and $M_{m\times n}$.
 						</p>
@@ -424,10 +426,50 @@
 			<section>
 				
 	
-				<section>
-					<h5 data-auto-animate>11.5 Determinants</h5>
+				<section data-auto-animate>
+					<h4>11.5 Determinants</h4>
+					<div class="left-txt size-95" style="margin-top:-10px">
+						<p class="fragment" data-fragment-index="0">
+							Let $A,B\in M_{n\times n}$. 
+							<span class="fragment" data-fragment-index="0">
+								Some important facts about determinants:
+							</span>
+						</p>
+	
+						<ol style="line-height:60px;margin-top:-10px">
+							<li class="fragment" data-fragment-index="1">
+								$\det(I) = 1$, where $I$ is the identity matrix.
+							</li>
+	
+							<li class="fragment" data-fragment-index="2">
+								If two columns of $A$ are equal, then $\det(A) = 0$.
+							</li>
+	
+							<li class="fragment" data-fragment-index="3">
+								If a column of $A$ is zero, then $\det(A) = 0$.
+	
+							</li>
+	
+							<li class="fragment" data-fragment-index="4">
+								$A \mapsto \det(A)$ is a continuous function on
+								$L(\R^n)$.
+	
+							</li>
+	
+							
+						</ol>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate id="facts-determinants">
+					<h4 style="font-size:90%">11.5 Determinants</h4>
 					<div class="left-txt size-80" style="margin-top:-10px">
-						<p>Let $A,B\in M_{n\times n}$. Some important facts about determinants:</p>
+						<p>
+							Let $A,B\in M_{n\times n}$. 
+							<span>
+								Some important facts about determinants:
+							</span>
+						</p>
 	
 						<ol style="line-height:55px;margin-top:-10px">
 							<li>
@@ -454,12 +496,12 @@
 								&d \end{bmatrix} \right)
 								= ad-bc$, and $\det \bigl( [a] \bigr) = a$.
 							</li>
-							<li>
-								If $A$ and $B$ are $n$-by-$n$ matrices, then $\det(AB) = \det(A)\det(B)$.
+							<li class="fragment" data-fragment-index="0">
+								$\det(AB) = \det(A)\det(B)$.
 	
 							</li>
 	
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								$A$ is invertible if and only if $\det(A) \not= 0$ and in
 								this case, $\det\left(A^{-1}\right) = \dfrac{1}{\det(A)}$.
 							</li>
