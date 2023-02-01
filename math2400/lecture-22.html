@@ -64,20 +64,27 @@
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					<div class="left-txt size-95">
-						<p><strong>Definition:</strong>
-							If $X$ is a vector space, then we say
-							a function $\snorm{\cdot} \colon X \to \R$ is a
-							<em>norm</em> if
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								<strong>Definition:</strong>
+								If $X$ is a vector space,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then we say
+								a function $\snorm{\cdot} \colon X \to \R$ is a
+								<em>norm</em> if
+							</span>
+							
 						</p>
 						<ol>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								$\snorm{x} \geq 0$, with $\snorm{x}=0$ if and only if $x=0$.
 	
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								$\snorm{cx} = \sabs{c} \, \snorm{x}$ for all $c \in \R$ and $x \in X$.
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="4">
 								$\snorm{x+y} \leq \snorm{x}+\snorm{y}$ for all
 								$x,y \in X$.
 	
@@ -85,7 +92,7 @@
 	
 						</ol>
 	
-						<p>
+						<p class="fragment" data-fragment-index="5">
 							A vector space equipped with a norm is called a
 							<em>normed vector space</em>.
 						</p>
@@ -95,11 +102,10 @@
 	
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
-					<p class="sbt">Euclidean norm</p>
 					<div class="left-txt size-80">
 						<p>
 							<strong>
-								Definition:
+								Definition 11.4.2. 
 							</strong>
 							For two vectors
 							if $x=(x_1,x_2,\ldots,x_n) \in \R^n$
@@ -109,7 +115,7 @@
 							x \pd y := \sum_{j=1}^n x_j\, y_j .
 							\end{equation*}
 						</p>
-						<p><strong>Definition:</strong>
+						<p class="fragment" data-fragment-index="0"><strong>Definition 11.4.3. </strong>
 							For $x=(x_1,x_2,\ldots,x_n) \in \R^n$,
 							the <em>euclidean norm</em> is defined as
 							\begin{equation*}
@@ -118,16 +124,18 @@
 						</p>
 	
 					</div>
+
+					<br/><br/>
 				</section>
 	
-				<section data-auto-animate>
+				<section data-auto-animate id="cauchy-schwarz-inequality">
 					<h4>11.4 Norms</h4>
-					<p class="sbt">Cauchy-Schwarz inequality</p>
-					<div class="left-txt size-80">
+					<p class="sbt"></p>
+					<div class="left-txt size-95">
 						<p>
 							<strong>
-								Theorem:
-							</strong>
+								Theorem 11.4.1.
+							</strong> (Cauchy-Schwarz inequality)
 							Let $x, y \in \R^n$, then
 							\begin{equation*}
 							\sabs{x \pd y} \leq \snorm{x} \, \snorm{y} = \sqrt{x\pd x}\, \sqrt{y\pd y},
@@ -137,15 +145,16 @@
 						</p>
 	
 					</div>
+					<br/><br/>
 				</section>
 	
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
-					<p class="sbt">Operator norm</p>
-					<div class="left-txt size-80">
+					<p class="sbt" style="margin-top:-20px">Operator norm</p>
+					<div class="left-txt size-90">
 						<p>
 							<strong>
-								Definition:
+								Definition 11.4.4. 
 							</strong>
 							Let $A \in L(X,Y)$. Define
 							\begin{equation*}
@@ -153,22 +162,26 @@
 							\sup \bigl\{ \snorm{Ax} : x \in X \text{ with } \snorm{x} = 1 \bigr\} .
 							\end{equation*}
 							The number $\snorm{A}$ (possibly $\infty$)
-							is called the <em>operator norm</em>. In particular,
+							is called the <em>operator norm</em>. 
+						</p>
+						<p>
+							In particular,
 							the norm operator is a norm for finite-dimensional spaces.
 							When it is necessary to emphasize which norm we are talking about, we may
 							write it as $\snorm{A}_{L(X,Y)}$.
 						</p>
 	
 					</div>
+					<br/>
 				</section>
 	
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					<p class="sbt">Operator norm</p>
-					<div class="left-txt size-80">
+					<div class="left-txt size-95">
 						<p>
 							<strong>
-								Theorem:
+								Theorem 11.4.2. 
 							</strong>
 							Let $X$ and $Y$ be normed vector spaces.
 							Suppose that $X$ is finite-dimensional.
@@ -180,17 +193,18 @@
 						
 	
 					</div>
+					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					<p class="sbt">Operator norm</p>
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						
 	
 	
 						<p>
 							<strong>
-								Theorem:
+								Theorem 11.4.3.
 							</strong>
 							Let $X$, $Y$, and $Z$ be finite-dimensional normed vector
 							spaces.
@@ -215,47 +229,55 @@
 						</ol>
 	
 					</div>
+					<br/><br/>
 				</section>
 			</section>
 
 
 			<section>
-				<h3>Linear operators & Matrices</h3>
+				<section>
+					<h3>Linear operators & Matrices</h3>
+	
+					<div class="left-txt size-90">
+	
+	
+						<p>
+							Consider the vector space $M_{m\times n}$ consisting of all $m\times n$ matrices.
+	
+						</p>
+	
+						<p>If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y$, then for
+							each $A\in L(X,Y)$, we have a matrix $\mathcal M(A)\in M_{m\times n}$. In other words, once
+							bases have been fixed for $X$ and $Y$, $\mathcal M$ becomes a linear mapping from $L(X,Y)$ to
+							$M_{m\times n}$.
+						</p>
+	
+						<p>
+							Moreover $\mathcal M$ is a one-to-one correspondence between
+							$L(X,Y)$ and $M_{m\times n}$.
+						</p>
+	
+					</div>
+					<br/><br/>
+				</section>
+	
+				<section>
+					<h4>Linear transformations in 2D</h4>
+					<iframe scrolling="no" title="Matrix transformations"
+						src="https://www.geogebra.org/material/iframe/id/F8zyQgn4/width/697/height/443/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="697px" height="443px" style="border:0px;"  allowfullscreen=""> </iframe>
 
-				<div class="left-txt size-80">
+						<br/><br/>
 
-
-					<p>
-						Consider the vector space $M_{m\times n}$ consisting of all $m\times n$ matrices.
-
-					</p>
-
-					<p>If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y$, then for
-						each $A\in L(X,Y)$, we have a matrix $\mathcal M(A)\in M_{m\times n}$. In other words, once
-						bases have been fixed for $X$ and $Y$, $\mathcal M$ becomes a linear mapping from $L(X,Y)$ to
-						$M_{m\times n}$.
-					</p>
-
-					<p>
-						Moreover $\mathcal M$ is a one-to-one correspondence between
-						$L(X,Y)$ and $M_{m\times n}$.
-					</p>
-
-				</div>
-			</section>
-
-			<section>
-				<h4>Linear transformations in 2D</h4>
-				<iframe scrolling="no" title="Matrix transformations"
-					src="https://www.geogebra.org/material/iframe/id/F8zyQgn4/width/697/height/443/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-					width="697px" height="443px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
-			</section>
-
-			<section>
-				<h4>Linear transformations in 3D</h4>
-				<iframe scrolling="no" title="Matrix transformations 3D"
-					src="https://www.geogebra.org/material/iframe/id/bpn32sxh/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-					width="930px" height="475px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
+				</section>
+	
+				<section>
+					<h4>Linear transformations in 3D</h4>
+					<iframe scrolling="no" title="Matrix transformations 3D"
+						src="https://www.geogebra.org/material/iframe/id/bpn32sxh/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="930px" height="475px" style="border:0px;" allowfullscreen=""> </iframe>
+						<br/>
+				</section>
 			</section>
 
 			<section>
