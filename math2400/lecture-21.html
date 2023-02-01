@@ -65,7 +65,54 @@
 			<section>
 				<section data-auto-animate>
 					<h4>11.1. Vector spaces</h4>
-					<div class="left-txt size-75">
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								<strong>Definition 11.1.1. </strong>
+								Let $X$ be a set 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								together with
+								the operations of addition, $+\, \colon X \times X \to X$,
+								
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and multiplication, $\pd \,\colon \R \times X \to X$,
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								(we usually write $ax$ instead of $a
+							\pd x$).
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$X$ is called a <em>vector space</em> (or a
+								<em>real vector space</em>)
+								if the following conditions are satisfied:
+							</span>
+							
+							
+						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="5">
+								If $u, v, w \in X$, then $u+(v+w) = (u+v)+w$.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								If $u, v \in X$, then $u+v = v+u$.
+							</li>
+							<li class="fragment" data-fragment-index="7">
+								There is a $0 \in X$ such that $v+0=v$ for all $v \in X$.
+							</li>
+							<li class="fragment" data-fragment-index="8">
+								For every $v \in X$, there is a $-v \in X$, such that $v+(-v)=0$.
+							</li>
+							
+						</ol>
+	
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate id="vector-space-definition">
+					<h4 style="font-size:80%">11.1. Vector spaces</h4>
+					<div class="left-txt"  style="font-size:78%">
 						<p><strong>Definition 11.1.1. </strong>
 							Let $X$ be a set together with
 							the operations of addition, $+\, \colon X \times X \to X$,
@@ -112,26 +159,153 @@
 				<section data-auto-animate>
 					<h4>11.1. Vector spaces</h4>
 					
-					<div class="left-txt size-90">
+					<div class="left-txt size-95">
 						<p><strong>Remark:</strong>
 							If $X$ is a vector space, to check that a subset $S \subset X$
-							is a vector subspace, we only need
+							is a <em>vector subspace</em>, we only need to show
 						</p>
 						<ol>
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								$0 \in S$,
 							</li>
-							<li>
-								$S$ is closed under addition, adding two vectors in $S$ gets us a vector in
-								$S$, and
+							<li class="fragment" data-fragment-index="1">
+								$S$ is closed under addition,
+								<span  class="fragment" data-fragment-index="2">
+									adding two vectors in $S$ gets us a vector in
+									$S$,
+								</span> 
+								<span  class="fragment" data-fragment-index="3">
+									and
+								</span> 
 							</li>
-							<li>
-								$S$ is closed under scalar multiplication, multiplying a vector in
-								$S$ by a scalar gets us a vector in $S$.
+							<li class="fragment" data-fragment-index="3">
+								$S$ is closed under scalar multiplication,
+								<span class="fragment" data-fragment-index="4">
+									multiplying a vector in
+									$S$ by a scalar gets us a vector in $S$.
+								</span> 
 							</li>
 	
 						</ol>
 	
+					</div>
+					<br/><br/>
+				</section>
+
+				<section>
+					<h4>
+						Example 11.1.1.
+					</h4>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>An example vector space is $\R^n$.
+								<span class="fragment" data-fragment-index="0">
+									Addition and multiplication by a scalar is done componentwise.
+								</span>
+								
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									If $a \in \R$, $v = (v_1,v_2,\ldots,v_n) \in \R^n$, and $w =
+									(w_1,w_2,\ldots,w_n) \in \R^n$, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									then
+								</span>
+								
+								
+		
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds
+		 v+w \coloneqq
+		(v_1,v_2,\ldots,v_n) +
+		(w_1,w_2,\ldots,w_n) \qquad
+		$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds =
+									(v_1+w_1,v_2+w_2,\ldots,v_n+w_n)$
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="3">
+									$\ds  a v \coloneqq
+		a (v_1,v_2,\ldots,v_n) =
+		(a v_1, a v_2,\ldots, a v_n) .$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section>
+					<h4>
+						Example 11.1.2.
+					</h4>
+					<div clas="">
+						<div class="left-txt">
+							<p>
+								The set $X \coloneqq \{ 0 \}$ is a vector space.
+								<span class="fragment" data-fragment-index="0">
+									🤯
+								</span>
+								
+							</p>
+
+							<p class="fragment" data-fragment-index="1"> 
+								The operations are defined as: 
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="2">$0 + 0 \coloneqq 0\;$ and $\;a0 \coloneqq 0\;$ ($a\in \R$).</p>
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="3">$X$ is the smallest
+								possible vector space.
+								</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section>
+					<h4>
+						Example 11.1.3.
+					</h4>
+					<div clas="">
+						<div class="left-txt">
+							<p>
+								The space $C([0,1],\R)$ of continuous 
+								functions on the interval $[0,1]$
+								is a vector space. 
+								<span class="fragment" data-fragment-index="0">
+									For two functions $f,g\in C([0,1],\R)$ and
+									$a \in \R$, 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we make the obvious definitions of $f+g$ and $af$:
+\begin{equation*}
+(f+g)(x) \coloneqq f(x) + g(x), \;\;(af) (x) \coloneqq a\bigl(f(x)\bigr) .
+\end{equation*}
+								</span>
+								
+								
+							</p>
+
+							<p class="fragment" data-fragment-index="2"> 
+								The 0 is the function that is identically zero. 
+								<span class="fragment" data-fragment-index="3">
+									That is, $f(x)=0$ for all $x\in [a,b].$
+
+								</span>
+							</p>
+						</div>
+						
 					</div>
 					<br/><br/>
 				</section>
