@@ -100,38 +100,73 @@
 					<br/><br/>
 				</section>
 	
-				<section data-auto-animate>
+				<section data-auto-animate id="dot-product">
 					<h4>11.4 Norms</h4>
-					<div class="left-txt size-80">
+					<div class="left-txt size-95">
 						<p>
 							<strong>
 								Definition 11.4.2. 
 							</strong>
-							For two vectors
-							if $x=(x_1,x_2,\ldots,x_n) \in \R^n$
-							and $y=(y_1,y_2,\ldots,y_n) \in \R^n$, the <em>dot product</em>
+							<br/>
+							Let $x=(x_1,x_2,\ldots,x_n) ,y=(y_1,y_2,\ldots,y_n) \in \R^n$ be two vectors,
+							<span class="fragment" data-fragment-index="0">
+								the <em>dot product</em>
 							is defined as
 							\begin{equation*}
 							x \pd y := \sum_{j=1}^n x_j\, y_j .
 							\end{equation*}
+							</span>
+							
 						</p>
-						<p class="fragment" data-fragment-index="0"><strong>Definition 11.4.3. </strong>
+						
+	
+					</div>
+
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate id="euclidian-norm">
+					<h4>11.4 Norms</h4>
+					<div class="left-txt">
+						
+						<p>
+							<strong>Definition 11.4.3. </strong>
 							For $x=(x_1,x_2,\ldots,x_n) \in \R^n$,
-							the <em>euclidean norm</em> is defined as
-							\begin{equation*}
-							\snorm{x} := \snorm{x}_{\R^n} := \sqrt{x \pd x} = \sqrt{(x_1)^2+(x_2)^2 + \cdots + (x_n)^2}.
-							\end{equation*}
+							<span  class="fragment" data-fragment-index="0">
+								the <em>euclidean norm</em> is defined as
+							</span>
+							
+						</p>
+	
+					</div>
+					<div class="">
+						
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\ds \snorm{x} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$:= \snorm{x}_{\R^n} $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$:= \sqrt{x \pd x} \qquad \qquad  \qquad  \qquad \;\, $
+							</span>
+							
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							
+							$\ds  \quad \qquad  \qquad  =\sqrt{(x_1)^2+(x_2)^2 + \cdots + (x_n)^2}.$
+							
 						</p>
 	
 					</div>
 
-					<br/><br/>
+					<br/><br/><br/><br/>
 				</section>
 	
 				<section data-auto-animate id="cauchy-schwarz-inequality">
 					<h4>11.4 Norms</h4>
 					<p class="sbt"></p>
-					<div class="left-txt size-95">
+					<div class="left-txt">
 						<p>
 							<strong>
 								Theorem 11.4.1.
@@ -145,7 +180,24 @@
 						</p>
 	
 					</div>
-					<br/><br/>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate id="standard-distance">
+					<h4>11.4 Norms</h4>
+					<p class="sbt">Standard distance</p>
+					<div class="left-txt">
+						<p>
+							The distance
+							$$d(x,y) \coloneqq \snorm{x-y}$$ 
+							<span class="fragment" data-fragment-index="0">
+								is the <em>standard
+									distance</em> (standard metric) on $\R^n$ that
+								we used when we talked about metric spaces.
+							</span>
+						</p>
+	
+					</div>
+					<br/><br/><br/>
 				</section>
 	
 				<section data-auto-animate>
@@ -153,26 +205,41 @@
 					<p class="sbt" style="margin-top:-20px">Operator norm</p>
 					<div class="left-txt size-90">
 						<p>
-							<strong>
+							<span class="fragment" data-fragment-index="0">
+								<strong>
 								Definition 11.4.4. 
-							</strong>
-							Let $A \in L(X,Y)$. Define
+							    </strong>
+							     Let $A \in L(X,Y)$.
+							</span>
+							<span class="fragment" data-fragment-index="01">
+								Define
 							\begin{equation*}
 							\snorm{A} :=
 							\sup \bigl\{ \snorm{Ax} : x \in X \text{ with } \snorm{x} = 1 \bigr\} .
 							\end{equation*}
-							The number $\snorm{A}$ (possibly $\infty$)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								The number $\snorm{A}$ (possibly $\infty$)
 							is called the <em>operator norm</em>. 
+							</span>
+							 
+							
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="3">
 							In particular,
 							the norm operator is a norm for finite-dimensional spaces.
-							When it is necessary to emphasize which norm we are talking about, we may
-							write it as $\snorm{A}_{L(X,Y)}$.
+							<span  class="fragment" data-fragment-index="4">
+								When it is necessary to emphasize which norm we are talking about, we may
+							write it as
+							</span>
+							
 						</p>
 	
 					</div>
-					<br/>
+					<div>
+						<p class="fragment" data-fragment-index="4"> $\ds\snorm{A}_{L(X,Y)}.$</p>
+					</div>
+					<br/><br/>
 				</section>
 	
 				<section data-auto-animate>
@@ -184,11 +251,26 @@
 								Theorem 11.4.2. 
 							</strong>
 							Let $X$ and $Y$ be normed vector spaces.
-							Suppose that $X$ is finite-dimensional.
-							If $A \in L(X,Y)$, then $\snorm{A} \lt \infty$, and
-							$A$ is uniformly continuous (Lipschitz with constant $\snorm{A}$).
+							<span class="fragment" data-fragment-index="0">
+								Suppose that $X$ is finite-dimensional.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								If $A \in L(X,Y)$, 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then $\snorm{A} \lt \infty$, and
+							$A$ is uniformly continuous.
+							</span>
+							
+							
+							
 						</p>
 	
+						<p>
+							 <span class="fragment" data-fragment-index="3">
+								<strong>Remark: </strong> We can also say that it is Lipschitz (continuous) with constant $\snorm{A}$.
+							</span>
+						</p>
 	
 						
 	
@@ -197,8 +279,8 @@
 				</section>
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
-					<p class="sbt">Operator norm</p>
-					<div class="left-txt size-85">
+					<p class="sbt" style="margin-top:-20px">Operator norm</p>
+					<div class="left-txt size-90">
 						
 	
 	
@@ -206,23 +288,77 @@
 							<strong>
 								Theorem 11.4.3.
 							</strong>
-							Let $X$, $Y$, and $Z$ be finite-dimensional normed vector
+							<span>
+								Let $X$, $Y$, and $Z$ be finite-dimensional normed vector
 							spaces.
+							</span>
+							
 						</p>
 	
 						<ol>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								If $A,B \in L(X,Y)$ and $c \in \R$, then
 								\begin{equation*}
-								\snorm{A+B} \leq \snorm{A}+\snorm{B}, \qquad \snorm{cA} = \sabs{c} \, \snorm{A} .
+								\snorm{A+B} \leq \snorm{A}+\snorm{B}, \;\; \snorm{cA} = \sabs{c} \, \snorm{A} .
 								\end{equation*}
-								In particular, the operator norm is a norm on the vector space $L(X,Y)$.
+								<span  class="fragment" data-fragment-index="2">
+									In particular, the operator norm is a norm on the vector space $L(X,Y)$.
+								</span>
+								
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								If $A \in L(X,Y)$ and $B \in L(Y,Z)$, then
 								$
 								\snorm{BA} \leq \snorm{B} \, \snorm{A} .
 								$
+							</li>
+	
+	
+						</ol>
+	
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					<p class="sbt" style="margin-top:-20px">Operator norm</p>
+					<div class="left-txt size-90">
+						
+	
+	
+						<p>
+							<strong>
+								Theorem 11.4.4.
+							</strong>
+							<span>
+								Let $X$ be a finite-dimensional normed vector space.
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								Let $GL(X) \subset L(X)$ be the <em>set of invertible linear
+									operators.</em>
+							</span>
+							
+						</p>
+	
+						<ol>
+							<li class="fragment" data-fragment-index="1">
+								If $A \in GL(X)$, $B \in L(X)$, and
+								$
+								\ds\snorm{A-B} \lt  \frac{1}{\snorm{A^{-1}}},
+								$
+								<span class="fragment" data-fragment-index="2">
+									then $B$ is invertible.
+								</span>
+								<br><br/>
+								
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$GL(X)$ is an open subset,
+								<span class="fragment" data-fragment-index="4">
+									and $A \mapsto A^{-1}$ is a continuous
+									function on $GL(X)$.
+								</span>
+
 							</li>
 	
 	
@@ -236,23 +372,38 @@
 
 			<section>
 				<section>
-					<h3>Linear operators & Matrices</h3>
+					<h5>Relatioship between Linear operators and Matrices</h5>
 	
-					<div class="left-txt size-90">
+					<div class="left-txt size-95">
 	
 	
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							Consider the vector space $M_{m\times n}$ consisting of all $m\times n$ matrices.
 	
 						</p>
 	
-						<p>If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y$, then for
-							each $A\in L(X,Y)$, we have a matrix $\mathcal M(A)\in M_{m\times n}$. In other words, once
-							bases have been fixed for $X$ and $Y$, $\mathcal M$ becomes a linear mapping from $L(X,Y)$ to
-							$M_{m\times n}$.
+						<p>
+							<span  class="fragment" data-fragment-index="1">
+								If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y$, 
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								then for
+								each $A\in L(X,Y)$, we have a matrix 
+								$\mathcal M(A)\in M_{m\times n}$. 
+							</span>
+							<span  class="fragment" data-fragment-index="3">
+								In other words, once
+								bases have been fixed for $X$ and $Y$,
+							</span>
+							<span  class="fragment" data-fragment-index="4">
+								 $\mathcal M$ becomes a linear mapping from $L(X,Y)$ to
+								 $M_{m\times n}$.
+							</span>
+
+							
 						</p>
 	
-						<p>
+						<p class="fragment" data-fragment-index="5">
 							Moreover $\mathcal M$ is a one-to-one correspondence between
 							$L(X,Y)$ and $M_{m\times n}$.
 						</p>
@@ -276,6 +427,8 @@
 					<iframe scrolling="no" title="Matrix transformations 3D"
 						src="https://www.geogebra.org/material/iframe/id/bpn32sxh/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
 						width="930px" height="475px" style="border:0px;" allowfullscreen=""> </iframe>
+						<br/>
+						<br/>
 						<br/>
 				</section>
 			</section>
