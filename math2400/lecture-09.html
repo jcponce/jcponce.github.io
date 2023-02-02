@@ -976,8 +976,8 @@ does not converge to $f(c)$.
 					<br/><br/><br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>5.2 Intermediate value theorem</h4>
-					<div class="left-txt size-75">
+					<h4 style="font-size:80%">5.2 Intermediate value theorem</h4>
+					<div class="left-txt size-70">
 						<p><strong>Theorem 5.2.1. </strong>
 							A continuous function $f \colon [a,b] \to \R$ is bounded.
 						</p>
@@ -988,82 +988,43 @@ does not converge to $f(c)$.
 								Suppose that $f$ is continuous and  not bounded above on $[a,b].$
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								Then for any $n\in \N$ there is a number $x_n\in[a,b]$
-								such that $|\,f(x_n)|\gt n.$
+								Then for each $n\in \N$ we can find  $x_n\in[a,b]$
+								such that $f(x_n)\gt n.$
 							</span>
+							
+							
+						</p>
+						<p>
 							<span class="fragment" data-fragment-index="2">
 								Since $[a,b]$ is bounded, $\{x_n\}$ is bounded.
 							</span>
 							<span class="fragment" data-fragment-index="3">
-								By the <a href="lecture-04.html#/bolzano-weierstrass" target="_blank">Bolzano-Weiestrass theorem</a>, there is a subsequence
-								$\{x_{n_{i}}\}$ of $\{x_n\}$ that converges to some $\alpha.$
+								By the 
+								<a href="lecture-04.html#/bolzano-weierstrass" target="_blank">Bolzano-Weiestrass theorem</a>, 
+								there is a subsequence
+								$\{x_{n_{i}}\}$ of $\{x_n\}$ that converges to some $\alpha\in [a,b].$
 							</span>
 							<span class="fragment" data-fragment-index="4">
-								By our construction, the sequence $\left\{f(x_n)\right\}$ is unbounded,
+								By our construction, 
+								the sequence $\left\{f(x_{n_i})\right\}$ is unbounded,
 							</span>
 							<span class="fragment" data-fragment-index="5">
-								but by the continuity of f, 
+								but by the continuity of $f$, 
 							</span>
 							<span class="fragment" data-fragment-index="6">
-								$f(x_n)\to f(\alpha).$
+								$f(x_{n_i})\to f(\alpha).$
 							</span>
+							<span class="fragment" data-fragment-index="7">
+								This is a contradiction❗
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="8">
+							The proof that $f$ is bounded below is similar.
 						</p>
 					</div>
 					<br/><br/>
 				</section>
-				<section data-auto-animate>
-					<h4>5.2 Intermediate value theorem</h4>
-					<div class="left-txt size-75">
-						<p><strong>Theorem 5.2.1. </strong>
-							A continuous function $f \colon [a,b] \to \R$ is bounded.
-						</p>
-					</div>
-					<div class="left-txt size-60">
-						<p><strong>Proof. </strong>
-							<span>
-								Suppose that $f$ is not bounded on $[a,b].$
-							</span>
-							<span>
-								Then for any $n\in \N$ there is a number $x_n\in[a,b]$
-								such that $|\,f(x_n)|\gt n.$
-							</span>
-							<span>
-								Since $[a,b]$ is bounded, $\{x_n\}$ is bounded.
-							</span>
-							<span>
-								By the Bolzano-Weiestrass theorem, there is a subsequence
-								$\{x_{n_{i}}\}$ of $\{x_n\}$ that converges to some $c.$
-							</span>
-							<span>
-								Since $[a,b] $ is closed and $x_{n_{i}}\in [a,b]$, 
-								$\Ra c\in [a,b]$ by Corollary 2.3.1.
-							</span>
-						</p>
-					</div>
-					<div class="left-txt">
-						<p>
-							<span>
-								Then $f$ is continuous at $c$, so that $f(x_{n_i}) \to f(c).$
-							</span><br/>
-							<span class="fragment" data-fragment-index="0">
-								So the sequence $\{\,f(x_{n_i})\}$ is bounded.
-							</span>
-						</p>
-						<p>
-							<span class="fragment" data-fragment-index="1">
-								However, this is a contradiction❗
-							</span><br/>
-							<span class="fragment" data-fragment-index="2">
-								since $\abs{\,f(x_{n_i})}\gt n_k \geq k, $
-								for $k\in \N.$
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								$\;\bs$
-							</span>
-						</p>
-					</div>
-					<br/><br/>
-				</section>
+				
 
 				<section data-auto-animate>
 					<h4>5.2 Intermediate value theorem</h4>
@@ -1105,6 +1066,14 @@ does not converge to $f(c)$.
 						  margin-left: auto;
 						  margin-right: auto;"data-src="images/summary-05/lemmaIVT.svg" />
 					</div>
+
+					<div style="margin-top:-43px">
+						<p>
+							<span style="font-size:60%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+								👀 Complementary reading 📖
+							</span>
+						</p>
+					</div>
 				</section>
 				<section data-auto-animate>
 					<h4 style="font-size:80%;margin-top:-50px">5.2 Intermediate value theorem</h4>
@@ -1125,6 +1094,13 @@ does not converge to $f(c)$.
 					  display: block;
 					  margin-left: auto;
 					  margin-right: auto;" class="r-stretch" data-src="images/summary-05/IVT.svg" />
+					</div>
+					<div style="margin-top:-40px">
+						<p>
+							<span style="font-size:60%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+								👀 Complementary reading 📖
+							</span>
+						</p>
 					</div>
 				</section>
 			</section>
