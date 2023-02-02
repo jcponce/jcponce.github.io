@@ -272,19 +272,318 @@
 	
 						<p>
 							 <span class="fragment" data-fragment-index="3">
-								<strong>Remark: </strong> We can also say that it is Lipschitz (continuous) with constant $\snorm{A}$.
-							</span>
+								<strong>Remark: </strong> To prove that $A$ is uniformly continuous, 
+								
+								
+							 </span>
+							 <span class="fragment" data-fragment-index="4">
+								we can prove that it is Lipschitz continuous.
+							 </span>
+							 <span class="fragment" data-fragment-index="5">
+								That is, we need to prove that there exists a $K>0$
+							 </span>
+							 <span class="fragment" data-fragment-index="6">
+								such that
+							 </span>
 						</p>
 	
 						
 	
 					</div>
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								
+								$\snorm{Av - Aw }\leq \snorm{A} \, \snorm{v-w} \;$
+
+								for all $\;v,w\in X.$
+							 </span>
+						</p>
+					</div>
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
+					
+					<div class="left-txt size-60">
+						<p>
+							<strong>
+								Theorem 11.4.2. 
+							</strong>
+							Let $X$ and $Y$ be normed vector spaces.
+							<span>
+								Suppose that $X$ is finite-dimensional.
+							</span>
+							<span>
+								If $A \in L(X,Y)$, 
+							</span>
+							<span>
+								then $\snorm{A} \lt \infty$, and
+							$A$ is uniformly continuous.
+							</span>
+
+						</p>
+					</div>
+
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Proof. </strong>
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Let $\{ e_1,e_2,\ldots,e_n \}$ a basis of $X$.
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									For $x\in X$, with $\snorm{x} = 1$,
+								</span>
+								<span class="fragment" data-fragment-index="3"> write  $\ds x = \sum_{k=1}^n c_k \, e_k .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									Since $e_k \cdot e_\ell = 0$ whenever $k\not=\ell$ and $e_k \cdot e_k = 1$,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									then $c_k = x \cdot e_k$ 
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									and by Cauchy-Schwarz
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p>
+								
+								<span class="fragment" data-fragment-index="7">
+									$\sabs{c_k}= $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \sabs{ x \cdot e_k }
+									$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\leq \snorm{x} \, \snorm{e_k} 
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ = 1 .
+									$
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					
+					<div class="left-txt size-60">
+						<p>
+							<strong>
+								Theorem 11.4.2. 
+							</strong>
+							Let $X$ and $Y$ be normed vector spaces.
+							<span>
+								Suppose that $X$ is finite-dimensional.
+							</span>
+							<span>
+								If $A \in L(X,Y)$, 
+							</span>
+							<span>
+								then $\snorm{A} \lt \infty$, and
+							$A$ is uniformly continuous.
+							</span>
+							
+							
+							
+						</p>
+
+					
+	
+					
+	
+						
+	
+					</div>
+
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Proof. </strong>
+								</span>
+								<span>
+									Then
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p>
+								
+								<span>
+									$\snorm{Ax} $
+								</span>
+								<span class="fragment" data-fragment-index="0"> 
+									$=
+									\ds \left|\left|\sum_{k=1}^n c_k \, Ae_k\right|\right|$
+								</span>
+								<span class="fragment" data-fragment-index="1"> 
+									$
+									\ds \leq
+									\sum_{k=1}^n \sabs{c_k} \, \snorm{Ae_k} $
+								</span>
+								<span class="fragment" data-fragment-index="2"> 
+									$
+									\ds \leq
+									\sum_{k=1}^n \snorm{Ae_k} . $
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									The right-hand side does not depend on $x$.
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="5">
+									Thus we have found
+									a finite upper bound for $\snorm{Ax}$ independent of $x$,
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									which means that $\snorm{A} \lt \infty$.
+								</span>
+							</p>
+						</div>
+						
+
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:90%;margin-top:-10px">11.4 Norms</h4>
+					
+					<div class="left-txt size-60">
+						<p>
+							<strong>
+								Theorem 11.4.2. 
+							</strong>
+							Let $X$ and $Y$ be normed vector spaces.
+							<span>
+								Suppose that $X$ is finite-dimensional.
+							</span>
+							<span>
+								If $A \in L(X,Y)$, 
+							</span>
+							<span>
+								then $\snorm{A} \lt \infty$, and
+							$A$ is uniformly continuous.
+							</span>
+							
+							
+							
+						</p>
+
+					
+	
+					
+	
+						
+	
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Proof. </strong>
+									So we know that $\snorm{A} \lt \infty$.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									 Using this fact we can prove that $A$ is iniformly continuous.
+								</span>
+							</p>
+						</div>
+						
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									For any normed vector spaces $X$ and $Y$,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									and $A \in L(X,Y)$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									For $v,w \in X$,
+								</span>
+							</p>
+
+						</div>
+
+						<div class="">
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									$\snorm{Av - Aw}$
+								</span>
+								<span class="fragment" data-fragment-index="4"> 
+									$=
+									\ds 
+									\snorm{A(v-w)} $
+								</span>
+								<span class="fragment" data-fragment-index="5"> 
+									$
+									\ds  \leq \snorm{A} \, \snorm{v-w} . $
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="6">
+									Since $\snorm{A} \lt \infty$,
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									then $A$ is Lipschitz continuous,
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									with constant $K = \snorm{A}$.
+								</span>
+								
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="9">
+									Therefore, $A$ is uniformly continuous. $\;\bs $
+								</span>
+							</p>
+
+						</div>
+						
+
+					</div>
+					<br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
 					<p class="sbt" style="margin-top:-20px">Operator norm</p>
-					<div class="left-txt size-90">
+					<div class="left-txt size-85" style="margin-top:-10px">
 						
 	
 	
@@ -299,7 +598,7 @@
 							
 						</p>
 	
-						<ol>
+						<ol style="line-height:40px">
 							<li class="fragment" data-fragment-index="1">
 								If $A,B \in L(X,Y)$ and $c \in \R$, then
 								\begin{equation*}
@@ -319,6 +618,12 @@
 	
 	
 						</ol>
+
+						<p class="fragment" data-fragment-index="4">
+							<strong>
+								Proof. 
+							</strong> 📝
+						</p>
 	
 					</div>
 					<br/><br/>
