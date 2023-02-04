@@ -655,18 +655,27 @@ $
 				</section>
 
 				<section data-auto-animate id="corollary-1-5-3">
-					<h3>1.5 Absolute value</h3>
-					<div class="left-txt size-95">
+					<h3 style="font-size:90%">1.5 Absolute value</h3>
+					<div class="left-txt size-90 ">
 	
 						<p><strong>Corollary 1.5.3. </strong> </p>
 						<ol>
-							<li>$\bigl\lvert (\abs{x}-\abs{y}) \bigr\rvert \leq \abs{x-y}$.</li>
-							<li>
+							<li>Reverse triangle inequality:  $$\qquad \qquad \bigl\lvert (\abs{x}-\abs{y}) \bigr\rvert \leq \abs{x-y}.$$</li>
+							<li class="fragment" data-fragment-index="0">
 								$\abs{x-y} \leq \abs{x}+\abs{y}$.
 							</li>
 						</ol>
 						<p>
-							<span class="fragment" data-fragment-index="1"><strong>Proof. </strong>📝</span>
+							<span class="fragment" data-fragment-index="1">
+								<strong>Proof. </strong> 📝 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								For part 1, plug $x=a-b$ and $y = b$ into the standard triangle inequality, and use
+								<a href="#/theorem-1-5-1">Theorem 1.5.1</a>.
+							</span><br/>
+							<span class="fragment" data-fragment-index="3">
+								For part 2, replace $y\,$ by $-y\,$ in  the standard triangle inequality.
+							</span>
 						</p>
 						
 						
@@ -676,7 +685,7 @@ $
 
 				<section data-auto-animate id="corollary-1-5-4">
 					<h3>1.5 Absolute value</h3>
-					<div class="left-txt size-95">
+					<div class="left-txt">
 	
 						
 						
@@ -688,11 +697,122 @@ $
 							\end{equation*}
 						</p>
 						
-						<p class="fragment" data-fragment-index="1"><strong>Proof. </strong>📝</p>
+						<p class="fragment" data-fragment-index="0"><strong>Proof. </strong>📝
+						
+							<span class="fragment" data-fragment-index="1">
+								Use induction. 😃
+							</span>
+						</p>
 					</div>
-					<br/><br/>
+					<br/><br/><br/><br/>
 				</section>
 
+
+				<section data-auto-animate>
+					<h4>Example 1.5.1.</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								
+								Find a number $M$ such that $\sabs{x^2-3x+2} \leq M$ for all $-1 \leq x \leq5$.
+							</p>
+	
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									By the triangle inequality, 
+								</span>
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\sabs{x^2-3x+2}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ \leq \sabs{x^2}+\sabs{3x}+\sabs{2}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ =
+									\sabs{x}^2+3\sabs{x}+2 .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									
+									Note that the expression
+									$\sabs{x}^2+3\sabs{x}+2$ is largest when $\abs{x}$ is largest.
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									In the interval
+									provided, $\abs{x}$ is largest when $x=5$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									and so $\abs{x}=5$. 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									One
+									possibility for $M$ is
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									$M$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ = 5^2+3(5)+2$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$ = 45 .$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 1.5.1.</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								
+								Find a number $M$ such that $\sabs{x^2-3x+2} \leq M$ for all $-1 \leq x \leq5$.
+							</p>
+						</div>
+						<div style="margin-top:-25px">
+							<p>
+								<span>
+									$M$
+								</span>
+								<span>
+									$ = 5^2+3(5)+2$
+								</span>
+								<span>
+									$ = 45 .$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="r-stack"  style="margin-top:-25px">
+						<div class="fragment fade-out" data-fragment-index="0">
+							<img width="40%" src="images/summary-01/bound-m.png"> 
+						</div>
+						<div class="fragment fade-in" data-fragment-index="0">
+							<img width="40%"  src="images/summary-01/bound-m-2.png"> 
+						</div>
+						
+					</div>
+
+					<br/><br/>
+				</section>
 
 				<section data-auto-animate id="bounded-function">
 					<h3>1.5 Absolute value</h3>
@@ -702,15 +822,18 @@ $
 						
 						<p>
 							<strong>Definition 1.5.1. </strong> 
-							Suppose $f \colon D \to \R$ is a function.  We say $f$ is
+							Suppose $f \colon D \to \R$ is a function.  
+							<span class="fragment" data-fragment-index="0">
+								We say $f$ is
 							<em>bounded</em>
 							if there exists a number $M$
 							such that $\abs{f(x)} \leq M$ for all $x \in D$.
+							</span>
 						</p>
 						
 						
 					</div>
-					<br/><br/><br/>
+					<br/><br/><br/><br/><br/>
 				</section>
 
 				
