@@ -630,7 +630,8 @@ converges to $c$ such that $x_n \not= c$ for all $n$,
 					<br/><br/><br/><br/><br/><br/>
 				</section>
 
-				<section data-auto-animate>
+				<!--
+					<section data-auto-animate>
 					<h4>Example 4.2.3.</h4>
 					<div class="left-txt size-95">
 						<p>
@@ -676,7 +677,154 @@ x & \text{if } x > 0 , \\
 					
 					<br/><br/><br/>
 				</section>
+				-->
 
+				<section data-auto-animate>
+
+					<h3>4.1 Limits of functions</h3>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Theorem 4.2.1. 
+									</strong>
+									Let $c$ be an cluster point of $S \subset \R$ and let $f \colon S \to \R$
+									be a function such that $f(x)$ converges as $x$ goes to $c$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then the limit of $f(x)$ as $x$ goes to $c$ is unique.
+								</span>
+							</p>
+
+							
+						</div>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
+							
+
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									<strong>Proof. </strong>
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Let $L_1$ and $L_2$ be two numbers that both satisfy the definition.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Take an $\vre > 0$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									and find a $\delta_1 > 0$ such that
+									$\abs{f(x)-L_1} \lt \dfrac{\vre}{2}$ 
+									for all $x \in S \setminus \{c\}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									with $\abs{x-c} \lt \delta_1$.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									Also find $\delta_2 > 0$ such that
+									$\abs{f(x)-L_2} \lt \dfrac{\vre}{2}$
+									for all $x \in S \setminus \{c\}$ with $\abs{x-c} \lt\delta_2$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br/>
+				</section>
+				<section data-auto-animate>
+
+					<h3 style="font-size:90%">4.1 Limits of functions</h3>
+					
+					<div style="font-size:65%">
+						<p>for all $x \in S \setminus \{c\}$ $\abs{x-c} \lt\delta_1 \,\Ra \,\abs{f(x)-L_1} \lt \dfrac{\vre}{2}$
+							
+						</p>
+						<p>
+							for all $x \in S \setminus \{c\}$ $\abs{x-c} \lt\delta_2 \,\Ra \,\abs{f(x)-L_2} \lt \dfrac{\vre}{2}$
+									
+						</p>
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Proof. 
+									</strong>
+									
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Now put $\delta := \min \{ \delta_1, \delta_2 \}$. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Suppose $x \in S$,
+									$\abs{x-c} \lt \delta$, and $x \not= c$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									As $\delta > 0$ and $c$ is an cluster
+									point, 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									such an $x$ exists. 
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Then 
+								</span>
+							</p>
+
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$\abs{L_1 - L_2}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$=
+									\abs{L_1 - f(x) + f(x) - L_2}\qquad \qquad\qquad\quad$
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="7">
+									$\qquad \quad \leq
+									\abs{L_1 - f(x)} + \abs{f(x) - L_2} $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\ds\lt \frac{\vre}{2} + \frac{\vre}{2}$
+
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$= \vre.$
+
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="10">
+									Since $\abs{L_1-L_2} \lt \vre$ for arbitrary $\vre > 0$,
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									then
+									$L_1 = L_2.\;\bs$
+									
+								</span>
+								
+							</p>
+
+							
+						</div>
+					</div>
+
+					<br/><br/>
+				</section>
 				
 				
 				
