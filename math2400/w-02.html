@@ -52,9 +52,28 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 
-			<section>
+			<section data-auto-animate>
 				<h4>Intuitive vs Rigorous</h4>
-				<h6>proofs of limits of sequences</h6>
+				<h6 style="margin-top:-20px">proofs of limits of sequences</h6>
+				<div class="left-txt size-90">
+					<p>Let's see one more example of proof using the definition of the limit
+						of a sequence. With a little study and practice, you should be
+						able to do proofs of this sort yourself.</p>
+					<p class="fragment" data-fragment-index="0">
+						Show that
+						$$\lim_{n\ra \infty} \frac{n+1}{n} = 1.$$
+
+
+					</p>
+
+					
+				</div>
+				<br/><br/>
+			</section>
+
+			<section data-auto-animate>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6 style="margin-top:-20px">proofs of limits of sequences</h6>
 				<div class="left-txt size-60">
 					<p>Let's see one more example of proof using the definition of the limit
 						of a sequence. With a little study and practice, you should be
@@ -66,56 +85,119 @@
 
 					</p>
 
-					<p class="fragment" data-fragment-index="1">
+					
+				</div>
+				<div class="left-txt size-90">
+					
+
+					<p>
 
 
-						<strong>Discussion:</strong> Our task is to consider an arbitrary
-						$\epsilon$ and show that there exists a number $N\in \N$ (which will depend on $\epsilon$) such
+						<strong>Discussion:</strong> 
+						<span class="fragment" data-fragment-index="1">
+
+						Our task is to consider an arbitrary
+						$\epsilon$ and show that there exists a number $N\in \N$ (which will depend on $\epsilon$)
+						</span>
+						<span class="fragment" data-fragment-index="2">such
 						that
 						$n\geq N$ implies
-						$$\abs{\frac{n+1}{n}-1} \lt \epsilon .$$ </p>
+						$$\abs{\frac{n+1}{n}-1} \lt \epsilon .$$ 
+						</span>
+					</p>
 				</div>
+				<br/>
 			</section>
+			
 
-			<section>
+			<section data-auto-animate>
 				<h4>Intuitive vs Rigorous</h4>
-				<h6>proofs of limits of sequences</h6>
-				<div class="left-txt size-60">
+				<h6 style="margin-top:-20px">proofs of limits of sequences</h6>
+				<div class="left-txt size-80">
 					<p>
-						So we expect our formal proof to begin with ''Let $\epsilon \gt 0
-						$ be arbitrary'' and to end with something like ''Hence $n \geq N$ implies
-						$\abs{\frac{n+1}{n}-1} \lt \epsilon .$'' In between the proof we should specify an
-						$N\in \N$
-						with <em>a particular property</em> and then verify that for every $n \geq N$
-						implies
-						$\abs{\frac{n+1}{n}-1} \lt \epsilon.$
+						<span class="fragment" data-fragment-index="2">
+							So we expect our formal proof to begin with ''Let $\epsilon \gt 0
+							$ be arbitrary'' 
+						</span>
+
+						<span class="fragment" data-fragment-index="3">
+							and to end with something like ''Hence $n \geq N$ implies
+						$$\abs{\dfrac{n+1}{n}-1} \lt \epsilon" .$$ 
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="4">
+							In between the proof we should specify an
+							$N\in \N$
+							with <em>a particular property</em>
+						</span>
+
+						<span class="fragment" data-fragment-index="5">
+							and then verify that for every $n \geq N$
+							implies
+							$$\abs{\dfrac{n+1}{n}-1} \lt \epsilon.$$
+						</span>
+						
+						
 					</p>
 
-					<p class="fragment" data-fragment-index="0">
+					
+
+				</div>
+				<br/><br/><br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h4>Intuitive vs Rigorous</h4>
+				<h6 style="margin-top:-20px">proofs of limits of sequences</h6>
+				<div class="left-txt size-85">
+					
+
+					<p>
 						We will initially work backward from our desired
-						conclusion, but in the formal proof we will have to be sure our steps are
-						reversible. In the
+						conclusion, 
+						<span class="fragment" data-fragment-index="4">
+							but in the formal proof we will have to be sure our steps are
+						reversible. 
+						</span>
+
+						<span class="fragment" data-fragment-index="5">
+							In the
 						present example, we want $$\abs{\frac{n+1}{n}-1} \lt \epsilon$$ and we want to know
 						how big $n$
-						must be. So we will operate on this inequality algebraically and try to ''solve''
+						must be. 
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							So we will operate on this inequality algebraically and try to ''solve''
 						for $n$.
+						</span>
+
+						
 					</p>
 
 				</div>
+				<br/><br/>
 			</section>
 
-			<section>
+			<section data-auto-animate>
 				<h4>Intuitive vs Rigorous</h4>
-				<h6>proofs of limits of sequences</h6>
-				<div class="left-txt size-60">
+				<h6 style="margin-top:-20px">proofs of limits of sequences</h6>
+				<div class="left-txt size-80">
 
 					<p>
-						So, since $$\abs{\frac{n+1}{n}-1}=\frac{1}{n}\lt\epsilon,$$ we want $n \gt \frac{1}{\epsilon}$.
-						Thus, if our steps are reversible, choosing $N\in \N$ to be greater than
+						So, since $$\abs{\frac{n+1}{n}-1}=\frac{1}{n}\lt\epsilon,$$ 
+						
+						<span class="fragment" data-fragment-index="0">
+							we want $n \gt \frac{1}{\epsilon}$.
+						</span>
+						<span class="fragment" data-fragment-index="1">
+						Thus, if our steps are reversible, 
+						</span>
+						<span class="fragment" data-fragment-index="2"> choosing $N\in \N$ to be greater than
 						$\frac{1}{\epsilon}$ implies $$\abs{\frac{n+1}{n}-1} \lt \epsilon.$$
+						</span>
 					</p>
 
-					<p class="fragment" data-fragment-index="0">
+					<p class="fragment" data-fragment-index="3">
 						With this observation, we are
 						ready to write the formal argument.
 					</p>
@@ -125,11 +207,11 @@
 				</div>
 			</section>
 
-			<section>
+			<section data-auto-animate>
 				<h4>Intuitive vs Rigorous</h4>
-				<h6>proofs of limits of sequences</h6>
-				<div class="left-txt size-60">
-					<p><br /></p>
+				<h6 style="margin-top:-20px">proofs of limits of sequences</h6>
+				<div class="left-txt size-90">
+				
 					<p>
 						<strong>Proof:</strong>
 						<span class="fragment" data-fragment-index="0">Let $\epsilon \gt 0$ be arbitrary.</span>
@@ -137,21 +219,36 @@
 						</span>
 						<span class="fragment" data-fragment-index="2">Then, $n\geq N$ implies
 							$$n > \frac{1}{\epsilon}\quad \text{or} \quad \epsilon \gt \frac{1}{n}.$$</span>
-						<span class="fragment" data-fragment-index="3">Therefore, for all $n \geq N$,
-							\begin{equation*}
-							\abs{\frac{n+1}{n} - 1} = \abs{\frac{1}{n}} = \frac{1}{n} \lt \epsilon .\qquad \blacksquare
-							\end{equation*}</span>
+						<span class="fragment" data-fragment-index="3">Therefore, for all $n \geq N$,</span>
 
 					</p>
-					<p><br /><br /><br /></p>
+					
 
 				</div>
+				<div>
+					<p>
+						<span class="fragment" data-fragment-index="4">
+							$\ds \abs{\frac{n+1}{n} - 1}$
+						</span>
+						<span class="fragment" data-fragment-index="5">
+							$\ds= \abs{\frac{1}{n}}$
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							$\ds  = \frac{1}{n} $
+						</span>
+						
+						<span class="fragment" data-fragment-index="6">
+							$\lt \epsilon. \;\bs$
+						</span>
+					</p>
+				</div>
+				<br/><br/><br/>
 			</section>
 
-			<section>
+			<section data-auto-animate>
 				<h4>Intuitive vs Rigorous</h4>
-				<h6>proofs of limits of sequences</h6>
-				<div class="left-txt size-60">
+				
+				<div class="left-txt size-70">
 
 					<p>
 						The definition of convergence is the result of hundreds
@@ -176,12 +273,13 @@
 					</p>
 
 				</div>
+				<br/>
 			</section>
 
-			<section>
+			<section data-auto-animate>
 				<h4>Intuitive vs Rigorous</h4>
 				<h6>Template for a proof that $\lim {x_n} = L$</h6>
-				<div class="left-txt size-70">
+				<div class="left-txt size-90">
 
 					<ul>
 						<li class="fragment" data-fragment-index="0">
