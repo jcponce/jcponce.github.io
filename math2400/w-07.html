@@ -54,7 +54,7 @@
 
 			<section>
 				<h4>Problem 1</h4>
-				<div class="left-txt size-70">
+				<div class="left-txt size-80">
 					<p>
 						Define $f \colon [0,1] \to \R$ by $f(x) := x^3$
 						and let $P := \{ 0, 0.1, 0.4, 1 \}$. Compute 
@@ -65,52 +65,84 @@
 						U(P,f).
 						\]
 					</p>
-					<p class="fragment" data-fragment-index="0">
-						<strong>Solution:</strong> 
+					
+					
+				</div>
+				<div class="left-txt size-90">
+					
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							<strong>Solution:</strong> 
+						
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							
 						We have that:
 						
-						$x_0= 0, \;x_1=0.1,\; x_2=0.4,  \;x_3=1.$
+						\[x_0= 0, \;x_1=0.1,\; x_2=0.4,  \;x_3=1.\]
+						</span>
 						
 					</p>
 					
-					<p class="fragment" data-fragment-index="1">
+					<p class="fragment" data-fragment-index="2">
 						Let's calculate $m_i$ and $M_i$. 
-						<span class="fragment" data-fragment-index="2">First, recall that 
+						<span class="fragment" data-fragment-index="3">First, recall that 
 							\[
 							m_i=\inf\left\{f(x): x_{i-1}\leq x\leq x_{i} \right\}.
 							\]
 						</span>
-						<span class="fragment" data-fragment-index="3">
-							Then
-						</span>
+						
 					</p>
 					
 				</div>
-				<p class="size-70">
-					<span class="fragment" data-fragment-index="3">
+				<br/><br/>
+				
+			</section>
+			<section>
+				<h4>Problem 1</h4>
+				
+				<div class="left-txt size-90">
+					<p>
+						<strong>Solution:</strong> 
+
+						Then
+					</p>
+				</div>
+				<p class="size-90">
+					
+					<span>
 						
-						$m_1=\inf\left\{f(x): 0\leq x\leq 0.1 \right\} = 0$<br/>
+						$m_1=\inf\left\{f(x): 0\leq x\leq 0.1 \right\} = 0$
 						
 					</span>
+				</p>
+				<p class="size-90">
+					
+				
 					<span class="fragment" data-fragment-index="4">
 						
-						$\quad \quad \;m_2=\inf\left\{f(x): 0.1\leq x\leq 0.4 \right\} = 0.001$<br/>
+						$\quad \quad \;m_2=\inf\left\{f(x): 0.1\leq x\leq 0.4 \right\} = 0.001$
 						
 					</span>
+				</p>
+				<p class="size-90">
+					
+					
 					<span class="fragment" data-fragment-index="5">
 						
 						$\quad \;\;m_3=\inf\left\{f(x): 0.4\leq x\leq 1 \right\} = 0.064$
 						
 					</span>
 				</p>
+				<br/><br/><br/><br/><br/>
 			</section>
 
 			<section>
 				<h4>Problem 1</h4>
-				<div class="left-txt size-70">
+				<div class="left-txt size-90">
 					
 					<p>
-						<strong>Solution (cont.):</strong> 
+						<strong>Solution:</strong> 
 						On the other hand, we have that 
 						\[
 						M_i=\sup\left\{f(x): x_{i-1}\leq x\leq x_{i} \right\}.
@@ -126,98 +158,155 @@
 					</p>
 					
 				</div>
-				<p class="size-70">
+				<p class="size-90">
 					<span class="fragment" data-fragment-index="0">
 						
-						$M_1=\sup\left\{f(x): 0\leq x\leq 0.1 \right\} = 0.001$<br/>
+						$M_1=\sup\left\{f(x): 0\leq x\leq 0.1 \right\} = 0.001$
 						
 					</span>
+				</p>
+				<p class="size-90">
+					
 					<span class="fragment" data-fragment-index="1">
 						
-						$\;\;\,M_2=\sup\left\{f(x): 0.1\leq x\leq 0.4 \right\} = 0.064$<br/>
+						$\;\;\,M_2=\sup\left\{f(x): 0.1\leq x\leq 0.4 \right\} = 0.064$
 						
 					</span>
+				</p>
+				<p class="size-90">
+					
 					<span class="fragment" data-fragment-index="2">
 						
 						$M_3=\sup\left\{f(x): 0.4\leq x\leq 1 \right\} = 1\quad\;\,$
 						
 					</span>
 				</p>
+				<br/><br/><br/>
 			</section>
 
 			<section>
 				<h4>Problem 1</h4>
-				<div class="left-txt size-70">
+				<div class="left-txt size-90">
 					
 					<p>
-						<strong>Solution (cont.):</strong> 
+						<strong>Solution:</strong> 
 						Thus we have 
 						
 						
 					</p>
 					
 				</div>
-				<p class="size-70">
-					<span >
-						
-						$L(P,f ) = m_1(x_1-x_0)+m_2(x_2-x_1)+m_3(x_3-x_2) = \displaystyle\sum_{i=1}^{3}m_i\Delta x_i$<br/>
-						
-					</span>
-					<span class="fragment" data-fragment-index="0">
-						
-						$=0(0.1-0)+0.001(0.4-0.1)+0.064(1-0.4)$<br/><br/>
+				<p class="size-90">
+					<span>
+				
+						$L(P,f ) = \displaystyle\sum_{i=1}^{3}m_i\Delta x_i \qquad\qquad\qquad\qquad\qquad\qquad $
 						
 					</span>
-					<span class="fragment" data-fragment-index="1">
+					
+				</p>
+				<p class="size-90">
+					<span  class="fragment" data-fragment-index="1">
 						
-						$=0.001(0.3)+0.064(0.6)$
+						$=m_1(x_1-x_0)+m_2(x_2-x_1)+m_3(x_3-x_2)\qquad $
 						
 					</span>
+					
+				</p>
+				<p class="size-90">
+					
 					<span class="fragment" data-fragment-index="2">
-						$=0.0003+0.0384\quad\,$<br/><br/>
+						
+						$=0(0.1-0)+0.001(0.4-0.1)+0.064(1-0.4)\;\,$
+						
 					</span>
+					
+				</p>
+				<p class="size-90">
+					
+					
 					<span class="fragment" data-fragment-index="3">
-						$=0.0387\qquad\qquad\qquad\qquad\qquad\qquad\qquad\,$
+						
+						$=0.001(0.3)+0.064(0.6)\qquad\qquad\qquad\qquad\;\;$
+						
+					</span>
+					
+				</p>
+				<p class="size-90">
+					
+					
+					
+					<span class="fragment" data-fragment-index="4">
+						$=0.0003+0.0384$
+					</span>
+					<span class="fragment" data-fragment-index="5">
+						$=0.0387\qquad\qquad\qquad\;\;\;\;\,$
 					</span>
 				</p>
+				<br/>
 			</section>
 
 			<section>
 				<h4>Problem 1</h4>
-				<div class="left-txt size-70">
+				<div class="left-txt size-90">
 					
 					<p>
-						<strong>Solution (cont.):</strong> 
+						<strong>Solution:</strong> 
 						And
 						
 						
 					</p>
 					
 				</div>
-				<p class="size-70">
+				<p class="size-90">
 					<span >
-						
-						$U(P,f ) = M_1(x_1-x_0)+M_2(x_2-x_1)+M_3(x_3-x_2) = \displaystyle\sum_{i=1}^{3}M_i\Delta x_i$<br/>
-						
-					</span>
-					<span class="fragment" data-fragment-index="0">
-						
-						$=0.001(0.1-0)+0.064(0.4-0.1)+(1-0.4)\;\;\,$<br/><br/>
+				
+						$U(P,f ) = \displaystyle\sum_{i=1}^{3}M_i\Delta x_i \qquad\qquad\qquad\qquad\qquad\qquad $
 						
 					</span>
+					
+				</p>
+				<p class="size-90">
+					<span  class="fragment" data-fragment-index="0">
+						
+						$= M_1(x_1-x_0)+M_2(x_2-x_1)+M_3(x_3-x_2)\qquad $
+						
+					</span>
+					
+				</p>
+				<p class="size-90">
+					
 					<span class="fragment" data-fragment-index="1">
 						
-						$=0.001(0.1)+0.064(0.3)+0.6\qquad\qquad\qquad\;\;$<br/><br/>
+						$=0.001(0.1-0)+0.064(0.4-0.1)+(1-0.4)\quad\;\;\,$
 						
 					</span>
+					
+				</p>
+				<p class="size-90">
+					
+					
 					<span class="fragment" data-fragment-index="2">
+						
+						$=0.001(0.1)+0.064(0.3)+0.6\qquad\qquad\qquad\quad \;\,$
+						
+					</span>
+					
+				</p>
+				<p class="size-90">
+					
+					
+					
+					<span class="fragment" data-fragment-index="3">
 						$=0.0001+0.0192+0.6$
 					</span>
-					<span class="fragment" data-fragment-index="3">
-						$=0.6193\qquad\qquad\quad\;\;$
+					<span class="fragment" data-fragment-index="4">
+						$=0.6193\qquad\qquad\qquad\;$
 					</span>
 				</p>
+				<br/>
 			</section>
+
+			
 
 
 
