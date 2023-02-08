@@ -131,12 +131,15 @@ then
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								and
-								write $z_n := x_n y_n$.  Let $x := \lim\, x_n$,
+								write $z_n := x_n y_n$. 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								 Let $x := \lim\, x_n$,
 								$y := \lim\, y_n$.
 							</span>
 						</p>
 						<p>
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="3">
 								To prove that $x_n y_n$ converges to $xy$
 								we make the estimate
 							</span>
@@ -145,17 +148,22 @@ then
 					</div>
 					<div style="font-size:90%">
 						<p>
-							<span class="fragment" data-fragment-index="3">
+							<span class="fragment" data-fragment-index="4">
 								$\abs{x_ny_n - xy}$
 							</span>
-							<span class="fragment" data-fragment-index="4">
-								$= \abs{\left( x_n y_n -x_n y\right) -\left( x_n y -xy\right) }$
-							</span><br/><br/>
 							<span class="fragment" data-fragment-index="5">
-								$\qquad\quad \;\;\leq \abs{x_n\left(\, y_n - y\right) } + \abs{\left( x_n  -x\right)y }$
+								$= \abs{\left( x_n y_n -x_n y\right) -\left( x_n y -xy\right) }$
 							</span>
-							<span class="fragment" data-fragment-index="6"><br/><br/>
-								$\qquad\quad\;\; = \abs{x_n}\abs{\, y_n - y } + \abs{x_n  -x }\abs{y}.$
+						</p>
+						<p>
+							
+							<span class="fragment" data-fragment-index="6">
+								$\qquad\quad \;\;\;\;\leq \abs{x_n\left(\, y_n - y\right) } + \abs{y\left( x_n  -x\right) }$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								$\qquad\quad\;\;\;\; = \abs{x_n}\abs{\, y_n - y } + \abs{y}\abs{x_n  -x }.$
 							</span>
 						</p>
 					</div>
@@ -168,19 +176,22 @@ then
 					<div class="left-txt" style="font-size:90%">
 						<p><strong>Proof. </strong> 
 							<span>
-								&nbsp;👉 $\,\abs{x_ny_n - xy} \leq  \abs{x_n}\abs{\, y_n - y } + \abs{x_n  -x }\abs{y}.$
+								&nbsp;👉 $\,\abs{x_ny_n - xy} \leq  \abs{x_n}\abs{\, y_n - y } + \abs{y}\abs{x_n  -x }.$
 							</span>
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="0">
-								According to <a href="lecture-03.html#/theorem-2-1-2" target="_blank">Theorem 2.1.2</a> there exists a real number $M_1\gt 0$ such that
-								$\abs{x_n}\leq M_1$ for all $n\in \N$ 
+								Since $\{x_n\}$ is convergent, 
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								and we set $$M:= \max \left\{M_1, |y|\right\}.$$
+								there exists a real number $M_1\gt 0$ such that
+								$\abs{x_n}\leq M_1$ for all $n\in \N$ (according to <a href="lecture-03.html#/theorem-2-1-2" target="_blank">Theorem 2.1.2</a>).
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								Hence we have 
+								We set $$M:= \max \left\{M_1, |y|\right\}.$$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Then we have 
 							</span>
 						</p>
 						
@@ -188,7 +199,7 @@ then
 					</div>
 					<div  style="font-size:90%">
 						<p>
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="3">
 								
 								$\abs{x_ny_n - xy } \leq M \abs{y_n-y} + M \abs{x_n-x}$
 								
@@ -324,7 +335,7 @@ then
 				<section data-auto-animate>
 					<h4>Some corollaries</h4>
 
-					<div class="size-85">
+					<div class="size-90">
 						<div class="left-txt">
 							<p>
 								<span>
@@ -332,19 +343,35 @@ then
 									we get several easy corollaries.
 								</span>
 								<span class="fragment" data-fragment-index="0">
-
-If $c \in \R$ and $\{ x_n \}$ is a convergent sequence, then
-for example
-\begin{equation*}
-\lim_{n \to \infty} c x_n = 
-c \left( \lim_{n \to \infty} x_n \right) 
-\text{ and }
-
-\lim_{n \to \infty} (c + x_n) = 
-c + \lim_{n \to \infty} x_n .
-\end{equation*}
+									If $c \in \R$ and $\{ x_n \}$ is a convergent sequence, 
 								</span>
 								<span class="fragment" data-fragment-index="1">
+									then
+									for example
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds \lim_{n \to \infty} c x_n = 
+									c \left( \lim_{n \to \infty} x_n \right), \;$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									and 
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds \lim_{n \to \infty} (c + x_n) = 
+									c + \lim_{n \to \infty} x_n .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
 									Similarly, we find such equalities for constant subtraction and division.
 								</span>
 							</p>
@@ -368,7 +395,7 @@ $$\lim\, x_n^k = {(\lim\, x_n)}^k \;\text{for all }\; k \in \N.$$ </span>
 Finally, we can also show a similar result for the $k$th roots (which is more challenging to prove).
 
 								</span>
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="1">
 									That is,
 $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 
