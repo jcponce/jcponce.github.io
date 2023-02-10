@@ -209,7 +209,8 @@
 									L(x) := \int_1^x \frac{1}{t}~dt .
 									\end{equation*}
 								</span>
-								<span class="fragment" data-fragment-index="2">With this we can easily see that (1) holds,
+								<span class="fragment" data-fragment-index="2">
+									Using this function, we can easily see that (1) holds,
 									
 								</span>
 							</p>
@@ -255,8 +256,13 @@
 								\]
 							</span>
 						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								This also implies that $L$ is continous.
+							</span>
+						</p>
 					</div>
-					<br/><br/><br/><br/>
+					<br/><br/><br/>
 				</section>
 
 				<section data-auto-animate>
@@ -304,9 +310,6 @@
 									$\displaystyle=
 									L(xy)-L(y) .  $
 								</span>
-								<span class="fragment" data-fragment-index="6">
-									$\;\bs \, $
-								</span>
 							</p>
 							
 						</div>
@@ -316,34 +319,12 @@
 
 				<section data-auto-animate>
 					<h4>8.3 The logarithm</h4>
-					<div class="size-80">
-						<div class="">
-							<p>$L \colon (0,\infty) \to \R$</p>
-						</div>
-					</div>
-					<div class="r-stack">
-						<span class="fragment fade-out" data-fragment-index="0">
-							<img width="80%" src="images/summary-08/logarithm-def-01.svg"> 
-						</span>
-						<span class="fragment fade-in-then-out" data-fragment-index="0">
-							<img width="80%" src="images/summary-08/logarithm-def-02.svg"> 
-						</span>
-						<span class="fragment fade-in" data-fragment-index="1">
-							<img width="80%" src="images/summary-08/logarithm-def-03.svg"> 
-						</span>
-					</div>
-					<br/><br/>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>8.3 The logarithm</h4>
-					<div class="left-txt size-85">
+					<div class="left-txt size-90">
 						<p><span>
 								<strong>Proof. </strong>
 							</span>
 							
-							<span class="fragment" data-fragment-index="0">
+							<span>
 								Finally we will prove that is unique using properties (1) and (2).
 							</span>
 							<span class="fragment" data-fragment-index="1">
@@ -354,6 +335,11 @@
 								\begin{equation*}
 								L(x) = \int_1^x \frac{1}{t}~dt
 								\end{equation*}
+								
+	
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								
 								is the unique function such that 
 	
 							</span>
@@ -364,15 +350,15 @@
 	
 	
 					</div>
-					<div class="size-85">
+					<div class="size-90">
 						<p>
 								
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="3">
 
 							$\ds L(1) = 0 \,\;\text{ and }\,\; \ds L'(x) = \frac{1}{x}.$
 	
 							</span>
-							<span class="fragment" data-fragment-index="3">
+							<span class="fragment" data-fragment-index="4">
 
 							$\; \bs$
 	
@@ -385,215 +371,66 @@
 	
 					</div>
 
-					<br/>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
-					<h4 style="font-size:80%">8.3 The logarithm</h4>
-					<div class="left-txt size-90">
-						<p><span>
-								<strong>Proof. </strong>
-							</span>
-							<span>
-								Now to prove property (3),
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								we use (2) and the fact that
-								$L'(x) = \dfrac{1}{x} > 0$
-								for $x > 0$,
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								implies that $L$
-								is strictly increasing and hence one-to-one.
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								Let us show $L$ is onto.
-							</span>
-							<span class="fragment" data-fragment-index="4">
-								Since $\dfrac{1}{t} \geq \dfrac{1}{2}$ when $t \in [1,2]$,
-							</span>
-							
-	
-						</p>
-	
-	
+					<h4>8.3 The logarithm</h4>
+					<div class="size-80">
+						<div class="" style="margin-top:-15px">
+							<p>$L \colon (0,\infty) \to \R$</p>
+						</div>
 					</div>
-					<div class="size-90">
-						<p>
-							<span class="fragment" data-fragment-index="5">
-								
-								
-								$\ds L(2) = \int_1^2 \frac{1}{t} ~dt $
-								
-							</span>
-							<span class="fragment" data-fragment-index="6">
-								
-								
-								$\ds \geq \frac{1}{2} .$
-								
-							</span>
-
-						</p>
-					</div>
-					<div class="left-txt size-90">
-						<p>
-							
-							<span class="fragment" data-fragment-index="9">
-								By induction, (3) implies that for $n \in \N$
-								
-							</span>
-
-						</p>
-					</div>
-					<div class="size-90">
-						<p>
-							
-							<span class="fragment" data-fragment-index="9">
-								$
-								L(2^n) 
-								$
-							</span>
-							<span class="fragment" data-fragment-index="10">
-								$
-								= \underbrace{L(2) + L(2) + \cdots + L(2)}_{n-\text{times}}
-								$
-							</span>
-							<span class="fragment" data-fragment-index="11">
-								$= n L(2) .
-								$
-							</span>
-
-						</p>
+					<div class="r-stack" style="margin-top:-15px">
+						<span class="fragment fade-out" data-fragment-index="0">
+							<img width="90%" src="images/summary-08/logarithm-def-01.svg"> 
+						</span>
+						<span class="fragment fade-in-then-out" data-fragment-index="0">
+							<img width="90%" src="images/summary-08/logarithm-def-02.svg"> 
+						</span>
+						<span class="fragment fade-in" data-fragment-index="1">
+							<img width="90%" src="images/summary-08/logarithm-def-03.svg"> 
+						</span>
 					</div>
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>8.3 The logarithm</h4>
 					<div class="size-90">
-						<div class="left-txt">
-							<p><span>
-									<strong>Proof.</strong>
-								</span>
-								<span>
-									Given $y > 0$,
-								</span>
-								<span class="fragment" data-fragment-index="0">
-									by the Archimedean property of the real numbers
-									(notice $L(2) > 0$), there is an $n \in \N$ such that
-									$L(2^n) > y$.
-								</span>
-								
-								
-							</p>
-							<p>
-								<span class="fragment" data-fragment-index="1">
-									By the
-									intermediate value theorem
-									there is an $x_1 \in (1,2^n)$ such that $L(x_1) = y$.
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									Then we get
-									$(0,\infty)$ is in the image of $L$.
-								</span>
-								
-								
-							</p>
-							<p>
-								<span class="fragment" data-fragment-index="3">
-									As $L$ is increasing, $L(x) > y$ for all $x > 2^n,$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									and so
-								</span>
-								
-							</p>
-		
-		
-						</div>
-						<div>
-							<p>
-								<span class="fragment" data-fragment-index="4">
-									
-									$
-									\ds\lim_{x\to\infty} L(x) = \infty .
-									$
-								</span>
-							</p>
+						<div class="" style="margin-top:-15px">
+							<p>More properties of $L \colon (0,\infty) \to \R$</p>
 						</div>
 					</div>
-					<br/><br/>
-				</section>
-	
-				
-	
-				
-	
-				
-				<section data-auto-animate>
-					<h4>8.3 The logarithm</h4>
-					<div class="left-txt size-85">
-						<p><span>
-								<strong>Proof.</strong>
-							</span>
-							
-							<span>
-								Next
-							</span>
-							
-						</p>
+					<div class="size-90">
+						<div class="" style="margin-top:-15px">
+							<ol>
+								<li class="fragment" data-fragment-index="0">
+									$L$ is strictly increasing,
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									$L$ is bijective,
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									$\displaystyle \lim_{x\to 0} L(x) = -\infty \;$, and $\;\displaystyle \lim_{x\to \infty} L(x) = \infty .$
+								</li>
+							</ol>
+						</div>
 					</div>
-					<div class="size-85">
-						<p>
-							
-							<span>
-								
-								$\ds 0 = L\left(\frac{x}{x}\right)$
-							</span>
-							<span class="fragment" data-fragment-index="0">
-								
-								$\ds = L(x) + L\left(\frac{1}{x}\right)$
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								
-								 and
-								so $\ds L(x) = - L\left(\frac{1}{x}\right)$.
-							</span>
-							
-						</p>
+					<div class="" style="margin-top:-10px">
+						
+						<span>
+							<img width="60%" src="images/summary-08/logarithm-def-03.svg"> 
+						</span>
 					</div>
-					<div class="left-txt size-85">
-						<p>
-							<span class="fragment" data-fragment-index="2">
-								Using $x=2^{-n}$, we obtain
-								as above that $L$ achieves all negative numbers.
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								This implies that<br /><br />
-								$\qquad  \displaystyle \lim_{x \to 0} L(x) 
-								$
-							</span>
-							<span class="fragment" data-fragment-index="4">
-								
-								$ =
-								\ds\lim_{x \to 0} -L\left(\frac{1}{x}\right)
-								$
-							</span>
-							<span class="fragment" data-fragment-index="5">
-								$= \displaystyle
-								\lim_{x \to \infty} -L(x)
-								$
-							</span>
-							<span class="fragment" data-fragment-index="6">
-								$= \displaystyle
-								 - \infty .$<br /><br />
-							</span>
-							<span class="fragment" data-fragment-index="7">
-								In the limits, note that only negative values ($x > 0$) are in the domain of $L$.
-							</span>
-						</p>
-					</div>
+
+					
 					<br/>
 				</section>
+
+
+				
+
+				
 	
 				
 				<section data-auto-animate>
