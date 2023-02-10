@@ -459,7 +459,7 @@
 
 				<section data-auto-animate>
 					<h4>8.4 The exponential</h4>
-					<div class="left-txt size-90">
+					<div class="left-txt size-95">
 						<p><span class="fragment" data-fragment-index="0">
 								<strong>Proposition 8.4.1. </strong>
 								There exists a unique function $E \colon \R \to (0,\infty)$ such that
@@ -468,21 +468,14 @@
 								<li class="fragment" data-fragment-index="1">$E(0) = 1$.</li>
 								<li class="fragment" data-fragment-index="2">$E$ is differentiable and $E'(x) =
 									E(x)$.</li>
-								<li class="fragment" data-fragment-index="3">$E$ is strictly increasing, bijective, and
-									\begin{equation*}
-									\lim_{x\to -\infty} E(x) = 0 , \quad \text{and} \quad
-									\lim_{x\to \infty} E(x) = \infty .
-									\end{equation*}</li>
 								<li class="fragment" data-fragment-index="4">$E(x+y) = E(x)E(y)$ for all $x,y \in
 									\R$.</li>
-								<li class="fragment" data-fragment-index="5">If $q$ is a rational number, then
-									$E(qx) = E(x)^q$.</li>
 							</ol>
 						</p>
 	
 	
 					</div>
-					<br/><br/>
+					<br/><br/><br/><br/><br/>
 				</section>
 	
 				<section data-auto-animate>
@@ -543,52 +536,7 @@
 					<br/>
 				</section>
 	
-				<section data-auto-animate>
-					<h4>8.4 The exponential</h4>
-					<div class="left-txt size-85">
-						<p><span>
-								<strong>Proof. </strong>
-							</span>
-							<span>Now let us prove
-								property (3).
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								The function $E$ is strictly increasing since
-								$E'(x) = E(x) > 0$.
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								As $E$ is the inverse of $L$, it must also
-								be bijective.
-	
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								To find the limits, we use that
-								$E$ is strictly increasing and onto $(0,\infty)$.
-	
-							</span>
-							<span class="fragment" data-fragment-index="4">
-								For every $M > 0$, there is an $x_0$ such that
-								$E(x_0) = M$ and $E(x) \geq M$ for all $x \geq x_0$.
-								<br /><br />
-							</span>
-							<span class="fragment" data-fragment-index="5">
-								Similarly, for every $\varepsilon > 0$, there is
-								an $x_0$ such that $E(x_0) = \varepsilon$ and
-								$E(x) \lt \varepsilon$ for all $x \lt x_0$. 
-							</span> 
-							<span class="fragment"
-									data-fragment-index="6">
-									Therefore,
-									\begin{equation*}
-									\lim_{x\to -\infty} E(x) = 0 , \quad \text{and} \quad
-									\lim_{x\to \infty} E(x) = \infty .
-									\end{equation*}
-							</span>
-						</p>
-	
-					</div>
-					<br/>
-				</section>
+				
 	
 				<section data-auto-animate>
 					<h4>8.4 The exponential</h4>
@@ -596,7 +544,7 @@
 						<div class="left-txt ">
 							<p><span>
 									<strong>Proof. </strong>
-									To prove property (iv),
+									To prove property (2),
 								</span>
 								<span class="fragment" data-fragment-index="0">we use the corresponding
 									property for the logarithm.
@@ -651,114 +599,194 @@
 							
 		
 						</div>
+						
+					</div>
+					<br/><br/><br/>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h4>8.4 The exponential</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p><span>
+									<strong>Proof. </strong>
+									Uniqueness follows from
+									(1) and
+									(2).
+								</span>
+								<span class="fragment" data-fragment-index="0">Let $E$ and $F$
+									be two functions satisfying
+									(1) and
+									(2),
+								</span>
+		
+						</div>
+						<div class="">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$
+									\displaystyle\frac{d}{dx} \Bigl( F(x)E(-x) \Bigr)
+									=
+									F'(x)E(-x) - E'(-x)F(x)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$
+									\qquad\qquad\qquad
+									=
+									F(x)E(-x) - E(-x)F(x)
+									$
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									$
+									=0 .\qquad\;\,
+									$
+								</span>
+							</p>
+								
+		
+		
+						</div>
 						<div class="left-txt">
 							<p>
+								<span class="fragment" data-fragment-index="4">
+									This means that $F(x)E(-x)$ is constant by <a href="lecture-12.html#/theorem-6-3-1/1" target="_blank">Theorem 6.3.1</a>.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									Thus
+									
+									$F(x)E(-x) $ 
+		
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= F(0)E(-0) $ 
+		
+								</span>
 								<span class="fragment" data-fragment-index="7">
-									Property (5) is left as an exercise. 📝
+									$ = 1$ for all $x \in \R$.
+		
 								</span>
 							</p>
 						</div>
 					</div>
-					<br/><br/><br/>
+					<br/><br/>
 				</section>
-	
 				<section data-auto-animate>
-					<h4 style="font-size:80%">8.4 The exponential</h4>
-					<div class="left-txt size-80">
-						<p><span>
-								<strong>Proof. </strong>
-								Uniqueness follows from
-								(1) and
-								(2).
-							</span>
-							<span class="fragment" data-fragment-index="0">Let $E$ and $F$
-								be two functions satisfying
-								(1) and
-								(2).<br /><br />
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								$
-								\quad\displaystyle\frac{d}{dx} \Bigl( F(x)E(-x) \Bigr)
-								=
-								F'(x)E(-x) - E'(-x)F(x)
-								$
-							</span>
-							<span class="fragment" data-fragment-index="2">
-								$
-								\qquad\qquad\qquad\quad\;\;\,
-								=
-								F(x)E(-x) - E(-x)F(x)
-								$
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								$
-								=0 .
-								$<br /><br />
-							</span>
-	
-							<span class="fragment" data-fragment-index="4">
-								Therefore, by 
-								<a href="lecture-12.html#/theorem-6-3-1/1" target="_blank">Theorem 6.3.1</a>,
-								$F(x)E(-x) $ 
-	
-							</span>
-							<span class="fragment" data-fragment-index="5">
-								$= F(0)E(-0) $ 
-	
-							</span>
-							<span class="fragment" data-fragment-index="6">
-								$ = 1$ for all $x \in \R$.
-	
-							</span>
-							<span class="fragment" data-fragment-index="7">
-	
-								Next, $1 = E(0)$
-							</span>
-							<span class="fragment" data-fragment-index="8">
-	
-								$= E(x-x) $
-							</span>
-							<span class="fragment" data-fragment-index="9">
-	
-								$  =E(x)
-								E(-x)$.
-							</span>
-	
-							<span class="fragment" data-fragment-index="10">
-								Then<br /><br />
-								$
+					<h4>8.4 The exponential</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p><span>
+									<strong>Proof. </strong>
+									
+								</span>
 								
-								0 = 1-1 
-								$
-							</span>
-							<span class="fragment" data-fragment-index="11">
+		
+								<span>
+									Thus $F(x)E(-x) $ 
+		
+								</span>
+								<span>
+									$ = 1$ for all $x \in \R$.
+								</span>
 								
-								$
-								=F(x)E(-x) - E(x)E(-x)
-								$
-							</span>
-							<span class="fragment" data-fragment-index="12">
-								$
-								= \bigl(F(x)-E(x)\bigr) E(-x) .
-								$
-							</span>
-	
-						</p>
-						<p class="fragment" data-fragment-index="13">
-							Finally, $E(-x) \not= 0$
-							for all $x \in \R$.
-							<span class="fragment" data-fragment-index="14">
-								So
-								$F(x)-E(x) = 0$ for all $x$, 
-							</span>
-							<span class="fragment" data-fragment-index="15">
-								and this completes the proof.
-								$\blacksquare$</span>
-						</p>
-	
-	
+								
+		
+								<span class="fragment" data-fragment-index="0">
+		
+									Next, 
+								</span>
+							</p>
+							
+		
+		
+						</div>
+						<div class="">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+		
+									$1 = E(0)$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+		
+									$= E(x-x) $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+		
+									$  =E(x)
+									E(-x)$.
+								</span>
+		
+								
+		
+							</p>
+							
+		
+		
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="3">
+								Then
+							</p>
+						</div>
+						<div class="">
+							<p>
+								
+		
+								<span class="fragment" data-fragment-index="3">
+									
+									$
+									
+									0 = 1-1 
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									
+									$
+									=F(x)E(-x) - E(x)E(-x)
+									$
+								</span>
+								
+		
+							</p>
+							<p>
+								
+		
+								
+								<span class="fragment" data-fragment-index="5">
+									$
+									\qquad \;\;= \bigl(F(x)-E(x)\bigr) E(-x) .
+									$
+								</span>
+		
+							</p>
+							
+		
+		
+						</div>
+						<div class="left-txt">
+							
+							<p class="fragment" data-fragment-index="6">
+								Finally, $E(-x) \not= 0$
+								for all $x \in \R$.
+								<span class="fragment" data-fragment-index="7">
+									So
+									$F(x)-E(x) = 0$ for all $x$, 
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									and this completes the proof.
+									$\blacksquare$</span>
+							</p>
+		
+		
+						</div>
 					</div>
-					<br/>
+					<br/><br/><br/>
 				</section>
 	
 				<section data-auto-animate>
