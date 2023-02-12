@@ -16,11 +16,15 @@ function preload() {
   myFont = loadFont('font/Lacquer-Regular.ttf');
 }
 
-function setup() {
+let w, h;
 
-  createCanvas(windowWidth, windowHeight);
+function setup() {
+  w = windowWidth;
+  h = windowHeight;
+  createCanvas(w, h);
   resetObject();
   textFont(myFont);
+  
 
 }
 
@@ -62,7 +66,7 @@ function draw() {
     rotate(angle);
     translate(-p.x, -p.y);
 
-    text(textToWrite.charAt(i), p.x - charWidth / 2, p.y);
+    text(textToWrite.charAt(i), p.x -  charWidth / 2, p.y);
     pop();
 
     pct += charWidth / 2 * pixToAngularPct;
@@ -79,10 +83,19 @@ function draw() {
   textAlign(CENTER, CENTER);
   text('oo', centerX, centerY - 35);
   pop();
+
+  push();
+  textSize(w/h * 12);
+  fill(0);
+  textAlign(CENTER, CENTER);
+  text('SORRY, THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST,\n OR HAS BEEN REMOVED', windowWidth * 0.5, windowHeight * 0.07);
+  pop();
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  w = windowWidth;
+  h = windowHeight;
   resetObject();
 }
 
