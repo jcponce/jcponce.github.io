@@ -28,14 +28,15 @@ let mathbox = mathBox({
 	// 2. coordinate system that contains...
 	
 	// save the view as a variable to simplify accessing it later
-  let  view = mathbox.cartesian( {range: [[-6.28, 6.28], [-2, 2]], scale: [2,1]} );
+  let PI = 6.28;
+  let  view = mathbox.cartesian( {range: [[-2*PI, 2*PI], [-3, 3]], scale: [2,1]} );
 
 	// axes
 	let  xAxis = view.axis( {axis: 1, width: 8, detail: 40, color:"red"} );
 	let  yAxis = view.axis( {axis: 2, width: 8, detail: 40, color:"green"} );
 	
 	// grid
-	let  grid = view.grid( {width: 2, divideX: 20, divideY: 10, opacity:0.25} );
+	let  grid = view.grid( {width: 2, divideX: 10, divideY: 10, opacity:0.25} );
 	
 	// 3. geometric data represented via...
 	
@@ -43,7 +44,12 @@ let mathbox = mathBox({
 	let  graphData = view.interval({
         expr: function (emit, x, i, t)
 		    {
-          emit( x, Math.sin(x + t) );
+          let sum = 0;
+          for(let k=1; k <= 500; k++){
+            sum += 1/k *  Math.sin( k * (x ));
+          }
+          emit( x, sum );
+          
         },
 		// width is the number of data points to generate; higher numbers = higher resolution
         width: 256,	
@@ -53,7 +59,7 @@ let mathbox = mathBox({
 	
 	// 4. choice of shape to draw it as...
 	
-  let  graphView = view.line( {width: 4, color: "blue"} );
+  let  graphView = view.line( {width: 6, color: "blue"} );
 	
 	// alternatively, to view the data as points
     // view.point( {size: 6, color: "blue"});
