@@ -165,7 +165,6 @@
 	
 				<section data-auto-animate id="cauchy-schwarz-inequality">
 					<h4>11.4 Norms</h4>
-					<p class="sbt"></p>
 					<div class="left-txt">
 						<p>
 							<strong>
@@ -182,6 +181,200 @@
 					</div>
 					<br/><br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>
+									Proof. 
+								</strong>
+								<span class="fragment" data-fragment-index="0">
+									If $x=0$ or $y = 0$, the result follows immediatly.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									So assume $x\not= 0$ and $y \not= 0$.
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									If $x$ is a scalar multiple of $y$, 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									that is $x = \lambda y$ for some
+									$\lambda \in \R$,
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									then the theorem holds with equality:
+								</span>
+							</p>
+		
+						</div>
+						<div> 
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$\sabs{ x \cdot y } $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ =
+									\sabs{\lambda y \cdot y}  $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ = \sabs{\lambda} \, \sabs{y\cdot y} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$=
+									\sabs{\lambda} \, \snorm{y}^2 $
+								</span>
+								
+							</p>
+							<p>
+								
+								
+								<span class="fragment" data-fragment-index="8">
+									$= \snorm{\lambda y} \, \snorm{y}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$=  \snorm{x} \, \snorm{y} .\;\;\;
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>
+									Proof. 
+								</strong>
+								<span>
+									Now consider fixed $x$ and $y,$
+									and the variable $t.$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Then we have
+								</span>
+							</p>
+							
+		
+						</div>
+						<div> 
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\snorm{x+ty}^2  $
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$ =
+									(x+ty) \cdot (x+ty)  \qquad \qquad \qquad \quad $
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									$ \,\quad =
+									x \cdot x + x \cdot ty + ty \cdot x + ty \cdot ty $
+								</span>
+							</p>
+							<p>
+								
+								
+								<span class="fragment" data-fragment-index="3">
+									$=
+									\snorm{x}^2 + 2t(x \cdot y) + t^2 \snorm{y}^2 ,
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									which is a polynomial of degree 2. 
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									If $x$ is not a scalar multiple of $y$,
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									then 
+									$\snorm{x+ty}^2 > 0$ for all $t$. 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									So the polynomial $\snorm{x+ty}^2$
+									is never zero.
+								</span>
+							</p>
+							
+		
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>
+									Proof. 
+								</strong>
+								<span>
+									Since $\snorm{x+ty}^2>0.$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Elementary algebra says that the discriminant must be negative:
+								</span>
+							</p>
+							
+		
+						</div>
+						<div> 
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$4 {(x \cdot y)}^2 - 4 \snorm{x}^2\snorm{y}^2 \lt 0, $
+								</span>
+								
+								
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									or in other words, 
+								</span>
+								
+							</p>
+							
+		
+						</div>
+						<div>
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									${(x \cdot y)}^2 \lt \snorm{x}^2\snorm{y}^2.\; \bs$
+								</span>
+								
+							</p>
+							
+		
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/>
+				</section>
+
+
 				<section data-auto-animate id="standard-distance">
 					<h4>11.4 Norms</h4>
 					<p class="sbt">Standard distance</p>
@@ -197,7 +390,7 @@
 						</p>
 	
 					</div>
-					<br/><br/><br/>
+					<br/><br/><br/><br/>
 				</section>
 	
 				
