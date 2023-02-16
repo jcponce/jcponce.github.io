@@ -378,25 +378,25 @@ is analogous.
 								</span>
 								<span class="fragment" data-fragment-index="3">
 									Thus there exists
-a
-$c \in (a,b)$ such that $g'(c) = 0.$
+									a
+									$c \in (a,b)$ such that $g'(c) = 0.$
 								</span>
 								
 							</p>
 						</div>
 						<div>
 							<span class="fragment" data-fragment-index="4">
-							
-$
-\Ra\; 0 = g'(c)
-$
+							$
+							\Ra\; 0 = g'(c)
+							$
 
 							</span>
 							<span class="fragment" data-fragment-index="5">
 								
-$
- \ds= f'(c)-\frac{f(b)-f(a)}{b-a} .
-$
+								$
+
+								\ds= f'(c)-\frac{f(b)-f(a)}{b-a} .
+								$
 
 							</span>
 							
@@ -443,6 +443,71 @@ $
 					</div>
 					<br/>
 				</section>
+				<section data-auto-animate>
+					<h4>6.3 Applications</h4>
+
+					<div class="size-65" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p>
+							<strong>Theorem 6.3.1.</strong> Let $I$ be an interval and
+						let $f \colon I \to \R$ be a differentiable function such that $f'(x) = 0$
+						for all $x \in I$.
+						Then $f$ is constant.
+						</p>
+						
+
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>
+									Proof.
+								</strong>
+								<span class="fragment" data-fragment-index="0">
+									Take arbitrary $x,y \in I$ with $x \lt y$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Since $I$ is an interval, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$[x,y] \subset I$.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Then $f$ restricted to $[x,y]$ satisfies 
+									the hypotheses
+									of the mean value theorem.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									Thus, there is a $c \in (x,y)$ such that
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$f(y)-f(x) = f'(c)(y-x).$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									As $f'(c) = 0$, we have $f(y) = f(x)$. 
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									Therefore,
+									the function is constant. $\; \bs$
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					
+					<br/>
+				</section>
 	
 				<section data-auto-animate>
 					<h4 style="font-size:80%">6.3 Applications</h4>
@@ -474,6 +539,129 @@ $
 								  
 								   data-src="images/summary-06/derivative-application-02.svg" />
 					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>6.3 Applications</h4>
+
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p>
+							(i) $f$ is increasing if and only if $f'(x) \geq 0$ for all $x \in I$.
+						</p>
+						
+
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>
+									Proof.
+								</strong>
+								Let us prove the first item. <br/><br/>
+								<span class="fragment" data-fragment-index="0">
+									$\nec$ Suppose $f$ is increasing.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									For all $x,c \in I$ with $x \neq c$,
+								</span>
+								
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$\dfrac{f(x)-f(c)}{x-c} \geq 0 .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									If we take the limit as $x$ goes to $c$, 
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									we see that $f'(c) \geq 0$.
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>6.3 Applications</h4>
+
+					<div class="size-85" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+	
+						<p>
+							(i) $f$ is increasing if and only if $f'(x) \geq 0$ for all $x \in I$.
+						</p>
+						
+
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<strong>
+									Proof.
+								</strong>
+								
+								<span>
+									$\suf$ Now suppose $f'(x) \geq 0$ for all $x \in I$.
+
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Take any $x, y \in I$ where $x \lt y$, 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									and note that $[x,y] \subset I$.
+
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									By the mean value theorem, 
+									there is some $c \in (x,y)$ such that
+								</span>
+								
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$f(y)-f(x) = f'(c)(y-x)  .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									As $f'(c) \geq 0$ and $y-x > 0$, 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									then $f(y) - f(x) \geq 0$ 
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									or $f(x) \leq f(y)$, 
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									and  hence $f$ is increasing. $\,\bs$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									Item (ii) is left as an exercise. 📝
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					
 					<br/>
 				</section>
 	
