@@ -152,7 +152,7 @@ then
 								$\abs{x_ny_n - xy}$
 							</span>
 							<span class="fragment" data-fragment-index="5">
-								$= \abs{\left( x_n y_n -x_n y\right) -\left( x_n y -xy\right) }$
+								$= \abs{\left( x_n y_n -x_n y\right) +\left( x_n y -xy\right) }$
 							</span>
 						</p>
 						<p>
@@ -411,8 +411,8 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 			<section>
 				<section data-auto-animate>
 					<h4>Example 2.3.2</h4>
-					<div class="size-90 left-txt">
-						<p>Define $x_n$ recursively by
+					<div class="size-85 left-txt">
+						<p>Define $\{x_n\}$ recursively by
 							$
 							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
 							$
@@ -424,8 +424,8 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 				</section>
 				<section data-auto-animate>
 					<h4>Example 2.3.2</h4>
-					<div class="size-60 left-txt">
-						<p>Define $x_n$ recursively by
+					<div class="size-85 left-txt">
+						<p>Define $\{x_n\}$ recursively by
 							$
 							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
 							$
@@ -474,7 +474,7 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 				</section>
 				<section data-auto-animate>
 					<h4>Example 2.3.2</h4>
-					<div class="size-60 left-txt">
+					<div class="size-80 left-txt">
 						<p>Define $\{x_n\}$ recursively by
 							$
 							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
@@ -531,7 +531,7 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 				</section>
 				<section data-auto-animate>
 					<h4>Example 2.3.2</h4>
-					<div class="size-60 left-txt">
+					<div class="size-80 left-txt">
 						<p>Define $\{x_n\}$ recursively by
 							$
 							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
@@ -588,7 +588,7 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 
 				<section data-auto-animate>
 					<h4>Example 2.3.2</h4>
-					<div class="size-60 left-txt">
+					<div class="size-80 left-txt">
 						<p>Define $\{x_n\}$ recursively by
 							$
 							\ds x_1 := 2, \, x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
@@ -656,11 +656,11 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h4>2.3.3 Some convergence tests</h4>
 					
 					<div class="left-txt size-80">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							<strong>Theorem 2.3.4.</strong> Let $\{ x_n \}$ be a sequence.
 							Suppose there is an $x \in \R$
 							and a convergent sequence $\{ a_n \}$
@@ -676,10 +676,10 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 							\end{equation*}
 							Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							<strong>Theorem 2.3.5.</strong> Let $c > 0$.
 	
-							<ol class="r">
+							<ol class="fragment" data-fragment-index="1">
 								<li>
 									If $c \lt 1$, then
 	
@@ -700,13 +700,13 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 
 				
 
-				<section>
+				<section data-auto-animate id="ratio-test-sequences">
 					<h4>2.3.3 Some convergence tests</h4>
 					
 					<div class="left-txt size-80">
 						<p>
-							<strong>Theorem 2.3.6. (Ratio test for sequences)</strong>
-	
+							<strong>Theorem 2.3.6. </strong>
+							(Ratio test for sequences)
 							Let $\{ x_n \}$ be a sequence such that $x_n \not= 0$ for all $n$ and such that
 							the limit
 							\begin{equation*}
