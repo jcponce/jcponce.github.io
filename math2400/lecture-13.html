@@ -62,16 +62,23 @@
 				<section data-auto-animate>
 					<h4>7.1 Partitions and lower and upper integrals</h4>
 					<div class="left-txt size-95">
-						<p><strong>Definition 7.1.1.</strong>
-							A <em>partition</em> $P$ of the interval $[a,b]$ is
-							a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
-							\begin{equation*}
-							a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
-							\end{equation*}
-							We write
+						<p>
+							<span  class="fragment" data-fragment-index="0">
+								<strong>Definition 7.1.1.</strong>
+								A <em>partition</em> $P$ of the interval $[a,b]$ is
+								a finite set of numbers $\{ x_0,x_1,x_2,\ldots,x_n \}$ such that
+								\begin{equation*}
+								a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n = b .
+								\end{equation*}
+							</span>
+							<span  class="fragment" data-fragment-index="1">
+								We write
 							\begin{equation*}
 							\Delta x_i := x_i - x_{i-1} .
 							\end{equation*}
+							</span>
+							
+							
 						</p>
 	
 					</div>
@@ -84,24 +91,32 @@
 					<h4>7.1 Partitions and lower and upper integrals</h4>
 					<div class="left-txt size-95">
 						
-						<p><strong>Definition 7.1.2. </strong>
+						<p>
+							<strong>Definition 7.1.2. </strong>
 							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
 							$[a,b]$.
-							Define
+							<span class="fragment" data-fragment-index="0">
+								Define
+							</span>
+							
+							
 						</p>
 						<p>
-							\begin{array}{cc}
+							<span class="fragment" data-fragment-index="0">
+								\begin{array}{cc}
 							 m_i := \inf \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,  \\
 							 L(P,f) :=
 							\ds\sum_{i=1}^n m_i \Delta x_i ,
 							\end{array}
+							</span>
+							
 						</p>
 	
 					</div>
 					<div class="left-txt size-95">
 						
 						<p>
-							<span class="fragment" data-fragment-index="0">
+							<span class="fragment" data-fragment-index="1">
 								We call $L(P,f)$ the <em>lower Darboux sum</em>.
 							</span>
 						</p>
@@ -113,17 +128,25 @@
 					<h4>7.1 Partitions and lower and upper integrals</h4>
 					<div class="left-txt size-95">
 						
-						<p><strong>Definition 7.1.2. </strong>
+						<p>
+							<strong>Definition 7.1.2. </strong>
 							Let $f \colon [a,b] \to \R$ be a bounded function. Let $P$ be a partition of
 							$[a,b]$.
-							Define
+							<span >
+								Define
+							</span>
+							
+							
 						</p>
 						<p>
-							\begin{array}{cc}
-							 M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,  \\
-							 U(P,f) :=
-							\ds\sum_{i=1}^n M_i \Delta x_i .
-							\end{array}
+							<span >
+								\begin{array}{cc}
+								M_i := \sup \, \bigl\{ f(x) : x_{i-1} \leq x \leq x_i \bigr\} ,  \\
+								U(P,f) :=
+							   \ds\sum_{i=1}^n M_i \Delta x_i .
+							   \end{array}
+							</span>
+							
 						</p>
 	
 					</div>
@@ -567,7 +590,7 @@ U(\widetilde{P},f) \leq U(P,f) .
 					</div>
 					<br/><br/><br/><br/><br/>
 				</section>
-				<section data-auto-animate>
+				<section data-auto-animate id="theorem-7-1-3">
 					<h4>7.1 Partitions and lower and upper integrals</h4>
 
 					<div class="size-95">
@@ -1322,7 +1345,7 @@ U(\widetilde{P},f) \leq U(P,f) .
 					<div class="left-txt size-85">
 						<p>
 							<span class="fragment" data-fragment-index="6">
-								Using Theorem 7.1.3 $\Ra \underline{\int_0^2} f \leq \overline{\int_0^2} f.$
+								Using <a href="#theorem-7-1-3">Theorem 7.1.3</a> $\Ra \underline{\int_0^2} f \leq \overline{\int_0^2} f.$
 							</span>
 							<span class="fragment" data-fragment-index="7">
 								Since $\epsilon$ was arbitrary,
