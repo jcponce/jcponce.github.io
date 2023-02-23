@@ -492,6 +492,601 @@ $
 				
 			</section>
 
+			<section>
+				<section data-auto-animate>
+					<h4>
+						Example 1.3.1
+					</h4>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<strong>Claim:</strong> $\inf\, \left\{\dfrac{1}{n} : n\in \N\right\} = 0$.
+							</p>
+						</div>
+					</div>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Proof.</strong> 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Let $A := \left\{ \dfrac{1}{n} : n \in \N \right\}$.  Notice that $A$ is not empty.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Moreover,
+									$\dfrac{1}{n} > 0$ for all $n \in \N,$ and so 0 is a lower bound.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									This means that $b := \inf\, A$ exists.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									As 0 is a lower bound, then $b \geq 0.$
+	
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Example 1.3.1
+					</h4>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<strong>Claim:</strong> $\inf\, \left\{\dfrac{1}{n} : n\in N\right\} = 0$.
+							</p>
+						</div>
+					</div>
+					<div class="left-txt">
+						<div class="size-90">
+							<p>
+								<span>
+									<strong>Proof.</strong> 
+								</span>
+								<span>
+									Now take an arbitrary $a > 0$. 
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									By the
+									Archimedean property there exists an $n$ such that
+									$na > 1$, 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									or in other words $a > \dfrac{1}{n}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									 $\in A$.  
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									Therefore,
+									$a$ cannot be a lower bound for $A$. 
+								</span><br/><br/>
+								<span class="fragment" data-fragment-index="6">
+									Hence $b=0.$ $\;\blacksquare$
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+				
+					<h4>Example 1.3.2.</h4>
+					
+					<div class="left-txt">
+							<p>
+								<strong>Claim:</strong> 
+								There exists a unique positive number 
+								$r\in \R$ such that $r^2=2$. We denote $r = \sqrt{2}$.
+	
+							</p>
+					</div>
+					
+					<br/><br/><br/>
+					<p>
+						<span style="font-size:90%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+					<br/><br/><br/>
+				</section>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h3>1.4 Using supremum and infimum</h3>
+					<div class="size-95">
+						<div class="left-txt">
+							<p>Suprema and infima are
+								compatible with algebraic operations.  
+								<span  class="fragment" data-fragment-index="0">
+									For a set $A \subset \R$ and 
+									$x \in \R$ define
+									\begin{align*}
+									x + A & := \{ x+y \in \R : y \in A \} , \\
+									xA & := \{ xy \in \R : y \in A \} .
+									\end{align*}
+								</span>
+								<span  class="fragment" data-fragment-index="1">
+								For example, if $A = \{ 1,2,3 \}$, 
+								</span>
+								<span  class="fragment" data-fragment-index="2">
+								then
+								</span>
+								
+								
+							</p>
+						</div>
+						<div>
+							<p>
+								<span  class="fragment" data-fragment-index="2">
+									$5+A = \{ 6,7,8 \}\;$ 
+								</span>
+								<span  class="fragment" data-fragment-index="3">
+									 and $\;3A = \{ 3,6,9\}$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h3>1.4 Using supremum and infimum</h3>
+					<div class="left-txt">
+						<div  style="font-size:79%">
+							<p><strong>Theorem 1.4.1. </strong>Let $A \subset \R$ be nonempty and $x\in \R$.
+							</p>
+							<ol style="line-height:60px">
+								<li class="fragment" data-fragment-index="1">
+									If  $A$ is bounded above, then $\sup (x+A) = x + \sup\, A$.
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									If  $A$ is bounded below, then $\inf (x+A) = x + \inf\, A$.
+
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									If $x \gt 0$ and $A$ is bounded above, then $\sup (xA) = x ( \sup\, A )$.
+
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									If $x \gt 0$ and $A$ is bounded below, then $\inf (xA) = x ( \inf\, A )$.
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									If $x \lt 0$ and $A$ is bounded below, then $\sup (xA) = x ( \inf\, A )$.
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									If $x \lt 0$ and $A$ is bounded above, then $\inf (xA) = x ( \sup\, A )$.
+								</li>
+							</ol>
+						</div>
+					</div>
+					<br/></br>
+				</section>
+				<section data-auto-animate>
+					<h3 style="font-size:85%;font-weight:normal">1. If  $A$ is bounded above, then $\sup (x+A) = x + \sup\, A$.</h3>
+					<div class="left-txt">
+						<div  style="font-size:87%;margin-top:-10px">
+							<p ><strong>Proof. </strong> 
+								<span class="fragment" data-fragment-index="0">
+									Assume $b$ is an upper bound for $A$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									That is, $y \leq b$ for all $y \in A$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Then $x+y \leq x+b$ for all $y \in A$,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									and so $x+b$ is an upper
+									bound for $x+A$.  
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									In particular, if $b = \sup\, A$, 
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									then
+									\begin{equation*}
+									\sup (x+A) \leq x+b = x+ \sup\, A .
+									\end{equation*} 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									In the other hand,
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									if $b$ is an upper bound for $x+A$,
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									then $x+y \leq b$
+									for all $y \in A$ 
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									and so $y \leq b-x$ for all $y \in A$.
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									So $b-x$ is an upper bound for $A$.
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									If $b =\sup (x+A),$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									 then 
+									 \begin{equation*}
+									 \sup\, A \leq b-x = \sup (x+A) -x . \;\bs
+									 \end{equation*}
+								</span>
+
+							</p>
+							
+						</div>
+					</div>
+					<br/>
+				</section>
+
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h3>1.5 Absolute value</h3>
+					
+					<div class="left-txt">
+						<p>
+							The absolute value is defined as
+							\begin{equation*}
+							\abs{x} :=
+							\begin{cases}
+							x &amp; \text{if } x \geq 0, \\
+							-x &amp; \text{if } x \lt 0 . \end{cases} \end{equation*} </p>
+					</div>
+	
+	
+					<br/><br/><br/>
+					<p>
+						<span style="font-size:70%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+	
+					<br/>
+				</section>
+
+				<section data-auto-animate id="theorem-1-5-1">
+					<h3>1.5 Absolute value</h3>
+					
+					<div class="left-txt size-95">
+						<p>
+							<strong>Theorem 1.5.1. </strong>
+						</p>
+						<ol>
+							<li>
+								$\abs{x} \geq 0$, moreover, $\abs{x}=0$ if and only if $x = 0$.
+							</li>
+							<li>
+								$\abs{-x} = \abs{x}$ for all $x \in \R$.
+							</li>
+							<li>
+								$\abs{xy} = \abs{x}\abs{y}$ for all $x,y \in \R$.
+
+							</li>
+							<li>
+								$\abs{x}^2 = x^2$ for all $x \in \R$.
+							</li>
+							<li>
+								$\abs{x} \leq y$ if and only if $-y \leq x \leq y$.
+
+							</li>
+							<li>
+								$-\abs{x} \leq x \leq \abs{x}$ for all $x \in \R$.
+
+							</li>
+
+						</ol>
+						<p class="fragment" data-fragment-index="0"><strong>Proof. </strong>📝 = Exercise!</p>
+					</div>
+	
+	
+					<p>
+						<span style="font-size:70%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+					<br/>
+	
+					<br/>
+				</section>
+				
+
+				<section data-auto-animate id="theorem-1-5-2">
+					<h3>1.5 Absolute value</h3>
+					<div class="left-txt">
+	
+						<p><strong>Theorem 1.5.2. </strong> (Triangle Inequality)
+							$$\abs{x+y} \leq \abs{x}+\abs{y}$$
+							for all $x, y \in \R$.
+						</p>
+
+						
+	
+					</div>
+					<br/><br/><br/>
+
+					<p>
+						<span style="font-size:70%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+					<br/>
+				</section>
+				<!--
+					<section data-auto-animate>
+					<h3>1.5 Absolute value</h3>
+					<div class="left-txt size-70">
+	
+						<p><strong>Theorem 1.5.2. </strong> (Triangle Inequality)
+							$\abs{x+y} \leq \abs{x}+\abs{y}$
+							for all $x, y \in \R$.
+						</p>
+
+						
+	
+					</div>
+					<div class="left-txt size-90">
+	
+						
+						<p>
+							<span >
+								<strong>Proof.</strong> 
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								<a href="#/theorem-1-5-1">Theorem 1.5.1</a> gives
+								$$- \abs{x} \leq x \leq \abs{x}\; \text{ and }\;
+								- \abs{y} \leq y \leq \abs{y}.$$ 
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							Add these two inequalities to obtain
+							\begin{equation*}
+							- \bigl(\abs{x}+\abs{y}\bigr) \leq x+y \leq \abs{x}+ \abs{y} .
+							\end{equation*}
+							
+						</p>
+
+						<p class="fragment" data-fragment-index="2">Apply again <a href="#/theorem-1-5-1">Theorem 1.5.1</a> to find
+							$\abs{x+y} \leq \abs{x}+\abs{y}$.</p>
+	
+					</div>
+					<br/><br/>
+				</section>
+				-->
+
+				<section data-auto-animate id="corollary-1-5-3">
+					<h3 style="font-size:90%">1.5 Absolute value</h3>
+					<div class="left-txt size-90">
+	
+						<p><strong>Corollary 1.5.3. </strong> </p>
+						<ol>
+							<li>Reverse triangle inequality:  $$\qquad \qquad \bigl\lvert (\abs{x}-\abs{y}) \bigr\rvert \leq \abs{x-y}.$$</li>
+							<li>
+								$\abs{x-y} \leq \abs{x}+\abs{y}$.
+							</li>
+						</ol>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								<strong>Proof. </strong> 📝 
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								For part 1, plug $x=a-b$ and $y = b$ into the standard triangle inequality, and use
+								<a href="#/theorem-1-5-1">Theorem 1.5.1</a>.
+							</span><br/>
+							<span class="fragment" data-fragment-index="1">
+								For part 2, replace $y\,$ by $-y\,$ in  the standard triangle inequality.
+							</span>
+						</p>
+						
+						
+					</div>
+					<div style="margin-top:-20px;">
+
+					<p>
+						<span style="font-size:70%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+					</div>
+					<br/><br/>
+
+				</section>
+
+				<section data-auto-animate id="corollary-1-5-4">
+					<h3>1.5 Absolute value</h3>
+					<div class="left-txt">
+	
+						
+						
+						<p>
+							<strong>Corollary 1.5.4. </strong> Let $x_1, x_2, \ldots, x_n \in \R$.  Then
+							\begin{equation*}
+							\abs{x_1 + x_2 + \cdots + x_n} \leq 
+							\abs{x_1} + \abs{x_2} + \cdots + \abs{x_n} .
+							\end{equation*}
+						</p>
+						
+						<p class="fragment" data-fragment-index="0"><strong>Proof. </strong>📝
+						
+							<span class="fragment" data-fragment-index="0">
+								Use induction. 😃
+							</span>
+						</p>
+					</div>
+					<br/><br/><br/>
+
+					<p>
+						<span style="font-size:70%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+					
+					<br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Example 1.5.1.</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								
+								Find a number $M$ such that $\sabs{x^2-3x+2} \leq M$ for all $-1 \leq x \leq5$.
+							</p>
+	
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									By the triangle inequality, 
+								</span>
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\sabs{x^2-3x+2}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ \leq \sabs{x^2}+\sabs{3x}+\sabs{2}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ =
+									\sabs{x}^2+3\sabs{x}+2 .$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									
+									Note that the expression
+									$\sabs{x}^2+3\sabs{x}+2$ is largest when $\abs{x}$ is largest.
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									In the interval
+									provided, $\abs{x}$ is largest when $x=5$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									and so $\abs{x}=5$. 
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									One
+									possibility for $M$ is
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									$M$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ = 5^2+3(5)+2$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$ = 42 .$
+								</span>
+							</p>
+						</div>
+					</div>
+					<p>
+						<span style="font-size:50%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							👀 Complementary reading 📖
+						</span>
+					</p>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 1.5.1.</h4>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								
+								Find a number $M$ such that $\sabs{x^2-3x+2} \leq M$ for all $-1 \leq x \leq5$.
+							</p>
+						</div>
+						<div style="margin-top:-25px">
+							<p>
+								<span>
+									$M$
+								</span>
+								<span>
+									$ = 5^2+3(5)+2$
+								</span>
+								<span>
+									$ = 42 .$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="r-stack"  style="margin-top:-25px">
+						<div class="fragment fade-out" data-fragment-index="0">
+							<img width="40%" src="images/summary-01/bound-m.png"> 
+						</div>
+						<div class="fragment fade-in" data-fragment-index="0">
+							<img width="40%"  src="images/summary-01/bound-m-2.png"> 
+						</div>
+						
+					</div>
+					
+					<br/><br/>
+
+				</section>
+
+				<section data-auto-animate id="bounded-function">
+					<h3>1.5 Absolute value</h3>
+					<div class="left-txt size-95">
+	
+						
+						
+						<p>
+							<strong>Definition 1.5.1. </strong> 
+							Suppose $f \colon D \to \R$ is a function.  
+							<span class="fragment" data-fragment-index="0">
+								We say $f$ is
+							<em>bounded</em>
+							if there exists a number $M$
+							such that $\abs{f(x)} \leq M$ for all $x \in D$.
+							</span>
+						</p>
+						
+						
+					</div>
+					<div class="r-stack"  style="margin-top:-25px">
+						<div class="fragment fade-in-then-out" data-fragment-index="1">
+							<img width="60%" src="images/summary-01/bound-function.png"> 
+						</div>
+						<div class="fragment fade-in" data-fragment-index="2">
+							<img width="60%"  src="images/summary-01/bound-function-2.png"> 
+						</div>
+						
+					</div>
+					<br/>
+				</section>
+			</section>
+
 
 			
 			
