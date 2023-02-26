@@ -58,37 +58,65 @@
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h4>2.3.2 Algebraic properties</h4>
 					
 					<div class="left-txt" style="font-size:80%">
-						<p><strong>Theorem 2.3.3. </strong> Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
+						<p><strong>Theorem 2.3.3. </strong> 
+							Let $\{ x_n \}$ and $\{ y_n \}$ be convergent sequences.
 						</p>
-						<ol >
-							<li class="fragment" data-fragment-index="0">The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
-								\begin{equation*}
-								\lim_{n \to \infty} (x_n \pm y_n) =
-								\lim_{n \to \infty} z_n =
-								\lim_{n \to \infty} x_n \pm
-								\lim_{n \to \infty} y_n .
-								\end{equation*}
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
-								\begin{equation*}
-								\lim_{n \to \infty} (x_n y_n) =
-								\lim_{n \to \infty} z_n =
-								\left( \lim_{n \to \infty} x_n \right)
-								\left( \lim_{n \to \infty} y_n \right) .
-								\end{equation*}
-							</li>
-							
-						</ol>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								1. The sequence $\{ z_n \}$, where $z_n := x_n \pm y_n$, converges and
+							</span>
+						</p>
+						
 					</div>
+					<div style="font-size:80%">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\ds \lim_{n \to \infty} (x_n \pm y_n) $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\ds  =
+							\lim_{n \to \infty} z_n $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$\ds  =
+							\lim_{n \to \infty} x_n \pm
+							\lim_{n \to \infty} y_n .$
+							</span>
+						</p>
+					</div>
+					<div class="left-txt" style="font-size:80%">
+						
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								2. The sequence $\{ z_n \}$, where $z_n := x_n y_n$, converges and
+							</span>
+						</p>
+						
+					</div>
+					<div style="font-size:80%">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$\ds \lim_{n \to \infty} (x_n y_n) $
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\ds =\lim_{n \to \infty} z_n  $
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$\ds  =\left( \lim_{n \to \infty} x_n \right)
+								\left( \lim_{n \to \infty} y_n \right) .$
+							</span>
+						</p>
+					</div>
+
+					
 					<br/><br/>
-					<br/>
+					<br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>2.3.2 Algebraic properties</h4>
 					
 					<div class="left-txt" style="font-size:80%">
@@ -97,22 +125,33 @@
 						<ol start="3">
 							
 							<li>
-								If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, then
-								the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges and
-								\begin{equation*}
-								\lim_{n \to \infty} \frac{x_n}{y_n} =
-								\lim_{n \to \infty} z_n =
-								%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
-								\frac{\lim\, x_n}{\lim\, y_n} .
-								\end{equation*}
+								
+								If $\lim\, y_n \not= 0$ and $y_n \not= 0$ for all $n \in \N$, 
+								<span class="fragment" data-fragment-index="0">
+									then
+									the sequence $\{ z_n \}$, where $z_n := \dfrac{x_n}{y_n}$, converges
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									and
+									\begin{equation*}
+									\lim_{n \to \infty} \frac{x_n}{y_n} =
+									\lim_{n \to \infty} z_n =
+									%\frac{\lim_{n \to \infty} x_n}{\lim_{n \to \infty} y_n} .
+									\frac{\lim\, x_n}{\lim\, y_n} .
+									\end{equation*}
+								</span>
+								
 							</li>
-							<li class="fragment" data-fragment-index="0">
+							<li class="fragment" data-fragment-index="2">
 								If $x_n \geq 0$,
-then
-\begin{equation*}
-\lim_{n\to\infty} \sqrt{x_n} =
-\sqrt{ \lim_{n\to\infty} x_n } .
-\end{equation*}
+								<span class="fragment" data-fragment-index="3">
+									then
+									\begin{equation*}
+									\lim_{n\to\infty} \sqrt{x_n} =
+									\sqrt{ \lim_{n\to\infty} x_n } .
+									\end{equation*}
+								</span>
+
 							</li>
 						</ol>
 					</div>
@@ -420,7 +459,7 @@ $$\ds\lim\, x_n^{1/k} = {(\lim\, x_n)^{1/k}} \; \text{for all }\;k \in \N.$$
 						<p class="fragment" data-fragment-index="0">Does $x_n$ converge? 🤔
 						</p>
 					</div>
-					<br/><br/><br/><br/><br/>
+					<br/><br/><br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>Example 2.3.2</h4>
