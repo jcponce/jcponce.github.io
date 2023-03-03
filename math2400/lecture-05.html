@@ -237,43 +237,45 @@
                 
 
 				<p>
-					<span class="fragment" data-fragment-index="0">
-						Let $s_k$ be the partial sum.
-					</span>
+					
 					<span class="fragment" data-fragment-index="1">
 						We write
+					</span>
+					<span class="fragment" data-fragment-index="1">
+						$\ds \sum_{n=1}^k \frac{1}{2^n} $
+					</span>
+					<span class="fragment" data-fragment-index="2">
+						$\ds=  1 - \frac{1}{2^k} .$
+					</span>
+					<span class="fragment" data-fragment-index="3">
+						Then
 					</span>
 				</p>
               </div>
 			  <div>
 
 				<p>
-					<span class="fragment" data-fragment-index="1">
-						$ \abs{
-							1 - s_k }$
-					</span>
-					<span class="fragment" data-fragment-index="2">
-						$\ds= \abs{ 1 - \sum_{n=1}^k \frac{1}{2^n} }$
-					</span>
 					<span class="fragment" data-fragment-index="3">
-						$\ds =
-						\abs{\frac{1}{2^k}}$
+						$\ds \lim_{k\to \infty } \sum_{n=1}^k \frac{1}{2^n} $
 					</span>
 					<span class="fragment" data-fragment-index="4">
-						$\ds= \frac{1}{2^k} . $
+						$\ds=  \lim_{k\to \infty }1 - \lim_{k\to \infty }\frac{1}{2^k} $
 					</span>
+					<span class="fragment" data-fragment-index="5">
+						$\ds= 1 . $ 
+					</span>
+					<!--
+						<span style="font-size:70%">
+						(by the <a href="lecture-04.html#/ratio-test-sequences" target="_blank">Ratio test</a>)
+					</span>
+					-->
 				</p>
 				
 			  </div>
 			  <div class="left-txt" style="margin-top:-10px">
-				<p class="fragment" data-fragment-index="5">
-					So we get the sequence $\ds\left\{ \frac{1}{2^k} \right\}$, 
-					<span class="fragment" data-fragment-index="6">
-						which means that $\bigl\{ \abs{1-s_k} \bigr\}$ converges to zero.
-					</span><br/><br/>
-					<span class="fragment" data-fragment-index="7">
-					  Hence, $\{ s_k \}$ converges to 1. $\;\bs$
-					</span>
+				<p class="fragment" data-fragment-index="6">
+					Therefore, the series $\ds\sum_{n=1}^\infty \frac{1}{2^n}$ converges and
+					its limit is 1.
 				</p>
 			  </div>
             </div>
