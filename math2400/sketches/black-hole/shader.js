@@ -68,7 +68,7 @@ const frag = `precision mediump float;
 			coord.x = (coord.x - 0.5) * aspect + 0.5;
 		}
 
-    vec3 eye = vec3(0.5, 0.5, map(max(aspect - 1., 1. - aspect), 0., 5., 0.27, 0.05));
+    vec3 eye = vec3(0.5, 0.5, map(max(aspect - 1., 1. - aspect), 0., 4., 0.27, 0.05));
 		eye.x += sin(time*0.055)*0.16;
 		eye.y += sin(time*0.03)*0.12;
 		eye.z += map(sin(time*0.15), -1., 1., 0., 0.2);

@@ -12,7 +12,8 @@ let bg
 
 function preload() {
 	// CC0 from /r/blender here: https://www.reddit.com/r/blender/comments/3ebzwz/free_space_hdrs_1/
-	bg = loadImage('crab-nebula.jpg')
+	//bg = loadImage('crab-nebula.jpg')
+  bg = loadImage('neb.jpeg')
 }
 
 function setup() {
