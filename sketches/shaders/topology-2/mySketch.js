@@ -20,7 +20,7 @@ function setup() {
   img_ratio = img.width / img.height;
   cam = 1.0;
   textFont(inc);
-  textSize(width / 13);
+  textSize(width / 20);
   textAlign(CENTER, CENTER);
 
   //s = createShader(vert, frag);
@@ -64,7 +64,7 @@ function draw() {
     fill(0);
     rect(-width / 2, -height / 2, width, height);
     fill(255);
-    text("Click to play!", 0, 0);
+    text("Click to play/pause!", 0, 0);
   }
 
   //console.log(cam)
