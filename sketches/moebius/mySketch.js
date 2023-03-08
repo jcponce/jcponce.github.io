@@ -91,7 +91,7 @@ function moebius(){
 	rotate(PI / 2);
 	rotateY(f / 450);
 	fill(230, 255, 255);
-	let max = 600;
+	let max = 400;
 	for (i = 0; i < max; i++) {
 		let I = i * (PI * 2 / max);
 		let J = i * (PI * 4 / max);
