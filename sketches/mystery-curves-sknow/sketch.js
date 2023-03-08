@@ -11,7 +11,7 @@ Date: 20-Oct-2020
 */
 
 let dots = [];
-let count = 40;
+let count = 50;
 let noiseval = 0.01;
 
 function setup() {
@@ -76,7 +76,7 @@ class curveObj {
     rotate(radians(this.rotAngle));
     scale(this.sizeScale, this.sizeScale);
     stroke(this.red, this.green, this.blue);
-    strokeWeight(0.115);
+    strokeWeight(0.155);
     strokeJoin(ROUND);
     noFill();
     beginShape();
