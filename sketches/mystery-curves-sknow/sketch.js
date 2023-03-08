@@ -80,7 +80,7 @@ class curveObj {
     strokeJoin(ROUND);
     noFill();
     beginShape();
-    for (let k = 0; k < 360; k += 0.5) {
+    for (let k = 0; k < 360; k += 1) {
       let t = map(k, 0, 360, 0, TWO_PI);
       let vs = this.sumC(t);
       vertex(vs.x, vs.y);
