@@ -53,7 +53,7 @@ function setup() {
         //rotation: [1, 1, 0, 0]
     });
 
-	colorMode(HSB);
+	//colorMode(HSB);
   blocks = [];
   rectMode(CENTER);
   smooth();
@@ -71,13 +71,24 @@ function draw(){
     // BG
     background(0);
 
-    rotateX(PI / 3);
+    
+ 
+    [2, -2, 1].map(i => spotLight(255, 255, 255, 0, -400 * i, 400 * i, 0, i, -i));
+
+    noStroke();
+	// Backdrop
+	push();
+	scale(1, 0.5, 1);
+	translate(0, -1600);
+	fill(220);
+	sphere(2000, 33);
+	pop();
+
+	rotateX(PI / 3);
     rotateZ(frameCount * 0.01);
   
     rotateY(oldYAngle+angleYtoRotate);
     rotateX(oldXAngle+angleXtoRotate);
- 
-    
   
   	//fill(199, 159, 185);  //pink bottom plate
   	//noStroke();
@@ -85,8 +96,12 @@ function draw(){
   	//fill(102, 102, 255, 120);
   	//stroke(5);
 	// lights
-	ambientLight(100);
-	pointLight(255, 255, 255, -100, 0, 200);
+	ambientLight(30);
+	// add point light to showcase specular material
+    //let locX = mouseX - width / 2;
+    //let locY = mouseY - height / 2;
+    //pointLight(255, 255, 255, locX, locY, 50);
+  
   	let nextBlocks = [];
  	 for(let block of blocks){
    	 block.display();
@@ -115,7 +130,8 @@ class Block{
 	constructor(){
 	  this.value = -0.9; //This variable stablishes where the cubes start to show
 	  this.radian = random(TWO_PI);
-	  this.clr = random(200,300);
+	  this.clr = random(150,185);
+	  this.clb = random(240,255);
 	}
 	
 	update(){
@@ -130,10 +146,12 @@ class Block{
 	  //*The variable "radious" stablishes the shape of the rotation. 
 	  //*Change the operation: "pow(this.value,2)". For example: "sin(4*this.value)" or "exp(this.value)", and see what happens...
 	  push();
-	  noStroke();
+	  //noStroke();
 	  translate(radious * sin(this.radian), radious * cos(this.radian), h);
-	  stroke(1);
-	  ambientMaterial(this.clr,215,305);
+	  //stroke(1);
+	  //ambientMaterial(this.clr,215,305);
+	  specularMaterial(this.clr,155,this.clb);
+	  shininess(20);
 	  box(size);
 	  pop();  
 	} 
