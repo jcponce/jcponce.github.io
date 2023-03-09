@@ -36,7 +36,7 @@ function setup() {
 
 
 function draw() {
-  cursor('pointer');
+  
   if (darkmode) {
     background(25);
     stroke(245);
@@ -166,7 +166,7 @@ class Button {
     this.touch = false;
     if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
       this.touch = true;
-    }
+    } 
     noFill();
     if (darkmode) {
       strokeWeight(3);
