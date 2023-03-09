@@ -72,7 +72,7 @@ function draw(){
     background(0);
 
     rotateX(PI / 3);
-    rotateZ(frameCount * 0.000001);
+    rotateZ(frameCount * 0.01);
   
     rotateY(oldYAngle+angleYtoRotate);
     rotateX(oldXAngle+angleXtoRotate);
