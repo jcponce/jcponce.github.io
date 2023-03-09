@@ -140,6 +140,43 @@ function mouseClicked(){
   }
 }
 
+function touchStarted(){
+  if(b1.touch && maxtimer-60 > 0){ maxtimer -=60;}
+  if(b2.touch){ maxtimer +=60;}
+  if(b3.touch && maxtimer-3600 > 0){ maxtimer -=3600;}
+  if(b4.touch){ maxtimer +=3600;}
+  if(b5.touch){ 
+    if(timeron == 0){
+      timer = maxtimer;
+      timeron = 1;
+      return;
+    }
+  }
+  if(b6.touch){ 
+    if(timeron == 1){
+      timeron = 2;
+      b6.message = "START";
+      return;
+    }
+    if(timeron == 2){
+      timeron = 1;
+      b6.message = "PAUSE";
+      return;
+    }
+  }
+  if(b7.touch){ 
+    if(timeron == 1 || timeron == 2){
+      timer = maxtimer;
+      timeron = 0;
+      return;
+    }
+  }
+  if(b8.touch){
+    darkmode = !darkmode;
+    return;
+  }
+}
+
 
 
 class Button {
