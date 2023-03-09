@@ -48,7 +48,8 @@ function draw() {
   }
   
   push();
-  strokeWeight(5);
+  strokeWeight(10);
+  //fill(10,0)
   noFill();
   arc(width/2, height/2, 200, 200, 0, (timer/(maxtimer+0.001)) * (PI*2));
   pop();
