@@ -39,12 +39,12 @@ function draw() {
   
   if (darkmode) {
     background(25);
-    stroke(245);
-    fill(245);
+    stroke(210);
+    fill(215);
   } else {
     background(245);
     stroke(25);
-    fill(25);
+    fill(35);
   }
   
   push();
@@ -171,10 +171,10 @@ class Button {
     noFill();
     if (darkmode) {
       strokeWeight(3);
-      stroke(245);
+      stroke(200);
       if (this.touch) {
         strokeWeight(4);
-        stroke(190);
+        stroke(100);
       }
     } else {
       strokeWeight(3);
