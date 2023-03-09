@@ -11,7 +11,7 @@ let timer = 3600;
 let maxtimer = 3600;
 let timeron = 0;
 let darkmode = false;
-let b1, b2, b3, b4, b5, b6, b7, b8; // Buttons
+let b1, b2, b3, b4, b5, b6, b7, b8, b9; // Buttons
 
 
 
@@ -19,27 +19,24 @@ function setup() {
   createCanvas(400, 400);
   //surface.setResizable(true);
   frameRate(60);
-  b1 = new Button(width/2-50-70, height-60, 70, 50, "<");
-  b2 = new Button(width/2-50+100, height-60, 70, 50, ">");
-  b3 = new Button(width/2-50-140, height-60, 70, 50, "<<");
-  b4 = new Button(width/2-50+170, height-60, 70, 50, ">>");
+  b1 = new Button(width/2-50-72, height-60, 70, 50, "<");
+  b2 = new Button(width/2-50+103, height-60, 70, 50, ">");
+  b3 = new Button(width/2-50-145, height-60, 70, 50, "<<");
+  b4 = new Button(width/2-50+175, height-60, 70, 50, ">>");
   b5 = new Button(width/2-50, height-60, 100, 50, "START");
   b6 = new Button(width/2-50, height-60, 50, 50, "PAUSE");
   b7 = new Button(width/2-50+50, height-60, 50, 50, "STOP");
-  b8 = new Button(10, 10, 50, 50, "DARK\nMODE");
+  b8 = new Button(10, 10, 50, 40, "DARK");
+  b9 = new Button(10, 60, 50, 40, "Reset");
   textFont("Century Gothic Bold", 20);
   //print(PFont.list());
   
-  centerX = width / 2;
-  centerY = height / 2;
-  screenPct = min(height, width) / 1000;
-  fontSize = screenPct * 100;
-  INNER_RADIUS = screenPct * 200;
-  RADIUS_VARIATION = screenPct * 200;
+  
 }
 
 
 function draw() {
+  cursor('pointer');
   if (darkmode) {
     background(25);
     stroke(245);
@@ -98,6 +95,7 @@ function draw() {
   }
   b8.message = (darkmode) ? "LIGHT" : "DARK";
   b8.draw();
+  b9.draw();
  
 }
 
@@ -136,6 +134,15 @@ function mouseClicked(){
     darkmode = !darkmode;
     return;
   }
+
+  if(b9.touch){
+    if(timeron == 0 || timeron == 1 || timeron == 2){
+      timer = 3600;
+      maxtimer = 3600;
+      timeron = 0;
+      return;
+    }
+  }
 }
 
 
@@ -162,18 +169,22 @@ class Button {
     }
     noFill();
     if (darkmode) {
+      strokeWeight(3);
       stroke(245);
       if (this.touch) {
-        stroke(200);
+        strokeWeight(4);
+        stroke(190);
       }
     } else {
-      stroke(85);
+      strokeWeight(3);
+      stroke(125);
       if (this.touch) {
+        strokeWeight(4);
         stroke(25);
       }
     }
     
-    strokeWeight(3);
+    //strokeWeight(3);
     rect(this.x, this.y, this.w, this.h, 2);
     if (darkmode) {
       fill(245);
