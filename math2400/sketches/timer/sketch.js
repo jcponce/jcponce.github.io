@@ -51,7 +51,7 @@ function draw() {
   strokeWeight(10);
   //fill(10,0)
   noFill();
-  arc(width/2, height/2, 200, 200, 0, (timer/(maxtimer+0.001)) * (PI*2));
+  arc(width/2, height/2, 200, 200, -PI/2, (timer/(maxtimer+0.001)) * (PI*2)-PI/2);
   pop();
   
   
@@ -59,8 +59,10 @@ function draw() {
   strokeWeight(1);
   textAlign(CENTER, CENTER);
   textSize(30);
+  let h = hour();
+  let m = minute();
   let max60 = floor(maxtimer/60);
-  text(max60 + " Second Timer", width/2, 50);
+  text(h + ":" + m, width/2, 50);
   pop();
   
   push();
@@ -69,7 +71,7 @@ function draw() {
   let minstoshow = floor(timer/3600);
   let secstoshow = floor(timer/60) % 60;
   textSize(40);
-  text(minstoshow + ":" + ((secstoshow < 10)?"0":"") + secstoshow, width/2, height/2-10);
+  text(minstoshow + ":" + ((secstoshow < 10)?"0":"") + secstoshow, width/2, height/2-5);
   pop();
   
  
