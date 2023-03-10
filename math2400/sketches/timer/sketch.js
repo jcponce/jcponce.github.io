@@ -59,10 +59,10 @@ function draw() {
   strokeWeight(1);
   textAlign(CENTER, CENTER);
   textSize(30);
-  let h = hour();
-  let m = minute();
+  //let h = hour();
+  //let m = minute();
   let max60 = floor(maxtimer/60);
-  text(h + ":" + m, width/2, 50);
+  text(max60 + " Seconds Timer", width/2, 50);
   pop();
   
   push();
