@@ -71,6 +71,7 @@
 						arsinh: "\\mbox{arsinh}\\,",
 						artanh: "\\mbox{artanh}\\,",
 						mat: ["{\\left(\\begin{array}{#1} #2\\end{array}\\right)}", 2],
+						dif: ["{\\frac{\\text{d}\\hspace{1pt}#1}{\\text{d}\\hspace{1pt}#2}}", 2],
 						conj: ["{\\overline{#1}}", 1],
 						abs: ["{\\left|#1\\right|}", 1],
 						sabs: ["{\\left|#1\\right|}", 1],
