@@ -462,7 +462,7 @@ a \leq \lim_{x\to c} f(x) \leq b .
 	
 	
 				<section data-auto-animate>
-					<h3>4.4 One-sided limits</h3>
+					<h4>4.4 One-sided limits</h4>
 					
 					<div class="left-txt size-90">
 						<p><strong>Theorem 4.4.1.</strong>
@@ -483,8 +483,93 @@ a \leq \lim_{x\to c} f(x) \leq b .
 						</p>
 					</div>
 	
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Proof of Theorem 4.4.1</h4>
+					
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								First, we know that $c$ is a cluster point of 
+								\[
+								S,\; S\cap \left(-\infty, c\right)\;\text{ and }\;  S\cap \left(c, \infty \right).
+								\]
+							</span>
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								Also note that
+								\[
+								S \setminus \{c\}= \big[ S\cap \left(-\infty, c\right)\big] \cup \big[ S\cap \left(c, \infty  \right)\big].
+								\]
+							</span>
+							
+						</p>
+						
+					</div>
+	
 					<br/><br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>Proof of Theorem 4.4.1</h4>
+					
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									$\nec$ Assume $\ds \lim_{x\to c}f(x) = L.$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Given $\vre \gt 0$, there exists $\delta \gt 0$ such that
+									for every $x\in S\setminus \{c\}$ and $\abs{x-c}\lt \delta$,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then 
+									\[
+									\abs{f(x)-L}\lt \vre . \qquad (\star)
+									\]
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									If $x\in S\cap \left(-\infty, c\right)$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\subset S\setminus \{c\},$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then $x\in S\setminus \{c\}$ 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									 and $x\lt c \implies 0\lt c-x.$ 
+								</span>
+								
+							</p>
+
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									That is $\abs{x-c}\lt \delta$ implies $0\lt c-x\lt \delta $ by $(\star)$. 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Then 
+									\[
+									\abs{f\big|_{S\cap \left(-\infty, c\right)}(x) -L}\lt \vre.
+									\]
+								</span>
+							</p>
+							
+						</div>
+					</div>
+	
+					<br/><br/><br/>
+				</section>
+
+
 			</section>
 
 
