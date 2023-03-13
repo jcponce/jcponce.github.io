@@ -152,11 +152,11 @@ void main() {
     //vec3 r = ca * normalize( vec3(uv.xy,1.5));
     vec2 nMouse = vec2(10.0*(u_mouse.x)-5.,3.0*((u_mouse.y)-.5));
     vec3 r;
-    if(u_mouse.x==0.&&u_mouse.y==0.){
+    //if(u_mouse.x==0.&&u_mouse.y==0.){
     	r = ca *  normalize( vec3(uv.xy,1.5));
-    }else{
-    	r = ca *  normalize( rotate(vec3(uv.xy,1.5),vec3(nMouse.x,nMouse.y,0.0)));
-    }
+    //}else{
+    	//r = ca *  normalize( rotate(vec3(uv.xy,1.5),vec3(nMouse.x,nMouse.y,0.0)));
+    //}
     //fragColor = vec4(trace(o, r),1.0);
 
   // gl_FragColor is a built in shader variable, and your .frag file must contain it
