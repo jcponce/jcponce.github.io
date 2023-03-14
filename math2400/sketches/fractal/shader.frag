@@ -5,7 +5,8 @@ https://www.shadertoy.com/view/4tGczc
 
 */
 
-// These are necessary definitions that let you graphics card know how to render the shader
+// These are necessary definitions that let you 
+// graphics card know how to render the shader
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -130,7 +131,8 @@ mat3 setCamera( in vec3 ro, in vec3 ta, float cr ){
 
 void main() {
     // copy the vTexCoord
-    // vTexCoord is a value that goes from 0.0 - 1.0 depending on the pixels location
+    // vTexCoord is a value that goes from 0.0 - 1.0 
+    // depending on the pixels location,
     // we can use it to access every pixel on the screen
   
     vec2 coord = vTexCoord;
@@ -144,8 +146,6 @@ void main() {
     v = v * scale;
 
     vec2 uv = vec2(u, v);
-  
-   // vec3 col = vec3(0.0);
 
 	float speed = 1.0/70.0;
     vec3 o = vec3(-path(u_time * speed),u_time * speed);
@@ -160,9 +160,10 @@ void main() {
     }else{
     	r = ca *  normalize( rotate(vec3(uv.xy,1.5),vec3(nMouse.x,nMouse.y,0.0)));
     }
-    //fragColor = vec4(trace(o, r),1.0);
 
-  // gl_FragColor is a built in shader variable, and your .frag file must contain it
-  // We are setting the vec3 color into a new vec4, with a transparency of 1 (no opacity)
+    // gl_FragColor is a built in shader variable, and 
+    // your .frag file must contain it
+    // We are setting the vec3 color into a new vec4,
+    // with a transparency of 1 (no opacity)
 	gl_FragColor = vec4(trace(o, r),1.0);
 }
