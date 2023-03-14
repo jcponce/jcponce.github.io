@@ -45,10 +45,18 @@ function draw() {
   xMouse = (xMouse * width) / height;
   yMouse = yMouse;
 
+  let isPressed;
+  if (mouseIsPressed === true) {
+    isPressed = true;
+  } else {
+    isPressed = false;
+  }
+
   // pass the interactive information to the shader
   theShader.setUniform("u_resolution", [width, height]);
   theShader.setUniform("u_time", millis() / 1000.0);
   theShader.setUniform("u_mouse", [xMouse, yMouse]);
+  theShader.setUniform("u_pressed", isPressed);
 
   // rect gives us some geometry on the screen to draw the shader on
   shaderBg.rect(0, 0, width, height);

@@ -1,7 +1,7 @@
 /*
 
-Original code by Increment: 
-https://www.shadertoy.com/view/slsBWN
+Original code by mathmasterzach: 
+https://www.shadertoy.com/view/4tGczc
 
 */
 
@@ -14,6 +14,7 @@ precision highp float;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
+uniform bool u_pressed;
 
 varying vec2 vTexCoord;
 
@@ -144,19 +145,21 @@ void main() {
 
     vec2 uv = vec2(u, v);
   
-    vec3 col = vec3(0.0);
+   // vec3 col = vec3(0.0);
 
-    vec3 o = vec3(-path(u_time/50.),u_time/50.);
-    vec3 ta = vec3(-path(.01+(u_time/50.)),.01+(u_time/50.));
+	float speed = 1.0/60.0;
+    vec3 o = vec3(-path(u_time * speed),u_time * speed);
+    vec3 ta = vec3(-path(.01+(u_time * speed)),.01+(u_time * speed));
     mat3 ca = setCamera( o, ta, 0.0 );
     //vec3 r = ca * normalize( vec3(uv.xy,1.5));
-    vec2 nMouse = vec2(10.0*(u_mouse.x)-5.,3.0*((u_mouse.y)-.5));
+    vec2 nMouse = vec2(u_mouse.x, u_mouse.y);
     vec3 r;
     //if(u_mouse.x==0.&&u_mouse.y==0.){
+	if(u_pressed == false){
     	r = ca *  normalize( vec3(uv.xy,1.5));
-    //}else{
-    	//r = ca *  normalize( rotate(vec3(uv.xy,1.5),vec3(nMouse.x,nMouse.y,0.0)));
-    //}
+    }else{
+    	r = ca *  normalize( rotate(vec3(uv.xy,1.5),vec3(nMouse.x,nMouse.y,0.0)));
+    }
     //fragColor = vec4(trace(o, r),1.0);
 
   // gl_FragColor is a built in shader variable, and your .frag file must contain it
