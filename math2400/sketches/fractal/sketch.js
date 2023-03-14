@@ -12,6 +12,7 @@ https://youtu.be/u5HAYVHsasc
 // a shader variable
 let theShader;
 let shaderBg;
+let isPressed = false;
 
 function preload() {
   // load the shader
@@ -45,6 +46,7 @@ function draw() {
   xMouse = (xMouse * width) / height;
   yMouse = yMouse;
 
+  /*
   let isPressed;
   if (mouseIsPressed === true) {
     isPressed = true;
@@ -53,6 +55,7 @@ function draw() {
     isPressed = false;
     cursor('grab')
   }
+  */
 
   // pass the interactive information to the shader
   theShader.setUniform("u_resolution", [width, height]);
@@ -69,4 +72,13 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+function mouseClicked() {
+  if (isPressed === false) {
+    isPressed = true;
+  } else {
+    isPressed = false;
+    
+  }
 }
