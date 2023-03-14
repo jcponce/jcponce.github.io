@@ -19,6 +19,9 @@ uniform bool u_pressed;
 
 varying vec2 vTexCoord;
 
+#define PI 3.14159265359
+#define TWO_PI 6.28318530718
+
 mat2 rot2(float a) {
 	float c = cos(a);
 	float s = sin(a);
@@ -36,6 +39,31 @@ vec3 hsv2rgb(vec3 c){
     vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
+
+// https://github.com/d3/d3-color
+vec3 cubehelix(vec3 c) {
+  float a = c.y * c.z * (1.0 - c.z);
+  float cosh = cos(c.x + PI / 2.0);
+  float sinh = sin(c.x + PI / 2.0);
+  return vec3(
+    (c.z + a * (1.78277 * sinh - 0.14861 * cosh)),
+    (c.z - a * (0.29227 * cosh + 0.90649 * sinh)),
+    (c.z + a * (1.97294 * cosh))
+  );
+}
+
+// https://github.com/d3/d3-scale-chromatic
+vec3 cubehelixDefault(float t) {
+  return cubehelix(vec3(mix(300.0 / 180.0 * PI, -240.0 / 180.0 * PI, t), 0.5, t));
+}
+
+// https://github.com/d3/d3-scale-chromatic
+vec3 cubehelixRainbow(float t) {
+  if (t < 0.0 || t > 1.0) t -= floor(t);
+  float ts = abs(t - 0.5);
+  return cubehelix(vec3((360.0 * t - 100.0) / 180.0 * PI, 1.5 - 1.5 * ts, 0.8 - 0.9 * ts));
+}
+
 float smax( in float a, in float b, in float s ){
     float h = clamp( 0.5 + 0.5*(a-b)/s, 0.0, 1.0 );
     return mix(b, a, h) + h*(1.0-h)*s;
@@ -115,7 +143,8 @@ vec3 trace(vec3 o, vec3 r){
     float diffuse = max(0.0, dot(-normalize(p-p2), normal));
     float specular = pow(diffuse, 32.0);
     //smooth color
-    vec3 albedo = hsv2rgb(vec3(40.*deSM(p),1.,1.));
+    //vec3 albedo = hsv2rgb(vec3(40.*deSM(p),1.,1.));
+    vec3 albedo = cubehelixRainbow(40.*deSM(p));
     //hard bands of color
     //vec3 albedo = hsv2rgb(vec3(.1*floor(de8xSM(p)*400.),1.,1.));
     return mix(albedo*(diffuse + specular),vec3(0.),steps/float(ITERATIONS));
@@ -127,6 +156,13 @@ mat3 setCamera( in vec3 ro, in vec3 ta, float cr ){
 	vec3 cv = normalize( cross(cu,cw) );
     return mat3( cu, cv, cw );
 }
+
+float map(float value, float min1, float max1, float min2, float max2) {
+  return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+}
+
+
+
 
 
 void main() {
@@ -160,6 +196,8 @@ void main() {
     }else{
     	r = ca *  normalize( rotate(vec3(uv.xy,1.5),vec3(nMouse.x,nMouse.y,0.0)));
     }
+
+    //float c1 = map(trace(o, r), -1.0, 1.0, 0.05, 0.3);
 
     // gl_FragColor is a built in shader variable, and 
     // your .frag file must contain it
