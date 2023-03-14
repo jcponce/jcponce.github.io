@@ -48,8 +48,10 @@ function draw() {
   let isPressed;
   if (mouseIsPressed === true) {
     isPressed = true;
+    cursor('grabbing')
   } else {
     isPressed = false;
+    cursor('grab')
   }
 
   // pass the interactive information to the shader
