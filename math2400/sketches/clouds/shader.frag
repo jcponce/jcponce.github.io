@@ -70,7 +70,7 @@ void main() {
 
     float u = coord.x * 2.0 - 1.0;
     float v = coord.y * 2.0 - 1.0;
-    const float scale = 1.21;
+    const float scale = 1.1;
 
     // Make sure pixels are square
     u = u * scale * u_resolution.x / u_resolution.y;
@@ -78,9 +78,8 @@ void main() {
 
     vec2 uv = vec2(u, v);
 
-    vec2 p = uv.xy / u_resolution.xy;	
-    //vec2 tem = vec2(uv.x,uv.y); 
-	//uv = p*tem;       
+    vec2 p = uv;	
+    //uv = p*vec2(u_resolution.x/u_resolution.y,1.0);      
     float time = u_time * speed;
     float q = fbm(uv * cloudscale * 0.5);
     
