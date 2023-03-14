@@ -19,7 +19,7 @@ uniform bool u_pressed;
 
 varying vec2 vTexCoord;
 
-const float cloudscale = .8;
+const float cloudscale = .7;
 const float speed = 0.01;
 const float clouddark = 0.5;
 const float cloudlight = 0.3;
