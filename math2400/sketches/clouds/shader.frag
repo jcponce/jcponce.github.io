@@ -68,18 +68,19 @@ void main() {
   
     vec2 coord = vTexCoord;
 
-    //float u = coord.x * 2.0 - 1.0;
-    //float v = coord.y * 2.0 - 1.0;
-    //const float scale = 1.21;
+    float u = coord.x * 2.0 - 1.0;
+    float v = coord.y * 2.0 - 1.0;
+    const float scale = 1.21;
 
     // Make sure pixels are square
-    //u = u * scale * u_resolution.x / u_resolution.y;
-    //v = v * scale;
+    u = u * scale * u_resolution.x / u_resolution.y;
+    v = v * scale;
 
-    //vec2 uv = vec2(u, v);
+    vec2 uv = vec2(u, v);
 
-    vec2 p = coord.xy / u_resolution.xy;	
-	vec2 uv = p*vec2(u_resolution.x/u_resolution.y,1.0);       
+    vec2 p = uv.xy / u_resolution.xy;	
+    //vec2 tem = vec2(uv.x,uv.y); 
+	//uv = p*tem;       
     float time = u_time * speed;
     float q = fbm(uv * cloudscale * 0.5);
     
