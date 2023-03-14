@@ -1,7 +1,7 @@
 /*
 
-Original code by mathmasterzach: 
-https://www.shadertoy.com/view/4tGczc
+Original code by drift: 
+https://www.shadertoy.com/view/4tdSWr
 
 */
 
