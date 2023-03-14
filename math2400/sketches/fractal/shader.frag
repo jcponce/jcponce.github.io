@@ -16,6 +16,7 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 uniform bool u_pressed;
+uniform int u_showMe;
 
 varying vec2 vTexCoord;
 
@@ -147,7 +148,8 @@ vec3 trace(vec3 o, vec3 r){
     vec3 albedo = cubehelixRainbow(40.*deSM(p));
     //hard bands of color
     //vec3 albedo = hsv2rgb(vec3(.1*floor(de8xSM(p)*400.),1.,1.));
-    return mix(albedo*(diffuse + specular),vec3(0.),steps/float(ITERATIONS));
+    
+    return mix(albedo*(diffuse + specular),vec3(0.0),steps/float(ITERATIONS));
 }
 mat3 setCamera( in vec3 ro, in vec3 ta, float cr ){
 	vec3 cw = normalize(ta-ro);
