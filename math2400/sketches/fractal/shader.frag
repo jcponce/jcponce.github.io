@@ -147,7 +147,7 @@ void main() {
   
    // vec3 col = vec3(0.0);
 
-	float speed = 1.0/60.0;
+	float speed = 1.0/70.0;
     vec3 o = vec3(-path(u_time * speed),u_time * speed);
     vec3 ta = vec3(-path(.01+(u_time * speed)),.01+(u_time * speed));
     mat3 ca = setCamera( o, ta, 0.0 );
