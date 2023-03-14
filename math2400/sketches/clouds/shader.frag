@@ -19,11 +19,11 @@ uniform bool u_pressed;
 
 varying vec2 vTexCoord;
 
-const float cloudscale = 1.1;
-const float speed = 0.03;
+const float cloudscale = .8;
+const float speed = 0.01;
 const float clouddark = 0.5;
 const float cloudlight = 0.3;
-const float cloudcover = 0.2;
+const float cloudcover = 0.3;
 const float cloudalpha = 8.0;
 const float skytint = 0.5;
 const vec3 skycolour1 = vec3(0.2, 0.4, 0.6);
