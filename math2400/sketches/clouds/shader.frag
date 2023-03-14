@@ -26,8 +26,8 @@ const float cloudlight = 0.3;
 const float cloudcover = 0.3;
 const float cloudalpha = 8.0;
 const float skytint = 0.5;
-const vec3 skycolour1 = vec3(0.2, 0.4, 0.6);
-const vec3 skycolour2 = vec3(0.4, 0.7, 1.0);
+const vec3 skycolour1 = vec3(0.22, 0.4, 0.7);
+const vec3 skycolour2 = vec3(0.2, 0.4, 0.65);
 
 const mat2 m = mat2( 1.6,  1.2, -1.2,  1.6 );
 
@@ -79,7 +79,8 @@ void main() {
     vec2 uv = vec2(u, v);
 
     vec2 p = uv;	
-    //uv = p*vec2(u_resolution.x/u_resolution.y,1.0);      
+    //vec2 p = fragCoord.xy / iResolution.xy;
+    uv = p*vec2(u_resolution.x/u_resolution.y,1.0);      
     float time = u_time * speed;
     float q = fbm(uv * cloudscale * 0.5);
     
