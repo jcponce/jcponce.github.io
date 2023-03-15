@@ -76,7 +76,7 @@ function draw() {
   textResponsive = width;
 
   push();
-  fill(255);
+  fill(255, sigmoid(timing));
   strokeWeight(1);
   stroke(0, sigmoid(timing));
   textAlign(CENTER)
@@ -107,6 +107,6 @@ function mouseClicked() {
 
 // A sigmoid function :)
 function sigmoid(t){
-  let k = - 10.0 / (1.0 + exp(t - 15.0));
+  let k = 200.0 - 200.0 / (1.0 + exp(-t + 15.0));
   return k;
 }
