@@ -114,6 +114,13 @@ float map(vec3 p){
     d=min(d,max(abs(p.x)-.001,abs(p.y)-.001));
     return d;
 }
+
+// A sigmoid function :)
+float sigmoid(float t){
+    float k = - 10.0 / (1.0 + exp(t - 15.0));
+    return k;
+}
+
 const float FAR_DIST=50.0;
 const float NEAR_DIST=.0001;
 const int ITERATIONS=128;
@@ -149,7 +156,7 @@ vec3 trace(vec3 o, vec3 r){
     //hard bands of color
     //vec3 albedo = hsv2rgb(vec3(.1*floor(de8xSM(p)*400.),1.,1.));
     
-    return mix(albedo*(diffuse + specular),vec3(0.0),steps/float(ITERATIONS));
+    return mix(albedo*(diffuse + specular),vec3(sigmoid(u_time)),steps/float(ITERATIONS));
 }
 mat3 setCamera( in vec3 ro, in vec3 ta, float cr ){
 	vec3 cw = normalize(ta-ro);
