@@ -1,45 +1,108 @@
-html,
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.selectable-text {
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%; 
-    overflow: hidden
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  font-family: FontAwesome, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: small;
+  color: rgb(200, 200, 200);
+  overflow: hidden;
 }
 
-canvas {
-    display: block;
+a {
+  color: rgb(200, 200, 200);
 }
-
-div.sticky {
-    position: fixed;
-    left: 15px;
-    width: 50%;
-    top: 25px;
-    font-size: 1.2vw;
-    font-family: Georgia;
-  } 
-
-/* unvisited link */
 a:link {
-  color: #b3d9ff;
   text-decoration: none;
 }
 
-/* visited link */
 a:visited {
-  color: #99ccff;
   text-decoration: none;
 }
 
-/* mouse over link */
 a:hover {
-  color: #8de0f2;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
-/* selected link */
 a:active {
-  color: #00cc99;
+  text-decoration: underline;
+}
+
+
+.hud {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #FFFFFF;
+  font-size: 13pt;
+  padding: 10px;
+
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 1px #000;
+}
+
+ul {
+  list-style-type: none;
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
+  padding: 10px;
+  color: 0xFFFFFF;
+}
+
+ul.two {
+  display: inline-block;
+  vertical-align: top;
+  /* float:left; */
+}
+
+li[gap] {
+  margin-top: 10px;
+}
+
+ul .green {
+  color: rgb(100, 200, 0);
+}
+
+ul .orange {
+  color: rgb(255, 128, 0);
 }
 
   /* From https://danielstern.ca/range.css/ */
