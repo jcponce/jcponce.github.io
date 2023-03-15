@@ -35,6 +35,7 @@ function setup() {
   // we put it in a backbroung, in case I need to draw 
   // something else (e.g., text)
   shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
+  cursor('pointer');
 }
 
 function draw() {
@@ -46,8 +47,9 @@ function draw() {
   shaderBg.shader(theShader);
 
   // get the mouse coordinates, map them to values between 0-1 space
-  let yMouse = (map(mouseY, 0, height, height, 0) / height) * 2 - 1;
-  let xMouse = (mouseX / width) * 2 - 1;
+  // The factors 1.5 and 2 are needed for the user view
+  let yMouse = 1.5 * ((map(mouseY, 0, height, height, 0) / height) * 2 - 1);
+  let xMouse = 2 * ((mouseX / width) * 2 - 1);
 
   // Make sure pixels are square
   xMouse = (xMouse * width) / height;
@@ -105,9 +107,10 @@ function windowResized() {
 function mouseClicked() {
   if (isPressed === false) {
     isPressed = true;
+    cursor('move');
   } else {
     isPressed = false;
-    
+    cursor('pointer');
   }
 }
 
