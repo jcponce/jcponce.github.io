@@ -78,9 +78,9 @@ function draw() {
   textSize(0.045 * textResponsive);
   translate(0,-0.065 * textResponsive);
   text('The beauty of mathematics \n shows itself to patient followers', windowWidth/2, windowHeight/2);
-  translate(0,0.145 * textResponsive);
+  translate(0,0.065 * textResponsive);
   textSize(0.03 * textResponsive);
-  text(' \n                                  — Maryam Mirzakhani', windowWidth/2, windowHeight/2-100);
+  text(' \n                                  — Maryam Mirzakhani', windowWidth/2, windowHeight/2);
   pop();
 
   
