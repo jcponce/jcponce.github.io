@@ -166,7 +166,8 @@ mat3 setCamera( in vec3 ro, in vec3 ta, float cr ){
     return mat3( cu, cv, cw );
 }
 
-float map(float value, float min1, float max1, float min2, float max2) {
+// Not sure if I need this :)
+float mapping(float value, float min1, float max1, float min2, float max2) {
   return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
 }
 

@@ -12,8 +12,12 @@ https://youtu.be/u5HAYVHsasc
 // a shader variable
 let theShader;
 let shaderBg;
+
+// Other variable I need
 let isPressed = false;
 let textResponsive;
+let fadeAway;
+let timing;
 
 function preload() {
   // load the shader
@@ -58,9 +62,10 @@ function draw() {
   }
   */
 
+  timing = millis() / 1000.0;
   // pass the interactive information to the shader
   theShader.setUniform("u_resolution", [width, height]);
-  theShader.setUniform("u_time", millis() / 1000.0);
+  theShader.setUniform("u_time", timing);
   theShader.setUniform("u_mouse", [xMouse, yMouse]);
   theShader.setUniform("u_pressed", isPressed);
 
@@ -72,8 +77,8 @@ function draw() {
 
   push();
   fill(255);
-  strokeWeight(2)
-  stroke(0);
+  strokeWeight(1);
+  stroke(0, sigmoid(timing));
   textAlign(CENTER)
   textSize(0.045 * textResponsive);
   translate(0,-0.065 * textResponsive);
@@ -98,4 +103,10 @@ function mouseClicked() {
     isPressed = false;
     
   }
+}
+
+// A sigmoid function :)
+function sigmoid(t){
+  let k = - 10.0 / (1.0 + exp(t - 15.0));
+  return k;
 }
