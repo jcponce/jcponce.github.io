@@ -13,6 +13,7 @@ https://youtu.be/u5HAYVHsasc
 let theShader;
 let shaderBg;
 let isPressed = false;
+let textResponsive;
 
 function preload() {
   // load the shader
@@ -67,11 +68,27 @@ function draw() {
   shaderBg.rect(0, 0, width, height);
   image(shaderBg, 0, 0, width, height);
 
+  textResponsive = width;
+
+  push();
+  fill(255);
+  strokeWeight(2)
+  stroke(0);
+  textAlign(CENTER)
+  textSize(0.045 * textResponsive);
+  translate(0,-0.065 * textResponsive);
+  text('The beauty of mathematics \n shows itself to patient followers', windowWidth/2, windowHeight/2);
+  translate(0,0.145 * textResponsive);
+  textSize(0.03 * textResponsive);
+  text(' \n                                  — Maryam Mirzakhani', windowWidth/2, windowHeight/2-100);
+  pop();
+
   
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  textResponsive = width;
 }
 
 function mouseClicked() {
