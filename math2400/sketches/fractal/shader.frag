@@ -124,7 +124,7 @@ float sigmoid(float t){
 const float FAR_DIST=50.0;
 const float NEAR_DIST=.0001;
 const int ITERATIONS=128;
-vec3 trace(vec3 o, vec3 r){
+vec3 trace(vec3 o, vec3 r, float d){
     float t = 0.;
     vec3 p;
     float steps=0.;
@@ -156,7 +156,7 @@ vec3 trace(vec3 o, vec3 r){
     //hard bands of color
     //vec3 albedo = hsv2rgb(vec3(.1*floor(de8xSM(p)*400.),1.,1.));
     
-    return mix(albedo*(diffuse + specular),vec3(sigmoid(u_time)),steps/float(ITERATIONS));
+    return mix(albedo*(diffuse + specular), vec3(d), steps/float(ITERATIONS));
 }
 mat3 setCamera( in vec3 ro, in vec3 ta, float cr ){
 	vec3 cw = normalize(ta-ro);
@@ -212,5 +212,5 @@ void main() {
     // your .frag file must contain it
     // We are setting the vec3 color into a new vec4,
     // with a transparency of 1 (no opacity)
-	gl_FragColor = vec4(trace(o, r),1.0);
+	gl_FragColor = vec4(trace(o, r, sigmoid(u_time)),1.0);
 }
