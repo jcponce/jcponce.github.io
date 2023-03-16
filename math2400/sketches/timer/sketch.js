@@ -41,17 +41,33 @@ function draw() {
     background(25);
     stroke(210);
     fill(215);
+    push();
+    stroke(50);
+    strokeWeight(10);
+    noFill();
+    arc(width/2, height/2, 200, 200, -PI/2, (PI*2)-PI/2);
+    pop();
   } else {
     background(245);
     stroke(25);
     fill(35);
+    push();
+    stroke(200);
+    strokeWeight(10);
+    noFill();
+    arc(width/2, height/2, 200, 200, -PI/2, (PI*2)-PI/2);
+    pop();
   }
+
+  
   
   push();
   strokeWeight(10);
   //fill(10,0)
   noFill();
+  
   arc(width/2, height/2, 200, 200, -PI/2, (timer/(maxtimer+0.001)) * (PI*2)-PI/2);
+  
   pop();
   
   
@@ -73,6 +89,8 @@ function draw() {
   textSize(40);
   text(minstoshow + ":" + ((secstoshow < 10)?"0":"") + secstoshow, width/2, height/2-5);
   pop();
+  
+  cursor('default');
   
  
   b1.draw();
@@ -100,6 +118,7 @@ function draw() {
   b8.draw();
   b9.draw();
  
+  
 }
 
 function mouseClicked(){
@@ -169,7 +188,8 @@ class Button {
     this.touch = false;
     if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
       this.touch = true;
-    } 
+      cursor('pointer');
+    }
     noFill();
     if (darkmode) {
       strokeWeight(3);
