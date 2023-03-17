@@ -7,6 +7,10 @@ Date: 12/March/2023
 Following the tutorial from the Art of code:
 https://youtu.be/u5HAYVHsasc
 
+Original shader by Sachary DeStefano
+https://www.shadertoy.com/view/4tGczc
+
+
 */
 
 // Shader variables
