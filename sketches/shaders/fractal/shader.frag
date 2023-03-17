@@ -171,10 +171,6 @@ float mapping(float value, float min1, float max1, float min2, float max2) {
   return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
 }
 
-
-
-
-
 void main() {
     // copy the vTexCoord
     // vTexCoord is a value that goes from 0.0 - 1.0 
@@ -185,7 +181,7 @@ void main() {
 
     float u = coord.x * 2.0 - 1.0;
     float v = coord.y * 2.0 - 1.0;
-    const float scale = 1.21;
+    const float scale = 1.0;
 
     // Make sure pixels are square
     u = u * scale * u_resolution.x / u_resolution.y;
@@ -200,14 +196,12 @@ void main() {
     //vec3 r = ca * normalize( vec3(uv.xy,1.5));
     vec2 nMouse = vec2(u_mouse.x, u_mouse.y);
     vec3 r;
-    //if(u_mouse.x==0.&&u_mouse.y==0.){
 	if(u_pressed == false){
     	r = ca *  normalize( vec3(uv.xy,1.5));
     }else{
     	r = ca *  normalize( rotate(vec3(uv.xy,1.5),vec3(nMouse.x,nMouse.y,0.0)));
     }
 
-    //float c1 = map(trace(o, r), -1.0, 1.0, 0.05, 0.3);
 
     // gl_FragColor is a built in shader variable, and 
     // your .frag file must contain it
