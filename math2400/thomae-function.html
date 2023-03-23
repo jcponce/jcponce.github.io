@@ -52,6 +52,15 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 
+			<section>
+				
+				<div>
+					<img style="width: 70%;" data-src="images/thomae/thomae.png" />
+				</div>
+				<h3>Thomae's function</h3>
+			</section>
+
+
 			<section id="intro">
 				<h4>Thomae's function</h4>
 				
@@ -59,7 +68,7 @@
 					<tr>
 
 						<th style="width:60%">
-							<div class="size-60" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+							<div class="size-75" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 
 								<p>
 									In 1875, the German mathematician  Johannes Karl Thomae (1840-1921) published
@@ -85,18 +94,21 @@
 
 					</tr>
 				</table>
+				<br/>
 			</section>
 
 			<section id="definition">
 				<h4>Definition</h4>
-				<div class="left-txt size-60">
+				<div class="left-txt size-80">
 					<p>
 						Define $f \colon [0,1] \to \R$ by
 						\begin{equation*}
 						f(x) :=
 						\begin{cases}
 						\dfrac{1}{q} & \text{if } x=\dfrac{p}{q} \text{ where }
-						p,q \in \N \text{ and } p \text{ and } q \text{ have no common divisors,} \\
+						p,q \in \N  \\
+						\quad & \text{and } \,p, q\, \text{ have no common divisors,}\\
+						\quad & \quad\\
 						0 & \text{if } x \text{ is irrational.}
 						\end{cases}
 						\end{equation*}
@@ -104,6 +116,8 @@
 
 
 				</div>
+				<br/><br/><br/>
+
 
 			</section>
 
@@ -123,22 +137,24 @@
 
 			<section id="geogebra-script">
 				<h4>GeoGebra script</h4>
-				<p><br/></p>
+				<p></p>
 				
 			
 <pre><code data-line-numbers="1-2">n := 200
 thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 </code></pre>
-<p class="size-50"><code> GCD( number, number ):</code> Calculates the greatest common divisor of the two numbers.</p>
+<div class="fragment"  data-fragment-index="0">
+	<p class="size-80"><code> GCD( number, number ):</code> <br/>Calculates the greatest common divisor of the two numbers.</p>
+</div>
 <p>
 	<br/><br/>
 </p>			
 </section>
 
-<section id="properties">
+<section id="properties" data-auto-animate>
 	<h4>Properties</h4>
 	
-	<div class="left-txt size-70">
+	<div class="left-txt size-90">
 		<p>
 			Thomae's function is:
 		</p>
@@ -159,141 +175,150 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 		
 
 	</div>
+	<br/>
+	<br/>
 
 </section>
 
-<section id="lemma">
-	<h4>Properties</h4>
+
+<section data-auto-animate>
+
+	<section id="lemma">
+		<h4>Properties</h4>
+		
+		<div class="left-txt size-80">
+			<p>
+				<strong>
+					Lemma:
+				</strong>
+				If $a$ is a point in $(0,1)$, then $\displaystyle \lim_{x\ra a}f(x)=0$
+			</p>
 	
-	<div class="left-txt size-70">
-		<p>
-			<strong>
-				Lemma:
-			</strong>
-			If $a$ is a point in $(0,1)$, then $\displaystyle \lim_{x\ra a}f(x)=0$
-		</p>
-
-		<p  class="fragment" data-fragment-index="0">
-			<strong>
-				Proof:
-			</strong>
-			For every $\epsilon>0$ choose an $N\in \N$ such that $1/N<\epsilon$.
-			
-
-		</p>
-
-		<p class="fragment" data-fragment-index="1">
-				Note that there are only finitely many rationals in lowest terms whose 
-				denominators are $N$ or smaller.
-		</p>
-
-		<p class="fragment" data-fragment-index="2">
-			For example, the only fractions with denominator $5$ or smaller are
-			\[
-			  \left\{     \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4}, \frac{3}{4}, \frac{1}{5}, \frac{2}{5}, \frac{3}{5},  \frac{4}{5} \right\} 
-			\]
-		</p>
-
-	</div>
-
-</section>
-
-<section>
-	<h4>Properties</h4>
-	
-	<div class="left-txt size-70">
-
-		<p>
-			<strong>
-				Proof (cont):
-			</strong>
-			Because this collection is finite, we can find a  
-			$\delta>0$ small enough such that the interval $(a-\delta, a+\delta)$
-			lies within $(0,1)$ and contains none of these fractions.
-			
-
-		</p>
-
-	</div>
-	
-	<img style="width: 90%;" class="r-stretch fragment"  data-src="images/thomae/thomae-line.svg"  data-fragment-index="0"/>
-
-	
-</section>
-
-<section>
-	<h4>Properties</h4>
-	
-	<div class="left-txt size-70">
-
-		<p>
-			<strong>
-				Proof (cont):
-			</strong>
-			Now we choose any $x$ with $0<|x-a|\lt \delta$ and consider
-			two cases.
-		</p>
-
-		<p class="fragment" data-fragment-index="0">
-			<em>Case 1</em> - If $x=p/q$ is a rational in lowest terms, 
-			<span class="fragment" data-fragment-index="1">
-				then 
-			\[
-			|\,f(x)-0|=|\,f\left(\,p/q\right)|=\frac{1}{q}\lt \frac{1}{N}\lt \epsilon,
-			\]
-			</span>
-			<span class="fragment" data-fragment-index="2">
-				because $q$ must be greater than $N$ if $p/q \in (a-\delta, a+\delta)$.
-			</span>
-
-		</p>
-
-	</div>
-
-	
-
-</section>
-
-<section>
-	<h4>Properties</h4>
-	
-	<div class="left-txt size-70">
-
-		<p>
-			<strong>
-				Proof (cont):
-			</strong>
-			<br/><br/>
-			<em>Case 2</em> - If $x$ is a irrational, 
-			<span class="fragment" data-fragment-index="0">
-				then 
-			$|\,f(x)-0|=0\lt \epsilon$ as well.
-			</span>
-		</p>
-
-		<p class="fragment" data-fragment-index="1">
-			In either case, for $\epsilon \gt 0$, we have found a $\delta>0$
-			such that, 
-			\[
-			\text{if }\, 0<|x-a|<\delta, \,\text{ then } \,|\,f(x)-0|\lt \epsilon.
-			\]
-			
-			<span class="fragment" data-fragment-index="2">That is
+			<p  class="fragment" data-fragment-index="0">
+				<strong>
+					Proof:
+				</strong>
+				For every $\epsilon>0$ choose an $N\in \N$ such that $1/N\lt \epsilon$.
 				
-				$\displaystyle \lim_{x\ra a}f(x)=0.$ $ \;\blacksquare$
-			</span>
-		</p>
-
-	</div>
-
 	
+			</p>
+	
+			<p class="fragment" data-fragment-index="1">
+					Note that there are only finitely many rationals in lowest terms whose 
+					denominators are $N$ or smaller.
+			</p>
+	
+			<p class="fragment" data-fragment-index="2">
+				For example, the only fractions with denominator $5$ or smaller are
+				\[
+				  \left\{     \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4}, \frac{3}{4}, \frac{1}{5}, \frac{2}{5}, \frac{3}{5},  \frac{4}{5} \right\} 
+				\]
+			</p>
+	
+		</div>
+	
+		<br/>
+	</section>
+	
+	<section data-auto-animate>
+		<h4>Properties</h4>
+		
+		<div class="left-txt size-80">
+	
+			<p>
+				<strong>
+					Proof (cont):
+				</strong>
+				Because this collection is finite, we can find a  
+				$\delta>0$ small enough such that the interval $(a-\delta, a+\delta)$
+				lies within $(0,1)$ and contains none of these fractions.
+				
+	
+			</p>
+	
+		</div>
+		
+		<img style="width: 100%;" class="fragment"  data-src="images/thomae/thomae-line.svg"  data-fragment-index="0"/>
+	
+		<br/><br/>
+		<br/><br/>
+	</section>
+	
+	<section data-auto-animate>
+		<h4>Properties</h4>
+		
+		<div class="left-txt size-80">
+	
+			<p>
+				<strong>
+					Proof (cont):
+				</strong>
+				Now we choose any $x$ with $0\lt|x-a|\lt \delta$ and consider
+				two cases.
+			</p>
+	
+			<p class="fragment" data-fragment-index="0">
+				<em>Case 1</em> - If $x=\dfrac{p}{q}\,$ is a rational in lowest terms, 
+				<span class="fragment" data-fragment-index="1">
+					then 
+				\[
+				|\,f(x)-0|=\left|\,f\left(\dfrac{p}{q}\right)\right|=\frac{1}{q}\lt \frac{1}{N}\lt \epsilon,
+				\]
+				</span>
+				<span class="fragment" data-fragment-index="2">
+					because $q$ must be greater than $N$ if $\,\dfrac{p}{q} \in (a-\delta, a+\delta)$.
+				</span>
+	
+			</p>
+	
+		</div>
+	
+		<br/><br/>
+	
+	</section>
+	
+	<section data-auto-animate>
+		<h4>Properties</h4>
+		
+		<div class="left-txt size-80">
+	
+			<p>
+				<strong>
+					Proof (cont):
+				</strong>
+				<br/><br/>
+				<em>Case 2</em> - If $x$ is a irrational, 
+				<span class="fragment" data-fragment-index="0">
+					then 
+				$|\,f(x)-0|=0\lt \epsilon$ as well.
+				</span>
+			</p>
+	
+			<p class="fragment" data-fragment-index="1">
+				In either case, for $\epsilon \gt 0$, we have found a $\delta>0$
+				such that, 
+				\[
+				\text{if }\, 0\lt|x-a|\lt\delta, \,\text{ then } \,|\,f(x)-0|\lt \epsilon.
+				\]
+				
+				<span class="fragment" data-fragment-index="2">That is
+					
+					$\displaystyle \lim_{x\ra a}f(x)=0.$ $ \;\blacksquare$
+				</span>
+			</p>
+	
+		</div>
+	
+		<br/><br/>
+	
+	</section>
 
 </section>
 
-<section id="continuous-at-irrationals">
+<section id="continuous-at-irrationals" data-auto-animate>
 	<h4>Properties</h4>
 	
-	<div class="left-txt size-70">
+	<div class="left-txt size-80">
 		<p>
 			<strong>
 				Claim 1:
@@ -317,13 +342,13 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 		<p class="fragment" data-fragment-index="2">So $f$ is continuous at $a$. $ \;\blacksquare$</p>
 
 	</div>
-
+	<br/><br/>
 </section>
 
-<section  id="discontinuous-at-rationals">
+<section  id="discontinuous-at-rationals" data-auto-animate>
 	<h4>Properties</h4>
 	
-	<div class="left-txt size-70">
+	<div class="left-txt size-80">
 		<p>
 			<strong>
 				Claim 2:
@@ -335,11 +360,11 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 			<strong>
 				Proof:
 			</strong>
-			If $a=p/q\in (0,1)$ in lowest terms,
+			If $a=\dfrac{p}{q}\in (0,1)$ in lowest terms,
 			<span class="fragment" data-fragment-index="3">
 				then
 				\[
-				f(a) = f(\,p/q) =\frac{1}{q} \neq  \lim_{x\ra a} f(x),
+				f(a) = f\left(\dfrac{p}{q}\right) =\frac{1}{q} \neq  \lim_{x\ra a} f(x),
 				\]
 			</span>
 			<span class="fragment" data-fragment-index="7">
@@ -349,132 +374,146 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 
 	</div>
 
+	<br/><br/>
 </section>
 
-<section id="riemann-integrable">
-	<h4>Properties</h4>
-	<div class="left-txt size-70">
-		<p>
-			<strong>
-				Claim 3:
-			</strong> 
-			Thomae's functions <em>is Riemann integrable</em> on $[0,1]$ and 
-			\[
-			\displaystyle \int_0^1 f = 0.
-			\]
-		</p>
-
-		<p class="fragment" data-fragment-index="0">
-			Because every subinterval of every partition $P$ of $[0, 1]$ 
-			contains irrational numbers, the lower sum $L(P,f)$ is 0.
-			
-			
-		</p>
-
-		<p class="fragment" data-fragment-index="1">
-			Thus, to see that Thomae's function is 
-			Riemann integrable, we need to show that, given 
-			$\epsilon \gt 0$, we can find a partition $P$ 
-			with respect to which 
-			\[U ( P, f ) \lt \epsilon.\] 
-		</p>
-	</div>
-</section>
 
 <section>
-	<h4>Properties</h4>
-	<div class="left-txt size-70">
-		<p>
-			<strong>
-				Claim 3:
-			</strong> 
-			Thomae's functions is Riemann integrable on $[0,1]$ and 
-			\[
-			\displaystyle \int_0^1 f = 0.
-			\]
-		</p>
-
-		<p>
-			<strong>
-				Proof:
-			</strong>
-			Let $\epsilon>0$. 
-			<span class="fragment" data-fragment-index="1">
-				Choose $n$ so that $1/n\lt \epsilon$. 
-			</span>
-
-		</p>
-
-		<p class="fragment" data-fragment-index="2">
-			Let $x_0\lt x_1 \lt \cdots \lt x_m$ be those rational points $p/q$
-			in $[0,1]$, in lowest term, with $q\lt n$.
-		</p>
-
-		<p class="fragment" data-fragment-index="3">
-			For example,  the only fractions with denominator smaller than 7 are
-			\[
-			 \left\{ \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4},  \frac{3}{4},   \frac{1}{5},  \frac{2}{5},  \frac{3}{5},\frac{4}{5}, \frac{1}{6}, \frac{5}{6}, \frac{6}{6}\right\} 
-			\]
-		</p>
-	</div>
-</section>
-
-<section>
-	<h4>Properties</h4>
-	<div class="left-txt size-70">
-		<p>
-			<strong>
-				Proof (cont):
-			</strong>
-			Choose a partition $P$ such that 
-			<span class="fragment" data-fragment-index="0">
-				 the intervals $[t_{i-1}, t_i]$ which contain
-			some $x_j$ have a total length  $\lt \epsilon/2$. 
-			</span>
-			<span class="fragment" data-fragment-index="1">
-				On each of the other intervals we have $M_i\leq 1/n\lt \epsilon/2$.
-			</span>
-		</p>
-
-		
-	</div>
-
-	<img style="width: 90%;" class="r-stretch fragment"  data-fragment-index="2" data-src="images/thomae/thomae-line2.svg" />
-
+	<section id="riemann-integrable" data-auto-animate>
+		<h4>Properties</h4>
+		<div class="left-txt size-80">
+			<p>
+				<strong>
+					Claim 3:
+				</strong> 
+				Thomae's functions <em>is Riemann integrable</em> on $[0,1]$ and 
+				\[
+				\displaystyle \int_0^1 f = 0.
+				\]
+			</p>
 	
+			<p class="fragment" data-fragment-index="0">
+				Because every subinterval of every partition $P$ of $[0, 1]$ 
+				contains irrational numbers, the lower sum $L(P,f)$ is 0.
+				
+				
+			</p>
+	
+			<p class="fragment" data-fragment-index="1">
+				Thus, to see that Thomae's function is 
+				Riemann integrable, we need to show that, given 
+				$\epsilon \gt 0$, we can find a partition $P$ 
+				with respect to which 
+				\[U ( P, f ) \lt \epsilon.\] 
+			</p>
+		</div>
+	</section>
+	
+	<section data-auto-animate>
+		<h4>Properties</h4>
+		<div class="left-txt size-80">
+			<div style="font-size:80%">
+				<p>
+					<strong>
+						Claim 3:
+					</strong> 
+					Thomae's functions is Riemann integrable on $[0,1]$ and 
+					$\displaystyle \int_0^1 f = 0.$
+				</p>
+			</div>
+	
+			<p>
+				<strong>
+					Proof:
+				</strong>
+				
+				<span class="fragment" data-fragment-index="0">
+					Let $\epsilon>0$.  
+				</span>
+				<span class="fragment" data-fragment-index="1">
+					Choose $n$ so that $1/n\lt \epsilon$. 
+				</span><br/>
+				<span class="fragment" data-fragment-index="2">
+					Let $x_0\lt x_1 \lt \cdots \lt x_m$ be those rational points $p/q$
+					in $[0,1]$, in lowest term, with $q\lt n$.
+				</span>
+	
+			</p>
+	
+			
+	
+			<p class="fragment" data-fragment-index="3">
+				For example,  the only fractions with denominator smaller than 7 are
+				\[
+				 \left\{ \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4},  \frac{3}{4},   \frac{1}{5},  \frac{2}{5},  \frac{3}{5},\frac{4}{5}, \frac{1}{6}, \frac{5}{6}, \frac{6}{6}\right\} 
+				\]
+			</p>
+		</div>
+		<br/><br/>
+	</section>
+	
+	<section data-auto-animate>
+		<h4>Properties</h4>
+		<div class="left-txt size-80">
+			<p>
+				<strong>
+					Proof (cont):
+				</strong>
+				Choose a partition $P$ such that 
+				<span class="fragment" data-fragment-index="0">
+					 the intervals $[t_{i-1}, t_i]$ which contain
+				some $x_j$ have a total length  $\lt \dfrac{\epsilon}{2}$. 
+				</span><br/>
+				<span class="fragment" data-fragment-index="1">
+					On each of the other intervals we have $M_i\leq \dfrac{1}{n}\lt \dfrac{\epsilon}{2}$.
+				</span>
+			</p>
+	
+			
+		</div>
+	
+		<img style="width: 100%;" class="fragment"  data-fragment-index="2" data-src="images/thomae/thomae-line2.svg" />
+	
+		<br/><br/><br/><br/>
+		
+	</section>
+	
+	
+	
+	<section data-auto-animate>
+		<h4>Properties</h4>
+		<div class="left-txt size-80">
+			<p>
+				<strong>
+					Proof (cont):
+				</strong>
+				Let $I_1$ denote all those $i$ for which $[t_{i-1},t_i]$ contains
+				some $x_j$, and let $I_2$ denote all the other $i$.
+			</p>
+	
+			<p class="fragment" data-fragment-index="0">
+				Since $f(x)\leq 1$ for every $x\in[0,1]$,
+				<span>
+					we have
+				</span>
+			</p>
+		</div>
+		<p class="size-70 fragment" data-fragment-index="1">
+			$\displaystyle U(P,f) = \sum_{i\in I_1}M_i (t_i-t_{i-1}) +\sum_{i\in I_2}M_i (t_i-t_{i-1}) $
+		</p>
+		<p class="size-70 fragment" data-fragment-index="2">
+			$\quad\qquad \displaystyle\leq 1\cdot \sum_{i\in I_1} (t_i-t_{i-1}) +\frac{\epsilon}{2}\sum_{i\in I_2} (t_i-t_{i-1}) $
+		</p>
+		<p class="size-70 fragment" data-fragment-index="3">
+			$\displaystyle\leq 1\cdot \frac{\epsilon}{2} +\frac{\epsilon}{2}\cdot 1 $
+			<span class="fragment" data-fragment-index="4">$= \epsilon.\;\quad  \blacksquare$</span>
+		</p>
+		<br/><br/>
+	</section>
+
 </section>
 
 
-
-<section>
-	<h4>Properties</h4>
-	<div class="left-txt size-70">
-		<p>
-			<strong>
-				Proof (cont):
-			</strong>
-			Let $I_1$ denote all those $i$ for which $[t_{i-1},t_i]$ contains
-			some $x_j$, and let $I_2$ denote all the other $i$.
-		</p>
-
-		<p class="fragment" data-fragment-index="0">
-			Since $f(x)\leq 1$ for every $x\in[0,1]$,
-			<span>
-				we have
-			</span>
-		</p>
-	</div>
-	<p class="size-70 fragment" data-fragment-index="1">
-		$\displaystyle U(P,f) = \sum_{i\in I_1}M_i (t_i-t_{i-1}) +\sum_{i\in I_2}M_i (t_i-t_{i-1}) $
-	</p>
-	<p class="size-70 fragment" data-fragment-index="2">
-		$\quad\qquad \displaystyle\leq 1\cdot \sum_{i\in I_1} (t_i-t_{i-1}) +\frac{\epsilon}{2}\sum_{i\in I_2} (t_i-t_{i-1}) $
-	</p>
-	<p class="size-70 fragment" data-fragment-index="3">
-		$\displaystyle\leq 1\cdot \frac{\epsilon}{2} +\frac{\epsilon}{2}\cdot 1 $
-		<span class="fragment" data-fragment-index="4">$= \epsilon.\;\quad  \blacksquare$</span>
-	</p>
-</section>
 
 
 
