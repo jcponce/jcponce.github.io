@@ -67,21 +67,33 @@
 				<table style="width:100%;">
 					<tr>
 
-						<th style="width:60%">
-							<div class="size-75" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
+						<th style="width:65%">
+							<div class="size-80" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
 
 								<p>
-									In 1875, the German mathematician  Johannes Karl Thomae (1840-1921) published
-									the book 
-									<em><a target="_blank" href="https://archive.org/details/einleitungindie00neumgoog/page/n26/mode/2up">Einleitung In Die Theorie Der Bestimmten Integrale</a></em>
-									where he introduced a very simple but provocative example of a 
-									function continuous at each irrational in $(0,1)$ and discontinuous at each 
-									rational in $(0,1)$ .
+									In 1875, the German mathematician  Johannes Karl Thomae (1840-1921) 
+									<span  class="fragment" data-fragment-index="0">
+										published
+										the book 
+										<em><a target="_blank" href="https://archive.org/details/einleitungindie00neumgoog/page/n26/mode/2up">Einleitung In Die Theorie Der Bestimmten Integrale</a></em>
+										
+									</span>
+									<span  class="fragment" data-fragment-index="1">
+										
+										where he introduced a very simple but provocative example of a 
+										function continuous at each irrational in $(0,1)$ 
+									</span>
+									<span  class="fragment" data-fragment-index="2">
+										and discontinuous at each 
+										rational in $(0,1).$
+									</span>
+									
+									
 								</p>
 
 							</div>
 						</th>
-						<th style="width:40%;">
+						<th style="width:35%;">
 							<img style="width: 60%; 
 					           display: block;
 					           margin-left: auto;
@@ -97,93 +109,98 @@
 				<br/>
 			</section>
 
-			<section id="definition">
-				<h4>Definition</h4>
-				<div class="left-txt size-80">
-					<p>
-						Define $f \colon [0,1] \to \R$ by
-						\begin{equation*}
-						f(x) :=
-						\begin{cases}
-						\dfrac{1}{q} & \text{if } x=\dfrac{p}{q} \text{ where }
-						p,q \in \N  \\
-						\quad & \text{and } \,p, q\, \text{ have no common divisors,}\\
-						\quad & \quad\\
-						0 & \text{if } x \text{ is irrational.}
-						\end{cases}
-						\end{equation*}
-					</p>
-
-
-				</div>
-				<br/><br/><br/>
-
-
-			</section>
-
-			<section id="plot">
-				<h4>Plot</h4>
-				
-				<img style="width: 90%;" data-src="images/thomae/thomae.png" />
-
-			</section>
-
-			<section id="plot-zoom">
-				<h4>Plot</h4>
-				
-				<img style="width: 87%;"  data-src="images/thomae/thomae-zoom.png" />
-
-			</section>
-
-			<section id="geogebra-script">
-				<h4>GeoGebra script</h4>
-				<p></p>
-				
 			
-<pre><code data-line-numbers="1-2">n := 200
-thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
-</code></pre>
-<div class="fragment"  data-fragment-index="0">
-	<p class="size-80"><code> GCD( number, number ):</code> <br/>Calculates the greatest common divisor of the two numbers.</p>
-</div>
-<p>
-	<br/><br/>
-</p>			
-</section>
-
-<section id="properties" data-auto-animate>
-	<h4>Properties</h4>
+			<section>
+				<section id="definition">
+					<h4>Definition</h4>
+					<div class="left-txt size-80">
+						<p>
+							Define $f \colon [0,1] \to \R$ by
+							\begin{equation*}
+							f(x) :=
+							\begin{cases}
+							\dfrac{1}{q} & \text{if } x=\dfrac{p}{q} \text{ where }
+							p,q \in \N  \\
+							\quad & \text{and } \,p, q\, \text{ have no common divisors,}\\
+							\quad & \quad\\
+							0 & \text{if } x \text{ is irrational.}
+							\end{cases}
+							\end{equation*}
+						</p>
 	
-	<div class="left-txt size-90">
-		<p>
-			Thomae's function is:
-		</p>
-
-		<ol style="width: 90%;line-height: 190%;">
-			<li class="fragment" data-fragment-index="0">
-				continuous at each irrational in $(0,1)$.
-			</li>
-			<li class="fragment" data-fragment-index="1">
-				discontinuous at each rational in $(0,1)$.
-			</li>
-			<li class="fragment" data-fragment-index="2">
-				Riemann integrable on $[0,1]$ and 
-			$\displaystyle \int_0^1 f = 0.$
-			
-			</li>
-		</ol>
-		
-
+	
+					</div>
+					<br/><br/><br/>
+	
+	
+				</section>
+	
+				<section id="plot">
+					<h4>Plot</h4>
+					
+					<img style="width: 90%;" data-src="images/thomae/thomae.png" />
+	
+				</section>
+	
+				<section id="plot-zoom">
+					<h4>Plot</h4>
+					
+					<img style="width: 87%;"  data-src="images/thomae/thomae-zoom.png" />
+	
+				</section>
+	
+				<section id="geogebra-script">
+					<h4>GeoGebra script</h4>
+					<p></p>
+					
+				
+	<pre><code data-line-numbers="1-2">n := 200
+	thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
+	</code></pre>
+	<div class="fragment"  data-fragment-index="0">
+		<p class="size-80"><code> GCD( number, number ):</code> <br/>Calculates the greatest common divisor of the two numbers.</p>
 	</div>
-	<br/>
-	<br/>
+	<p>
+		<br/><br/>
+	</p>			
+	</section>
+			</section>
 
-</section>
 
 
-<section data-auto-animate>
 
-	<section id="lemma">
+<section>
+
+	<section id="properties" data-auto-animate>
+		<h4>Properties</h4>
+		
+		<div class="left-txt size-90">
+			<p>
+				Thomae's function is:
+			</p>
+	
+			<ol style="width: 90%;line-height: 190%;">
+				<li class="fragment" data-fragment-index="0">
+					continuous at each irrational in $(0,1)$.
+				</li>
+				<li class="fragment" data-fragment-index="1">
+					discontinuous at each rational in $(0,1)$.
+				</li>
+				<li class="fragment" data-fragment-index="2">
+					Riemann integrable on $[0,1]$ and 
+				$\displaystyle \int_0^1 f = 0.$
+				
+				</li>
+			</ol>
+			
+	
+		</div>
+		<br/>
+		<br/>
+	
+	</section>
+
+	<section id="lemma" data-auto-animate>
 		<h4>Properties</h4>
 		
 		<div class="left-txt size-80">
@@ -315,66 +332,69 @@ thomae := Sequence(Sequence((p / q, GCD(p, q) / q), p, 1, q - 1), q, 2, n)
 
 </section>
 
-<section id="continuous-at-irrationals" data-auto-animate>
-	<h4>Properties</h4>
+
+<section>
+	<section id="continuous-at-irrationals" data-auto-animate>
+		<h4>Properties</h4>
+		
+		<div class="left-txt size-80">
+			<p>
+				<strong>
+					Claim 1:
+				</strong>
+				Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
+			</p>
 	
-	<div class="left-txt size-80">
-		<p>
-			<strong>
-				Claim 1:
-			</strong>
-			Thomae's function <em>is continuous at each irrational</em> in $(0,1)$.
-		</p>
-
-		<p class="fragment" data-fragment-index="0">
-			<strong>
-				Proof:
-			</strong>
-			This follows inmediately because, if $a\in (0,1)$ is irrational,
-			<span class="fragment" data-fragment-index="1">
-				then 
-				\[
-				f(a) = 0 =  \lim_{x\ra a} f(x) \;\text{ by the lemma}.
-				\]
-			</span>
-		</p>
-
-		<p class="fragment" data-fragment-index="2">So $f$ is continuous at $a$. $ \;\blacksquare$</p>
-
-	</div>
-	<br/><br/>
-</section>
-
-<section  id="discontinuous-at-rationals" data-auto-animate>
-	<h4>Properties</h4>
+			<p class="fragment" data-fragment-index="0">
+				<strong>
+					Proof:
+				</strong>
+				This follows inmediately because, if $a\in (0,1)$ is irrational,
+				<span class="fragment" data-fragment-index="1">
+					then 
+					\[
+					f(a) = 0 =  \lim_{x\ra a} f(x) \;\text{ by the lemma}.
+					\]
+				</span>
+			</p>
 	
-	<div class="left-txt size-80">
-		<p>
-			<strong>
-				Claim 2:
-			</strong>
-			Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
-		</p>
-
-		<p class="fragment" data-fragment-index="0">
-			<strong>
-				Proof:
-			</strong>
-			If $a=\dfrac{p}{q}\in (0,1)$ in lowest terms,
-			<span class="fragment" data-fragment-index="3">
-				then
-				\[
-				f(a) = f\left(\dfrac{p}{q}\right) =\frac{1}{q} \neq  \lim_{x\ra a} f(x),
-				\]
-			</span>
-			<span class="fragment" data-fragment-index="7">
-				and so $f$ is discontinuous at $a$. $ \;\blacksquare$
-			</span>
-		</p>
-
-	</div>
-
-	<br/><br/>
+			<p class="fragment" data-fragment-index="2">So $f$ is continuous at $a$. $ \;\blacksquare$</p>
+	
+		</div>
+		<br/><br/>
+	</section>
+	
+	<section  id="discontinuous-at-rationals" data-auto-animate>
+		<h4>Properties</h4>
+		
+		<div class="left-txt size-80">
+			<p>
+				<strong>
+					Claim 2:
+				</strong>
+				Thomae's function <em>is discontinuous at each rational</em> in $(0,1)$.
+			</p>
+	
+			<p class="fragment" data-fragment-index="0">
+				<strong>
+					Proof:
+				</strong>
+				If $a=\dfrac{p}{q}\in (0,1)$ in lowest terms,
+				<span class="fragment" data-fragment-index="3">
+					then
+					\[
+					f(a) = f\left(\dfrac{p}{q}\right) =\frac{1}{q} \neq  \lim_{x\ra a} f(x),
+					\]
+				</span>
+				<span class="fragment" data-fragment-index="7">
+					and so $f$ is discontinuous at $a$. $ \;\blacksquare$
+				</span>
+			</p>
+	
+		</div>
+	
+		<br/><br/>
+	</section>
 </section>
 
 
