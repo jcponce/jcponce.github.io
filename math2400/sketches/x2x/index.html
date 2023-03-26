@@ -38,7 +38,7 @@
       });
       three = mathbox.three;
 
-      three.camera.position.set(2.3, 1, 2);
+      three.camera.position.set(1.5, 1, 2.2);
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
       view = mathbox.cartesian({
@@ -48,9 +48,19 @@
           [-2, 2],
         ],
         scale: [1, 0.5, 0.5],
-      });
+        
+      },
+          {
+            quaternion: function (t) {
+              return [0, -Math.sin(t / 40), 0, Math.cos(t / 40)];
+            },
+          }
+      );
 
-      view.axis({
+      view.transform({
+          position: [-1, 0, 0],
+        }).
+        axis({
         width: 5,
         start: true,
         end: true,
@@ -76,7 +86,10 @@
         channels: 3,
       });
 
-      view.line({
+      view.transform({
+          position: [-1, 0, 0],
+        })
+        .line({
         color: 0x3090ff,
         width: 1.5,
         size: 1.5,
@@ -104,11 +117,14 @@
         channels: 3,
       });
 
-      view.line({
+      view.transform({
+          position: [-1, 0, 0],
+        })
+        .line({
         color: 0x3090ff,
         width: 1.5,
         size: 1.5,
-        start: true,
+        start: false,
         end: false,
       });
 
@@ -128,11 +144,14 @@
         channels: 3,
       });
 
-      view.line({
+      view.transform({
+          position: [-1, 0, 0],
+        })
+        .line({
         color: 0x000000,
         width: 6,
         size: 1.5,
-        start: true,
+        start: false,
         end: false,
       });
 
