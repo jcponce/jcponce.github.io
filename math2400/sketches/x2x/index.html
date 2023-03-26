@@ -79,7 +79,7 @@
       view.interval({
         width: wdth,
         expr: function (emit, x, i, time) {
-          //Curve(t, ℯ^(t ln(abs(t))) cos(2π t n), ℯ^(t ln(abs(t))) sin(2π t n), t, -4, 2)
+          //Curve(t, ℯ^(t ln(abs(t))) cos(π t n), ℯ^(t ln(abs(t))) sin(π t n), t, -4, 2)
           
 
           for(var k=1; k <=7; k++){
@@ -110,10 +110,10 @@
       view.interval({
         width: wdth,
         expr: function (emit, x, i, time) {
-          //Curve(t, ℯ^(t ln(abs(t))) cos(2π t n), ℯ^(t ln(abs(t))) sin(2π t n), t, -4, 2)
+          //Curve(t, ℯ^(t ln(abs(t))) cos(π t n), ℯ^(t ln(abs(t))) sin(π t n), t, -4, 2)
           
 
-          for(var k=1; k <=6; k++){
+          for(var k=1; k <=7; k++){
             var theta = x;
             var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * (k-7));
             var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * (k-7));
@@ -122,7 +122,7 @@
           
           
         },
-        items: 6,
+        items: 7,
         channels: 3,
       });
 
@@ -137,7 +137,7 @@
         end: false,
       });
 
-      // Main branche
+      // Main branch
       view.interval({
         width: wdth,
         expr: function (emit, x, i, time) {
