@@ -65,6 +65,10 @@
 
         deform *= cosineEase(time - 2);
 
+        /*
+        The following code is animate rotations using quaternions
+        */
+
         // Slerp to oscillating target quaternion
         q1.x = Math.cos((time - 100) * 0.123);
         q1.y = Math.cos((time - 100) * 0.224 - 1);
@@ -82,12 +86,12 @@
         boing *= 0.995;
 
         s = .7 + b1;
-        //[0, -Math.sin(t / 40), 0, Math.cos(t / 40)];
 
         // Use slerped q as rotation
         wrapper.set("quaternion", q2);
         // Use target as projection offset
         view.set("position", [q1.x * s, q1.y * s, q1.z * s, q1.w * s]);
+
       });
 
       clamp = function (x, a, b) {
@@ -158,10 +162,8 @@
           scale: [4, 4, 4, 1],
         });
 
-      //var q1 = new THREE.Quaternion();
-      //var q2 = new THREE.Quaternion();
 
-      /*
+      /*// To show lines
       view.area({
         rangeX: [-MathBox.π, MathBox.π],
         rangeY: [-MathBox.π / 2, MathBox.π / 2],
@@ -179,7 +181,7 @@
       view.line({
         color: 0x3080ff,
         zBias: 10,
-        width: 0,
+        width: 5,
       });
       */
 
@@ -198,7 +200,7 @@
       view.surface({
         shaded: true,
         color: 0x3080ff,
-        zBias: -5,
+        zBias: -1,
       });
 
       view.area({
@@ -216,7 +218,7 @@
       view.surface({
         shaded: true,
         color: 0xf3f3f3,
-        opacity: 1.0,
+        opacity: 1,
         zBias: -10,
       });
     </script>
