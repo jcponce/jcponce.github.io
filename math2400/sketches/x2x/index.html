@@ -50,6 +50,14 @@
       three.camera.position.set(1.3, 0.8, 1.8);
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
+      var x2x = (x, k) => {
+        var tmp = Math.exp(x * Math.log(Math.abs(x)));
+        var theta = Math.PI * x * k;
+        var a = tmp * Math.cos(theta);
+        var b = tmp * Math.sin(theta);
+        return {x: x, y: a, z: b}
+      }
+
       view = mathbox.cartesian({
         range: [
           [-5, 2],
@@ -83,10 +91,11 @@
           
 
           for(var k=1; k <=7; k++){
-            var theta = x;
-            var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * k);
-            var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * k);
-            emit(x, a, b);
+            //var theta = x;
+            //var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * k);
+            //var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * k);
+            var v = x2x(x, k);
+            emit(v.x, v.y, v.z);
           }
           
           
@@ -114,10 +123,11 @@
           
 
           for(var k=1; k <=7; k++){
-            var theta = x;
-            var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * (k-7));
-            var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * (k-7));
-            emit(x, a, b);
+            //var theta = x;
+            //var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * (k-7));
+            //var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * (k-7));
+            var v = x2x(x, k-7);
+            emit(v.x, v.y, v.z);
           }
           
           
@@ -143,10 +153,11 @@
         expr: function (emit, x, i, time) {
           //Curve(t, ℯ^(t ln(abs(t))) cos(π t n), ℯ^(t ln(abs(t))) sin(π t n), t, -4, 2)
  
-            var theta = x;
-            var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * 0);
-            var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * 0);
-            emit(x, a, b);
+            //var theta = x;
+            //var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * 0);
+            //var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * 0);
+            var v = x2x(x, 0)
+            emit(v.x, v.y, v.z);
 
         },
         items: 1,
