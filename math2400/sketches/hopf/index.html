@@ -46,6 +46,12 @@
       fa = 6;
       fb = 4;
 
+      q1 = new THREE.Quaternion();
+      q2 = new THREE.Quaternion(); 
+      first = true;
+      b1 = b2 = 0;
+      boing = 0;
+
       three.on("update", function () {
         time = three.Time.clock * 0.3;
         angle = wobbler(time / 5) * 0.6 + MathBox.π / 4 + 0.2;
@@ -58,6 +64,30 @@
         }
 
         deform *= cosineEase(time - 2);
+
+        // Slerp to oscillating target quaternion
+        q1.x = Math.cos((time - 100) * 0.123);
+        q1.y = Math.cos((time - 100) * 0.224 - 1);
+        q1.z = Math.cos((time - 100) * 0.161 + 1);
+        q1.w = Math.cos((time - 100) * 0.193 + 2);
+        q1.normalize();
+
+        q2.slerp(q1, 0.05);
+        if (first) q2.copy(q1);
+        first = false;
+        // Boing effect
+        f = 0.05;
+        b1 += (b2 - b1) * f;
+        b2 += (boing - b2) * f;
+        boing *= 0.995;
+
+        s = .7 + b1;
+        //[0, -Math.sin(t / 40), 0, Math.cos(t / 40)];
+
+        // Use slerped q as rotation
+        wrapper.set("quaternion", q2);
+        // Use target as projection offset
+        view.set("position", [q1.x * s, q1.y * s, q1.z * s, q1.w * s]);
       });
 
       clamp = function (x, a, b) {
@@ -113,7 +143,8 @@
           scale: [4, 4, 4, 1],
         });
         */
-        view = mathbox
+        wrapper = mathbox.transform();
+      view = wrapper
         .unit({
           scale: 500,
         })
