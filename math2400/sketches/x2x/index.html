@@ -88,16 +88,11 @@
         width: wdth,
         expr: function (emit, x, i, time) {
           //Curve(t, ℯ^(t ln(abs(t))) cos(π t n), ℯ^(t ln(abs(t))) sin(π t n), t, -4, 2)
-          
 
           for(var k=1; k <=7; k++){
-            //var theta = x;
-            //var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * k);
-            //var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * k);
             var v = x2x(x, k);
             emit(v.x, v.y, v.z);
           }
-          
           
         },
         items: 7,
@@ -119,17 +114,11 @@
       view.interval({
         width: wdth,
         expr: function (emit, x, i, time) {
-          //Curve(t, ℯ^(t ln(abs(t))) cos(π t n), ℯ^(t ln(abs(t))) sin(π t n), t, -4, 2)
           
-
           for(var k=1; k <=7; k++){
-            //var theta = x;
-            //var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * (k-7));
-            //var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * (k-7));
             var v = x2x(x, k-7);
             emit(v.x, v.y, v.z);
           }
-          
           
         },
         items: 7,
@@ -151,11 +140,7 @@
       view.interval({
         width: wdth,
         expr: function (emit, x, i, time) {
-          //Curve(t, ℯ^(t ln(abs(t))) cos(π t n), ℯ^(t ln(abs(t))) sin(π t n), t, -4, 2)
- 
-            //var theta = x;
-            //var a = Math.exp(theta * Math.log(Math.abs(theta))) * Math.cos(Math.PI * theta * 0);
-            //var b = Math.exp(theta * Math.log(Math.abs(theta))) * Math.sin(Math.PI * theta * 0);
+
             var v = x2x(x, 0)
             emit(v.x, v.y, v.z);
 
