@@ -50,11 +50,11 @@
       three.camera.position.set(1.3, 0.8, 1.8);
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
-      var x2x = (x, k) => {
-        var tmp = Math.exp(x * Math.log(Math.abs(x)));
-        var theta = Math.PI * x * k;
-        var a = tmp * Math.cos(theta);
-        var b = tmp * Math.sin(theta);
+      let x2x = (x, k) => {
+        let tmp = Math.exp(x * Math.log(Math.abs(x))),
+            theta = Math.PI * x * k,
+            a = tmp * Math.cos(theta),
+            b = tmp * Math.sin(theta);
         return {x: x, y: a, z: b}
       }
 
@@ -88,9 +88,9 @@
         width: wdth,
         expr: function (emit, x, i, time) {
           //Curve(t, ℯ^(t ln(abs(t))) cos(π t n), ℯ^(t ln(abs(t))) sin(π t n), t, -4, 2)
-
-          for(var k=1; k <=7; k++){
-            var v = x2x(x, k);
+          let v;
+          for(let k=1; k <=7; k++){
+            v = x2x(x, k);
             emit(v.x, v.y, v.z);
           }
           
@@ -115,8 +115,9 @@
         width: wdth,
         expr: function (emit, x, i, time) {
           
-          for(var k=1; k <=7; k++){
-            var v = x2x(x, k-7);
+          let v 
+          for(let k=1; k <=7; k++){
+            v = x2x(x, k-7);
             emit(v.x, v.y, v.z);
           }
           
@@ -141,8 +142,8 @@
         width: wdth,
         expr: function (emit, x, i, time) {
 
-            var v = x2x(x, 0)
-            emit(v.x, v.y, v.z);
+          let v = x2x(x, 0)
+          emit(v.x, v.y, v.z);
 
         },
         items: 1,
