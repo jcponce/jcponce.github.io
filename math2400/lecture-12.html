@@ -822,11 +822,14 @@ function mySin(x, iterNum) { // Taylor's expansion for sin
 function setup() {
  createCanvas(400, 220);
  background(220);
- let tempSin = mySin(3.14, 1); // Call my sin function
- let jsSin = sin(3.14); // Call the JavaScript built-in function
+ let v = 2 // Define the value to evaluate
+ let numbTerms = 1; // Number of terms on Taylor's expansion 
+ let tempSin = mySin(v, numbTerms); // Call my sin function
+ let jsSin = sin(v); // Call the JavaScript built-in function
  textSize(24);
- text('My Sin: '+ tempSin, 10, 80); // Shows my sin value
- text('  js Sin: '+ jsSin, 10, 120); // Shows the JavaScript built-in sin value
+ text('For x = '+ v + ' with ' + numbTerms + ' terms ', 10, 50); // Shows the value I want to evaluate
+ text('My Sin: '+ tempSin, 10, 90); // Shows my sin value
+ text('  js Sin: '+ jsSin, 10, 130); // Shows the JavaScript built-in sin value
 }
 </script>
 </div>
