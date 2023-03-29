@@ -10,7 +10,7 @@ https://openprocessing.org/user/110137?view=sketches&o=48
 
 let easycam;
 
-/*Music Time ina bottle by Jim Croce*/
+/*Music Time in a bottle by Jim Croce*/
 /*Code based on example from Daniel Shiffman.*/
 let song;
 let button;
