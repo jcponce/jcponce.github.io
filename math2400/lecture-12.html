@@ -811,9 +811,9 @@ is analogous.
 function mySin(x, iterNum) { // Taylor's expansion for sin
  let mxx = -x*x, sin = 1, // Define variables
  n = 0, term = 1;
- for (var i = 1; i <= 2*iterNum; i++) { // Loop
+ for (let i = 1; i <= 2*iterNum; i++) { // Loop
   n = n + 2;
-  term = term * mxx / ( n*(n+1) );
+  term = term * mxx / ( n * (n + 1) );
   sin += term;
  }
  return x*sin;
@@ -823,10 +823,10 @@ function setup() {
  createCanvas(400, 220);
  background(220);
  let tempSin = mySin(3.14, 1); // Call my sin function
- let jsSin = sin(3.14); // Call the JS built-in function
+ let jsSin = sin(3.14); // Call the JavaScript built-in function
  textSize(24);
  text('My Sin: '+ tempSin, 10, 80); // Shows my sin value
- text('JS Sin: '+ jsSin, 10, 120); // Shows the JS built-in sin value
+ text('  js Sin: '+ jsSin, 10, 120); // Shows the JavaScript built-in sin value
 }
 </script>
 </div>
