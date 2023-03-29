@@ -39,6 +39,12 @@ function setup() {
 	button.style('font-size:18px');
 	button.position(width / 2, height - 80);
 	button.mousePressed(toggle);
+
+	checkbox = createCheckbox(' Rotate', false);
+	checkbox.style('font-size:18px');
+	checkbox.changed(myCheckedEvent);
+	checkbox.position(width / 2+100, height - 78);
+
 	fft = new p5.FFT(0.5, 64);
 	frameRate(15);
 	
@@ -68,7 +74,10 @@ function draw(){
 	rotateX(1.3);
 	//rotateZ(frameCount * 0.01);
 
-	if(rot == true) rotateZ(frameCount * 0.01);
+	if(rot == true) {
+		rotateZ(angle);
+		angle += 0.01;
+	} else rotateZ(angle);
 
 	rotateZ(-0.5);
 	translate(-15,-15,-4);
@@ -145,13 +154,23 @@ function windowResized() {
 	button.position(width / 2, height - 50);
 }
 
+/*
 // this function fires with any double click anywhere
 let rot = false;
+let angle = 0;
 function doubleClicked() {
 	if(rot == false) {
 		rot = true;
 	} else rot = false
 }
+*/
 
+let rot = false;
+let angle = 0;
+function myCheckedEvent() {
+	if(checkbox.checked()) {
+		rot = true;
+	} else rot = false
+}
 
 
