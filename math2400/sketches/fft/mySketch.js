@@ -20,6 +20,7 @@ let mode = 0;
 
 function preload() {
 	song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
+	//song = loadSound('dark-sunrise.mp3');
 }
 
 
@@ -34,11 +35,11 @@ function setup() {
     
     easycam = new Dw.EasyCam(this._renderer, {distance : 40});
 	
-	  button = createButton('Play music!');
-		button.position(width / 2, height - 50);
-		button.mousePressed(toggle);
-		fft = new p5.FFT(0.5, 64);
-		frameRate(25);
+	button = createButton('Play music!');
+	button.position(width / 2, height - 50);
+	button.mousePressed(toggle);
+	fft = new p5.FFT(0.5, 64);
+	frameRate(15);
 	
 	  colorMode(HSB);
 }
@@ -135,6 +136,7 @@ class Spectrum {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
+	button.position(width / 2, height - 50);
 }
 
 
