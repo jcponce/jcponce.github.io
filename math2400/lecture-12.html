@@ -808,28 +808,46 @@ is analogous.
 	
 					<div>
 <script data-height="510" data-preview-width="400" type="text/p5">
-function mySin(x, iterNum) { // Taylor's expansion for sin
- let mxx = -x*x, sin = 1, // Define variables
+// Taylor's expansion for sin
+function mySin(x, iterNum) {
+ // Define variables
+ let mxx = -x*x, sin = 1,
  n = 0, term = 1;
- for (let i = 1; i <= 2*iterNum; i++) { // Loop
+
+ // Loop
+ for (let i = 1; i <= 2*iterNum; i++) { 
   n = n + 2;
   term = term * mxx / ( n * (n + 1) );
   sin += term;
  }
+ 
  return x*sin;
 }
 
 function setup() {
  createCanvas(400, 200);
  background(220);
- let x = 2 // Define the value to evaluate
- let numbTerms = 1; // Number of terms on Taylor's expansion 
- let tempSin = mySin(x, numbTerms); // Call my sin function
- let jsSin = sin(x); // Call the JavaScript built-in function
+ // Define the value to evaluate
+ let x = 2;
+
+ // Number of terms on Taylor's expansion 
+ let numbTerms = 1; 
+
+ // Call my sin function
+ let tempSin = mySin(x, numbTerms);
+
+ // Call the JavaScript built-in function
+ let jsSin = sin(x);
+
  textSize(24);
- text('For x = '+ x + ' with ' + numbTerms + ' terms ', 10, 50); // Shows the value I want to evaluate
- text('My Sin: '+ tempSin, 10, 90); // Shows my sin value
- text('  js Sin: '+ jsSin, 10, 130); // Shows the JavaScript built-in sin value
+ // Shows the value I want to evaluate
+ text('For x = '+ x + ' with ' + numbTerms + ' terms ', 10, 50); 
+
+ // Shows my sin value
+ text('My Sin: '+ tempSin, 10, 90);
+
+ // Shows the JavaScript built-in sin value
+ text('  js Sin: '+ jsSin, 10, 130);
 }
 </script>
 </div>
