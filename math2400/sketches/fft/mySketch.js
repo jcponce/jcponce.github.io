@@ -66,7 +66,7 @@ function draw(){
 	
 	rotateX(1.3);
 	rotateZ(-0.5);
-	translate(-15,-15,-2);
+	translate(-15,-15,-4);
 
 	///*
 	
