@@ -19,7 +19,8 @@ let spectra = [];
 let mode = 0;
 
 function preload() {
-	song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
+	//song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
+	song = loadSound('https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3');
 }
 
 
@@ -34,8 +35,9 @@ function setup() {
     
     easycam = new Dw.EasyCam(this._renderer, {distance : 40});
 	
-	button = createButton('Play music!');
-	button.position(width / 2, height - 50);
+	button = createButton('Play me!');
+	button.style('font-size:18px');
+	button.position(width / 2, height - 80);
 	button.mousePressed(toggle);
 	fft = new p5.FFT(0.5, 64);
 	frameRate(15);
@@ -64,8 +66,13 @@ function draw(){
 	let hh = 3;
 	
 	rotateX(1.3);
+	//rotateZ(frameCount * 0.01);
+
+	if(rot == true) rotateZ(frameCount * 0.01);
+
 	rotateZ(-0.5);
 	translate(-15,-15,-4);
+	
 
 	///*
 	
@@ -108,11 +115,11 @@ function draw(){
 function toggle() {
 	if (song.isPlaying()) {
 		song.pause();
-		button.html("play music!");
+		button.html("Play!");
 		song.setVolume(1);
 	} else {
 		song.play();
-		button.html("pause music!");
+		button.html("Pause!");
 	}
 }
 
@@ -136,6 +143,14 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
 	button.position(width / 2, height - 50);
+}
+
+// this function fires with any double click anywhere
+let rot = false;
+function doubleClicked() {
+	if(rot == false) {
+		rot = true;
+	} else rot = false
 }
 
 
