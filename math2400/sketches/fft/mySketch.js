@@ -37,13 +37,13 @@ function setup() {
 	
 	button = createButton('Play me!');
 	button.style('font-size:18px');
-	button.position(width / 2, height - 80);
+	button.position(20, 20);
 	button.mousePressed(toggle);
 
-	checkbox = createCheckbox(' Rotate', false);
+	checkbox = createCheckbox(' Spin', false);
 	checkbox.style('font-size:18px');
 	checkbox.changed(myCheckedEvent);
-	checkbox.position(width / 2+100, height - 78);
+	checkbox.position(20, 60);
 
 	fft = new p5.FFT(0.5, 64);
 	frameRate(15);
@@ -76,7 +76,7 @@ function draw(){
 
 	if(rot == true) {
 		rotateZ(angle);
-		angle += 0.01;
+		angle += 0.005;
 	} else rotateZ(angle);
 
 	rotateZ(-0.5);
@@ -151,7 +151,7 @@ class Spectrum {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
-	button.position(width / 2, height - 50);
+	
 }
 
 /*
