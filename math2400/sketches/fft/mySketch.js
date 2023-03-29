@@ -110,6 +110,9 @@ function draw(){
 			pop();
 		}
 	}
+
+	if (mode == 0) checkbox.style('color:white');
+	else checkbox.style('color:black');
 	
 	/*
 	// gizmo
