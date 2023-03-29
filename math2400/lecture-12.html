@@ -813,14 +813,11 @@ function mySin(x, iterNum) {
  // Define variables
  let mxx = -x*x, sin = 1,
  n = 0, term = 1;
-
- // Loop
- for (let i = 1; i <= 2*iterNum; i++) { 
+ for (let i = 1; i <= 2*iterNum; i++) { // Loop
   n = n + 2;
   term = term * mxx / ( n * (n + 1) );
   sin += term;
  }
- 
  return x*sin;
 }
 
@@ -829,28 +826,29 @@ function setup() {
  background(220);
  // Define the value to evaluate
  let x = 2;
-
  // Number of terms on Taylor's expansion 
  let numbTerms = 1; 
 
  // Call my sin function
  let tempSin = mySin(x, numbTerms);
-
  // Call the JavaScript built-in function
  let jsSin = sin(x);
 
  textSize(24);
  // Shows the value I want to evaluate
  text('For x = '+ x + ' with ' + numbTerms + ' terms ', 10, 50); 
-
  // Shows my sin value
  text('My Sin: '+ tempSin, 10, 90);
-
  // Shows the JavaScript built-in sin value
  text('  js Sin: '+ jsSin, 10, 130);
 }
 </script>
 </div>
+
+<div style="font-size: 18px;margin-top: -20px;">
+	<p>Play around with the code. Change the values of <code>x</code> in line 18 and <code>numbTerms</code> in line 20.</p>
+</div>
+
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 				</section>
 				
