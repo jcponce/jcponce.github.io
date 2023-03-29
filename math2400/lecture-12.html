@@ -808,16 +808,6 @@ is analogous.
 	
 					<div>
 <script data-height="500" data-preview-width="400" type="text/p5">
-function setup() {
- createCanvas(400, 220);
- textSize(24);
- background(220);
- let tempSin = mySin(3.14, 1);
- let builtSin = sin(3.14);
- text('   My Sin: '+ tempSin, 10, 80);
- text('Blt-in Sin: '+ builtSin, 10, 120);
-}
-	  
 function mySin(x, iterNum) {
  let mxx = -x*x, sin = 1, 
  n = 0, term = 1;
@@ -827,6 +817,16 @@ function mySin(x, iterNum) {
   sin += term;
  }
  return x*sin;
+}
+
+function setup() {
+ createCanvas(400, 220);
+ textSize(24);
+ background(220);
+ let tempSin = mySin(3.14, 1);
+ let builtSin = sin(3.14);
+ text('   My Sin: '+ tempSin, 10, 80);
+ text('Blt-in Sin: '+ builtSin, 10, 120);
 }
 </script>
 					</div>
