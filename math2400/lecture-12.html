@@ -350,22 +350,10 @@ is analogous.
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4 style="font-size:80%">6.2.2 Mean value theorem</h4>
-					<div class="size-45" style="text-align: left; margin-left: 0.1em;font-weight:normal;">
-	
-						<p>
-							<strong>Theorem 6.2.3.</strong> (Mean value theorem) Let $f \colon [a,b] \to \R$ be a continuous function
-				differentiable on $(a,b).$
-					Then there exists a point $c \in (a,b)$
-				such that
-				$
-				f(b)-f(a) = f'(c)(b-a) .
-				$
-						</p>
+					<h4 style="font-size:100%">Proof of the Mean value theorem</h4>
+					
 
-					</div>
-
-					<div class="size-85">
+					<div class="size-90">
 						<div class="left-txt">
 							<p><strong>Proof. </strong>
 								<span class="fragment" data-fragment-index="0">
@@ -427,7 +415,7 @@ is analogous.
 						</div>
 					</div>
 					
-					<br/><br/><br/>
+					<br/>
 				</section>
 	
 
@@ -814,6 +802,38 @@ is analogous.
 					<br/><br/>
 					<br/>
 				</section>
+
+				<section data-auto-animate>
+					<h4>6.4 Taylor's theorem</h4>
+	
+					<div>
+<script data-height="500" data-preview-width="400" type="text/p5">
+function setup() {
+ createCanvas(400, 220);
+ textSize(24);
+ background(220);
+ let tempSin = mySin(3.14, 1),
+ builtSin = sin(3.14);
+ text('   My Sin: '+ tempSin, 10, 80);
+ text('Blt-in Sin: '+ builtSin, 10, 120);
+}
+	  
+function mySin(x, iterNum) {
+ let mxx = -x*x, sin = 1, 
+ n = 0, term = 1;
+ for (var i = 1; i <= 2*iterNum; i++) {
+  n = n + 2;
+  term = term * mxx / ( n*(n+1) );
+  sin = sin + term
+ }
+ sin = x*sin;
+ return sin;
+}
+</script>
+					</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</section>
+				
 			</section>
 
 
@@ -1261,6 +1281,8 @@ Q(x) :=
 	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
 	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
 	<script src="mySetup/setup.js"></script>
+
+	<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
 	<script>
 		includeHTML();
