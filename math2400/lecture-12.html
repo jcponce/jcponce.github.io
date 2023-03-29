@@ -808,10 +808,10 @@ is analogous.
 	
 					<div>
 <script data-height="510" data-preview-width="400" type="text/p5">
-function mySin(x, iterNum) {
- let mxx = -x*x, sin = 1, 
+function mySin(x, iterNum) { // Taylor's expansion for sin
+ let mxx = -x*x, sin = 1, // Define variables
  n = 0, term = 1;
- for (var i = 1; i <= 2*iterNum; i++) {
+ for (var i = 1; i <= 2*iterNum; i++) { // Loop
   n = n + 2;
   term = term * mxx / ( n*(n+1) );
   sin += term;
@@ -825,8 +825,8 @@ function setup() {
  background(220);
  let tempSin = mySin(3.14, 1);
  let builtSin = sin(3.14);
- text('   My Sin: '+ tempSin, 10, 80);
- text('Blt-in Sin: '+ builtSin, 10, 120);
+ text('   My Sin: '+ tempSin, 10, 80); // Shows my sin value
+ text('Blt-in Sin: '+ builtSin, 10, 120); // Shows the build-in sin value
 }
 </script>
 </div>
