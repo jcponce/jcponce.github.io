@@ -15,7 +15,7 @@ function preload() {
 }
 
 let particles = []; // Array for particles
-let numMax = 1200; // Num of particles
+let numMax = 1100; // Num of particles
 let t = 0; // Initial time
 let h = 0.01; // delta h
 let currentParticle = 0;
