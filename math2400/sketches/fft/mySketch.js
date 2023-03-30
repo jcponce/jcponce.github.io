@@ -100,6 +100,16 @@ function draw(){
 			if (mode == 0) stroke(255, 50 + (j + 1) * 6);
 			else stroke(0, 50 + (j + 1) * 6);
 			fill(i*13, 80, 100, .5);
+			/*
+			push();
+			beginShape();
+			vertex(i, j, h);
+			vertex(i, j+1, h);
+			vertex(i+1, j+1, h);
+			vertex(i+1, j, h);
+			endShape(CLOSE);
+			pop();
+			*/
 			push();
 			beginShape();
 			vertex(i, j, 0);
