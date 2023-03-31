@@ -4,30 +4,32 @@
 import * as THREE from 'three';
 
 let first_click = true;
-document.addEventListener("click", function(){
-if (first_click) {
-	first_click  = false;
+
+
+
 
 let frequency_samples = 256;
 let ACTX = new AudioContext();
-//let audioElement = document.getElementById("myAudio");
-//let source = ACTX.createMediaElementSource(audioElement);
+let audioElement = document.getElementById("myAudio");
+audioElement.play();
+let src = ACTX.createMediaElementSource(audioElement);
 let ANALYSER = ACTX.createAnalyser();
-//source.connect(ANALYSER);
+src.connect(ANALYSER);
+//ANALYSER.connect(ACTX.destination);
 ANALYSER.fftSize = 4*frequency_samples;  
 ANALYSER.smoothingTimeConstant = 0.5;
 let DATA = new Uint8Array(ANALYSER.frequencyBinCount);
-let SOURCE;
+//let SOURCE;
 
 
 
-navigator.mediaDevices.getUserMedia({ audio: {echoCancellation:false} }).then(process_audio);
+//navigator.mediaDevices.getUserMedia({ audio: {echoCancellation:false} }).then(process_audio);
 
 //https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3
-function process_audio (stream) {
-	SOURCE = ACTX.createMediaStreamSource(stream);
-	SOURCE.connect(ANALYSER);
-}
+//function process_audio (stream) {
+//	SOURCE = ACTX.createMediaStreamSource(stream);
+//	SOURCE.connect(ANALYSER);
+//}
 			let requestId;
 			let camera,  scene, renderer;
 			let heights, mesh;
@@ -204,5 +206,5 @@ function process_audio (stream) {
 			
 		
 
-		}
-		});
+		
+		
