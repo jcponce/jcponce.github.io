@@ -10,11 +10,16 @@ if (first_click) {
 
 let frequency_samples = 256;
 let ACTX = new AudioContext();
+//let audioElement = document.getElementById("myAudio");
+//let source = ACTX.createMediaElementSource(audioElement);
 let ANALYSER = ACTX.createAnalyser();
+//source.connect(ANALYSER);
 ANALYSER.fftSize = 4*frequency_samples;  
 ANALYSER.smoothingTimeConstant = 0.5;
 let DATA = new Uint8Array(ANALYSER.frequencyBinCount);
 let SOURCE;
+
+
 
 navigator.mediaDevices.getUserMedia({ audio: {echoCancellation:false} }).then(process_audio);
 
@@ -24,7 +29,7 @@ function process_audio (stream) {
 	SOURCE.connect(ANALYSER);
 }
 			let requestId;
-			let camera,  orthoCamera, scene, renderer;
+			let camera,  scene, renderer;
 			let heights, mesh;
 			let time_samples = 600;
 			let n_vertices = (frequency_samples+1) * (time_samples+1);
@@ -154,26 +159,26 @@ function process_audio (stream) {
 				//
 				mesh.geometry.computeFaceNormals();
 				mesh.geometry.computeVertexNormals();
-				// window.addEventListener( 'resize', onWindowResize, false );
+				 window.addEventListener( 'resize', onWindowResize, false );
 				// Initialize Audio stuff
 				animate();
 				
 
 			}
 
-			// function onWindowResize() {
+			 function onWindowResize() {
 
-			// 	camera.aspect = window.innerWidth / window.innerHeight;
-			// 					console.log(window.innerHeight);
-			// 					console.log(window.innerWidth);
+			 	camera.aspect = window.innerWidth / window.innerHeight;
+			 					console.log(window.innerHeight);
+			 					console.log(window.innerWidth);
 
-			// 	camera.updateProjectionMatrix();
+			 	camera.updateProjectionMatrix();
 
-			// 	renderer.setSize( window.innerWidth, window.innerHeight );
+			 	renderer.setSize( window.innerWidth, window.innerHeight );
 
-			// }
+			 }
 
-			//
+			
 
 			function animate() {
 				requestId = requestAnimationFrame( animate );
