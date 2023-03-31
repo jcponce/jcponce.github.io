@@ -1,9 +1,7 @@
 // https://calebgannon.com/2021/01/09/spectrogram-with-three-js-and-glsl-shaders/
 
 "use strict";
-import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/build/three.module.js';
-
-
+import * as THREE from 'three';
 
 let first_click = true;
 document.addEventListener("click", function(){
@@ -25,7 +23,7 @@ function process_audio (stream) {
 	SOURCE.connect(ANALYSER);
 }
 			let requestId;
-			let camera, scene, renderer;
+			let camera,  orthoCamera, scene, renderer;
 			let heights, mesh;
 			let time_samples = 600;
 			let n_vertices = (frequency_samples+1) * (time_samples+1);
@@ -41,15 +39,12 @@ function process_audio (stream) {
 			
 			init();
 
-		
-
-
 			function init() {
-
 
 				camera = new THREE.PerspectiveCamera( 27, window.innerWidth / window.innerHeight, 1, 1000 );
 				//camera.position.z = 64;
-				camera.position.set( 0, 0, 64 );
+				camera.position.set(0, 0, 64 );
+			
 
 				scene = new THREE.Scene();
 				let geometry = new THREE.BufferGeometry();
