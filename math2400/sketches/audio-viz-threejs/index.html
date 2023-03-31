@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by caleb</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script type="x-shader/x-vertex" id="vertexshader">
+			attribute float displacement;
+			uniform vec3 vLut[256];
+			varying vec3 vColor;
+
+			void main()
+			{
+
+				int index = int(displacement);
+				vColor = vLut[index];
+				vec3 newPosition = position + normal*displacement/25.5;
+				gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition,1.0);
+			}
+
+	</script>
+
+	<script type="x-shader/x-fragment" id="fragmentshader">
+		varying vec3 vColor;
+
+				void main()
+				{
+					gl_FragColor 	= vec4(vColor,1.0);
+				}
+
+	</script>
+<div id ="Spectrogram"></div>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>
