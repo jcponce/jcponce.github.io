@@ -101,7 +101,7 @@ function draw(){
 			let h = map(spec[i] * adjust, 0, 255, 0, hh);
 			if (mode == 0) stroke(255);
 			else stroke(0);
-			fill(i*13, 80, 100, .5);
+			fill(i*12, 90, 100, 0.5);
 			/*
 			push();
 			beginShape();
@@ -142,7 +142,7 @@ function toggle() {
 		button.html("Play!");
 		song.setVolume(1);
 	} else {
-		song.play();
+		song.loop();
 		button.html("Pause!");
 	}
 }
