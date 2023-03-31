@@ -99,8 +99,8 @@ function draw(){
 		for (i = 0; i < 32; i += 1) {
 			let adjust = (i + 1) * (i * 1) / 90;
 			let h = map(spec[i] * adjust, 0, 255, 0, hh);
-			if (mode == 0) stroke(255, 50 + (j + 1) * 6);
-			else stroke(0, 50 + (j + 1) * 6);
+			if (mode == 0) stroke(255);
+			else stroke(0);
 			fill(i*13, 80, 100, .5);
 			/*
 			push();
