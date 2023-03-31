@@ -1,5 +1,10 @@
+// https://calebgannon.com/2021/01/09/spectrogram-with-three-js-and-glsl-shaders/
+
 "use strict";
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/build/three.module.js';
+
+
+
 let first_click = true;
 document.addEventListener("click", function(){
 if (first_click) {
@@ -43,7 +48,8 @@ function process_audio (stream) {
 
 
 				camera = new THREE.PerspectiveCamera( 27, window.innerWidth / window.innerHeight, 1, 1000 );
-				camera.position.z = 64;
+				//camera.position.z = 64;
+				camera.position.set( 0, 0, 64 );
 
 				scene = new THREE.Scene();
 				let geometry = new THREE.BufferGeometry();
