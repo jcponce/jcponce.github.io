@@ -15,6 +15,7 @@ ANALYSER.fftSize = 4*frequency_samples;
 ANALYSER.smoothingTimeConstant = 0.5;
 let DATA = new Uint8Array(ANALYSER.frequencyBinCount);
 let SOURCE;
+
 navigator.mediaDevices.getUserMedia({ audio: {echoCancellation:false} }).then(process_audio);
 
 //https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3
@@ -43,7 +44,7 @@ function process_audio (stream) {
 
 				camera = new THREE.PerspectiveCamera( 27, window.innerWidth / window.innerHeight, 1, 1000 );
 				//camera.position.z = 64;
-				camera.position.set(0, 0, 64 );
+				camera.position.set(0, 0, 64);
 			
 
 				scene = new THREE.Scene();
