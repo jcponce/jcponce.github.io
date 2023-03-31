@@ -42,7 +42,7 @@ function setup() {
 
 	checkbox = createCheckbox(' Spin', false);
 	checkbox.style('font-size:18px');
-	checkbox.style('color:white');
+	checkbox.style('color: white');
 	checkbox.changed(myCheckedEvent);
 	checkbox.position(20, 60);
 
