@@ -42,6 +42,7 @@ function setup() {
 
 	checkbox = createCheckbox(' Spin', false);
 	checkbox.style('font-size:18px');
+	checkbox.style('color:white');
 	checkbox.changed(myCheckedEvent);
 	checkbox.position(20, 60);
 
@@ -85,7 +86,7 @@ function draw(){
 
 	///*
 	
-	strokeWeight(1);
+	strokeWeight(0.07);
 	for (j = 0; j < spectra.length; j++) {
 		if (j == spectra.length - 1) {
 			fill(255, 200);
