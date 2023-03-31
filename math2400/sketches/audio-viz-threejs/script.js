@@ -11,7 +11,6 @@ let first_click = true;
 let frequency_samples = 256;
 let ACTX = new AudioContext();
 let audioElement = document.getElementById("myAudio");
-audioElement.play();
 let src = ACTX.createMediaElementSource(audioElement);
 let ANALYSER = ACTX.createAnalyser();
 src.connect(ANALYSER);
@@ -164,7 +163,7 @@ let DATA = new Uint8Array(ANALYSER.frequencyBinCount);
 				 window.addEventListener( 'resize', onWindowResize, false );
 				// Initialize Audio stuff
 				animate();
-				
+				audioElement.play();
 
 			}
 
