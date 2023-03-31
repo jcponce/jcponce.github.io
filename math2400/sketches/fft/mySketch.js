@@ -36,14 +36,14 @@ function setup() {
     easycam = new Dw.EasyCam(this._renderer, {distance : 40});
 	
 	button = createButton('Play me!');
-	button.style('font-size:18px');
+	button.style('font-size:1.5em');
 	button.position(20, 20);
 	button.mousePressed(toggle);
 
 	checkbox = createCheckbox(' Spin', false);
-	checkbox.style('font-size:18px');
+	checkbox.style('transform: scale(1.5);');
 	checkbox.changed(myCheckedEvent);
-	checkbox.position(20, 60);
+	checkbox.position(30, 60);
 
 	fft = new p5.FFT(0.5, 64);
 	frameRate(15);
