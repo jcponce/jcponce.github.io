@@ -4,7 +4,8 @@ let first_click = true;
 document.addEventListener("click", function(){
 if (first_click) {
 	first_click  = false;
-let frequency_samples = 512;
+
+let frequency_samples = 256;
 let ACTX = new AudioContext();
 let ANALYSER = ACTX.createAnalyser();
 ANALYSER.fftSize = 4*frequency_samples;  
@@ -13,7 +14,7 @@ let DATA = new Uint8Array(ANALYSER.frequencyBinCount);
 let SOURCE;
 navigator.mediaDevices.getUserMedia({ audio: {echoCancellation:false} }).then(process_audio);
 
-
+//https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3
 function process_audio (stream) {
 	SOURCE = ACTX.createMediaStreamSource(stream);
 	SOURCE.connect(ANALYSER);
@@ -21,7 +22,7 @@ function process_audio (stream) {
 			let requestId;
 			let camera, scene, renderer;
 			let heights, mesh;
-			let time_samples = 1200;
+			let time_samples = 600;
 			let n_vertices = (frequency_samples+1) * (time_samples+1);
 			let xsegments = time_samples;
 			let ysegments = frequency_samples;
