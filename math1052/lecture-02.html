@@ -62,7 +62,7 @@
  
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
-					<p style="font-size:60%"><strong>1.1.3 Initial value problems</strong></p>
+					<p style="font-size:60%"><strong>1.1.4 Initial value problems</strong></p>
 					<div class="size-90">
 						<div class="left-txt">
 							<p>
@@ -93,42 +93,56 @@ conditions of the problem at hand.
 				
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
-					<p style="font-size:60%"><strong>1.1 Introduction</strong></p>
-					<div class="size-90">
+					<p style="font-size:60%"><strong>1.1.4 Initial value problems</strong></p>
+					<div class="size-80">
 						<div class="left-txt">
 							<p>
 								<span>
-									A DE is an equation which contains one or more derivatives of an 
-unknown function. There are two types of DEs:
+									<strong>Example:</strong> A flow-meter in a pipeline measures flow-through 
+									as $2+\sin t $ litres/second. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									How much fluid passes through the pipeline from time zero up to time $T$?
 								</span>
 							</p>
 							
-							<ul>
-								<li class="fragment" data-fragment-index="0">
-									<span s style="color:rgb(222, 8, 8)">ordinary</span> differential equations (ODEs),
-									<span  class="fragment" data-fragment-index="1">
-										where the unknown function is a function of only one variable,
-									</span>
-									<span  class="fragment" data-fragment-index="2">
-										and 
+							<div id="theorem">
+								<p>
+
+									<span class="fragment" data-fragment-index="1">
+										Flow through is Volume per unit of time.
 									</span>
 
-								</li>
-								<li class="fragment" data-fragment-index="2">
-									<span  style="color:rgb(222, 8, 8)">partial</span> differential equations (PDEs)
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds\frac{dV}{dt}$
+									</span>
 									<span class="fragment" data-fragment-index="3">
-										where the unknown function is a function of more than one variable. 
-										
+										$=2 +\sin t$
 									</span>
 									<span class="fragment" data-fragment-index="4">
-										
-										We will not consider PDEs in this course.
+										$\Ra V(t) = 2t - \cos t + C$.
 									</span>
-								</li>
-							</ul>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$V(0) = 2 (0) - \cos (0)+C = C-1 = 0$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$\Ra C= 1.$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="7">
+										So $V(t) = 2t - \cos t + 1.$
+									</span>
+								</p>
+							</div>
 						</div>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 				
 				
@@ -136,6 +150,106 @@ unknown function. There are two types of DEs:
 				
 
 			</section> 
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.5 The order of an ODE</strong></p>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									The order of the highest-order derivative in an ODE defines the
+ <span style="color:rgb(222, 8, 8)">order</span>
+									 of the ODE.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									<strong>Exercise:</strong> What is the order of each of these ODEs?
+								</span>
+							</p>
+							<ul>
+								<li class="fragment" data-fragment-index="1">
+									<span>$\ds \dif{P}{t} = kP $</span>
+									<span class="fragment" data-fragment-index="2" style="font-style:oblique; font-weight:bold"> &nbsp; - 1st order</span>
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									<span>$ m\ddot{x} = -kx $</span>
+									<span class="fragment" data-fragment-index="3" style="font-style:oblique; font-weight:bold"> &nbsp; - 2nd order</span>
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									<span>$ x(y'')^2+y'y'''+4y^5 = yy' $</span>
+									<span class="fragment" data-fragment-index="4" style="font-style:oblique; font-weight:bold"> &nbsp; - 3rd order</span>
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									<span>$ y' = xy $</span>
+									<span class="fragment" data-fragment-index="5" style="font-style:oblique; font-weight:bold"> &nbsp; - 1st order</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				
+
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.6 Riding your bike at constant speed</strong></p>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									
+									Find the position of your bike (at time $t$) if you are travelling at a constant
+									speed of 60 km/h along a perfectly straight road.
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									If $x=x(t)$ is the distance you have travelled at time $t$ then the
+corresponding ODE is
+\[
+\dif{x}{t}=60. \qquad \qquad (*)
+\] 
+
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									We can directly integrate to find $x(t)$:
+
+								</span>
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+							 <span class="fragment" data-fragment-index="2">
+								$\ds\dif{x}{t}=60 \quad$
+							 </span>
+							 <span class="fragment" data-fragment-index="3">
+								$\Ra\quad\int \dup x=\int 60  \dup t.$
+							 </span>
+
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
 
 			
 
