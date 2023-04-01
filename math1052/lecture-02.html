@@ -52,7 +52,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
-				<h3 style="font-size:150%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
 				<p>Lecture 2</p>
 				<br/><br/>
 			</section>
@@ -720,7 +720,311 @@ to the ODE $\ds\dif{x}{t}=60$.
 
 			</section>
 
-			
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.8 Extra reading: Realistic models</strong></p>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span>
+									More realistic models of projectile motion deal with  air resistance.
+								</span>
+							</p>
+							<ul>
+								<li>
+									For fast moving objects  a good model includes air resistance proportional
+to square of the velocity
+$$
+\frac{\dup^2y}{\dup t^2} = -g -f\dif{y}{t}\left| \dif{y}{t} \right|.
+$$
+								</li>
+								<li>
+									For slower objects, a good enough model has air resistance proportional to
+velocity.
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.8 Extra reading: Realistic models</strong></p>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span>
+									Realistic models may also include the fact that gravity diminishes as you 
+move away from the earth's surface (Newton's inverse square law).
+								</span>
+							</p>
+							
+							<p>
+								<span>
+									<strong>Example: A model with air resistance</strong>
+									Consider the motion of a ball subject to air resistance 
+proportional to the <em>square</em> of the speed. Note that the air
+resistance vector is always directed <em>against</em> the direction of 
+motion.
+								</span>
+							</p>
+							<p>
+								<span>
+									Decompose the coordinates into $x$ and $y$ directions, and again apply
+Newton's law $F=ma$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.8 Extra reading: Realistic models</strong></p>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Note that
+\[
+\sin \theta  = \frac{\dot{y}}{\sqrt{\dot{x}^2+\dot{y}^2}} 
+\quad\text{ and }\quad
+\cos \theta  = \frac{\dot{x}}{\sqrt{\dot{x}^2+\dot{y}^2}}.
+\]
+Hence $F=ma$ in the $y$ direction gives
+\begin{align*}
+&m\ddot{y} = -mg - F_D\sin \theta  \\
+\Ra \qquad& m\ddot{y} = -mg - k v^2\sin{\theta}\\
+\Ra \qquad& m\ddot{y} = -mg - k (\dot{x}^2+\dot{y}^2) \times
+\frac{\dot{y}}{\sqrt{\dot{x}^2+\dot{y}^2}}\\
+\Ra \qquad&\ddot{y} = -g - \frac{k}{m}\dot{y}{\sqrt{\dot{x}^2+\dot{y}^2}}.
+\end{align*}
+
+								</span>
+							</p>
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.8 Extra reading: Realistic models</strong></p>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									In much the same way
+\[
+\ddot{x} = -\frac k m \dot{x}{\sqrt{\dot{x}^2+\dot{y}^2}}.
+\]
+
+								</span>
+							</p>
+							<p>
+								<span>
+									
+									This is a coupled system of ODEs which is extremely difficult to
+									solve analytically. However, numerical solutions are easy to obtain, and
+									you can undertake this a little later in the semester. A sample
+									trajectory in the $xy$-plane is shown here.
+								</span>
+							</p>
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.9 Analytical and numerical solutions</strong></p>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									To solve an ODE (or IVP) 
+									<span style="color:rgb(222, 8, 8)">analytically</span> means to give a 
+solution curve in terms of continuous functions defined over a specified 
+interval,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									where the solution is obtained exactly by analytic means 
+(e.g., by integration). 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									The
+									solution satisfies the ODE (and initial conditions) on direct
+									substitution.
+									
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									To solve an ODE (or IVP) 
+									<span style="color:rgb(222, 8, 8)">numerically</span> means to use an 
+algorithm to generate a sequence of points which approximates a 
+solution curve.
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.9 Analytical and numerical solutions</strong></p>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Important remark:</strong> 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									As we have already seen, the ODE
+									$$\dif{y}{t}=f(t)$$
+									can be solved analytically. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The <span style="color:rgb(222, 8, 8)">solution</span> simply is
+									\[
+									y=\int f(t) \dup t.
+									\]									
+								</span>
+							</p>
+							
+							
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.9 Analytical and numerical solutions</strong></p>
+					<div class="size-55">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Important remark:</strong> 
+								</span>
+								<span>
+									As we have already seen, the ODE
+									$\ds \dif{y}{t}=f(t)$
+									can be solved analytically. 
+								</span>
+								<span>
+									The <span style="color:rgb(222, 8, 8)">solution</span> simply is
+									$
+									\ds y=\int f(t) \dup t.
+										$								
+								</span>
+							</p>
+							
+							
+							
+							
+						</div>
+					</div>
+					
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									Now this may seem like a cop-out because all we are saying is that
+the solution is given by the anti-derivative of $f(t)$, 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									and the above
+									solution is as informative as the actual ODE. 									
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									In practice one hopes to be able perform the above integral to get a
+more explicit form of the solution.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Depending on the form of $f$ this
+									may either be done exactly or by numerical means.
+								</span>
+							</p>
+							
+							
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:80%">1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%;margin-top:-20px"><strong>1.1.10 Main points</strong></p>
+					
+					
+					<div class="size-65">
+						<div class="left-txt">
+							
+
+							<ul>
+								<li>
+									You should understand what a differential equation (DE) is and how they
+									can arise.
+								</li>
+								<li>
+									You should understand what it means for a function to be a solution to an
+									ODE.
+								</li>
+								<li>
+									You should know what a general solution is.
+								</li>
+								<li>
+									You should know what an initial value problem (IVP) is.
+								</li>
+								<li>
+									You should be able to solve simple differential equations of the form
+$\ds {\dif{y}{x}=f(x)}$ or $\displaystyle \frac{\dup^2 y}{\dup x^2} = g(x)$.
+								</li>
+								<li>
+									You should understand what is meant by the order of a differential
+equation.
+								</li>
+								<li>
+									You should be able to derive, using Newton's second law, equations of
+motion in a force field (such as gravity).
+								</li>
+								<li>
+									You should understand the difference between an analytical and numerical
+solution to an ODE.
+								</li>
+							</ul>
+							
+							
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
 
 			
 
