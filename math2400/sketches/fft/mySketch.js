@@ -43,12 +43,12 @@ function setup() {
 	checkbox = createCheckbox(' Spin', false);
 	checkbox.style('transform: scale(1.5);');
 	checkbox.changed(myCheckedEvent);
-	checkbox.position(30, 60);
+	checkbox.position(30, 80);
 
 	fft = new p5.FFT(0.5, 64);
 	frameRate(15);
 	
-	  colorMode(HSB);
+	colorMode(HSB);
 }
 
 
