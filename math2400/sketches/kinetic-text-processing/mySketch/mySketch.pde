@@ -45,7 +45,7 @@ void initialize() {
 
   float d = 0.5f;
   float x = 70f;
-  float y = 160f;
+  float y = 40f;
   int intervalFrm = 5;
   int life = int(IDEAL_FRAME_RATE * 30f);
   boolean proportionalIndicator = false;
@@ -60,22 +60,27 @@ void initialize() {
   manager
     .setDelaySeconds(d)
     .breakLine(0.5f)
-    .registerString("f:ℝ → ℝ,")
+    .registerString("For every ε>0,")
+    .breakLine(1.0f)
+    .registerString("∃ n∈ℕ such that 1/n<ε")
+    .breakLine(2.4f)
+    .registerString("f:ℝ→ℝ,")
     .breakLine(1.0f)
     .registerString("f(x)=1, x rational; ")
     .breakLine(1.0f)
     .registerString("and f(x)=0, x irrational.")
     .breakLine(2.4f)
-    .setDelaySeconds(d+=1f)
-    .registerString("x ∈ (−∞, ∞)")
+    .setDelaySeconds(d+=0.5f)
+    .registerString("x ∈ (−∞,∞)")
     .breakLine(1.2f)
-    .setDelaySeconds(d+=1.5f)
+    .setDelaySeconds(d+=0.5f)
     .registerString("sup{f(x):x∈ [0,1]}")
     .breakLine(1.2f)
     .setDelaySeconds(d+=2f)
-    .registerString("lim (f(x)−f(c))/(x−c) = f'(c)")
+    .registerString("lim(f(x)−f(c))/(x−c)=f'(c)")
     .breakLine(1.2f)
-    .registerString("Topology")
+    .setDelaySeconds(d+=0.5f)
+    .registerString("fₙ→f as n→∞")
     ;
 }
 
