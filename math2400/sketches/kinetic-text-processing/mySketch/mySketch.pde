@@ -74,6 +74,8 @@ void initialize() {
     .breakLine(1.2f)
     .setDelaySeconds(d+=2f)
     .registerString("lim (f(x)−f(c))/(x−c) = f'(c)")
+    .breakLine(1.2f)
+    .registerString("Topology")
     ;
 }
 
