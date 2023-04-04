@@ -45,7 +45,7 @@ void initialize() {
 
   float d = 0.5f;
   float x = 70f;
-  float y = 40f;
+  float y = 30f;
   int intervalFrm = 5;
   int life = int(IDEAL_FRAME_RATE * 30f);
   boolean proportionalIndicator = false;
@@ -63,6 +63,8 @@ void initialize() {
     .registerString("For every ε>0,")
     .breakLine(1.0f)
     .registerString("∃ n∈ℕ such that 1/n<ε")
+    .breakLine(1.0f)
+    .registerString("bₙ=inf{xₖ:k≥n}")
     .breakLine(2.4f)
     .registerString("f:[0,1]→ℝ;")
     .breakLine(1.0f)
