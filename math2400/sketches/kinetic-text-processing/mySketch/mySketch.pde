@@ -43,10 +43,10 @@ void initialize() {
 
   // Text from: http://www.aozora.gr.jp/cards/001529/files/44909_29558.html
 
-  float d = 1f;
+  float d = 0.5f;
   float x = 70f;
   float y = 160f;
-  int intervalFrm = 10;
+  int intervalFrm = 5;
   int life = int(IDEAL_FRAME_RATE * 30f);
   boolean proportionalIndicator = false;
   
