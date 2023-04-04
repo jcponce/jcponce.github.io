@@ -665,7 +665,7 @@
 									$\ds \abs{\frac{1}{x-c} \left(\int_c^x f(t)~dt \right) - f(c)} $
 								</span>
 								<span>
-									$\ds = \abs{\frac{1}{x-c}\int_c^x \big[f(t)-f(c)\big] }$
+									$\ds = \abs{\frac{1}{x-c}\int_c^x \big(f(t)-f(c)\big) dt}$
 								</span>
 							</p>
 						</div>
@@ -673,23 +673,33 @@
 							<p>
 
 								<span>
-									$ \ds \leq \frac{1}{x-c}\int_c^x \abs{f(t)-f(c)} $
+									$ \ds \leq \frac{1}{\abs{x-c}}\int_c^x \abs{f(t)-f(c)} $
 								</span>
 								
 							</p>
 							<p>
 								<span class="fragment" data-fragment-index="0">
-									$\ds \lt \frac{1}{x-c} \int_c^x \epsilon~dt $
+									$\ds \lt \frac{1}{\abs{x-c}} \int_c^x \epsilon~dt $
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									$\ds= \epsilon .\quad$
+									$\,\ds= \,\epsilon .\quad$
 								</span>
 							</p>
 						</div>
 
+						<!--
+
+						<div style="font-size:20px;text-align:left;margin-top:50px" class="fragment" data-fragment-index="2">
+							<p><strong>Note: </strong>For the last step, see 
+								<a href="https://www.dynamicmath.xyz/math2400/lecture-14.html#/1/0/2" target="_blank">
+									Properties of the integral in Lecture 14
+								</a>.
+						    </p>
+						</div>
+						-->
 						
 						
-						<br/><br/>
+						<br/>
 				</section>
 				<section  data-auto-animate >
 					<h4 style="font-size:90%">Proof of the FTC (second form)</h4>
