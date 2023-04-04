@@ -15,7 +15,7 @@ The font file "font_1_honokamin_subset.ttf" is ...
 private static final float IDEAL_FRAME_RATE = 60f;
 private static final String RENDER_MODE = P2D;
 
-float defaultTextSizeValue = 52f;
+float defaultTextSizeValue = 45f;
 String fontFilePath = "unicode.palatino.ttf";
 
 ParticleSystem currentParticleSystem;
@@ -59,17 +59,21 @@ void initialize() {
     ;
   manager
     .setDelaySeconds(d)
+    .breakLine(0.5f)
+    .registerString("f:ℝ → ℝ,")
     .breakLine(1.0f)
-    .registerString("Without practicing")
+    .registerString("f(x)=1, x rational; ")
+    .breakLine(1.0f)
+    .registerString("and f(x)=0, x irrational.")
     .breakLine(2.4f)
     .setDelaySeconds(d+=1f)
-    .registerString("Learning mathematics")
+    .registerString("x ∈ (−∞, ∞)")
     .breakLine(1.2f)
     .setDelaySeconds(d+=1.5f)
-    .registerString("cannot happen")
+    .registerString("sup{f(x):x∈ [0,1]}")
     .breakLine(1.2f)
     .setDelaySeconds(d+=2f)
-    .registerString("Topology")
+    .registerString("lim (f(x)−f(c))/(x−c) = f'(c)")
     ;
 }
 
