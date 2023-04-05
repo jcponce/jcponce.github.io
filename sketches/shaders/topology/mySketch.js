@@ -4,7 +4,6 @@ let music, fft;
 let cam;
 
 function preload() {
-	img = loadImage('20210703_141403.jpg');
   music = loadSound('Disco-Science.mp3');
   // load the shader
   s = loadShader("shader.vert", "shader.frag");

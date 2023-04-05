@@ -5,7 +5,7 @@ let cam, inc;
 
 function preload() {
   inc = loadFont('inconsolata.otf');
-  img = loadImage('20210703_141403.jpg');
+  //img = loadImage('20210703_141403.jpg');
   music = loadSound('Disco-Science.mp3');
   // load the shader
   s = loadShader("shader.vert", "shader.frag");
@@ -17,7 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   noStroke();
 
-  img_ratio = img.width / img.height;
+  //img_ratio = img.width / img.height;
   cam = 1.0;
   textFont(inc);
   textSize(width / 20);
@@ -48,8 +48,8 @@ function draw() {
   s.setUniform("iMouse", [mouseX, mouseY]);
   s.setUniform("iTime", millis() * 0.001);
 
-  s.setUniform("iChannel0", img);
-  s.setUniform("iChannel0Ratio", img_ratio);
+  //s.setUniform("iChannel0", img);
+  //s.setUniform("iChannel0Ratio", img_ratio);
 
   s.setUniform('iBass', bass);
   s.setUniform('iTreble', treble);
