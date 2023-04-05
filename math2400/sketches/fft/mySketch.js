@@ -82,11 +82,24 @@ function draw(){
 
 	rotateZ(-0.5);
 	translate(-15,-15,-4);
+
+	ambientLight(60);
+	// add a point light to showcase specular color
+  // -- use mouse location to position the light
+  let lightPosX = mouseX - width / 2;
+  let lightPosY = mouseY - height / 2;
+	 pointLight(200, 200, 200, 600-width / 2, 300- height / 2, 50); // white light
+	
+	// use specular material with high shininess
+  specularMaterial(150);
+  shininess(50);
 	
 
 	///*
 	
-	strokeWeight(1);
+		
+	//strokeWeight(1);
+	noStroke();
 	for (j = 0; j < spectra.length; j++) {
 		/*
 		if (j == spectra.length - 1) {
@@ -102,17 +115,17 @@ function draw(){
 			let h = map(spec[i] * adjust, 0, 255, 0, hh);
 			if (mode == 0) stroke(255);
 			else stroke(0);
-			fill(i*12, 90, 100, 0.5);
-			/*
+			//fill(i*13, 80, 100);
+			ambientMaterial((i+2)*12, 80, 100, 0.9)
 			push();
-			beginShape();
-			vertex(i, j, h);
-			vertex(i, j+1, h);
-			vertex(i+1, j+1, h);
-			vertex(i+1, j, h);
-			endShape(CLOSE);
+			noStroke();
+			translate(i, j, h/2);
+			//rotateX(PI/2);
+			//rotateZ(PI/2);
+			//cylinder(0.5, h);
+			box(0.85, 0.85, h)
 			pop();
-			*/
+			/*
 			push();
 			beginShape();
 			vertex(i, j, 0);
@@ -120,7 +133,7 @@ function draw(){
 			vertex(i+1, j, h);
 			vertex(i, j, h);
 			endShape(CLOSE);
-			pop();
+			pop();*/
 		}
 	}
 
