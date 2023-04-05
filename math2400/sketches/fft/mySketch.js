@@ -77,7 +77,7 @@ function draw(){
 
 	if(rot == true) {
 		rotateZ(angle);
-		angle += 0.005;
+		angle -= 0.005;
 	} else rotateZ(angle);
 
 	rotateZ(-0.5);
