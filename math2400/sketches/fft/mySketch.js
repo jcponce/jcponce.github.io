@@ -116,7 +116,7 @@ function draw(){
 			if (mode == 0) stroke(255);
 			else stroke(0);
 			//fill(i*13, 80, 100);
-			ambientMaterial((i+2)*12, 80, 100, 0.9)
+			ambientMaterial((i+2)*12, 80, 100);
 			push();
 			noStroke();
 			translate(i, j, h/2);
