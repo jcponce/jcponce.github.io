@@ -20,7 +20,8 @@ let mode = 0;
 
 function preload() {
 	//song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
-	song = loadSound('https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3');
+	//song = loadSound('https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3');
+	song = loadSound('dance-land.mp3');
 }
 
 
