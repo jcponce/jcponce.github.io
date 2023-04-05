@@ -10,7 +10,7 @@
 
 // There are no lights and no AO, only color by normals and dark edges.
 
-// I need to figure out how to add this part :)
+
 // update: Nyan Cat cameo, thanks to code from mu6k: https://www.shadertoy.com/view/4dXGWH
 
 
