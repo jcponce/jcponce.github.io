@@ -2,7 +2,10 @@
 let theShader;
 let shaderBg;
 
+let img;
+
 function preload() {
+  img = loadImage('cat.png');
   // load the shader
   theShader = loadShader("shader.vert", "shader.frag");
 }
@@ -39,6 +42,7 @@ function draw() {
   theShader.setUniform("iResolution", [width, height]);
   theShader.setUniform("iTime", millis() / 1000.0);
   theShader.setUniform("iMouse", [xMouse, yMouse]);
+  theShader.setUniform("iChannel1", img);
 
 
 

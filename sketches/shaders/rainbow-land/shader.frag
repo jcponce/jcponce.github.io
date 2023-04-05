@@ -24,6 +24,7 @@ precision highp float;
 uniform vec2 iResolution;
 uniform vec2 iMouse;
 uniform float iTime;
+uniform sampler2D iChannel1;
 
 varying vec2 vTexCoord;
 
@@ -47,6 +48,7 @@ const float iTransition = 1.0;
 
 //#define SHOWONLYEDGES
 
+#define NYAN 
 #define WAVES
 
 #define RAY_STEPS 150
@@ -120,8 +122,42 @@ vec3 normal(vec3 p) {
 	return normalize(vec3(d1-d2,d3-d4,d5-d6));
 }
 
+// Used Nyan Cat code by mu6k, with some mods
 
+vec4 rainbow(vec2 p)
+{
+	float q = max(p.x,-0.1);
+	float s = sin(p.x*7.0+t*70.0)*0.08;
+	p.y+=s;
+	p.y*=1.1;
+	
+	vec4 c;
+	if (p.x>0.0) c=vec4(0,0,0,0); else
+	if (0.0/6.0<p.y&&p.y<1.0/6.0) c= vec4(255,43,14,255)/255.0; else
+	if (1.0/6.0<p.y&&p.y<2.0/6.0) c= vec4(255,168,6,255)/255.0; else
+	if (2.0/6.0<p.y&&p.y<3.0/6.0) c= vec4(255,244,0,255)/255.0; else
+	if (3.0/6.0<p.y&&p.y<4.0/6.0) c= vec4(51,234,5,255)/255.0; else
+	if (4.0/6.0<p.y&&p.y<5.0/6.0) c= vec4(8,163,255,255)/255.0; else
+	if (5.0/6.0<p.y&&p.y<6.0/6.0) c= vec4(122,85,255,255)/255.0; else
+	if (abs(p.y)-.05<0.0001) c=vec4(0.,0.,0.,1.); else
+	if (abs(p.y-1.)-.05<0.0001) c=vec4(0.,0.,0.,1.); else
+		c=vec4(0,0,0,0);
+	c.a*=.8-min(.8,abs(p.x*.08));
+	c.xyz=mix(c.xyz,vec3(length(c.xyz)),.15);
+	return c;
+}
 
+vec4 nyan(vec2 p)
+{
+	vec2 uv = p*vec2(0.4,1.0);
+	float ns=3.0;
+	float nt = iTime*ns; nt-=mod(nt,240.0/256.0/6.0); nt = mod(nt,240.0/256.0);
+	float ny = mod(iTime*ns,1.0); ny-=mod(ny,0.75); ny*=-0.05;
+	vec4 color = texture2D(iChannel1,vec2(uv.x/3.0+210.0/256.0-nt+0.05,.5-uv.y-ny));
+	if (uv.x<-0.3) color.a = 0.0;
+	if (uv.x>0.2) color.a=0.0;
+	return color;
+}
 
 
 // Raymarching and 2D graphics
@@ -174,6 +210,14 @@ vec3 raymarch(in vec3 from, in vec3 dir)
 	col=1.-vec3(length(col));
 #else
 	col*=mix(vec3(length(col)), vec3(1.,.9,.85), iTransition);
+#ifdef NYAN
+	dir.yx*=rot(dir.x);
+	vec2 ncatpos=(dir.xy+vec2(-3.+mod(-t,6.),-.27));
+	vec4 ncat=nyan(ncatpos*5.);
+	vec4 rain=rainbow(ncatpos*10.+vec2(.8,.5));
+	if (totdist>8.) col=mix(col,max(vec3(.2),rain.xyz),rain.a*.9);
+	if (totdist>8.) col=mix(col,max(vec3(.2),ncat.xyz),ncat.a*.9);
+#endif
 #endif
 	return col;
 }
