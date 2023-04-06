@@ -12,15 +12,13 @@ It works :) Now I just need to refactor it. ;)
 
 let easycam;
 
-/*Music Time in a bottle by Jim Croce*/
 /*Code based on example from Daniel Shiffman.*/
+
 let song;
-let button;
 let fft;
 let spectra = [];
 let mode = 0;
-
-//let val;
+let angle = 0;
 
 function preload() {
 	//song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
@@ -35,27 +33,11 @@ function setup() {
     
     createCanvas(windowWidth, windowHeight, WEBGL);
     setAttributes('antialias', true);
-    
-    //console.log(Dw.EasyCam.INFO);
-    
     easycam = new Dw.EasyCam(this._renderer, {distance : 40});
 	
-	//button = createButton('Play me!');
-	//button.style('font-size:1.5em');
-	//button.position(20, 120);
 	document.getElementById('play').onclick = () => {
 		toggle();
 	};
-	
-	
-	//document.getElementById('rotate').onclick = () => {
-	//	if(val == true) {
-	//		val = true;
-	//	} else val = false
-	//};
-	//button.mousePressed(toggle);
-
-	
 
 	fft = new p5.FFT(0.5, 64);
 	frameRate(15);
@@ -66,7 +48,6 @@ function setup() {
 
 
 function draw(){
-    //console.log(val);
   // projection
     perspective(60 * PI/180, width/height, 1, 5000);
     
@@ -81,11 +62,9 @@ function draw(){
 		spectra.splice(0, 1);
 	}
 
-	let hh = 3;
-	//val = document.getElementById('rotate').value;
+	let hh = 3; // To adjust height of boxes
 	
 	rotateX(1.3);
-	//rotateZ(frameCount * 0.01);
 
 	if(val == true) {
 		rotateZ(angle);
@@ -97,27 +76,17 @@ function draw(){
 
 	ambientLight(60);
 	// add a point light to showcase specular color
-  // -- use mouse location to position the light
-  let lightPosX = mouseX - width / 2;
-  let lightPosY = mouseY - height / 2;
-	 pointLight(200, 200, 200, 600-width / 2, 300- height / 2, 50); // white light
+    // -- use mouse location to position the light
+    //let lightPosX = mouseX - width / 2;
+    //let lightPosY = mouseY - height / 2;
+	pointLight(210, 210, 210, 50, 50, 30); // white light
 	
-	
-	
-
 	///*
 	
 		
 	//strokeWeight(1);
 	noStroke();
 	for (j = 0; j < spectra.length; j++) {
-		/*
-		if (j == spectra.length - 1) {
-			fill(255, 200);
-		} else {
-	  fill(255, (j + 1) * 2);
-		}
-		*/
 		let spec = spectra[j].getSpectrum();
 		
 		for (i = 0; i < 32; i += 1) {
@@ -138,20 +107,11 @@ function draw(){
 			//cylinder(0.5, h);
 			box(0.85, 0.85, h)
 			pop();
-			/*
-			push();
-			beginShape();
-			vertex(i, j, 0);
-			vertex(i+1, j, 0);
-			vertex(i+1, j, h);
-			vertex(i, j, h);
-			endShape(CLOSE);
-			pop();*/
+			
 		}
 	}
 
-	//if (mode == 0) checkbox.style('color:white');
-	//else checkbox.style('color:black');
+	
 	
 	/*
 	// gizmo
@@ -159,18 +119,16 @@ function draw(){
     stroke(255, 32,  0); line(0,0,0,2,0,0);
     stroke( 32,255, 32); line(0,0,0,0,2,0);
     stroke(  0, 32,255); line(0,0,0,0,0,2);
-  */
+    */
 	
 }
 
 function toggle() {
 	if (song.isPlaying()) {
 		song.pause();
-		//button.html("Play!");
 		song.setVolume(1);
 	} else {
 		song.loop();
-		//button.html("Pause!");
 	}
 }
 
@@ -207,8 +165,8 @@ function doubleClicked() {
 }
 */
 
-let rot = false;
-let angle = 0;
+//let rot = false;
+
 //function myCheckedEvent() {
 //	if(checkbox.checked()) {
 //		rot = true;
