@@ -11,6 +11,36 @@
 	  <script src="../../mySetup/google-analytics-ga4.js"></script>
     </head>
 <body>
+
+    <div id="easycamhud" class="hud">
+        <p><span style="font-size:14px">
+          <a href="https://soundcloud.com/stage7/8-bit-mentality" target="_blank">8-bit mentality</a>
+        </span>
+        </p><br/>
+        <p>
+            <button id="play" type="button">Play!</button>
+        </p><br/>
+        <p>
+            <input 
+            onclick="toggle2()" 
+            type="checkbox" 
+            id="rotate" 
+            name="rotate" 
+            value="false" unchecked>
+            <label for="rotate"> Spin</label><br>
+        </p>
+      </div>
+
+      <script>
+        let val = document.getElementById('rotate').checked;
+        //console.log('Test', val);
+
+        function toggle2(){
+            val = !val;
+            //console.log('Toggled', val);
+        }
+      </script>
 </body>
+
 
 </html>

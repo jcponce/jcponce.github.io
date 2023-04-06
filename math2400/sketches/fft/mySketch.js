@@ -18,6 +18,8 @@ let fft;
 let spectra = [];
 let mode = 0;
 
+//let val;
+
 function preload() {
 	//song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
 	//song = loadSound('https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3');
@@ -36,15 +38,22 @@ function setup() {
     
     easycam = new Dw.EasyCam(this._renderer, {distance : 40});
 	
-	button = createButton('Play me!');
-	button.style('font-size:1.5em');
-	button.position(20, 20);
-	button.mousePressed(toggle);
+	//button = createButton('Play me!');
+	//button.style('font-size:1.5em');
+	//button.position(20, 120);
+	document.getElementById('play').onclick = () => {
+		toggle();
+	};
+	
+	
+	//document.getElementById('rotate').onclick = () => {
+	//	if(val == true) {
+	//		val = true;
+	//	} else val = false
+	//};
+	//button.mousePressed(toggle);
 
-	checkbox = createCheckbox(' Spin', false);
-	checkbox.style('transform: scale(1.5);');
-	checkbox.changed(myCheckedEvent);
-	checkbox.position(30, 80);
+	
 
 	fft = new p5.FFT(0.5, 64);
 	frameRate(15);
@@ -55,7 +64,7 @@ function setup() {
 
 
 function draw(){
-    
+    //console.log(val);
   // projection
     perspective(60 * PI/180, width/height, 1, 5000);
     
@@ -71,11 +80,12 @@ function draw(){
 	}
 
 	let hh = 3;
+	//val = document.getElementById('rotate').value;
 	
 	rotateX(1.3);
 	//rotateZ(frameCount * 0.01);
 
-	if(rot == true) {
+	if(val == true) {
 		rotateZ(angle);
 		angle -= 0.005;
 	} else rotateZ(angle);
@@ -138,8 +148,8 @@ function draw(){
 		}
 	}
 
-	if (mode == 0) checkbox.style('color:white');
-	else checkbox.style('color:black');
+	//if (mode == 0) checkbox.style('color:white');
+	//else checkbox.style('color:black');
 	
 	/*
 	// gizmo
@@ -154,11 +164,11 @@ function draw(){
 function toggle() {
 	if (song.isPlaying()) {
 		song.pause();
-		button.html("Play!");
+		//button.html("Play!");
 		song.setVolume(1);
 	} else {
 		song.loop();
-		button.html("Pause!");
+		//button.html("Pause!");
 	}
 }
 
@@ -197,10 +207,10 @@ function doubleClicked() {
 
 let rot = false;
 let angle = 0;
-function myCheckedEvent() {
-	if(checkbox.checked()) {
-		rot = true;
-	} else rot = false
-}
+//function myCheckedEvent() {
+//	if(checkbox.checked()) {
+//		rot = true;
+//	} else rot = false
+//}
 
 
