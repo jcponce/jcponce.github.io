@@ -90,9 +90,7 @@ function draw(){
   let lightPosY = mouseY - height / 2;
 	 pointLight(200, 200, 200, 600-width / 2, 300- height / 2, 50); // white light
 	
-	// use specular material with high shininess
-  specularMaterial(150);
-  shininess(50);
+	
 	
 
 	///*
@@ -116,7 +114,10 @@ function draw(){
 			if (mode == 0) stroke(255);
 			else stroke(0);
 			//fill(i*13, 80, 100);
-			ambientMaterial((i+2)*12, 80, 100);
+			//ambientMaterial();
+			// use specular material with high shininess
+  			specularMaterial((i+2)*12, 80, 100);
+ 			shininess(50);
 			push();
 			noStroke();
 			translate(i, j, h/2);
