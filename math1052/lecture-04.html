@@ -457,6 +457,155 @@ Compare your answer with the actual value.
 					<br/><br/>
 				</section>
 				
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.3.1 Euler's method using tangent lines</strong></p>
+					</div>
+					<div class="size-95">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									The method is only accurate if you make $\Delta t$
+small, which means a large number of steps is usually required.
+								</span>
+								<span>
+									For this you might want to use Matlab.
+								</span>
+								<span>
+									Define a $t$ vector and an initial $y$ value, then use the
+									<span style="color:blue;font-weight:bold">for</span> command to iterate.
+								</span>
+							</p>
+							
+
+						</div>
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.3.1 Euler's method using tangent lines</strong></p>
+					</div>
+					<div class="size-75">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									The method is only accurate if you make $\Delta t$
+small, which means a large number of steps is usually required.
+								</span>
+								<span>
+									For this you might want to use Matlab.
+								</span>
+								<span>
+									Define a $t$ vector and an initial $y$ value, then use the
+									<span style="color:blue;font-weight:bold">for</span> command to iterate.
+								</span>
+								<span>
+									In the example $\Delta
+t=0.05$ and 12 steps have been chosen to take $t$ to $0.6$.
+								</span>
+							</p>
+
+<div style="font-size:150%">
+<pre><code data-trim data-noescape data-line-numbers="1-7">
+t=(0:0.05:0.6); 
+y(1)=0;
+for i=1:12
+y(i+1)=y(i)+2*t(i)*0.05;
+end 
+y(13)
+plot(t,y,'-')
+</code></pre>
+</div>
+
+
+							
+
+						</div>
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.3.1 Euler's method using tangent lines</strong></p>
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									The method is only accurate if you make $\Delta t$
+small, which means a large number of steps is usually required.
+								</span>
+							</p>
+							
+
+						</div>
+						
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<div id="theorem">
+								<p>
+									<span>
+										So with a stepsize of $0.2$ we have that $y(0.6) \approx 0.24$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										To compute the exact value, 
+										we know that $\ds \frac{dy}{dt} = 2t$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\,\Ra\ds  y = \int 2t dt$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$ =t^2 + C.$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										For $y=0,\,$ then 
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$C = 0.$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										So the exact solution is $y=t^2.$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										Hence $y(0.6) = 0.36.$
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										The result we got with $\Delta t = 0.2$ is not very accurate.
+									</span>
+									<span class="fragment" data-fragment-index="9">
+										The step size is too big!
+									</span>
+									
+								</p>
+							</div>
+							
+
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
 
 			</section>
 			
