@@ -396,8 +396,8 @@
 				
 			</section>
 
-			<Section>
-				<section data-auto-animate>
+			<section>
+				<section data-auto-animate id="operator-norm">
 					<h4>11.4 Norms</h4>
 					<p class="sbt" style="margin-top:-20px">Operator norm</p>
 					<div class="left-txt size-90">
@@ -408,7 +408,7 @@
 							    </strong>
 							     Let $A \in L(X,Y)$.
 							</span>
-							<span class="fragment" data-fragment-index="01">
+							<span class="fragment" data-fragment-index="1">
 								Define
 							\begin{equation*}
 							\snorm{A} :=
@@ -437,6 +437,183 @@
 						<p class="fragment" data-fragment-index="4"> $\ds\snorm{A}_{L(X,Y)}.$</p>
 					</div>
 					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					<p class="sbt" style="margin-top:-20px">Operator norm</p>
+					<div class="left-txt">
+						<p>
+							<span>
+								For example, if $X=\R^1$ with norm $\snorm{x}=\sabs{x}$, 
+								
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								we think of elements of $L(X)$ as multiplication
+								by scalars: 
+								$$x \mapsto ax.$$ 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								If $\snorm{x} =\sabs{x}=1,$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								then $\sabs{a x} = \sabs{a},$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								 so
+								the operator norm of $a$ is $\sabs{a}.$
+							</span>
+							 
+							
+						</p>
+						
+	
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					<p class="sbt" style="margin-top:-20px">Operator norm</p>
+					<div class="left-txt size-90">
+						<p>
+							<span>
+								By linearity,
+$\ds \norm{A \frac{x}{\snorm{x}}} = \frac{\snorm{Ax}}{\snorm{x}}$
+for all nonzero $x \in X$.
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="0">
+								The vector $\ds\frac{x}{\snorm{x}}$ is of norm 1.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Therefore
+							</span>
+						</p>
+						
+	
+					</div>
+					<div class=" size-90">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\snorm{A} =
+								\sup \bigl\{ \snorm{Ax} : x \in X \text{ with } \snorm{x} = 1 \bigr\}
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$=
+								\ds\sup_{\substack{x \in X\\x\neq 0}} \frac{\snorm{Ax}}{\snorm{x}} .\qquad \qquad\qquad \;
+								$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+				</section>
+				
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					<p class="sbt" style="margin-top:-20px">Operator norm</p>
+					
+					<div class="size-70">
+						<p>👉 &nbsp;
+							<span>
+								$\snorm{A} =
+								\ds\sup_{\substack{x \in X\\x\neq 0}} \frac{\snorm{Ax}}{\snorm{x}} 
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Assuming $\snorm{A}$ is not infinity, 
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								this implies, that for every $x \in X,$
+							</span>
+						</p>
+						
+	
+					</div>
+					<div class="size-90">
+						<p>
+							
+							<span class="fragment" data-fragment-index="1">		
+$\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
+							</span>
+						</p>
+						
+	
+					</div>
+					<div class="left-txt size-90">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								From the definition that $\snorm{A} = 0$ if and
+								only if $A = 0$,
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								where by $A=0$ we mean that $A$ takes every vector to the zero vector.
+							</span>
+						</p>
+						
+	
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>11.4 Norms</h4>
+					<p class="sbt" style="margin-top:-20px">Operator norm</p>
+					
+					<div class="size-70">
+						<p>👉 &nbsp;
+							<span>
+								$\snorm{A} =
+								\ds\sup_{\substack{x \in X\\x\neq 0}} \frac{\snorm{Ax}}{\snorm{x}} 
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-95">
+						<p>
+							<span>
+								What would be the operator norm of the identity operator? 🤔 
+							</span>
+						</p>
+						
+	
+					</div>
+					<div class="size-95">
+						<p>
+							
+							<span>		
+								$\snorm{I} $
+							</span>
+							<span class="fragment" data-fragment-index="2">		
+								$ =
+								\ds\sup_{\substack{x \in X\\x\neq 0}} \frac{\snorm{Ix}}{\snorm{x}} 
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">		
+								$ =
+								\ds
+								\sup_{\substack{x \in X\\x\neq 0}} \frac{\snorm{x}}{\snorm{x}}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="4">		
+								$ =
+								1.
+								$
+							</span> &nbsp; 😃
+						</p>
+						
+	
+					</div>
+					
+					<br/><br/><br/><br/>
 				</section>
 	
 				<section data-auto-animate>
@@ -874,7 +1051,7 @@
 					<br/><br/>
 				</section>
 				-->
-			</Section>
+			</section>
 
 
 			<section>
