@@ -470,10 +470,10 @@ Compare your answer with the actual value.
 									The method is only accurate if you make $\Delta t$
 small, which means a large number of steps is usually required.
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									For this you might want to use Matlab.
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									Define a $t$ vector and an initial $y$ value, then use the
 									<span style="color:blue;font-weight:bold">for</span> command to iterate.
 								</span>
@@ -484,7 +484,7 @@ small, which means a large number of steps is usually required.
 						
 					</div>
 					
-					<br/><br/>
+					<br/><br/><br/><br/>
 				</section>
 
 				<section data-auto-animate>
@@ -515,19 +515,126 @@ t=0.05$ and 12 steps have been chosen to take $t$ to $0.6$.
 
 <div style="font-size:150%">
 <pre><code data-trim data-noescape data-line-numbers="1-7">
-t=(0:0.05:0.6); 
-y(1)=0;
-for i=1:12
-y(i+1)=y(i)+2*t(i)*0.05;
+t = (0:0.05:0.6); 
+y(1) = 0;
+for i = 1:12
+y(i+1) = y(i) + 2 * t(i) * 0.05;
 end 
 y(13)
-plot(t,y,'-')
+plot(t, y,'-')
 </code></pre>
 </div>
 
 
 							
 
+						</div>
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.3.1 Euler's method using tangent lines</strong></p>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Using Matlab we find $y(0.6)=0.33$ which is much much better than
+the previous estimate value for $y(0.6)$.
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									Note that we start with $y(1)=0$, whereas in the theoretical work 
+we write $y(0)=0$. Matlab does not allow you to put an index of zero. 
+
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Keep this in mind in case you ever get the Matlab error message:
+								</span>
+							</p>
+							
+<div style="font-size:150%;"  class="fragment" data-fragment-index="1">
+<pre><code data-trim data-noescape data-line-numbers="1-7">
+???  Index into matrix is negative or zero.
+</code></pre>
+</div>
+							
+
+						</div>
+						
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.3.2 Euler's method using Matlab; an example</strong></p>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Consider the IVP
+$
+\ds\dif{y}{x}=\sin(xy),\; y(0)=1.
+$
+
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Matlab code to estimate $y(2)$, using Euler's method with step size $\Delta x=0.01$ is:
+								</span>
+							</p>
+							<div style="font-size:150%" class="fragment" data-fragment-index="0">
+								<pre><code data-trim data-noescape data-line-numbers="1-7">
+									x = (0:0.01:2);
+									y(1) = 1;
+									for i = 1:200
+										y(i+1) = y(i) + sin(x(i) * y(i)) * 0.01;
+									end 
+									y(201)
+									plot (x,y,'-')
+								</code></pre>
+								</div>						
+
+							<p class="fragment" data-fragment-index="1">
+								Using Matlab we find $y(2)=1.8243$.
+							</p>
+						</div>
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.3.2 Euler's method using Matlab; an example</strong></p>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Image
+								</span>
+							</p>
+							
 						</div>
 						
 					</div>
@@ -542,68 +649,29 @@ plot(t,y,'-')
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.3.1 Euler's method using tangent lines</strong></p>
-					</div>
-					<div class="size-85">
-						<div class="left-txt">
-							
-							<p>
-								<span>
-									The method is only accurate if you make $\Delta t$
-small, which means a large number of steps is usually required.
-								</span>
-							</p>
-							
-
-						</div>
-						
+						<p><strong>1.3.3 Demonstrating errors in Euler's method</strong></p>
 					</div>
 					<div class="size-80">
 						<div class="left-txt">
 							
-							<div id="theorem">
-								<p>
-									<span>
-										So with a stepsize of $0.2$ we have that $y(0.6) \approx 0.24$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										To compute the exact value, 
-										we know that $\ds \frac{dy}{dt} = 2t$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\,\Ra\ds  y = \int 2t dt$
-									</span>
-									<span class="fragment" data-fragment-index="3">
-										$ =t^2 + C.$
-									</span>
-									<span class="fragment" data-fragment-index="4">
-										For $y=0,\,$ then 
-									</span>
-									<span class="fragment" data-fragment-index="5">
-										$C = 0.$
-									</span>
-									<span class="fragment" data-fragment-index="6">
-										So the exact solution is $y=t^2.$
-									</span>
-									<span class="fragment" data-fragment-index="7">
-										Hence $y(0.6) = 0.36.$
-									</span>
-									<span class="fragment" data-fragment-index="8">
-										The result we got with $\Delta t = 0.2$ is not very accurate.
-									</span>
-									<span class="fragment" data-fragment-index="9">
-										The step size is too big!
-									</span>
-									
-								</p>
-							</div>
+							<p>
+								<span>
+									Use Euler's method to approximate the solution curve of the
+initial value problem 
+$$
+y' = y(1-y),\qquad  y(-2) = 2.
+$$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Use the slope field below as a guide to draw in the approximate solution curve.
+									What goes wrong in this case? 
+								</span>
+							</p>
 							
-
 						</div>
 						
 					</div>
+					
 					<br/><br/>
 				</section>
 
