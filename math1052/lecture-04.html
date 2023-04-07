@@ -329,49 +329,125 @@ Compare your answer with the actual value.
 							
 							<div id="theorem">
 								<p>
-									<span>
-										Since $\frac{dy}{dt}=2t, \; f(t,y)= 2t.$
+									<span class="fragment" data-fragment-index="0">
+										Since $\frac{dy}{dt}=2t,\,$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$f(t,y)= 2t.$
 									</span>
 								</p>
 								
-								<table>
-									<tr>
-										<td>$n$</td>
-										<td>$t_n$</td>
-										<td>$y_n$</td>
-										<td>$ f(t_n,y_n) $</td>
-										<td>$ y_{n+1} $</td>
-									</tr>
-									<tr>
-										<td>$0$</td>
-										<td>$0$</td>
-										<td>$0$</td>
-										<td>$ 2\times 0=0$</td>
-										<td>$ 0+0\times 0.2=0 $</td>
-									</tr>
-									<tr>
-										<td>$1$</td>
-										<td>$0.2$</td>
-										<td>$0$</td>
-										<td>$ 2\times 0.2=0.4$</td>
-										<td>$ 0+0.4\times 0.2=0.08 $</td>
-									</tr>
-									<tr>
-										<td>$2$</td>
-										<td>$0.4$</td>
-										<td>$0.08$</td>
-										<td>$ 2\times 0.4=0.8$</td>
-										<td>$ 0.08+0.8\times 0.2=0.24$</td>
-									</tr>
-									<tr>
-										<td>$3$</td>
-										<td>$0.6$</td>
-										<td>$0.25$</td>
-										<td>$ ?$</td>
-										<td>$ ?$</td>
-									</tr>
+								<div class="fragment" data-fragment-index="2">
+									<table>
+										<tr class="fragment" data-fragment-index="2">
+											<td>$n$</td>
+											<td>$t_n$</td>
+											<td>$y_n$</td>
+											<td>$ f(t_n,y_n) $</td>
+											<td>$ y_{n+1} $</td>
+										</tr>
+										<tr>
+											<td class="fragment" data-fragment-index="3">$0$</td>
+											<td class="fragment" data-fragment-index="4">$0$</td>
+											<td class="fragment" data-fragment-index="5">$0$</td>
+											<td class="fragment" data-fragment-index="6">$ 2\times 0$ <span class="fragment" data-fragment-index="7">$=0$</span></td>
+											<td class="fragment" data-fragment-index="8">$ 0+0\times 0.2 $ <span class="fragment" data-fragment-index="9">$=0$</span></td>
+										</tr>
+										<tr>
+											<td class="fragment" data-fragment-index="10">$1$</td>
+											<td class="fragment" data-fragment-index="11">$0.2$</td>
+											<td class="fragment" data-fragment-index="12">$0$</td>
+											<td class="fragment" data-fragment-index="13">$ 2\times 0.2$ <span class="fragment" data-fragment-index="14">$=0.4$</span></td>
+											<td class="fragment" data-fragment-index="15">$ 0+0.4\times 0.2$ <span class="fragment" data-fragment-index="16">$=0.08$</span></td>
+										</tr>
+										<tr>
+											<td class="fragment" data-fragment-index="17">$2$</td>
+											<td class="fragment" data-fragment-index="17">$0.4$</td>
+											<td class="fragment" data-fragment-index="17">$0.08$</td>
+											<td class="fragment" data-fragment-index="18">$ 2\times 0.4=0.8$</td>
+											<td class="fragment" data-fragment-index="18">$ 0.08+0.8\times 0.2=0.24$</td>
+										</tr>
+										<tr class="fragment" data-fragment-index="19">
+											<td>$3$</td>
+											<td>$0.6$</td>
+											<td>$0.24$</td>
+											<td>$ -$</td>
+											<td>$ -$</td>
+										</tr>
+										
+									</table>
+								</div>
+							</div>
+							
+
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
+				
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.3.1 Euler's method using tangent lines</strong></p>
+					</div>
+					<div class="size-45">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Use Euler's method with $\Delta t=0.2$, to find an approximate 
+solution to $y(0.6)$ for the IVP $\,\ds\dif{y}{t}=2t,$ $y(0)=0.\,$
+
+Compare your answer with the actual value.
+								</span>
+							</p>
+							
+
+						</div>
+						
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<div id="theorem">
+								<p>
+									<span>
+										So with a stepsize of $0.2$ we have that $y(0.6) \approx 0.24$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										To compute the exact value, 
+										we know that $\ds \frac{dy}{dt} = 2t$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\,\Ra\ds  y = \int 2t dt$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$ =t^2 + C.$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										For $y=0,\,$ then 
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$C = 0.$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										So the exact solution is $y=t^2.$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										Hence $y(0.6) = 0.36.$
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										The result we got with $\Delta t = 0.2$ is not very accurate.
+									</span>
+									<span class="fragment" data-fragment-index="9">
+										The step size is too big!
+									</span>
 									
-								</table>
+								</p>
 							</div>
 							
 
