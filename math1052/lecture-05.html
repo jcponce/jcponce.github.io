@@ -253,6 +253,342 @@ separable ODE.
 
 			</section>
 
+
+			<section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:70%">1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.4.2 Solving separable ODEs</strong></p>
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<strong>Example: </strong>
+								Solve the ODE $\;\ds \dif{y}{x}=\frac{x}{y}$.
+								
+							</p>
+							
+							
+							<div id="theorem">
+								<table style="width:100%">
+									<tr>
+										<td>
+											<p>
+												<span class="fragment" data-fragment-index="0">
+													$\ds \frac{dy}{dx} = x\left(\frac{1}{x}\right)$
+												</span>
+												<br/><br/>
+												<span class="fragment" data-fragment-index="1">
+													$\Ra $ separable. <br/><br/>
+													
+												</span>
+												&nbsp;&nbsp; &nbsp; &nbsp;  <span  class="fragment" data-fragment-index="1" style="font-size:150%">😃</span>
+											</p>
+											<br/><br/><br/>
+										</td>
+										<td>
+											<p>
+												<span class="fragment" data-fragment-index="2">
+													1. $\ds y \frac{dy}{dx} = x$
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="3">
+													2. $\ds \int y \frac{dy}{dx} ~dx= \int x ~dx$
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="4">
+													3. $\ds \int y ~dy = \int x~dx $
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="5">
+													4. $\ds \frac{y^2}{2}= \frac{x^2}{2}+C $
+												</span>
+												<span class="fragment" data-fragment-index="6">
+													 $\Ra y = \pm \sqrt{x^2+ K} $ &nbsp; 📝
+												</span>
+											</p>
+											
+										</td>
+									</tr>
+								</table>
+								
+								
+							</div>
+							
+						</div>
+
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.4.2 Solving separable ODEs</strong></p>
+					</div>
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span>
+									The solution we found for the above example contains an arbitrary constant so is
+									the <span id="rr">general solution</span>.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									In the case of an IVP this constant will be fixed
+to find one, particular solution.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									<strong>Example:</strong>
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{x}{y}}$, $\; y(0)=3$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.4.2 Solving separable ODEs</strong></p>
+					</div>
+
+					
+					<div class="size-65">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+								</span>
+								<span>
+									Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{x}{y}}$, $\; y(0)=3$.
+								</span>
+							</p>
+
+							
+						</div>
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+							
+
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										We know that $y^2 = x^2 + K$ is the general solution. 
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Consider the initial condition $y(0)=3.$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										That is $\,3^3=0^2+ K$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\Ra K = 9\,$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\,\Ra y = \pm \sqrt{x^2+9}.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										Here we need to take the $+$ sign since $y(0)=3$.
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										So $y = \sqrt{x^2+9}$ is the solutions to the IVP.
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.4.2 Solving separable ODEs</strong></p>
+					</div>
+
+					<br/>
+					
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+								</span>
+								<span>
+									Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{\sin x}{y}}$, $\;y(0)=1$.
+								</span>
+							</p>
+						</div>
+					</div>
+					
+
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:70%">1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.4.2 Solving separable ODEs</strong></p>
+					</div>
+					
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+								</span>
+								<span>
+									Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{\sin x}{y}}$, $\;y(0)=1$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<div id="theorem">
+								
+								<table style="width:100%">
+									<tr>
+										<td style="width:30%">
+											<p>
+												<span class="fragment" data-fragment-index="0">
+													First, note that the ODE is separable! <br/><br/>
+												</span>
+												<span style="font-size:150%" class="fragment" data-fragment-index="0">
+													&nbsp; &nbsp; 😃
+												</span>
+											</p>
+											<br/><br/><br/>
+										</td>
+										<td style="width:70%">
+											<p>
+												<span class="fragment" data-fragment-index="2">
+													1. $\ds y \frac{dy}{dx} = \sin x$
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="3">
+													2. $\ds \int y \frac{dy}{dx} ~dx= \int \sin x ~dx$
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="4">
+													3. $\ds \int y ~dy = \int \sin x~dx $
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="5">
+													4. $\ds \frac{y^2}{2}= - \cos x+C $
+												</span>
+											</p>
+											
+										</td>
+									</tr>
+								</table>
+							</div>
+
+						</div>
+					</div>
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:70%">1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.4.2 Solving separable ODEs</strong></p>
+					</div>
+					
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+								</span>
+								<span>
+									Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{\sin x}{y}}$, $\;y(0)=1$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<div id="theorem">
+								
+								<table style="width:100%">
+									<tr>
+										<td style="width:50%">
+											<p>
+												<span>
+													Since $y(0)=1,$ 
+												</span>
+											</p>
+											<p>
+												
+												<span class="fragment" data-fragment-index="0">
+													$\Ra \dfrac{1^2}{2} = - \cos (0) + C$
+												</span>
+											</p>
+											<p>
+												
+												<span class="fragment" data-fragment-index="1">
+													$\Ra C = \dfrac{3}{2}$
+												</span>
+											</p>
+											<p>
+												
+												<span class="fragment" data-fragment-index="2">
+													$\Ra \dfrac{y^2}{2} = - \cos x + \dfrac{3}{2}.$
+												</span>
+											</p>
+											
+										</td>
+										<td style="width:50%">
+											<p>
+												<span class="fragment" data-fragment-index="3">
+													5. $\ds y = \pm \sqrt{3- 2 \cos x}$
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="4">
+													&nbsp;&nbsp;&nbsp; $\ds y =  \sqrt{3- 2 \cos x}$
+												</span>
+											</p>
+											
+											<br/><br/><br/><br/>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+						</div>
+					</div>
+					<br/>
+				</section>
+
+			</section>
 			
 			
 
