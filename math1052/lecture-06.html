@@ -210,7 +210,7 @@ negative, describing cooling.
 							
 						</div>
 					</div>
-					<div class="size-75">
+					<div class="size-95">
 						<div class="left-txt">
 							<p>
 								<span>
@@ -224,7 +224,10 @@ negative, describing cooling.
 									<span class="fragment" data-fragment-index="0">
 										Note that the ODE is separable.
 									</span>
-									<span class="fragment" data-fragment-index="0">
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
 										The equilibrium solution is $T= T_m$ provided $T\neq T_m.$
 									</span>
 								</p>
@@ -235,8 +238,133 @@ negative, describing cooling.
 					
 					<br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.5.1 Newton's law of cooling</strong></p>
+					</div>
+					<div class="size-60">
+						<div class="">
+							
+							<p>
+								
+								<span>
+									$
+									\ds \dif{T}{t}=-k(T-T_m), \quad k>0.
+									$
+								</span>
+							</p>
+							
+							
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Solve this ODE with the intial condition $T(0)=T_0$.
+								</span>
+							</p>
+							
+							<div id="theorem">
+								<p>
+									<span>
+										So we can write $\, \ds \frac{1}{T-T_m}\frac{dT}{dt}$
+									</span>
+									<span>
+										$= \ds  - k.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\Ra \,\ds \int \frac{1}{T-T_m}\frac{dT}{dt}dt$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$= \ds \int - k~dt$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										$\Ra\, \ds \ln \abs{T-T_m} + C = - kt + D$
+									</span>
+								</p>
+							</div>
+							
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.5.1 Newton's law of cooling</strong></p>
+					</div>
+					
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Solve this ODE with the intial condition $T(0)=T_0$.
+								</span>
+							</p>
+							
+							<div id="theorem" style="font-size:110%">
+								<p>
+									<span>
+										$\Ra\, \ds \ln \abs{T-T_m} + C = - kt + D$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\Ra \,\ds\abs{T-T_m }= e^{D-C}e^{-kt}$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\, \Ra\, T-T_m = A e^{-kt}.$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										Now $T(t) = A e^{-kt} + T_m\,$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										and
+									</span>
+									
+								</p>
+								<p>
+									
+									
+									<span class="fragment" data-fragment-index="3">
+										$\,T(0) = A + T_m$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										 $ =T_0$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										 $\, \Ra A =T_0-T_m.$
+									</span>
+								</p>
+								<p>
+									
+									
+									<span class="fragment" data-fragment-index="6">
+										Hence 
+										 $\, T(t) = \left(T-T_m\right) e^{-kt} + T_m.$
+									</span>
+								</p>
 
-				
+							</div>
+							
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
 
 				
 
