@@ -1122,6 +1122,130 @@ $P(1-P/\theta)\approx 0$) then growth comes almost to a standstill.
 					<br/>
 				</section>
 
+				<section>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+
+					<div class="size-70" style="margin-top:-5px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Identify the equilibrium (or singular) solutions to the logistic population
+model, and interpret these solutions in terms of population growth.  Include a
+diagram.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-75" style="margin-top:-5px">
+						
+						<div class="left-txt">
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds\frac{dP}{dt} = rP\left(1-\frac{P}{\theta}\right)$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Then equilibrium solution: $P=0, \theta$
+									</span>
+								</p>
+								<br/><br/><br/><br/><br/><br/>
+							</div>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+			</section>
+
+			<section data-auto-animate>
+				<h4 style="font-size:75%">1 Ordinary Differential Equations</h4>
+				<div id="sbt">
+					<p><strong>1.5.4 Extra reading: numerically solving ODEs</strong></p>
+				</div>
+				<div class="size-75" style="margin-top:-10px">
+					
+					<div class="left-txt">
+						<p>
+							<span>
+								Matlab has some more sophisticated numerical methods for solving ODEs than
+Euler's method.
+Matlab's <span style="color:blue">ode45</span> uses a Runge-Kutta fourth-order integration
+technique. To use it you need to write two little programs. The first
+one, say logistic.m,
+defines the differential equation
+							</span>
+						</p>
+					</div>
+				</div>
+				<div style="font-size:110%">
+					<pre><code data-trim data-noescape data-line-numbers="1-2">
+					function dy = logistic(t, y)
+					dy = y * (1 - y);
+					</code></pre>
+				</div>
+				<div class="size-75" style="margin-top:-10px">
+					
+					<div class="left-txt">
+						<p>
+							<span>
+								The second program will numerically solve the ODE and plot your
+								solution.
+							</span>
+						</p>
+					</div>
+				</div>
+<div style="font-size:110%">
+<pre><code data-trim data-noescape data-line-numbers="1-4">
+y0 = 0.1;
+tfinal = 6;
+[t,y] = ode45 ('logistic', tfinal, y0);
+plot(t, y)
+</code></pre>
+				</div>
+				<br/>
+				<br/>
+			</section>
+
+
+			<section>
+				<h4>1 Ordinary Differential Equations</h4>
+				<div id="sbt">
+					<p><strong>1.5.5 Main points</strong></p>
+				</div>
+				
+				
+				
+				<div class="size-90">
+					<div class="left-txt">
+						
+
+						<ul style="line-height:55px">
+							<li>
+								You should be able to apply Newton's law of cooling and solve the
+resulting IVP.
+							</li>
+							<li>
+								You should know how to model population growth and solve the resulting
+IVP.  
+							</li>
+							<li>
+								You should be able to interpret the obtained solutions.
+							</li>
+							
+							
+						</ul>
+						
+						
+						
+						
+					</div>
+				</div>
+				<br/><br/><br/>
 			</section>
 
 			
