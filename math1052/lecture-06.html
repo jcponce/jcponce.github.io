@@ -949,6 +949,181 @@ have, on average, one square metre of land left to stand on.
 				
 			</section>
 
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								<span>
+									The problem with the Malthusian population model is that it does not
+contain a "damping" factor reflecting issues such as
+over-population, limited food or water supply, etc.
+								</span> 
+								<span class="fragment" data-fragment-index="0">
+									The <span id="rr">logistic model</span> of Verhulst is the simplest model that
+									has such built-in damping:
+								</span> 
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									where $\theta$ is some very large constant, known as the
+									<span id="rr">carrying capacity</span>.
+								</span> 
+							</p>
+							
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-70" style="margin-top:-5px">
+						
+						<div>
+							<p>
+								<span>
+									👉 &nbsp; $\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Note that when $P$ is small(ish) then $P/\theta$ is small and we
+									approximately have
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \dif{P}{t}\approx rP$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									as before.
+								</span> 
+								<span class="fragment" data-fragment-index="0">
+									When the population becomes close to the carrying capacity (i.e., $P/\theta$
+very close to 1 so that not just $1-P/\theta\approx 0$ but also
+$P(1-P/\theta)\approx 0$) then growth comes almost to a standstill. 
+								</span> 
+							</p>
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4 style="font-size:70%">1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-55" style="margin-top:-5px">
+						
+						<div>
+							<p>
+								<span>
+									👉 &nbsp; $\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-75" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									If we introduce new variables $y=P/\theta$ and $\tau=rt$ then the ODE becomes 
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds\frac{\dup y}{\dup \tau} = y(1-y).$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									We have already seen that if $y(0)=y_0$ then this has solution
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds y = \frac{y_0 e^\tau}{1-y_0+y_0e^\tau}.$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									If $P(0)=P_0$ in our original variables then we have
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds P = \frac{\theta P_0 e^{rt}}{\theta-P_0+P_0e^{rt}}.$
+								</span> 
+							</p>
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+
+			</section>
+
 			
 			
 
