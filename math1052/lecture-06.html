@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+	<link rel="stylesheet" href="revealjs/plugin/highlight/monokai.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
@@ -1179,27 +1179,22 @@ to the existing population.
 								</span>
 							</p>
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									If $E$ is the constant of proportionality for harvesting, their
 									model is 
-								</span>
-								<span>
-									What restriction must 
-									be put on $E$ so that the population will not
-									die out?
 								</span>
 							</p>
 						</div>
 						<div>
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									$\ds \dif{P}{t} = rP\Bigl(1-\frac{P}{\theta}\Bigr)-EP.$
 								</span>
 							</p>
 						</div>
 						<div class="left-txt">
 							
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									What restriction must 
 									be put on $E$ so that the population will not
 									die out?
@@ -1207,13 +1202,13 @@ to the existing population.
 							</p>
 						</div>
 					</div>
-					<div class="size-75" style="margin-top:-5px">
+					<div class="size-85" style="margin-top:-5px">
 						
-						<div class="">
+						<div  class="fragment" data-fragment-index="2">
 							<div id="theorem">
 								<p>
-									<span class="fragment" data-fragment-index="0">
-										<span id="rr">Extra reading!</span> 📝
+									<span>
+										<span id="rr">Extra reading!</span> 📝 = Exercise
 									</span>
 								</p>
 								
@@ -1245,12 +1240,12 @@ defines the differential equation
 						</p>
 					</div>
 				</div>
-				<div style="font-size:110%">
-					<pre><code data-trim data-noescape data-line-numbers="1-2">
-					function dy = logistic(t, y)
-					dy = y * (1 - y);
-					</code></pre>
-				</div>
+<div style="font-size:110%">
+<pre><code data-trim data-noescape data-line-numbers="1-2">
+function dy = logistic(t, y)
+dy = y * (1 - y);
+</code></pre>
+</div>
 				<div class="size-75" style="margin-top:-10px">
 					
 					<div class="left-txt">
@@ -1266,8 +1261,8 @@ defines the differential equation
 <pre><code data-trim data-noescape data-line-numbers="1-4">
 y0 = 0.1;
 tfinal = 6;
-[t,y] = ode45 ('logistic', tfinal, y0);
-plot(t, y)
+[t, y] = ode45(logistic, tfinal, y0);
+plot(t, y);
 </code></pre>
 				</div>
 				<br/>
