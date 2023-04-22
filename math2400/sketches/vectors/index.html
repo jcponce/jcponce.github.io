@@ -18,9 +18,9 @@
           noZoom: false,
         }
       },
-      loop: {
-        start: window == window.top
-      },
+      //loop: {
+      //  start: window == window.top
+      //},
     });
     three = mathbox.three;
 
@@ -42,7 +42,7 @@
     }, {
       quaternion: function (t) { 
         var c;
-        if(rotate) c = 0.0045;
+        if(rotate) c = 0.0025;
         else c = 0.0;
         return [0, -Math.sin(t * c), 0, Math.cos(t * c)]; 
       }
