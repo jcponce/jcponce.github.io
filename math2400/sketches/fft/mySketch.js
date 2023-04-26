@@ -20,6 +20,7 @@ let fft;
 let spectra = [];
 let mode = 0;
 let angle = 0;
+let mic; 
 
 function preload() {
 	//song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
@@ -27,8 +28,6 @@ function preload() {
 	song = loadSound('dance-land.mp3');
 }
 
-
-let mic; 
 
 function setup() {
 	
@@ -45,6 +44,7 @@ function setup() {
 	// Getting microphone input
 	mic = new p5.AudioIn();
 
+	// Getting FFT from p5js
 	fft = new p5.FFT(0.5, 64);
 
 	document.getElementById('micro').onclick = () => {
@@ -66,26 +66,12 @@ function setup() {
 		
 	};
 
-	
-
-	
+	// Runs slower 
 	frameRate(15);
 
-	
-	
+	// Rainbow colors :)
 	colorMode(HSB);
 }
-
-function setMicro(){
-	//if(val2 == true) {
-		//rotateZ(angle);
-		//angle -= 0.005;
-		//console.log(val2)
-	//} else console.log(val2)
-	//rotateZ(angle);
-}
-
-
 
 function draw(){
   // projection
@@ -123,7 +109,6 @@ function draw(){
 	
 	///*
 	
-		
 	//strokeWeight(1);
 	noStroke();
 	for (j = 0; j < spectra.length; j++) {
@@ -151,10 +136,8 @@ function draw(){
 		}
 	}
 
-	
-	
 	/*
-	// gizmo
+	// gizmo for reference
     strokeWeight(5);
     stroke(255, 32,  0); line(0,0,0,2,0,0);
     stroke( 32,255, 32); line(0,0,0,0,2,0);
@@ -176,6 +159,7 @@ function keyPressed() {
 	if (keyCode == 32) mode = 1 - mode;
 }
 
+// Define class for Spectrum
 class Spectrum {
  constructor(spectrum){
    this.spectrum = spectrum;
@@ -191,7 +175,6 @@ class Spectrum {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
-	
 }
 
 /*
@@ -204,13 +187,3 @@ function doubleClicked() {
 	} else rot = false
 }
 */
-
-//let rot = false;
-
-//function myCheckedEvent() {
-//	if(checkbox.checked()) {
-//		rot = true;
-//	} else rot = false
-//}
-
-
