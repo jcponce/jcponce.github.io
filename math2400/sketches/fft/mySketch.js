@@ -54,13 +54,13 @@ function setup() {
 		if( !val2){
 		  divElem.style.display = 'block'  ; 
 		  mic.stop();
-		  
 		}
 		else{
 		  divElem.style.display = 'none'  ;
 		  mic.start();
-			mic.connect(fft);
-			toggle();
+		  mic.connect(fft);
+		  song.pause();
+		  song.setVolume(1);
 		}
 		
 	};
