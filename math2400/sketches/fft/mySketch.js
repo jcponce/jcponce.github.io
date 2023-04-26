@@ -111,7 +111,13 @@ function draw(){
 	pointLight(210, 210, 210, 50, 50, 30); // white light
 	
 	///*
-	let adjust;
+	let adjust, highValue;
+
+	if(val2) {
+		highValue = 35; // music
+	} else {
+		highValue =  90; // micro
+	}
 	//strokeWeight(1);
 	noStroke();
 	for (j = 0; j < spectra.length; j++) {
@@ -119,11 +125,10 @@ function draw(){
 		
 		for (i = 0; i < 32; i += 1) {
 
-			if(val2) {
-				adjust = (i + 1) * (i * 1) / 30; //musics
-			} else {
-				adjust = (i + 1) * (i * 1) / 90; // micro
-			}
+
+			
+			adjust = (i + 1) * (i * 1) / highValue; 
+			
 			let h = map(spec[i] * adjust, 0, 255, 0, hh);
 			if (mode == 0) stroke(255);
 			else stroke(0);
