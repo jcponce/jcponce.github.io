@@ -22,10 +22,19 @@ let mode = 0;
 let angle = 0;
 let mic; 
 
+
+var songsList = [
+	"dance-land.mp3",
+	"https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3", 
+	"https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3",
+];
+
 function preload() {
-	//song = loadSound('https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3');
+	let index = Math.floor(Math.random()*songsList.length);
+	song = loadSound(songsList[index]);
+	//song = loadSound('');
 	//song = loadSound('https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3');
-	song = loadSound('dance-land.mp3');
+	//song = loadSound('dance-land.mp3');
 }
 
 
@@ -36,6 +45,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
     setAttributes('antialias', true);
     easycam = new Dw.EasyCam(this._renderer, {distance : 40});
+
 	
 	document.getElementById('play').onclick = () => {
 		toggle();
@@ -49,11 +59,10 @@ function setup() {
 
 	document.getElementById('micro').onclick = () => {
 
-		val2 = !val2;
-		//console.log('Toggled', val2);
+		starMicro = !starMicro;
 		var divElem = document.getElementById('hide');
 		var divInfo = document.getElementById('info');
-		if( !val2){
+		if( !starMicro ){
 		  divElem.style.display = 'block'  ; 
 		  divInfo.style.display = 'block'  ; 
 		  mic.stop();
@@ -95,7 +104,7 @@ function draw(){
 	
 	rotateX(1.3);
 
-	if(val == true) {
+	if(rotateView == true) {
 		rotateZ(angle);
 		angle -= 0.005;
 	} else rotateZ(angle);
@@ -111,12 +120,12 @@ function draw(){
 	pointLight(210, 210, 210, 50, 50, 30); // white light
 	
 	///*
-	let adjust, highValue;
+	let adjust;
 
-	if(val2) {
-		highValue = 35; // music
+	if(starMicro) {
+		hh = 6; // music
 	} else {
-		highValue =  90; // micro
+		hh = 3; // micro
 	}
 	//strokeWeight(1);
 	noStroke();
@@ -124,10 +133,8 @@ function draw(){
 		let spec = spectra[j].getSpectrum();
 		
 		for (i = 0; i < 32; i += 1) {
-
-
 			
-			adjust = (i + 1) * (i * 1) / highValue; 
+			adjust = (i + 1) * (i * 1) / 90; 
 			
 			let h = map(spec[i] * adjust, 0, 255, 0, hh);
 			if (mode == 0) stroke(255);

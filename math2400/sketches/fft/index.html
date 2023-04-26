@@ -36,7 +36,7 @@
         <br/>
         <p>
             &nbsp; <input 
-            onclick="toggle2()" 
+            onclick="spin()" 
             type="checkbox" 
             id="rotate" 
             name="rotate" 
@@ -59,32 +59,14 @@
       </div>
 
       <script>
-        let val = document.getElementById('rotate').checked;
-        //console.log('Test', val);
+        let rotateView = document.getElementById('rotate').checked;
 
-        function toggle2(){
-            val = !val;
-            //console.log('Toggled', val);
+        let spin = () => {
+          rotateView = !rotateView;
         }
 
+        let starMicro = document.getElementById('micro').checked;
        
-        let val2 = document.getElementById('micro').checked;
-       // console.log('Test', val2);
-
-       // function toggle3(){
-           // val2 = !val2;
-            //console.log('Toggled', val2);
-           // var divElem = document.getElementById('hide');
-           // if( !val2){
-           //   divElem.style.display = 'block'  ; 
-           // }
-           // else{
-           //   divElem.style.display = 'none'  ;
-           // }
-       // }
-        
-        
-        
         
       </script>
 </body>
