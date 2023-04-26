@@ -52,12 +52,15 @@ function setup() {
 		val2 = !val2;
 		//console.log('Toggled', val2);
 		var divElem = document.getElementById('hide');
+		var divInfo = document.getElementById('info');
 		if( !val2){
 		  divElem.style.display = 'block'  ; 
+		  divInfo.style.display = 'block'  ; 
 		  mic.stop();
 		}
 		else{
 		  divElem.style.display = 'none'  ;
+		  divInfo.style.display = 'none'  ; 
 		  mic.start();
 		  mic.connect(fft);
 		  song.pause();
