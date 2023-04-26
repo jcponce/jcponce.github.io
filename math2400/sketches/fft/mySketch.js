@@ -1,12 +1,13 @@
 /*
 
-This is a p5easycam version of Musci Visualizer by Ivan Rudnicki
+This is a p5easycam version of Music Visualizer by Ivan Rudnicki
 
 https://openprocessing.org/sketch/974487
 
-https://openprocessing.org/user/110137?view=sketches&o=48
-
 It works :) Now I just need to refactor it. ;)
+
+Date: 26/Abril/2023
+Site: https://jcponce.github.io/
 
 */
 
@@ -49,7 +50,7 @@ function setup() {
 	document.getElementById('micro').onclick = () => {
 
 		val2 = !val2;
-		console.log('Toggled', val2);
+		//console.log('Toggled', val2);
 		var divElem = document.getElementById('hide');
 		if( !val2){
 		  divElem.style.display = 'block'  ; 
