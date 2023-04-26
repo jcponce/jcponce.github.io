@@ -27,6 +27,8 @@ function preload() {
 }
 
 
+let mic; 
+
 function setup() {
 	
     pixelDensity(1);
@@ -39,10 +41,47 @@ function setup() {
 		toggle();
 	};
 
+	// Getting microphone input
+	mic = new p5.AudioIn();
+
 	fft = new p5.FFT(0.5, 64);
+
+	document.getElementById('micro').onclick = () => {
+
+		val2 = !val2;
+		console.log('Toggled', val2);
+		var divElem = document.getElementById('hide');
+		if( !val2){
+		  divElem.style.display = 'block'  ; 
+		  mic.stop();
+		  
+		}
+		else{
+		  divElem.style.display = 'none'  ;
+		  mic.start();
+			mic.connect(fft);
+			toggle();
+		}
+		
+	};
+
+	
+
+	
 	frameRate(15);
+
+	
 	
 	colorMode(HSB);
+}
+
+function setMicro(){
+	//if(val2 == true) {
+		//rotateZ(angle);
+		//angle -= 0.005;
+		//console.log(val2)
+	//} else console.log(val2)
+	//rotateZ(angle);
 }
 
 
