@@ -29,9 +29,14 @@ var songsList = [
 	"https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3",
 ];
 
+let index;
+
 function preload() {
-	let index = Math.floor(Math.random()*songsList.length);
+	index = Math.floor(Math.random()*songsList.length);
 	song = loadSound(songsList[index]);
+	//for(let i = 0; i<songsList.length; i++){
+	//	song[i] = loadSound(songsList[i]); 
+	//}
 	//song = loadSound('');
 	//song = loadSound('https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3');
 	//song = loadSound('dance-land.mp3');
@@ -83,6 +88,21 @@ function setup() {
 
 	// Rainbow colors :)
 	colorMode(HSB);
+
+
+	var hleft = select('#hud-left');
+    var nameSong;
+	if(index == 0){
+		nameSong = '8 bit mentality'
+	} if(index == 1) {
+		nameSong = 'Disco Science'
+	} if(index == 2) {
+		nameSong = 'Time in a bottle'
+	}
+
+    createElement('li', nameSong).parent(hleft);
+	
+	console.log('Index', index);
 }
 
 function draw(){
