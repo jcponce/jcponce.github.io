@@ -21,7 +21,7 @@ let spectra = [];
 let mode = 0;
 let angle = 0;
 let mic; 
-
+let index;
 
 var songsList = [
 	"dance-land.mp3",
@@ -29,7 +29,7 @@ var songsList = [
 	"https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3",
 ];
 
-let index;
+
 
 function preload() {
 	index = Math.floor(Math.random()*songsList.length);
@@ -92,15 +92,19 @@ function setup() {
 
 	var hleft = select('#hud-left');
     var nameSong;
+	var linkInfo;
 	if(index == 0){
-		nameSong = '8 bit mentality'
+		nameSong = '8 bit mentality';
+		linkInfo = 'https://soundcloud.com/stage7/8-bit-mentality';
 	} if(index == 1) {
-		nameSong = 'Disco Science'
+		nameSong = 'Disco Science';
+		linkInfo = 'https://en.wikipedia.org/wiki/Production_(album)';
 	} if(index == 2) {
-		nameSong = 'Time in a bottle'
+		nameSong = 'Time in a bottle';
+		linkInfo = 'https://en.wikipedia.org/wiki/Time_in_a_Bottle';
 	}
 
-    createElement('li', nameSong).parent(hleft);
+    createA(linkInfo, nameSong, '_blank').parent(hleft);
 	
 	console.log('Index', index);
 }
