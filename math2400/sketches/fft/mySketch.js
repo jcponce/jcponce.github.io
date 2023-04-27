@@ -15,22 +15,25 @@ let easycam;
 
 /*Code based on example from Daniel Shiffman.*/
 
+// Variables for FFT
 let song;
 let fft;
 let spectra = [];
-let mode = 0;
-let angle = 0;
 let mic; 
 let index;
 
-var songsList = [
+// Variables for interaction
+let mode = 0;
+let angle = 0;
+
+// List of songs
+let songsList = [
 	"dance-land.mp3",
 	"https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3", 
 	"https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3",
 ];
 
-
-
+// Preload all the music
 function preload() {
 	index = Math.floor(Math.random()*songsList.length);
 	song = loadSound(songsList[index]);
@@ -89,24 +92,8 @@ function setup() {
 	// Rainbow colors :)
 	colorMode(HSB);
 
-
-	var hleft = select('#hud-left');
-    var nameSong;
-	var linkInfo;
-	if(index == 0){
-		nameSong = '8 bit mentality';
-		linkInfo = 'https://soundcloud.com/stage7/8-bit-mentality';
-	} if(index == 1) {
-		nameSong = 'Disco Science';
-		linkInfo = 'https://en.wikipedia.org/wiki/Production_(album)';
-	} if(index == 2) {
-		nameSong = 'Time in a bottle';
-		linkInfo = 'https://en.wikipedia.org/wiki/Time_in_a_Bottle';
-	}
-
-    createA(linkInfo, nameSong, '_blank').parent(hleft);
-	
-	console.log('Index', index);
+	// Create DOM elements with links with info about music
+	createInfoLinks();
 }
 
 function draw(){
@@ -201,6 +188,25 @@ function toggle() {
 
 function keyPressed() {
 	if (keyCode == 32) mode = 1 - mode;
+}
+
+function createInfoLinks() {
+	let hleft = select('#hud-left');
+    let nameSong, linkInfo;
+	if(index == 0){
+		nameSong = '8 bit mentality';
+		linkInfo = 'https://soundcloud.com/stage7/8-bit-mentality';
+	} if(index == 1) {
+		nameSong = 'Disco Science';
+		linkInfo = 'https://en.wikipedia.org/wiki/Production_(album)';
+	} if(index == 2) {
+		nameSong = 'Time in a bottle';
+		linkInfo = 'https://en.wikipedia.org/wiki/Time_in_a_Bottle';
+	}
+
+    createA(linkInfo, nameSong, '_blank').parent(hleft);
+	
+	//console.log('Index', index);
 }
 
 // Define class for Spectrum
