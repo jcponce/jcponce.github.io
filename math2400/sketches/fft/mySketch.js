@@ -123,7 +123,7 @@ function draw(){
 	rotateZ(-0.5);
 	translate(-15,-15,-4);
 
-	ambientLight(60);
+	ambientLight(55);
 	// add a point light to showcase specular color
     // -- use mouse location to position the light
     //let lightPosX = mouseX - width / 2;
@@ -148,15 +148,15 @@ function draw(){
 			adjust = (i + 1) * (i * 1) / 90; 
 			
 			let h = map(spec[i] * adjust, 0, 255, 0, hh);
-			if (mode == 0) stroke(255);
-			else stroke(0);
+			//if (mode == 0) stroke(255);
+			//else stroke(0);
 			//fill(i*13, 80, 100);
 			//ambientMaterial();
 			// use specular material with high shininess
   			specularMaterial((i+2)*12, 80, 100);
  			shininess(50);
 			push();
-			noStroke();
+			//noStroke();
 			translate(i, j, h/2);
 			//rotateX(PI/2);
 			//rotateZ(PI/2);
