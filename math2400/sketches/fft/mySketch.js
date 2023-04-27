@@ -194,13 +194,13 @@ function createInfoLinks() {
 	let hleft = select('#hud-left');
     let nameSong, linkInfo;
 	if(index == 0){
-		nameSong = '8 bit mentality';
+		nameSong = '8 bit mentality <i class="fa fa-info-circle" aria-hidden="true"></i>';
 		linkInfo = 'https://soundcloud.com/stage7/8-bit-mentality';
 	} if(index == 1) {
-		nameSong = 'Disco Science';
+		nameSong = 'Disco Science <i class="fa fa-info-circle" aria-hidden="true"></i>';
 		linkInfo = 'https://en.wikipedia.org/wiki/Production_(album)';
 	} if(index == 2) {
-		nameSong = 'Time in a bottle';
+		nameSong = 'Time in a bottle <i class="fa fa-info-circle" aria-hidden="true"></i>';
 		linkInfo = 'https://en.wikipedia.org/wiki/Time_in_a_Bottle';
 	}
 
