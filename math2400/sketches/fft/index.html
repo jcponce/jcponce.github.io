@@ -1,12 +1,17 @@
 <html lang="en">
     <head>
     <title>FFT Music Visualizer</title>
-    <script src="mySketch.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.min.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@v1.6.0/lib/addons/p5.sound.min.js" type="text/javascript"></script>
+    
+    <script src="p5.min.js" type="text/javascript"></script>
+    <script src="p5.easycam.min.js" type="text/javascript"></script>
+    <script src="p5.sound.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
+    <link rel="icon" type="image/png" href="../../images/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/icon/infinity16.png" sizes="16x16">
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	  <script src="../../mySetup/google-analytics-ga4.js"></script>
@@ -14,60 +19,72 @@
 <body>
 
     <div id="easycamhud" class="hud">
-        <p><span style="font-size:18px">
-          <a href="https://soundcloud.com/stage7/8-bit-mentality" target="_blank">8-bit mentality</a>
-        </span>
-        </p><br/>
-        
-        <!--<p>
-          &nbsp; <input 
-          onclick="toggle3()" 
+      <div id="info">
+        <span id="hud-left" class="two"></span>
+      </div>
+      <!--<div id="info">
+        <p>
+          <span style="font-size:18px">
+            <a href="https://soundcloud.com/stage7/8-bit-mentality" target="_blank">8-bit mentality</a>
+          </span>
+        </p>
+        <p>
+          <span style="font-size:18px">
+            <a href="https://soundcloud.com/stage7/8-bit-mentality" target="_blank">Disco Science</a>
+          </span>
+        </p>
+        <p>
+          <span style="font-size:18px">
+            <a href="https://soundcloud.com/stage7/8-bit-mentality" target="_blank">Time in a bottle</a>
+          </span>
+        </p>
+      </div>  -->
+      <br/>
+
+        <div id="hide" style="text-align:center">
+          <p>
+            <button class="myButton" id="playMusic" type="button">
+              <i class="fa fa-solid fa-play">/</i>
+              <i class="fa fa-solid fa-pause"></i>
+            </button>
+          </p>
+        </div>
+        <br/>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input 
+            onclick="spin()" 
+            type="checkbox" 
+            id="rotateView" 
+            name="rotateView" 
+            value="false" unchecked>
+            <label style="font-size:1.1em;" for="rotateView">  &nbsp;Spin</label><br>
+        </p>
+
+        <br/>
+
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input 
           type="checkbox" 
           id="micro" 
           name="micro" 
           value="false" unchecked>
-          <label style="font-size:1.1em;" for="micro">  &nbsp;Micro</label><br>
-        </p>-->
-
-        <p>
-            <button class="myButton" id="play" type="button">
-              <i class="fa fa-solid fa-play">/</i>
-              <i class="fa fa-solid fa-pause"></i>
-            </button>
-        </p><br/>
-        <p>
-            &nbsp; <input 
-            onclick="toggle2()" 
-            type="checkbox" 
-            id="rotate" 
-            name="rotate" 
-            value="false" unchecked>
-            <label style="font-size:1.1em;" for="rotate">  &nbsp;Spin</label><br>
+          <label  id="hideMicro" style="font-size:1.1em;" for="micro">  &nbsp;Micro</label><br>
         </p>
+
+        <br/>
       </div>
 
       <script>
-        let val = document.getElementById('rotate').checked;
-        //console.log('Test', val);
+        let rotateView = document.getElementById('rotateView').checked;
 
-        function toggle2(){
-            val = !val;
-            //console.log('Toggled', val);
+        let spin = () => {
+          rotateView = !rotateView;
         }
 
-       
-        //let val2 = document.getElementById('micro').checked;
-        //console.log('Test', val);
-
-        //function toggle3(){
-         //   val2 = !val2;
-            //console.log('Toggled', val);
-        //}
-
-        
-        
-        
+        let starMicro = document.getElementById('micro').checked;
       </script>
+      
+      <script src="mySketch.js" type="text/javascript"></script>
 </body>
 
 
