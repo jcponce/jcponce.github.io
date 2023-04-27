@@ -55,7 +55,7 @@ function setup() {
     easycam = new Dw.EasyCam(this._renderer, {distance : 40});
 
 	
-	document.getElementById('play').onclick = () => {
+	document.getElementById('playMusic').onclick = () => {
 		toggle();
 	};
 

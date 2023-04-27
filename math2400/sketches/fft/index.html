@@ -1,7 +1,7 @@
 <html lang="en">
     <head>
     <title>FFT Music Visualizer</title>
-    <script src="mySketch.js" type="text/javascript"></script>
+    
     <script src="p5.min.js" type="text/javascript"></script>
     <script src="p5.easycam.min.js" type="text/javascript"></script>
     <script src="p5.sound.min.js" type="text/javascript"></script>
@@ -43,7 +43,7 @@
 
         <div id="hide" style="text-align:center">
           <p>
-            <button class="myButton" id="play" type="button">
+            <button class="myButton" id="playMusic" type="button">
               <i class="fa fa-solid fa-play">/</i>
               <i class="fa fa-solid fa-pause"></i>
             </button>
@@ -54,10 +54,10 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input 
             onclick="spin()" 
             type="checkbox" 
-            id="rotate" 
-            name="rotate" 
+            id="rotateView" 
+            name="rotateView" 
             value="false" unchecked>
-            <label style="font-size:1.1em;" for="rotate">  &nbsp;Spin</label><br>
+            <label style="font-size:1.1em;" for="rotateView">  &nbsp;Spin</label><br>
         </p>
 
         <br/>
@@ -75,7 +75,7 @@
       </div>
 
       <script>
-        let rotateView = document.getElementById('rotate').checked;
+        let rotateView = document.getElementById('rotateView').checked;
 
         let spin = () => {
           rotateView = !rotateView;
@@ -83,6 +83,8 @@
 
         let starMicro = document.getElementById('micro').checked;
       </script>
+      
+      <script src="mySketch.js" type="text/javascript"></script>
 </body>
 
 
