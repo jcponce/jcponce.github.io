@@ -61,20 +61,20 @@
 			<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.6 Solving Linear First Order Equations</strong></p>
+						<p><strong>1.7 Linear Second-Order Differential Equations
+							with Constant Coefficients</strong></p>
 					</div>
 					<br/>
 					<div class="">
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
-									If you cannot solve a differential equation by separation,
+									Second-order ODEs are covered in Stewart in Sections 17.1 and
+17.2. 
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									your next
-									plan of attack should be to test if it is <span id="rr">linear</span> 
-									and use the
-									<span id="rr">integration factor</span> method described below.
+									They often correspond with unforced (homogeneous) oscillators in
+									our applications, but they arise in many other problems.
 								</span>
 							</p>
 							
@@ -82,7 +82,7 @@
 						</div>
 					</div>
 					
-					<br/><br/><br/><br/>
+					<br/><br/><br/>
 			</section>
 
 			<section>
@@ -90,19 +90,17 @@
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<p><strong>1.7.1 Definition</strong></p>
 					</div>
-					
+					<br/>
 					<div class="size-95">
 						<div class="left-txt">
 							<p>
 								<span>
 									
-									A first-order ODE is <span id="rr">linear</span>  if it can be put in the form
-									\begin{equation*}
-									\dif{y}{t}+p(t)y=q(t)
-									\end{equation*}
-									for some functions $p(t)$ and $q(t)$.
+									If the unknown function and its derivatives appear linearly 
+in an ODE, the ODE is said to be  <span id="rr">linear</span>. Otherwise it is <span id="rr">nonlinear</span> .
+
 								</span>
 							</p>
 							
@@ -112,12 +110,12 @@
 					</div>
 					
 
-					<br/><br/><br/>
+					<br/><br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<p><strong>1.7.1 Definition</strong></p>
 					</div>
 					
 					<div class="size-80" style="margin-top:-15px">
@@ -126,38 +124,35 @@
 							<p>
 								<span>
 									<strong>Example:</strong>
-									Which of the following are linear?
+									Which of the following ODEs are linear?
 								</span>
 								
 							</p>
 							
 							<ul style="line-height:51px;margin-top:-10px">
 								<li>
-									$y'=x$ 
+									$y'' + y'=y\log x$
 								</li>
 								<li>
-									$y'=\log x$ 
+									$y' = y^2 +y''$
 								</li>
 								<li>
-									$y'=y^2$ 
+									$y''y' = y$
 								</li>
 								<li>
-									$y'=y$ 
+									$y'y = y''$
 								</li>
 								<li>
-									$y'y = 1$ 
+									$y'+x^3y'' = xy+3\sin x$
 								</li>
 								<li>
-									$y' = y+3\sin x$ 
+									$y' = y''t^5 - t^2y$
 								</li>
 								<li>
-									$y' = t^5 - t^2y$  
+									$y'' = \sin y +e^x$
 								</li>
 								<li>
-									$y' = \sin y + e^x$ 
-								</li>
-								<li>
-									$(y')^2 = y$
+									$y'' + (y')^2 = y$
 								</li>
 							</ul>
 							
@@ -170,7 +165,7 @@
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<p><strong>1.7.1 Definition</strong></p>
 					</div>
 					
 					<div class="size-90" style="margin-top:0px">
@@ -178,26 +173,20 @@
 							
 							<p>
 								<span>
-									Recall the product rule for differentiation (written here in reverse order):
+									A second-order linear ODE is an ODE that can be written in the form
 \[
-f\,\dif{g}{t} + \dif{f}{t}\,g=
-\dif{}{t}(f\, g ).
+\frac{\dup^2y}{\dup t^2}+p(t)\dif{y}{t}+q(t)y=r(t).
 \]
 								</span>
 								<span class="fragment" data-fragment-index="0">
-									This formula is key to solving first-order linear ODEs.
-
+									The functions $p(t)$ and $q(t)$ are called the 
+									<span id="rr">coefficients</span>
+									of the ODE and if $r(t)=0$ the ODE is called 
+									<span id="rr">homogeneous</span>. 
 								</span>
 								
 							</p>
 							
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									<strong>Example:</strong>
-									Solve $\;\displaystyle \dif{y}{t} + 
-									\Bigl(\dfrac{2t}{t^2+1}\Bigr)y = t^2+1$.
-								</span>
-							</p>
 							
 							
 							
