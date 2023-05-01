@@ -491,6 +491,218 @@ that does the trick is known as an <span id="rr">integrating factor</span>.
 					<br/>
 				
 				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.6.1 Definition</strong></p>
+					</div>
+
+					<div class="size-75" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span>
+									Given the ODE
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							
+							
+							
+							<p>
+								<span>
+									$\ds
+\dif{y}{t}+p(t)y=q(t)
+$
+
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									
+we multiply by the yet-to-be-found integrating factor $I(t)$:
+
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						
+						<div class="">
+							
+							
+							
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds
+I(t)\dif{y}{t} + I(t)p(t)y = I(t)q(t). \qquad (*)
+$
+
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									We think of $I$ as $g$ and $y$ as $f$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Then the first term on the left is
+$f' g$ and consequently we want the second term on the left to be
+$f g'=y I'$. 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Given that this second term is in fact $I p y$, we infer 
+that $I$ must satisfy the ODE
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds I'(t)=I(t) p(t).$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br/>
+				
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.6.1 Definition</strong></p>
+					</div>
+					<br/>
+					<div class="" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span>
+									This is good news since this is a separable ODE which we already know
+									how to solve:
+									\[
+									I(t)=\exp\left(\int p(t)\, \dup t\right).
+									\]
+								</span>
+							</p>
+							
+							
+							
+						</div>
+					</div>
+
+					
+					
+
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.6.1 Definition</strong></p>
+					</div>
+					<br/>
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span>
+									<strong>Important remark:</strong>
+									Any integrating factor will do. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Hence when you try to solve $I'=I p$, 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									i.e., when you try to compute the above integral 
+(assuming you can explicitly do so), 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									you do not need to worry about keeping track of constants.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									For example, if $p(t)=2t$,
+								</span>
+							</p>
+							
+							
+							
+						</div>
+
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds I(t)=\exp\Bigl(2\int t\dup t\Bigr)$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\ds =  e^{t^2+C}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds =e^C e^{t^2}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\ds =B e^{t^2},$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									where $B=\exp(C)\neq 0$.
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+					</div>
+
+					
+					
+
+					<br/><br/><br/><br/>
+				</section>
 
 				
 
