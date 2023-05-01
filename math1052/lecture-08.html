@@ -349,6 +349,200 @@
 			</section>
 
 			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.3 Reduction of order</strong></p>
+					</div>
+	
+					<div style="margin-top:-10px;font-size:78%">
+						<div class="left-txt">
+							<p>
+								<span>
+									The previous theorem states that all we need to do in order to solve a
+									homogeneous linear second-order ODE is to find two linearly independent
+									solutions. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Unfortunately, that is where the good news ends: no general
+									method (such as the integrating factor method for linear first-order
+									ODEs) is known to find two such solutions.
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									There is however a method to find a second solution once a first
+solution has been found.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									So, if you are clever enough to guess one
+solution (and a guess it will have to be, 
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									given that we have no general
+method) you can obtain a second, linearly independent solution.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									This goes by the name of <span id="rr">reduction of order</span>.
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.3 Reduction of order</strong></p>
+					</div>
+	
+					<div style="margin-top:-10px;font-size:78%">
+					
+
+						<div class="left-txt">
+							<p>
+								<span>
+									Assume your smart little sister has guessed that 
+									$y_1(x)$ is a solution to
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds \frac{\dup^2y}{\dup x^2} + p(x)\dif{y}{x} + q(x)y=0.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									To find a second solution $y_2(x)$ you set
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds y_2(x)=u(x)y_1(x).$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									with $u(x)$ a yet-to-be-determined function.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Substituting this in the ODE gives
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds u'' y_1+2u'y_1'+uy_1''+p(u'y_1+uy_1')+quy_1=0.$
+								</span>
+							</p>
+						</div>
+						
+
+
+					</div>
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.3 Reduction of order</strong></p>
+					</div>
+	
+					<div style="margin-top:-10px;font-size:78%">
+					
+
+						<div class="left-txt">
+							<p>
+								<span>
+									This may also be written as
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds u''y_1+u'(y_1p+2y_1')+u(y_1''+py_1'+qy_1)=0.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									But $y_1$ is a solution to the ODE so the third term actually vanishes! Thus
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds u''+u'\Bigl(p+2\frac{y_1'}{y_1}\Bigr)=0.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									This is a first-order linear ODE in $v=u'$ which we known how to solve
+using an integrating factor.
+								</span>
+							</p>
+						</div>
+						
+						
+
+
+					</div>
+					
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.3 Reduction of order</strong></p>
+					</div>
+				<br/>
+					<div class="size-80" style="margin-top:0px">
+						<div class="left-txt">
+							
+							<p>
+								<strong>Example:</strong>
+								One solution to the ODE $\; x^2 y''+2xy'-6y=0$ is $y(x)=x^2$.
+Use reduction of order to find the general solution.
+							</p>
+						</div>
+
+						
+						
+					</div>
+					
+
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+
+			</section>
+
+			<section>
 				<h4>1 Ordinary Differential Equations</h4>
 				<div id="sbt">
 					<p><strong>1.6.3 Main points</strong></p>
