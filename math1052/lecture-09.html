@@ -279,6 +279,372 @@ $
 
 					<br/><br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									<strong>Question:</strong> 
+									Solve the ODE $\;y''-3y'+2y=0$.
+								</span>
+								
+								
+							</p>
+
+							
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									<strong>Case 2: Case 2: A single root of multiplicity 2</strong>
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span>
+									If $b^2-4ac=0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									one root, say $\mu$, <span id="rr">of multiplicity 2</span>.
+									(Of course $\mu=-b/(2a)$ but it is more convenient to work with $\mu$).
+								</span>
+								
+								
+							</p>
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									This is somewhat of a problem because now we only have single solution
+to the ODE: $y=e^{\mu t}$.
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									Fortunately, we know that <span id="rr">reduction of order</span> will give us a
+a second linearly independent solution, so that we try $y=u(t)e^{\mu t}$.
+								</span>
+								
+								
+							</p>
+
+							
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									By the product rule
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							
+							
+							<p>
+								
+								<span>
+									$
+									y'=u'e^{\mu t}+\mu u e^{\mu t} \qquad \qquad\;
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									$
+									y''=u''e^{\mu t}+2\mu u' e^{\mu t}+\mu^2 u e^{\mu t}.
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									Substituting this into $ay''+by'+cy=0$ gives
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									$
+									\Bigl[\bigl(a\mu^2+b\mu+c\bigr)u+\bigl(2a\mu+b\bigr)u'+au''\Bigr]e^{\mu t}=0.
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									Since $\mu$ is a solution to the characteristic equation, 
+									$a\mu^2+b\mu+c=0$. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Moreover, since $\mu=-b/2a$, $2a\mu+b=0$.
+								</span>
+								
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									Hence we are left with just $u''=0.$
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									Hence we are left with just $u''=0.$
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span>
+									This is easily solved as 
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							
+							
+							<p>
+								
+								<span>
+									$
+									u(t)=(c_1 + c_2 t).
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						
+						<div class="left-txt">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									Using this with $c_1 = 0$ and $c_2 = 1$ we now have two linearly independent solutions:
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									$
+									y_1(t)=e^{\mu t}\quad\text{and} \quad y_2(t)=t e^{\mu t},
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="left-txt" style="margin-top:0px">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									where $\mu=-b/2a$.
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt" style="margin-top:0px">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									<strong>Important remark:</strong>
+									In actual problems you do not have to repeat the above derivation.
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+						
+							<p>
+								
+								<span>
+									<strong>Important remark:</strong>
+									In actual problems you do not have to repeat the above derivation.
+								</span>
+								
+								
+							</p>
+							<p>
+								<span>
+									It is enough for you to claim that if the characteristic equation has
+a single root of multiplicity $2$ then the above are a pair of linearly
+independent solutions and
+$$
+y(t)=(c_1+c_2 t) e^{\mu t}
+$$
+is the general solution. 
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+						
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+
 				
 				
 				
