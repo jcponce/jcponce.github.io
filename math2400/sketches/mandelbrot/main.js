@@ -361,8 +361,8 @@ function controlsUI(){
  
     sliderIter = createSlider(0, 150, 50, 1);
     //sliderIter.parent('slider');
-    sliderIter.position(width/2-80, 10);
-    sliderIter.style('width', '160px');
+    sliderIter.position(width/2-90, 10);
+    sliderIter.style('width', '180px');
     
     /*
     ---Old controls---
