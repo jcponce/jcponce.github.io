@@ -314,6 +314,7 @@ function setPixelHSV(x, y, h, s, v) {
 }
 
 function controlsUI(){
+    /*
     document.getElementById("up").onclick = () => {
         up = -1;
     }
@@ -358,6 +359,7 @@ function controlsUI(){
     document.getElementById("save").onclick = () => {
         saveFractal();
     }
+    */
  
     sliderIter = createSlider(0, 150, 50, 1);
     //sliderIter.parent('slider');
