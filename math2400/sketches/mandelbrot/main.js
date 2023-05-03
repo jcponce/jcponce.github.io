@@ -359,7 +359,7 @@ function controlsUI(){
         saveFractal();
     }
  
-    sliderIter = createSlider(0, 400, 55, 1);
+    sliderIter = createSlider(0, 400, 50, 1);
     //sliderIter.parent('slider');
     sliderIter.position(width/2-80, 10);
     sliderIter.style('width', '160px');
