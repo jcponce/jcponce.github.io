@@ -1117,10 +1117,10 @@
 						<div class="">
 							<p>
 								<span class="fragment" data-fragment-index="2">
-									$0 =\ds \sum_{j=1}^n c_j \, Ax_j$
+									$0 =\ds \sum_{k=1}^n c_k \, Ax_k$
 								</span>
 								<span class="fragment" data-fragment-index="3">
-									$=\ds A\sum_{j=1}^n c_j \, x_j .$
+									$=\ds A\sum_{k=1}^n c_k \, x_k .$
 	
 								</span>
 								
@@ -1144,10 +1144,10 @@
 								
 								<span class="fragment" data-fragment-index="6">
 									Then $\;0 = \ds
-									\sum_{j=1}^n c_j \, x_j\,$
+									\sum_{k=1}^n c_k \, x_k\,$
 								</span>
 								<span class="fragment" data-fragment-index="7">
-									and $\,c_j = 0\,$ for all $\,j$.
+									and $\,c_k = 0\,$ for all $\,k$.
 								</span>
 								
 							</p>
@@ -1158,6 +1158,162 @@
 					<br/><br/>
 	
 				</section>
+				<section data-auto-animate>
+					<h5>Proof of Theorem 11.3.2</h5>
+					
+					<div class="size-80">
+						<div class="left-txt">
+						
+	
+							<p>
+								
+								<span>
+									Let  $\{ x_1,x_2,\ldots,x_n \}$ be a basis for $X$.
+								</span>
+								
+							</p>
+							
+						</div>
+						
+
+
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									$\nec$ This means that 
+									$\{ Ax_1, Ax_2, \ldots, Ax_n \}$ is a linearly independent set.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Since the dimension is $n$, we can deduce that
+									$\{ Ax_1, Ax_2, \ldots, Ax_n \}$ spans $X.$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Thus any point $x \in X$ can be written as
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$x =\ds \sum_{k=1}^n a_k \, Ax_k $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=
+									\ds A\sum_{j=1}^n a_j \, x_j ,$
+	
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="5">
+									so $A$ is onto.
+								</span>
+								
+							</p>
+						</div>
+						
+
+
+					</div>
+					<br/><br/><br/><br/><br/>
+	
+				</section>
+				<section data-auto-animate>
+					<h5>Proof of Theorem 11.3.2</h5>
+					
+					<div class="size-80">
+						<div class="left-txt">
+						
+	
+							<p>
+								
+								<span>
+									Let  $\{ x_1,x_2,\ldots,x_n \}$ be a basis for $X$.
+								</span>
+								
+							</p>
+							
+						</div>
+						
+
+
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									$\suf$ Now suppose $A$ is onto.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									As $A$ is determined by the action on
+									the basis, 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									every element of $X$ is in the span of
+									$\{ Ax_1, Ax_2, \ldots, Ax_n \}.$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Suppose that for some 
+									$c_1,c_2,\ldots,c_n,$
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$0 =\ds  A\sum_{k=1}^n c_k \, x_k $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=\ds
+									\sum_{k=1}^n c_k \, Ax_k .$
+	
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="6">
+									As $\{ Ax_1, Ax_2, \ldots, Ax_n \}$ span $X,$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									the set is linearly independent, and hence $c_k = 0$ for all $k.$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									In other words, if $Ax = 0$, then $x=0$.
+								</span> 
+								<span class="fragment" data-fragment-index="9">
+									If $Ax = Ay$, 
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									then $A(x-y) = 0$ and so
+									$x=y$.
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									This means that
+									$A$ is one-to-one. $\;\bs$
+								</span>
+								
+							</p>
+						</div>
+						
+
+
+					</div>
+					<br/><br/>
+	
+				</section>
+				
 
 				<section data-auto-animate id="theorem-3-3">
 					<h4>11.3 Linear mappings</h4>
@@ -1176,7 +1332,7 @@
 							</strong>
 							If $X$ and $Y$ are finite-dimensional vector spaces,
 							</span>
-							<span class="fragment" data-fragment-index="3">
+							<span>
 								then $L(X,Y)$
 							is also finite-dimensional.
 							</span>
