@@ -26,7 +26,7 @@
 
       <div>
 
-        <script id="csinit" type="text/x-cindyscript">
+    <script id="csinit" type="text/x-cindyscript">
       use("CindyGL");
       L = (-3, -1); R = (4, -1);
       
@@ -37,25 +37,25 @@
       d = 1.01;
       s = .1;
       drawstep() := (
-        w1=map(A1, B1, C1, A0, B0, C0);
-        w2=map(A2, B2, C2, A0, B0, C0);
-        w3=map(A3, B3, C3, A0, B0, C0);
-        w4=map(A4, B4, C4, A0, B0, C0);
+        w1 = map(A1, B1, C1, A0, B0, C0);
+        w2 = map(A2, B2, C2, A0, B0, C0);
+        w3 = map(A3, B3, C3, A0, B0, C0);
+        w4 = map(A4, B4, C4, A0, B0, C0);
         colorplot("ifs",
           d * (
-          imagergb("ifs", w1*[#.x, #.y, 1]) +
-          imagergb("ifs", w2*[#.x, #.y, 1]) +
-          imagergb("ifs", w3*[#.x, #.y, 1]) +
-          imagergb("ifs", w4*[#.x, #.y, 1])
+          imagergb("ifs", w1 * [#.x, #.y, 1]) +
+          imagergb("ifs", w2 * [#.x, #.y, 1]) +
+          imagergb("ifs", w3 * [#.x, #.y, 1]) +
+          imagergb("ifs", w4 * [#.x, #.y, 1])
           ) + 
-          ([1, 0.5, 0.1]*exp(-|#,A0|) +
-          [0, 1, 0]*exp(-|#,B0|) +
-          [0, 0.2, 0.7]*exp(-|#,C0|)) * s
+          ([1, 0.5, 0.1] * exp(-|#,A0|) +
+          [0, 1, 0] * exp(-|#,B0|) +
+          [0, 0.2, 0.7] * exp(-|#,C0|)) * s
         );
       );
       al = 0.01;
     </script>
-        <script id="csmove" type="text/x-cindyscript">
+    <script id="csmove" type="text/x-cindyscript">
       A0 = A;
       B0 = B;
       C0 = C + [cos(seconds()), sin(seconds())] / 3;
@@ -65,7 +65,7 @@
       C4 = B;
       
     </script>
-        <script id="cskeydown" type="text/x-cindyscript">
+    <script id="cskeydown" type="text/x-cindyscript">
       print("pressed key" + keycode());
       if(keycode()==32, colorplot("ifs", [1,0,0,1])); //space bar -> red
       if(keycode()==82, an = !an); //R -> start/stop animation
@@ -109,7 +109,7 @@
             { name: "B4", type: "Free", pos: [0.6311, 1.905], alpha: 0 },
             { name: "C", type: "Free", pos: [2.636, 9.974], alpha: 0 },
             { name: "C1", type: "Free", pos: [0.0264, 1.5958], alpha: 0 },
-            //{ name: "C2", type: "Free", pos: [2.6396, 9.9725], alpha: 0 },
+            //{ name: "C2", type: "Free", pos: [2.6396, 9.9725]},
             //{ name: "C3", type: "Free", pos: [-2.066, 4.4006]},
             //{ name: "C4", type: "Free", pos: [2.3973, 3.5191]},
           ];
