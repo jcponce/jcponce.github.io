@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0042)https://cindyjs.org/gallery/main/Barnsley/ -->
 <html class="no-js" lang="en">
 
 <head>
@@ -8,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barnsley fern</title>
-  <link rel="icon" href="./barnsley fern_files/logo_small.png" type="image/png">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cindyjs.org/dist/v0.8.18/CindyJS.css">
   <script type="text/javascript" src="https://cindyjs.org/dist/v0.8.18/Cindy.js"></script>
@@ -19,7 +18,7 @@
 
 
 
-  <div id="between-bars">
+  <div>
 
     <!-- Main part -->
     <main>
@@ -69,7 +68,7 @@
     </script>
         <script id="cskeydown" type="text/x-cindyscript">
       print("pressed key" + keycode());
-      if(keycode()==32, colorplot("ifs", [1,0,0,1])); //space -> red
+      if(keycode()==32, colorplot("ifs", [1,0,0,1])); //space bar -> red
       if(keycode()==82, an = !an); //R -> start/stop animation
       if(keycode()==83, drawstep()); //S -> step
       if(keycode()==84, if(al>.1, al = 0, al = .5)); //T -> toggle triangles
@@ -94,32 +93,23 @@
 
         <div id="CSCanvas" style="border: 0px solid black; width: 300px; height: 500px;" class="CindyJS-widget">
           <canvas width="300" height="500" tabindex="0"></canvas>
-          <div
-            style="position: absolute; transition: 0s; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
-            <div style="position: absolute; transition: 0s; left: 0; top: 0; width: 100000px; height: 100000px">
-            </div>
-          </div>
-          <div
-            style="position: absolute; transition: 0s; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
-            <div style="position: absolute; transition: 0s; left: 0; top: 0; width: 200%; height: 200%">
-            </div>
-          </div>
         </div>
+
         <script type="text/javascript">
 
           var gslp = [
-            { name: "A", type: "Free", pos: [-2.064, 4.404] , alpha: 0 },
-            { name: "A1", type: "Free", pos: [-0.0206, 0.7046], alpha: 0  },
-            { name: "A2", type: "Free", pos: [-1.5782, 5.426], alpha: 0  },
-            { name: "A3", type: "Free", pos: [-1.5578, 2.0942], alpha: 0  },
-            { name: "A4", type: "Free", pos: [1.5427, 0.9603], alpha: 0  },
-            { name: "B", type: "Free", pos: [2.378, 3.528], alpha: 0  },
-            { name: "B1", type: "Free", pos: [0.0238, 0.5645], alpha: 0  },
-            { name: "B2", type: "Free", pos: [2.1624, 4.5037], alpha: 0  },
-            { name: "B3", type: "Free", pos: [-0.4417, 2.9231], alpha: 0  },
-            { name: "B4", type: "Free", pos: [0.6311, 1.905], alpha: 0  },
+            { name: "A", type: "Free", pos: [-2.064, 4.404], alpha: 0 },
+            { name: "A1", type: "Free", pos: [-0.0206, 0.7046], alpha: 0 },
+            { name: "A2", type: "Free", pos: [-1.5782, 5.426], alpha: 0 },
+            { name: "A3", type: "Free", pos: [-1.5578, 2.0942], alpha: 0 },
+            { name: "A4", type: "Free", pos: [1.5427, 0.9603], alpha: 0 },
+            { name: "B", type: "Free", pos: [2.378, 3.528], alpha: 0 },
+            { name: "B1", type: "Free", pos: [0.0238, 0.5645], alpha: 0 },
+            { name: "B2", type: "Free", pos: [2.1624, 4.5037], alpha: 0 },
+            { name: "B3", type: "Free", pos: [-0.4417, 2.9231], alpha: 0 },
+            { name: "B4", type: "Free", pos: [0.6311, 1.905], alpha: 0 },
             { name: "C", type: "Free", pos: [2.636, 9.974], alpha: 0 },
-            { name: "C1", type: "Free", pos: [0.0264, 1.5958] , alpha: 0 },
+            { name: "C1", type: "Free", pos: [0.0264, 1.5958], alpha: 0 },
             //{ name: "C2", type: "Free", pos: [2.6396, 9.9725]},
             //{ name: "C3", type: "Free", pos: [-2.066, 4.4006]},
             //{ name: "C4", type: "Free", pos: [2.3973, 3.5191]},
