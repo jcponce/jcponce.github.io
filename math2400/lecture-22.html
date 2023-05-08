@@ -46,6 +46,13 @@
 	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
 	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
 
+	<!--
+		<link rel="stylesheet" href="https://cindyjs.org/assets/css/app.css" />
+    <link rel="stylesheet" href="https://cindyjs.org/dist/v0.8.18/CindyJS.css" />
+	-->
+	<script type="text/javascript" src="https://cindyjs.org/dist/v0.8.18/Cindy.js"></script>
+	<script type="text/javascript" src="https://cindyjs.org/dist/v0.8.18/CindyGL.js"></script>
+
 
 </head>
 
@@ -60,33 +67,137 @@
 				<p>Lecture 22</p>
 			</section>
 
+			<!--<section>
+				<h4>Barnsley fern</h4>
+				<div style="float: center;">
+  
+					<script id="csinit" type="text/x-cindyscript">
+					  use("CindyGL");
+					  L = (-3, -1); R = (4, -1);
+					  
+					  createimage("ifs", 400, 800);
+					  colorplot("ifs", [0, 0, 0]);
+					  an = true;
+					  
+					  d = 1.01;
+					  s = .1;
+					  drawstep() := (
+						w1=map(A1, B1, C1, A0, B0, C0);
+						w2=map(A2, B2, C2, A0, B0, C0);
+						w3=map(A3, B3, C3, A0, B0, C0);
+						w4=map(A4, B4, C4, A0, B0, C0);
+						colorplot("ifs",
+						  d*(
+						  imagergb("ifs", w1*[#.x, #.y, 1]) +
+						  imagergb("ifs", w2*[#.x, #.y, 1]) +
+						  imagergb("ifs", w3*[#.x, #.y, 1]) +
+						  imagergb("ifs", w4*[#.x, #.y, 1])
+						  ) + 
+						  ([1,0,0]*exp(-|#,A0|) +
+						  [0,1,0]*exp(-|#,B0|) +
+						  [0,.2,.7]*exp(-|#,C0|))*s
+						);
+					  );
+					  al = .1;
+					</script>
+					<script id="csmove" type="text/x-cindyscript">
+					  A0 = A;
+					  B0 = B;
+					  C0 = C+[cos(seconds()),sin(seconds())]/3;
+					  
+					  C2 = C0;
+					  C3 = A;
+					  C4 = B;
+					  
+					</script>
+					<script id="cskeydown" type="text/x-cindyscript">
+					  print("pressed key" + keycode());
+					  if(keycode()==32, colorplot("ifs", [1,0,0,1])); //space -> red
+					  if(keycode()==82, an = !an); //R -> start/stop animation
+					  if(keycode()==83, drawstep()); //S -> step
+					  if(keycode()==84, if(al>.1, al = 0, al = .5)); //T -> toggle triangles
+					  if(keycode()==73, colorplot((-10,-10), (10,-10), "ifs", if(abs(#)<10, [0,0,1,1], [0,0,0,0]))); //I -> Image
+					  
+					  drawimage(L, R, "ifs");
+					</script>
+					<script id="csdraw" type="text/x-cindyscript">
+					  if(an,
+						drawstep();
+					  );
+					  drawimage(L, R, "ifs");
+					  draw(C0, color->red(1), size->5);
+					  
+					  
+					  fillpoly([A1, B1, C1], color->[.2,.2,.8], alpha->al);
+					  fillpoly([A2, B2, C2], color->[.2,.2,.8], alpha->al);
+					  fillpoly([A3, B3, C3], color->[.2,.2,.8], alpha->al);
+					  fillpoly([A4, B4, C4], color->[.2,.2,.8], alpha->al);
+					  fillpoly([A0, B0, C0], color->[1,.2,.3], alpha->al);
+					</script>
+				
+					<div  id="CSCanvas" style="border:2px solid black"></div>
+					<script type="text/javascript">
+						
+						var gslp=[
+				{ name: "A", type: "Free", pos: [-2.064, 4.404]},
+				{ name: "A1", type: "Free", pos: [-0.0206, 0.7046]},
+				{ name: "A2", type: "Free", pos: [-1.5782, 5.426]},
+				{ name: "A3", type: "Free", pos: [-1.5578, 2.0942]},
+				{ name: "A4", type: "Free", pos: [1.5427, 0.9603]},
+				{ name: "B", type: "Free", pos: [2.378, 3.528]},
+				{ name: "B1", type: "Free", pos: [0.0238, 0.5645]},
+				{ name: "B2", type: "Free", pos: [2.1624, 4.5037]},
+				{ name: "B3", type: "Free", pos: [-0.4417, 2.9231]},
+				{ name: "B4", type: "Free", pos: [0.6311, 1.905]},
+				{ name: "C", type: "Free", pos: [2.636, 9.974], alpha: 0},
+				{ name: "C1", type: "Free", pos: [0.0264, 1.5958]},
+				//{ name: "C2", type: "Free", pos: [2.6396, 9.9725]},
+				//{ name: "C3", type: "Free", pos: [-2.066, 4.4006]},
+				//{ name: "C4", type: "Free", pos: [2.3973, 3.5191]},
+						];
+						cdy = CindyJS({canvasname:"CSCanvas",
+									scripts: "cs*",
+									geometry:gslp,
+									animation: {autoplay: true},
+									ports: [{
+									  id: "CSCanvas",
+									  width: 400,
+									  height: 800,
+									  transform: [ { visibleRect: [-3, -1, 4, 13] } ]
+									}]
+								  });
+					</script>              
+					</div>
+					<script src="https://cindyjs.org/assets/js/app.js"></script>
+			</section>-->
+
 			<section>
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					<div class="left-txt size-95">
 						<p>
 							<span class="fragment" data-fragment-index="0">
-								<strong>Definition:</strong>
+								<strong>Definition 11.4.1.</strong>
 								If $X$ is a vector space,
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								then we say
-								a function $\snorm{\cdot} \colon X \to \R$ is a
+								a function $\snorm{\pd} \colon X \to \R$ is a
 								<em>norm</em> if
 							</span>
 							
 						</p>
 						<ol style="line-height:60px">
 							<li class="fragment" data-fragment-index="2">
-								$\snorm{x} \geq 0$, with $\snorm{x}=0$ if and only if $x=0$.
+								$\snorm{x} \geq 0,$ with $\snorm{x}=0$ if and only if $x=0.$
 	
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								$\snorm{cx} = \sabs{c} \, \snorm{x}$ for all $c \in \R$ and $x \in X$.
+								$\snorm{cx} = \sabs{c} \, \snorm{x}$ for all $c \in \R$ and $x \in X.$
 							</li>
 							<li class="fragment" data-fragment-index="4">
 								$\snorm{x+y} \leq \snorm{x}+\snorm{y}$ for all
-								$x,y \in X$.
+								$x,y \in X.$
 	
 							</li>
 	
@@ -108,7 +219,7 @@
 								Definition 11.4.2. 
 							</strong>
 							<br/>
-							Let $x=(x_1,x_2,\ldots,x_n) ,y=(y_1,y_2,\ldots,y_n) \in \R^n$ be two vectors,
+							Let $x=(x_1,x_2,\ldots,x_n),y=(y_1,y_2,\ldots,y_n) \in \R^n$ be two vectors,
 							<span class="fragment" data-fragment-index="0">
 								the <em>dot product</em>
 							is defined as
@@ -170,7 +281,7 @@
 							<strong>
 								Theorem 11.4.1.
 							</strong> (Cauchy-Schwarz inequality)
-							Let $x, y \in \R^n$, then
+							Let $x, y \in \R^n,$ then
 							\begin{equation*}
 							\sabs{x \pd y} \leq \snorm{x} \, \snorm{y} = \sqrt{x\pd x}\, \sqrt{y\pd y},
 							\end{equation*}
@@ -182,25 +293,23 @@
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>11.4 Norms</h4>
+					<h4>Proof of Cauchy-Schwarz inequality</h4>
 					
 					<div class="size-90">
 						<div class="left-txt">
 							<p>
-								<strong>
-									Proof. 
-								</strong>
+								
 								<span class="fragment" data-fragment-index="0">
-									If $x=0$ or $y = 0$, the result follows immediatly.
+									If $x=0$ or $y = 0,$ the result follows immediatly.
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									So assume $x\not= 0$ and $y \not= 0$.
+									So assume $x\not= 0$ and $y \not= 0.$
 								</span>
 							</p>
 							<p>
 								
 								<span class="fragment" data-fragment-index="2">
-									If $x$ is a scalar multiple of $y$, 
+									If $x$ is a scalar multiple of $y,$ 
 								</span>
 								<span class="fragment" data-fragment-index="3">
 									that is $x = \lambda y$ for some
@@ -215,14 +324,14 @@
 						<div> 
 							<p>
 								<span class="fragment" data-fragment-index="4">
-									$\sabs{ x \cdot y } $
+									$\sabs{ x \pd y } $
 								</span>
 								<span class="fragment" data-fragment-index="5">
 									$ =
-									\sabs{\lambda y \cdot y}  $
+									\sabs{\lambda y \pd y}  $
 								</span>
 								<span class="fragment" data-fragment-index="6">
-									$ = \sabs{\lambda} \, \sabs{y\cdot y} $
+									$ = \sabs{\lambda} \, \sabs{y\pd y} $
 								</span>
 								<span class="fragment" data-fragment-index="7">
 									$=
@@ -247,14 +356,12 @@
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>11.4 Norms</h4>
+					<h4>Proof of Cauchy-Schwarz inequality</h4>
 					
 					<div class="size-90">
 						<div class="left-txt">
 							<p>
-								<strong>
-									Proof. 
-								</strong>
+								
 								<span>
 									Now consider fixed $x$ and $y,$
 									and the variable $t.$
@@ -273,7 +380,7 @@
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									$ =
-									(x+ty) \cdot (x+ty)  \qquad \qquad \qquad \quad $
+									(x+ty) \pd (x+ty)  \qquad \qquad \qquad \quad $
 								</span>
 								
 								
@@ -282,7 +389,7 @@
 								
 								<span class="fragment" data-fragment-index="2">
 									$ \,\quad =
-									x \cdot x + x \cdot ty + ty \cdot x + ty \cdot ty $
+									x \pd x + x \pd ty + ty \pd x + ty \pd ty $
 								</span>
 							</p>
 							<p>
@@ -290,7 +397,7 @@
 								
 								<span class="fragment" data-fragment-index="3">
 									$=
-									\snorm{x}^2 + 2t(x \cdot y) + t^2 \snorm{y}^2 ,
+									\snorm{x}^2 + 2t(x \pd y) + t^2 \snorm{y}^2 ,
 									$
 								</span>
 							</p>
@@ -302,11 +409,11 @@
 									which is a polynomial of degree 2. 
 								</span>
 								<span class="fragment" data-fragment-index="5">
-									If $x$ is not a scalar multiple of $y$,
+									If $x$ is not a scalar multiple of $y,$
 								</span>
 								<span class="fragment" data-fragment-index="6">
 									then 
-									$\snorm{x+ty}^2 > 0$ for all $t$. 
+									$\snorm{x+ty}^2 > 0$ for all $t.$
 								</span>
 								<span class="fragment" data-fragment-index="7">
 									So the polynomial $\snorm{x+ty}^2$
@@ -317,17 +424,15 @@
 		
 						</div>
 					</div>
-					<br/><br/><br/>
+					<br/>
 				</section>
 				<section data-auto-animate>
-					<h4>11.4 Norms</h4>
+					<h4>Proof of Cauchy-Schwarz inequality</h4>
 					
 					<div class="size-90">
 						<div class="left-txt">
 							<p>
-								<strong>
-									Proof. 
-								</strong>
+								
 								<span>
 									Since $\snorm{x+ty}^2>0.$
 								</span>
@@ -341,7 +446,7 @@
 						<div> 
 							<p>
 								<span class="fragment" data-fragment-index="1">
-									$4 {(x \cdot y)}^2 - 4 \snorm{x}^2\snorm{y}^2 \lt 0, $
+									$4 {(x \pd y)}^2 - 4 \snorm{x}^2\snorm{y}^2 \lt 0, $
 								</span>
 								
 								
@@ -363,7 +468,7 @@
 							<p>
 								
 								<span class="fragment" data-fragment-index="2">
-									${(x \cdot y)}^2 \lt \snorm{x}^2\snorm{y}^2.\; \bs$
+									${(x \pd y)}^2 \lt \snorm{x}^2\snorm{y}^2.\; \bs$
 								</span>
 								
 							</p>
@@ -371,7 +476,7 @@
 		
 						</div>
 					</div>
-					<br/><br/><br/><br/><br/>
+					<br/><br/><br/>
 				</section>
 
 
@@ -406,7 +511,7 @@
 								<strong>
 								Definition 11.4.4. 
 							    </strong>
-							     Let $A \in L(X,Y)$.
+							     Let $A \in L(X,Y).$
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								Define
@@ -433,7 +538,7 @@
 						</p>
 	
 					</div>
-					<div>
+					<div style="font-size:110%">
 						<p class="fragment" data-fragment-index="4"> $\ds\snorm{A}_{L(X,Y)}.$</p>
 					</div>
 					<br/><br/>
@@ -445,7 +550,7 @@
 					<div class="left-txt">
 						<p>
 							<span>
-								For example, if $X=\R^1$ with norm $\snorm{x}=\sabs{x}$, 
+								For example, if $X=\R^1$ with norm $\snorm{x}=\sabs{x},$ 
 								
 							</span>
 							<span class="fragment" data-fragment-index="1">
@@ -479,13 +584,18 @@
 						<p>
 							<span>
 								By linearity,
-$\ds \norm{A \frac{x}{\snorm{x}}} = \frac{\snorm{Ax}}{\snorm{x}}$
-for all nonzero $x \in X$.
-							</span><br/><br/>
+								$\ds \bigg|\bigg|A \frac{x}{\snorm{x}}\bigg|\bigg|$
+							</span>
 							<span class="fragment" data-fragment-index="0">
-								The vector $\ds\frac{x}{\snorm{x}}$ is of norm 1.
+								$\ds = \frac{\snorm{Ax}}{\snorm{x}}$
 							</span>
 							<span class="fragment" data-fragment-index="1">
+								for all nonzero $x \in X$.
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="2">
+								The vector $\ds\frac{x}{\snorm{x}}$ is of norm 1.
+							</span>
+							<span class="fragment" data-fragment-index="3">
 								Therefore
 							</span>
 						</p>
@@ -494,14 +604,14 @@ for all nonzero $x \in X$.
 					</div>
 					<div class=" size-90">
 						<p>
-							<span class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="3">
 								$\snorm{A} =
 								\sup \bigl\{ \snorm{Ax} : x \in X \text{ with } \snorm{x} = 1 \bigr\}
 								$
 							</span>
 						</p>
 						<p>
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="4">
 								$=
 								\ds\sup_{\substack{x \in X\\x\neq 0}} \frac{\snorm{Ax}}{\snorm{x}} .\qquad \qquad\qquad \;
 								$
@@ -541,7 +651,7 @@ for all nonzero $x \in X$.
 						<p>
 							
 							<span class="fragment" data-fragment-index="1">		
-$\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
+								$\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 							</span>
 						</p>
 						
@@ -551,7 +661,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 						<p>
 							<span class="fragment" data-fragment-index="2">
 								From the definition that $\snorm{A} = 0$ if and
-								only if $A = 0$,
+								only if $A = 0,$
 							</span>
 							<span class="fragment" data-fragment-index="3">
 								where by $A=0$ we mean that $A$ takes every vector to the zero vector.
@@ -577,10 +687,10 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 						</p>
 					</div>
 
-					<div class="left-txt size-95">
+					<div class="size-95">
 						<p>
 							<span>
-								What would be the operator norm of the identity operator? 🤔 
+								What would be the operator norm <br/>of the identity operator? 🤔 
 							</span>
 						</p>
 						
@@ -630,10 +740,10 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 								Suppose that $X$ is finite-dimensional.
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								If $A \in L(X,Y)$, 
+								If $A \in L(X,Y),$ 
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								then $\snorm{A} \lt \infty$, and
+								then $\snorm{A} \lt \infty,$ and
 							$A$ is uniformly continuous.
 							</span>
 							
@@ -648,7 +758,10 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 								
 							 </span>
 							 <span class="fragment" data-fragment-index="4">
-								we can prove that it is Lipschitz continuous.
+								we can prove that it is 
+								<a href="lecture-10.html#/lipschitz-continuous/1" target="_blank">
+									Lipschitz continuous
+								</a>.
 							 </span>
 							 <span class="fragment" data-fragment-index="5">
 								That is, we need to prove that there exists a $K>0$
@@ -676,7 +789,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					
-					<div class="left-txt size-60">
+					<div class="left-txt size-60" style="margin-top:-15px">
 						<p>
 							<strong>
 								Theorem 11.4.2. 
@@ -696,14 +809,17 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 						</p>
 					</div>
 
-					<div class="size-95">
+					<div class="size-90">
 						<div class="left-txt">
 							<p>
 								<span>
 									<strong>Proof. </strong>
 								</span>
 								<span class="fragment" data-fragment-index="0">
-									Let $\{ e_1,e_2,\ldots,e_n \}$ a basis of $X$.
+									Assume $X = \R^n.$ 😃
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Let $\{ e_1,e_2,\ldots,e_n \}$ the standard basis of $X$.
 								</span>
 							</p>
 						</div>
@@ -713,7 +829,8 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 								<span class="fragment" data-fragment-index="2">
 									For $x\in X$, with $\snorm{x} = 1$,
 								</span>
-								<span class="fragment" data-fragment-index="3"> write  $\ds x = \sum_{k=1}^n c_k \, e_k .$
+								<span class="fragment" data-fragment-index="3">
+									write  $\ds x = \sum_{k=1}^n c_k \, e_k .$
 								</span>
 							</p>
 						</div>
@@ -721,24 +838,24 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 							<p>
 								
 								<span class="fragment" data-fragment-index="4">
-									Since $e_k \cdot e_\ell = 0$ whenever $k\not=\ell$ and $e_k \cdot e_k = 1$,
+									Since $e_k \pd e_\ell = 0$ whenever $k\not=\ell$ and $e_k \pd e_k = 1$,
 								</span>
 								<span class="fragment" data-fragment-index="5">
-									then $c_k = x \cdot e_k$ 
+									then $c_k = x \pd e_k$ 
 								</span>
 								<span class="fragment" data-fragment-index="6">
 									and by Cauchy-Schwarz
 								</span>
 							</p>
 						</div>
-						<div class="">
+						<div class="" style="font-size:110%">
 							<p>
 								
 								<span class="fragment" data-fragment-index="7">
 									$\sabs{c_k}= $
 								</span>
 								<span class="fragment" data-fragment-index="6">
-									$ \sabs{ x \cdot e_k }
+									$ \sabs{ x \pd e_k }
 									$
 								</span>
 								<span class="fragment" data-fragment-index="6">
@@ -758,7 +875,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					
-					<div class="left-txt size-60">
+					<div class="left-txt size-60" style="margin-top:-15px">
 						<p>
 							<strong>
 								Theorem 11.4.2. 
@@ -780,29 +897,16 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 						</p>
 
 					
-	
-					
-	
-						
-	
 					</div>
 
-					<div class="size-95">
+					<div class="size-90">
 						<div class="left-txt">
 							<p>
 								<span>
 									<strong>Proof. </strong>
 								</span>
 								<span>
-									Then
-								</span>
-							</p>
-						</div>
-						<div class="">
-							<p>
-								
-								<span>
-									$\snorm{Ax} $
+									Then $\,\snorm{Ax} $
 								</span>
 								<span class="fragment" data-fragment-index="0"> 
 									$=
@@ -812,6 +916,14 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 									$
 									\ds \leq
 									\sum_{k=1}^n \sabs{c_k} \, \snorm{Ae_k} $
+								</span>
+							</p>
+						</div>
+						<div class="">
+							
+							<p>
+								<span class="fragment" data-fragment-index="3">
+								$\qquad \qquad \qquad \Ra \,\snorm{Ax} $
 								</span>
 								<span class="fragment" data-fragment-index="2"> 
 									$
@@ -824,14 +936,14 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 							<p>
 								
 								<span class="fragment" data-fragment-index="4">
-									The right-hand side does not depend on $x$.
+									The right-hand side does not depend on $x.$
 								</span>
 							</p>
 							<p>
 								
 								<span class="fragment" data-fragment-index="5">
 									Thus we have found
-									a finite upper bound for $\snorm{Ax}$ independent of $x$,
+									a finite upper bound for $\snorm{Ax}$ independent of $x,$
 								</span>
 								<span class="fragment" data-fragment-index="6">
 									which means that $\snorm{A} \lt \infty$.
@@ -844,9 +956,9 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4 style="font-size:90%;margin-top:-10px">11.4 Norms</h4>
+					<h4>11.4 Norms</h4>
 					
-					<div class="left-txt size-60">
+					<div class="left-txt size-60" style="margin-top:-15px">
 						<p>
 							<strong>
 								Theorem 11.4.2. 
@@ -869,10 +981,6 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 
 					
 	
-					
-	
-						
-	
 					</div>
 
 					<div class="size-90">
@@ -880,10 +988,10 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 							<p>
 								<span>
 									<strong>Proof. </strong>
-									So we know that $\snorm{A} \lt \infty$.
+									So we know that $\snorm{A} \lt \infty.$
 								</span>
 								<span class="fragment" data-fragment-index="0">
-									 Using this fact we can prove that $A$ is iniformly continuous.
+									 Using this fact we can prove that $A$ is uniformly continuous.
 								</span>
 							</p>
 						</div>
@@ -892,13 +1000,13 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 							<p>
 								
 								<span class="fragment" data-fragment-index="1">
-									For any normed vector spaces $X$ and $Y$,
+									For any normed vector spaces $X$ and $Y,$
 								</span>
 								<span class="fragment" data-fragment-index="2">
-									and $A \in L(X,Y)$.
+									and $A \in L(X,Y).$
 								</span>
 								<span class="fragment" data-fragment-index="3">
-									For $v,w \in X$,
+									For $v,w \in X,$
 								</span>
 							</p>
 
@@ -954,7 +1062,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					<p class="sbt" style="margin-top:-20px">Operator norm</p>
-					<div class="left-txt size-85" style="margin-top:-10px">
+					<div class="left-txt size-80" style="margin-top:-10px">
 						
 	
 	
@@ -963,7 +1071,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 								Theorem 11.4.3.
 							</strong>
 							<span>
-								Let $X$, $Y$, and $Z$ be finite-dimensional normed vector
+								Let $X,Y,$ and $Z$ be finite-dimensional normed vector
 							spaces.
 							</span>
 							
@@ -971,17 +1079,17 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 	
 						<ol style="line-height:40px">
 							<li class="fragment" data-fragment-index="1">
-								If $A,B \in L(X,Y)$ and $c \in \R$, then
+								If $A,B \in L(X,Y)$ and $c \in \R,$ then
 								\begin{equation*}
 								\snorm{A+B} \leq \snorm{A}+\snorm{B}, \;\; \snorm{cA} = \sabs{c} \, \snorm{A} .
 								\end{equation*}
 								<span  class="fragment" data-fragment-index="2">
-									In particular, the operator norm is a norm on the vector space $L(X,Y)$.
+									In particular, the operator norm is a norm on the vector space $L(X,Y).$
 								</span>
 								
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								If $A \in L(X,Y)$ and $B \in L(Y,Z)$, then
+								If $A \in L(X,Y)$ and $B \in L(Y,Z),$ then
 								$
 								\snorm{BA} \leq \snorm{B} \, \snorm{A} .
 								$
@@ -994,7 +1102,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 							<strong>
 								Proof. 
 							</strong>&nbsp; 📝 &nbsp;&nbsp;
-							<span class="fragment" data-fragment-index="5" style="font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							<span class="fragment" data-fragment-index="4" style="font-size:85%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
 								👀 Complementary reading 📖
 							</span>
 						</p>
@@ -1071,16 +1179,16 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 	
 						<p>
 							<span  class="fragment" data-fragment-index="2">
-								If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y$, 
+								If $\{x_1,\ldots,x_n\}$ is a basis of $X$ and $\{y_1,\ldots,y_m\}$ is a basis of $Y,$
 							</span>
 							<span  class="fragment" data-fragment-index="3">
 								then for
 								each $A\in L(X,Y)$, we have a matrix 
-								$\mathcal M(A)\in M_{m\times n}$. 
+								$\mathcal M(A)\in M_{m\times n}.$
 							</span>
 							<span  class="fragment" data-fragment-index="4">
 								In other words, once
-								bases have been fixed for $X$ and $Y$,
+								bases have been fixed for $X$ and $Y,$
 							</span>
 							<span  class="fragment" data-fragment-index="5">
 								 $\mathcal M$ becomes a linear mapping from $L(X,Y)$ to
@@ -1114,7 +1222,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 	
 					</div>
 
-					<div style="margin-top: -25px;" class="r-stack">
+					<div style="margin-top: -10px;" class="r-stack">
 						<img class="fragment fade-in" data-fragment-index="0" width="48%" src="images/summary-11/mxn-ln-optrs.svg">
 						<img class="fragment fade-out" data-fragment-index="0" width="48%" src="images/summary-11/mxn-ln-optrs-arrows.svg">
 					</div>
@@ -1131,7 +1239,7 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 					<h4>11.5 Determinants</h4>
 					<div class="left-txt size-95" style="margin-top:-10px">
 						<p class="fragment" data-fragment-index="0">
-							Let $A,B\in M_{n\times n}$. 
+							Let $A,B\in M_{n\times n}.$ 
 							<span class="fragment" data-fragment-index="0">
 								Some important facts about determinants:
 							</span>
@@ -1139,21 +1247,21 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 	
 						<ol style="line-height:60px;margin-top:-10px">
 							<li class="fragment" data-fragment-index="1">
-								$\det(I) = 1$, where $I$ is the identity matrix.
+								$\det(I) = 1,$ where $I$ is the identity matrix.
 							</li>
 	
 							<li class="fragment" data-fragment-index="2">
-								If two columns of $A$ are equal, then $\det(A) = 0$.
+								If two columns of $A$ are equal, then $\det(A) = 0.$
 							</li>
 	
 							<li class="fragment" data-fragment-index="3">
-								If a column of $A$ is zero, then $\det(A) = 0$.
+								If a column of $A$ is zero, then $\det(A) = 0.$
 	
 							</li>
 	
 							<li class="fragment" data-fragment-index="4">
 								$A \mapsto \det(A)$ is a continuous function on
-								$L(\R^n)$.
+								$L(\R^n).$
 	
 							</li>
 	
@@ -1163,10 +1271,10 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 					<br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate id="facts-determinants">
-					<h4 style="font-size:90%">11.5 Determinants</h4>
-					<div class="left-txt size-80" style="margin-top:-10px">
+					<h4 style="font-size:80%">11.5 Determinants</h4>
+					<div class="left-txt" style="margin-top:-10px;font-size:82%">
 						<p>
-							Let $A,B\in M_{n\times n}$. 
+							Let $A,B\in M_{n\times n}.$ 
 							<span>
 								Some important facts about determinants:
 							</span>
@@ -1174,41 +1282,41 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 	
 						<ol style="line-height:55px;margin-top:-10px">
 							<li>
-								$\det(I) = 1$, where $I$ is the identity matrix.
+								$\det(I) = 1,$ where $I$ is the identity matrix.
 							</li>
 	
 							<li>
-								If two columns of $A$ are equal, then $\det(A) = 0$.
+								If two columns of $A$ are equal, then $\det(A) = 0.$
 							</li>
 	
 							<li>
-								If a column of $A$ is zero, then $\det(A) = 0$.
+								If a column of $A$ is zero, then $\det(A) = 0.$
 	
 							</li>
 	
 							<li>
 								$A \mapsto \det(A)$ is a continuous function on
-								$L(\R^n)$.
+								$L(\R^n).$
 	
 							</li>
 	
 							<li>
 								$\det\left( \begin{bmatrix} a & b \\ c
 								&d \end{bmatrix} \right)
-								= ad-bc$, and $\det \bigl( [a] \bigr) = a$.
+								= ad-bc,\,$ and $\,\det \bigl( [a] \bigr) = a.$
 							</li>
 							<li class="fragment" data-fragment-index="0">
-								$\det(AB) = \det(A)\det(B)$.
+								$\det(AB) = \det(A)\det(B).$
 	
 							</li>
 	
 							<li class="fragment" data-fragment-index="1">
 								$A$ is invertible if and only if $\det(A) \not= 0$ and in
-								this case, $\det\left(A^{-1}\right) = \dfrac{1}{\det(A)}$.
+								this case, $\det\left(A^{-1}\right) = \dfrac{1}{\det(A)}.$
 							</li>
 						</ol>
 					</div>
-					<br/>
+					<br/><br/>
 				</section>
 
 				<!--
@@ -1277,7 +1385,187 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 						</div>
 						<br/>
 				</section>
+
+				<section>
+					<h5>Affine transformations</h5>
+					<div class="size-70">
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								$
+								\ds 
+									f(x,y)=\begin{bmatrix} 
+									a & b\\
+									c & d
+									\end{bmatrix}
+									\begin{bmatrix} 
+									x  \\
+									y 
+									\end{bmatrix} + 
+									\begin{bmatrix} 
+									e  \\
+									f
+									\end{bmatrix}
+								$ 
+							</p>
+						</div>
+					</div>
+					
+					<table id="eqarray" style="width:100%;">
+						<tr>
+							<td style="width:55%">
+								<div style="font-size:60%"  class="fragment" data-fragment-index="1">
+									<p>
+										$
+										\ds 
+										f_1(x,y)=\begin{bmatrix} 
+										0.00 & 0.00 \\
+										0.00 & 0.16
+										\end{bmatrix}
+										\begin{bmatrix} 
+										x  \\
+										y 
+										\end{bmatrix}
+										$ 
+									</p>
+									<p>
+										$
+										\ds 
+										f_2(x,y)=\begin{bmatrix} 
+										0.85 & 0.04 \\
+										-0.04 & 0.85
+										\end{bmatrix}
+										\begin{bmatrix} 
+										x  \\
+										y 
+										\end{bmatrix} + 
+										\begin{bmatrix} 
+										0.00  \\
+										1.60
+										\end{bmatrix}
+										$ 
+									</p>
+									<p>
+										$
+										\ds 
+										f_1(x,y)=\begin{bmatrix} 
+										0.20 & -0.26 \\
+										0.23 & 0.22
+										\end{bmatrix}
+										\begin{bmatrix} 
+										x  \\
+										y 
+										\end{bmatrix} + 
+										\begin{bmatrix} 
+										0.00  \\
+										1.60
+										\end{bmatrix}
+										$ 
+									</p>
+									<p>
+										$
+										\ds 
+										f_1(x,y)=\begin{bmatrix} 
+										-0.15 & 0.28 \\
+										0.26 & 0.24
+										\end{bmatrix}
+										\begin{bmatrix} 
+										x  \\
+										y 
+										\end{bmatrix} + 
+										\begin{bmatrix} 
+										0.00  \\
+										0.44
+										\end{bmatrix}
+										$ 
+									</p>
+								</div>
+							</td>
+							<td style="width:45%">
+								
+								<div class="fragment" data-fragment-index="2">
+									<img style="width:100%" data-src="images/summary-11/barnsley.png">
+								</div>
+
+							</td>
+						</tr>
+					</table>
+
+						<div  style="font-size:26px;margin-top:-20px"  class="fragment" data-fragment-index="2">
+							<p> <a href="https://en.wikipedia.org/wiki/Barnsley_fern"
+								target="_blank"><strong>Barnsley fern</strong> <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
+						</div>
+						<br/>
+				</section>
+				
+				
+
+				<section data-auto-animate>
+					<h5>Barnsley fern in JavaScript</h5>
+	
+					<div>
+<script data-height="525" data-preview-width="400" type="text/p5">
+let x = 0;
+let y = 0;
+
+function setup() {
+  createCanvas(300, 400);
+  background(10);
+}
+
+function nextPoint() {
+	let nextX;
+	let nextY;
+	let r = random(1);
+  
+	if (r < 0.01) {
+	  nextY = 0.16 * y;
+	  nextX = 0;
+	} else if (r < 0.86) {
+	  nextX = 0.85 * x + 0.04 * y;
+	  nextY = -0.04 * x + 0.85 * y + 1.6;
+	} else if (r < 0.93) {
+	  nextX = 0.2 * x + -0.26 * y;
+	  nextY = 0.23 * x + 0.22 * y + 1.6;
+	} else {
+	  nextX = -0.15 * x + 0.28 * y;
+	  nextY = 0.26 * x + 0.24 * y + 0.44;
+	}
+	x = nextX;
+	y = nextY;
+  }
+
+//range -2.1820 < x < 2.6558 and 0 ≤ y < 9.9983.
+function drawPoint() {
+  stroke(0, 255, 128);
+  strokeWeight(2);
+  let px = map(x, -2.182, 2.6558, 0, width);
+  let py = map(y, 0, 9.9983, height, 0);
+
+  point(px, py);
+}
+
+function draw() {
+	for (let i = 0; i < 10; i++) {
+	  drawPoint();
+	  nextPoint();
+	}
+  }
+</script>
+</div>
+
+<div style="font-size: 18px;margin-top: -25px;">
+	<p>
+		Click on <code>Play</code> to run.
+	</p>
+</div>
+
+<br/><br/><br/><br/>
+				</section>
+
+
 			</section>
+
+
 
 			<section>
 
@@ -1303,6 +1591,8 @@ $\ds\snorm{Ax} \leq \snorm{A}  \snorm{x} .$
 	<script>
 		includeHTML();
 	</script>
+
+<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
 
 </body>

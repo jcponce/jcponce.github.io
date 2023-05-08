@@ -1,0 +1,1448 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH1052/7052 - Lecture 9</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<p>Lecture 9</p>
+				<br/><br/>
+			</section>
+
+			<!--Section with format-->
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					<div class="size-75" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									We next discuss how to solve a homogeneous linear second-order ODE with
+constant coefficients:
+							</p>
+							
+							
+							
+						</div>
+						<div class=""  style="margin-top:-10px">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									
+$ay''+by'+cy=0, \quad a\neq 0.$
+
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									The trick is to try to find a solution of the form
+$y=e^{\lambda t}$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Substituting this into the ODE gives
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class=""  style="margin-top:-10px">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$
+a\lambda^2e^{\lambda t} + b\lambda e^{\lambda t} +ce^{\lambda
+t}=0.
+$
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									Since $e^{\lambda t}\neq 0$ we may divide both sides of the above equation
+by this term to be left with the quadratic equation
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+$
+a\lambda^2 + b\lambda + c  =  0.
+$
+								</span>
+							</p>
+							
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									This equation is called the <span id="rr">characteristic equation</span> of the ODE.
+								</span>
+							</p>
+							
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Important remark: </strong>
+									
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									When you are solving ODEs of this type on your assignments and exams, 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									you
+									don't have to <em>derive</em> the characteristic equation.  
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									It is fine to simply
+									start from the characteristic equation and solve the ODE from there.									
+								</span>
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									Various scenarios can now arise, which we discuss in more detail below. 
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									<strong>Case 1: Two disticnt real roots</strong>
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="5">
+									If $b^2-4ac>0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									two distinct real roots, say $\lambda_1$ and $\lambda_2$.
+								</span>
+								
+								
+							</p>
+
+							
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									<strong>Case 1: Two disticnt real roots</strong>
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span>
+									If $b^2-4ac>0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									two distinct real roots, say $\lambda_1$ and $\lambda_2$.
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span>
+									In this case the general solution to the ODE is
+									$$
+									y=c_1e^{\lambda_1t}+c_2e^{\lambda_2t}.
+									$$
+								</span>
+								
+								
+							</p>
+							
+
+							
+							
+							
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:-20px">
+						<p>
+								
+							<span class="fragment" data-fragment-index="1">
+								<strong>Question:</strong> 
+								What will this solution look like for very large $t$?
+							</span>
+							
+							
+						</p>
+						<div id="theorem"  style="margin-top:-10px" class="fragment" data-fragment-index="1">
+							<div class="left-txt"  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										If $\lambda_1,\lambda_2\lt 0,$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$y\to 0$ as $t\to \infty.$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										If $\lambda_1$ or $\lambda_2\gt 0,$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$y\to \pm \infty$ depending on the sign of $c_1,c_2.$
+									</span>
+									
+									
+								</p>
+	
+								
+								
+								
+							</div>
+						</div>
+					</div>
+
+
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-75" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									<strong>Question:</strong> 
+									Solve the ODE $\;y''-3y'+2y=0$.
+								</span>
+								
+								
+							</p>
+
+							
+							
+							
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							<div class="left-txt"  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										The characteristic equation is $\lambda^2 -3 \lambda +1  =0 $
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										Factorise: $\left(\lambda-1\right)\left(\lambda-2\right)=0.$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										Then $\lambda_1=1, \lambda_2=2.$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										We have two linear independet solutions
+									</span>
+									
+									
+								</p>
+								
+	
+								
+								
+								
+							</div>
+							<div>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										$y_1=e^t, \quad y_2 = e^{2t}$
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="5">
+										Thus the general solution is
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="">
+								<p>
+									
+									<span class="fragment" data-fragment-index="5">
+										$y=c_1 e^t+ c_2e^{2t}.$
+									</span>
+									
+									
+								</p>
+							</div>
+						</div>
+					</div>
+					
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									<strong>Case 2: A single root of multiplicity 2</strong>
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									If $b^2-4ac=0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									one root, say $\mu$, <span id="rr">of multiplicity 2</span>.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									
+									(Of course $\mu=-b/(2a)$ but it is more convenient to work with $\mu$).
+								</span>
+								
+								
+							</p>
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									This is somewhat of a problem because now we only have single solution
+									to the ODE: $y=e^{\mu t}$.
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									Fortunately, we know that <span id="rr">reduction of order</span> will give us a
+									a second linearly independent solution, so that we try $y=u(t)e^{\mu t}$.
+								</span>
+								
+								
+							</p>
+
+							
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									By the product rule $
+									y'=u'e^{\mu t}+\mu u e^{\mu t} \qquad \qquad\;
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									and $\,
+									y''=u''e^{\mu t}+2\mu u' e^{\mu t}+\mu^2 u e^{\mu t}.
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									Substituting this into $ay''+by'+cy=0$ gives
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									$
+									\Bigl[\bigl(a\mu^2+b\mu+c\bigr)u+\bigl(2a\mu+b\bigr)u'+au''\Bigr]e^{\mu t}=0.
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									Since $\mu$ is a solution to the characteristic equation, 
+									$a\mu^2+b\mu+c=0$. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Moreover, since $\mu=-b/2a$, $2a\mu+b=0$.
+								</span>
+								
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									Hence we are left with just $u''=0.$
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-90" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									Hence we are left with just $u''=0.$
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span>
+									This is easily solved as 
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							
+							
+							<p>
+								
+								<span>
+									$
+									u(t)=(c_1 + c_2 t).
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						
+						<div class="left-txt">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									Using this with $c_1 = 0$ and $c_2 = 1$ we now have two linearly independent solutions:
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									$
+									y_1(t)=e^{\mu t}\quad\text{and} \quad y_2(t)=t e^{\mu t},
+									$
+								</span>
+								
+								
+							</p>
+							
+							
+						</div>
+						<div class="left-txt" style="margin-top:0px">
+							
+							
+						
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									where $\mu=-b/2a$.
+								</span>
+								
+								
+							</p>
+							
+							
+							
+						</div>
+						
+						
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+						
+							<p>
+								
+								<span>
+									<strong>Important remark:</strong>
+									In actual problems you do not have to repeat the above derivation.
+								</span>
+								
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									It is enough for you to claim that if the characteristic equation has
+									a single root of multiplicity $2$ then the above are a pair of linearly
+									independent solutions and
+									$$
+									y(t)=(c_1+c_2 t) e^{\mu t}
+									$$
+									is the general solution. 
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+						
+					</div>
+					
+					<div class="size-80" style="margin-top:0px">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									<strong>Question:</strong>
+									What will this solution look like for very large $t$?
+								</span>
+							</p>
+						</div>
+					</div>
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					
+					
+					<div class="size-85" style="margin-top:0px">
+						<div class="">
+							<p>👉 $\;\ds y(t)=(c_1+c_2 t) e^{\mu t}$</p>
+							
+						</div>
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Question:</strong>
+									What will this solution look like for very large $t$?
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							<div class="left-txt"  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										If $\mu \lt 0,$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$y\to 0$ as $t\to \infty.$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										If $\mu\gt 0,$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$y\to \pm \infty$ depending on the sign of $c_2.$
+									</span>
+									
+									
+								</p>
+	
+								
+								
+								
+							</div>
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					
+					
+					<div class="size-80" style="margin-top:0px">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Solve the IVP $\, y''+6y'+9y=0,$ $y(0)=2,$ $y'(0)=0.$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							<div class="left-txt"  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										Characteristic equation: $\lambda^2 +6 \lambda +9  =0 $
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										Then $\left(\lambda+3\right)^2=0.$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										So $\lambda=\mu=-3$ is the single root.
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										The general solution is $y(t)=(c_1+c_2 t) e^{-3 t}.$
+									</span>
+									
+									
+								</p>
+								
+	
+								
+								
+								
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="5">
+										Now $ \, 2 = y(0)  $
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$= (c_1+c_2 (0)) e^{-3 (0)}$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$=c_1.$
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="8">
+										On the other hand
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="">
+								<p>
+									
+									<span class="fragment" data-fragment-index="8">
+										$y'(t) $
+									</span>
+									<span class="fragment" data-fragment-index="9">
+										$=c_2e^{-3t} $
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$ \, -3(c_1+c_2 t) e^{-3 t}$
+									</span>
+									
+									
+								</p>
+							</div>
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					
+					
+					<div class="size-80" style="margin-top:0px">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Solve the IVP $\, y''+6y'+9y=0,$ $y(0)=2,$ $y'(0)=0.$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-90" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							<div class=""  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span>
+										$y'(t) $
+									</span>
+									<span>
+										$=c_2e^{-3t} $
+									</span>
+									<span>
+										$ \, -3(c_1+c_2 t) e^{-3 t}$
+									</span>
+									
+									
+								</p>
+								
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										Since $ \, 0 = y'(0)  $
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$= c_2e^{-3(0)} -3(c_1+c_2 (0)) e^{-3 (0)},$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="3">
+										then $\,0= c_2  -3(2+ 0)  $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$= c_2 - 6$
+									</span>
+
+									<span class="fragment" data-fragment-index="5">
+										$\,\Ra \, c_2 =6.$
+									</span>
+									
+									
+								</p>
+
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="6">
+										Therefore, the solution is
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="">
+								<p>
+									
+									<span class="fragment" data-fragment-index="6">
+										$y(t)=(2+6 t) e^{-3 t}.$
+									</span>
+									
+									
+								</p>
+							</div>
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+
+				
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-95" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									<strong>Case 3: Complex root</strong>
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									If $b^2-4ac\lt 0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									a pair of complex conjugate roots, say $\alpha\pm  i\beta$.
+								</span>
+								
+								
+							</p>
+							
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									This leads to the general solution
+								</span>
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									$
+									\ds y(t)=\Bigl(c_1 e^{i\beta t}+c_2 e^{-i\beta t}\Bigr)e^{\alpha t}.
+									$
+								</span>
+								
+								
+							</p>
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							
+							
+							<p>
+								
+								<span>
+									This leads to the general solution
+								</span>
+								
+								
+							</p>
+							
+							
+							
+							
+						</div>
+						<div>
+							<p>
+								
+								<span>
+									$
+									\ds y(t)=\Bigl(c_1 e^{i\beta t}+c_2 e^{-i\beta t}\Bigr)e^{\alpha t}.
+									$
+								</span>
+								
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									For those who want the solution to be manifestly real we note that
+
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1" style="font-size:108%">
+									$
+									e^{\pm i\beta t}=\cos(\beta t) \pm i \sin(\beta t),
+									$
+								</span>
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									so that
+$
+y(t)=\Bigl((c_1+c_2)\cos(\beta t)+(c_1-c_2)i \sin(\beta t)\Bigr)
+e^{\alpha t}.
+$
+
+								</span>
+							</p>
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-90" style="margin-top:0px">
+						<div class="left-txt">
+							
+							
+							<p>
+								<span style="font-size:90%">
+									so that
+									$
+									y(t)=\Bigl((c_1+c_2)\cos(\beta t)+(c_1-c_2)i \sin(\beta t)\Bigr)
+									e^{\alpha t}.
+									$
+
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Introducing new constants $b_1$ and $b_2$ by $b_1=c_1+c_2$ and
+									$b_2=(c_1-c_2)i$ 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we thus get
+$$
+y(t)=\Bigl(b_1\cos(\beta t)+b_2 \sin(\beta t)\Bigr)
+e^{\alpha t}.
+$$
+
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									<strong>Example:</strong>
+									Solve $\, y''+9y=0$.
+								</span>
+								
+							</p>
+
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Solve $\, y''+9y=0$.
+								</span>
+								
+							</p>
+
+							
+							
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							<div class="left-txt"  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										Characteristic equation: $\lambda^2 +9  =0 $
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										Then $\lambda=\pm 3i.$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										That is $\alpha =0$ and $\beta = 3.$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										The general solution is 
+									</span>
+									
+									
+								</p>
+								
+							</div>
+							<div>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										$y(t)=\Bigl(b_1\cos(3 t)+b_2 \sin(3 t)\Bigr)
+										e^{0 t}$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="5">
+										$=b_1\cos(3 t)+b_2 \sin(3 t)$
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="8">
+										You should check it! 📝
+									</span>
+									
+									
+								</p>
+							</div>
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:0px">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Example:</strong><br/><br/>
+									Solve the IVP $\,y''-4y'+5y=0,$ $y(0)=1,$ $y'(0)=0$.
+								</span>
+								
+							</p>
+
+							
+							
+						</div>
+					</div>
+					
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="8">
+										😃 Homework! 📝
+									</span>
+									
+									
+								</p>
+							</div>
+							
+						</div>
+					</div>
+
+					<br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:0px">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Challenge problem:</strong><br/><br/>
+									Solve the ODE $\,y''''+y''' - y''+y'- 2y=0$. 
+
+								</span>
+								
+							</p>
+
+							
+							
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="8">
+										😃 Homework! 📝
+									</span>
+									
+									
+								</p>
+							</div>
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/><br/><br/>
+				</section>
+				
+			</section>
+
+			
+			<section>
+				<h4>1 Ordinary Differential Equations</h4>
+				<div id="sbt">
+					<p><strong>1.7.5 Extra reading: numerical solutions</strong></p>
+				</div>
+
+				<br/>
+				<p>
+					👀 Extra reading! 📖
+				</p>
+				<br/><br/><br/><br/><br/><br/>
+			</section>
+
+			<section>
+				<h4>1 Ordinary Differential Equations</h4>
+				<div id="sbt">
+					<p><strong>1.7.6 Main points</strong></p>
+				</div>
+
+				<br/>
+				<div class="size-90">
+					<ul>
+						<li>
+							You should be able to identify a linear second-order ODE.
+						</li>
+						<li>
+							You should understand the superposition principle and the general solution
+theorem for homogeneous linear second-order ODEs.
+						</li>
+						<li>
+							You should know how to solve homogeneous linear second-order ODEs with 
+constant coefficients.
+						</li>
+					</ul>
+				</div>
+
+				
+				<br/><br/><br/><br/><br/>
+			</section>
+			
+			
+			
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

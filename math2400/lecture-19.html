@@ -62,12 +62,13 @@
 
 			
 			<!--
-				<section data-background-iframe="sketches/kinetic-text-processing/index.html">
+			<section data-background-iframe="sketches/kinetic-text-processing/index.html">
 			</section>
 
 			<section data-background-iframe="sketches/matrix/index.html">
 			</section>
 			-->
+			
 			
 
 			<section  data-transition="fade" data-background-iframe="sketches/topology/index.html"
@@ -276,7 +277,7 @@
 					</div>
 					<br/><br/><br/>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4>10.1 Metric spaces </h4>
 					<div class="size-80">
 						<p>$\R^n = \R \times \R \times \cdots \times \R.$
@@ -318,7 +319,7 @@
 					<br/>
 				</section>
 
-				<section data-auto-animate id="cauchy-schwarz-inequality">
+				<section id="cauchy-schwarz-inequality">
 					<h4>10.1 Metric spaces </h4>
 					<div class="left-txt size-90">
 						<p>
@@ -343,12 +344,12 @@
 	
 					<br/><br/><br/><br/>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4 style="font-size:90%">Proof of Theorem 10.1.1 (Cauchy-Schwarz inequality)</h4>
 					<div class="left-txt size-95">
 						
 						<p>
-							<strong>Proof. </strong>
+							
 							
 							<span class="fragment" data-fragment-index="0">
 							Any square of a real number is nonnegative. 
@@ -405,12 +406,11 @@
 					<br/><br/><br/>
 	
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4 style="font-size:70%">Proof of Theorem 10.1.1 (Cauchy-Schwarz inequality)</h4>
 					<div class="left-txt size-60" style="margin-top:-15px">
 						
 						<p>
-							<strong>Proof. </strong>
 							
 							<span>
 							Any square of a real number is nonnegative. 
@@ -504,12 +504,12 @@
 	
 				</section>
 	
-				<section data-auto-animate>
+				<section>
 					<h4 style="font-size:90%">Proof of Theorem 10.1.1 (Cauchy-Schwarz inequality)</h4>
 					
 					<div class="left-txt size-90">
-						<p><strong>Proof. </strong>
-							We relabel and divide by 2 to obtain
+						<p>
+							We relabel and divide by 2  to get
 							\begin{equation*}
 							0 \leq
 							\biggl( \sum_{k=1}^n x_k^2 \biggr)
@@ -663,7 +663,7 @@
 					</div>
 					<br/><br/>
 				</section>
-				<section data-auto-animate>
+				<section >
 					<h4>Example 10.1.2.</h4>
 					<div class="left-txt size-80">
 						
@@ -704,7 +704,7 @@
 							\sum_{k=1}^n
 							{(x_k-y_k)}^2
 							+
-							\sum_{j=1}^n
+							\sum_{k=1}^n
 							{(y_k-z_k)}^2
 								$
 							</span>
@@ -714,7 +714,7 @@
 								$\ds \qquad \qquad
 							+\;
 							2
-							\sum_{j=1}^n
+							\sum_{k=1}^n
 							(x_k-y_k)(y_k-z_k)
 								$
 							</span>
@@ -876,7 +876,7 @@
 	
 					<p><br /><br /></p>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4>Example 10.1.2.</h4>
 
 					<div class=" left-txt">
@@ -898,9 +898,7 @@
 								$
 							</span>
 						</p>
-						
-	
-						<br/>
+
 					</div>
 					<div class=" left-txt ">
 						<p class="fragment" data-fragment-index="0"> Therefore
@@ -924,9 +922,20 @@
 						
 	
 					</div>
+					<br/>
+
+					<div class=" left-txt size-70 " >
+						<p class="fragment" data-fragment-index="1">
+							<strong>Note:</strong>
+							The square root is an increasing function. Thus the inequality is
+							preserved when we take the square root of both sides. 🧐
+						</p>
+						
+	
+					</div>
 	
 	
-					<p><br /><br /><br /></p>
+					<br /><br />
 				</section>
 
 				<section data-auto-animate>
@@ -957,15 +966,15 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 						
 						<p>
 							
-							<span class="fragment" data-fragment-index="3">
+							<span class="fragment" data-fragment-index="2">
 								$
 								d(z_1,z_2) $
 							</span>
-							<span class="fragment" data-fragment-index="4">
+							<span class="fragment" data-fragment-index="3">
 								$
 								 = \sqrt{{\left(x_1-x_2\right)}^2+ {\left(y_1-y_2\right)}^2} $
 							</span>
-							<span class="fragment" data-fragment-index="5">
+							<span class="fragment" data-fragment-index="4">
 								$=\sabs{z_1-z_2}.$
 							</span>
 						</p>
@@ -994,25 +1003,35 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 				
 				<section data-auto-animate>
 					
-
+				<h5 style="font-size:50%">Mandelbrot set: Click on image to interact</h5>
 					
-				<iframe name="Mandelbrot" data-src="https://dynamicmath.xyz/complex/mandelbrotexplorer/index.html" width="490px" height="490px" style="border:none;" scrolling="no"></iframe>
-					<div style="font-size:16px">
-						$z_{n+1}^2=z_n^2+z_0$<br/>
-						<span style="font-size:25px"><strong>⌨️</strong></span>&nbsp; Zoom In (<strong>+</strong>), Zoom Out (<strong>-</strong>), Reset (<strong>R</strong>), Orbit (<strong>O</strong>)<br/><br/>
+				<div style="float: left; padding: 0px;margin-top:155px;margin-right:-200px">
+					
+					<p>
+						<span style="font-size:70%">
+						$z_{n+1}=z_n^2+z_0$
+					    </span>
+				    </p>
+				</div>
+				<div style="margin-top:-10px">
+					<iframe name="Mandelbrot" data-src="sketches/mandelbrot" width="490px" height="490px" style="border:none;" scrolling="no"></iframe>
+					<div style="font-size:20px">
 						
-					</div>
-					<div style="font-size:16px;margin-top:-10px">
 						
-						<a onclick="var ifr=document.getElementsByName('Mandelbrot')[0]; ifr.src=ifr.src;" class="button">🔄</a> &nbsp;&nbsp;-&nbsp;&nbsp;
-						More details <a href="https://www.dynamicmath.xyz/mandelbrot-julia/" target="_blank" class="button">HERE <i class="fa fa-external-link-alt"></i></a>
+						Use &nbsp;<span style="font-size:30px"><strong>⌨️</strong></span>&nbsp; 
+						Orbit (<strong>O</strong>), Info (<strong>I</strong>), 
+						Reset (<strong>R</strong>). &nbsp; Use 🖱️ wheel to Zoom In/Out
+						<!--<a onclick="var ifr=document.getElementsByName('Mandelbrot')[0]; ifr.src=ifr.src;" class="button">🔄</a> &nbsp;-&nbsp;-->
+						<br/>
 					</div>
+					<div style="font-size:18px;margin-top:10px">
+						
+						
+						For more details visit <a href="https://www.dynamicmath.xyz/mandelbrot-julia/" target="_blank" class="button">Mandelbrot &amp; Julia sets <i class="fa fa-external-link-alt"></i></a>
+					</div>
+				</div>
 
-					
-				
-					<br/>
-
-					
+				<br/>
 				
 				</section>
 
@@ -1046,7 +1065,7 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 					</div>
 					<br/><br/><br/><br/>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4 style="font-size:90%">
 						Example 10.1.4. 
 					</h4>
@@ -1109,7 +1128,7 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 					</div>
 					<br/><br/>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4 style="font-size:80%">
 						Example 10.1.5. 
 					</h4>
@@ -1164,15 +1183,15 @@ $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$,
 					<h4>10.1 Metric spaces </h4>
 					<div class="left-txt">
 						<p><strong>Theorem 10.1.2 </strong>
-							Let $(X,d)$ be a metric space and $Y \subset X$. Then the restriction
-							$d|_{Y \times Y}$ is a metric on $Y$.
+							Let $(X,d)$ be a metric space and $Y \subset X.$ Then the restriction
+							$d|_{Y \times Y}$ is a metric on $Y.$
 						</p>
 						<br/>
 
 						<p class="fragment" data-fragment-index="2">
 							<strong>Definition 10.1.2. </strong>
-							If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
-							then $(Y,d')$ is said to be a <em>subspace</em> of $(X,d)$.
+							If $(X,d)$ is a metric space, $Y \subset X,$ and $d' := d|_{Y \times Y},$
+							then $(Y,d')$ is said to be a <em>subspace</em> of $(X,d).$
 						</p>
 						
 	

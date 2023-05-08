@@ -80,6 +80,9 @@
 						norm: ["{\\|#1\\|}", 1],
 						epsilon: "\\varepsilon",
 						pd: "\\boldsymbol{\\cdot}",
+						ddy: "{\\ddot{y}}",//\newcommand{\ddy}{\ddot{y}}
+						dy: "{\\dot{y}}",//\newcommand{\dy}{\dot{y}}
+						bs: "\\blacksquare",
 						//cdot: "{\\textstyle \\,\\bullet\\,}",
 						//cdot: "{\\scriptstyle \\,\\bullet\\,}",
 					}
