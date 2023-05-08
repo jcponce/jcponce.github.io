@@ -71,7 +71,7 @@
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								then we say
-								a function $\snorm{\cdot} \colon X \to \R$ is a
+								a function $\snorm{\pd} \colon X \to \R$ is a
 								<em>norm</em> if
 							</span>
 							
@@ -213,14 +213,14 @@
 						<div> 
 							<p>
 								<span class="fragment" data-fragment-index="4">
-									$\sabs{ x \cdot y } $
+									$\sabs{ x \pd y } $
 								</span>
 								<span class="fragment" data-fragment-index="5">
 									$ =
-									\sabs{\lambda y \cdot y}  $
+									\sabs{\lambda y \pd y}  $
 								</span>
 								<span class="fragment" data-fragment-index="6">
-									$ = \sabs{\lambda} \, \sabs{y\cdot y} $
+									$ = \sabs{\lambda} \, \sabs{y\pd y} $
 								</span>
 								<span class="fragment" data-fragment-index="7">
 									$=
@@ -269,7 +269,7 @@
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									$ =
-									(x+ty) \cdot (x+ty)  \qquad \qquad \qquad \quad $
+									(x+ty) \pd (x+ty)  \qquad \qquad \qquad \quad $
 								</span>
 								
 								
@@ -278,7 +278,7 @@
 								
 								<span class="fragment" data-fragment-index="2">
 									$ \,\quad =
-									x \cdot x + x \cdot ty + ty \cdot x + ty \cdot ty $
+									x \pd x + x \pd ty + ty \pd x + ty \pd ty $
 								</span>
 							</p>
 							<p>
@@ -286,7 +286,7 @@
 								
 								<span class="fragment" data-fragment-index="3">
 									$=
-									\snorm{x}^2 + 2t(x \cdot y) + t^2 \snorm{y}^2 ,
+									\snorm{x}^2 + 2t(x \pd y) + t^2 \snorm{y}^2 ,
 									$
 								</span>
 							</p>
@@ -335,7 +335,7 @@
 						<div> 
 							<p>
 								<span class="fragment" data-fragment-index="1">
-									$4 {(x \cdot y)}^2 - 4 \snorm{x}^2\snorm{y}^2 \lt 0, $
+									$4 {(x \pd y)}^2 - 4 \snorm{x}^2\snorm{y}^2 \lt 0, $
 								</span>
 								
 								
@@ -357,7 +357,7 @@
 							<p>
 								
 								<span class="fragment" data-fragment-index="2">
-									${(x \cdot y)}^2 \lt \snorm{x}^2\snorm{y}^2.\; \bs$
+									${(x \pd y)}^2 \lt \snorm{x}^2\snorm{y}^2.\; \bs$
 								</span>
 								
 							</p>
@@ -473,13 +473,18 @@
 						<p>
 							<span>
 								By linearity,
-								$\ds \norm{A \frac{x}{\snorm{x}}} = \frac{\snorm{Ax}}{\snorm{x}}$
-								for all nonzero $x \in X$.
-							</span><br/><br/>
+								$\ds \bigg|\bigg|A \frac{x}{\snorm{x}}\bigg|\bigg|$
+							</span>
 							<span class="fragment" data-fragment-index="0">
-								The vector $\ds\frac{x}{\snorm{x}}$ is of norm 1.
+								$\ds = \frac{\snorm{Ax}}{\snorm{x}}$
 							</span>
 							<span class="fragment" data-fragment-index="1">
+								for all nonzero $x \in X$.
+							</span><br/><br/>
+							<span class="fragment" data-fragment-index="2">
+								The vector $\ds\frac{x}{\snorm{x}}$ is of norm 1.
+							</span>
+							<span class="fragment" data-fragment-index="3">
 								Therefore
 							</span>
 						</p>
@@ -488,14 +493,14 @@
 					</div>
 					<div class=" size-90">
 						<p>
-							<span class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="3">
 								$\snorm{A} =
 								\sup \bigl\{ \snorm{Ax} : x \in X \text{ with } \snorm{x} = 1 \bigr\}
 								$
 							</span>
 						</p>
 						<p>
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="4">
 								$=
 								\ds\sup_{\substack{x \in X\\x\neq 0}} \frac{\snorm{Ax}}{\snorm{x}} .\qquad \qquad\qquad \;
 								$
@@ -642,7 +647,10 @@
 								
 							 </span>
 							 <span class="fragment" data-fragment-index="4">
-								we can prove that it is Lipschitz continuous.
+								we can prove that it is 
+								<a href="lecture-10.html#/lipschitz-continuous/1" target="_blank">
+									Lipschitz continuous
+								</a>.
 							 </span>
 							 <span class="fragment" data-fragment-index="5">
 								That is, we need to prove that there exists a $K>0$
@@ -670,7 +678,7 @@
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					
-					<div class="left-txt size-60">
+					<div class="left-txt size-60" style="margin-top:-15px">
 						<p>
 							<strong>
 								Theorem 11.4.2. 
@@ -697,7 +705,10 @@
 									<strong>Proof. </strong>
 								</span>
 								<span class="fragment" data-fragment-index="0">
-									Let $\{ e_1,e_2,\ldots,e_n \}$ a basis of $X$.
+									Assume $X = \R^n.$ 😃
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Let $\{ e_1,e_2,\ldots,e_n \}$ the standard basis of $X$.
 								</span>
 							</p>
 						</div>
@@ -707,7 +718,8 @@
 								<span class="fragment" data-fragment-index="2">
 									For $x\in X$, with $\snorm{x} = 1$,
 								</span>
-								<span class="fragment" data-fragment-index="3"> write  $\ds x = \sum_{k=1}^n c_k \, e_k .$
+								<span class="fragment" data-fragment-index="3">
+									write  $\ds x = \sum_{k=1}^n c_k \, e_k .$
 								</span>
 							</p>
 						</div>
@@ -715,24 +727,24 @@
 							<p>
 								
 								<span class="fragment" data-fragment-index="4">
-									Since $e_k \cdot e_\ell = 0$ whenever $k\not=\ell$ and $e_k \cdot e_k = 1$,
+									Since $e_k \pd e_\ell = 0$ whenever $k\not=\ell$ and $e_k \pd e_k = 1$,
 								</span>
 								<span class="fragment" data-fragment-index="5">
-									then $c_k = x \cdot e_k$ 
+									then $c_k = x \pd e_k$ 
 								</span>
 								<span class="fragment" data-fragment-index="6">
 									and by Cauchy-Schwarz
 								</span>
 							</p>
 						</div>
-						<div class="">
+						<div class="" style="font-size:110%">
 							<p>
 								
 								<span class="fragment" data-fragment-index="7">
 									$\sabs{c_k}= $
 								</span>
 								<span class="fragment" data-fragment-index="6">
-									$ \sabs{ x \cdot e_k }
+									$ \sabs{ x \pd e_k }
 									$
 								</span>
 								<span class="fragment" data-fragment-index="6">
@@ -752,7 +764,7 @@
 				<section data-auto-animate>
 					<h4>11.4 Norms</h4>
 					
-					<div class="left-txt size-60">
+					<div class="left-txt size-60" style="margin-top:-15px">
 						<p>
 							<strong>
 								Theorem 11.4.2. 
@@ -783,15 +795,7 @@
 									<strong>Proof. </strong>
 								</span>
 								<span>
-									Then
-								</span>
-							</p>
-						</div>
-						<div class="">
-							<p>
-								
-								<span>
-									$\snorm{Ax} $
+									Then $\,\snorm{Ax} $
 								</span>
 								<span class="fragment" data-fragment-index="0"> 
 									$=
@@ -801,6 +805,14 @@
 									$
 									\ds \leq
 									\sum_{k=1}^n \sabs{c_k} \, \snorm{Ae_k} $
+								</span>
+							</p>
+						</div>
+						<div class="">
+							
+							<p>
+								<span class="fragment" data-fragment-index="3">
+								$\qquad \qquad \qquad \Ra \,\snorm{Ax} $
 								</span>
 								<span class="fragment" data-fragment-index="2"> 
 									$
@@ -833,9 +845,9 @@
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4 style="font-size:90%;margin-top:-10px">11.4 Norms</h4>
+					<h4>11.4 Norms</h4>
 					
-					<div class="left-txt size-60">
+					<div class="left-txt size-60" style="margin-top:-15px">
 						<p>
 							<strong>
 								Theorem 11.4.2. 
@@ -979,7 +991,7 @@
 							<strong>
 								Proof. 
 							</strong>&nbsp; 📝 &nbsp;&nbsp;
-							<span class="fragment" data-fragment-index="5" style="font-size:80%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
+							<span class="fragment" data-fragment-index="4" style="font-size:85%;font-weight:bold;color:rgba(217, 0, 0, 0.968)">
 								👀 Complementary reading 📖
 							</span>
 						</p>
