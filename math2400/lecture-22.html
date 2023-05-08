@@ -1507,13 +1507,10 @@
 	
 					<div>
 <script data-height="525" data-preview-width="400" type="text/p5">
-let x = 0;
-let y = 0;
+let x = 0, y = 0;
 
 function nextPoint() {
-	let nextX;
-	let nextY;
-	let r = random(1);
+	let nextX, nextY, r = random(1);
   
 	if (r < 0.01) {
 	  nextY = 0.16 * y;
@@ -1530,12 +1527,12 @@ function nextPoint() {
 	}
 	x = nextX;
 	y = nextY;
-  }
+}
 
 //range -2.1820 < x < 2.6558 and 0 ≤ y < 9.9983.
 function drawPoint() {
   stroke(0, 255, 128);
-  strokeWeight(2);
+  strokeWeight(1);
   let px = map(x, -2.182, 2.6558, 0, width);
   let py = map(y, 0, 9.9983, height, 0);
 
@@ -1543,12 +1540,12 @@ function drawPoint() {
 }
 
 function setup() {
-	createCanvas(300, 400);
+	createCanvas(350, 420);
 	background(10);
   }
 
 function draw() {
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 15; i++) {
 	  drawPoint();
 	  nextPoint();
 	}
