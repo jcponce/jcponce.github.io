@@ -1525,31 +1525,29 @@ function nextPoint() {
 	  nextX = -0.15 * x + 0.28 * y;
 	  nextY = 0.26 * x + 0.24 * y + 0.44;
 	}
-	x = nextX;
-	y = nextY;
+	x = nextX, y = nextY;
 }
 
-//range -2.1820 < x < 2.6558 and 0 ≤ y < 9.9983.
+// Range -2.1820 < x < 2.6558 and 0 ≤ y < 9.9983.
 function drawPoint() {
-  stroke(0, 255, 128);
-  strokeWeight(1);
+  stroke(0, 255, 128); // Change color RGB
   let px = map(x, -2.182, 2.6558, 0, width);
   let py = map(y, 0, 9.9983, height, 0);
-
   point(px, py);
 }
 
 function setup() {
 	createCanvas(350, 420);
 	background(10);
-  }
+}
 
 function draw() {
-	for (let i = 0; i < 40; i++) {
+	let max = 40; // Change this number between 1 and 1000
+	for (let i = 0; i < max; i++) {
 	  drawPoint();
 	  nextPoint();
 	}
-  }
+}
 </script>
 </div>
 
