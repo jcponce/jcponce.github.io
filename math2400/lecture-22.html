@@ -1531,6 +1531,7 @@ function nextPoint() {
 // Range -2.1820 < x < 2.6558 and 0 ≤ y < 9.9983.
 function drawPoint() {
   stroke(0, 255, 128); // Change color RGB
+  strokeWeight(3); // Point size
   let px = map(x, -2.182, 2.6558, 0, width);
   let py = map(y, 0, 9.9983, height, 0);
   point(px, py);
@@ -1542,7 +1543,7 @@ function setup() {
 }
 
 function draw() {
-	let max = 40; // Change this number between 1 and 1000
+	let max = 1; // Change this number between 1 and 1000
 	for (let i = 0; i < max; i++) {
 	  drawPoint();
 	  nextPoint();
