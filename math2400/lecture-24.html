@@ -759,6 +759,182 @@
 				</section>
 
 				<section data-auto-animate>
+					<h5>Example 12.1.5</h5>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									Let $f: \R^3\to \R$ be function defined as
+									\[
+								
+									f(x,y,z) := 3xyz+2x^2+z^2
+									\]
+
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									and $u= (u_1,u_2,u_3)\in \R^3$ with $\norm{u}=1.$
+								</span>
+								
+							</p>
+							
+							
+						</div>
+						
+						
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Then
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$f(x+ t u_1, y+ t u_2, z + t u_3 )$
+								</span>
+							</p>
+							
+						</div>
+						<div>
+							
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$= 3\left( x+ t u_1 \right)\left( y+ t u_2 \right)\left( z+ t u_3 \right)+2\left( x+ t u_1 \right)^2+\left( z+ t u_3 \right)^2$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>Example 12.1.5</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									Then
+								</span>
+							</p>
+							<p>
+								<span>
+									$f(x+ t u_1, y+ t u_2, z + t u_3 )$
+								</span>
+							</p>
+							
+						</div>
+						<div>
+							
+							<p>
+								<span>
+									$= 3\left( x+ t u_1 \right)\left( y+ t u_2 \right)\left( z+ t u_3 \right)+2\left( x+ t u_1 \right)^2+\left( z+ t u_3 \right)^2$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					
+					<div class="size-80">
+						<div class="left-txt">
+							
+							
+							<p>
+								<span>
+									So $\ds \frac{d}{dt} f(x+ t u_1, y+ t u_2, z + t u_3 ) $
+								</span>
+							</p>
+							
+						</div>
+						<div>
+							
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$= 3 u_1\left( y+ t u_2 \right)\left( z+ t u_3 \right)+3u_2  \left( x+ t u_1 \right) \left( z+ t u_3 \right)\quad$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\qquad+\, 3 u_3 \left( x+ t u_1 \right) \left( y+ t u_2 \right) + 4u_1\left( x+ t u_1 \right)+2u_3\left( z+ t u_3 \right)$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+							
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Hence $\ds D_u f (x,y,z)  $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									 $\ds =  \frac{d}{dt}\Big|_{t=0} \biggl[  f(x+ t u_1, y+ t u_2, z + t u_3 ) \biggr]$
+								</span>
+								
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds\qquad =  \left( 3yz+4x\right) u_1 +  \left( 3xz\right) u_2+  \left( 3xy + 2z\right) u_3.$
+							   </span>
+							</p>
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>Example 12.1.5</h5>
+					
+					
+					<div class="size-80">
+						
+						<div>
+							<p>$f(x,y,z) := 3xyz+2x^2+z^2$</p>
+							<br/>
+						</div>
+						
+						<div class="left-txt">
+							
+							
+							<p>
+								<span>
+									$\ds D_u f (x,y,z)  $
+								</span>
+								<span>
+										$\ds =  \frac{d}{dt}\Big|_{t=0} \biggl[  f(x+ t u_1, y+ t u_2, z + t u_3 ) \biggr]$
+								</span>
+								
+								
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds =  \left( 3yz+4x\right) u_1 +  \left( 3xz\right) u_2+  \left( 3xy + 2z\right) u_3.$
+							    </span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds =  
+									\lim_{h\to 0}
+									\frac{f\big((x,y,z)+h(u_1,u_2,u_3)\big)-f(x,y,z)}{h}$
+							   </span>
+							</p>
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
+
+
+
+				<section data-auto-animate>
 					<h6>
 					  Gradient & Directional derivative of $f:\R^2\to\R$ 
 					</h6>
@@ -825,7 +1001,7 @@
 
 				<section>
 					<h4>
-						Example 12.1.5. 
+						Example 12.1.6. 
 					</h4>
 					<div class="size-95">
 						<div class="left-txt">
@@ -882,17 +1058,6 @@ $
 					<br/>
 				</section>
 
-				<section>
-					<h4>Transformations from $\R^2 \to \R^2$</h4>
-					<p style="font-size:24px;margin-top:-10px">Explore $f(x,y) = \left(x \cos y, x \sin y\right)$</p>
-						<div>
-							<iframe scrolling="no" title="Transformations"
-							src="https://www.geogebra.org/material/iframe/id/msqh9rxd/width/772/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-							width="772px" height="472px" style="border:0px;" allowfullscreen=""> </iframe>
-
-						</div>
-						<br/>
-				</section>
 
 				<section data-auto-animate>
 					<h4>Geometric interpretation of vector functions</h4>
@@ -955,6 +1120,18 @@ $
 						</div>
 					</div>
 					<br/>
+				</section>
+
+				<section>
+					<h4>Transformations from $\R^2 \to \R^2$</h4>
+					<p style="font-size:24px;margin-top:-10px">Explore $f(x,y) = \left(x \cos y, x \sin y\right)$</p>
+						<div>
+							<iframe scrolling="no" title="Transformations"
+							src="https://www.geogebra.org/material/iframe/id/msqh9rxd/width/772/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="772px" height="472px" style="border:0px;" allowfullscreen=""> </iframe>
+
+						</div>
+						<br/>
 				</section>
 			</section>
 
