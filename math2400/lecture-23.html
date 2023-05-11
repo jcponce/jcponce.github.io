@@ -432,9 +432,9 @@
 						<ol>
 							<li class="fragment" data-fragment-index="0">
 								Under this definition, the derivative $Df(x)$ of $f$ at $x$ is not
-								a number but rather a transformation.
+								a number but rather a linear mapping.
 								<span class="fragment" data-fragment-index="1">
-									For each $A\in L\left(X,Y\right)$ there is a matrix $\mathcal M(A)\in M_{m\times n}.$
+									For each $A\in L\left(\R^n\right)$ there is a matrix $\mathcal M(A)\in M_{n\times n}.$
 								</span>
 							</li>
 							<li class="fragment" data-fragment-index="2">
@@ -443,6 +443,41 @@
 									and rewrite the limit as 
 									$$ \lim_{\substack{y \to x}}
 									\frac{\snorm{f(y)-f(x) - A(y-x)}}{\snorm{y-x}} = 0 .$$
+								</span>
+							</li>
+						</ol>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>12.1 The derivative in $\mathbb R^n$</h4>
+					
+					
+					<div class="left-txt size-85" style="margin-top:-10px">
+						<p><span>
+								<strong>Remarks:</strong>
+							</span>
+						</p>
+						<ol start="3">
+							
+							<li>
+								We can extend the definition of derivative 
+								to other kind of vectors spaces.
+								<span class="fragment" data-fragment-index="3">
+									For instance, consider the mapping
+									$A \mapsto \det(A).$
+									
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									For every $A\in L(\R^n)$ we compute the determinant
+									$\det(A)\in \R.$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									In this case we have
+									\[
+									\lim_{\substack{H \to 0\\H\in L\left(\R^n\right)}}
+									\frac{\snorm{\det(X+H)-\det(X) - AH}}{\snorm{H}} = 0 .
+									\]
 								</span>
 							</li>
 						</ol>
