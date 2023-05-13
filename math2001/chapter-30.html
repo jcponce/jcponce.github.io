@@ -597,44 +597,48 @@
 
 				<section data-auto-animate>
 					<h5>30.3 Changing the order of integration (cont.)</h5>
-					<div class="size-60">
+					<div class="size-60" style="margin-top:-10px">
 						<p>Express $\int_{0}^{1}\int_{\sqrt{x}}^{1}\int_{0}^{1-y} f(x,y,z)~dz~dy~dx$
 							in the order $\underline{dz~dx~dy}$.
 						</p>
 					</div>
-					<div class="size-70">
-						<table id="eqarray">
-							<tr>
-								<td class="fragment" data-fragment-index="1">
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
 									$\displaystyle \int_{x=0}^{x=1}\int_{y=\sqrt{x}}^{y=1}\left[ \int_{z=0}^{z=1-y} f
 									~dz
 									\right]dy~dx$
-								</td>
-								<td class="fragment" data-fragment-index="2">
-									$\displaystyle = \iint_{D}\left[ \int_{z=0}^{z=1-y} f ~dz \right]dy~dx$
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="size-65 fragment" data-fragment-index="3">
-										($D$ is the projection of the region on the plane $xy$)
-									</span>
-								</td>
-								<td class="fragment" data-fragment-index="4">
-									$\displaystyle = \iint_{D}\left[ \int_{z=0}^{z=1-y} f ~dz \right]$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$ \qquad \displaystyle = \iint_{D}\left[ \int_{z=0}^{z=1-y} f ~dz \right]dy~dx 
+									$
+								</span>
+								<span class="size-70 fragment" data-fragment-index="3">
+									($D=$ projection of the region on the plane $xy$)
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$ \qquad\displaystyle = \iint_{D}\left[ \int_{z=0}^{z=1-y} f ~dz \right]$
 									<span class="fragment highlight-red" data-fragment-index="5">
 										$dx~dy$
 									</span>
-								</td>
-							</tr>
-	
-							<tr>
-								<td>
-	
-								</td>
-								<td class="fragment" data-fragment-index="6">
+								</span>
+								
+							</p>
+							<p>
+							
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="6">
 									<span style="color:red">
-										$\displaystyle = \int_{y=0}^{y=1}\int_{x=0}^{x=y^2}$ 
+										$ \qquad\displaystyle = \int_{y=0}^{y=1}\int_{x=0}^{x=y^2}$ 
 									</span>
 									$\displaystyle
 									\left[ \int_{z=0}^{z=1-y} f ~dz
@@ -642,11 +646,12 @@
 									<span style="color:red">
 										$dx~dy$
 									</span>
-								</td>
-							</tr>
-						</table>
+								</span>
+							</p>
+						</div>
+						
 					</div>
-					<div class="size-60 left-txt">
+					<div class="size-65 left-txt">
 						<p class="fragment" data-fragment-index="8">
 							The original integral was of type I.
 							But when we change the order $dy~dx$ to
