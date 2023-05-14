@@ -663,32 +663,33 @@
 
 				<section data-auto-animate>
 					<h5>30.3 Changing the order of integration (cont.)</h5>
-					<div class="size-60">
+					<div style="font-size:55%;margin-top:-10px">
 						<p>Express $\int_{0}^{1}\int_{\sqrt{x}}^{1}\int_{0}^{1-y} f(x,y,z)~dz~dy~dx$
 							in the order 
 							<span class="fragment highlight-red" data-fragment-index="0">
 								$\underline{dy~dz~dx}$
 							</span>.</p>
 					</div>
-					<div class="size-65">
-						<table id="eqarray">
-							<tr>
-								<td class="fragment" data-fragment-index="1">
+					<div class="size-70" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
 									$\displaystyle \int_{x=0}^{x=1}\int_{y=\sqrt{x}}^{y=1}\left[ \int_{z=0}^{z=1-y} f
 									~dz
 									\right]dy~dx$
-								</td>
-								<td class="fragment" data-fragment-index="2">
-									$\displaystyle = \int_{x=0}^{x=1}\left[ \int_{y=\sqrt{x}}^{y=1} \int_{z=0}^{z=1-y} f
+								</span>
+							</p>
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\qquad \qquad \qquad \displaystyle = \int_{x=0}^{x=1}\left[ \int_{y=\sqrt{x}}^{y=1} \int_{z=0}^{z=1-y} f
 									~dz~ dy\right]dx $
-								</td>
-							</tr>
-							<tr>
-								<td>
-	
-								</td>
-								<td class="fragment" data-fragment-index="3">
-									$\displaystyle = \int_{x=0}^{x=1}\bigg[ \bigg.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\qquad \qquad \qquad \displaystyle = \int_{x=0}^{x=1}\bigg[ \bigg.$
 									<span class="fragment highlight-red" data-fragment-index="4">
 										$\displaystyle\int_{z=0}^{z=1-\sqrt{x}} \int_{y=\sqrt{x}}^{y=1-z}$
 									</span>
@@ -697,37 +698,30 @@
 										$dy~ dz$
 									</span>
 									$\bigg.\bigg]dx $
-								</td>
-							</tr>
-	
-							<tr>
-								<td>
-	
-								</td>
-								<td class="fragment" data-fragment-index="5">
-									$\displaystyle = \int_{x=0}^{x=1} \int_{z=0}^{z=1-\sqrt{x}}
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$\qquad \qquad \qquad \displaystyle = \int_{x=0}^{x=1} \int_{z=0}^{z=1-\sqrt{x}}
 									\left[ \int_{y=\sqrt{x}}^{y=1-z}
 									f~dy
 									\right]
 									dz~dx $
-								</td>
-							</tr>
-	
-							<tr>
-								<td>
-	
-								</td>
-								<td class="fragment" data-fragment-index="6">
-									$\displaystyle = \iint_D
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									$\qquad \qquad \qquad \displaystyle = \iint_D
 									\left[ \int_{y=\sqrt{x}}^{y=1-z}
 									f~dy
 									\right]
 									dA$
-								</td>
-							</tr>
-						</table>
+								</span>
+							</p>
+						</div>
+						
 					</div>
-					<div class="size-60 left-txt">
+					<div class="size-45" style="margin-top:-15px">
 						<p class="fragment" data-fragment-index="7">
 							Here $D$ is the projection of the region
 							onto the plane $xz$.
