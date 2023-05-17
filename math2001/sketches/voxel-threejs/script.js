@@ -14,19 +14,19 @@ let dummy, rayCaster, rayCasterIntersects = [];
 let voxels = [];
 
 const params = {
-    gridSize: .3,
-    boxSize: .3,
+    gridSize: .2,
+    boxSize: .2,
     boxRoundness: .03,
     randomizer: false,
-    showOriginal: false,
+    showOriginal: true,
     showHelper: false,
-    geometry: "torus knot"
+    geometry: "torus"
 }
 
 const geometries = {
     "torus knot": new THREE.TorusKnotGeometry(2, .6, 50, 10),
-    "torus": new THREE.TorusGeometry(2, 1, 30, 30),
-    "sphere": new THREE.SphereGeometry(2)
+    "torus": new THREE.TorusGeometry(2, 1, 30, 30)
+    //"sphere": new THREE.SphereGeometry(2)
 }
 
 createMainScene();
@@ -95,7 +95,7 @@ function createMainScene() {
 
     const outerShapeGeometry = geometries[params.geometry];
     const outerShapeMaterial = new THREE.MeshLambertMaterial({
-        color: 0xeeee22,
+        color: "rgb(153, 204, 255)",
         side: THREE.DoubleSide,
     });
     outerShapeMesh = new THREE.Mesh(outerShapeGeometry, outerShapeMaterial);
@@ -119,11 +119,12 @@ function createMainScene() {
 
     voxelGeometry = new RoundedBoxGeometry(params.boxSize, params.boxSize, params.boxSize, 2, params.boxRoundness);
     voxelMaterial = new THREE.MeshLambertMaterial({
-        color: new THREE.Color(0xeeee22)
+        color: new THREE.Color("rgb(153, 204, 255)")
     });
     instancedMesh = new THREE.InstancedMesh(voxelGeometry, voxelMaterial, voxels.length);
     instancedMesh.castShadow = true;
     instancedMesh.receiveShadow = true;
+    instancedMesh.visible = !params.showOriginal;
     scene.add(instancedMesh);
 
     recreateVoxels();
@@ -197,26 +198,34 @@ function createControls() {
     gui.add(params, "showHelper").onChange(v => {
         boxHelper.visible = v;
     }).name("show box helper");
-    gui.add(params, "gridSize", .2, .8).step(.1).onChange(() => {
-        voxels = [];
-        voxelizeMesh(outerShapeMesh);
-        scene.remove(instancedMesh);
-        instancedMesh = new THREE.InstancedMesh(voxelGeometry, voxelMaterial, voxels.length);
-        instancedMesh.geometry = new RoundedBoxGeometry(params.boxSize, params.boxSize, params.boxSize, 2, params.boxRoundness);
-        instancedMesh.castShadow = true;
-        instancedMesh.receiveShadow = true;
-        scene.add(instancedMesh);
-        recreateVoxels();
+    gui.add(params, "gridSize", .2, 1.0).step(.1).onChange(() => {
+        if(params.gridSize <= 0.2){
+            outerShapeMesh.visible = true;
+            instancedMesh.visible = false;
+        } else {
+            outerShapeMesh.visible = false;
+            instancedMesh.visible = true;
+            voxels = [];
+            voxelizeMesh(outerShapeMesh);
+            scene.remove(instancedMesh);
+            instancedMesh = new THREE.InstancedMesh(voxelGeometry, voxelMaterial, voxels.length);
+            params.boxSize = params.gridSize;
+            instancedMesh.geometry = new RoundedBoxGeometry(params.boxSize, params.boxSize, params.boxSize, 2, params.boxRoundness);
+            instancedMesh.castShadow = true;
+            instancedMesh.receiveShadow = true;
+            scene.add(instancedMesh);
+            recreateVoxels();
+        }
     }).name("grid size");
-    gui.add(params, "boxSize", .05, 1.5).step(.01).onChange(() => {
-        instancedMesh.geometry = new RoundedBoxGeometry(params.boxSize, params.boxSize, params.boxSize, 2, params.boxRoundness);
-    }).name("voxel size");
-    gui.add(params, "boxRoundness", 0, .5 * params.gridSize).step(.01).onChange(() => {
-        instancedMesh.geometry = new RoundedBoxGeometry(params.boxSize, params.boxSize, params.boxSize, 2, params.boxRoundness);
-    }).name("voxel roundness");
-    gui.add(params, "randomizer").onChange(v => {
-        recreateVoxels();
-    }).name("randomize position");
+    //gui.add(params, "boxSize", .05, 1.5).step(.01).onChange(() => {
+    //    instancedMesh.geometry = new RoundedBoxGeometry(params.boxSize, params.boxSize, params.boxSize, 2, params.boxRoundness);
+    //}).name("voxel size");
+    //gui.add(params, "boxRoundness", 0, .5 * params.gridSize).step(.01).onChange(() => {
+    //    instancedMesh.geometry = new RoundedBoxGeometry(params.boxSize, params.boxSize, params.boxSize, 2, params.boxRoundness);
+    //}).name("voxel roundness");
+    //gui.add(params, "randomizer").onChange(v => {
+    //    recreateVoxels();
+    //}).name("randomize position");
     gui.add(params, "geometry", Object.keys(geometries)).onChange(v => {
         outerShapeMesh.geometry = geometries[v];
 
@@ -233,5 +242,6 @@ function createControls() {
         boxHelper.update();
         outerShapeMesh.visible = params.showOriginal;
         instancedMesh.visible = !params.showOriginal;
+        
     });
 }
