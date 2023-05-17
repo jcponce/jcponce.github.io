@@ -191,10 +191,10 @@ function updateSceneSize() {
 
 function createControls() {
     const gui = new GUI();
-    gui.add(params, "showOriginal").onChange(v => {
-        outerShapeMesh.visible = v;
-        instancedMesh.visible = !v;
-    }).name("show original mesh");
+    //gui.add(params, "showOriginal").onChange(v => {
+    //    outerShapeMesh.visible = v;
+    //    instancedMesh.visible = !v;
+    //}).name("show original mesh");
     gui.add(params, "showHelper").onChange(v => {
         boxHelper.visible = v;
     }).name("show box helper");
