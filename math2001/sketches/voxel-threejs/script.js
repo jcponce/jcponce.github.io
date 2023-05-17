@@ -24,7 +24,7 @@ const params = {
 }
 
 const geometries = {
-    "torus knot": new THREE.TorusKnotGeometry(2, .6, 50, 10),
+    "torus knot": new THREE.TorusKnotGeometry(2, .6, 40, 30),
     "torus": new THREE.TorusGeometry(2, 1, 30, 30)
     //"sphere": new THREE.SphereGeometry(2)
 }
@@ -51,7 +51,7 @@ function createMainScene() {
     scene = new THREE.Scene();
 
     mainCamera = new THREE.PerspectiveCamera(45, containerEl.clientWidth / containerEl.clientHeight, .01, 1000);
-    mainCamera.position.set(0, .5, 2).multiplyScalar(8);
+    mainCamera.position.set(0, .5, 2).multiplyScalar(3);
 
     rayCaster = new THREE.Raycaster();
     dummy = new THREE.Object3D();
