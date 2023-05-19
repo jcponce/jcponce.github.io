@@ -101,9 +101,10 @@
 		
 					var terms = 25; // to speed up evaluation
           var sum = 0;
+          var speed = 0;
 						for ( var k = 0 ; k < terms ; k++ ) {
 										
-						sum += (a**k * Math.cos( b**k * 2 * Math.PI * (x ) ) - a**k * Math.cos( b**k * Math.PI  ) ) + (a**k * Math.cos( b**k * 2 * Math.PI * (y) ) -  a**k * Math.cos( b**k * Math.PI  ) ) ;
+						sum += (a**k * Math.cos( b**k * 2 * Math.PI * (x ) ) - a**k * Math.cos( b**k * Math.PI  ) ) + (a**k * Math.cos( b**k * 2 * Math.PI * (y + speed * t) ) -  a**k * Math.cos( b**k * Math.PI  ) ) ;
 										
 						} 
           //var y =
