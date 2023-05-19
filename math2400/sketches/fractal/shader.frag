@@ -145,10 +145,10 @@ vec3 trace(vec3 o, vec3 r, float d){
         map(p + eps.yxx) - map(p - eps.yxx),
         map(p + eps.xyx) - map(p - eps.xyx),
         map(p + eps.xxy) - map(p - eps.xxy)));
-    //float diffuse = max(0.0, dot(-normalize(r), normal)*.5+.4);
+    float diffuse = max(0.0, dot(-normalize(r), normal)*.5+.4);
     //light in front of person
-    vec3 p2=vec3(-path((u_time+1.)/70.),(u_time+1.)/70.);
-    float diffuse = max(0.0, dot(-normalize(p-p2), normal));
+    //vec3 p2=vec3(-path((u_time+1.)/70.),(u_time+1.)/70.);
+    //float diffuse = max(0.0, dot(-normalize(p-p2), normal));
     float specular = pow(diffuse, 32.0);
     //smooth color
     //vec3 albedo = hsv2rgb(vec3(40.*deSM(p),1.,1.));
