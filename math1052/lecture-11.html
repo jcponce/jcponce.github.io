@@ -557,8 +557,8 @@
 							
 								<span>
 									Unlike the underdamped spring it is straightforward to express
-$c_1$ and $c_2$ in terms of the initial conditions $x(0)$ and
-$x'(0)$:
+									$c_1$ and $c_2$ in terms of the initial conditions $x(0)$ and
+									$x'(0)$:
 								</span>
 							
 							</p>
@@ -598,7 +598,7 @@ $x'(0)$:
 								<span class="fragment" data-fragment-index="2">
 								
 									The linear polynomial $x(0)+x(0)pt+x'(0)t$
-vanishes for
+									vanishes for
 								</span>
 							
 							</p>
@@ -727,6 +727,336 @@ vanishes for
 									A mass of $1$kg is attached to a spring hanging under gravity,
 									with spring constant $4$. 
 									What value of the damping constant implies critical damping?
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				
+				
+				
+				
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.5 Overdamping</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									For $p\gt \omega$ the characteristic equation 
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+								
+								$
+								\lambda^2+2p\lambda+\omega^2=0
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								
+									has two distinct real roots
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="" style="font-size:110%">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+								$
+								\lambda_1 =-p-\sqrt{p^2-\omega^2}=:-\alpha
+								
+								$
+								</span>
+							</p>
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+								$
+								\lambda_2 =-p+\sqrt{p^2-\omega^2}=:-\beta
+								$
+								</span>
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									with $\alpha>\beta>0$.
+								</span>
+							</p>
+						
+						</div>
+						
+						
+					
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.5 Overdamping</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						<div class="" style="font-size:80%">
+							<p>
+							
+								<span>
+								$
+								\lambda_1 =-p-\sqrt{p^2-\omega^2}=:-\alpha
+								
+								$
+								</span>
+							</p>
+							<p>
+							
+								<span>
+								$
+								\lambda_2 =-p+\sqrt{p^2-\omega^2}=:-\beta
+								$
+								</span>
+							</p>
+						
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+							
+								<span>
+									Two linearly independent solutions are thus
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="" style="font-size:110%">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								
+								$
+								e^{-\alpha t}\quad\text{and}\quad e^{-\beta t}
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									and the general solution is
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+								$\ds x(t)=c_1e^{-\alpha t}+c_2e^{-\beta t}.$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									For generic initial conditions $x(0)$ and 
+									$x'(0),$ the constants $c_1$ and $c_2$
+									are both nonzero.
+								</span>
+							
+							</p>
+						
+						</div>
+
+						
+					
+					
+					</div>
+
+					
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.5 Overdamping</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Assuming this, we have that for sufficiently large $t$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+									$x(t)_{\text{critial damping}}\sim c_2 t e^{-p t}$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									and
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									$x(t)_{\text{overdamped}}\sim c_2 e^{-\beta t}.$
+								</span>
+							
+							</p>
+						
+						</div>
+						
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									Since $\beta=p-\sqrt{\dots}\lt p$ we see that
+									the overdamped spring takes longer to 
+									return to equilibrium than the critically damped spring.
+								</span>
+							
+							</p>
+						
+						</div>
+						
+
+						
+					
+					
+					</div>
+
+					
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.5 Overdamping</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									The overdamped spring describes a door-closer that is too tight.
+									the strong damping restricts (nearly) all movement. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									It may take a long time for the door to actually close because 
+									the strong damping restricts (nearly) all movement. 
+								</span>
+							
+							</p>
+						
+						</div>
+						
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									A tradeswoman will try to adjust a door-closer such that the 
+									damping will be as close as possible to critical damping.
+									As always, <span id="rr">Maths Rules!</span>
+								</span>
+							
+							</p>
+						
+						</div>
+						
+						
+
+						
+					
+					
+					</div>
+
+					
+				
+
+					<br/><br/>
+				</section>
+				
+				
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.5 Overdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong> 
+									A mass of $1$kg is attached to a spring hanging under gravity 
+									with damping constant $5$ and spring constant $4$. 
+									Find the position of the mass after time $t$ if it is pulled down $1$m 
+									from the equilibrium position and released without kick.
 								</span>
 							
 							</p>
