@@ -1074,6 +1074,341 @@
 				
 				
 			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.6 Summary of motion of a spring:</strong></p>
+					</div>
+
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								<span>
+									The equation of motion of a mass $m$ attached to a 
+damped spring is described by the ODE
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								$\ds x''+2p\,x'+\omega^2 x=0,$
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+									where
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								$\ds2p=\frac{\beta}{m}>0$
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+									and $k$ is the spring constant and $\beta$ the damping constant.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.6 Summary of motion of a spring:</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:74%">
+						<div class="left-txt">
+							<p>
+								<span>
+									The roots of the characteristic equation 
+									$\lambda^2+2p\lambda+\omega^2=0$ determine
+									the type of motion:
+								</span>
+							</p>
+							
+							<ul>
+								<li>
+									$p=0$; No damping - pure oscillatory or <span id="rr">harmonic</span> motion. <br/>
+									<span class="fragment" data-fragment-index="0">
+										The roots are $\pm i \omega$ and the general solution is given by
+										\[
+										x(t)=c_1\cos(\omega t)+c_2\sin(\omega t)=A\cos(\omega t-\phi).
+										\]
+									</span>
+								</li>
+								<li>
+									$p\lt \omega$; Underdamped motion. <br/>
+									<span class="fragment" data-fragment-index="1">
+										The roots are $-p\pm i \omega_p$,
+										$\omega_p=\omega\sqrt{1-(p/\omega)^2}$ and the general solution is given
+										by
+										\[
+										x(t)=e^{-pt}
+										\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr)
+										=A e^{-pt}\cos(\omega_pt-\phi).
+										\]
+									</span>
+									
+								</li>
+								
+							</ul>
+						</div>
+						
+					</div>
+					<br/><br>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.6 Summary of motion of a spring:</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:74%">
+						<div class="left-txt">
+							<p>
+								<span>
+									The roots of the characteristic equation 
+									$\lambda^2+2p\lambda+\omega^2=0$ determine
+									the type of motion:
+								</span>
+							</p>
+							
+							<ul>
+								
+								<li>
+									$p=\omega$; Critically damped motion. <br/>
+									<span class="fragment" data-fragment-index="0">
+										The single root (of multiplicity $2$) is given by $-p$
+										and the general solution is given by
+										\[
+										x(t)=e^{-pt}(c_1+c_2t).
+										\]
+									
+									</span>
+								</li>
+								<li>
+									$p>\omega$; Overdamped motion. <br/>
+									<span class="fragment" data-fragment-index="1">
+										The two roots (denoted $-\alpha$ and $-\beta$) are 
+										$-p\pm \sqrt{p^2-\omega^2}$ and the general solution is given by
+										\[
+										x(t)= c_1e^{-\alpha t}+c_2e^{-\beta t}.
+										\]
+									</span>
+									
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+					<br/><br>
+				</section>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:78%">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Some of you may have seen those beautiful old pendulum clocks. In such a clock a
+pendulum of mass $m$ is suspended from a pivot by a long, thin metal rod.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Now suppose that the pendulum moves in an arc of a circle with radius $r$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									If the pendulum makes an angle (say in the anti-clockwise direction)
+$\theta$ with its equilibrium position,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then it has travelled a distance
+$r \theta$ from this position.
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									According to Newton's second law of motion
+								</span>
+								
+							</p>
+						</div>
+						<div style="margin-top:-10px">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$ \ds m \frac{\dup^2}{\dup t^2}(r\theta)=F,$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									where $F$ is the force in the direction of motion.
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:80%">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									According to Newton's second law of motion
+								</span>
+								
+							</p>
+						</div>
+						<div style="margin-top:-10px">
+							<p>
+								<span>
+									$ \ds m \frac{\dup^2}{\dup t^2}(r\theta)=F,$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+								<span>
+									where $F$ is the force in the direction of motion.
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+								Hence
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span>
+								$\ds rm \frac{\dup^2\theta}{\dup t^2}=-mg\sin\theta.$
+
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+								$\Ra \ds \frac{\dup^2\theta}{\dup t^2}=-\frac{g}{r}\sin\theta$
+
+								</span>
+								<span class="fragment" data-fragment-index="1">
+								$\ds\approx -\frac{g}{r}\theta.$
+
+								</span>
+
+								
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:70%">
+						
+						<div class="">
+							<p>
+								<span>
+								$\ds rm \frac{\dup^2\theta}{\dup t^2}=-mg\sin\theta.$
+
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+					<div style="margin-top:0px;font-size:80%">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									This is a nonlinear ODE which displays very interesting nonlinear
+									behaviour. 
+								</span>
+								<span>
+									If we however assume that $\theta$ is very small
+									(the pendulum does not swing very far out, unlike your little sister on
+									the swing perhaps),
+								</span>
+								<span>
+									then we have $\sin\theta\simeq \theta$.
+									Making this approximation we get
+								</span>
+								
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds \frac{\dup^2\theta}{\dup t^2}+\frac{g}{r}\,\theta=0.$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								<span>
+									Setting $g/r=\omega^2$ as before we obtain the same ODE describing
+simple harmonic motion.
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+				</section>
+
+			</section>
 			
 
 			<section>
