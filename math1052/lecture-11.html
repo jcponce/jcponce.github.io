@@ -539,14 +539,26 @@
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
+						<p><strong>1.8.4 Critical damping</strong></p>
 					</div>
 					<div class="size-80" style="margin-top:-10px">
-						<div class="left-txt">
+						<div class="">
 							<p>
 							
 								<span>
-									The general solution is
+								$x(t)=e^{-p t}(c_1+c_2 t).
+								$
+								</span>
+							</p>
+						
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+							
+								<span>
+									Unlike the underdamped spring it is straightforward to express
+$c_1$ and $c_2$ in terms of the initial conditions $x(0)$ and
+$x'(0)$:
 								</span>
 							
 							</p>
@@ -555,10 +567,10 @@
 						<div class="">
 							<p>
 							
-								<span>
+								<span class="fragment" data-fragment-index="0">
 								
 								$
-								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
+								c_1=x(0) \quad\text{and}\quad c_2=x(0)p+x'(0).
 								$
 								
 								</span>
@@ -569,9 +581,44 @@
 						<div class="left-txt">
 							<p>
 							
-								<span class="fragment" data-fragment-index="0">
+								<span class="fragment" data-fragment-index="1">
+									Therefore
+								</span>
+								<span class="fragment" data-fragment-index="1">
 								
-									This figure shows an example of underdamped motion: 
+									$\,x(t)=e^{-p t}( x(0)+x(0)pt+x'(0)t ).$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+								
+									The linear polynomial $x(0)+x(0)pt+x'(0)t$
+vanishes for
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+								$\ds t=-\frac{x(0)}{x(0)p+x'(0)}.$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+									This corresponds to a positive time $t$ if $x'(0)\lt -x(0) p$.
 								</span>
 							
 							</p>
@@ -583,9 +630,7 @@
 					
 					</div>
 
-					<div>
-						<img style="width:50%" src="images/lect-11/underdamped.png">
-					</div>
+					
 				
 
 					<br/><br/>
@@ -593,7 +638,7 @@
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
+						<p><strong>1.8.4 Critical damping</strong></p>
 					</div>
 					<div class="size-50" style="margin-top:-10px">
 						
@@ -601,11 +646,8 @@
 							<p>
 							
 								<span>
-								
-								$
-								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
-								$
-								
+									Depending on the initial conditions, the critically-damped
+									spring behaves as shown in this figure:
 								</span>
 							
 							</p>
@@ -619,7 +661,7 @@
 					</div>
 
 					<div style="margin-top:-30px">
-						<img style="width:70%" src="images/lect-11/underdamped.png">
+						<img style="width:73%" src="images/lect-11/critical-damping.png">
 					</div>
 				
 
