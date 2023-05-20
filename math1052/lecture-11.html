@@ -670,166 +670,49 @@ vanishes for
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
+						<p><strong>1.8.4 Critical damping</strong></p>
 					</div>
-					<div class="size-85" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									It is best to write the general solution in terms of a single trigonometric
-									function:
-								</span>
-							
-							</p>
+					<div style="margin-top:60px">
+						<img style="width:45%; float: right; padding: 25px;margin-top:-10px" src="images/lect-11/critical-damping.png">
+					</div>
+					<div class="left-txt size-60" style="margin-top:-20px">
 						
-						</div>
 						<div class="">
 							<p>
-							
 								<span>
-								
-								$
-								x(t)=Ae^{-p t}\cos(\omega_p t-\phi)
-								
-								$
+									<strong>•</strong> The top-most curve corresponds to $x(0)$ and $x'(0)$ both
+									positive, so that the weight is not just pulled down a distance $x(0)$
+									but is also given a downward kick on release.
 								</span>
+							</p>
+							<p>
+								
 								<span class="fragment" data-fragment-index="0">
-								
-								$
-								
-								=A(t)\cos(\omega_p t-\phi).
-								$
-								
+									<strong>•</strong> The middle curve corresponds to $x'(0)=0$ so that we only pull down
+									the weight and then release it.
 								</span>
-							
 							</p>
-						
-						</div>
-						<div class="left-txt">
 							<p>
-							
+								
 								<span class="fragment" data-fragment-index="1">
-								
-									Here $A(t)$ is a time-dependent amplitude 
-									(as shown in the above figure with
-									the dashed lines):
+									<strong>•</strong> The third curve corresponds to $x'(0)\lt 0$ so that upon release the
+									weight is kicked upward. Since the spring 
+									<em>overshoots the equilibrium</em> we must also have that $x'(0)\lt -x(0) p$.
 								</span>
-							
 							</p>
 						
 						</div>
-						<div class="">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-								
-									$A(t)=Ae^{-p t}$
-								</span>
-							
-							</p>
 						
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="3">
-									and $\omega_p$ is the frequency of the underdamped spring.
-								</span>
-							
-							</p>
-						
-						</div>
+
 						
 					
 					
 					</div>
-				
+
 
 					<br/><br/>
 				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
-					</div>
-					<div class="size-85" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Since
-								</span>
-							
-							</p>
-						
-						</div>
-						<div class="">
-							<p>
-							
-								<span>
-								
-								$
-								\ds \frac{\omega_p}{\omega}
-								
-								$
-								</span>
-								<span class="fragment" data-fragment-index="0">
-								
-								$
-								=\sqrt{1-(p/\omega)^2}
-								$
-								
-								</span>
-								<span class="fragment" data-fragment-index="1">
-								
-								$
-								\lt 1
-								$
-								
-								</span>
-							
-							</p>
-						
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-								
-									the damping of the spring leads to a
-									<span id="rr">frequency red-shift</span> and an increase in the period of the spring.
-								</span>
-							
-							</p>
-						
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="3">
-								
-									When $p$ approaches $\omega$ the period tends to infinity
-									so that we may expect that the critically-damped spring
-									does not display oscillatory motion. 
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									This is the case considered in the
-									next section.
-
-								</span>
-							
-							</p>
-						
-						</div>
-						
-					
-					
-					</div>
 				
-
-					<br/><br/>
-				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
@@ -841,11 +724,9 @@ vanishes for
 							
 								<span>
 									<strong>Example:</strong> 
-									A mass of $1$kg is attached to a spring hanging under gravity 
-									with damping constant $0.2$ and spring constant $4$. 
-									Find the position of the mass after time $t$ if it is pulled down $1$m 
-									from the
-									equilibrium position and released without kick.
+									A mass of $1$kg is attached to a spring hanging under gravity,
+									with spring constant $4$. 
+									What value of the damping constant implies critical damping?
 								</span>
 							
 							</p>
