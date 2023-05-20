@@ -821,8 +821,8 @@ polar.reveal({
   paddingX: 1,
   paddingY: 1
 }).vector({
-  width: 1,
-  color: '#f0a050',
+  width: 0,
+  color: '#f0a050',// Color for other normal
   zBias: 15,
   end: true
 });
