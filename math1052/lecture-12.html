@@ -456,12 +456,214 @@
 						</div>
 						
 						
-						
-					
-					
 					</div>
 
 				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								To see this, suppose we have an ODE of the form
+								
+							</p>
+						
+							
+						</div>
+						<div>
+
+							<p>
+								<span>
+									$ ay^{\prime\prime}+by^\prime+cy =\sum_{j=0}^n \alpha_jx^j, $
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								with $a,b,c \ne 0.$
+							</p>
+						
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									We can differentiate both sides $n$ times with respect to $x$;
+
+								</span>
+							</p>
+						</div>
+						
+						
+						
+					</div>
+
+					<div class="size-90">
+						<div id="theorem" class="fragment" data-fragment-index="2">
+							<div style="margin-top:-20px">
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds \frac{d^n}{dx^n}\left(ay_p^{\prime\prime}+by_p^\prime+cy_p\right)$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\ds=\frac{d^n}{dx^n}\sum_{j=0}^n \alpha_jx^j$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$ay_p^{(n+2)}+by_p^{(n+1)}+cy_p^{(n)}=n!\alpha_n.$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					
+
+					<div class="size-80">
+						<div id="theorem">
+							<div style="margin-top:-10px">
+								
+								<p>
+									<span>
+										$ay_p^{(n+2)}+by_p^{(n+1)}+cy_p^{(n)}=n!\alpha_n.$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								Since we don't require the most general solution,
+								<span class="fragment" data-fragment-index="1">
+								we may take $y_p^{(n)}$ to be a constant, which 
+								implies $y_p^{(n+1)}=y_p^{(n+2)}=0.$
+								</span>
+							</p>
+						
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									This yields;
+								</span>
+							</p>
+							
+						</div>
+						
+						
+						
+						
+					</div>
+
+					<div class="size-85 left-txt">
+						<div id="theorem" class="fragment" data-fragment-index="2">
+							<div style="margin-top:-20px">
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds \;\; y_{p}^{(n)}$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds =\frac{n!\alpha_n}{c}$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds =d_1$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$\ds y_{p}^{(n-1)}$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$\ds=\int d_1 \, dx=d_1x+d_2$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					
+
+					
+
+					<div class="size-85 left-txt">
+						<div id="theorem">
+							<div style="margin-top:-20px">
+								<p>
+									<span>
+										$\ds \;\; y_{p}^{(n)}$
+									</span>
+									<span>
+										$\ds =\frac{n!\alpha_n}{c}$
+									</span>
+									<span>
+										$\ds =d_1$
+									</span>
+								</p>
+								<p>
+									<span>
+										$\ds y_{p}^{(n-1)}$
+									</span>
+									<span>
+										$\ds=\int d_1 \, dx=d_1x+d_2$
+									</span>
+								</p>
+								<p>
+									<span>
+										$\ds y_{p}^{(n-2)}$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds=\int d_1x+d_2 \, dx$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds=\frac{d_1}{2}x^2+d_2x+d_3$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\qquad \;\vdots$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\ds \;\; \;\; y_{p}$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\ds =\frac{d_1}{n!}x^n+\frac{d_2}{(n-1)!}x^{n-1}+\dots +d_n.$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
 
 					<br/><br/>
 				</section>
