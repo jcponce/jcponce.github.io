@@ -60,32 +60,112 @@
 			<!--Section with format-->
 
 			
-			<section data-auto-animate>
-				<h4>1 Ordinary Differential Equations</h4>
-				<div id="sbt">
-					<p><strong>1.9 Inhomogeneous Linear Second-Order ODEs</strong></p>
-				</div>
-				<div id="sbt">
-					<p><strong>1.9.1 Inhomogeneous linear second-order ODEs with constant coefficients</strong></p>
-				</div>
-				<div class="size-95" style="margin-top:50px">
-					<div class="left-txt">
-						<p>
+			<section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9 Inhomogeneous Linear Second-Order ODEs</strong></p>
+					</div>
+					<div id="sbt">
+						<p><strong>1.9.1 Inhomogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									Inhomogeneous second-order ODEs,  also known as ODEs with forcing,
+									are covered in Stewart in Section 17.2. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									They are very common in applications and often they require a bit
+									of ingenuity to solve.
+								</span>
+							</p>
 							
-							<span class="fragment" data-fragment-index="0">
-								This section deals with the modelling of oscillators by second-order ODEs. This
-								material is covered in Stewart Section 17.3.
-							</span>
-						</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									We will only consider inhomogeneous linear second-order ODEs with constant
+									coefficients,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									i.e., equations of the form
+								</span>
+							</p>
+							
+							
+						</div>
+						<div>
+							<p>
+								<span id="blue-box" class="fragment" data-fragment-index="3">
+									$ay''+by'+cy=r(x),$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span  class="fragment" data-fragment-index="4">
+									where $r$ is a continuous function.
+								</span>
+							</p>
+						</div>
 						
+					</div>
+					
+	
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.1 Inhomogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									First we outline the general strategy of solving such equations.
+								</span>
+							</p>
+							
+							
+							<ol>
+								<li class="fragment" data-fragment-index="0">
+									First set $r(x)=0$ and solve the corresponding homogeneous ODE. 
+									<span class="fragment" data-fragment-index="1">
+										Its solution, $y_H(x)=c_1 y_1(x)+ c_2 y_2(x)$, is known as the
+									<span id="rr">complementary function</span>.
+									</span>
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									Find a solution, $y_P(x)$ to the inhomogeneous equation. 
+									<span class="fragment" data-fragment-index="3">
+										Any solution will do and goes by the name of a <span id="rr">particular function</span>.
+									</span>
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									The general solution to the inhomogeneous equation is then given by 
+									
+								</li>
+							</ol>
+							
+							
+						</div>
+						<div>
+							<p>
+								<span id="blue-box"  class="fragment" data-fragment-index="4">
+								$y(x)=y_H(x)+y_P(x).$
+								</span>
+							</p>
+						</div>
 						
 						
 					</div>
 					
-				</div>
-				
-
-				<br/><br/><br/><br/><br/><br/>
+	
+					<br/><br/>
+				</section>
 			</section>
 
 			
@@ -93,53 +173,48 @@
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
+						<p><strong>1.9.2 Method of Undetermined Coefficients</strong></p>
 					</div>
-					<div class="size-80" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									The general solution is
-								</span>
-							
-							</p>
-						
-						</div>
-						<div class="">
-							<p>
-							
-								<span>
-								
-								$
-								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
-								$
-								
-								</span>
-							
-							</p>
-						
-						</div>
+					<div class="size-90" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 							
 								<span class="fragment" data-fragment-index="0">
-								
-									This figure shows an example of underdamped motion: 
+									When the <span id="rr">functional form</span> 
+									of $y_p$ is known, the ODE can be solved using 
+									<span id="rr">undetermined coefficients</span>.
 								</span>
+								
 							
 							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									We will show how to do this when the inhomogeneous term $r(x)$:
+								</span>
+							</p>
 						
+							<ul class="fragment" data-fragment-index="1">
+								<li>
+									is a polynomial.
+								</li>
+								<li>
+									is a polynomial times an exponential.
+								</li>
+								<li>
+									is a sum of terms.
+								</li>
+								<li>
+									is a simple trigonometric function.
+								</li>
+							</ul>
 						</div>
+					
 
 						
 					
 					
 					</div>
 
-					<div class="fragment" data-fragment-index="0" style="margin-top:-20px">
-						<img style="width:50%" src="images/lect-11/underdamped.png">
-					</div>
 				
 
 					<br/><br/>
