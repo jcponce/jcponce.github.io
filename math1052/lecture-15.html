@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH1052/7052 - Lecture 15</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<p>Lecture 15</p>
+				<br/><br/>
+			</section>
+
+			<!--Section with format-->
+
+
+			
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								For $p\lt \omega$ the characteristic equation 
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								
+								$
+								\lambda^2+2p\lambda+\omega^2=0
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								
+									has two complex conjugate roots
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+								$
+								\lambda_1=-p+i\sqrt{\omega^2-p^2}\;\;\text{and}\;\;
+								\lambda_2=-p-i\sqrt{\omega^2-p^2}.
+								$
+								</span>
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									Two linearly independent solutions are thus
+								</span>
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+								$e^{-p t}\cos(\omega_p t)\;\;\text{and}\;\; 
+								e^{-p t}\sin(\omega_p t),$
+								</span>
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+									where
+								
+								</span>
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+								
+								$
+								\omega_p=\sqrt{\omega^2-p^2}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+								
+								$=\omega\sqrt{1-(p/\omega)^2}.$
+								</span>
+							</p>
+						
+						</div>
+					
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									The general solution is
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+								
+								$
+								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								
+									This figure shows an example of underdamped motion: 
+								</span>
+							
+							</p>
+						
+						</div>
+
+						
+					
+					
+					</div>
+
+					<div class="fragment" data-fragment-index="0" style="margin-top:-20px">
+						<img style="width:50%" src="images/lect-11/underdamped.png">
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-50" style="margin-top:-10px">
+						
+						<div class="">
+							<p>
+							
+								<span>
+								
+								$
+								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						
+
+						
+					
+					
+					</div>
+
+					<div style="margin-top:-30px">
+						<img style="width:72%" src="images/lect-11/underdamped.png">
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									It is best to write the general solution in terms of a single trigonometric
+									function:
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+								
+								$
+								x(t)=Ae^{-p t}\cos(\omega_p t-\phi)
+								
+								$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+								
+								$
+								
+								=A(t)\cos(\omega_p t-\phi).
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+								
+									Here $A(t)$ is a time-dependent amplitude 
+									(as shown in the above figure with
+									the dashed lines):
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+								
+									$A(t)=Ae^{-p t}$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+									and $\omega_p$ is the frequency of the underdamped spring.
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Since
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+								
+								$
+								\ds \frac{\omega_p}{\omega}
+								
+								$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+								
+								$
+								=\sqrt{1-(p/\omega)^2}
+								$
+								
+								</span>
+								<span class="fragment" data-fragment-index="1">
+								
+								$
+								\lt 1
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+								
+									the damping of the spring leads to a
+									<span id="rr">frequency red-shift</span> and an increase in the period of the spring.
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+								
+									When $p$ approaches $\omega$ the period tends to infinity
+									so that we may expect that the critically-damped spring
+									does not display oscillatory motion. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									This is the case considered in the
+									next section.
+
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong> 
+									A mass of $1$kg is attached to a spring hanging under gravity 
+									with damping constant $0.2$ and spring constant $4$. 
+									Find the position of the mass after time $t$ if it is pulled down $1$m 
+									from the
+									equilibrium position and released without kick.
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Recall $\,\ds x''+ \frac{\beta}{m}x' +\frac{k}{m}x = 0$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Then $\,m = 1,$ 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\,\beta = 0.2,$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\,k = 4.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Initial conditions: 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$x(0)=1,$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\,x'(0)=0.$
+								</span>
+							</p>
+						
+						</div>
+						
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-70" style="margin-top:-10px">
+						<div class="">
+							
+							<p>
+								<span>
+									$\ds x''+ \frac{\beta}{m}x' +\frac{k}{m}x = 0;$
+								</span>
+								<span>
+									$\;m = 1,$ 
+								</span>
+								<span>
+									$\,\beta = 0.2,$
+								</span>
+								<span>
+									$\,k = 4.$
+								</span>
+							</p>
+							<p>
+								<span>
+									Initial conditions: 
+								</span>
+								<span>
+									$x(0)=1,$
+								</span>
+								<span>
+									$\,x'(0)=0.$
+								</span>
+							</p>
+						
+						</div>
+						
+					
+					</div>
+					
+
+					<div class="size-80" style="margin-top:-10px">
+						<div id="theorem">
+							<div class="left-txt">
+							
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Thus
+										$\;\ds x''+ 0.2x' +4x = 0. $
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										What is the solution $x(t)$?
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										Consider
+										$\;\ds \lambda^2+ 0.2\lambda +4 = 0. $
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="3">
+										$\ds \Ra \lambda = \frac{-0.2\pm \sqrt{(0.2)^2-16}}{2}$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\ds \approx - 0.1 \pm 1.9979 i$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										$\ds \Ra \lambda  \approx - 0.1 \pm 2 i$
+									</span>
+								</p>
+							
+							</div>
+						</div>
+						
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				
+				
+				
+				
+				
+			</section>
+
+			
+
+			
+			
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
