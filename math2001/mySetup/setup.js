@@ -132,7 +132,7 @@
 				]
 			},
 			// ...
-			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight, ],
+			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight, RevealSearch],
 		});
 
 		
