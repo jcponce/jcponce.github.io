@@ -59,6 +59,584 @@
 
 			<!--Section with format-->
 
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:78%">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Some of you may have seen those beautiful old pendulum clocks. In such a clock a
+pendulum of mass $m$ is suspended from a pivot by a long, thin metal rod.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Now suppose that the pendulum moves in an arc of a circle with radius $r$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									If the pendulum makes an angle (say in the anti-clockwise direction)
+$\theta$ with its equilibrium position,
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									then it has travelled a distance
+$r \theta$ from this position.
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									According to Newton's second law of motion
+								</span>
+								
+							</p>
+						</div>
+						<div style="margin-top:-10px">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$ \ds m \frac{\dup^2}{\dup t^2}(r\theta)=F,$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									where $F$ is the force in the direction of motion.
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:78%">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									According to Newton's second law of motion
+								</span>
+								
+							</p>
+						</div>
+						<div style="margin-top:-10px">
+							<p>
+								<span>
+									$ \ds m \frac{\dup^2}{\dup t^2}(r\theta)=F,$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+								<span>
+									where $F$ is the force in the direction of motion.
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+								Hence
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span>
+								$\ds rm \frac{\dup^2\theta}{\dup t^2}=-mg\sin\theta.$
+
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+								$\Ra \ds \frac{\dup^2\theta}{\dup t^2}=-\frac{g}{r}\sin\theta$
+
+								</span>
+								<span class="fragment" data-fragment-index="1">
+								$\ds\approx -\frac{g}{r}\theta.$
+
+								</span>
+
+								
+							</p>
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:-10px;font-size:70%">
+						
+						<div class="">
+							<p>
+								<span>
+								$\ds rm \frac{\dup^2\theta}{\dup t^2}=-mg\sin\theta.$
+
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+					<div style="margin-top:0px;font-size:78%">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									This is a nonlinear ODE which displays very interesting nonlinear
+									behaviour. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									If we however assume that $\theta$ is very small
+									(the pendulum does not swing very far out, unlike your little sister on
+									the swing perhaps),
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then we have $\sin\theta\simeq \theta$.
+									Making this approximation we get
+								</span>
+								
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\ds \frac{\dup^2\theta}{\dup t^2}+\frac{g}{r}\,\theta=0.$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									Setting $g/r=\omega^2$ as before we obtain the same ODE describing
+									simple harmonic motion.
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+					<br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:0px;font-size:80%">
+						
+						
+
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Question:</strong>
+									What is the period of the undamped pendulum?
+								</span>
+								
+							</p>
+							
+						</div>
+						
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						<div id="theorem">
+							<div class="left-txt" style="margin-top:-20px">
+							
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Char. eq: 
+										$\ds \lambda^2 + \frac{g}{r} = 0$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds\Ra \lambda = \pm i \sqrt{\frac{g}{r} }$
+									</span>
+								</p>
+								
+								
+							
+							</div>
+							<div class="left-txt"style="margin-top:-20px">
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										So the solution is
+										
+									</span>
+								</p>
+							</div>
+							<div style="margin-top:-20px" class="fragment" data-fragment-index="2">
+								<p>
+									<span>
+										$\ds \theta(t) = c_1 \cos\left(\sqrt{\frac{g}{r} t}\right) + 
+										c_2 \sin\left(\sqrt{\frac{g}{r} t }\right)
+										$
+									</span>
+								</p>
+							</div>
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										Period is given by 
+										$\ds \sqrt{\frac{g}{r}} T = 2 {\large \pi}\;$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds \Ra T = \frac{ 2 {\large \pi} }{\sqrt{\dfrac{g}{r}}}.$
+									</span>
+								</p>
+							</div>
+
+						</div>
+						
+					
+					</div>
+
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+
+					<div style="margin-top:0px;font-size:99%">
+						
+						<div>
+							<p>
+								<span>
+									👉 $\;\ds \frac{\dup^2\theta}{\dup t^2}+\frac{g}{r}\,\theta=0$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Remark:</strong>
+									It is interesting to note that the ODE describing the undamped
+									pendulum does not depend on the mass of the pendulum.
+								</span>
+								
+							</p>
+							
+						</div>
+						<div style="font-size:190%">
+							<p>🤔</p>
+						</div>
+						
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									As before one can make the model more realistic by assuming damping
+									proportional to velocity. 
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					
+					</div>
+				
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									<strong>Example:</strong> 
+									If the damping constant is $\gamma$ show that this leads to the ODE
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									$\theta''+2p\,\theta'+\omega^2 \theta=0,$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									where
+								$\ds \;\omega^2=\frac{g}{r}>0, \;
+								2p=\frac{\gamma}{m}>0.$
+								</span>
+								
+							
+							</p>
+						
+						</div>
+						
+					
+					</div>
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+					
+				
+					<div class="size-50" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong> 
+									If the damping constant is $\gamma$ show that this leads to the ODE
+								</span>
+								<span>
+									$\theta''+2p\,\theta'+\omega^2 \theta=0,$
+								</span>
+							
+								where
+								$\ds \;\omega^2=\frac{g}{r}>0, \;
+								2p=\frac{\gamma}{m}>0.$
+							
+							</p>
+						
+						</div>
+						
+					
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						<div id="theorem">
+							<div class="left-txt" style="margin-top:-25px">
+							
+								<div style="font-size:90%">
+									<p>
+										<span>
+											We know that
+											$\;\ds rm \frac{d^2\theta}{d t^2} $
+										</span>
+										<span class="fragment" data-fragment-index="1">
+											 $= F$
+										</span>
+										<span class="fragment" data-fragment-index="2">
+											 $= ma $
+										</span>
+									</p>
+								</div>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										Force has two components:
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										<em>Gravity</em>  $\,\ds F =-mg \sin \theta$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\ds \approx -mg \theta$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="6">
+										<em>Damping force</em> $\,\ds F = -\gamma \frac{d}{dt}(r\theta)$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\ds = -\gamma r \frac{d\theta }{dt}$
+									</span>
+								</p>
+							
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="8">
+										$\ds  \Ra\; rm \frac{d^2\theta}{d t^2}$
+									</span>
+									<span class="fragment" data-fragment-index="9">
+										$\ds \approx -mg \theta $
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$\ds -\,\gamma r \frac{d\theta }{dt}$
+									</span>
+								</p>
+							</div>
+						</div>
+						
+					
+					</div>
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.7 The pendulum</strong></p>
+					</div>
+					
+				
+					<div class="size-50" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong> 
+									If the damping constant is $\gamma$ show that this leads to the ODE
+								</span>
+								<span>
+									$\theta''+2p\,\theta'+\omega^2 \theta=0,$
+								</span>
+							
+								where
+								$\ds \;\omega^2=\frac{g}{r}>0, \;
+								2p=\frac{\gamma}{m}>0.$
+							
+							</p>
+						
+						</div>
+						
+					
+					</div>
+
+					<div class="size-90" style="margin-top:-10px">
+						<div id="theorem">
+							
+							<div style="margin-top:-10px">
+								<p>
+									<span>
+										$\ds  \Ra\; rm \frac{d^2\theta}{d t^2}$
+									</span>
+									<span>
+										$\ds \approx -mg \theta $
+									</span>
+									<span>
+										$\ds -\,\gamma r \frac{d\theta }{dt}$
+									</span>
+								</p>
+							</div>
+
+							<div class="" style="margin-top:-0px">
+							
+								
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="0">
+										$\ds\Ra \; rm \theta'' + \gamma r \theta ' + mg\theta \approx 0$
+									</span>
+								</p>
+							
+							</div>
+							<div class="" style="margin-top:-0px">
+							
+								
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										$\ds\Ra \;  \theta'' + \frac{\gamma }{m} \theta ' + \frac{g}{m}\theta \approx 0$
+									</span>
+								</p>
+							
+							</div>
+							<div class="" style="margin-top:-0px">
+							
+								
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										$\ds\Ra \;  \theta'' + 2p  \theta ' + \omega^2\theta \approx 0$
+									</span>
+								</p>
+							
+							</div>
+						</div>
+						
+					
+					</div>
+					
+
+					<br/><br/>
+				</section>
+
+
+				
+				
+				
+			</section>
+
+			<section>
+				<h4>1 Ordinary Differential Equations</h4>
+				<div id="sbt">
+					<p><strong>1.8.8 Main points</strong></p>
+				</div>
+
+				
+				<div class="size-95">
+					<ul style="line-height:60px">
+						<li>
+							You should know how to derive and solve the equations of motion
+for a damped oscillator given just the mass, damping and spring
+constants. 
+						</li>
+						<li>
+							You should also be able to classify the motion into under,
+over or critically damped, and know what these notions mean. 
+						</li>
+					</ul>
+				</div>
+
+				
+				<br/><br/><br/>
+			</section>
 			
 			<section>
 				<section data-auto-animate>
@@ -727,436 +1305,7 @@
 			</section>
 
 
-			<section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-					
-					<div style="font-size:75%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										<strong>
-											Example:
-										</strong>
-										Find a particular solution to $\,y''+y'-2y=4xe^{2x}$.
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
-							<div style="margin-top:-0px" class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										We have a degree one polynomial, multiplied by $e^{2x}.$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										Let's guess that $y_p$ is of the form
-									</span>
-								</p>
-								
-								
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\ds y_p =(ax+b)e^{2x}. $
-									</span>
-								</p>
-							</div>
-							<div style="margin-top:-0px" class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										This means
-									</span>
-								</p>
-								
-								
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										$\ds 
-										\begin{align*}
-										y_p'&=(2ax+2b+a)e^{2x}\\
-										y_p''&=(4ax+4b+4a)e^{2x}.
-										\end{align*}
-										$
-									</span>
-								</p>
-							</div>
-
-
-					</div>
-
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-					
-					<div style="font-size:80%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										Substituting these into the ODE, we have
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
-							
-							<div>
-								<p>
-									<span>
-										$\ds y_p''+y'_p-2y_p =4xe^{2x} $
-									</span>
-								</p>
-							</div>
-							<div style="font-size:77%">
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										$\ds (4ax+4b+4a)e^{2x} $
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds +\,(2ax+2b+a)e^{2x}$
-									</span>
-									<span class="fragment" data-fragment-index="3">
-										$\ds -\,2(ax+b)e^{2x} $
-									</span>
-									<span class="fragment" data-fragment-index="4">
-										$\ds =4xe^{2x} $
-									</span>
-								</p>
-								
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="5">
-										$\ds \Ra 4ax+4b+5a =4x+0.$
-									</span>
-								</p>
-							</div>
-
-							<div class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										This gives us two equations, and two unknowns
-									</span>
-								</p>
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										$\ds 
-										4a =4
-										$
-									</span>
-									<span class="fragment" data-fragment-index="7">
-										$\ds 
-										\implies a=1
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										$\ds 
-										4b+5a =0
-										$
-									</span>
-									<span class="fragment" data-fragment-index="8">
-										$\ds 
-										\implies b=-\frac{5}{4}.
-										$
-									</span>
-								</p>
-							</div>
-							
-
-
-					</div>
-
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-					
-					<div style="font-size:75%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										Hence, $\displaystyle y_p=\left(x-\frac{5}{4}\right)e^{2x}.$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										Where did this guess come from?
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-70">
-						<div class="fragment" data-fragment-index="1">
-							<div class="left-txt" id="theorem-blue">
-								<div style="margin-top:-20px">
-									<p>
-									
-										<span>
-											<strong>Theorem:</strong>
-											Consider an ODE of the form
-											$ay^{\prime\prime}+by^\prime+cy=r(x)$.
-											
-										</span>
-									
-									
-									</p>
-									<p>
-										If $\ds r(x)=e^{\alpha x}\sum_{j=0}^n \beta_jx^j,$	
-									</p>
-									<p>
-										$\ds y_p=e^{\alpha x}\sum_{j=0}^n \gamma_jx^j$ for undetermined coefficients $\gamma_j.$
-									</p>
-									<p>
-										(subject to some caveats, discussed below)
-									</p>
-								</div>
-							
-								
-								
-							</div>
-						</div>
-					</div>
-
-
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-					
-					<div style="font-size:80%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										To prove this, suppose we have an ODE of the form
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
-							
-							<div>
-								<p>
-									<span>
-										$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
-									</span>
-								</p>
-							</div>
-
-							<div class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										Let 
-									</span>
-								</p>
-							</div>
-							<div>
-								
-								<p>
-									
-									<span class="fragment" data-fragment-index="1">
-										$\ds \;
-										y_p =u(x)e^{\alpha x}\qquad \quad
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										$\ds 
-										\implies y_p^\prime =(u^\prime +\alpha u) e^{\alpha x}\qquad \quad\;
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										$\ds 
-										\implies y_p^{\prime\prime} =(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
-										$
-									</span>
-								</p>
-							</div>
-					</div>
-
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-
-					<div style="font-size:65%" >
-						<div>
-							<p>
-								<span>
-									$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
-								</span>
-								<span>
-									$\ds \;\;
-									\left\{
-									\begin{align*}
-									   y_p &=u(x)e^{\alpha x}\\
-									   y_p^\prime &=(u^\prime +\alpha u) e^{\alpha x}\\
-									   y_p^{\prime\prime} &=(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
-									\end{align*}
-									\right.
-									$
-								</span>
-							</p>
-						</div>
-						
-					</div>
-					
-					<div style="font-size:80%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										Substituting these into the left hand side of the ODE, we have
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
-						
-						<div id="theorem">
-							
-
-							<div class="left-txt">
-								<p>
-									
-									<span class="fragment" data-fragment-index="1">
-										$\ds 
-										e^{\alpha x}\bigg[ \bigg.
-										$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\ds 
-										 \left( au^{\prime\prime}+2a\alpha u^\prime +a\alpha^2 u\right)
-										$
-									</span>
-								</p>
-							</div>
-							<div>
-								
-								<p>
-									<span class="fragment" data-fragment-index="3">
-										$\ds 
-										\bigg. + \left(bu^\prime+b\alpha u\right) \bigg.
-										$
-									</span>
-									<span class="fragment" data-fragment-index="4">
-										$\ds 
-										 + \left(cu \right)
-										$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds 
-										\bigg.  \bigg]
-										$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds 
-										=e^{\alpha x} \sum_{j=0}^n \beta_jx^j
-										$
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-
-					
-					
-					<div style="font-size:80%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										Dividing both sides by the exponential and grouping like terms of $u$, we have:
-									</span>
-								</p>
-							</div>
-							<div>
-								
-								<p>
-									<span>
-										$\ds au^{\prime\prime}+  (2a\alpha+b)u^\prime + (a\alpha^2+b\alpha +c)u =\sum_{j=0}^n \beta_jx^j.$
-									</span>
-								</p>
-							</div>
-							<div class="left-txt">
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										This is a second order ODE, where the RHS is a polynomial.
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										But we've previously established that this means $u(x)$ is a polynomial of degree $n$.
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										Thus, the theorem is proved. 😃
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					
-
-
-					<br/><br/><br/>
-				</section>
-
-			</section>
+			
 
 			
 			
