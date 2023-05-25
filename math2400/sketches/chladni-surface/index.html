@@ -36,12 +36,12 @@
 			position: [0, -2.5, 2.0]
 		});
 
-		var xMin = -3,
-			xMax = 3,
-			yMin = -3,
-			yMax = 3,
-			zMin = -3,
-			zMax = 3;
+		var xMin = -1,
+			xMax = 1,
+			yMin = -1,
+			yMax = 1,
+			zMin = -1,
+			zMax = 1;
 		var uMin = -5,
 			uMax = 5,
 			vMin = -4,
@@ -84,11 +84,9 @@
 			divideY: 20
 		});
 
-		var funC = (x, y, t, px, py) => {
-			var V = 0.5;
-			var F = 0.35;
-			var sqrt = Math.sqrt( Math.pow(x-px, 2) + Math.pow(y-py, 2) );
-			let val = 0.2 * Math.sin( 2 * Math.PI * F * (t - 1/V * sqrt) );
+		var funC = (x, y, t) => {
+			
+			let val =  0.4 *  Math.sin(2 * (x )) * Math.cos(1.7 * ( 2* (t) ));
 
 			return val;
 		}
@@ -100,15 +98,12 @@
 				width: resolution,
 				height: resolution,
 				channels: 3,
-				expr: function (emit, u, v, t) {
-					//emit(x, 3.5 * Math.sin(x + t));
-					var spd = 1.0;
-					//emit(x, π / 2 + .6 * Math.sin(x + spd * t - y + 2 * Math.sin(y)) + .3 * Math.sin(x * 2 + y * 2 + spd * t *
-					//1.81) + .1825 * Math.sin(x * 3 - y * 2 + spd * t * 2.18), y);
+				expr: function (emit, u, v, i, j, t) {
+					var spd = 2.0;
 					emit(
 						u,
 						v,
-						funC(u, v, spd * t, 2, 0) + funC(u, v, spd * t, -2, 0)//Math.cos(u + spd * t) +  Math.sin(v + spd * t )
+						funC(u, v,  t) + funC(u, v, t)
 					)
 				},
 			});
