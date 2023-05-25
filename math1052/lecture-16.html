@@ -199,7 +199,7 @@
 						parent.update = function( id ) {
 						
 						  function z(x,y) { 
-							return [ x, y, ( 5 * Math.sin(1.5 * x + move) * Math.cos(0.7 * y + move))]; 
+							return [ x, y, ( 5 * Math.sin(0.4 * x + move) * Math.cos(3 * y + move))]; 
 						  }
 						
 						  var lim = 8.0;
@@ -209,7 +209,9 @@
 						  var data = [ s ];
 						
 						  var config = { type: 'threejs',
-						  				 aspectRatio: [1,1,0.7], animate: true, animateOnInteraction: true 
+						  				 aspectRatio: [1,1,0.7],
+										axesLabels: true,
+
 										};
 						
 						  evaluate( id, data, config );

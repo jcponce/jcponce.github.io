@@ -33,19 +33,19 @@
 		});
 		mathbox.camera({
 			proxy: true,
-			position: [0, -2.5, 2.0]
+			position: [1,-2, 1]
 		});
 
-		var xMin = -1,
-			xMax = 1,
-			yMin = -1,
-			yMax = 1,
-			zMin = -1,
-			zMax = 1;
-		var uMin = -5,
-			uMax = 5,
-			vMin = -4,
-			vMax = 4;
+		var xMin = 0,
+			xMax = 8,
+			yMin = 0,
+			yMax = 10,
+			zMin = -5,
+			zMax = 5;
+		var uMin = 0,
+			uMax = 8,
+			vMin = 0,
+			vMax = 10;
 
 		// Create cartesian view
 		var view = mathbox.cartesian({
@@ -86,7 +86,7 @@
 
 		var funC = (x, y, t) => {
 			
-			let val =  0.4 *  Math.sin(2 * (x )) * Math.cos(1.7 * ( 2* (t) ));
+			let val =  1.7 *  Math.sin(0.4 * (x )) * Math.cos(3 * ( (y) ));
 
 			return val;
 		}
@@ -103,7 +103,7 @@
 					emit(
 						u,
 						v,
-						funC(u, v,  t) + funC(u, v, t)
+						funC(u,v,  t) + funC(u,v, t)
 					)
 				},
 			});
