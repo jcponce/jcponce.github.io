@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MATH1052/7052 - Lecture 12</title>
+	<title>MATH1052/7052 - Lecture 18</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -53,7 +53,7 @@
 
 			<section>
 				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
-				<p>Lecture 12</p>
+				<p>Lecture 18</p>
 				<br/><br/>
 			</section>
 
@@ -61,167 +61,143 @@
 
 
 			
+			
 
 			<section>
 
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
+						<p><strong>2.3 Contour diagrams</strong></p>
 					</div>
 					<div class="size-85" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 							
 								<span class="fragment" data-fragment-index="0">
-								For $p\lt \omega$ the characteristic equation 
-								
+									Geographical maps have curves of constant height above
+									sea level, or curves of constant air pressure (isobars), 
+									or curves of constant temperature (isothermals). 
 								</span>
-							
-							</p>
-						
-						</div>
-						<div class="">
-							<p>
-							
 								<span class="fragment" data-fragment-index="0">
-								
-								$
-								\lambda^2+2p\lambda+\omega^2=0
-								$
-								
+									Drawing contours is an effective method of representing a 
+3-dimensional surface in two dimensions.
 								</span>
-							
-							</p>
-						
-						</div>
-						<div class="left-txt">
-							<p>
-							
 								<span class="fragment" data-fragment-index="0">
-								
-									has two complex conjugate roots
+									We now look at functions $f$ of two variables.
+A <span id="rr">contour</span> is a curve corresponding to the equation $z=f(x,y)=C,$
+see also Stewart, Section 14.1.
 								</span>
 							
 							</p>
 						
-						</div>
-						<div class="">
-							<p>
 							
-								<span class="fragment" data-fragment-index="1">
-								$
-								\lambda_1=-p+i\sqrt{\omega^2-p^2}\;\;\text{and}\;\;
-								\lambda_2=-p-i\sqrt{\omega^2-p^2}.
-								$
-								</span>
-							</p>
-						
+
 						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-									Two linearly independent solutions are thus
-								</span>
-							</p>
 						
-						</div>
-						<div class="">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-								$e^{-p t}\cos(\omega_p t)\;\;\text{and}\;\; 
-								e^{-p t}\sin(\omega_p t),$
-								</span>
-							</p>
-						
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="3">
-									where
-								
-								</span>
-							</p>
-						
-						</div>
-						<div class="">
-							<p>
-							
-								<span class="fragment" data-fragment-index="3">
-								
-								$
-								\omega_p=\sqrt{\omega^2-p^2}$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-								
-								$=\omega\sqrt{1-(p/\omega)^2}.$
-								</span>
-							</p>
-						
-						</div>
 					
 					
 					</div>
+
+
 				
 
-					<br/><br/>
+					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
+						<p><strong>2.3 Contour diagrams</strong></p>
 					</div>
-					<div class="size-80" style="margin-top:-10px">
+					<div class="size-85" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 							
 								<span>
-									The general solution is
+									Consider the surface $z=f(x,y)=x^2+y^2$ sliced by horizontal 
+planes $z=0,\,z=1,\,z=2,\dots$
 								</span>
+								
 							
 							</p>
-						
-						</div>
-						<div class="">
-							<p>
-							
-								<span>
-								
-								$
-								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
-								$
-								
-								</span>
-							
-							</p>
-						
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-								
-									This figure shows an example of underdamped motion: 
-								</span>
-							
-							</p>
-						
-						</div>
 
+							<table style="margin-top:-10px;border:1px solid black;">
+								<tr>
+									<td style="border:1px solid black;">
+										Plane
+									</td>
+									<td style="border:1px solid black;">
+										Contour
+									</td>
+									<td style="border:1px solid black;">
+										Description
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=0$
+									</td>
+									<td style="border:1px solid black;">
+										$0 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Point at $\,(0,0)$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=1$
+									</td>
+									<td style="border:1px solid black;">
+										$1 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius 1, centred at $(0,0)$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=2$
+									</td>
+									<td style="border:1px solid black;">
+										$2 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius $\,\sqrt{2}$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=3$
+									</td>
+									<td style="border:1px solid black;">
+										$3 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius $\,\sqrt{4}$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=4$
+									</td>
+									<td style="border:1px solid black;">
+										$4 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius $\,2$
+									</td>
+								</tr>
+							</table>
+						
+						</div>
 						
 					
 					
-					</div>
-
-					<div class="fragment" data-fragment-index="0" style="margin-top:-20px">
-						<img style="width:50%" src="images/lect-11/underdamped.png">
 					</div>
 				
 
-					<br/><br/>
+					<br/><br/><br/>
 				</section>
 				
 				
