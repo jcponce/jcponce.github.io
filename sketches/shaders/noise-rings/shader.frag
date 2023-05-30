@@ -83,6 +83,16 @@ float simplex3d(vec3 p) {
 	 return dot(d, vec4(52.0));
 }
 
+//https://iquilezles.org/articles/palettes/
+vec3 palette( float t ) {
+    vec3 a = vec3(0.5, 0.5, 0.5);
+    vec3 b = vec3(0.5, 0.5, 0.5);
+    vec3 c = vec3(1.0, 1.0, 1.0);
+    vec3 d = vec3(0.263, 0.416, 0.557);
+
+    return a + b * cos( 6.28318*(c * t + d) );
+}
+
 
 void main() {
     // copy the vTexCoord
@@ -100,15 +110,21 @@ void main() {
     v = v * scale;
 
     vec2 uv = vec2(u, v);
+    vec2 uv0 = vec2(u, v);
   
     vec3 col = vec3(0.0);
     
     // Found a way to loop 3D noise.  Seems to work, decently.
 	float speed = u_time / 4.0;
     float n = simplex3d(vec3(sin(speed + uv.x * 1.3), cos(speed + uv.y * 1.3), uv.y + uv.x));
-    for(float i = 0.0; i < 9.0; i++){
-      float circleSDF = abs( length(uv) - (0.8 - 0.07 * i) + n * n ) - 0.001;   
-      col += mix(vec3(0.05), col, smoothstep(-0.02, 0.02, circleSDF));
+    for(float i = 0.0; i < 7.0; i++){
+      float circleSDF = abs( length(uv) - (0.8 - 0.07 * i) + n * n ) - 0.001;  
+	  //float circleSDF = abs( length(uv) - (0.8 - 0.07 * i) + n * n ) - 0.001;
+	  vec3 colrs = palette(length(uv0) + i*.9 - u_time*.4);
+      //col += mix(vec3(0.05), col, smoothstep(-0.02, 0.02, circleSDF));
+	  //circleSDF = pow(0.01/circleSDF, 1.);
+	  col += mix(colrs, col, smoothstep(-0.02, 0.02, circleSDF));
+	 // col += palette(2.1 * length(uv) + 5.0 * n * n);
     }
   
 
