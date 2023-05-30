@@ -101,6 +101,16 @@ float castRay(vec3 ro, vec3 rd)
     return -1.0;
 }
 
+//https://iquilezles.org/articles/palettes/
+vec3 palette( float t ) {
+    vec3 a = vec3(0.198, 0.438, 0.698);
+    vec3 b = vec3(-0.262, 0.208, 0.238);
+    vec3 c = vec3(2.238, 2.168, 1.000);
+    vec3 d = vec3(-0.052, 0.333, 0.667);
+
+    return a + b * cos( 6.28318*(c * t + d) );
+}
+
 vec3 render(vec3 ro, vec3 rd) 
 {
     
@@ -111,6 +121,8 @@ vec3 render(vec3 ro, vec3 rd)
     if(contact == -1.){
         col = vec3(0.);
     }else{
+        //float temp = length(v) - u_time*.4
+        //col = palette(1.0 - contact + iTime * 0.2);
         col = vec3(1.-contact, 0.2, 0.2);
     }
     return col;
@@ -134,6 +146,7 @@ void main() {
     v = v / scale;
 
     vec2 uv = vec2(u, v);
+    vec2 uv0 = vec2(u, v);
    
     float fov = 2.5; //fieldOfView
 
