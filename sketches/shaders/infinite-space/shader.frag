@@ -1,19 +1,3 @@
-
-
-
-// "Fractal Cartoon" - former "DE edge detection" by Kali
-
-// Cartoon-like effect using eiffies's edge detection found here: 
-// https://www.shadertoy.com/view/4ss3WB
-// I used my own method previously but was too complicated and not compiling everywhere.
-// Thanks to the suggestion by WouterVanNifterick. 
-
-// There are no lights and no AO, only color by normals and dark edges.
-
-
-// update: Nyan Cat cameo, thanks to code from mu6k: https://www.shadertoy.com/view/4dXGWH
-
-
 // These are necessary definitions that let you graphics card know how to render the shader
 #ifdef GL_ES
 precision highp float;
