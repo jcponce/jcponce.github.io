@@ -73,7 +73,7 @@
 				boardmarkerWidth: 4,
 				chalkWidth: 3,
 				//storage: "chalkboard-demo",
-				//background: ['rgb(250,250,250)'],
+				//background: ['rgb(250,250,250)', path + 'revealjs/third-party-plugin/chalkboard/img/blackdoard.png'],
 				grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 1},
 				//grid: false,
 				chalkEffect: 0.4,
