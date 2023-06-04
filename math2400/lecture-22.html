@@ -170,7 +170,7 @@
 			</section>-->
 
 			<section>
-				<section data-auto-animate>
+				<section data-auto-animate id="norm">
 					<h4>11.4 Norms</h4>
 					<div class="left-txt size-95">
 						<p>
@@ -211,21 +211,63 @@
 	
 				<section data-auto-animate id="dot-product">
 					<h4>11.4 Norms</h4>
-					<div class="left-txt size-90">
+					<div class="left-txt size-85">
 						<p>
 							<strong>
 								Definition 11.4.2. 
 							</strong>
 							<br/>
-							Let $x=(x_1,x_2,\ldots,x_n),y=(y_1,y_2,\ldots,y_n) \in \R^n$ be two vectors,
-							<span class="fragment" data-fragment-index="0">
+							Let $x=(x_1,x_2,\ldots,x_n),$ $y=(y_1,y_2,\ldots,y_n) \in \R^n$ be two vectors,
+							<span>
 								the <em>dot product</em>
 							is defined as
-							\begin{equation*}
-							x \pd y := \sum_{j=1}^n x_j\, y_j .
-							\end{equation*}
+							
 							</span>
 							
+						</p>
+
+						
+						
+	
+					</div>
+					<div class="size-85">
+						<p>
+							
+							<span>
+								
+							$
+							\ds x \pd y := \sum_{j=1}^n x_j\, y_j .
+							$
+							</span>
+							
+						</p>
+
+						
+						
+	
+					</div>
+					<div class="left-txt size-85">
+						
+
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								<strong>Remark 1:</strong>
+								The dot product is <em>bilinear</em>. 
+								That is, it is linear in each variable separately.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								In other words, if $y$ is fixed, the map $x\mapsto x\pd y$ is a linear
+								map from $\R^n$ to $\R$. 
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Similarly, if $x$ is fixed, the map $y\mapsto x\pd y$ is a linear. 
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								<strong>Remark 2:</strong>
+								It is also simetric in the sense that $x\pd y = y\pd x.$
+							</span>
 						</p>
 						
 	
@@ -235,11 +277,11 @@
 				</section>
 				<section data-auto-animate id="euclidian-norm">
 					<h4>11.4 Norms</h4>
-					<div class="left-txt">
+					<div class="left-txt size-85" style="margin-top:-20px">
 						
 						<p>
 							<strong>Definition 11.4.3. </strong>
-							For $x=(x_1,x_2,\ldots,x_n) \in \R^n$,
+							For $x=(x_1,x_2,\ldots,x_n) \in \R^n,$
 							<span  class="fragment" data-fragment-index="0">
 								the <em>euclidean norm</em> is defined as
 							</span>
@@ -247,29 +289,74 @@
 						</p>
 	
 					</div>
-					<div class="">
+					<div class="size-85">
 						
 						<p>
-							<span class="fragment" data-fragment-index="1">
-								$\ds \snorm{x} $
-							</span>
 							<span class="fragment" data-fragment-index="2">
-								$:= \snorm{x}_{\R^n} $
+								$\ds \snorm{x} :=$
 							</span>
-							<span class="fragment" data-fragment-index="3">
+							<span class="fragment" data-fragment-index="0">
+								$ \snorm{x}_{\R^n} $
+							</span>
+							<span class="fragment" data-fragment-index="0">
 								$:= \sqrt{x \pd x} \qquad \qquad  \qquad  \qquad \;\, $
 							</span>
 							
 						</p>
-						<p class="fragment" data-fragment-index="4">
+						<p class="fragment" data-fragment-index="1">
 							
 							$\ds  \;\;\;\, \qquad  \qquad  =\sqrt{(x_1)^2+(x_2)^2 + \cdots + (x_n)^2}.$
 							
 						</p>
 	
 					</div>
+					<div class="left-txt size-85">
+						
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								It is easy to see that the euclidean norm satisfies properties 1 and
+								2 in <a href="#norm/4">Definition 11.4.1</a>.
+							</span>
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								The triangle inequality
+								follows from
+							</span>
+						</p>
+	
+					</div>
+					<div class="size-85">
+						
+						
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$\snorm{x+y}^2 $
 
-					<br/><br/><br/><br/>
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$ =
+								x \pd x + y \pd y + 2$ <span id="rr">$ (x \cdot y)$</span> $\qquad \qquad \qquad\quad \quad$
+
+							</span>
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								$\qquad \leq
+								\snorm{x}^2 + \snorm{y}^2 + 2 $ <span id="rr">$\snorm{x} \,\snorm{y}$</span>
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$=
+{\bigl(\snorm{x} + \snorm{y}\bigr)}^2 .$
+							</span>
+						</p>
+	
+					</div>
+
+
+					<br/><br/>
 				</section>
 	
 				<section data-auto-animate id="cauchy-schwarz-inequality">
@@ -293,7 +380,7 @@
 				<section data-auto-animate>
 					<h4>Proof of Cauchy-Schwarz inequality</h4>
 					
-					<div class="size-90">
+					<div class="size-95">
 						<div class="left-txt">
 							<p>
 								
@@ -371,14 +458,14 @@
 							
 		
 						</div>
-						<div> 
+						<div class="left-txt"> 
 							<p>
 								<span class="fragment" data-fragment-index="0">
 									$\snorm{x+ty}^2  $
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									$ =
-									(x+ty) \pd (x+ty)  \qquad \qquad \qquad \quad $
+									(x+ty) \pd (x+ty)  $
 								</span>
 								
 								
@@ -386,17 +473,17 @@
 							<p>
 								
 								<span class="fragment" data-fragment-index="2">
-									$ \,\quad =
-									x \pd x + x \pd ty + ty \pd x + ty \pd ty $
+									$ \;\;\,\quad \qquad =
+									x \pd x + x \pd ty + ty \pd x + ty \pd ty\;$  (<a href="#dot-product/2">bilinearity</a>)
 								</span>
 							</p>
 							<p>
 								
 								
 								<span class="fragment" data-fragment-index="3">
-									$=
-									\snorm{x}^2 + 2t(x \pd y) + t^2 \snorm{y}^2 ,
-									$
+									$\;\;\,\quad \qquad=
+									\snorm{x}^2 + 2t(x \pd y) + t^2 \snorm{y}^2 ,\;
+									$ (<a href="#dot-product/3">simetry</a>)
 								</span>
 							</p>
 						</div>
@@ -435,7 +522,11 @@
 									Since $\snorm{x+ty}^2>0.$
 								</span>
 								<span class="fragment" data-fragment-index="0">
-									Elementary algebra says that the discriminant must be negative:
+									Elementary algebra says that the discriminant 
+									must be negative.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									That is
 								</span>
 							</p>
 							
@@ -480,7 +571,7 @@
 
 				<section data-auto-animate id="standard-distance">
 					<h4>11.4 Norms</h4>
-					<p class="sbt">Standard distance</p>
+					<p class="sbt">Standard distance in $\R^n$</p>
 					<div class="left-txt">
 						<p>
 							The distance
