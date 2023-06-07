@@ -81,7 +81,7 @@ var rand_rad;
 
 function setup () {
   
-  pixelDensity(1);
+  //pixelDensity(1);
   
   createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes('antialias', true);
