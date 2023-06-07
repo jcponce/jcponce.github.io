@@ -11,7 +11,7 @@ let theShader;
 function preload() {
   // load the shader
   theShader = loadShader("shader.vert", "shader.frag");
-  pixelDensity(1);
+  //pixelDensity(1);
 }
 
 // Uniform values to use in the fragment file
