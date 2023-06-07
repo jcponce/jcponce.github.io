@@ -28,7 +28,7 @@ function setup() {
     distance: 60
   });
   
-  pixelDensity(2);
+  //pixelDensity(2);
 
   //create attractor curve
   attractor = new LorenzAttractor();
