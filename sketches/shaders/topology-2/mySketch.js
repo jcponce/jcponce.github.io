@@ -3,17 +3,40 @@ let img, img_ratio, img1, img1_ratio, img2, img2_ratio;
 let music, fft;
 let cam, inc;
 
+// List of songs
+let songsList = [
+	"Disco-Science.mp3",
+	"https://www.dynamicmath.xyz/math2400/sketches/fft/dance-land.mp3", 
+	"https://www.dynamicmath.xyz/assets/audio/01-Time-In-A-Bottle.mp3",
+];
+
+// Preload all the music
+function preload() {
+	index = Math.floor(Math.random()*songsList.length);
+	song = loadSound(songsList[index]);
+	//for(let i = 0; i<songsList.length; i++){
+	//	song[i] = loadSound(songsList[i]); 
+	//}
+	//song = loadSound('');
+	//song = loadSound('https://www.dynamicmath.xyz/sketches/shaders/topology/Disco-Science.mp3');
+	//song = loadSound('dance-land.mp3');
+}
+
 function preload() {
   inc = loadFont('inconsolata.otf');
   //img = loadImage('20210703_141403.jpg');
-  music = loadSound('Disco-Science.mp3');
+  //music = loadSound('Disco-Science.mp3');
+
+  index = Math.floor(Math.random()*songsList.length);
+	music = loadSound(songsList[index]);
+
   // load the shader
   s = loadShader("shader.vert", "shader.frag");
 
 }
 
 function setup() {
-  pixelDensity(1);
+  //pixelDensity(1);
   createCanvas(windowWidth, windowHeight, WEBGL);
   noStroke();
 
