@@ -43,7 +43,7 @@ Model map(vec3 p) {
     
     vec3 col = normalize(p) * .5 + .5;
     p -= vec3(6,-2,4);
-    float d = length(p) - 16.;
+    float d = length(p) -16.;
     p += vec3(1.2,-.8,.8) * 12.; // Medium sphere
     d = smin(d, length(p) - 9., 4.);
     p += vec3(1.8,.4,.6) * 5.; // Small sphere
@@ -138,12 +138,12 @@ void main() {
   
     vec3 camPos = vec3(0,0,64);
   
-    vec2 im = iMouse.xy;// * scale * iResolution.x / iResolution.y;
+    vec2 im = vec2(.6,.2);//iMouse.xy / iResolution.xy;
   
-    if (iView == false || iMouse.y < -0.745)
-    {
-        im = vec2(.6,.2);
-    }
+    //if (iView == false || iMouse.y < -0.745)
+    //{
+    //im = vec2(.6,.2);
+    //}
 
     pR(camPos.yz, (0.5 - im.y) * PI / 2.5);
     pR(camPos.xz, (0.5 - sin(iTime * .08 - PI * .5) * .5 + .5) * PI * 2.5);

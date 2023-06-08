@@ -28,7 +28,7 @@ function preload() {
 
 function setup() {
     // disables scaling for retina screens which can create inconsistent scaling between displays
-    pixelDensity(1);
+    //pixelDensity(1);
 
     createCanvas(windowWidth, windowHeight);
     noStroke();
@@ -63,7 +63,7 @@ function draw() {
     // pass the interactive information to the shader
     theShader.setUniform("iResolution", [width, height]);
     theShader.setUniform("iTime", millis() / 1000.0);
-    theShader.setUniform("iMouse", [xMouse, yMouse]);
+    theShader.setUniform("iMouse", [width, height]);
     theShader.setUniform("iView", imView);
     theShader.setUniform("iParam", slider.value());
 
