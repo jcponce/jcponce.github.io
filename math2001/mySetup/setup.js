@@ -24,7 +24,7 @@
 			transition: 'fade',
 
 			// PDF exporting properties
-			pdfSeparateFragments: true,
+			pdfSeparateFragments: false,
 			pdfMaxPagesPerSlide: 1,
 
 			// MathJax user-defined functions
@@ -85,10 +85,10 @@
 			},
 			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
 				themes: [
-					{ name: 'Black', theme: 'dist/theme/black.css' },
-					{ name: 'White', theme: 'dist/theme/white.css' },
-					{ name: 'Night', theme: 'dist/theme/night.css' },
-					{ name: 'Simple', theme: 'dist/theme/simple.css' },
+					{ name: 'Black', theme: 'revealjs/dist/theme/black.css' },
+					{ name: 'White', theme: 'revealjs/dist/theme/white.css' },
+					{ name: 'Night', theme: 'revealjs/dist/theme/night.css' },
+					{ name: 'Simple', theme: 'revealjs/dist/theme/simple.css' },
 				],
 				transitions: false,
 				markers: true,
@@ -132,7 +132,7 @@
 				]
 			},
 			// ...
-			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight],
+			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight, RevealZoom, RevealSearch],
 		});
 
 		
