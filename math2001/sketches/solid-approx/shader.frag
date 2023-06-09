@@ -29,6 +29,7 @@ void pR(inout vec2 p, float a) {
     p = cos(a) * p + sin(a) * vec2(p.y, -p.x);
 }
 
+
 float smin(float a, float b, float k){
     float f = clamp(0.5 + 0.5 * ((a - b) / k), 0., 1.);
     return (1. - f) * a + f  * b - f * (1. - f) * k;
@@ -148,6 +149,7 @@ void main() {
     pR(camPos.yz, (0.5 - im.y) * PI / 2.5);
     pR(camPos.xz, (0.5 - sin(iTime * .08 - PI * .5) * .5 + .5) * PI * 2.5);
     //pR(camPos.xz, (.5 - im.x) * PI * 2.5); // Maybe :)
+
 
     mat3 camMat = calcLookAtMatrix(camPos, vec3(0), vec3(0,1,0));
 
