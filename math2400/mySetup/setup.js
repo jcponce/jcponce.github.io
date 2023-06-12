@@ -99,7 +99,7 @@
 				]
 			},
 			// ...
-			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight, RevealZoom, RevealSearch0],
+			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight, RevealZoom, RevealSearch],
 		});
 
 		
