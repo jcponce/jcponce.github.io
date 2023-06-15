@@ -106,7 +106,7 @@
 
 				<section data-auto-animate>
 					<h3>32 Spherical coordinates</h3>
-					<div class="size-50">
+					<div class="size-60">
 						<p>
 							$x= r\cos \theta \sin \phi ,\quad y=r\sin \theta \sin \phi , \quad z = r \cos \phi. \qquad
 							(15)$
@@ -122,7 +122,7 @@
 
 				<section data-auto-animate>
 					<h3>32 Spherical coordinates</h3>
-					<div class="left-txt size-75">
+					<div class="left-txt size-80">
 						<p>We now aim to calculate a small element of volume of a spherical shell.
 							This will then show how in a triple integral we can transform
 							from rectangular coordinates to spherical coordinates by
@@ -135,7 +135,7 @@
 						<p>
 							Consider the following diagram.
 						</p>
-						<br/><br/><br/><br/><br/>
+						<br/><br/><br/><br/>
 					</div>
 
 				</section>
@@ -148,7 +148,7 @@
 							width="560px" height="432px" style="border:0px;" data-preload allowfullscreen=""> </iframe>
 					</div>
 
-					<br/>
+					<br/><br/>
 				</section>
 
 				<section data-auto-animate>
@@ -170,7 +170,7 @@
 
 						</p>
 					</div>
-					<br/><br/>
+					<br/><br/><br/>
 				</section>
 
 
@@ -273,7 +273,7 @@
 
 							</td>
 							<td class="fragment" data-fragment-index="4">
-								$\displaystyle = 2 ~(2 \pi) \left( \frac{R^3}{3}\right)$
+								$\displaystyle = \large 2 ~(2 \pi) \left( \frac{R^3}{3}\right)$
 								<span class="fragment" data-fragment-index="5">
 									$\displaystyle = \large \frac{4}{3} \pi R^3.$
 								</span>
@@ -295,7 +295,7 @@
 					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
 					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
 
-					<div class="left-txt size-75">
+					<div class="left-txt size-80">
 						<p class="fragment" data-fragment-index="0">
 							Recall that $$\displaystyle \iiint_V \rho(x,y,z)~ dV = \iiint_V
 							e^{-\left(x^2+y^2+z^2\right)^{1/2}}~dV.$$
@@ -303,10 +303,17 @@
 						<p class="fragment" data-fragment-index="1">
 							We can't compute this integral in rectangular coordinates! 😥
 						</p>
-						<p class="fragment" data-fragment-index="2">Let's use spherical coordinates:
-							\[
+						<p class="fragment" data-fragment-index="2">
+							Let's use spherical coordinates:
+						</p>
+						
+					</div>
+					<div class="size-80">
+						
+						<p class="fragment" data-fragment-index="2">
+							$\ds 
 							x= r\cos \theta \sin \phi ,\quad y=r\sin \theta \sin \phi , \quad z = r \cos \phi.
-							\]
+							$
 						</p>
 					</div>
 					<br/><br/>
@@ -439,7 +446,7 @@
 					<p class="left-txt size-75 fragment" data-fragment-index="0">Recall the technique
 						<strong>Integration by parts</strong>.
 						<span class="fragment" data-fragment-index="1">
-							Consider the functions $u$, $v$.
+							Consider the functions $u,$ $v.$
 						</span>
 						<span class="fragment" data-fragment-index="2">Using the product rule we have</span>
 					</p>
@@ -500,12 +507,14 @@
 				<section data-auto-animate>
 					<h4 style="font-size:70%">32.2 Find the mass of a sphere of radius $R$</h4>
 
-					<p class="size-65">
-						Now take $u = r$ and $dv= e^{-r}~dr$.
-						<span class="fragment" data-fragment-index="0">
-							So $du = dr$ and $v = -e^{-r}$.
-						</span>
-					</p>
+					<div class="size-65" style="margin-top:-15px">
+						<p >
+							Now take $u = r$ and $dv= e^{-r}~dr$.
+							<span class="fragment" data-fragment-index="0">
+								So $du = dr$ and $v = -e^{-r}$.
+							</span>
+						</p>
+					</div>
 
 					<table id="eqarray" class="size-75">
 						<tr>
@@ -581,7 +590,7 @@
 					</p>
 
 
-					<table id="eqarray" class="size-80">
+					<table id="eqarray" class="size-85">
 						<tr>
 							<td>
 								$\text{Mass}$
@@ -692,7 +701,7 @@
 
 				<section data-auto-animate>
 					<h4>32.3 Find the volume of the "ice cream cone" $R$</h4>
-					<div class="size-75 left-txt">
+					<div class="size-80 left-txt">
 						
 						<p>
 							The bounds for $r$ and $\theta$ are:
@@ -704,44 +713,48 @@
 							And 						
 						</p>
 					</div>
-					<table id="eqarray" class="size-75">
-						
-
-						<tr>
-							<td class="fragment" data-fragment-index="0">
-							$r \cos \phi$
-							
-							</td>
-							<td class="fragment" data-fragment-index="0">
-								$= r\sin \phi$
+					<div style="margin-top:-15px">
+						<table id="eqarray" class="size-75">
+							<tr>
+								<td class="fragment" data-fragment-index="0">
+								$r \cos \phi$
 								
-							</td>
-						</tr>
-
-						<tr>
-							<td class="fragment" data-fragment-index="1">
-							$\;\; \tan \phi$
-							
-							</td>
-							<td class="fragment" data-fragment-index="1">
-								$= 1$, with $r\neq 0.$
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									$= r\sin \phi$
+									
+								</td>
+							</tr>
+	
+							<tr>
+								<td class="fragment" data-fragment-index="1">
+								$\;\; \tan \phi$
 								
-							</td>
-						</tr>
-						
-					</table>
-					<p class="size-70 left-txt fragment" data-fragment-index="2">
-					This implies that $\phi = \dfrac{\pi}{4}$.
-					<span class="fragment" data-fragment-index="3">
-					  Then $0\leq \phi \leq  \dfrac{\pi}{4}$. 
-					</span>
-					<span class="fragment" data-fragment-index="4">
-						Thus
-						\[
-						E = \left\{ \left(r, \theta, \phi\right) ~|~ 0\leq r \leq a, 0 \leq \theta \leq 2 \pi, 0\leq \phi \leq  \dfrac{\pi}{4}\right\}.
-						\]
-					</span>
-				    </p>
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									$= 1$, with $r\neq 0.$
+									
+								</td>
+							</tr>
+							
+						</table>
+					</div>
+					<div class="size-75 left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								This implies that $\phi = \dfrac{\pi}{4}$.
+							</span>
+							<span class="fragment" data-fragment-index="3">
+							  Then $0\leq \phi \leq  \dfrac{\pi}{4}$. 
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								Thus
+								\[
+								E = \left\{ \left(r, \theta, \phi\right) ~|~ 0\leq r \leq a, 0 \leq \theta \leq 2 \pi, 0\leq \phi \leq  \dfrac{\pi}{4}\right\}.
+								\]
+							</span>
+						</p>
+					</div>
 					<br/>
 				</section>
 
