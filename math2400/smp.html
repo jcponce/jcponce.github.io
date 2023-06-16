@@ -58,7 +58,7 @@
 			<section>
 				<h1>MATH2400/7400</h1>
 				<p>Mathematical Analysis</p>
-				<p class="size-70">Semester 1 - 2022</p>
+				<p class="size-70">Semester 1 - 2023</p>
 			</section>
 
 			<section id="intro">
@@ -70,9 +70,9 @@
 					<span class="fragment" data-fragment-index="1">
 						<p><strong>Pedagogy:</strong></p>
 						<ol>
-							<li>Self-directed learning activities: Reading topics + Online quizzes</li>
-							<li>Workshops</li>
-							<li>Q&A sessions</li>
+							<li>Lectures (including a practice session)</li>
+							<li>Self-directed learning activities: Reading topics</li>
+							<li>Tutorials</li>
 						</ol>
 
 
@@ -81,13 +81,14 @@
 						<p><strong>Extra online resources:</strong></p>
 
 						<ol>
-							<li>Lecture recordings to cover weekly topics</li>
-							<li>Online summaries with interactive applets</li>
-							<li>Discussion forum ED</li>
+							<li>Lecture recordings, Online slides, Interactive applets</li>
+							<li>Online complementary readings</li>
+							<li>Discussion forum <strong>Ed</strong></li>
 						</ol>
 					</span>
-					<p class="fragment" data-fragment-index="3"><strong>Assessment:</strong> 4 assign. (30%) + Online
-						Quizzes (10%) + Final exam (60%)</p>
+					<p class="fragment" data-fragment-index="3">
+						<strong>Assessment:</strong> 3 assign. (36%) + 
+						  Final exam (64%)</p>
 				</div>
 
 				<p><br /><br/></p>
@@ -107,19 +108,19 @@
 									</tr>
 									<tr style="border-bottom: 1px solid black;">
 										<td><strong>Int</strong></td>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;157</td>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;164</td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</td>
 									</tr>
 									<tr>
 										<td><strong>Ext</strong></td>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24</td>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15</td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</td>
 									</tr>
 
 								</table>
 								<p><br /></p>
 
-								<p><strong>Number sat exam:</strong> 184</p>
+								<p><strong>Number sat exam:</strong> 182</p>
 							</div>
 						</td>
 						<td style="width:80%;">
@@ -139,7 +140,7 @@
 										],
 										datasets: [{
 											label: 'Average',
-											data: [0.72, 0.65, 0.40, 0.56, 0.36, 0.77, 0.58, 0.67, 0.52],
+											data: [0.50, 0.81, 0.56, 0.65, 0.46, 0.61, 0.72, 0.34, 0.53],
 											backgroundColor: [
 												'rgba(29, 120, 179, 0.9)',
 											],
@@ -169,18 +170,86 @@
 
 
 			<section id="grade-distribution">
-				<span class="size-90"><strong>Grade distribution</strong></span>
+				<span class="size-90"><strong>Grade distribution 2023</strong></span>
 				<p></p>
 				<table style="width:100%;">
 					<tr>
 						<td style="width:20%;text-align:center">
-							<div class="size-45">
+							<div class="size-50">
 
-								<p><strong>📝 A1:</strong> 81%</p>
-								<p><strong>📝 A2:</strong> 77%</p>
-								<p><strong>📝 A3:</strong> 75%</p>
-								<p><strong>📝 A4:</strong> 79%</p>
-								<p><strong>🖥️ Quizzes:</strong> 96%</p>
+
+								<p><strong>Final:</strong> 51%</p>
+
+								<p><strong>Fail:</strong> 29%</p>
+								<p><strong>Pass:</strong> 71%</p>
+							</div>
+						</td>
+						<td style="width:80%;">
+
+							<canvas id="bar-chart-03" width="800" height="450"></canvas>
+
+
+							<script>
+								//let delayed;
+								const ctx3_23 = document.getElementById('bar-chart-03').getContext('2d');
+								const myChart3_23 = new Chart(ctx3_23, {
+									type: 'bar',
+									data: {
+										labels: ['1', '2', '3', '4', '5', '6', '7'],
+										datasets: [{
+												label: 'MATH2400 Internal',
+												data: [6, 32, 13, 48, 21, 18, 22],
+												backgroundColor: 'rgba(0, 102, 255, 0.75)',
+											},
+											{
+												label: 'MATH2400 External',
+												data: [1, 0, 1, 7, 4, 2, 0],
+												backgroundColor: 'rgba(153, 51, 255, 0.55)',
+											},
+											{
+												label: 'MATH7400 Internal',
+												data: [0, 0, 0, 0, 0, 1, 1],
+												backgroundColor: 'rgba(128, 0, 0, 0.9)',
+											},
+											{
+												label: 'MATH7400 External',
+												data: [0, 0, 0, 0, 1, 0, 0],
+												backgroundColor: 'rgba(0, 153, 153, 1)',
+											},
+										]
+									},
+
+
+									options: {
+
+										responsive: true,
+										scales: {
+											x: {
+												stacked: true,
+											},
+											y: {
+												stacked: true
+											}
+										}
+									}
+								});
+							</script>
+						</td>
+
+					</tr>
+				</table>
+				<br/><br/>
+
+			</section>
+			
+			<!--
+				<section id="grade-distribution">
+				<span class="size-90"><strong>Grade distribution 2022</strong></span>
+				<p></p>
+				<table style="width:100%;">
+					<tr>
+						<td style="width:20%;text-align:center">
+							<div class="size-50">
 
 								<p><strong>Final:</strong> 58%</p>
 
@@ -190,13 +259,13 @@
 						</td>
 						<td style="width:80%;">
 
-							<canvas id="bar-chart-03" width="800" height="450"></canvas>
+							<canvas id="bar-chart-04" width="800" height="450"></canvas>
 
 
 							<script>
-								let delayed;
-								const ctx3 = document.getElementById('bar-chart-03').getContext('2d');
-								const myChart3 = new Chart(ctx3, {
+								//let delayed;
+								const ctx3_22 = document.getElementById('bar-chart-04').getContext('2d');
+								const myChart3_22 = new Chart(ctx3_22, {
 									type: 'bar',
 									data: {
 										labels: ['1', '2', '3', '4', '5', '6', '7'],
@@ -242,6 +311,167 @@
 
 					</tr>
 				</table>
+				<br/><br/>
+
+			</section>
+			-->
+
+			<section id="grade-distribution">
+				<span class="size-90"><strong>Grade distribution: 2022 vs 2023</strong></span>
+				
+				<table style="width:100%;;padding:0px">
+					<tr>
+						<th  style="border:0px">
+							<span style="font-size:90%;text-align:center;padding:0px">
+								<p>
+								2022
+								</p>
+							</span>
+						</th>
+						<th style="border:0px">
+							<span style="font-size:90%;text-align:center;padding:0px">
+								<p>
+								2023
+								</p>
+							</span>
+						</th>
+					</tr>
+					
+				</table>
+				<div style="margin-top:-35px">
+					<table style="width:100%;;padding:0px">
+					
+					<tr>
+						
+						<td style="width:50%;">
+
+							<canvas id="bar-chart-06" width="800" height="550"></canvas>
+
+
+							<script>
+								//let delayed;
+								const ctx3_22_compare = document.getElementById('bar-chart-06').getContext('2d');
+								const myChart3_22_compare = new Chart(ctx3_22_compare, {
+									type: 'bar',
+									data: {
+										labels: ['1', '2', '3', '4', '5', '6', '7'],
+										datasets: [{
+												label: 'MATH2400 Internal',
+												data: [9, 19, 8, 55, 29, 25, 21],
+												backgroundColor: 'rgba(0, 102, 255, 0.75)',
+											},
+											{
+												label: 'MATH2400 External',
+												data: [3, 3, 3, 7, 2, 8, 1],
+												backgroundColor: 'rgba(153, 51, 255, 0.55)',
+											},
+											{
+												label: 'MATH7400 Internal',
+												data: [0, 0, 0, 0, 0, 1, 0],
+												backgroundColor: 'rgba(128, 0, 0, 0.9)',
+											},
+											{
+												label: 'MATH7400 External',
+												data: [0, 0, 0, 1, 0, 1, 0],
+												backgroundColor: 'rgba(0, 153, 153, 1)',
+											},
+										]
+									},
+
+
+									options: {
+
+										responsive: true,
+										scales: {
+											x: {
+												stacked: true,
+											},
+											y: {
+												stacked: true,
+												//suggestedMax: 70,
+											}
+										}
+									}
+								});
+							</script>
+
+							<span style="font-size:60%;text-align:center">
+								<p>
+									196 students
+								</p>
+								
+								<p>
+									<strong>Pass:</strong> 77% 
+									&nbsp; 
+									<strong>Fail:</strong> 23%
+								</p>
+							</span>
+						</td>
+						<td style="width:50%;text-align:center">
+							<canvas id="bar-chart-05" width="800" height="550"></canvas>
+
+
+							<script>
+								//let delayed;
+								const ctx3_23_compare = document.getElementById('bar-chart-05').getContext('2d');
+								const myChart3_23_compare = new Chart(ctx3_23_compare, {
+									type: 'bar',
+									data: {
+										labels: ['1', '2', '3', '4', '5', '6', '7'],
+										datasets: [{
+												label: 'MATH2400 Internal',
+												data: [6, 32, 13, 48, 21, 18, 22],
+												backgroundColor: 'rgba(0, 102, 255, 0.75)',
+											},
+											{
+												label: 'MATH2400 External',
+												data: [1, 0, 1, 7, 4, 2, 0],
+												backgroundColor: 'rgba(153, 51, 255, 0.55)',
+											},
+											{
+												label: 'MATH7400 Internal',
+												data: [0, 0, 0, 0, 0, 1, 1],
+												backgroundColor: 'rgba(128, 0, 0, 0.9)',
+											},
+											{
+												label: 'MATH7400 External',
+												data: [0, 0, 0, 0, 1, 0, 0],
+												backgroundColor: 'rgba(0, 153, 153, 1)',
+											},
+										]
+									},
+
+
+									options: {
+
+										responsive: true,
+										scales: {
+											x: {
+												stacked: true,
+											},
+											y: {
+												stacked: true,
+												suggestedMax: 70,
+											}
+										}
+									}
+								});
+							</script>
+							<span style="font-size:60%;text-align:center">
+								<p>
+									182 students
+								</p>
+								<p>
+									<strong>Pass:</strong> 71% 
+									&nbsp; 
+									<strong>Fail:</strong> 29%
+								</p>
+							</span>
+						</td>
+
+					</tr>
+				</table>
+				</div>
 				<br/><br/>
 
 			</section>
