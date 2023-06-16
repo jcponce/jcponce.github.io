@@ -332,7 +332,7 @@
           <section data-auto-animate>
             <h4>24.3 Special case when $f(x,y)= g(x)h(y)$.</h4>
 
-            <div class="left-txt size-80">
+            <div class="left-txt size-85">
               <p class="fragment" data-fragment-index="0">
                 In this case we can separate the integral as follows
               </p>
@@ -354,11 +354,13 @@
 
           <section data-auto-animate>
             <h5>24.3.1 Example:</h5>
-            <p style="font-size:70%">
-              $\displaystyle {\small \displaystyle \iint_R \sin x \cos y~dA }$
-              where $R = \left[ 0, \frac{\pi}{2} \right]\times \left[ 0,
-              \frac{\pi}{2} \right]$
+           <div style="font-size:80%">
+            <p>
+              $\displaystyle {\small \displaystyle \iint_R \sin x \cos y~dA}\,$
+              where $\,R = \left[ 0, \dfrac{\pi}{2} \right]\times \left[ 0,
+              \dfrac{\pi}{2} \right]$
             </p>
+           </div>
             <div class="size-75">
               <table id="eqarray">
                 <tr>
@@ -381,7 +383,11 @@
 
                 <tr>
                   <td></td>
-                  <td class="fragment" data-fragment-index="3">$= 1. $</td>
+                  <td class="fragment" data-fragment-index="3">
+                    <span style="font-size:110%">
+                      $= 1. $
+                    </span>
+                  </td>
                 </tr>
               </table>
             </div>
@@ -422,7 +428,7 @@
                 </li>
                 <li class="fragment" data-fragment-index="3">
                   Compute $F(x^*,y^*)\Delta A$ for each rectangle contained in
-                  $R$,
+                  $R,$
                 </li>
                 <li class="fragment" data-fragment-index="4">
                   Add up the contributions from all subrectangles,
@@ -434,6 +440,51 @@
               </ol>
             </div>
             <br/><br/>
+          </section>
+
+          <section>
+            <h4>24.4 Non-rectangular region</h4>
+            <div class="left-txt size-80">
+              <p>
+                <span> We obtain </span>
+              </p>
+            </div>
+            <div class="left-txt size-70">
+              <p>
+                <span>
+                  $\displaystyle \iint_D f(x,y) ~dA = \iint_R F(x,y)~dA$
+                </span>
+              </p>
+              <p>
+                
+                <span class="fragment" data-fragment-index="5">
+                  $\qquad \qquad \quad \;\; 
+                  \displaystyle 
+                  =\lim_{\Delta A\to 0} 
+                  \sum_{\text{subrectangles in }R}F\left(x^*,y^*\right)\Delta A$
+                </span>
+               
+              </p>
+              <p>
+                
+                <span class="fragment" data-fragment-index="6">
+                  $\qquad \qquad \quad \;\;
+                  \displaystyle =\lim_{\Delta A\to 0}
+                  \sum_{\text{subrectangles in }D}f\left(x^*,y^*\right)\Delta A
+                  \,\quad$
+                </span>
+              </p>
+
+            </div>
+
+            <div class="size-75 left-txt">
+              <p class="fragment" data-fragment-index="7">
+                However, this does not really tell us how to compute the double
+                integral over $D.$ 😥
+              </p>
+             
+            </div>
+            <br/>
           </section>
 
           <section>
@@ -463,11 +514,11 @@
             <div class="size-75 left-txt">
               <p class="fragment" data-fragment-index="7">
                 However, this does not really tell us how to compute the double
-                integral over $D$. 😥
+                integral over $D.$ 😥
               </p>
               <p class="fragment" data-fragment-index="8">
                 So in next subsection, we will consider an alternative way of
-                calculating the volume below a surface above a rectangle $R$,
+                calculating the volume below a surface above a rectangle $R,$
                 which can be easily generalized to compute double integral over
                 a general region.
               </p>
