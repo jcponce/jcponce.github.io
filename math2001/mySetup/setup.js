@@ -9,7 +9,7 @@
 			history: true,
 			
 			// Display the page number of the current slide
-			slideNumber: "c/t",
+			slideNumber: "c",
 
 			// Vertical centering of slides
 			center: true,

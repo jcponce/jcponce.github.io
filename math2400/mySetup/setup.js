@@ -4,7 +4,7 @@
 			
 			controls: true,
 			history: true,
-			slideNumber: "c/t",
+			slideNumber: "c",
 			center: true,
 
 			// Transition style
