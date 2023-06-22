@@ -26,7 +26,7 @@ function setup() {
   smooth();
  
   // Make a new Pendulum with an origin location and armlength
-  p = new Pendulum(new p5.Vector(width/2,0),220);
+  p = new Pendulum(new p5.Vector(width/2,100),220);
 
 }
 
@@ -66,7 +66,7 @@ class Pendulum  {
       this.origin = origin.copy(); // Location of arm origin
       this.location = new p5.Vector(); // Location of pendulum ball
   
-      this.angle = PI/2-0.3; // Pendulum arm angle
+      this.angle = PI/2-0.2; // Pendulum arm angle
    
       this.aVelocity = 0.0; // Angle velocity
       this.aAcceleration = 0.0; // Angle acceleration
@@ -101,6 +101,10 @@ class Pendulum  {
   //Where is the bob relative to the origin? Polar to Cartesian coordinates will tell us!
       this.location.set(this.r*sin(this.angle),this.r*cos(this.angle),0);
       this.location.add(this.origin);
+
+      push();
+      ellipse(this.origin.x, this.origin.y, 7);
+      pop();
       
       let d = dist(mouseX, mouseY, this.location.x, this.location.y);
       if (d < this.ballr) {
@@ -120,7 +124,10 @@ class Pendulum  {
       }
       
       // Draw the ball
+      
       ellipse(this.location.x, this.location.y, this.ballr, this.ballr);
+
+      
     }
     
     // The methods below are for mouse interaction
