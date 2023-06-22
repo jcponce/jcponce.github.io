@@ -22,22 +22,22 @@
 let p;
 
 function setup() {
-  createCanvas(500,400);
+  createCanvas(700,400);
   smooth();
  
   // Make a new Pendulum with an origin location and armlength
-  p = new Pendulum(new p5.Vector(width/2,0),200);
+  p = new Pendulum(new p5.Vector(width/2,0),220);
 
 }
 
 function draw() {
 
   background(255);
-  fill(0);
-  stroke(200);
-  strokeWeight(1);
-  textSize(10);
-  text("By Carlos Ponce Campuzano/@jcponcemath", 5, 15);
+  //fill(0);
+  //stroke(200);
+  //strokeWeight(1);
+  //textSize(10);
+  //text("By Carlos Ponce Campuzano/@jcponcemath", 5, 15);
   p.go();
 }
 
@@ -66,12 +66,12 @@ class Pendulum  {
       this.origin = origin.copy(); // Location of arm origin
       this.location = new p5.Vector(); // Location of pendulum ball
   
-      this.angle = PI/4; // Pendulum arm angle
+      this.angle = PI/2-0.3; // Pendulum arm angle
    
       this.aVelocity = 0.0; // Angle velocity
       this.aAcceleration = 0.0; // Angle acceleration
   //An arbitrary damping so that the Pendulum slows over time
-      this.damping = 0.995; // Arbitary damping amount
+      this.damping = 0.9955; // Arbitary damping amount
       this.ballr = 48.0; // Ball radius
       
       this.dragging = false;
