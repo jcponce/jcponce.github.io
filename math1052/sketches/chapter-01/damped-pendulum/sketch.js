@@ -71,7 +71,7 @@ class Pendulum  {
       this.aVelocity = 0.0; // Angle velocity
       this.aAcceleration = 0.0; // Angle acceleration
   //An arbitrary damping so that the Pendulum slows over time
-      this.damping = 0.9955; // Arbitary damping amount
+      this.damping = 0.9975; // Arbitary damping amount
       this.ballr = 48.0; // Ball radius
       
       this.dragging = false;
