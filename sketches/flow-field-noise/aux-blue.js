@@ -23,8 +23,8 @@ function initField() {
 function calculateField() {
   for(let x = 0; x < columns; x++) {
     for(let y = 0; y < rows; y++) {
-      let angle = myNoise.simplex3(x/20, y/20, noiseZ) * TWO_PI;
-      let length = myNoise.simplex3(x/10 + 4000, y/40 + 40000, noiseZ) * 0.3;
+      let angle = myNoise.simplex3(x/50, y/50, noiseZ) * TWO_PI;
+      let length = myNoise.simplex3(x/20 + 4000, y/40 + 40000, noiseZ) * 0.3;
       //console.log(length)
       field[x][y].setLength(length);
       field[x][y].setAngle(angle);
