@@ -61,7 +61,7 @@ function drawFlowField() {
       
       strokeWeight(3);
       col = 65;//map(v.getLength(), 0, 0.3, 0, 100);
-      sh = map(v.getLength(), 0, 0.3, 0, 100);
+      sh = map(v.getLength(), 0, 0.3, 30, 100);
       stroke(col, sh, sh * 0.9, sh);
       
       
