@@ -60,9 +60,9 @@ function drawFlowField() {
       let v = field[x][y];
       
       strokeWeight(3);
-      col = map(v.getLength(), 0, 0.3, 0, 100);
+      col = 65;//map(v.getLength(), 0, 0.3, 0, 100);
       sh = map(v.getLength(), 0, 0.3, 0, 100);
-      stroke(col, 70, 50, sh);
+      stroke(col, sh, sh * 0.9, sh);
       
       
       line(0, 0, v.x * sizeField * mg, v.y * sizeField * mg);
