@@ -15,11 +15,11 @@
 			pdfMaxPagesPerSlide: 1,
 
 			// MathJax user-defined functions
-			math: {
-				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+			mathjax3: {
+				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
 				config: "TeX-AMS_HTML-full",
-				TeX: {
-					Macros: {
+				tex: {
+					macros: {
 						R: "\\mathbb{R}",
 						C: "\\mathbb{C}",
 						N: "\\mathbb{N}",
@@ -99,7 +99,14 @@
 				]
 			},
 			// ...
-			plugins: [RevealCustomControls, RevealMath, RevealMenu, RevealChalkboard, RevealHighlight, RevealZoom, RevealSearch],
+			plugins: [
+				RevealCustomControls, 
+				RevealMath.MathJax3, 
+				RevealMenu, 
+				RevealChalkboard, 
+				RevealHighlight, 
+				RevealZoom, 
+				RevealSearch],
 		});
 
 		
