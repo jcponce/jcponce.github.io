@@ -29,13 +29,9 @@
 
 			// MathJax user-defined functions
 			mathjax3: {
-				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
 				config: "TeX-AMS_HTML-full",
-				options: {
-					skipHtmlTags: [ 'script', 'noscript', 'style', 'textarea', 'pre' ]
-				  },
 				tex: {
-					inlineMath: [ [ '$', '$' ], [ '\\(', '\\)' ]  ],
 					macros: {
 						R: "\\mathbb{R}",
 						C: "\\mathbb{C}",
