@@ -30,7 +30,7 @@
 			// MathJax user-defined functions
 			mathjax3: {
 				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-				config: "TeX-AMS_HTML-full",
+				//config: "TeX-AMS_HTML-full",
 				tex: {
 					macros: {
 						R: "\\mathbb{R}",
