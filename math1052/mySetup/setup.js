@@ -35,6 +35,7 @@
 					skipHtmlTags: [ 'script', 'noscript', 'style', 'textarea', 'pre' ]
 				  },
 				tex: {
+					inlineMath: [ [ '$', '$' ], [ '\\(', '\\)' ]  ],
 					macros: {
 						R: "\\mathbb{R}",
 						C: "\\mathbb{C}",
