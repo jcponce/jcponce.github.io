@@ -61,11 +61,11 @@ function setup() {
     
     //console.log(Dw.EasyCam.INFO);
     
-    easycam = new Dw.EasyCam(this._renderer, {distance : 500});
+    easycam = new Dw.EasyCam(this._renderer, {distance : 800});
 	
 	// ------ mesh ------
-  tileCount = 60;
-  zScale = 180;
+  tileCount = 40;
+  zScale = 380;
 
   // ------ noise ------
   noiseXRange = 20;
@@ -108,7 +108,7 @@ function draw(){
     // BG
     background(0);
 	
-	rotateX(1.2);
+	rotateX(1.1);
   rotateZ(0);
 	
 	ambientLight(150);
@@ -140,7 +140,7 @@ function draw(){
   var tileSizeY = height / tileCount;
   var noiseStepY = noiseYRange / tileCount;
 
-  for (var meshY = -50; meshY <= tileCount; meshY++) {
+  for (var meshY = -30; meshY <= tileCount; meshY++) {
     beginShape(TRIANGLE_STRIP);
     for (var meshX = 0; meshX <= tileCount; meshX++) {
 
