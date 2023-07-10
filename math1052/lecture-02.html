@@ -768,7 +768,7 @@ to the ODE $\ds\dif{x}{t}=60$.
 						<p><strong>1.1.8 Extra reading: Realistic models</strong></p>
 					</div>
 					
-					<div class="size-75">
+					<div class="size-80">
 						<div class="left-txt">
 							<p>
 								<span>
@@ -776,14 +776,14 @@ to the ODE $\ds\dif{x}{t}=60$.
 								</span>
 							</p>
 							<ul>
-								<li>
+								<li class="fragment" data-fragment-index="0">
 									For fast moving objects  a good model includes air resistance proportional
 to square of the velocity
 $$
 \frac{\dup^2y}{\dup t^2} = -g -f\dif{y}{t}\left| \dif{y}{t} \right|.
 $$
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="1">
 									For slower objects, a good enough model has air resistance proportional to
 velocity.
 								</li>
@@ -797,7 +797,7 @@ velocity.
 					<div id="sbt">
 						<p><strong>1.1.8 Extra reading: Realistic models</strong></p>
 					</div>
-					<div class="size-75">
+					<div class="size-80">
 						<div class="left-txt">
 							<p>
 								<span>
@@ -805,6 +805,34 @@ velocity.
 move away from the earth's surface (Newton's inverse square law).
 								</span>
 							</p>
+							
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Example: A model with air resistance</strong>
+									Consider the motion of a ball subject to air resistance 
+proportional to the <em>square</em> of the speed. Note that the air
+resistance vector is always directed <em>against</em> the direction of 
+motion.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Decompose the coordinates into $x$ and $y$ directions, and again apply
+Newton's law $F=ma$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.1.8 Extra reading: Realistic models</strong></p>
+					</div>
+					<div class="size-45">
+						<div class="left-txt">
+							
 							
 							<p>
 								<span>
@@ -823,7 +851,10 @@ Newton's law $F=ma$.
 							</p>
 						</div>
 					</div>
-					<br/><br/>
+					<div style="margin-top:-25px" >
+						<img style="width:95%" src="images/lect-02/ball.png">
+					</div>
+					<br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -840,6 +871,8 @@ Newton's law $F=ma$.
 \quad\text{ and }\quad
 \cos \theta  = \frac{\dot{x}}{\sqrt{\dot{x}^2+\dot{y}^2}}.
 \]
+</span>
+								<span class="fragment" data-fragment-index="0">
 Hence $F=ma$ in the $y$ direction gives
 \begin{align*}
 &m\ddot{y} = -mg - F_D\sin \theta  \\
@@ -863,28 +896,70 @@ Hence $F=ma$ in the $y$ direction gives
 						<p><strong>1.1.8 Extra reading: Realistic models</strong></p>
 					</div>
 					<div class="size-80">
-						<div class="left-txt">
+						<div class="left-txt" >
 							<p>
-								<span>
-									In much the same way
-\[
-\ddot{x} = -\frac k m \dot{x}{\sqrt{\dot{x}^2+\dot{y}^2}}.
-\]
-
-								</span>
+								In much the same way
 							</p>
+						</div>
+						<div>
+							<p>$\ds\ddot{x} = -\frac k m \dot{x}{\sqrt{\dot{x}^2+\dot{y}^2}}.$</p>
+						</div>
+						<div class="left-txt" style="margin-top:0px">
+							
 							<p>
 								<span>
 									
 									This is a coupled system of ODEs which is extremely difficult to
-									solve analytically. However, numerical solutions are easy to obtain, and
-									you can undertake this a little later in the semester. A sample
-									trajectory in the $xy$-plane is shown here.
+									solve analytically.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									However, numerical solutions are easy to obtain, and
+									you can undertake this a little later in the semester. 
 								</span>
 							</p>
 							
 							
 						</div>
+						
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.1.8 Extra reading: Realistic models</strong></p>
+					</div>
+					<div class="size-45">
+						<div>
+							$\ds\ddot{x} = -\frac k m \dot{x}{\sqrt{\dot{x}^2+\dot{y}^2}}.$
+						</div>
+						<div class="left-txt" style="margin-top:-15px">
+							
+							<p>
+								<span>
+									
+									This is a coupled system of ODEs which is extremely difficult to
+									solve analytically.
+								</span>
+								<span>
+									However, numerical solutions are easy to obtain, and
+									you can undertake this a little later in the semester. 
+								</span>
+							</p>
+							
+							
+						</div>
+						<div class="left-txt"   style="margin-top:-15px">
+							<p>
+								<span>
+									A sample
+									trajectory in the $xy$-plane is shown here.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div style="margin-top:-35px" >
+						<img style="width:76%" src="images/lect-02/parabola.png">
 					</div>
 					<br/><br/>
 				</section>
