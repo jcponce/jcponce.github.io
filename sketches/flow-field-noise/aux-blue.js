@@ -33,21 +33,6 @@ function calculateField() {
 }
 
 
-function drawParticles() {
-  hue += 0.5;
-  fill(hue%360, 50, 50, 0.96);
-  particles.forEach(p => {
-    p.show();
-    let pos = p.pos.div(sizeField);
-    let v;
-    if(pos.x >= 0 && pos.x < columns && pos.y >= 0 && pos.y < rows) {
-      v = field[Math.floor(pos.x)][Math.floor(pos.y)];
-    }
-    p.move(v);
-    p.wrap();
-  });
-}
-
 function drawFlowField() {
   let mg = 6;
   for(let x = 0; x < columns; x++) {
