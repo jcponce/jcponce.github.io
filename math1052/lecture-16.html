@@ -42,9 +42,6 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	<script src="mySetup/google-analytics-ga4.js"></script>
-
-	<script src="mathcell/math.js"></script>
-	<script src="mathcell/mathcell.js"></script>
 	
 </head>
 
@@ -63,1435 +60,1372 @@
 			<!--Section with format-->
 
 
-			
-
 			<section>
-
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1 Introduction</strong></p>
-					</div>
-					<div class="size-90" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									From MATH1051 or earlier mathematics courses, you should be familiar 
-									with functions $f$ of one variable.
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									The tools of calculus were useful because you could:
-								</span>
-							
-							</p>
-
-							<ul>
-								<li class="fragment" data-fragment-index="2">
-									Sketch the graph $y=f(x)$ of $f.$
-								</li>
-								<li class="fragment" data-fragment-index="3">
-									Find the minima and maxima of $f.$
-								</li>
-								<li class="fragment" data-fragment-index="4">
-									Analyse the slope of $f$ by calculating $f'.$
-								</li>
-								<li class="fragment" data-fragment-index="5">
-									Find approximations of $f$ using Taylor series.
-								</li>
-								<li class="fragment" data-fragment-index="6">
-									Find solutions to $f(x)=0.$
-								</li>
-							</ul>
-						
-						</div>
-						
-						
-					
-					
-					</div>
 				
 
-					<br/><br/><br/>
-				</section>
 				<section data-auto-animate>
 					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1 Introduction</strong></p>
+					
+					<div id="sbt" >
+						<p><strong>2.2.2 Circles</strong></p>
 					</div>
-					<div class="size-85" style="margin-top:-10px">
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
 						<div class="left-txt">
 							<p>
 							
 								<span>
-									In this module of MATH1052, we shall undertake these same basic ideas,
-									but in the framework of functions of several variables (multivariate functions).
-								</span>
-								<span class="fragment" data-fragment-index="0">
-									Most of the theory for this section is covered in Stewart, Chapter 14.
+									A circle centered at the origin $(0,0)$ with radius $r$ is given by the equation
+
 								</span>
 							</p>
+							
+							
+							
+							
+							
+						</div>
+						<div class="" style="margin-top:-20px">
 							<p>
 							
-								<span class="fragment" data-fragment-index="1">
-									Many familiar formulae are essentially just functions of more than 
-									one variable.
+								<span>
+									$ x^2 + y^2 = r^2.$
 								</span>
 							</p>
-							<p>
 							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-10px">
 								
-								<span class="fragment" data-fragment-index="2">
-									For example, the volume $V$ of a box 
-									is a function of its width, height and depth: $\;V(w,h,d)=whd,$
-									
-
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									and the profile of a guitar string is a function of time and
-									position along the string: $\;f(x,t)=A\sin (\alpha x) \cos (\beta t).$
-
-								</span>
-							</p>
-
+								<br/><br/><br/><br/><br/><br/><br/><br/>
+								
+								
+							</div>
 							
-						
 						</div>
-						
-						
-					</div>
-				
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1 Introduction</strong></p>
-					</div>
-					<div class="size-45" style="margin-top:-20px">
-						<div class="left-txt">
-							
-							<p>
-								<span>
-									For example, the volume $V$ of a box 
-									is a function of its width, height and depth: $\;V(w,h,d)=whd,$
-									and the profile of a guitar string is a function of time and
-									position along the string: $\;f(x,t)=A\sin (\alpha x) \cos (\beta t).$
-
-								</span>
-							</p>
-
-						
-						</div>
-						
-						
 					</div>
 
-					<div style="margin-top:-5px">
-						<iframe
-							scrolling="no" name="Guitar wave" 
-							style="border:2px solid black;;width:100%;height:500px"
-							data-src="sketches/chapter-02/guitar-wave"	
+					
 
-						></iframe>
-					</div>
-				
 
 					<br/>
-					<!--
-						<div class="mathcell size-40 left-txt" style="width: 650px; height: 450px">
-						<script>
-						
-						var parent = document.currentScript.parentNode;
-						
-						var id = generateId();
-						parent.id = id;
-						
-						MathCell( id, [ ] );
-
-						var move = 0.0
-						
-						parent.update = function( id ) {
-						
-						  function z(x,y) { 
-							return [ x, y, ( 5 * Math.sin(0.4 * x + move) * Math.cos(3 * y + move))]; 
-						  }
-						
-						  var lim = 8.0;
-						  var s = parametric( z, [0,lim,100], [0,lim,100],
-												 { colormap: 'cool' } );
-						
-						  var data = [ s ];
-						
-						  var config = { type: 'threejs',
-						  				 aspectRatio: [1,1,0.7],
-										axesLabels: true,
-
-										};
-						
-						  evaluate( id, data, config );
-
-						  //move += 1.1
-						
-						}
-						
-						parent.update( id );
-
-						//setInterval( parent.update, 100, id );
-						
-						</script>
-					</div>
-					-->
-				</section>
-				
-				
-				
-			</section>
-
-			<section>
-
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1.1 Visualising functions</strong></p>
-					</div>
-					<div class="size-95" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Consider the volume of a cylinder as a function of two variables:
-								</span>
-							</p>
-							
-						</div>
-						<div class="" style="font-size:115%">
-							<p>
-							
-								<span>
-									$\ds V(r,\ell) = \pi r^2 \ell.$
-								</span>
-							</p>
-							
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									A first method of visualising this function 
-									is to plot $V$ for fixed $\ell$ and varying $r$.
-								</span>
-							</p>
-							
-						</div>
-						
-						
-					</div>
-				
-
-					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1.1 Visualising functions</strong></p>
+					
+					<div id="sbt" >
+						<p><strong>2.2.2 Circles</strong></p>
 					</div>
-					<div class="size-60" style="margin-top:-10px">
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
 						<div class="left-txt">
 							<p>
 							
 								<span>
-									Consider the volume of a cylinder as a function of two variables:
+									A circle with radius $r$ and center $(h,k)$ corresponds to
 								</span>
 							</p>
 							
+							
+							
+							
+							
 						</div>
-						<div class="">
+						<div class="" style="margin-top:-0px">
 							<p>
 							
-								<span>
-									$\ds V(r,\ell) = \pi r^2 \ell.$
+								<span id="blue-box">
+									
+$(x-h)^2 + (y-k)^2 = r^2.$
 								</span>
 							</p>
 							
+							
+							
+							
+							
 						</div>
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-80" style="margin-top:-0px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-0px">
+								
+								<br/><br/><br/><br/><br/><br/><br/><br/>
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.2 Circles</strong></p>
+					</div>
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
 						<div class="left-txt">
 							<p>
 							
 								<span>
-									A first method of visualising this function 
-									is to plot $V$ for fixed $\ell$ and varying $r$.
+									<strong>Example:</strong>
+									Sketch the circle $x^2+10x+y^2-4y+20=0.$
 								</span>
 							</p>
+							
 							
 						</div>
 						
 						
+						
+						
 					</div>
-
-
+					
+				
 					<div class="size-85" style="margin-top:-10px">
 					
 						<div id="theorem">
 							
-							<div class="left-txt" style="margin-top:20px">
+							<div class="left-txt" style="margin-top:-20px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Complete the square:
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$ \left( \left(x+5\right)^2- 25\right)$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$ + 
+										\left( \left(y-2\right)^2-4\right)$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$ +\,20=0$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\Ra  \left(x+5\right)^2+ 
+										\left(y-2\right)^2
+										=9$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$ = 3^2$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										Circle of radius 3, centre at $(-5,2)$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="7">
+										Skecht it! 📝
+									</span>
+								</p>
 								
 								
-								<p>
-									<span  class="fragment" data-fragment-index="0">
-										$\ds \ell =0$
-									</span>
-									<span  class="fragment" data-fragment-index="1">
-										$\ds \Ra V = 0 $
-									</span>
-								</p>
-								<p>
-									<span  class="fragment" data-fragment-index="2">
-										$\ds \ell =1$
-									</span>
-									<span  class="fragment" data-fragment-index="3">
-										$\ds \Ra V = \pi r^2 $
-									</span>
-								</p>
-								<p>
-									<span  class="fragment" data-fragment-index="4">
-										$\ds \ell =2$
-									</span>
-									<span class="fragment" data-fragment-index="5" >
-										$\ds \Ra V =  2\pi r^2$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="6" >
-										$\ds \ell =3$
-									</span>
-									<span class="fragment" data-fragment-index="7" >
-										$\ds \Ra V =  3\pi r^2 $
-									</span>
-								</p>
+								
+								
 							</div>
 							
-							<br/>
-							
 						</div>
 					</div>
-				
 
-					<br/><br/><br/>
+					
+
+
+					<br/><br/>
 				</section>
+			</section>
+			
+
+			<section>
+				
 
 				<section data-auto-animate>
 					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1.1 Visualising functions</strong></p>
-					</div>
-					<div class="size-75" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Using Matlab, the <span id="bb"><code>ezplot</code></span> function is the simplest graphing aid:
-								</span>
-							</p>
-							
-						</div>
-						
-						
-						
-					</div>
-
-					<div style="font-size:120%">
-						<pre><code data-trim data-noescape data-line-numbers="1-3">
-							ezplot('pi*r^2*1', [0,5])
-							hold on; ezplot('pi*r^2*2', [0,5])
-							hold on; ezplot('pi*r^2*0.5', [0,5])
-						</code></pre>
-					</div>
-
-
-
-					<div style="margin-top:-30px"  class="fragment" data-fragment-index="4" >
-						<img style="width:54%" src="images/lect-16/ezplot-01.svg">
-
+					
+					<div id="sbt" >
+						<p><strong>2.2.3 Ellipses</strong></p>
 					</div>
 
 
 					
-				
-
-					<br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1.1 Visualising functions</strong></p>
-					</div>
-					
-
-
-
-					<div class="size-75" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Alternatively, we could keep $r$ fixed and plot $V$ as a function of $\ell:$
-								</span>
-							</p>
-							
-						</div>
-						
-						
-						
-					</div>
-
-					<div style="font-size:120%">
-						<pre><code data-trim data-noescape data-line-numbers="1-3">
-							ezplot('pi*1^2*l', [0,5])
-							hold on; ezplot('pi*0.5^2*l', [0,5])
-							hold on; ezplot('pi*2^2*l', [0,5])
-						</code></pre>
-					</div>
-
-
-					<div style="margin-top:-30px" >
-						<img style="width:55%" src="images/lect-16/ezplot-02.svg">
-
-					</div>
-				
-
-					<br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1.1 Visualising functions</strong></p>
-					</div>
-					<div class="size-90" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Better still is visualising the surface by sketching the graph of
-									$z=f(x,y)$.
-									
-								</span>
-								<span>
-									In Matlab, the <span id="bb"><code>ezsurf</code></span> function will prove to be our quickest tool:
-								</span>
-							</p>
-							
-						</div>
-						
-						
-						
-					</div>
-
-					
-
-
-
-					<div class="size-95" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="7">
-									Alternatively, we could keep $r$ fixed and plot $V$ as a function of
-								</span>
-							</p>
-							
-						</div>
-						
-						
-						
-					</div>
-
-					<div style="font-size:150%" class="fragment" data-fragment-index="7">
-						<pre><code data-trim data-noescape data-line-numbers="1">
-							ezsurf('pi*r^2*l', [0,4,0,4])
-						</code></pre>
-					</div>
-
-
-					
-				
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1.1 Visualising functions</strong></p>
-					</div>
-					
-
-					<div style="font-size:150%" >
-						<pre><code data-trim data-noescape data-line-numbers="1">
-							ezsurf('pi*r^2*l', [0,4,0,4])
-						</code></pre>
-					</div>
-
-
-					<div style="margin-top:-20px" >
-						<img style="width:63%" src="images/lect-16/vol-surf.png">
-
-					</div>
-					
-				
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
-					<div id="sbt">
-						<p><strong>2.1.1 Visualising functions</strong></p>
-					</div>
-					
-					<div class="size-90" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									In Matlab we can plot contour lines for the volume function
-									using the <span id="bb"><code>ezcontour</code></span> function:
-								</span>
-							</p>
-							
-						</div>
-						
-						
-						
-					</div>
-					
-
-					<div style="font-size:150%" >
-						<pre><code data-trim data-noescape data-line-numbers="1">
-							ezcontour('pi*r^2*l', [0,2,0,2])
-						</code></pre>
-					</div>
-
-
-					<div class="size-90" style="margin-top:0px">
+					<div class="size-80" style="margin-top:-15px">
 						<div class="left-txt">
 							<p>
 							
 								<span class="fragment" data-fragment-index="0">
-									Using these tools, you should be able to replicate the plots in
-									Stewart, Section 14.1 (Section 14.1).
+									In standard form, an ellipse centered at the origin is given by the equation
 								</span>
 							</p>
+							
+							
+							
+							
+							
+						</div>
+						<div class="" style="margin-top:-25px">
 							<p>
 							
-								<span class="fragment" data-fragment-index="1">
-									We shall start the course by looking at
-									<span id="rr">quadratic functions of two variables</span>.
-									These have contours which are circles, ellipses, parabolas or
-									hyperbolas.
+								<span class="fragment" data-fragment-index="0">
+									$\ds \frac{x^2}{a^2} + \frac{y^2}{b^2} =1.$
 								</span>
 							</p>
+							
+							
+							
+							
 							
 						</div>
 						
 						
 						
 					</div>
+					
 				
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem"  class="fragment" data-fragment-index="1">
+							
+							<div class="left-txt" style="margin-top:-10px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										Let $a\gt b\,$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										and define $c\geq 0\, $ by $c^2=a^2-b^2$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$y=0\,$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\Ra x= a,-a$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$x=0\,$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$\Ra y= \pm b$
+									</span>
+								</p>
+								<br/><br/><br/>
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.3 Ellipses</strong></p>
+					</div>
+
+
+					
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									An ellipse may also be defined as the set of points in a plane the sum 
+of whose distances from two fixed focal points $F_1$ and $F_2$ is a
+constant, and you should definitely ask your lecturer to use two pins
+and a piece of string to demonstrate this.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+If $a \geq b$, then the foci are at $(\pm c,0)$ where $c^2 = a^2 -b^2.$
+These lie on the major axis ($x$-axis here).
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The ellipse intersects the $x$ axis at the
+ vertices $(\pm a,0)$, and the $y$-axis at the vertices $(0,\pm b)$.
+								</span>
+							</p>
+							
+						</div>
+					</div>
+
+					<div class="size-80" style="margin-top:-0px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									<strong>Question:</strong>
+									What is the equation of an ellipse centered at the point $(h,k)$?
+								</span>
+							</p>
+	
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+				
+					
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.3 Ellipses</strong></p>
+					</div>
+
+
+					
+					<div class="size-85" style="margin-top:-0px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Question:</strong>
+									What is the equation of an ellipse centered at the point $(h,k)$?
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="" style="margin-top:-20px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds \frac{ \left( x-h\right)^2 }{a^2}+ \frac{ \left( y-h\right)^2 }{b^2}=1$
+									</span>
+								</p>
+								
+								
+							</div>
+							
+						</div>
+					</div>
+					
+
+
+					<br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.3 Ellipses</strong></p>
+					</div>
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Sketch the ellipse $x^2-x+9y^2=0$.
+								</span>
+							</p>
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Complete the square:
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$ \ds \left( \left(x-\frac{1}{2}\right)^2- \frac{1}{4}\right)$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$ 
+										+\, 9y^2$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$ =0$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\Ra \ds \left(x-\frac{1}{2}\right)^2+ 
+										 9y^2
+										=\frac{1}{4}$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$\Ra \ds 4\left(x-\frac{1}{2}\right)^2+ 
+										 36y^2
+										=1$
+									</span>
+								</p>
+								
+								
+								
+								
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.3 Ellipses</strong></p>
+					</div>
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Sketch the ellipse $x^2-x+9y^2=0$.
+								</span>
+							</p>
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								
+								<p>
+									<span>
+										$ \ds \left( \left(x-\frac{1}{2}\right)^2- \frac{1}{4}\right)$
+									</span>
+									<span>
+										$ 
+										+\, 9y^2$
+									</span>
+									<span>
+										$ =0$
+									</span>
+								</p>
+								<p>
+									<span>
+										$\Ra \ds 4\left(x-\frac{1}{2}\right)^2+ 
+										 36y^2
+										=1$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\Ra \ds \frac{\left(x-\frac{1}{2}\right)^2}{\left(\frac{1}{2}\right)^2}+ 
+										\frac{y^2}{\left(\frac{1}{6}\right)^2} =1$
+									</span>
+								</p>
+								
+								
+								
+								
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.3 Ellipses</strong></p>
+					</div>
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Sketch the ellipse $x^2-x+9y^2=0$.
+								</span>
+							</p>
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								
+								
+								<p>
+									<span>
+										$\Ra \ds \frac{\left(x-\frac{1}{2}\right)^2}{\left(\frac{1}{2}\right)^2}+ 
+										\frac{y^2}{\left(\frac{1}{6}\right)^2} =1$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										If $\, y=0\,$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\, \ds \Ra x-\frac{1}{2} = \pm \frac{1}{2}\,$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\, \ds \Ra x = \frac{1}{2}\pm \frac{1}{2}\,$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										If $\,\ds x=\frac{1}{2}\,$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\,\ds  \Ra y = \pm \frac{1}{6}$
+									</span>
+								</p>
+								
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.3 Ellipses</strong></p>
+					</div>
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Sketch the ellipse $x^2-x+9y^2=0$.
+								</span>
+							</p>
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-75" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								
+								
+								<p>
+									<span>
+										$\Ra \ds \frac{\left(x-\frac{1}{2}\right)^2}{\left(\frac{1}{2}\right)^2}+ 
+										\frac{y^2}{\left(\frac{1}{6}\right)^2} =1$
+									</span>
+								</p>
+								<p>
+									<span>
+										If $\, y=0\,$
+									</span>
+									<span>
+										$\, \ds \Ra x = \frac{1}{2}\pm \frac{1}{2}\,$
+									</span>
+								</p>
+								<p>
+									<span>
+										If $\,\ds x=\frac{1}{2}\,$
+									</span>
+									<span>
+										$\,\ds  \Ra y = \pm \frac{1}{6}$
+									</span>
+								</p>
+								
+								
+								<br/><br/><br/>
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+			</section>
+
+			<section>
+				
+
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.4 Hyperbolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									A hyperbola centered at the origin, with asymptotes 
+									$y=\pm b x/a$, is given by the equation 
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						<div class="" style="margin-top:-5px">
+							<p>
+							
+								<span>
+									$\ds \frac{x^2}{a^2} - \frac{y^2}{b^2} =1 \;\;$
+								</span>
+								or by
+
+								<span>
+									$\;\;\ds-\frac{x^2}{a^2} + \frac{y^2}{b^2} =1.$
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-10px">
+								
+								<br/><br/><br/><br/><br/><br/><br/>
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.4 Hyperbolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-85" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									A hyperbola may also be defined as the set of points in a plane,
+ the difference of whose distances from two fixed focal points 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+For such a hyperbola, the foci are at $(\pm c,0)$ and $(0,\pm c)$
+respectively, where $c^2 = a^2 + b^2$.
+								</span>
+							</p>
+							
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-0px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									<strong>Question:</strong>
+									What is the equation of a hyperbola centered at the point $(h,k)$?
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+				
+					
+
+
+					<br/><br/>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.4 Hyperbolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-85" style="margin-top:-0px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Question:</strong>
+									What is the equation of a hyperbola centered at the point $(h,k)$?
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="" style="margin-top:-20px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds \frac{ \left( x-h\right)^2 }{a^2}- \frac{ \left( y-h\right)^2 }{b^2}=\pm1$
+									</span>
+								</p>
+								
+								
+								
+								
+							</div>
+							
+						</div>
+					</div>
+					
+
+
+					<br/><br/>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.4 Hyperbolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Sketch the hyperbola $x^2-4y^2=9$.
+								</span>
+							</p>
+							
+							
+						</div>
+						
+						
+						
+						
+					</div>
+					
+				
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Standard form:
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$ \ds \frac{x^2}{3^2} - \frac{2^2y^2}{3^2}=1$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\,\Ra \, \ds \frac{x^2}{3^2} - \frac{y^2}{\left(\frac{3}{2}\right)^2}=1$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										Centre at $\,(0,0)\,$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										and $\,a = 3, b = \dfrac{3}{2}.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										Asymptotes are 
+										$\ds y =\pm \frac{6}{9}x$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										
+										$\ds  = \pm \frac{1}{2}x$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										Skecht it! 📝
+									</span>
+								</p>
+								
+								
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
 
 					<br/><br/>
 				</section>
 
-				<section>
-					<h4>1 Ordinary Differential Equations</h4>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt"  style="margin-top:-20px;">
+						<p><strong>2.2.5 Quiz</strong></p>
+					</div>
+	
+					<div class="size-70" style="margin-top:-25px;">
+						<div class="left-txt">
+							<p>
+								<span>
+									Can you match each equation with one of the graphs? 
+								</span>
+							</p>
+	
+							<table style="margin-top:-25px;">
+								<tr>
+									<td style="border: none;">
+										a) $x^2-y^2-1=0\quad$
+									</td>
+									<td style="border: none;">
+										b) $x+y^2-1=0$
+									</td>
+								</tr>
+								<tr>
+									<td style="border: none;">
+										c) $x^2-y^2-1=0\quad$
+									</td>
+									<td style="border: none;">
+										e)  $x^2-y^2+4=0$.
+									</td>
+								</tr>
+								<tr>
+									<td>
+										d) $x^2-2x+y^2=0\quad$
+									</td>
+									<td>
+										f) $4x^2-8x+y^2=0$.
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+	
+					<div style="margin-top:-25px;">
+						<img style="width:74%" src="images/lect-17/quiz.png">
+					</div>
+				</section>
+	
+				
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
 					<div id="sbt">
-						<p><strong>2.1.2 Main points</strong></p>
+						<p><strong>2.2.6 Main points</strong></p>
 					</div>
 	
 					
-					<div class="size-95">
-						<ul style="line-height:50px">
+					<div class="size-80">
+						<ul style="line-height:45px">
 							<li>
-								What is a function of several variables and why are they useful?
+								By completing the square, you should be able to  
+								<ol style="list-style-type: lower-roman;">
+									<li>
+										sketch any curve
+	of the form $$ax^2 + by^2 + cx + dy + e = 0,$$ 
+									</li>
+									<li>
+										identify this curve as a straight line (or lines), circle, 
+	parabola, ellipse or hyperbola,
+	and
+									</li>
+									<li>
+										point out its main features such as turning points, 
+										asymptotes and intercepts with the $x$- and/or $y$-axes.
+									</li>
+								</ol>
 							</li>
+							<br/>
 							<li>
-								Methods to visualise a function of two variables.
+								You should also be able to obtain the equation of a curve of the above form
+	from a sketch with features given.
 							</li>
-							<li>
-								Matlab commands  
-								<span id="bb"><code>ezplot</code></span>,
-								<span id="bb"><code>ezsurf</code></span> and <span id="bb"><code>ezcontour</code></span>.
-							</li>
+							
 						</ul>
 					</div>
 	
 					
 					<br/><br/><br/><br/>
-					
 				</section>
-
-
 			</section>
 
+		
 
 			<section>
-
 				<section data-auto-animate>
 					<h4>2 Functions of Several Variables</h4>
 					<div id="sbt">
-						<p><strong>2.2 Conic Sections</strong></p>
+						<p><strong>2.3 Contour diagrams</strong></p>
 					</div>
-					
 					<div class="size-85" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 							
 								<span class="fragment" data-fragment-index="0">
-									The goal of this section is for you to become an expert in 
-									graphing parabolas, circles, ellipses and hyperbolas 
-									(without use of a graphics calculator, of course).
+									Geographical maps have curves of constant height above
+									sea level, or curves of constant air pressure (isobars), 
+									or curves of constant temperature (isothermals). 
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									The key-trick to this is "completing the square".
-									See also Stewart, Section 10.5.
+									Drawing contours is an effective method of representing a 
+									3-dimensional surface in two dimensions.
 								</span>
-							</p>
+								<span class="fragment" data-fragment-index="2">
+									We now look at functions $f$ of two variables.
+									A <span id="rr">contour</span> is a curve corresponding to the equation $z=f(x,y)=C,$
+									see also Stewart, Section 14.1.
+								</span>
 							
+							</p>
+						
+							
+
 						</div>
 						
-						
-						
-					</div>
 					
-
-					<div id="sbt" style="margin-top:20px" class="fragment" data-fragment-index="2">
-						<p><strong>2.2.1 Parabolas</strong></p>
+					
 					</div>
 
 
-					<div class="size-85" style="margin-top:0px">
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-									<strong>Example:</strong>
-									Sketch the following parabolas:
-								</span>
-							</p>
-							
-							
-						</div>
-
-						<div>
-							<p>
-								<span class="fragment" data-fragment-index="2">
-									$y=x^2, \; y=x^2+3, \; y=(x+2)^2, $
-								</span>
-							</p>
-							<p>
-								
-								<span class="fragment" data-fragment-index="2">
-									$y=2x^2, \;
-									y=2(x+2)^2+3.$
-								</span>
-							</p>
-						</div>
-						
-						
-						
-					</div>
 				
 
-					<br/><br/>
+					<br/><br/><br/>
 				</section>
+				
 				<section data-auto-animate>
 					<h4>2 Functions of Several Variables</h4>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
+					<div id="sbt">
+						<p><strong>2.3 Contour diagrams</strong></p>
 					</div>
-
-
-					<div class="size-60" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>Example:</strong>
-									Sketch the following parabolas:
-								</span>
-							</p>
-							
-							
-						</div>
-
-						<div style="margin-top:-20px">
-							<p>
-								<span>
-									$y=x^2, \; y=x^2+3, \; y=(x+2)^2, $
-								</span>
-								<span>
-									$\;y=2x^2, \;
-									y=2(x+2)^2+3.$
-								</span>
-							</p>
-						</div>
-						
-						
-						
-					</div>
-				
 					<div class="size-85" style="margin-top:-10px">
-					
-						<div id="theorem">
+						<div class="left-txt">
+							<p>
 							
-							<div class="left-txt" style="margin-top:20px">
+								<span>
+									Consider the surface $z=f(x,y)=x^2+y^2$ sliced by horizontal 
+									planes $z=0,\,z=1,\,z=2,\dots$
+								</span>
 								
-								<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-								
-							</div>
+							
+							</p>
+
+							<table style="margin-top:-10px;border:1px solid black;">
+								<tr>
+									<td style="border:1px solid black;">
+										Plane
+									</td>
+									<td style="border:1px solid black;">
+										Contour
+									</td>
+									<td style="border:1px solid black;">
+										Description
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=0$
+									</td>
+									<td style="border:1px solid black;" >
+										<span class="fragment" data-fragment-index="0">
+											$0 = x^2+ y^2$
+										</span>
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="0">
+											Point $\,(0,0)$
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=1$
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="1">
+											$1 = x^2+ y^2$
+										</span>
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="2">
+											Circle radius 1, centred at $(0,0)$
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=2$
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="3">
+											$2 = x^2+ y^2$
+										</span>
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="4">
+											Circle radius $\,\sqrt{2}$
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=3$
+									</td>
+									<td style="border:1px solid black;" >
+										<span class="fragment" data-fragment-index="5">
+											$3 = x^2+ y^2$
+										</span>
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="6">
+											Circle radius $\,\sqrt{3}$
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=4$
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="7">
+											$4 = x^2+ y^2$
+										</span>
+									</td>
+									<td style="border:1px solid black;">
+										<span class="fragment" data-fragment-index="8">
+											Circle radius $\,2$
+										</span>
+									</td>
+								</tr>
+							</table>
+						
 							
 						</div>
-					</div>
-
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>2 Functions of Several Variables</h4>
+						
 					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					<div class="size-90" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Putting a quadratic $y=ax^2+bx+c$ in the form
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						
-
-						<div style="margin-top:0px">
-							<p>
-								<span>
-									$y=a(x-h)^2+k,$
-								</span>
-							</p>
-						</div>
-
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									is called <span id="rr">completing the square</span>.
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						
-						
-						
-					</div>
-					<br/>
-					<div class="size-90" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									<strong>Question:</strong>
-									What is the interpretation of the point $(h,k)$? 
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						
 					</div>
 				
-					
-
-
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					<div class="size-70" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Putting a quadratic $y=ax^2+bx+c$ in the form
-								</span>
-									$y=a(x-h)^2+k,$
-								</span>
-							
-								<span>
-									is called <span id="rr">completing the square</span>.
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						
-						
-						
-					</div>
-					<div class="size-70" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>Question:</strong>
-									What is the interpretation of the point $(h,k)$? 
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						
-					</div>
-					
-				
-					<div class="size-85" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="left-txt" style="margin-top:20px">
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										1. $\,(h,k)$ is the "base" or the "tip"
-									</span>
-								</p>
-								<p>
-									
-									<span class="fragment" data-fragment-index="1">
-										2. $\,x=h$ is an axis of <br/>
-										symmetry for the parabola
-									</span>
-								</p>
-								
-								<br/><br/><br/><br/>
-							</div>
-							
-						</div>
-					</div>
-
-				
-
 
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>2.3 Contour diagrams</strong></p>
 					</div>
-
-
-					
-
-					<div class="size-95" style="margin-top:50px">
+					<div class="size-40" style="margin-top:-20px">
 						<div class="left-txt">
-							<p>
 							
-								<span>
-									Completing the square makes use of the identity
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						<div class="" style="margin-top:-15px">
-							<p>
-							
-								<span>
-									$x^2+2xh+h^2=(x+h)^2.$
-								</span>
-							</p>
-							
-							
+
+							<table style="margin-top:-10px;border:1px solid black;">
+								<tr>
+									<td style="border:1px solid black;">
+										Plane
+									</td>
+									<td style="border:1px solid black;">
+										Contour
+									</td>
+									<td style="border:1px solid black;">
+										Description
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=0$
+									</td>
+									<td style="border:1px solid black;">
+										$0 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Point $\,(0,0)$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=1$
+									</td>
+									<td style="border:1px solid black;">
+										$1 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius 1, centred at $(0,0)$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=2$
+									</td>
+									<td style="border:1px solid black;">
+										$2 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius $\,\sqrt{2}$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=3$
+									</td>
+									<td style="border:1px solid black;">
+										$3 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius $\,\sqrt{3}$
+									</td>
+								</tr>
+								<tr>
+									<td style="border:1px solid black;">
+										$z=4$
+									</td>
+									<td style="border:1px solid black;">
+										$4 = x^2+ y^2$
+									</td>
+									<td style="border:1px solid black;">
+										Circle radius $\,2$
+									</td>
+								</tr>
+							</table>
+						
 							
 						</div>
 						
-					</div>
-
-
-					<br/><br/><br/><br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>2 Functions of Several Variables</h5>
 					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					
-					<div class="size-75" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>Example:</strong>
-									Sketch the parabola $y = x^2 + 6x + 8.$
-								</span>
-							</p>
-							
-							
-							
-						</div>
 						
+					
 					</div>
-					
-				
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="left-txt" style="margin-top:-20px">
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										Complete the square:
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$ y = \left(x^2+ 6x\right)+ 8$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$  = \left(\left(x+3\right)^2-9\right)+ 8$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="3">
-										$ \quad = \left(x+3\right)^2-1$
-									</span>
-								</p>
-
-
-								<p>
-									
-									<span class="fragment" data-fragment-index="4">
-										For $\, y=0$
-									</span>
-									<span class="fragment" data-fragment-index="5">
-										 $\, \Ra (x+3)^2=1$
-									</span>
-								</p>
-								<p>
-									
-									<span class="fragment" data-fragment-index="6">
-										 $\Ra x+3 = \pm 1$
-									</span>
-									<span class="fragment" data-fragment-index="7">
-										$\, \Ra x= \pm 1 -3$
-								   </span>
-								</p>
-								<p>
-									
-									
-									<span class="fragment" data-fragment-index="8">
-										$\, \Ra x = -4, -2.$
-								   </span>
-								</p>
-								<p>
-									
-									<span class="fragment" data-fragment-index="9">
-										For $\, x=0$
-									</span>
-									<span class="fragment" data-fragment-index="10">
-										 $\, \Ra y = 8 .$
-									</span>
-								</p>
-								
-								
-								
-							</div>
-							
-						</div>
-					</div>
-
-					
-
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					
-					<div class="size-75" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>Example:</strong>
-									Sketch the parabola $y =- 3x^2-6x+1.$
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						
-					</div>
-					
-				
-					<div class="size-80" style="margin-top:-15px">
-					
-						<div id="theorem">
-							
-							<div class="left-txt" style="margin-top:-30px">
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										Complete the square:
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$ y = -3\left( x^2+2x+1\right) +1$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$  = -3\left(\left(x+1\right)^2 - 1\right) +1$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="3">
-										$ \quad = -3\left(x+1\right)^2 + 4 $
-									</span>
-								</p>
-
-
-								<p>
-									
-									<span class="fragment" data-fragment-index="4">
-										For $\, y=0$
-									</span>
-									<span class="fragment" data-fragment-index="5">
-										 $\, \Ra 3\left(x+1\right)^2 = 4 $
-									</span>
-								</p>
-								<p>
-									
-									<span class="fragment" data-fragment-index="6">
-										 $\Ra \left(x+1\right)^2= \dfrac{4}{3}$
-									</span>
-									<span class="fragment" data-fragment-index="7">
-										$\, \Ra x+1 =  \pm \dfrac{2}{\sqrt{3}}$
-								   </span>
-								</p>
-								
-								
-								
-								
-								
-							</div>
-							<div class="left-txt" style="margin-top:-10px">
-								<p>
-									
-									<span class="fragment" data-fragment-index="8">
-										$\, \Ra x = -1 \pm \dfrac{2}{\sqrt{3}}.\;$
-								   </span>
-								
-									
-									<span class="fragment" data-fragment-index="9">
-										For $\, x=0$
-									</span>
-									<span class="fragment" data-fragment-index="10">
-										 $\, \Ra y = 1 .$
-									</span>
-								</p>
-							</div>
-							
-						</div>
-					</div>
-
-					
-
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					
-					<div class="size-70" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>Example:</strong>
-									Prove the quadratic formula. 
-									In other words, given $ax^2 +bx+c=0,$
-									by completing the square, show that 
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						<div>
-							<p>
-								<span>
-									$\ds x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}.$
-								</span>
-							</p>
-						</div>
-						
-					</div>
-					
-				
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="left-txt" style="margin-top:-20px">
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										Let $a\neq 0$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\, \Ra \ds x^2+ \frac{b}{a}x+ \frac{c}{a}=0$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										$\ds \Ra \left(x^2+ \frac{b}{a}x\right)+ \frac{c}{a}= 0 $
-									</span>
-									
-								</p>
-
-
-								<p>
-									
-									<span class="fragment" data-fragment-index="3">
-										$\; \iff \ds  \left( \left(x^2+ \frac{b}{2a}\right)^2 -\frac{b^2}{4a}\right)+ \frac{c}{a}= 0 $
-									</span>
-								</p>
-								
-								
-							</div>
-							
-						</div>
-					</div>
-
-					
-
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					
-					
-					
-				
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="left-txt" style="margin-top:-20px">
-								
-								<p>
-									<span>
-										Let $a\neq 0$
-									</span>
-									<span>
-										$\, \Ra \ds x^2+ \frac{b}{a}x+ \frac{c}{a}=0$
-									</span>
-								</p>
-								<p>
-									<span>
-										$\ds \Ra \left(x^2+ \frac{b}{a}x\right)+ \frac{c}{a}= 0 $
-									</span>
-									
-								</p>
-
-
-								<p>
-									
-									<span>
-										$\; \iff \ds  \left( \left(x^2+ \frac{b}{2a}\right)^2 -\frac{b^2}{4a}\right)+ \frac{c}{a}= 0 $
-									</span>
-								</p>
-								
-								
-								
-							</div>
-							<div class="left-txt" style="margin-top:-0px">
-								
-								
-								
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\qquad \ds \Ra \left(x^2+ \frac{b}{2a}\right)^2 = \frac{b^2}{4a} -\frac{c}{a} $
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\ds  = \frac{b^2-4ac}{4a^2}  $
-									</span>
-									
-								</p>
-								
-							</div>
-							
-						</div>
-					</div>
-
-					
-
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					
-					
-					
-				
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="left-txt" style="margin-top:-20px">
-								
-								<p>
-									<span>
-										Let $a\neq 0$
-									</span>
-									<span>
-										$\, \Ra \ds x^2+ \frac{b}{a}x+ \frac{c}{a}$
-									</span>
-								</p>
-								
-								
-								<p>
-									<span>
-										$\quad \ds \Ra \left(x^2+ \frac{b}{2a}\right)^2  $
-									</span>
-									<span>
-										$\ds  = \frac{b^2-4ac}{4a^2}  $
-									</span>
-									
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										$\quad \ds \Ra x^2+ \frac{b}{2a} $
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds  = \pm \sqrt{\frac{b^2-4ac}{4a^2} } $
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\ds  = \pm \frac{\sqrt{b^2-4ac}}{2a}  $
-									</span>
-									
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="3">
-										$\quad \ds \Ra x 
-										  =  -\frac{b}{2a}\pm \frac{\sqrt{b^2-4ac}}{2a} $
-									</span>
-									<span class="fragment" data-fragment-index="4">
-										$
-										\ds  = \frac{-b\pm \sqrt{b^2-4ac} }{2a}$
-									</span>
-									
-								</p>
-								
-							</div>
-							
-						</div>
-					</div>
-
-					
-
-
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					
-					<div class="size-85" style="margin-top:-5px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Parabolas, circles, ellipses and hyperbolas are all examples of
-									<span id="rr">conic sections</span>; they all arise by intersecting a double cone
-									such as $z^2=x^2+y^2$, with a plane $z=-ex-dy+l.$
-								</span>
-							</p>
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									See the diagrams in Stewart p. 714 (p. 694).
-Slice an upright cone horizontally and you get a circle. 
-								</span>
-								<span class="fragment" data-fragment-index="0">
-									
-Tip your knife a bit (with a gradient of magnitude less than $1$) and you will get an ellipse. 
-Keep tipping ($|\text{gradient}|=1$), and you will get a parabola.
-								</span>
-								<span class="fragment" data-fragment-index="0">
-									
-Continue tipping ($|\text{gradient}|>1$), and you will cut out an hyperbola.
-								</span>
-							</p>
-
-							
-							
-							
-						</div>
-						
-						
-					</div>
-					
-
-					
-
-
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h5>Conics sections</h5>
-			
-
 
 					<div style="margin-top:-10px">
-						<iframe scrolling="no" title="Conic sections" src="https://www.geogebra.org/material/iframe/id/qz9cf8kp/width/557/height/588/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-						 width="55%" height="588px" style="border:0px;"
-						 allowfullscreen=""> </iframe>
+						<div id="theorem">
+
+							<br/><br/><br/><br/><br/>
+
+							<div class="left-txt" style="font-size:60%;margin-top:-15px">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Note that as the radius increases, the contours are more closely spaced.
+									</span>
+								</p>
+							</div>
+						</div>
 					</div>
+					<br/>
 
-					
-
-
-					<br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h5>2 Functions of Several Variables</h5>
-					
-					<div id="sbt" >
-						<p><strong>2.2.1 Parabolas</strong></p>
-					</div>
-
-
-					
-					<div class="size-90" style="margin-top:-15px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Formally then, the <span id="rr">general equation</span> for a conic is given by the formula,
-								</span>
-							</p>
-							
-							
-							
-							
-							
-						</div>
-						<div class="">
-							<p>
-							
-								<span>
-									$(l-ex-dy)^2=x^2+y^2,$
-								</span>
-							</p>
-							
-							
-							
-							
-							
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									with a focus at the origin.
-								</span>
-								<span>
-									 We will explore this in more detail in a tutorial sheet.
-								</span>
-							</p>
-							
-							
-							
-							
-							
-						</div>
-						
-						
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>2.3 Contour diagrams</strong></p>
 					</div>
 					
 
-					
+					<div style="margin-top:-10px">
+						
 
+							<div class="left-txt" style="font-size:60%;margin-top:-15px">
+								<p>
+									<span>
+										Note that as the radius increases, the contours are more closely spaced.
+									</span>
+								</p>
+							</div>
+						
+					</div>
 
-					<br/><br/><br/><br/>
+					<div style="margin-top:-20px">
+						<img style="width:70%;" src="images/lect-18/contour-01.png">
+
+					</div>
+					<br/>
+
 				</section>
 				
-				
+
+				<section  data-auto-animate 
+							data-background-iframe="https://www.math3d.org/YMjnVrR5J">
+					
+				</section>
 
 			</section>
-
-			
-			
 			
 			
 

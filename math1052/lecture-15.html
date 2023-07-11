@@ -42,6 +42,9 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	<script src="mySetup/google-analytics-ga4.js"></script>
+
+	<script src="mathcell/math.js"></script>
+	<script src="mathcell/mathcell.js"></script>
 	
 </head>
 
@@ -60,901 +63,1435 @@
 			<!--Section with format-->
 
 
+			
+
 			<section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
-					</div>
 
-					<div class="size-80" style="margin-top:-10px">
-						
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0" >
-									Consider the acceleration of a particle under a constant gravitational force. (For motion near 
-									the Earth's surface, gravitational force is approximately constant). 
-								</span>
-								<span class="fragment" data-fragment-index="1" >
-									By Newton's second law ($ma=F$), the ODE governing this sytem is
-								</span>
-							</p>
-						</div>
-						<div>
-							<p>
-								<span class="fragment" data-fragment-index="2">
-									$\ds m \frac{d^2 y}{dt^2}=-mg.~~(\#)$
-								</span>
-							</p>
-						</div>
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="3" >
-									There is a negative sign on the right of this equation because gravity pulls down towards the earth, 
-								</span>
-								<span class="fragment" data-fragment-index="4" >
-									but $y$ is measured as distance up from the the earth. 
-								</span>
-								<span class="fragment" data-fragment-index="5" >
-									Now also recall that $V,$ the potential energy has been defined as
-									 the negative of the integral of the force with respect to distance.
-								</span>
-							</p>
-						</div>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt">
+						<p><strong>2.1 Introduction</strong></p>
 					</div>
-					<br/><br/>
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									From MATH1051 or earlier mathematics courses, you should be familiar 
+									with functions $f$ of one variable.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The tools of calculus were useful because you could:
+								</span>
+							
+							</p>
+
+							<ul>
+								<li class="fragment" data-fragment-index="2">
+									Sketch the graph $y=f(x)$ of $f.$
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									Find the minima and maxima of $f.$
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									Analyse the slope of $f$ by calculating $f'.$
+								</li>
+								<li class="fragment" data-fragment-index="5">
+									Find approximations of $f$ using Taylor series.
+								</li>
+								<li class="fragment" data-fragment-index="6">
+									Find solutions to $f(x)=0.$
+								</li>
+							</ul>
+						
+						</div>
+						
+						
+					
+					
+					</div>
+				
+
+					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
+					<h4>2 Functions of Several Variables</h4>
 					<div id="sbt">
-						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
+						<p><strong>2.1 Introduction</strong></p>
 					</div>
-
-					<div class="size-60" style="margin-top:-10px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									There is a negative sign on the right of this 
-									equation because gravity pulls down towards the earth, 
-								</span>
-								<span>
-									but $y$ is measured as distance up from the the earth. 
-								</span>
-								<span >
-									Now also recall that $V$, the potential energy has been defined as
-									 the negative of the integral of the force with respect to distance.
-								</span>
-							</p>
-						</div>
-					</div>
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							<div class="" style="margin-top:-20px">
-								<p>
-									<span class="fragment" data-fragment-index="0" >
-										$V(y)\ds =-\int F(y)\, dy\qquad$
-									</span>
-									<span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="1" >
-										$\ds =-\int \left(-mg\right)\, dy$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2" >
-										$\ds =mgy+c.\quad \;$
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-					<br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
-					</div>
-
 					<div class="size-85" style="margin-top:-10px">
-						
-						
 						<div class="left-txt">
 							<p>
+							
 								<span>
-									Setting $c$ equal to $0$, the ODE ($\#$) may be written;
+									In this module of MATH1052, we shall undertake these same basic ideas,
+									but in the framework of functions of several variables (multivariate functions).
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									Most of the theory for this section is covered in Stewart, Chapter 14.
 								</span>
 							</p>
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									Many familiar formulae are essentially just functions of more than 
+									one variable.
+								</span>
+							</p>
+							<p>
+							
+								
+								<span class="fragment" data-fragment-index="2">
+									For example, the volume $V$ of a box 
+									is a function of its width, height and depth: $\;V(w,h,d)=whd,$
+									
+
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									and the profile of a guitar string is a function of time and
+									position along the string: $\;f(x,t)=A\sin (\alpha x) \cos (\beta t).$
+
+								</span>
+							</p>
+
+							
+						
+						</div>
+						
+						
+					</div>
+				
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt">
+						<p><strong>2.1 Introduction</strong></p>
+					</div>
+					<div class="size-45" style="margin-top:-20px">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									For example, the volume $V$ of a box 
+									is a function of its width, height and depth: $\;V(w,h,d)=whd,$
+									and the profile of a guitar string is a function of time and
+									position along the string: $\;f(x,t)=A\sin (\alpha x) \cos (\beta t).$
+
+								</span>
+							</p>
+
+						
+						</div>
+						
+						
+					</div>
+
+					<div style="margin-top:-5px">
+						<iframe
+							scrolling="no" name="Guitar wave" 
+							style="border:2px solid black;;width:100%;height:500px"
+							data-src="sketches/chapter-02/guitar-wave"	
+
+						></iframe>
+					</div>
+				
+
+					<br/>
+					<!--
+						<div class="mathcell size-40 left-txt" style="width: 650px; height: 450px">
+						<script>
+						
+						var parent = document.currentScript.parentNode;
+						
+						var id = generateId();
+						parent.id = id;
+						
+						MathCell( id, [ ] );
+
+						var move = 0.0
+						
+						parent.update = function( id ) {
+						
+						  function z(x,y) { 
+							return [ x, y, ( 5 * Math.sin(0.4 * x + move) * Math.cos(3 * y + move))]; 
+						  }
+						
+						  var lim = 8.0;
+						  var s = parametric( z, [0,lim,100], [0,lim,100],
+												 { colormap: 'cool' } );
+						
+						  var data = [ s ];
+						
+						  var config = { type: 'threejs',
+						  				 aspectRatio: [1,1,0.7],
+										axesLabels: true,
+
+										};
+						
+						  evaluate( id, data, config );
+
+						  //move += 1.1
+						
+						}
+						
+						parent.update( id );
+
+						//setInterval( parent.update, 100, id );
+						
+						</script>
+					</div>
+					-->
+				</section>
+				
+				
+				
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt">
+						<p><strong>2.1.1 Visualising functions</strong></p>
+					</div>
+					<div class="size-95" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Consider the volume of a cylinder as a function of two variables:
+								</span>
+							</p>
+							
+						</div>
+						<div class="" style="font-size:115%">
+							<p>
+							
+								<span>
+									$\ds V(r,\ell) = \pi r^2 \ell.$
+								</span>
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									A first method of visualising this function 
+									is to plot $V$ for fixed $\ell$ and varying $r$.
+								</span>
+							</p>
+							
+						</div>
+						
+						
+					</div>
+				
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt">
+						<p><strong>2.1.1 Visualising functions</strong></p>
+					</div>
+					<div class="size-60" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Consider the volume of a cylinder as a function of two variables:
+								</span>
+							</p>
+							
 						</div>
 						<div class="">
 							<p>
+							
 								<span>
-									$\ds \frac{1}{2}m \left(\frac{dy}{dt}\right)^2+mgy = E$
+									$\ds V(r,\ell) = \pi r^2 \ell.$
 								</span>
 							</p>
+							
 						</div>
 						<div class="left-txt">
 							<p>
-								<span class="fragment" data-fragment-index="0" >
-									As $y$ decreases, the P.E. of the particle decreases and the K.E. increases so that the total energy is conserved.
-								</span>
-							</p>
-						</div>
-
-					</div>
-					
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
-					</div>
-
-					<div class="size-75" style="margin-top:-10px">
-						
-						
-						<div class="left-txt">
-							<p>
+							
 								<span>
-									The energy diagram looks like this:
+									A first method of visualising this function 
+									is to plot $V$ for fixed $\ell$ and varying $r$.
 								</span>
 							</p>
+							
 						</div>
 						
-
-					</div>
-
-					<div style="margin-top:-30px">
-						<img style="width:70%;" src="images/lect-14/energy-03.svg">
-					</div>
-
-					<div class="size-75" style="margin-top:-40px">
 						
-						
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0" >
-									The potential energy function $V(y)$ is a straight line, with slope $mg$. 
-								</span>
-								<span class="fragment" data-fragment-index="1" >
-									Given a fixed total energy $E$, the system cannot occupy positions $y>y_{\text{max}}.$ 
-								</span>
-								<span class="fragment" data-fragment-index="2" >
-									The turning point (and thus the maximum height an object can reach) is $y_{\text{max}}$.
-								</span>
-							</p>
-						</div>
-						
-
-					</div>
-					
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
 					</div>
 
-					<div class="size-75" style="margin-top:-10px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									<strong>Example:</strong>
-									A projectile is launched vertically upward from ground level, 
-									with initial speed $y=98$m/s. What is the maximum height the projectile will reach?
-								</span>
-								
-							</p>
-						</div>
-					</div>
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							<div class="" style="margin-top:-20px">
-								<p>
-									<span class="fragment" data-fragment-index="0" >
-										$\ds \frac{dy}{dt}(0)=98, \quad y(0)=0.$
-									</span>
-								</p>
-							</div>
-							<div class="left-txt" style="margin-top:-10px">
-								
-								<p>
-									<span class="fragment" data-fragment-index="1" >
-										Hence, using the energy equation, with $g=9.8$, the initial conditions are
-									</span>
-								</p>
-							</div>
-							<div class="" style="margin-top:-10px">
-								
-								
-								<p>
-									<span class="fragment" data-fragment-index="1" >
-										$\ds \frac{1}{2}m \left(98\right)^2+m\times g\times 0 $
-									</span>
-									<span class="fragment" data-fragment-index="2" >
-										$\ds=\frac{m}{2}98^2=E.$
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-					<br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
-					</div>
 
-					
-					<div class="size-80" style="margin-top:-10px">
+					<div class="size-85" style="margin-top:-10px">
 					
 						<div id="theorem">
 							
-							<div class="" style="margin-top:-20px">
+							<div class="left-txt" style="margin-top:20px">
 								
 								
 								<p>
-									
-									<span >
-										$\ds \Ra \frac{m}{2}98^2=E$
+									<span  class="fragment" data-fragment-index="0">
+										$\ds \ell =0$
+									</span>
+									<span  class="fragment" data-fragment-index="1">
+										$\ds \Ra V = 0 $
 									</span>
 								</p>
-							</div>
-							
-							<div class="left-txt" style="margin-top:-10px">
-								
 								<p>
-									<span class="fragment" data-fragment-index="1" >
-										At maximum height, $\ds \frac{dy}{dt}=0$
+									<span  class="fragment" data-fragment-index="2">
+										$\ds \ell =1$
 									</span>
-									<span class="fragment" data-fragment-index="2" >
-										and so
+									<span  class="fragment" data-fragment-index="3">
+										$\ds \Ra V = \pi r^2 $
 									</span>
 								</p>
-							</div>
-							<div class="left-txt" style="margin-top:-10px">
-								
 								<p>
-									<span class="fragment" data-fragment-index="2" >
-										$\ds \frac{1}{2}m \left(0\right)^2+mgy_{\text{max}}$
-									</span>
-									<span class="fragment" data-fragment-index="3" >
-										$ \ds =m\times9.8\times y_{\text{max}}$
-									</span>
-									<span class="fragment" data-fragment-index="4" >
-										$ \ds =E$
+									<span  class="fragment" data-fragment-index="4">
+										$\ds \ell =2$
 									</span>
 									<span class="fragment" data-fragment-index="5" >
-										$ \ds=\frac{m}{2}98^2$
+										$\ds \Ra V =  2\pi r^2$
 									</span>
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="6" >
-										$\ds \Ra y_{\text{max}}=\frac{\frac{m}{2}98^2}{m\times 9.8}$
+										$\ds \ell =3$
 									</span>
 									<span class="fragment" data-fragment-index="7" >
-										$\ds =\frac{98^2}{2\times9.8}$
-									</span>
-									<span class="fragment" data-fragment-index="8" >
-										$\ds =490\text{ metres.}$
+										$\ds \Ra V =  3\pi r^2 $
 									</span>
 								</p>
 							</div>
+							
+							<br/>
+							
 						</div>
 					</div>
-					<br/>
+				
+
+					<br/><br/><br/>
 				</section>
-				
-				
 
-			</section>
-			
-
-			<section>
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
+					<h4>2 Functions of Several Variables</h4>
 					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
+						<p><strong>2.1.1 Visualising functions</strong></p>
+					</div>
+					<div class="size-75" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Using Matlab, the <span id="bb"><code>ezplot</code></span> function is the simplest graphing aid:
+								</span>
+							</p>
+							
+						</div>
+						
+						
+						
+					</div>
+
+					<div style="font-size:120%">
+						<pre><code data-trim data-noescape data-line-numbers="1-3">
+							ezplot('pi*r^2*1', [0,5])
+							hold on; ezplot('pi*r^2*2', [0,5])
+							hold on; ezplot('pi*r^2*0.5', [0,5])
+						</code></pre>
+					</div>
+
+
+
+					<div style="margin-top:-30px"  class="fragment" data-fragment-index="4" >
+						<img style="width:54%" src="images/lect-16/ezplot-01.svg">
+
+					</div>
+
+
+					
+				
+
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt">
+						<p><strong>2.1.1 Visualising functions</strong></p>
+					</div>
+					
+
+
+
+					<div class="size-75" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Alternatively, we could keep $r$ fixed and plot $V$ as a function of $\ell:$
+								</span>
+							</p>
+							
+						</div>
+						
+						
+						
+					</div>
+
+					<div style="font-size:120%">
+						<pre><code data-trim data-noescape data-line-numbers="1-3">
+							ezplot('pi*1^2*l', [0,5])
+							hold on; ezplot('pi*0.5^2*l', [0,5])
+							hold on; ezplot('pi*2^2*l', [0,5])
+						</code></pre>
+					</div>
+
+
+					<div style="margin-top:-30px" >
+						<img style="width:55%" src="images/lect-16/ezplot-02.svg">
+
+					</div>
+				
+
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt">
+						<p><strong>2.1.1 Visualising functions</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Better still is visualising the surface by sketching the graph of
+									$z=f(x,y)$.
+									
+								</span>
+								<span>
+									In Matlab, the <span id="bb"><code>ezsurf</code></span> function will prove to be our quickest tool:
+								</span>
+							</p>
+							
+						</div>
+						
+						
+						
 					</div>
 
 					
-					<div class="size-85" style="margin-top:-10px">
+
+
+
+					<div class="size-95" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="7">
+									Alternatively, we could keep $r$ fixed and plot $V$ as a function of
+								</span>
+							</p>
+							
+						</div>
 						
 						
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									Recall the undamped mass-spring system with equation;
-								</span>
-								
-							</p>
-						</div>
-						<div class="">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									$\ds m\frac{d^2 x}{dt^2} =-kx.$
-								</span>
-								
-							</p>
-						</div>
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="1">
-									From page (76), the solution of this ODE is
-								</span>
-								
-							</p>
-						</div>
-						<div class="">
-							<p>
-								<span class="fragment" data-fragment-index="1" >
-									$\ds x(t)=A\cos(\omega t-\phi).$
-								</span>
-								
-							</p>
-						</div>
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="1">
-									where $\omega =\sqrt{k/m}$.
-								</span>
-								
-							</p>
-						</div>
+						
 					</div>
+
+					<div style="font-size:150%" class="fragment" data-fragment-index="7">
+						<pre><code data-trim data-noescape data-line-numbers="1">
+							ezsurf('pi*r^2*l', [0,4,0,4])
+						</code></pre>
+					</div>
+
+
+					
+				
+
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
+					<h4>2 Functions of Several Variables</h4>
 					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
+						<p><strong>2.1.1 Visualising functions</strong></p>
+					</div>
+					
+
+					<div style="font-size:150%" >
+						<pre><code data-trim data-noescape data-line-numbers="1">
+							ezsurf('pi*r^2*l', [0,4,0,4])
+						</code></pre>
 					</div>
 
-					
-					<div class="size-80" style="margin-top:-10px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									The potential energy corresponding to the spring force $F=-kx$ can be calculated as
-								</span>
-								
-							</p>
-						</div>
-						
-					</div>
 
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="" style="margin-top:-20px">
-								
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										$\ds V(x) =-\int (-kx)\, dx$
-									</span>
-								</p>
-							</div>
-							<div class="" style="margin-top:0px">
-								
-								
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\ds\;\; =\frac{1}{2}kx^2+c$
-									</span>
-								</p>
-							</div>
-							<div class="" style="margin-top:0px">
-								
-								
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										$\ds\quad\;\; =\frac{1}{2}m\omega^2 x^2+c$
-									</span>
-								</p>
-							</div>
-							
-							
-						</div>
+					<div style="margin-top:-20px" >
+						<img style="width:63%" src="images/lect-16/vol-surf.png">
+
 					</div>
-					<br/><br/>
+					
+				
+
+					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
+					<h4>2 Functions of Several Variables</h4>
 					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
+						<p><strong>2.1.1 Visualising functions</strong></p>
+					</div>
+					
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									In Matlab we can plot contour lines for the volume function
+									using the <span id="bb"><code>ezcontour</code></span> function:
+								</span>
+							</p>
+							
+						</div>
+						
+						
+						
+					</div>
+					
+
+					<div style="font-size:150%" >
+						<pre><code data-trim data-noescape data-line-numbers="1">
+							ezcontour('pi*r^2*l', [0,2,0,2])
+						</code></pre>
 					</div>
 
-					
-					<div class="size-80" style="margin-top:-10px">
-						
-						
+
+					<div class="size-90" style="margin-top:0px">
 						<div class="left-txt">
 							<p>
-								<span>
-									Setting $c=0,$ the system is characterised by the energy equation
-								</span>
-								
-							</p>
-						</div>
-						<div class="">
-							<p>
-								<span>
-									$\ds \frac{1}{2}m\left(\frac{dx}{dt}\right)^2+\frac{1}{2}m\omega^2x^2 =E.~\clubsuit$
-								</span>
-								
-							</p>
-						</div>
-						<div class="left-txt">
-							<p>
+							
 								<span class="fragment" data-fragment-index="0">
-									Since $\displaystyle x(t)=A\cos(\omega t-\phi),$ $\ds \frac{dx}{dt}=-A\omega\sin(\omega t-\phi).$
-									
+									Using these tools, you should be able to replicate the plots in
+									Stewart, Section 14.1 (Section 14.1).
+								</span>
+							</p>
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									We shall start the course by looking at
+									<span id="rr">quadratic functions of two variables</span>.
+									These have contours which are circles, ellipses, parabolas or
+									hyperbolas.
+								</span>
+							</p>
+							
+						</div>
+						
+						
+						
+					</div>
+				
+
+					<br/><br/>
+				</section>
+
+				<section>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>2.1.2 Main points</strong></p>
+					</div>
+	
+					
+					<div class="size-95">
+						<ul style="line-height:50px">
+							<li>
+								What is a function of several variables and why are they useful?
+							</li>
+							<li>
+								Methods to visualise a function of two variables.
+							</li>
+							<li>
+								Matlab commands  
+								<span id="bb"><code>ezplot</code></span>,
+								<span id="bb"><code>ezsurf</code></span> and <span id="bb"><code>ezcontour</code></span>.
+							</li>
+						</ul>
+					</div>
+	
+					
+					<br/><br/><br/><br/>
+					
+				</section>
+
+
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					<div id="sbt">
+						<p><strong>2.2 Conic Sections</strong></p>
+					</div>
+					
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									The goal of this section is for you to become an expert in 
+									graphing parabolas, circles, ellipses and hyperbolas 
+									(without use of a graphics calculator, of course).
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									
-									Equation $\clubsuit$ becomes
+									The key-trick to this is "completing the square".
+									See also Stewart, Section 10.5.
 								</span>
+							</p>
+							
+						</div>
+						
+						
+						
+					</div>
+					
+
+					<div id="sbt" style="margin-top:20px" class="fragment" data-fragment-index="2">
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					<div class="size-85" style="margin-top:0px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									<strong>Example:</strong>
+									Sketch the following parabolas:
+								</span>
+							</p>
+							
+							
+						</div>
+
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$y=x^2, \; y=x^2+3, \; y=(x+2)^2, $
+								</span>
+							</p>
+							<p>
 								
+								<span class="fragment" data-fragment-index="2">
+									$y=2x^2, \;
+									y=2(x+2)^2+3.$
+								</span>
 							</p>
 						</div>
 						
+						
+						
 					</div>
+				
 
-					<div class="size-75" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="left-txt" style="margin-top:-20px">
-								
-								
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\ds E = \frac{1}{2}m\left(A^2 \omega^2  \sin^2(\omega t-\phi) \right)$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\ds +\frac{1}{2} m\omega^2  \left(A^2\cos^2(\omega t-\phi)\right)$
-									</span>
-								</p>
-							</div>
-							
-							
-							
-							
-						</div>
-					</div>
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
+					<h4>2 Functions of Several Variables</h4>
 					
-					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
 					</div>
 
-					
-					<div class="size-65" style="margin-top:-10px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									Setting $c=0,$ the system is characterised by the energy equation
-								</span>
-								
-							</p>
-						</div>
-						<div class="">
-							<p>
-								<span>
-									$\ds \frac{1}{2}m\left(\frac{dx}{dt}\right)^2+\frac{1}{2}m\omega^2x^2 =E.~\clubsuit$
-								</span>
-								
-							</p>
-						</div>
-						<div class="left-txt">
-							<p>
-								<span>
-									Since $\displaystyle x(t)=A\cos(\omega t-\phi),$ $\ds \frac{dx}{dt}=-A\omega\sin(\omega t-\phi).$
-									
-								</span>
-								<span>
-									
-									Equation $\clubsuit$ becomes
-								</span>
-								
-							</p>
-						</div>
-						
-					</div>
 
-					<div class="size-75" style="margin-top:-10px">
-					
-						<div id="theorem">
+					<div class="size-60" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
 							
-							<div class="left-txt" style="margin-top:-20px">
-								
-								
-								<p>
-									<span>
-										$\ds E = \frac{1}{2}m\left(A^2 \omega^2  \sin^2(\omega t-\phi) \right)$
-									</span>
-									<span>
-										$\ds +\frac{1}{2} m\omega^2  \left(A^2\cos^2(\omega t-\phi)\right)$
-									</span>
-								</p>
-							</div>
-							<div class="left-txt" style="margin-top:0px">
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										$
-										\ds\quad  =\frac{1}{2} m\omega^2 A^2  
-										\big(\big. 
-										$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$
-										\ds \sin^2(\omega t-\phi)+\cos^2(\omega t-\phi)
-										$
-									</span>
-									<span class="fragment" data-fragment-index="0">
-										$
-										\ds
-										\big.\big) 
-										$
-									</span>
-								</p>
-								
-								<p>
-									<span class="fragment" data-fragment-index="2" >
-										$\ds\quad  =\frac{m}{2} \omega^2 A^2  .$
-									</span>
-								</p>
-							</div>
-							
-							
-							
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
-					</div>
-
-					
-					<div class="size-75" style="margin-top:-20px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									The energy of this system is proportional both to 
-									square of the angular frequency, and to the square of the amplitude.
-								</span>
-								
-							</p>
-						</div>
-						
-						
-					</div>
-
-					<div style="margin-top:-30px">
-						<img style="width:63%;" src="images/lect-14/energy-04.svg">
-					</div>
-
-					<div class="size-75" style="margin-top:-30px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									The amplitude $A$ is the maximum extent of the object's oscillation.
-								</span>
-								
-							</p>
-						</div>
-						
-						
-					</div>
-					
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
-					</div>
-
-					
-					
-
-					<div style="margin-top:-30px">
-						<img style="width:63%;" src="images/lect-14/energy-04.svg">
-					</div>
-
-					<div class="size-75" style="margin-top:-40px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									The amplitude $A$ is the maximum extent of the object's oscillation.
-								</span>
-								
-							</p>
-						</div>
-						
-						
-					</div>
-					<div class="size-75" style="margin-top:-10px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									Hence, it represents a turning point, where $V(y)=E,$ and kinetic energy is $0$.
-								</span>
-								
-							</p>
-						</div>
-						
-						
-					</div>
-					
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
-					</div>
-
-					<div style="margin-top:-30px">
-						<img style="width:55%;" src="images/lect-14/energy-04.svg">
-					</div>
-
-					<div class="size-80" style="margin-top:-40px">
-						
-						
-						<div class="left-txt">
-							<p>
-								<span>
-									Hence we can calculate:
-								</span>
-								
-							</p>
-						</div>
-						
-					</div>
-
-					<div class="size-80" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="" style="margin-top:-20px">
-								
-								
-								<p>
-									<span >
-										$\ds V(A)$
-									</span>
-									<span class="fragment" data-fragment-index="0">
-										$\ds=\frac{m}{2}\omega^2 A^2$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds = E$
-									</span>
-								</p>
-							</div>
-							
-							
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
-					</div>
-
-					
-
-					<div class="size-80" style="margin-top:-20px">
-						
-						
-						<div class="left-txt">
-							<p>
 								<span>
 									<strong>Example:</strong>
-									Recall the undamped, oscillating spring system from <a target="_blank" href="lecture-10.html/spring-example/3">page 78</a>.
-									 It had a mass of $9$kg, and a spring constant of $4$N/m. 
-									 It was pulled down $1$m and given an initial upward kick of $-0.5$m/s.
+									Sketch the following parabolas:
 								</span>
-								
 							</p>
+							
+							
+						</div>
+
+						<div style="margin-top:-20px">
 							<p>
-								<span >
-									How fast is the mass moving when it passes through its equilibrium position?
+								<span>
+									$y=x^2, \; y=x^2+3, \; y=(x+2)^2, $
+								</span>
+								<span>
+									$\;y=2x^2, \;
+									y=2(x+2)^2+3.$
 								</span>
 							</p>
 						</div>
 						
+						
+						
+					</div>
+				
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:20px">
+								
+								<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+								
+							</div>
+							
+						</div>
 					</div>
 
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>2 Functions of Several Variables</h4>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					<div class="size-90" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Putting a quadratic $y=ax^2+bx+c$ in the form
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+
+						<div style="margin-top:0px">
+							<p>
+								<span>
+									$y=a(x-h)^2+k,$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									is called <span id="rr">completing the square</span>.
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+						
+						
+					</div>
+					<br/>
+					<div class="size-90" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									<strong>Question:</strong>
+									What is the interpretation of the point $(h,k)$? 
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+				
+					
+
+
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					<div class="size-70" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Putting a quadratic $y=ax^2+bx+c$ in the form
+								</span>
+									$y=a(x-h)^2+k,$
+								</span>
+							
+								<span>
+									is called <span id="rr">completing the square</span>.
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+						
+						
+					</div>
+					<div class="size-70" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Question:</strong>
+									What is the interpretation of the point $(h,k)$? 
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+				
+					<div class="size-85" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:20px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										1. $\,(h,k)$ is the "base" or the "tip"
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										2. $\,x=h$ is an axis of <br/>
+										symmetry for the parabola
+									</span>
+								</p>
+								
+								<br/><br/><br/><br/>
+							</div>
+							
+						</div>
+					</div>
+
+				
+
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+
+					<div class="size-95" style="margin-top:50px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Completing the square makes use of the identity
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div class="" style="margin-top:-15px">
+							<p>
+							
+								<span>
+									$x^2+2xh+h^2=(x+h)^2.$
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+
+
+					<br/><br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-75" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Sketch the parabola $y = x^2 + 6x + 8.$
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+				
 					<div class="size-80" style="margin-top:-10px">
 					
 						<div id="theorem">
 							
-							<div class="" style="margin-top:-20px">
-								
+							<div class="left-txt" style="margin-top:-20px">
 								
 								<p>
 									<span class="fragment" data-fragment-index="0">
-										From <a target="_blank" href="lecture-10.html/spring-example/3">page 78</a> (workbook) we determined that 
+										Complete the square:
 									</span>
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="1">
-										$\ds \omega =2/3,$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										and $\ds A=\frac{5}{4}.$
+										$ y = \left(x^2+ 6x\right)+ 8$
 									</span>
 									<span class="fragment" data-fragment-index="2">
-										Recall also $\ds E=\frac{m}{2}\omega^2 A^2.$
-									</span>
-								</p>
-							</div>
-							
-							
-						</div>
-					</div>
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-					<div id="sbt">
-						<p><strong>1.10.4 Elastic potential energy</strong></p>
-					</div>
-
-
-					<div class="size-75" style="margin-top:-10px">
-					
-						<div id="theorem">
-							
-							<div class="" style="margin-top:-20px">
-								
-								
-								<p>
-									<span >
-										From <a target="_blank" href="lecture-10.html/spring-example/3">page 78</a> (workbook) we determined that 
-									</span>
-								</p>
-								<p>
-									<span >
-										$\ds \omega =2/3,\,$
-									</span>
-									<span >
-										and $\,\ds A=\frac{5}{4}.$
-									</span>
-									<span >
-										Recall also $\,\ds E=\frac{m}{2}\omega^2 A^2.$
-									</span>
-								</p>
-							</div>
-							<div class="" style="margin-top:-10px">
-								
-								
-								<p>
-									<span >
-										At the equilibrium position
-									</span>
-								</p>
-								<p>
-									<span>
-										$\ds E =\frac{m}{2}\left(\frac{dx}{dt}\right)^2+\frac{m}{2}\omega^2\times 0^2$
-									</span>
-									<span class="fragment" data-fragment-index="0">
-										$=\ds\frac{m}{2}\left(\frac{dx}{dt}\right)^2$
-									</span>
-								</p>
-							</div>
-							<div class="" style="margin-top:-0px">
-								
-								
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										Hence
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds \; \frac{m}{2}\omega^2A^2$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\ds=\frac{m}{2}\left(\frac{dx}{dt}\right)^2$
+										$  = \left(\left(x+3\right)^2-9\right)+ 8$
 									</span>
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="3">
-										$\ds \Ra \frac{dx}{dt}=\pm\sqrt{\omega^2A^2}$
+										$ \quad = \left(x+3\right)^2-1$
 									</span>
+								</p>
+
+
+								<p>
+									
 									<span class="fragment" data-fragment-index="4">
-										$=\pm\omega A$
+										For $\, y=0$
 									</span>
 									<span class="fragment" data-fragment-index="5">
-										$\ds=\pm\left(\frac{2}{3}\right)\left(\frac{5}{4}\right)$
+										 $\, \Ra (x+3)^2=1$
 									</span>
+								</p>
+								<p>
+									
 									<span class="fragment" data-fragment-index="6">
-										$\ds=\pm\frac{5}{6}.$
+										 $\Ra x+3 = \pm 1$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\, \Ra x= \pm 1 -3$
+								   </span>
+								</p>
+								<p>
+									
+									
+									<span class="fragment" data-fragment-index="8">
+										$\, \Ra x = -4, -2.$
+								   </span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="9">
+										For $\, x=0$
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										 $\, \Ra y = 8 .$
+									</span>
+								</p>
+								
+								
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-75" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Sketch the parabola $y =- 3x^2-6x+1.$
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+				
+					<div class="size-80" style="margin-top:-15px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-30px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Complete the square:
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$ y = -3\left( x^2+2x+1\right) +1$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$  = -3\left(\left(x+1\right)^2 - 1\right) +1$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$ \quad = -3\left(x+1\right)^2 + 4 $
+									</span>
+								</p>
+
+
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										For $\, y=0$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										 $\, \Ra 3\left(x+1\right)^2 = 4 $
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="6">
+										 $\Ra \left(x+1\right)^2= \dfrac{4}{3}$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\, \Ra x+1 =  \pm \dfrac{2}{\sqrt{3}}$
+								   </span>
+								</p>
+								
+								
+								
+								
+								
+							</div>
+							<div class="left-txt" style="margin-top:-10px">
+								<p>
+									
+									<span class="fragment" data-fragment-index="8">
+										$\, \Ra x = -1 \pm \dfrac{2}{\sqrt{3}}.\;$
+								   </span>
+								
+									
+									<span class="fragment" data-fragment-index="9">
+										For $\, x=0$
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										 $\, \Ra y = 1 .$
 									</span>
 								</p>
 							</div>
 							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-70" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong>
+									Prove the quadratic formula. 
+									In other words, given $ax^2 +bx+c=0,$
+									by completing the square, show that 
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}.$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					
+				
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Let $a\neq 0$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\, \Ra \ds x^2+ \frac{b}{a}x+ \frac{c}{a}=0$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds \Ra \left(x^2+ \frac{b}{a}x\right)+ \frac{c}{a}= 0 $
+									</span>
+									
+								</p>
+
+
+								<p>
+									
+									<span class="fragment" data-fragment-index="3">
+										$\; \iff \ds  \left( \left(x^2+ \frac{b}{2a}\right)^2 -\frac{b^2}{4a}\right)+ \frac{c}{a}= 0 $
+									</span>
+								</p>
+								
+								
+							</div>
 							
 						</div>
 					</div>
+
+					
+
+
 					<br/><br/>
 				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+					
+					
+				
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								<p>
+									<span>
+										Let $a\neq 0$
+									</span>
+									<span>
+										$\, \Ra \ds x^2+ \frac{b}{a}x+ \frac{c}{a}=0$
+									</span>
+								</p>
+								<p>
+									<span>
+										$\ds \Ra \left(x^2+ \frac{b}{a}x\right)+ \frac{c}{a}= 0 $
+									</span>
+									
+								</p>
+
+
+								<p>
+									
+									<span>
+										$\; \iff \ds  \left( \left(x^2+ \frac{b}{2a}\right)^2 -\frac{b^2}{4a}\right)+ \frac{c}{a}= 0 $
+									</span>
+								</p>
+								
+								
+								
+							</div>
+							<div class="left-txt" style="margin-top:-0px">
+								
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\qquad \ds \Ra \left(x^2+ \frac{b}{2a}\right)^2 = \frac{b^2}{4a} -\frac{c}{a} $
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds  = \frac{b^2-4ac}{4a^2}  $
+									</span>
+									
+								</p>
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+					
+					
+				
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								<p>
+									<span>
+										Let $a\neq 0$
+									</span>
+									<span>
+										$\, \Ra \ds x^2+ \frac{b}{a}x+ \frac{c}{a}$
+									</span>
+								</p>
+								
+								
+								<p>
+									<span>
+										$\quad \ds \Ra \left(x^2+ \frac{b}{2a}\right)^2  $
+									</span>
+									<span>
+										$\ds  = \frac{b^2-4ac}{4a^2}  $
+									</span>
+									
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\quad \ds \Ra x^2+ \frac{b}{2a} $
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds  = \pm \sqrt{\frac{b^2-4ac}{4a^2} } $
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds  = \pm \frac{\sqrt{b^2-4ac}}{2a}  $
+									</span>
+									
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$\quad \ds \Ra x 
+										  =  -\frac{b}{2a}\pm \frac{\sqrt{b^2-4ac}}{2a} $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$
+										\ds  = \frac{-b\pm \sqrt{b^2-4ac} }{2a}$
+									</span>
+									
+								</p>
+								
+							</div>
+							
+						</div>
+					</div>
+
+					
+
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-85" style="margin-top:-5px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Parabolas, circles, ellipses and hyperbolas are all examples of
+									<span id="rr">conic sections</span>; they all arise by intersecting a double cone
+									such as $z^2=x^2+y^2$, with a plane $z=-ex-dy+l.$
+								</span>
+							</p>
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									See the diagrams in Stewart p. 714 (p. 694).
+Slice an upright cone horizontally and you get a circle. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									
+Tip your knife a bit (with a gradient of magnitude less than $1$) and you will get an ellipse. 
+Keep tipping ($|\text{gradient}|=1$), and you will get a parabola.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									
+Continue tipping ($|\text{gradient}|>1$), and you will cut out an hyperbola.
+								</span>
+							</p>
+
+							
+							
+							
+						</div>
+						
+						
+					</div>
+					
+
+					
+
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Conics sections</h5>
+			
+
+
+					<div style="margin-top:-10px">
+						<iframe scrolling="no" title="Conic sections" src="https://www.geogebra.org/material/iframe/id/qz9cf8kp/width/557/height/588/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						 width="55%" height="588px" style="border:0px;"
+						 allowfullscreen=""> </iframe>
+					</div>
+
+					
+
+
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>2 Functions of Several Variables</h5>
+					
+					<div id="sbt" >
+						<p><strong>2.2.1 Parabolas</strong></p>
+					</div>
+
+
+					
+					<div class="size-90" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Formally then, the <span id="rr">general equation</span> for a conic is given by the formula,
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+									$(l-ex-dy)^2=x^2+y^2,$
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									with a focus at the origin.
+								</span>
+								<span>
+									 We will explore this in more detail in a tutorial sheet.
+								</span>
+							</p>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+					</div>
+					
+
+					
+
+
+					<br/><br/><br/><br/>
+				</section>
+				
+				
+
 			</section>
 
-			<section>
-				<h4>1 Ordinary Differential Equations</h4>
-				<div id="sbt">
-					<p><strong>1.10.5 Main points</strong></p>
-				</div>
-
-				
-				<div class="size-85">
-					<ul style="line-height:50px">
-						<li>
-							You should understand how to find the energy equation for any position-dependent force. 
-						</li>
-						<li>
-							You should be able to determine position and velocity from such an equation.
-						</li>
-						<li>
-							You should also be able to draw a potential energy diagram, for a position-dependent force.
-						</li>
-						<li>
-							You should be able to interpret system behaviour and determine equilibrium solutions from an energy diagram. 
-						</li>
-					</ul>
-				</div>
-
-				
-				<br/><br/>
-			</section>
+			
+			
 			
 			
 

@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH1052/7052 - Lecture 15</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<p>Lecture 15</p>
+				<br/><br/>
+			</section>
+
+			<!--Section with format-->
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
+					</div>
+
+					<div class="size-80" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0" >
+									Consider the acceleration of a particle under a constant gravitational force. (For motion near 
+									the Earth's surface, gravitational force is approximately constant). 
+								</span>
+								<span class="fragment" data-fragment-index="1" >
+									By Newton's second law ($ma=F$), the ODE governing this sytem is
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds m \frac{d^2 y}{dt^2}=-mg.~~(\#)$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="3" >
+									There is a negative sign on the right of this equation because gravity pulls down towards the earth, 
+								</span>
+								<span class="fragment" data-fragment-index="4" >
+									but $y$ is measured as distance up from the the earth. 
+								</span>
+								<span class="fragment" data-fragment-index="5" >
+									Now also recall that $V,$ the potential energy has been defined as
+									 the negative of the integral of the force with respect to distance.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
+					</div>
+
+					<div class="size-60" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									There is a negative sign on the right of this 
+									equation because gravity pulls down towards the earth, 
+								</span>
+								<span>
+									but $y$ is measured as distance up from the the earth. 
+								</span>
+								<span >
+									Now also recall that $V$, the potential energy has been defined as
+									 the negative of the integral of the force with respect to distance.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							<div class="" style="margin-top:-20px">
+								<p>
+									<span class="fragment" data-fragment-index="0" >
+										$V(y)\ds =-\int F(y)\, dy\qquad$
+									</span>
+									<span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1" >
+										$\ds =-\int \left(-mg\right)\, dy$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2" >
+										$\ds =mgy+c.\quad \;$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Setting $c$ equal to $0$, the ODE ($\#$) may be written;
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span>
+									$\ds \frac{1}{2}m \left(\frac{dy}{dt}\right)^2+mgy = E$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0" >
+									As $y$ decreases, the P.E. of the particle decreases and the K.E. increases so that the total energy is conserved.
+								</span>
+							</p>
+						</div>
+
+					</div>
+					
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
+					</div>
+
+					<div class="size-75" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									The energy diagram looks like this:
+								</span>
+							</p>
+						</div>
+						
+
+					</div>
+
+					<div style="margin-top:-30px">
+						<img style="width:70%;" src="images/lect-14/energy-03.svg">
+					</div>
+
+					<div class="size-75" style="margin-top:-40px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0" >
+									The potential energy function $V(y)$ is a straight line, with slope $mg$. 
+								</span>
+								<span class="fragment" data-fragment-index="1" >
+									Given a fixed total energy $E$, the system cannot occupy positions $y>y_{\text{max}}.$ 
+								</span>
+								<span class="fragment" data-fragment-index="2" >
+									The turning point (and thus the maximum height an object can reach) is $y_{\text{max}}$.
+								</span>
+							</p>
+						</div>
+						
+
+					</div>
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
+					</div>
+
+					<div class="size-75" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									A projectile is launched vertically upward from ground level, 
+									with initial speed $y=98$m/s. What is the maximum height the projectile will reach?
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							<div class="" style="margin-top:-20px">
+								<p>
+									<span class="fragment" data-fragment-index="0" >
+										$\ds \frac{dy}{dt}(0)=98, \quad y(0)=0.$
+									</span>
+								</p>
+							</div>
+							<div class="left-txt" style="margin-top:-10px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="1" >
+										Hence, using the energy equation, with $g=9.8$, the initial conditions are
+									</span>
+								</p>
+							</div>
+							<div class="" style="margin-top:-10px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="1" >
+										$\ds \frac{1}{2}m \left(98\right)^2+m\times g\times 0 $
+									</span>
+									<span class="fragment" data-fragment-index="2" >
+										$\ds=\frac{m}{2}98^2=E.$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.3 Conservation of energy under constant gravity</strong></p>
+					</div>
+
+					
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="" style="margin-top:-20px">
+								
+								
+								<p>
+									
+									<span >
+										$\ds \Ra \frac{m}{2}98^2=E$
+									</span>
+								</p>
+							</div>
+							
+							<div class="left-txt" style="margin-top:-10px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="1" >
+										At maximum height, $\ds \frac{dy}{dt}=0$
+									</span>
+									<span class="fragment" data-fragment-index="2" >
+										and so
+									</span>
+								</p>
+							</div>
+							<div class="left-txt" style="margin-top:-10px">
+								
+								<p>
+									<span class="fragment" data-fragment-index="2" >
+										$\ds \frac{1}{2}m \left(0\right)^2+mgy_{\text{max}}$
+									</span>
+									<span class="fragment" data-fragment-index="3" >
+										$ \ds =m\times9.8\times y_{\text{max}}$
+									</span>
+									<span class="fragment" data-fragment-index="4" >
+										$ \ds =E$
+									</span>
+									<span class="fragment" data-fragment-index="5" >
+										$ \ds=\frac{m}{2}98^2$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6" >
+										$\ds \Ra y_{\text{max}}=\frac{\frac{m}{2}98^2}{m\times 9.8}$
+									</span>
+									<span class="fragment" data-fragment-index="7" >
+										$\ds =\frac{98^2}{2\times9.8}$
+									</span>
+									<span class="fragment" data-fragment-index="8" >
+										$\ds =490\text{ metres.}$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/>
+				</section>
+				
+				
+
+			</section>
+			
+
+			<section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					
+					<div class="size-85" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Recall the undamped mass-spring system with equation;
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds m\frac{d^2 x}{dt^2} =-kx.$
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									From page (76), the solution of this ODE is
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span class="fragment" data-fragment-index="1" >
+									$\ds x(t)=A\cos(\omega t-\phi).$
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									where $\omega =\sqrt{k/m}$.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					
+					<div class="size-80" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									The potential energy corresponding to the spring force $F=-kx$ can be calculated as
+								</span>
+								
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="" style="margin-top:-20px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds V(x) =-\int (-kx)\, dx$
+									</span>
+								</p>
+							</div>
+							<div class="" style="margin-top:0px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\ds\;\; =\frac{1}{2}kx^2+c$
+									</span>
+								</p>
+							</div>
+							<div class="" style="margin-top:0px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds\quad\;\; =\frac{1}{2}m\omega^2 x^2+c$
+									</span>
+								</p>
+							</div>
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					
+					<div class="size-80" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Setting $c=0,$ the system is characterised by the energy equation
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span>
+									$\ds \frac{1}{2}m\left(\frac{dx}{dt}\right)^2+\frac{1}{2}m\omega^2x^2 =E.~\clubsuit$
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Since $\displaystyle x(t)=A\cos(\omega t-\phi),$ $\ds \frac{dx}{dt}=-A\omega\sin(\omega t-\phi).$
+									
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									
+									Equation $\clubsuit$ becomes
+								</span>
+								
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-75" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\ds E = \frac{1}{2}m\left(A^2 \omega^2  \sin^2(\omega t-\phi) \right)$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds +\frac{1}{2} m\omega^2  \left(A^2\cos^2(\omega t-\phi)\right)$
+									</span>
+								</p>
+							</div>
+							
+							
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					
+					<div class="size-65" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Setting $c=0,$ the system is characterised by the energy equation
+								</span>
+								
+							</p>
+						</div>
+						<div class="">
+							<p>
+								<span>
+									$\ds \frac{1}{2}m\left(\frac{dx}{dt}\right)^2+\frac{1}{2}m\omega^2x^2 =E.~\clubsuit$
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+									Since $\displaystyle x(t)=A\cos(\omega t-\phi),$ $\ds \frac{dx}{dt}=-A\omega\sin(\omega t-\phi).$
+									
+								</span>
+								<span>
+									
+									Equation $\clubsuit$ becomes
+								</span>
+								
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-75" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="left-txt" style="margin-top:-20px">
+								
+								
+								<p>
+									<span>
+										$\ds E = \frac{1}{2}m\left(A^2 \omega^2  \sin^2(\omega t-\phi) \right)$
+									</span>
+									<span>
+										$\ds +\frac{1}{2} m\omega^2  \left(A^2\cos^2(\omega t-\phi)\right)$
+									</span>
+								</p>
+							</div>
+							<div class="left-txt" style="margin-top:0px">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$
+										\ds\quad  =\frac{1}{2} m\omega^2 A^2  
+										\big(\big. 
+										$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$
+										\ds \sin^2(\omega t-\phi)+\cos^2(\omega t-\phi)
+										$
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$
+										\ds
+										\big.\big) 
+										$
+									</span>
+								</p>
+								
+								<p>
+									<span class="fragment" data-fragment-index="2" >
+										$\ds\quad  =\frac{m}{2} \omega^2 A^2  .$
+									</span>
+								</p>
+							</div>
+							
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					
+					<div class="size-75" style="margin-top:-20px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									The energy of this system is proportional both to 
+									square of the angular frequency, and to the square of the amplitude.
+								</span>
+								
+							</p>
+						</div>
+						
+						
+					</div>
+
+					<div style="margin-top:-30px">
+						<img style="width:63%;" src="images/lect-14/energy-04.svg">
+					</div>
+
+					<div class="size-75" style="margin-top:-30px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									The amplitude $A$ is the maximum extent of the object's oscillation.
+								</span>
+								
+							</p>
+						</div>
+						
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					
+					
+
+					<div style="margin-top:-30px">
+						<img style="width:63%;" src="images/lect-14/energy-04.svg">
+					</div>
+
+					<div class="size-75" style="margin-top:-40px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									The amplitude $A$ is the maximum extent of the object's oscillation.
+								</span>
+								
+							</p>
+						</div>
+						
+						
+					</div>
+					<div class="size-75" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Hence, it represents a turning point, where $V(y)=E,$ and kinetic energy is $0$.
+								</span>
+								
+							</p>
+						</div>
+						
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					<div style="margin-top:-30px">
+						<img style="width:55%;" src="images/lect-14/energy-04.svg">
+					</div>
+
+					<div class="size-80" style="margin-top:-40px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Hence we can calculate:
+								</span>
+								
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="" style="margin-top:-20px">
+								
+								
+								<p>
+									<span >
+										$\ds V(A)$
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$\ds=\frac{m}{2}\omega^2 A^2$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds = E$
+									</span>
+								</p>
+							</div>
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+					
+
+					<div class="size-80" style="margin-top:-20px">
+						
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Recall the undamped, oscillating spring system from <a target="_blank" href="lecture-10.html/spring-example/3">page 78</a>.
+									 It had a mass of $9$kg, and a spring constant of $4$N/m. 
+									 It was pulled down $1$m and given an initial upward kick of $-0.5$m/s.
+								</span>
+								
+							</p>
+							<p>
+								<span >
+									How fast is the mass moving when it passes through its equilibrium position?
+								</span>
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-80" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="" style="margin-top:-20px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										From <a target="_blank" href="lecture-10.html/spring-example/3">page 78</a> (workbook) we determined that 
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\ds \omega =2/3,$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										and $\ds A=\frac{5}{4}.$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										Recall also $\ds E=\frac{m}{2}\omega^2 A^2.$
+									</span>
+								</p>
+							</div>
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					
+					<div id="sbt">
+						<p><strong>1.10.4 Elastic potential energy</strong></p>
+					</div>
+
+
+					<div class="size-75" style="margin-top:-10px">
+					
+						<div id="theorem">
+							
+							<div class="" style="margin-top:-20px">
+								
+								
+								<p>
+									<span >
+										From <a target="_blank" href="lecture-10.html/spring-example/3">page 78</a> (workbook) we determined that 
+									</span>
+								</p>
+								<p>
+									<span >
+										$\ds \omega =2/3,\,$
+									</span>
+									<span >
+										and $\,\ds A=\frac{5}{4}.$
+									</span>
+									<span >
+										Recall also $\,\ds E=\frac{m}{2}\omega^2 A^2.$
+									</span>
+								</p>
+							</div>
+							<div class="" style="margin-top:-10px">
+								
+								
+								<p>
+									<span >
+										At the equilibrium position
+									</span>
+								</p>
+								<p>
+									<span>
+										$\ds E =\frac{m}{2}\left(\frac{dx}{dt}\right)^2+\frac{m}{2}\omega^2\times 0^2$
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$=\ds\frac{m}{2}\left(\frac{dx}{dt}\right)^2$
+									</span>
+								</p>
+							</div>
+							<div class="" style="margin-top:-0px">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										Hence
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds \; \frac{m}{2}\omega^2A^2$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds=\frac{m}{2}\left(\frac{dx}{dt}\right)^2$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$\ds \Ra \frac{dx}{dt}=\pm\sqrt{\omega^2A^2}$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$=\pm\omega A$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\ds=\pm\left(\frac{2}{3}\right)\left(\frac{5}{4}\right)$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$\ds=\pm\frac{5}{6}.$
+									</span>
+								</p>
+							</div>
+							
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+			</section>
+
+			<section>
+				<h4>1 Ordinary Differential Equations</h4>
+				<div id="sbt">
+					<p><strong>1.10.5 Main points</strong></p>
+				</div>
+
+				
+				<div class="size-85">
+					<ul style="line-height:50px">
+						<li>
+							You should understand how to find the energy equation for any position-dependent force. 
+						</li>
+						<li>
+							You should be able to determine position and velocity from such an equation.
+						</li>
+						<li>
+							You should also be able to draw a potential energy diagram, for a position-dependent force.
+						</li>
+						<li>
+							You should be able to interpret system behaviour and determine equilibrium solutions from an energy diagram. 
+						</li>
+					</ul>
+				</div>
+
+				
+				<br/><br/>
+			</section>
+			
+			
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
