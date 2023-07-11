@@ -65,7 +65,7 @@ function setup() {
 	
 	// ------ mesh ------
   tileCount = 40;
-  zScale = 380;
+  zScale = 290;
 
   // ------ noise ------
   noiseXRange = 20;
@@ -73,12 +73,12 @@ function setup() {
   octaves = 4;
   falloff = 0.5;
 
-  // ------ mesh coloring ------
-  topColor = color(0, 0, 0);
-  midColor = color(191,0, 63);
-  bottomColor = color(0, 0, 0);
-  strokeColor = color(180, 100, 0);
-  threshold = 0.10;
+   // ------ mesh coloring ------
+   topColor = color(10, 10, 10);
+   midColor = color(116, 167, 247);
+   bottomColor = color(0, 0, 0);
+   strokeColor = color(195);
+   threshold = 0.10;
 
   // ------ mouse interaction ------
   offsetX = 0;
@@ -111,7 +111,7 @@ function draw(){
 	rotateX(1.1);
   rotateZ(0);
 	
-	ambientLight(150);
+	ambientLight(190);
 
   // ------ set view ------
   push();
