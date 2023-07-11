@@ -110,8 +110,8 @@ function draw(){
 	
 	rotateX(1.1);
   rotateZ(0);
-	
-	ambientLight(200);
+
+  ambientLight(200);  
 
   // ------ set view ------
   push();
