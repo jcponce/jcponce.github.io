@@ -1,8 +1,8 @@
 /*
- * @name Spring
- * @frame 710, 400
- * @description Click, drag, and release the horizontal bar to start the spring.
- */
+@name Spring
+@frame 710, 400
+@description Click, drag, and release the horizontal bar to start the spring.
+*/
 // Spring drawing constants for top bar
 let springHeight = 32,
     left,
@@ -21,7 +21,7 @@ let M = 10.8,  // Mass
     D = 0.99, // Damping
     R = 200;  // Rest position
 
-// Spring simulation variables
+// Spring simulation letiables
 let ps = R,   // Position
     vs = 0.0, // Velocity
     as = 0,   // Acceleration
@@ -34,7 +34,7 @@ function setup() {
   left = width / 2 + 100;
   right = width / 2 - 100;
   
-  for (var i=0; i<maxPoints; i++) {
+  for (let i=0; i<maxPoints; i++) {
     points[i] = ps; 
   }
   
@@ -116,7 +116,7 @@ function drawGraph() {
   strokeWeight(2);
   noFill();
   beginShape();
-  for (var i=0; i<maxPoints; i++) {
+  for (let i=0; i<maxPoints; i++) {
     vertex(i*3.7, points[i]);
   }
   endShape();
