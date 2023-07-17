@@ -28,10 +28,10 @@ let ps = R,   // Position
     f = 0;    // Force
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(700, 400);
   rectMode(CORNERS);
   noStroke();
-  left = width / 2 + 100;
+  left = width / 2 + 200;
   right = width / 2 - 100;
   
   for (let i=0; i<maxPoints; i++) {
@@ -117,7 +117,7 @@ function drawGraph() {
   noFill();
   beginShape();
   for (let i=0; i<maxPoints; i++) {
-    vertex(i*3.7, points[i]);
+    vertex(i*5.2, points[i]);
   }
   endShape();
   pop();
