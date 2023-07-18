@@ -1,124 +1,141 @@
 /*
-Based upon Mor3s' code: 
-https://editor.p5js.org/Mor3s/sketches/LP_0x2Tqe
+
+ Title: Simulation undamped spring
+ Author: Juan Carlos Ponce Campuzano
+ Date: 18/Jul/2023
+ Instructions: Click on mass to start animations
+ 
 */
 
-let y = 100;
-let velocity = 0;
-let restLength = 200;
-let k=0.009;
+let k = 10;
+let m = 30;
+let omega;
+let phi;
+let A = 120;
+let x = 100;
+let y;
+let diam = 64;
+
+let t = 0;
+
 let wave = [];
-let slider;
-let friction = 1;
+let start = false;
+let over = false;
 
 function setup() {
   createCanvas(750, 400);
-  
-}
-
-function animate() {
-  clear();
-  velocity = 0;
-  restLength = restLengthslider.value();
-  wave = [];
-  
-  k = Kslider.value();
-  friction = frictionslider.value();
-  y = Y0slider.value();
 }
 
 function draw() {
-  
-  
   background(112, 50, 126);
+
+  y = generalSolution(t) + height / 2;
+  
   push();
-  translate(0,0)
-  springCurve(y-40, 0, 100);
+  stroke(190, 90);
+  line(0, height/2, width, height/2)
   pop();
-  noStroke();
-  fill(45, 197, 244);
-  circle(100, y, 64);
+
+  // Draw spring curve
+  push();
+  translate(0, 0);
+  springCurve(y - 40, 0, 100);
+  pop();
+
+  push();
   stroke(0);
   strokeWeight(4);
-  line(100, y-40, 100, y-32);
-  strokeWeight(1);
-  let x = y - restLength;
-  let force = - k * x;
+  line(100, y - 40, 100, y - 32);
+  pop();
   
-  velocity += force
-  y += velocity
-  
-  velocity *= friction;
-  wave.unshift(y);
-  
-  
-  
-  translate(100,0);
-  beginShape();
-  noFill();
-  stroke(255);
-  for (let i = 0; i < wave.length; i++) {
-    vertex(i, wave[i]); 
-  }
-  endShape();
-  
-  
-  if (wave.length > 1000) {
-    wave.pop(); 
+  // Test if mouse if over the circle (mass)
+  let d = dist(x, y, mouseX, mouseY);
+  if (d < diam / 2) {
+    over = true;
+    cursor("grab");
+  } else {
+    over = false;
+    cursor("default");
   }
   
-  /*
-  text("Friction coeficient:  " +frictionslider.value(), 100, 100)
-  text("k:  " +Kslider.value(), 100, 200)
-  text("y_0:  " +Y0slider.value(), 100, 300)
-  text("ResLength:  " +restLengthslider.value(), 100,400)
-  */
+  push();
+  noStroke();
+  if (over) {
+    fill(200, 200, 220);
+  } else {
+    fill(45, 197, 244);
+  }
+  circle(x, y, diam);
+  pop();
+
+  if (start) {
+    t = t + 0.27;
+    wave.unshift(y);
+    translate(100, 0);
+    push();
+    beginShape();
+    noFill();
+    stroke(255);
+    for (let i = 0; i < wave.length; i++) {
+      vertex(i, wave[i]);
+    }
+    endShape();
+    pop();
+
+    if (wave.length > 1000) {
+      wave.pop();
+    }
+  }
+
+  changeParameters();
+  
+  
+  //console.log(y )
 }
 
-function springCurve(y0, y1, A){
+function generalSolution(t) {
+  omega = k / m;
+  phi = 0;
+  return A * cos(omega * t + phi);
+}
+
+function changeParameters() {
+  if (keyIsDown(UP_ARROW)) {
+    A += 2;
+    if (A > 160) A = 160;
+  }
+  if (keyIsDown(DOWN_ARROW)) {
+    A -= 2;
+    if (A < 0) A = 10;
+  }
+  /*
+  if (keyIsDown(RIGHT_ARROW)) {
+    k += 1;
+    if (k > 20) k = 20;
+  }
+  if (keyIsDown(LEFT_ARROW)) {
+    k -= 1;
+    if (k < 0) k = 2;
+  }
+  */
+  //console.log(A );
+}
+
+// Define spring curve
+function springCurve(y0, y1, Ap) {
   //2sin(10 * 2π (t - y_1) / (y_0 - y_1)) + x(A2)
   stroke(0);
   strokeWeight(4);
   noFill();
   beginShape();
-  for(let k = -y1; k<y0; k=k+0.01){
-    let x = (20* sin( 10*PI*(k - y1) / (y0 - y1)) + A);
+  for (let k = -y1; k < y0; k = k + 0.01) {
+    let x = 20 * sin((10 * PI * (k - y1)) / (y0 - y1)) + Ap;
     let y = k;
     vertex(x, y);
-    
   }
   endShape();
-  
 }
 
-function auxiliarStuff(){
-  frictionslider = createSlider(0.9, 1, 1, 0.001);
-  frictionslider.input(animate);
-  
-  
-  Kslider = createSlider(0, 0.1, 0.009, 0.001);
-  Kslider.position(0, 425);
-  Kslider.input(animate);
-  Klabel = createP("K constant");
-  Klabel.position(185, 410);
-  
-  Y0slider = createSlider(0, 400, 100, 1);
-  Y0slider.position(0, 455);
-  Y0slider.input(animate);
-  Y0label = createP("y0");
-  Y0label.position(185, 440);
-  
-  restLengthslider = createSlider(0, 400, 200);
-  restLengthslider.position(0, 485);
-  restLengthslider.input(animate);
-  restLengthlabel = createP("restLength");
-  restLengthlabel.position(185, 470);
-
-  let h5 = createElement('h1', "Hooke's Law :");
-  h5.style('font-size', '50px');
-  h5.position(370, 370);
-  
-  let p = createP('F = − k x');
-  p.style('font-size', '30px');
-  p.position(440, 450);
+function mousePressed() {
+  if (over) start = true;
 }
