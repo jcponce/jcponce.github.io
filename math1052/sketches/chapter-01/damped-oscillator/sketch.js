@@ -1,9 +1,9 @@
 /*
 @name Spring
 @frame 710, 400
-@description Click, drag, and release the horizontal bar to start the spring.
+@description Click, drag, and release the horizontal circle to start the spring.
 */
-// Spring drawing constants for top bar
+// Spring drawing constants 
 let springHeight = 32,
     left,
     right,
@@ -57,12 +57,6 @@ function draw() {
 }
 
 function drawSpring() {
-  // Draw base
-  //fill(0.2);
-  //let baseWidth = 0.5 * ps + -8;
-  //ellipse(width / 2 - baseWidth, ps + springHeight, 20);
-  //rect(width / 2 - baseWidth, ps + springHeight, width / 2 + baseWidth, height);
-
   // Set color and draw top bar
   if (over || move) {
     fill(204, 179, 255);
@@ -72,7 +66,6 @@ function drawSpring() {
 
   stroke(200);
   ellipse(left, ps, diam);
-  //rect(left, ps, right, ps + springHeight);
 }
 
 function updateSpring() {
@@ -123,6 +116,7 @@ function drawGraph() {
   pop();
 }
 
+// Define spring curve
 function springCurve(y0, y1, A){
   //2sin(10 * 2π (t - y_1) / (y_0 - y_1)) + x(A2)
   stroke(0);
