@@ -159,6 +159,7 @@ function mouseReleased() {
 }
 
 function keyPressed() {
+  //https://www.toptal.com/developers/keycode
   if (keyCode == 82) {
     t = 0;
     start = false;
