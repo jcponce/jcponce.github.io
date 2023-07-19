@@ -49,29 +49,42 @@ function draw() {
 
   updateSpring();
 
-  push();
-  translate(0, 0);
-  springCurve(ps - 45, 0, left);
-  line(left, ps - 45, left, ps - 20);
-  pop();
+  drawSpringCurve(ps - 45, 0, left);
+  drawSpringMass();
 
-  drawSpring();
-
+  drawSpringMass();
   updateGraph();
   drawGraph();
 }
 
-function drawSpring() {
+/* Auxiliar functions */
+
+function drawSpringCurve(y0, y1, A) {
+  //2sin(10 * 2π (t - y_1) / (y_0 - y_1)) + x(A2)
+  push();
+  stroke(0);
+  strokeWeight(4);
+  noFill();
+  beginShape();
+  for (let k = -y1; k < y0; k = k + 0.01) {
+    let x = 20 * sin((10 * PI * (k - y1)) / (y0 - y1)) + A;
+    let y = k;
+    vertex(x, y);
+  }
+  endShape();
+  line(left, ps - 45, left, ps - 20);
+  pop();
+}
+
+function drawSpringMass() {
   // Set color and draw top bar
   if (over || move) {
     fill(204, 179, 255);
   } else {
     fill(112, 50, 126);
   }
-
   stroke(200);
   ellipse(left, ps, diam);
-  //rect(left, ps, right, ps + springHeight);
 }
 
 function updateSpring() {
@@ -123,20 +136,6 @@ function drawGraph() {
   }
   endShape();
   pop();
-}
-
-function springCurve(y0, y1, A) {
-  //2sin(10 * 2π (t - y_1) / (y_0 - y_1)) + x(A2)
-  stroke(0);
-  strokeWeight(4);
-  noFill();
-  beginShape();
-  for (let k = -y1; k < y0; k = k + 0.01) {
-    let x = 20 * sin((10 * PI * (k - y1)) / (y0 - y1)) + A;
-    let y = k;
-    vertex(x, y);
-  }
-  endShape();
 }
 
 function mousePressed() {
