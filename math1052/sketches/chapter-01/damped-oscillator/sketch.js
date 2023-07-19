@@ -43,14 +43,17 @@ function setup() {
 function draw() {
   
   background(150);
-  push();
-  translate(0,0)
-  springCurve(ps-50, 0, left);
-  line(left, ps-50, left, ps-32);
-  pop();
-  //cursor('default');
+  
   updateSpring();
+  
+  push();
+  translate(0, 0);
+  springCurve(ps - 45, 0, left);
+  line(left, ps - 45, left, ps - 20);
+  pop();
+  
   drawSpring();
+  
   updateGraph();
   drawGraph();
   
@@ -110,7 +113,7 @@ function drawGraph() {
   noFill();
   beginShape();
   for (let i=0; i<maxPoints; i++) {
-    vertex(i*5.2, points[i]);
+    vertex(i*5.25, points[i]);
   }
   endShape();
   pop();
