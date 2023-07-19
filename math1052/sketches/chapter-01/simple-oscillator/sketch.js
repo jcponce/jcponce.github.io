@@ -1,17 +1,8 @@
-/*
-
- Title: Simulation undamped spring
- Author: Juan Carlos Ponce Campuzano
- Date: 18/Jul/2023
- Instructions: Click on mass to start animations
- 
-*/
-
 let k = 10;
 let m = 30;
 let omega;
 let phi;
-let A = 120;
+let A = 0;
 let x = 100;
 let y;
 let diam = 64;
@@ -21,6 +12,10 @@ let t = 0;
 let wave = [];
 let start = false;
 let over = false;
+let move = false;
+
+let dragging = false; // Is the object being dragged? 
+let rollover = false; // Is the mouse over the ellipse?
 
 function setup() {
   createCanvas(750, 400);
@@ -30,6 +25,11 @@ function draw() {
   background(112, 50, 126);
 
   y = generalSolution(t) + height / 2;
+  
+  if(start){
+    t = t + 0.27;
+  }
+  
   
   push();
   stroke(190, 90);
@@ -48,15 +48,26 @@ function draw() {
   line(100, y - 40, 100, y - 32);
   pop();
   
+  
+  
   // Test if mouse if over the circle (mass)
   let d = dist(x, y, mouseX, mouseY);
   if (d < diam / 2) {
     over = true;
+    rollover = true;
     cursor("grab");
   } else {
     over = false;
+    rollover = false;
     cursor("default");
   }
+  //console.log(rollover);
+  
+  // Set and constrain the position of top bar
+   // Adjust location if being dragged
+    if (dragging) {
+      A = mouseY - height/2;
+    }
   
   push();
   noStroke();
@@ -68,8 +79,11 @@ function draw() {
   circle(x, y, diam);
   pop();
 
-  if (start) {
-    t = t + 0.27;
+  //if (start) {
+    
+  
+  
+  
     wave.unshift(y);
     translate(100, 0);
     push();
@@ -85,7 +99,7 @@ function draw() {
     if (wave.length > 1000) {
       wave.pop();
     }
-  }
+  //}
 
   changeParameters();
   
@@ -137,5 +151,15 @@ function springCurve(y0, y1, Ap) {
 }
 
 function mousePressed() {
-  if (over) start = true;
+  dragging = true;
+  start = false;
+  t = 0;
+  //console.log(dragging);
+}
+
+function mouseReleased() {
+  //cursor('default');
+  dragging = false;
+  start = true;
+  //console.log(dragging);
 }
