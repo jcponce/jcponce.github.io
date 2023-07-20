@@ -30,8 +30,11 @@
 			// MathJax user-defined functions
 			mathjax3: {
 				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js',
-				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
 				//config: "TeX-AMS_HTML-full",
+				svg: {
+					fontCache: 'global'
+				  },
 				tex: {
 					macros: {
 						R: "\\mathbb{R}",
