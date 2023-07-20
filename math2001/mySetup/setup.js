@@ -28,15 +28,12 @@
 			pdfMaxPagesPerSlide: 1,
 
 			// MathJax user-defined functions
-			mathjax3: {
+			mathjax2: {
 				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js',
-				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
-				//config: "TeX-AMS_HTML-full",
-				svg: {
-					fontCache: 'global'
-				  },
-				tex: {
-					macros: {
+				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+				config: "TeX-AMS_HTML-full",
+				TeX: {
+					Macros: {
 						R: "\\mathbb{R}",
 						C: "\\mathbb{C}",
 						N: "\\mathbb{N}",
@@ -138,7 +135,7 @@
 			// ...
 			plugins: [
 				RevealCustomControls, 
-				RevealMath.MathJax3, 
+				RevealMath.MathJax2, 
 				RevealMenu, 
 				RevealChalkboard, 
 				RevealHighlight, 
