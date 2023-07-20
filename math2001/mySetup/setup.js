@@ -33,7 +33,7 @@
 				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
 				//config: "TeX-AMS_HTML-full",
 				tex: {
-					moacros: {
+					macros: {
 						R: "\\mathbb{R}",
 						C: "\\mathbb{C}",
 						N: "\\mathbb{N}",
