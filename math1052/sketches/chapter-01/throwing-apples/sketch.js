@@ -72,7 +72,7 @@ function mousePressed() {
   }
 }
 
-function touchStarted() {
+function touchEnded() {
   let radius = 1;
   if(mouseX<width/2){
     dx = 8;
