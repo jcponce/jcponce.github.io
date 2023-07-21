@@ -74,10 +74,13 @@ function mousePressed() {
 
 function touchStarted() {
   let radius = 1;
-  let x = mouseX;
-  let y = mouseY;
-  let dx = (-20, 20);
-  let dy = (-10, 10);
+  if(mouseX<width/2){
+    dx = 8;
+    dy = -13;
+  } else{
+    dx= -8;
+    dy = -13;
+  }
   appleArray[currentBall] = new Ball(x, y, dx, dy);
   currentBall++;
   if (currentBall >= numMax) {
