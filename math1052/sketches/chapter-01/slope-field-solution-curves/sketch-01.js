@@ -4,7 +4,7 @@ let size = 3; // Density
 let showLines;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(480, 480);
   colorMode(HSB, 255);
   slopefield = createGraphics(width, height);
   createBWSlopefield();
@@ -28,11 +28,11 @@ function draw() {
 }
 
 function slopefn(x, y) {
-  return -y*(y-1)*(y+1.5);
+  return -y*(y-1.5)*(y+1.5);
 }
 
 function eulerMethod() {
-  for (let offset = -50; offset <= 50; offset += 10) {
+  for (let offset = -50; offset <= 50; offset += 20) {
     let dt = 0.01;
     let mx = map(mouseX, 0, width, -size, size);
     let my = map(mouseY + offset, height, 0, -size, size);
@@ -93,16 +93,17 @@ function eulerMethod() {
 }
 
 function drawSlopeField() {
-  for (let x = 0; x < width; x += width / (9 * size)) {
-    for (let y = 0; y < height; y += height / (9 * size)) {
+  for (let x = 0; x < width; x += width / (12 * size)) {
+    for (let y = 0; y < height; y += height / (12 * size)) {
       let mx = map(x, 0, width, -size, size);
       let my = map(y, height, 0, -size, size);
 
       let m = slopefn(mx, my);
       let A = atan(m);
 
-      let s = new createVector(x + 2 * size * cos(A), y - 2*size * sin(A));
-      let e = new createVector(x - 2 * size * cos(A), y + 2*size * sin(A));
+      let sc = 1.5;
+      let s = new createVector(x + sc * size * cos(A), y - sc * size * sin(A));
+      let e = new createVector(x - sc * size * cos(A), y + sc * size * sin(A));
 
       let h = map(atan(m), -PI / 2, PI / 2, 0, 255);
       stroke((h + 127) % 255);

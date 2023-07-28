@@ -4,7 +4,7 @@ let size = 3; // Density
 let showLines;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(480, 480);
   colorMode(HSB, 255);
   slopefield = createGraphics(width, height);
   createBWSlopefield();
