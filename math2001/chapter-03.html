@@ -354,8 +354,8 @@
 								<span class="fragment" data-fragment-index="3">
 									Indeed, let
 									\[
-									f\left(x,y\right)=\int_{x_0}^{x}P\left(x',y\right)dx' +
-									\int_{y_0}^{y}Q\left(x_0,y'\right)dy'+C
+									f\left(x,y\right)=\int_{x_0}^{x}P\left(s,y\right)ds +
+									\int_{y_0}^{y}Q\left(x_0,t\right)dt
 									\]
 									for fixed $x_0,y_0$.
 								</span>
@@ -377,7 +377,7 @@
 					<div class="size-75 left-txt">
 						<p><strong>Proof:</strong>
 							<span>
-								$\suf\;$
+								$\suf\;$ 👉 $\ds \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}.$
 							</span>
 						</p>
 					</div>
@@ -388,8 +388,8 @@
 								
 								<span>
 									\[
-									f\left(x,y\right)=\int_{x_0}^{x}P\left(x',y\right)dx' +
-									\int_{y_0}^{y}Q\left(x_0,y'\right)dy'+C \,\text{ for fixed }\, x_0,y_0.
+									\text{👉}\quad f\left(x,y\right)=\int_{x_0}^{x}P\left(s,y\right)ds +
+									\int_{y_0}^{y}Q\left(x_0,t\right)dt  \,\text{ for fixed }\, x_0,y_0.
 									\]
 									
 								</span>
@@ -415,7 +415,7 @@
 								
 								$\ds \,f_x$
 								<span class="fragment" data-fragment-index="5">$\ds = \frac{\partial }{\partial x}\left(
-									\int_{x_0}^{x}P\left(x',y\right)dx' + \int_{y_0}^{y}Q\left(x_0,y'\right)dy'
+									\int_{x_0}^{x}P\left(s,y\right)ds + \int_{y_0}^{y}Q\left(x_0,t\right)dt
 									\right)$</span>
 								<span class="fragment" data-fragment-index="6">$\ds = P \left(x,y\right)$</span>
 
@@ -424,16 +424,16 @@
 							<div class="r-stack">
 								<p class="fragment fade-in-then-out" data-fragment-index="7">
 									$\ds f_y
-									= \frac{\partial }{\partial y}\left( \int_{x_0}^{x}P\left(x',y\right)dx' +
-									\int_{y_0}^{y}Q\left(x,y'\right)d'y \right) \qquad$
+									= \frac{\partial }{\partial y}\left( \int_{x_0}^{x}P\left(s,y\right)ds +
+									\int_{y_0}^{y}Q\left(x_0,t\right)dt \right) \qquad\qquad $
 								</p>
 								<p class="fragment fade-in-then-out" data-fragment-index="8">
-									$\ds f_y = \int_{x_0}^{x}\frac{\partial P\left(x',y\right)}{\partial y} dx' +
-									\frac{d}{dy} \int_{y_0}^{y}Q\left(x_0,y'\right)dy'\qquad \,$
+									$\ds f_y = \int_{x_0}^{x}\frac{\partial P\left(s,y\right)}{\partial y} ds +
+									\frac{d}{dy} \int_{y_0}^{y}Q\left(x_0,t\right)dt\qquad \qquad$
 								</p>
 								<p class="fragment fade-in-then-out" data-fragment-index="9">
-									$\ds f_y = \int_{x_0}^{x}\frac{\partial Q\left(x',y\right)}{\partial x} dx' +
-									Q\left(x_0,y\right)\qquad \qquad \qquad \;\;$
+									$\ds f_y = \int_{x_0}^{x}\frac{\partial Q\left(s,y\right)}{\partial s} ds +
+									Q\left(x_0,y\right)\qquad \qquad \qquad \quad\;\;$
 								</p>
 								<p class="fragment fade-in" data-fragment-index="10">
 									$\ds f_y = Q\left(x,y\right)- Q\left(x_0,y\right)+ Q\left(x_0,y\right)$
@@ -456,8 +456,8 @@
 							<p>
 								For this proof we used the function
 								\[
-								f\left(x,y\right)=\int_{x_0}^{x}P\left(x',y\right)dx' +
-								\int_{y_0}^{y}Q\left(x_0,y'\right)dy'+C.
+								f\left(x,y\right)=\int_{x_0}^{x}P\left(s,y\right)ds +
+								\int_{y_0}^{y}Q\left(x_0,t\right)dt.
 								\]
 							</p>
 						</div>
