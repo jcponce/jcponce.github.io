@@ -1264,17 +1264,22 @@ to the existing population.
 							<p>
 								<span>
 									Matlab has some more sophisticated numerical methods for solving ODEs than
-	Euler's method.
-	Matlab's <span style="color:blue">ode45</span> uses a 
-	<a href="https://mathworld.wolfram.com/Runge-KuttaMethod.html" target="_blank">Runge-Kutta fourth-order integration
-		technique</a>. To use it you need to write two little programs. The first
-	one, say <tt>logistic.m</tt>,
-	defines the differential equation
+									Euler's method.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Matlab's <span style="color:blue">ode45</span> uses a 
+									<a href="https://mathworld.wolfram.com/Runge-KuttaMethod.html" target="_blank">Runge-Kutta fourth-order integration
+									technique</a>.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									To use it you need to write two little programs. The first
+									one, say <tt>logistic.m</tt>,
+									defines the differential equation
 								</span>
 							</p>
 						</div>
 					</div>
-	<div style="font-size:110%">
+	<div style="font-size:120%;margin-top:-10px"  class="fragment" data-fragment-index="2">
 	<pre><code data-trim data-noescape data-line-numbers="1-2">
 	function dy = logistic(t, y)
 	dy = y * (1 - y);
@@ -1284,14 +1289,14 @@ to the existing population.
 						
 						<div class="left-txt">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="3">
 									The second program will numerically solve the ODE and plot your
 									solution.
 								</span>
 							</p>
 						</div>
 					</div>
-	<div style="font-size:110%">
+	<div style="font-size:120%;margin-top:-10px"  class="fragment" data-fragment-index="3">
 	<pre><code data-trim data-noescape data-line-numbers="1-4">
 y0 = 0.1;
 tfinal = 6;
