@@ -1318,10 +1318,11 @@ plot(t, y);
 							</p>
 						</div>
 					</div>
-	<div style="font-size:110%">
+	<div style="font-size:115%">
 	<pre><code data-trim data-noescape data-line-numbers="1|2|3|4|1-5">
-	logistic = @(t, y) y * (1-y); % Anonymous function
-	y0 = 0.1;
+	% Anonymous function
+	logistic = @(t, y) y * (1-y); 
+	y0 = 0.1; 
 	tspan = [0, 6];
 	[t, y] = ode45(logistic, tspan, y0);
 	plot(t, y);
