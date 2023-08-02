@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH1052/7052 - Lecture 6</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<p>Lecture 7</p>
+				<br/><br/>
+			</section>
+
+			<!--Section with format-->
+			
+			<section>
+
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								<span>
+									The problem with the Malthusian population model is that it does not
+contain a "damping" factor reflecting issues such as
+over-population, limited food or water supply, etc.
+								</span> 
+								<span class="fragment" data-fragment-index="0">
+									The <span id="rr">logistic model</span> of Verhulst is the simplest model that
+									has such built-in damping:
+								</span> 
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									where $\theta$ is some very large constant, known as the
+									<span id="rr">carrying capacity</span>.
+								</span> 
+							</p>
+							
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-70" style="margin-top:-5px">
+						
+						<div>
+							<p>
+								<span>
+									👉 &nbsp; $\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Note that when $P$ is small(ish) then $P/\theta$ is small and we
+									approximately have
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds \dif{P}{t}\approx rP$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+									as before.
+								</span> 
+								<span class="fragment" data-fragment-index="2">
+									When the population becomes close to the carrying capacity (i.e., $P/\theta$
+very close to 1 so that not just $1-P/\theta\approx 0$ but also
+$P(1-P/\theta)\approx 0$) then growth comes almost to a standstill. 
+								</span> 
+							</p>
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-50" style="margin-top:-5px">
+						
+						<div>
+							<p>
+								<span>
+									👉 &nbsp; $\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-75" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									If we introduce new variables $y=P/\theta$ and $\tau=rt$ then the ODE becomes 
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds\frac{\dup y}{\dup \tau} = y(1-y).$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									We have already seen that if $y(0)=y_0$ then this has solution
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds y = \frac{y_0 e^\tau}{1-y_0+y_0e^\tau}.$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									If $P(0)=P_0$ in our original variables then we have
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$\ds P = \frac{\theta P_0 e^{rt}}{\theta-P_0+P_0e^{rt}}.$
+								</span> 
+							</p>
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+
+				<section>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+
+					<div class="size-70" style="margin-top:-5px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Identify the equilibrium (or singular) solutions to the logistic population
+model, and interpret these solutions in terms of population growth.  Include a
+diagram.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-75" style="margin-top:-5px">
+						
+						<div class="left-txt">
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds\frac{dP}{dt} = rP\left(1-\frac{P}{\theta}\right)$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Then equilibrium solution: $P=0, \theta$
+									</span>
+								</p>
+								<br/><br/><br/><br/><br/><br/>
+							</div>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					
+					<div class="size-40" style="margin-top:-10px;">
+						
+						<div>
+							<p>
+								<span>
+									$\ds\frac{dP}{dt} = rP\left(1-\frac{P}{\theta}\right)$
+								</span>
+							</p>
+						</div>
+
+						
+						
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Logistic model" 
+						src="https://www.geogebra.org/material/iframe/id/tjxmbppk/width/696/height/501/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
+						width="696px" height="501px" style="border:0px;" allowfullscreen=""> 
+						</iframe>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+
+					<div class="size-70" style="margin-top:-5px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									The Pacific Halibut Fishery uses a logistic model plus an extra term
+to take into account their harvesting, which is at a rate proportional
+to the existing population.
+
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									If $E$ is the constant of proportionality for harvesting, their
+									model is 
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \dif{P}{t} = rP\Bigl(1-\frac{P}{\theta}\Bigr)-EP.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
+								<span class="fragment" data-fragment-index="1">
+									What restriction must 
+									be put on $E$ so that the population will not
+									die out?
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-85" style="margin-top:-5px">
+						
+						<div  class="fragment" data-fragment-index="2">
+							<div id="theorem">
+								<p>
+									<span>
+										<span id="rr">Extra reading!</span> 📝 = Exercise
+									</span>
+								</p>
+								
+							</div>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.4 Extra reading: numerically solving ODEs</strong></p>
+					</div>
+					<div class="size-75" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Matlab has some more sophisticated numerical methods for solving ODEs than
+									Euler's method.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Matlab's <span style="color:blue">ode45</span> uses a 
+									<a href="https://mathworld.wolfram.com/Runge-KuttaMethod.html" target="_blank">Runge-Kutta fourth-order integration
+									technique</a>.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									To use it you need to write two little programs. The first
+									one, say <tt>logistic.m</tt>,
+									defines the differential equation
+								</span>
+							</p>
+						</div>
+					</div>
+	<div style="font-size:120%;margin-top:-10px"  class="fragment" data-fragment-index="2">
+	<pre><code data-trim data-noescape data-line-numbers="1-2">
+	function dy = logistic(t, y)
+	dy = y * (1 - y);
+	</code></pre>
+	</div>
+					<div class="size-75" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									The second program will numerically solve the ODE and plot your
+									solution.
+								</span>
+							</p>
+						</div>
+					</div>
+	<div style="font-size:120%;margin-top:-10px"  class="fragment" data-fragment-index="3">
+	<pre><code data-trim data-noescape data-line-numbers="1-4">
+y0 = 0.1;
+tfinal = 6;
+[t, y] = ode45('logistic', tfinal, y0);
+plot(t, y);
+	</code></pre>
+					</div>
+					<br/>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>MATLAB live script</strong></p>
+					</div>
+					
+					<div class="size-90" style="margin-top:0px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									By the way, you can also write it in <strong>MATLAB live editor</strong> as follows:
+								</span>
+							</p>
+						</div>
+					</div>
+	<div style="font-size:120%">
+	<pre><code data-trim data-noescape data-line-numbers="1-2|3|4|5|1-6">
+	% Anonymous function
+	logistic = @(t, y) y * (1 - y); 
+	y0 = 0.1; 
+	tspan = [0, 6];
+	[t, y] = ode45(logistic, tspan, y0);
+	plot(t, y);
+	</code></pre>
+	</div>
+					<br/>
+					<br/><br/><br/><br/>
+				</section>
+
+			</section>
+
+			<section>
+				<h5>1 Ordinary Differential Equations</h5>
+				<div id="sbt">
+					<p><strong>1.5.5 Main points</strong></p>
+				</div>
+				
+				
+				
+				<div class="size-90">
+					<div class="left-txt">
+						
+
+						<ul style="line-height:55px">
+							<li>
+								You should be able to apply Newton's law of cooling and solve the
+resulting IVP.
+							</li>
+							<li>
+								You should know how to model population growth and solve the resulting
+IVP.  
+							</li>
+							<li>
+								You should be able to interpret the obtained solutions.
+							</li>
+							
+							
+						</ul>
+						
+						
+						
+						
+					</div>
+				</div>
+				<br/><br/><br/>
+			</section>
+
+			
+			
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
