@@ -58,1066 +58,725 @@
 			</section>
 
 			<!--Section with format-->
-			<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6 Solving Linear First Order Equations</strong></p>
-					</div>
-					<br/>
-					<div class="">
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									If you cannot solve a differential equation by separation,
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									your next
-									plan of attack should be to test if it is <span id="rr">linear</span> 
-									and use the
-									<span id="rr">integration factor</span> method described below.
-								</span>
-							</p>
-							
-							</p>
-						</div>
-					</div>
-					
-					<br/><br/><br/><br/>
-			</section>
 
 			<section>
-
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
+					<h5>1 Ordinary Differential Equations</h5>
 					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<p><strong>1.5.2 Malthus: "... doomed to misery and vice"</strong></p>
 					</div>
 					
-					<div class="size-95">
+					
+
+					<div class="size-90" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 								<span>
-									
-									A first-order ODE is <span id="rr">linear</span>  if it can be put in the form
-									
-								</span>
+									Without inhibiting factors the rate at which the human population grows is
+proportional to its existing population; 
+								</span> 
+								<span class="fragment" data-fragment-index="0">
+									if $P$ is the population at
+time $t$ then
+$$\dif{P}{t}=rP,$$
+where $r$ is the growth rate (per human per year, say).
+								</span> 
 							</p>
 							
-							
+						</div>
+					</div>
+
+					
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.2 Malthus: "... doomed to misery and vice"</strong></p>
+					</div>
+					
+					
+
+					<div class="size-60" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								<span>
+									Without inhibiting factors the rate at which the human population grows is
+proportional to its existing population; 
+								</span> 
+								<span>
+									if $P$ is the population at
+time $t$ then
+$$\dif{P}{t}=rP,$$
+where $r$ is the growth rate (per human per year, say).
+								</span> 
+							</p>
 							
 						</div>
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								<span>
+									The world population is currently growing at a rate of approximately
+$r=0.0125$.
+								</span> 
+								<span class="fragment" data-fragment-index="0">
+									If we take as initial condition the year 2000
+with roughly 6 billion people on the planet, 
+								</span> 
+								<span class="fragment" data-fragment-index="1">
+									and ignore global warming
+so that we may take the total area of land on Earth to be constant
+at 150 million square kilometres, 
+								</span> 
+								<span class="fragment" data-fragment-index="2">
+									find in which year each human will 
+have, on average, one square metre of land left to stand on.
+								</span> 
+							</p>
+							
+						</div>
+					</div>
+
+					
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.2 Malthus: "... doomed to misery and vice"</strong></p>
+					</div>
+					
+					
+
+					<div class="size-70" style="margin-top:-10px">
 						<div class="">
 							<p>
-								<span id="blue-box-big">
+								<span>
 									
-									
-									$\ds
-									\dif{y}{t}+p(t)y=q(t)
-									$
-								</span>
+								</span> 
+								<span>
+									$\ds \dif{P}{t}=rP,$
+								</span> 
 							</p>
 							
-							
-							
 						</div>
+					</div>
+					<div class="size-60" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 								<span>
-									
-									
-									for some functions $p(t)$ and $q(t)$.
-								</span>
+									The world population is currently growing at a rate of approximately
+$r=0.0125$.
+								</span> 
+								<span>
+									If we take as initial condition the year 2000
+with roughly 6 billion people on the planet, 
+								</span> 
+								<span>
+									and ignore global warming
+so that we may take the total area of land on Earth to be constant
+at 150 million square kilometres, 
+								</span> 
+								<span>
+									find in which year each human will 
+have, on average, one square metre of land left to stand on.
+								</span> 
 							</p>
-							
 							
 							
 						</div>
 					</div>
-					
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							
+							<div id="theorem">
+								<p>
+									<span>
+										Here we have $\, \dfrac{dP}{dt}= 0.0125P,\,$
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										 $\, P(2000)=6,\,$ 
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$t$ is in years and $P$ is in billions.
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
 
-					<br/><br/><br/>
+					
+					
+					<br/><br/>
 				</section>
+
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
+					<h5>1 Ordinary Differential Equations</h5>
 					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<p><strong>1.5.2 Malthus: "... doomed to misery and vice"</strong></p>
 					</div>
 					
-					<div class="size-80" style="margin-top:-15px">
+					
+
+					
+					<div class="size-50" style="margin-top:-10px">
 						<div class="left-txt">
-							
 							<p>
-								<span>
-									<strong>Example:</strong>
-									Which of the following are linear?
-								</span>
 								
+								<span>
+									[...] 
+										If we take as initial condition the year 2000
+	with roughly 6 billion people on the planet, 
+									 [...]
+								</span> 
 							</p>
 							
-							<ul style="line-height:51px;margin-top:-10px">
-								<li>
-									$y'=x$ 
-								</li>
-								<li>
-									$y'=\log x$ 
-								</li>
-								<li>
-									$y'=y^2$ 
-								</li>
-								<li>
-									$y'=y$ 
-								</li>
-								<li>
-									$y'y = 1$ 
-								</li>
-								<li>
-									$y' = y+3\sin x$ 
-								</li>
-								<li>
-									$y' = t^5 - t^2y$  
-								</li>
-								<li>
-									$y' = \sin y + e^x$ 
-								</li>
-								<li>
-									$(y')^2 = y$
-								</li>
-							</ul>
 							
 						</div>
 					</div>
-					
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							
+							<div id="theorem">
+								<p>
+									<span>
+										Since $\, \dfrac{dP}{dt}= 0.0125P,\,$
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										then $\, \ds \int\frac{dP}{P} =\int 0.0125~dt \,$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\Ra \ln \abs{P} =  0.0125 t + C$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\;\,\Ra\, P(t) =Ae^{0.0125t}$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										We need $P(2000) =  6$
+									</span>
+									<span class="fragment" data-fragment-index="4"  style="font-size:110%">
+										$\;\,\Ra\, 6 = A e^{0.0125(2000)}$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="5" style="font-size:110%">
+										$\Ra A = 6e^{-0.0125(2000)}$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="6" style="font-size:110%">
+										$\Ra P(t) = 6e^{-0.0125(2000)} e^{0.0125t}$
+									</span>
+									<span class="fragment" data-fragment-index="7" style="font-size:110%">
+										$=  e^{0.0125(t-2000)}$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
 
+					
+					
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
+					<h5>1 Ordinary Differential Equations</h5>
 					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<p><strong>1.5.2 Malthus: "... doomed to misery and vice"</strong></p>
 					</div>
 					
-					<div class="size-90" style="margin-top:0px">
+					
+
+					
+					<div class="size-50" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									[...] 
+										and ignore global warming
+										so that we may take the total area of land on Earth to be constant
+										at 150 million square kilometres, 
+								</span> 
+								<span>
+									find in which year each human will 
+									have, on average, one square metre of land left to stand on.
+								</span> 
+							</p>
+							
+							
+						</div>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
 						<div class="left-txt">
 							
+							<div id="theorem">
+								<p>
+									<span>
+										Now we want to find the year in which there will
+										be 150,000 billion people.
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										So we have to solve for $t$:
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1" style="font-size:110%">
+										$\qquad \qquad 150,000 = 6 e^{0.0125(t-2000)}$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2" >
+										$\qquad \qquad \qquad \;\,\Ra t\approx 2810.$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					
+					
+					<br/><br/>
+				</section>
+			</section>
+			
+			<section>
+
+
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
 							<p>
 								<span>
-									Recall the product rule for differentiation (written here in reverse order):
-\[
-f\,\dif{g}{t} + \dif{f}{t}\,g=
-\dif{}{t}(f\, g ).
-\]
-								</span>
+									The problem with the Malthusian population model is that it does not
+contain a "damping" factor reflecting issues such as
+over-population, limited food or water supply, etc.
+								</span> 
 								<span class="fragment" data-fragment-index="0">
-									This formula is key to solving first-order linear ODEs.
-
-								</span>
-								
+									The <span id="rr">logistic model</span> of Verhulst is the simplest model that
+									has such built-in damping:
+								</span> 
 							</p>
 							
+						</div>
+						<div>
 							<p>
 								<span class="fragment" data-fragment-index="0">
-									<strong>Example:</strong>
-									Solve $\;\displaystyle \dif{y}{t} + 
-									\Bigl(\dfrac{2t}{t^2+1}\Bigr)y = t^2+1$.
-								</span>
+									$\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
 							</p>
-							
-							
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									where $\theta$ is some very large constant, known as the
+									<span id="rr">carrying capacity</span>.
+								</span> 
+							</p>
 							
 						</div>
 					</div>
+
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
 					
 
+					<div class="size-70" style="margin-top:-5px">
+						
+						<div>
+							<p>
+								<span>
+									👉 &nbsp; $\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Note that when $P$ is small(ish) then $P/\theta$ is small and we
+									approximately have
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds \dif{P}{t}\approx rP$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span>
+									as before.
+								</span> 
+								<span class="fragment" data-fragment-index="2">
+									When the population becomes close to the carrying capacity (i.e., $P/\theta$
+very close to 1 so that not just $1-P/\theta\approx 0$ but also
+$P(1-P/\theta)\approx 0$) then growth comes almost to a standstill. 
+								</span> 
+							</p>
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+					
+					
+
+					<div class="size-50" style="margin-top:-5px">
+						
+						<div>
+							<p>
+								<span>
+									👉 &nbsp; $\ds \dif{P}{t}=rP\Bigl(1-\frac{P}{\theta}\Bigr),$
+								</span> 
+							</p>
+						</div>
+						
+					</div>
+
+					<div class="size-75" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									If we introduce new variables $y=P/\theta$ and $\tau=rt$ then the ODE becomes 
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\ds\frac{\dup y}{\dup \tau} = y(1-y).$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									We have already seen that if $y(0)=y_0$ then this has solution
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds y = \frac{y_0 e^\tau}{1-y_0+y_0e^\tau}.$
+								</span> 
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									If $P(0)=P_0$ in our original variables then we have
+								</span> 
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									$\ds P = \frac{\theta P_0 e^{rt}}{\theta-P_0+P_0e^{rt}}.$
+								</span> 
+							</p>
+						</div>
+					</div>
+
+					
+					
+					<br/>
+				</section>
+
+				<section>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
+					</div>
+
+					<div class="size-70" style="margin-top:-5px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Identify the equilibrium (or singular) solutions to the logistic population
+model, and interpret these solutions in terms of population growth.  Include a
+diagram.
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-75" style="margin-top:-5px">
+						
+						<div class="left-txt">
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds\frac{dP}{dt} = rP\left(1-\frac{P}{\theta}\right)$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Then equilibrium solution: $P=0, \theta$
+									</span>
+								</p>
+								<br/><br/><br/><br/><br/><br/>
+							</div>
+						</div>
+					</div>
 					<br/><br/>
 				</section>
+
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
+					<h5>1 Ordinary Differential Equations</h5>
 					
-					<div class="size-65" style="margin-top:-15px">
-						<div class="left-txt">
-							
-							
-							
+					<div class="size-40" style="margin-top:-10px;">
+						
+						<div>
 							<p>
 								<span>
-									<strong>Example:</strong>
-									Solve $\;\displaystyle \dif{y}{t} + 
-									\Bigl(\dfrac{2t}{t^2+1}\Bigr)y = t^2+1$.
+									$\ds\frac{dP}{dt} = rP\left(1-\frac{P}{\theta}\right)$
 								</span>
 							</p>
-							
-							
-							
 						</div>
-					</div>
 
-					<div class="size-80" style="margin-top:0px">
 						
-							
-							
-							
-							<div id="theorem">
-								
-								<div class="left-txt">
-									<p>
-										<span class="fragment" data-fragment-index="0">
-											Multiplying both sides by $t^2+1$ gives
-	
-										</span>
-									</p>
-									
-								</div>
-								<div class="">
-									
-									<p>
-										<span class="fragment" data-fragment-index="0">
-											$\ds \left(t^2+1\right)\frac{dy}{dt} + (2t)y = \left(t^2+1\right)^2.$
-										</span>
-									</p>
-									
-								</div>
-								<div class="left-txt">
-									
-									<p>
-										<span class="fragment" data-fragment-index="1">
-											Since $\ds \frac{d}{dt}\left(t^2+1\right)=2t,$ 
-										</span>
-										<span class="fragment" data-fragment-index="2">
-											using the product rule,
-										</span>
-									</p>
-								</div>
-								<div class="">
-									
-									<p>
-										<span class="fragment" data-fragment-index="3">
-											$\ds \frac{d}{dt}\left(\left(t^2+1\right)y\right)$ 
-										</span>
-										<span class="fragment" data-fragment-index="4">
-											$\ds =\left(t^2+1\right)y' + (2t) y$ 
-										</span>
-										<span class="fragment" data-fragment-index="5">
-											$\ds =\text{LHS}.$ 
-										</span>
-									</p>
-									
-								</div>
-								
-							</div>
-							
-							
-					</div>
-					
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-					
-					<div class="size-65" style="margin-top:-15px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									<strong>Example:</strong>
-									Solve $\;\displaystyle \dif{y}{t} + 
-									\Bigl(\dfrac{2t}{t^2+1}\Bigr)y = t^2+1$.
-								</span>
-							</p>
-							
-							
-							
-						</div>
-					</div>
-
-					<div class="size-80" style="margin-top:0px">
 						
-							
-							
-							
-							<div id="theorem">
-								
-								<div class="left-txt">
-									
-									<p>
-										<span>
-											So the ODE can be written as
-										</span>
-									</p>
-									
-								</div>
-								<div class="">
-									
-									<p>
-										<span>
-											$\ds \frac{d}{dt}\left(\left(t^2+1\right)y\right) = \left(t^2+1\right)^2$
-										</span>
-									</p>
-									
-								</div>
-								<div class="">
-									
-									<p>
-										<span class="fragment" data-fragment-index="0">
-										 $\Ra \,\ds \frac{d}{dt}\left(\left(t^2+1\right)y\right) =t^4+2t^2+1$
-										</span>
-									</p>
-									
-								</div>
-								
-								
-							</div>
-							
-							
-					</div>
-					
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-					
-					<div class="size-65" style="margin-top:-15px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									<strong>Example:</strong>
-									Solve $\;\displaystyle \dif{y}{t} + 
-									\Bigl(\dfrac{2t}{t^2+1}\Bigr)y = t^2+1$.
-								</span>
-							</p>
-							
-							
-							
-						</div>
 					</div>
 
-					<div class="size-75" style="margin-top:0px">
-						
-							
-							
-							
-							<div id="theorem">
-								
-								
-								<div class="" style="margin-top:-25px">
-									
-									<p>
-										<span>
-										 $\Ra \,\ds \frac{d}{dt}\left(\left(t^2+1\right)y\right) =t^4+2t^2+1$
-										</span>
-									</p>
-									
-								</div>
-
-								<div class="left-txt" style="margin-top:-10px">
-									
-									<p>
-										<span class="fragment" data-fragment-index="1">
-											Then 
-										</span>
-										<span class="fragment" data-fragment-index="1">
-											$\ds \left(t^2+1\right)y  = \int\left(t^4+ 2t^2+1\right)dt+C$
-										</span>
-									</p>
-									
-								</div>
-								<div class="">
-									
-									<p>
-										<span class="fragment" data-fragment-index="2">
-											$\Ra \ds  \left(t^2+1\right) y  =  \frac{t^5}{5}+\frac{2}{3}t^3+ t+C$
-										</span>
-									</p>
-									<p>
-										<span class="fragment" data-fragment-index="3">
-											$\Ra \ds y  =\frac{1}{\left(t^2+1\right)}  \left( \frac{t^5}{5}+\frac{2}{3}t^3+ t+C\right).
-											% \frac{t^5}{5\left(t^2+1\right)}+\dfrac{2t^3}{3\left(t^2+1\right)}+ \frac{t}{\left(t^2+1\right)}+\frac{C}{\left(t^2+1\right)}.\;$
-											😃
-										</span>
-									</p>
-									
-								</div>
-								
-								
-							</div>
-							
-							
+					<div>
+						<iframe scrolling="no" title="Logistic model" 
+						src="https://www.geogebra.org/material/iframe/id/tjxmbppk/width/696/height/501/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
+						width="696px" height="501px" style="border:0px;" allowfullscreen=""> 
+						</iframe>
 					</div>
-					
-
 					<br/><br/>
 				</section>
 
 				<section>
-					<h4>1 Ordinary Differential Equations</h4>
+					<h5>1 Ordinary Differential Equations</h5>
 					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<p><strong>1.5.3  Verhulst to the rescue; down with the Malthusian law</strong></p>
 					</div>
 
-					<div class="size-80" style="margin-top:-15px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									The lucky thing (it wasn't luck really) about the previous example was 
-that after multiplication by $t^2+1,$
-								</span>
-								<span class="fragment" data-fragment-index="0">
-									the equation exactly matched 
-the product rule.
-
-								</span>
-								<span class="fragment" data-fragment-index="1">
-the product rule. This raises the following natural question.
-
-								</span>
-							</p>
-
-							<p>
-								<span class="fragment" data-fragment-index="2">
-									<strong>
-										Question:
-									</strong>
-									Can we always multiply a first-order linear ODE by some function $I(t),$
-so that its left-hand side matches the left-hand side of the product rule?  
-								</span>
-							</p>
-							<p>
-								<span class="fragment" data-fragment-index="3">
-									This question can be answered in the affirmative and any function $I(t)$
-that does the trick is known as an <span id="rr">integrating factor</span>.
-								</span>
-							</p>
-							
-							
-							
-						</div>
-					</div>
-
-					<br/>
-				
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-
-					<div class="size-80" style="margin-top:-15px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									Given the ODE
-								</span>
-								
-							</p>
-							
-							
-							
-						</div>
-						<div class="">
-							
-							
-							
-							<p>
-								<span id="blue-box-big">
-									$\ds
-\dif{y}{t}+p(t)y=q(t)
-$
-
-								</span>
-								
-							</p>
-							
-							
-							
-						</div>
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									
-									we multiply by the yet-to-be-found integrating factor $I(t)$:
-
-								</span>
-								
-							</p>
-							
-							
-							
-						</div>
+					<div class="size-75" style="margin-top:-5px">
 						
-						<div class="">
-							
-							
-							
+						<div class="left-txt">
 							<p>
-								<span class="fragment" data-fragment-index="0">
-									$\ds
-I(t)\dif{y}{t} + I(t)p(t)y = I(t)q(t). \qquad (*)
-$
+								<span>
+									<strong>Example:</strong>
+									The Pacific Halibut Fishery uses a logistic model plus an extra term
+to take into account their harvesting, which is at a rate proportional
+to the existing population.
 
 								</span>
-								
 							</p>
-							
-							
-							
-						</div>
-						<div class="left-txt">
-							
-							
-							
 							<p>
-								
-								<span class="fragment" data-fragment-index="1">
-									We think of $I$ as $g$ and $y$ as $f.$
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									Then the first term on the left is
-									$f' g$ and consequently we want the second term on the left to be
-									$f g'=y I'.$
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									Given that this second term is in fact $\,I p y,\,$ we infer 
-									that $I$ must satisfy the ODE
+								<span class="fragment" data-fragment-index="0">
+									If $E$ is the constant of proportionality for harvesting, their
+									model is 
 								</span>
 							</p>
-							
-							
-							
 						</div>
 						<div>
 							<p>
-								<span class="fragment" data-fragment-index="3">
-									$\ds I'(t)=I(t) p(t).$
-								</span>
-							</p>
-						</div>
-					</div>
-
-					<br/>
-				
-				</section>
-
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-					<br/>
-					<div class="" style="margin-top:-15px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									This is good news since this is a separable ODE which we already know
-									how to solve:
-								</span>
-							</p>
-							
-							
-							
-						</div>
-						<div class="">
-							
-							
-							
-							<p>
-								<span id="blue-box-big">
-								
-								$\ds
-								I(t)=\exp\left(\int p(t)\, \dup t\right).
-								$
-								</span>
-							</p>
-							
-							
-							
-						</div>
-					</div>
-
-					
-					
-
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-					
-					<div class="size-85" style="margin-top:0px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									<strong>Important remark:</strong>
-									Any integrating factor will do. 
-								</span>
 								<span class="fragment" data-fragment-index="0">
-									Hence when you try to solve $I'=I p,$ 
+									$\ds \dif{P}{t} = rP\Bigl(1-\frac{P}{\theta}\Bigr)-EP.$
 								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							
 								<span class="fragment" data-fragment-index="1">
-									i.e., when you try to compute the above integral 
-									(assuming you can explicitly do so), 
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									you do not need to worry about keeping track of constants.
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									For example, if $p(t)=2t,$
+									What restriction must 
+									be put on $E$ so that the population will not
+									die out?
 								</span>
 							</p>
-							
-							
-							
-						</div>
-
-						<div style="font-size: 107%;">
-							<p>
-								<span class="fragment" data-fragment-index="3">
-									$\ds I(t)=\exp\Bigl(2\int t\dup t\Bigr)$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									$\ds =  e^{t^2+C}$
-								</span>
-								<span class="fragment" data-fragment-index="5">
-									$\ds =e^C e^{t^2}$
-								</span>
-								<span class="fragment" data-fragment-index="6">
-									$\ds =B e^{t^2},$
-								</span>
-							</p>
-						</div>
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								
-								<span class="fragment" data-fragment-index="7">
-									where $B=\exp(C)\neq 0$.
-								</span>
-								
-							</p>
-							
-							
-							
 						</div>
 					</div>
-
-					
-					
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-					
-					<div class="size-85" style="margin-top:0px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									When you substitute this in 
-									$$I(t)\dif{y}{t} + I(t)p(t)y = I(t)q(t)$$
-									the constant $B$ would simply be an
-									overall factor which may thus be divided out.
-								</span>
-								<span class="fragment" data-fragment-index="0">
-									It is therefore perfectly
-									okay to write on your assignment: 
-									<br/><tt>Because constants of
-										integration do not matter</tt>,
-
-								</span>
-								
-							</p>
-							
-							
-							
-						</div>
-
-						<div style="margin-top: -21px;">
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									$\ds I(t)=\exp\Bigl(2\int t\dup t\Bigr)$
-								</span>
-								<span class="fragment" data-fragment-index="0">
-									$\ds =e^{t^2}.$
-								</span>
-								
-							</p>
-						</div>
+					<div class="size-85" style="margin-top:-5px">
 						
-					</div>
-
-					
-					
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
+						<div  class="fragment" data-fragment-index="2">
+							<div id="theorem">
+								<p>
+									<span>
+										📝 = Exercise!
+									</span>
+								</p>
+								
+							</div>
+						</div>
 					</div>
 					<br/>
-					<div class="" style="margin-top:0px">
-						<div class="left-txt">
-							
-							
-							
-							<p>
-								<span>
-									😕 To confuse your tutor, you might even write:
-								</span><br/><br/>
-								<span class="fragment" data-fragment-index="0">
-									<tt>Because constants of
-										integration <br/>do not matter,</tt>
-								</span>
-								
-								
-							</p>
-							
-							
-							
-						</div>
-
-						<div>
-							<p>
-								<span class="fragment" data-fragment-index="0">
-									$\ds I(t)=\exp\Bigl(2\int t\dup t\Bigr)=e^{t^2+65\pi^{123}}.$
-								</span>
-								
-							</p>
-						</div>
-						
-					</div>
-
-					
-					
-
-					<br/><br/><br/><br/>
 				</section>
-				
-
-				
 
 			</section>
 
+			<section>
 
-			
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>1.5.4 Extra reading: numerically solving ODEs</strong></p>
+					</div>
+					<div class="size-75" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									Matlab has some more sophisticated numerical methods for solving ODEs than
+									Euler's method.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Matlab's <span style="color:blue">ode45</span> uses a 
+									<a href="https://mathworld.wolfram.com/Runge-KuttaMethod.html" target="_blank">Runge-Kutta fourth-order integration
+									technique</a>.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									To use it you need to write two little programs. The first
+									one, say <tt>logistic.m</tt>,
+									defines the differential equation
+								</span>
+							</p>
+						</div>
+					</div>
+	<div style="font-size:120%;margin-top:-10px"  class="fragment" data-fragment-index="2">
+	<pre><code data-trim data-noescape data-line-numbers="1-2">
+	function dy = logistic(t, y)
+	dy = y * (1 - y);
+	</code></pre>
+	</div>
+					<div class="size-75" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									The second program will numerically solve the ODE and plot your
+									solution.
+								</span>
+							</p>
+						</div>
+					</div>
+	<div style="font-size:120%;margin-top:-10px"  class="fragment" data-fragment-index="3">
+	<pre><code data-trim data-noescape data-line-numbers="1-4">
+y0 = 0.1;
+tfinal = 6;
+[t, y] = ode45('logistic', tfinal, y0);
+plot(t, y);
+	</code></pre>
+					</div>
+					<br/>
+					<br/>
+				</section>
+	
+				<section data-auto-animate>
+					<h5>1 Ordinary Differential Equations</h5>
+					<div id="sbt">
+						<p><strong>MATLAB live script</strong></p>
+					</div>
+					
+					<div class="size-90" style="margin-top:0px">
+						
+						<div class="left-txt">
+							<p>
+								<span>
+									By the way, you can also write it in <strong>MATLAB live editor</strong> as follows:
+								</span>
+							</p>
+						</div>
+					</div>
+	<div style="font-size:120%">
+	<pre><code data-trim data-noescape data-line-numbers="1-2|3|4|5|1-6">
+	% Anonymous function
+	logistic = @(t, y) y * (1 - y); 
+	y0 = 0.1; 
+	tspan = [0, 6];
+	[t, y] = ode45(logistic, tspan, y0);
+	plot(t, y);
+	</code></pre>
+	</div>
+					<br/>
+					<br/><br/><br/><br/>
+				</section>
 
-			<section data-auto-animate>
-				<h4>1 Ordinary Differential Equations</h4>
+			</section>
+
+			<section>
+				<h5>1 Ordinary Differential Equations</h5>
 				<div id="sbt">
-					<p><strong>1.6.1 Definition</strong></p>
+					<p><strong>1.5.5 Main points</strong></p>
 				</div>
-				<div id="sbt">
-					<p><strong>Summary</strong></p>
-				</div>
-			
-				<div class="size-80" style="margin-top:0px">
+				
+				
+				
+				<div class="size-90">
 					<div class="left-txt">
 						
-						<p>
-							To solve a first-order linear ODE:
-						</p>
-						
-						<ol>
+
+						<ul style="line-height:55px">
 							<li>
-								Write the equation in the form
-								$\ds\dif{y}{t}+py=q$.
+								You should be able to apply Newton's law of cooling and solve the
+resulting IVP.
 							</li>
 							<li>
-								Find an integrating factor 
-$\ds I = \exp\Bigl(\int p \dup t\Bigr).$
+								You should know how to model population growth and solve the resulting
+IVP.  
 							</li>
 							<li>
-								Multiply the ODE by $I$ and apply the product rule to get
-$\ds \dif{}{t}(Iy) = Iq.$
+								You should be able to interpret the obtained solutions.
 							</li>
-							<li>
-								Integrate both sides with respect to $t.$
-								(This time, don't forget about constants of integration!).
-							</li>
-						</ol>
+							
+							
+						</ul>
 						
 						
 						
 						
 					</div>
-
-					
-					
 				</div>
-
 				<br/><br/><br/>
 			</section>
+
 			
-
-			<section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-				<br/><br/>
-					<div class="" style="margin-top:0px">
-						<div class="left-txt">
-							
-							<p>
-								<strong>Example:</strong>
-								Solve the ODE $\ds\;\dif{y}{t}=y+t.$
-							</p>
-						</div>
-
-						
-						
-					</div>
-					
-
-					<br/><br/><br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					
-				
-					<div class="size-60" style="margin-top:-10px">
-						<div class="left-txt">
-							
-							<p>
-								<strong>Example:</strong>
-								Solve the ODE $\ds\;\dif{y}{t}=y+t.$
-							</p>
-						</div>
-
-						
-						
-					</div>
-					<div class="size-85" style="margin-top:0px">
-						
-
-						<div id="theorem">
-							<div class="left-txt" style="margin-top:-25px">
-								<p>
-								
-									<span class="fragment" data-fragment-index="0">
-										0. ODE is 1st order linear: $y'-y= t,$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\,p(t) = -1.$
-									</span>
-									
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="1">
-										1.  $\ds I(t)  =  e^{\int p(t) \ dt}$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										 $\ds= e^{-t}.$
-									</span>
-									
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="3">
-										2.  $\ds e^{-t}y' -e^{-t}y = e^{-t}t.$
-									</span>
-									
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="4">
-										3.  $\ds \text{LHS} = \frac{d}{dt} \left(e^{-t}y\right) $
-									</span>
-									<span class="fragment" data-fragment-index="5">
-										  $\ds = e^{-t}t.$
-									</span>
-									
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="6">
-										4.  $\ds e^{-t} y = \int e^{-t} t ~dt +C\,$
-									</span>
-									<span class="fragment" data-fragment-index="7">
-										  $\Ra \,\ds  e^{-t} y = -t e^{-t} - e^{-t} +C.$
-									</span>
-									
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="8">
-										5. So the general solution is $\,\ds  y = -t -1 +Ce^t.$
-									</span>
-									
-								</p>
-								
-							</div>
-						</div>
-						
-					</div>
-
-					<br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.6.1 Definition</strong></p>
-					</div>
-					<div class="size-85" style="margin-top:0px">
-						<div class="left-txt">
-							
-							<p>
-								<strong>Example:</strong>
-								Solve the IVP 
-								$\;\ds x^2\dif{y}{x}+xy=1,\;y(1)=2.$
-							</p>
-							
-							
-							
-							
-						</div>
-
-						<div class="size-85" style="margin-top:0px">
-						
-
-							<div id="theorem">
-								<div class="" style="margin-top:0px">
-									<p>
-									
-										<span class="fragment" data-fragment-index="0">
-											📝 Left as an exercise! 💪 😃
-										</span>
-										
-									</p>
-									
-									
-									
-									
-								</div>
-							</div>
-							
-						</div>
-						
-					</div>
-
-					<div class="size-85" style="margin-top:0px">
-						<div class="left-txt">
-							
-							<p>
-								<strong>Example:</strong>
-								Solve the ODE $\, \displaystyle \dif{y}{x} -x^2 y = x^2.$
-							</p>
-							
-							
-							
-							
-						</div>
-
-						<div class="size-85" style="margin-top:0px">
-						
-
-							<div id="theorem">
-								<div class="" style="margin-top:0px">
-									<p>
-									
-										<span class="fragment" data-fragment-index="0">
-											📝 Left as an exercise! 💪 😃
-										</span>
-										
-									</p>
-									
-									
-									
-									
-								</div>
-							</div>
-							
-						</div>
-						
-					</div>
-
-					<br/><br/>
-				</section>
-				
-			</section>
-
-			<section>
-				<h4>1 Ordinary Differential Equations</h4>
-				<div id="sbt">
-					<p><strong>1.6.2 Worked-out example: RL circuit</strong></p>
-				</div>
-
-				<br/>
-				<p>
-					👀 Extra reading! 📖
-				</p>
-				<p>
-					<span id="rr">Not assessable!</span>  😃
-				</p>
-				<br/><br/><br/><br/><br/>
-			</section>
-
-			<section>
-				<h4>1 Ordinary Differential Equations</h4>
-				<div id="sbt">
-					<p><strong>1.6.3 Main points</strong></p>
-				</div>
-
-				<br/>
-				<div>
-					<ul>
-						<li>
-							You need to be able to identify a first-order linear ODE.
-						</li>
-						<li>
-							You need to be able to solve a first-order linear ODE using an integrating
-factor. 
-						</li>
-					</ul>
-				</div>
-
-				
-				<br/><br/><br/><br/><br/>
-			</section>
 			
 
 			<section>
