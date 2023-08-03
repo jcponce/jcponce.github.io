@@ -1,0 +1,1478 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH1052/7052 - Lecture 13</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<p>Lecture 13</p>
+				<br/><br/>
+			</section>
+
+			<!--Section with format-->
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:75%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										<strong>
+											Example:
+										</strong>
+										Find a particular solution to $\,y''+y'-2y=4xe^{2x}$.
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+							<div style="margin-top:-0px" class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										We have a degree one polynomial, multiplied by $e^{2x}.$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Let's guess that $y_p$ is of the form
+									</span>
+								</p>
+								
+								
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\ds y_p =(ax+b)e^{2x}. $
+									</span>
+								</p>
+							</div>
+							<div style="margin-top:-0px" class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										This means
+									</span>
+								</p>
+								
+								
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds 
+										y_p'=(2ax+2b+a)e^{2x}
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$\ds 
+										y_p''=(4ax+4b+4a)e^{2x}
+										$
+									</span>
+								</p>
+							</div>
+
+
+					</div>
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:80%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Substituting these into the ODE, we have
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+							
+							<div>
+								<p>
+									<span>
+										$\ds y_p''+y'_p-2y_p =4xe^{2x} $
+									</span>
+								</p>
+							</div>
+							<div style="font-size:80%">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds (4ax+4b+4a)e^{2x} $
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds +\,(2ax+2b+a)e^{2x}  $
+									</span>
+									
+									<span class="fragment" data-fragment-index="3">
+										$ \ds -\,2(ax+b)e^{2x} $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds =4xe^{2x} $
+									</span>
+								</p>
+								
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$\ds \Ra 4ax+4b+5a =4x+0.$
+									</span>
+								</p>
+							</div>
+
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										This gives us two equations, and two unknowns
+									</span>
+								</p>
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										$\ds 
+										4a =4
+										$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\ds 
+										\Ra a=1
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										$\ds 
+										4b+5a =0
+										$
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										$\ds 
+										\Ra b=-\frac{5}{4}.
+										$
+									</span>
+								</p>
+							</div>
+							
+
+
+					</div>
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate id="theorem-01">
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:75%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Hence, $\displaystyle y_p=\left(x-\frac{5}{4}\right)e^{2x}.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Where did this guess come from?
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-70">
+						<div class="fragment" data-fragment-index="1">
+							<div class="left-txt" id="theorem-blue">
+								<div style="margin-top:-20px">
+									<p>
+									
+										<span>
+											<strong>Theorem:</strong>
+											Consider an ODE of the form
+											$ay^{\prime\prime}+by^\prime+cy=r(x)$.
+											
+										</span>
+									
+									
+									</p>
+									<p>
+										If $\ds r(x)=e^{\alpha x}\sum_{j=0}^n \beta_jx^j,$	
+									</p>
+									<p>
+										$\ds y_p=e^{\alpha x}\sum_{j=0}^n \gamma_jx^j$ for undetermined coefficients $\gamma_j.$
+									</p>
+									<p>
+										(subject to some caveats, discussed below)
+									</p>
+								</div>
+							
+								
+								
+							</div>
+						</div>
+					</div>
+
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:80%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										To prove this, suppose we have an ODE of the form
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+							
+							<div>
+								<p>
+									<span>
+										$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
+									</span>
+								</p>
+							</div>
+
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										Let 
+									</span>
+								</p>
+							</div>
+							<div>
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										$\ds \;
+										y_p =u(x)e^{\alpha x}\qquad \quad
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds 
+										\implies y_p^\prime =(u^\prime +\alpha u) e^{\alpha x}\qquad \quad\;
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										$\ds 
+										\implies y_p^{\prime\prime} =(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
+										$
+									</span>
+								</p>
+							</div>
+					</div>
+
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+
+					<div style="font-size:65%" >
+						<div>
+							<p>
+								<span>
+									$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
+								</span>
+								<span>
+									$\ds \;\;
+									\left\{
+									\begin{align*}
+									   y_p &=u(x)e^{\alpha x}\\
+									   y_p^\prime &=(u^\prime +\alpha u) e^{\alpha x}\\
+									   y_p^{\prime\prime} &=(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
+									\end{align*}
+									\right.
+									$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					
+					<div style="font-size:80%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Substituting these into the left hand side of the ODE, we have
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+						
+						<div id="theorem">
+							
+
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										$\ds 
+										e^{\alpha x}\bigg[ \bigg.
+										$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds 
+										 \left( au^{\prime\prime}+2a\alpha u^\prime +a\alpha^2 u\right)
+										$
+									</span>
+								</p>
+							</div>
+							<div>
+								
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$\ds 
+										\bigg. + \left(bu^\prime+b\alpha u\right) \bigg.
+										$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds 
+										 + \left(cu \right)
+										$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds 
+										\bigg.  \bigg]
+										$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds 
+										=e^{\alpha x} \sum_{j=0}^n \beta_jx^j
+										$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+
+					
+					
+					<div style="font-size:85%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Dividing both sides by the exponential and grouping like terms of $u$, we have:
+									</span>
+								</p>
+							</div>
+							
+							
+					</div>
+					<div style="font-size:80%" >
+							
+							<div>
+								
+								<p>
+									<span>
+										$\ds au^{\prime\prime}+  (2a\alpha+b)u^\prime + (a\alpha^2+b\alpha +c)u =\sum_{j=0}^n \beta_jx^j.$
+									</span>
+								</p>
+							</div>
+							
+					</div>
+					<div style="font-size:85%" >
+							
+							<div class="left-txt">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										This is a second order ODE, where the RHS is a polynomial.
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										But we've previously established that this means $u(x)$ is a polynomial of degree $n$.
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										Thus, the theorem is proved. 😃
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					
+
+
+					<br/><br/><br/>
+				</section>
+
+			</section>
+			
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Example:
+									</strong>
+									Find the general solution of 
+								</span>
+							
+							</p>
+						
+						</div>
+						<div>
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									$y''+y'-2y=x^2-2x+3+4x e^{2x}$.
+								</span>
+							
+							</p>
+						</div>
+					
+					</div>
+
+					<div class="fragment" data-fragment-index="1">
+						<div class="size-85">
+							<div id="theorem">
+								<div>
+									<p>
+										<span class="fragment" data-fragment-index="1">
+											$\ds y_p = \left( -\frac{1}{2}x^2 +\frac{1}{2}x-\frac{7}{4}\right) 
+											+ \left(x - \frac{5}{4}\right)e^{2x}$
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="1">
+											Check it! 📝
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="2">
+											Find $\,y_H$: $\,\ds y_H''+ y'_H - 2y_H= 0$
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="3">
+											$y_H = c_1 e^{-2x}+ c_2 e^{x}.$ 📝
+										</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
+					</div>
+					<div class="size-60" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>
+										Example:
+									</strong>
+									Find the general solution of 
+								</span>
+								<span>
+									$\,y''+y'-2y=x^2-2x+3+4x e^{2x}$.
+								</span>
+							
+							</p>
+						</div>
+					
+					</div>
+					<div class="size-85">
+						<div id="theorem">
+							<div class="left-txt">
+								<p>
+									<span>
+										General solution:
+									</span>
+								</p>
+								<p>
+									<span>
+										$y= y_H + y_p$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\;\;\, = c_1 e^{-2x}+ c_2 e^{x} $
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\qquad\quad \ds +\, \left( -\frac{1}{2}x^2 +\frac{1}{2}x-\frac{7}{4}\right) 
+										+ \left(x - \frac{5}{4}\right)e^{2x}$ 
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate id="theorem-02">
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
+					</div>
+					
+					<div class="left-txt" id="theorem-blue">
+						<div style="margin-top:-10px">
+							<p>
+							
+								<span>
+									<strong>Theorem:</strong>
+									If $y_{P_1}$ is a particular solution of
+									$\,ay''+by'+cy=r_1(x)$ and $y_{P_2}$ is a particular solution of
+									$\,ay''+by'+cy=r_2(x),$ then
+									$y_P=y_{P_1}+y_{P_2}$ is a particular solution of
+									$\,ay''+by'+cy=r_1(x)+r_2(x).$
+								</span>
+							
+							
+							</p>
+						</div>
+					
+						
+						
+					</div>
+
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
+					</div>
+					
+					<div class="size-90" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									To prove this, suppose we know $y_{P_1}$ and $y_{P_2}$ such that
+								</span>
+							
+							</p>
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+									$\begin{align*}
+									ay_{P_1}^{\prime\prime}+by_{P_1}^\prime +cy_{P_1}&=r_1(x)\\
+									ay_{P_2}^{\prime\prime}+by_{P_2}^\prime +cy_{P_2}&=r_2(x).
+									\end{align*}$
+								</span>
+							
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									Let $z(x)=y_{P_1}(x)+y_{P_2}(x).$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then
+
+								</span>
+							
+							</p>
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									$\begin{align*}
+									z^\prime &= y_{P_1}^\prime+y_{P_2}^\prime\\
+									z^{\prime\prime} &= y_{P_1}^{\prime\prime}+y_{P_2}^{\prime\prime},
+									\end{align*}$
+								</span>
+							
+							</p>
+						</div>
+					
+					</div>
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
+					</div>
+					
+					<div class="size-65" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Let $z(x)=y_{P_1}(x)+y_{P_2}(x).$
+								</span>
+								<span>
+									Then
+
+								</span>
+							
+							</p>
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+									$\begin{align*}
+									z^\prime &= y_{P_1}^\prime+y_{P_2}^\prime\\
+									z^{\prime\prime} &= y_{P_1}^{\prime\prime}+y_{P_2}^{\prime\prime},
+									\end{align*}$
+								</span>
+							
+							</p>
+						</div>
+					
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									and
+								</span>
+							
+							</p>
+						</div>
+						
+					
+					</div>
+					<div class="size-80" >
+						
+						<div id="theorem">
+							<div class="left-txt" style="margin-top:-20px">
+								<p>
+								
+									<span>
+										$az''+bz' + cz $
+									</span>
+								
+								</p>
+								<p>
+								
+									<span class="fragment" data-fragment-index="1">
+										$\quad  = a\left(y_{P_1}^{\prime\prime}+y_{P_2}^{\prime\prime}\right)+b\left(y_{P_1}^\prime+y_{P_2}^\prime\right)+c\left(y_{P_1}+y_{P_2}\right)$
+									</span>
+								
+								</p>
+								<p>
+								
+									<span class="fragment" data-fragment-index="2">
+										$ \quad =\left( ay_{P_1}^{\prime\prime}+b y_{P_1}^\prime + cy_{P_1} \right)+\left( ay_{P_2}^{\prime\prime}+b y_{P_2}^\prime + cy_{P_2} \right)$
+									</span>
+								
+								</p>
+								<p>
+								
+									<span class="fragment" data-fragment-index="3">
+										$\quad  =r_1(x)+r_2(x).\quad \bs$
+									</span>
+								
+								</p>
+							</div>
+							
+						</div>
+					
+					</div>
+					
+
+					<br/><br/>
+				</section>
+				
+				
+				
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									<strong>
+										Example:
+									</strong>
+									Find a particular solution to 
+								</span>
+							
+							</p>
+						
+						</div>
+						<div>
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									$y'' + 4 y' + 5 y = 12 \cos x+4 \sin x.$
+								</span>
+							
+							</p>
+						</div>
+					
+					</div>
+
+					<div class="fragment" data-fragment-index="1">
+						<div class="size-85">
+							<div id="theorem">
+								<div>
+									<p>
+										<span class="fragment" data-fragment-index="1">
+											Our guess is $\ds\, y_p = a \cos x + b \sin x$
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="2">
+											Then $\,y_p' = -a \sin x + b \cos x$
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="3">
+											and $\,y_p'' = -a \cos x - b \sin x$
+										</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					<div class="size-60" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>
+										Example:
+									</strong>
+									Find a particular solution to 
+								</span>
+								<span>
+									$y'' + 4 y' + 5 y = 12 \cos x+4 \sin x.$
+								</span>
+							
+							</p>
+							
+						</div>
+						<div>
+							<p>
+								$y_p = a \cos x + b \sin x,\;y_p' =- a \sin x + b \cos x,\; y_p'' = -a \cos x - b \sin x$
+							</p>
+						</div>
+					
+					</div>
+
+					<div class="size-85">
+						<div id="theorem">
+							<div class="left-txt" style="margin-top:-20px">
+								<p>
+									<span>
+										$\ds y_p'' + 4 y_p' + 5 y_p$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\quad \ds = \left( -a \cos x - b \sin x\right)$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$ + \,4\left( -a \sin x + b \cos x\right)$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\qquad \qquad + \,5\left(a \cos x + b \sin x\right)$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$\quad \ds = \left( 4a + 4b\right)\cos x
+										+ \left( -4a + 4b\right)\sin x$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\quad \ds = 12 \cos x+4 \sin x$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					<div class="size-60" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>
+										Example:
+									</strong>
+									Find a particular solution to 
+								</span>
+								<span>
+									$y'' + 4 y' + 5 y = 12 \cos x+4 \sin x.$
+								</span>
+							
+							</p>
+							
+						</div>
+						
+					
+					</div>
+
+					<div class="size-85">
+						<div id="theorem">
+							<div class="left-txt" style="margin-top:-20px">
+								<p>
+									<span>
+										We obtain a system of equations
+									</span>
+								</p>
+								
+							</div>
+							<div>
+								<p>
+									<span>
+										$
+										\left\{
+											\begin{align*}
+										4a+4b &= 12\\
+										-4a+4b &=4
+										\end{align*}
+										\right.
+										$
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$\Ra 
+										\left\{
+											\begin{align*}
+										8b &= 16\\
+										8a &= 8
+										\end{align*}
+										\right.
+										$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\Ra
+										\left\{
+											\begin{align*}
+										b &= 2\\
+										a &= 1
+										\end{align*}
+										\right.
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										Hence
+										$\,y_p =  \cos x + 2 \sin x.$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+									Once again, where did our guess come from?
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						
+					
+					</div>
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate id="theorem-03">
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					
+					<div class="left-txt" id="theorem-blue">
+						<div style="margin-top:-10px">
+							<p>
+							
+								<span>
+									<strong>Theorem:</strong>
+									Consider an ODE of the form $ay^{\prime\prime}+by^\prime+cy=r(x)$,
+									with $a,b,c \ne 0.$
+								</span>
+							
+							
+							</p>
+							<p>
+							
+								<span>
+									
+									If $r(x)$ is a linear combination of $\cos$ and $\sin$ terms, then so is $y_p.$
+									
+								</span>
+							
+							
+							</p>
+							<p>
+							
+								<span>
+									(subject to some caveats, discussed below)
+
+								</span>
+							
+							
+							</p>
+						</div>
+					
+						
+						
+					</div>
+
+					<br/><br/><br/>
+				</section>
+
+				<section data-auto-animate id="ode-trig">
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					
+					
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Consider the ODE
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+									$\begin{align*}
+									ay^{\prime\prime}+by^\prime+cy&=\alpha \cos (nx) +\beta \sin (nx) \diamond
+									\end{align*}$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									First, let's observe that
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									$\begin{align*}
+									\cos (nx)&=\frac{e^{inx}+e^{-inx}}{2}\\
+									\sin (nx)&=\frac{e^{inx}-e^{-inx}}{2i}.
+									\end{align*}$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									(To see why, recall Euler's formula, $e^{ix}=\cos x+i\sin x.$)
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						
+					
+					</div>
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					
+					
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Thus
+								</span>
+								<span>
+									$\; r(x) =\alpha \cos (nx) +\beta \sin (nx)\qquad \qquad\qquad\qquad$
+								</span>
+							
+							</p>
+							
+						</div>
+						<div class="">
+							<p>
+							
+								
+								
+							
+							</p>
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+									$\;\;\;=\ds \alpha \left(\frac{e^{inx}+e^{-inx}}{2}\right)+\beta \left( \frac{e^{inx}-e^{-inx}}{2i} \right)$
+								</span>
+								
+							
+							</p>
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+									$\;\;\;=\ds\left(\frac{\alpha}{2}+\frac{\beta}{2i}\right)e^{inx}+\left(\frac{\alpha}{2}-\frac{\beta}{2i}\right)e^{-inx}.\quad$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									From <a href="theorem-01">section 1.9.4</a>, we know that the simplified ODE
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									$
+									\ds ay^{\prime\prime}+by^\prime+cy =\left(\frac{\alpha}{2}+\frac{\beta}{2i}\right)e^{inx},
+									$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									has solution $y_{p_1}=\gamma e^{inx},$ for some $\gamma.$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						
+					
+					</div>
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					
+					
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									From <a href="#theorem-01">section 1.9.4</a>, we know that the simplified ODE
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+									$
+									\ds ay^{\prime\prime}+by^\prime+cy =\left(\frac{\alpha}{2}+\frac{\beta}{2i}\right)e^{inx},
+									$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									has solution $y_{p_1}=\gamma e^{inx},$ for some $\gamma.$
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						
+					
+					</div>
+
+					<div class="size-80" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Furthermore, $y_{p_2}=\delta e^{-inx}$ solves
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+									$\begin{align*}
+									ay^{\prime\prime}+by^\prime+cy&=\left(\frac{\alpha}{2}-\frac{\beta}{2i}\right)e^{-inx}.
+									\end{align*}$
+								</span>
+								
+							
+							</p>
+							
+							
+						</div>
+						
+						
+						
+					
+					</div>
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+					</div>
+					
+					
+					<div class="size-80" style="margin-top:-10px">
+						<div class="">
+							<p>
+							
+								<span>
+									👉 $\;y_{p_1}=\gamma e^{inx},\,$  $\,y_{p_2}=\delta e^{-inx}$ 
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Thus, using <a href="#theorem-02">section 1.9.5</a> the solution to <a href="#ode-trig">$\diamond$</a> is
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						
+						
+					
+					</div>
+
+					<div>
+						<div class="size-85">
+							<div id="theorem">
+								<div class="left-txt" style="margin-top:-20px;font-size:120%">
+									<p>
+										<span class="fragment" data-fragment-index="2">
+										   $y_{P_1} + y_{P_2}$
+										</span>
+										<span class="fragment" data-fragment-index="3">
+										   $= \gamma e^{in x} + \delta e^{-inx}$
+										</span>
+									</p>
+								</div>
+								<div class="left-txt">
+									<p>
+										
+										<span class="fragment" data-fragment-index="4">
+										   $= \gamma \big(\cos (nx) + i \sin (nx)\big) + \delta \big(\cos (nx) - i \sin (nx)\big)$
+										</span>
+									</p>
+								</div>
+								<div class="left-txt"style="font-size:120%">
+									<p>
+										
+										<span class="fragment" data-fragment-index="5">
+										   $= \left(\gamma + \delta\right) \cos nx + \left(\gamma - \delta\right) \sin nx$
+										</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="6">
+									and the theorem is proved.
+								</span>
+								
+							
+							</p>
+							
+						</div>
+						
+						
+						
+					
+					</div>
+
+					<br/><br/>
+				</section>
+
+			</section>
+
+			
+
+			<section>
+				<h4>1 Ordinary Differential Equations</h4>
+				<div id="sbt">
+					<p><strong>1.9.7 Main points</strong></p>
+				</div>
+
+				
+				<div class="size-95">
+					<ul style="line-height:60px">
+						<li>
+							You should be able to find a particular solution for the cases we have
+talked about.
+						</li>
+						<li>
+							You should know how to find the general solution as the sum of a
+particular solution and the complementary function.
+						</li>
+					</ul>
+				</div>
+
+				
+				<br/><br/><br/><br/>
+			</section>
+			
+			
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

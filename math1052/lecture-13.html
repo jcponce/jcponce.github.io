@@ -61,1391 +61,1121 @@
 
 
 			<section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-					
-					<div style="font-size:75%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										<strong>
-											Example:
-										</strong>
-										Find a particular solution to $\,y''+y'-2y=4xe^{2x}$.
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
-							<div style="margin-top:-0px" class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										We have a degree one polynomial, multiplied by $e^{2x}.$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										Let's guess that $y_p$ is of the form
-									</span>
-								</p>
-								
-								
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\ds y_p =(ax+b)e^{2x}. $
-									</span>
-								</p>
-							</div>
-							<div style="margin-top:-0px" class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										This means
-									</span>
-								</p>
-								
-								
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										$\ds 
-										y_p'=(2ax+2b+a)e^{2x}
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="3">
-										$\ds 
-										y_p''=(4ax+4b+4a)e^{2x}
-										$
-									</span>
-								</p>
-							</div>
-
-
-					</div>
-
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-					
-					<div style="font-size:80%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										Substituting these into the ODE, we have
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
-							
-							<div>
-								<p>
-									<span>
-										$\ds y_p''+y'_p-2y_p =4xe^{2x} $
-									</span>
-								</p>
-							</div>
-							<div style="font-size:80%">
-								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										$\ds (4ax+4b+4a)e^{2x} $
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds +\,(2ax+2b+a)e^{2x}  $
-									</span>
-									
-									<span class="fragment" data-fragment-index="3">
-										$ \ds -\,2(ax+b)e^{2x} $
-									</span>
-									<span class="fragment" data-fragment-index="4">
-										$\ds =4xe^{2x} $
-									</span>
-								</p>
-								
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="5">
-										$\ds \Ra 4ax+4b+5a =4x+0.$
-									</span>
-								</p>
-							</div>
-
-							<div class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										This gives us two equations, and two unknowns
-									</span>
-								</p>
-							</div>
-							<div>
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										$\ds 
-										4a =4
-										$
-									</span>
-									<span class="fragment" data-fragment-index="7">
-										$\ds 
-										\Ra a=1
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										$\ds 
-										4b+5a =0
-										$
-									</span>
-									<span class="fragment" data-fragment-index="8">
-										$\ds 
-										\Ra b=-\frac{5}{4}.
-										$
-									</span>
-								</p>
-							</div>
-							
-
-
-					</div>
-
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate id="theorem-01">
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-					
-					<div style="font-size:75%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										Hence, $\displaystyle y_p=\left(x-\frac{5}{4}\right)e^{2x}.$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										Where did this guess come from?
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-70">
-						<div class="fragment" data-fragment-index="1">
-							<div class="left-txt" id="theorem-blue">
-								<div style="margin-top:-20px">
-									<p>
-									
-										<span>
-											<strong>Theorem:</strong>
-											Consider an ODE of the form
-											$ay^{\prime\prime}+by^\prime+cy=r(x)$.
-											
-										</span>
-									
-									
-									</p>
-									<p>
-										If $\ds r(x)=e^{\alpha x}\sum_{j=0}^n \beta_jx^j,$	
-									</p>
-									<p>
-										$\ds y_p=e^{\alpha x}\sum_{j=0}^n \gamma_jx^j$ for undetermined coefficients $\gamma_j.$
-									</p>
-									<p>
-										(subject to some caveats, discussed below)
-									</p>
-								</div>
-							
-								
-								
-							</div>
-						</div>
-					</div>
-
-
-					<br/><br/>
-				</section>
 
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+						<p>18.2 The damped spring</p>
 					</div>
-					
-					<div style="font-size:80%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										To prove this, suppose we have an ODE of the form
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
-							
-							<div>
-								<p>
-									<span>
-										$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
-									</span>
-								</p>
-							</div>
-
-							<div class="left-txt">
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										Let 
-									</span>
-								</p>
-							</div>
-							<div>
-								
-								<p>
-									
-									<span class="fragment" data-fragment-index="1">
-										$\ds \;
-										y_p =u(x)e^{\alpha x}\qquad \quad
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										$\ds 
-										\implies y_p^\prime =(u^\prime +\alpha u) e^{\alpha x}\qquad \quad\;
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="6">
-										$\ds 
-										\implies y_p^{\prime\prime} =(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
-										$
-									</span>
-								</p>
-							</div>
-					</div>
-
-
-					<br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
-					</div>
-
-					<div style="font-size:65%" >
-						<div>
+	
+					<div class="size-85" style="margin-top:50px">
+						
+						
+						
+						<div class="left-txt" >
 							<p>
+								
 								<span>
-									$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
+									If you try the "spring-weight" system at home it is unlikely
+									to display true <span id="rr">simple harmonic motion</span>. 
 								</span>
+								<span class="fragment" data-fragment-index="0">
+									If that were possible 
+									you could build a perpetuum mobile.
+									
+								</span>
+	
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									To make the model more realistic we need to take into account the
+									effect of <span>damping</span>.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									This is caused by air-resistance and mechanical friction of the spring.
+								</span>
+	
+							</p>
+							
+							
+						</div>
+						
+					</div>
+					
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p>18.2 The damped spring</p>
+					</div>
+	
+					<div class="size-80" style="margin-top:-10px">
+						
+						
+						
+						<div class="left-txt" >
+							<p>
+								
 								<span>
-									$\ds \;\;
-									\left\{
-									\begin{align*}
-									   y_p &=u(x)e^{\alpha x}\\
-									   y_p^\prime &=(u^\prime +\alpha u) e^{\alpha x}\\
-									   y_p^{\prime\prime} &=(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
-									\end{align*}
-									\right.
-									$
+									The most common model of damping assumes that it corresponds to
+									a force $F_d,$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									proportional to the velocity of the moving object,
+									and opposite to the direction of movement.
+								</span> 
+								<span class="fragment" data-fragment-index="1">
+									Hence
+								</span> 
+	
+							</p>
+							
+							
+						</div>
+						<div class="" >
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									$F_d =-\beta x',$
+								</span>
+								
+	
+							</p>
+							
+							
+						</div>
+						<div class="left-txt" >
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									where $\beta>0$ is the <span id="rr">damping constant</span> measured in $\text{N s m}^{-1}.$
+								</span>
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									The total force $F$ for the damped spring is thus given by
+								</span>
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									$F=
+									\underbrace{-\beta x'}_{\text{damping force}}\quad
+									\underbrace{-k(s+x)}_{\text{restoring force}}+
+									\underbrace{m g}_{\text{gravitational force}}.$
 								</span>
 							</p>
 						</div>
 						
-					</div>
-					
-					<div style="font-size:80%" >
-							<div style="margin-top:-10px" class="left-txt">
-								
-								<p>
-									<span>
-										Substituting these into the left hand side of the ODE, we have
-									</span>
-								</p>
-							</div>
-					</div>
-					
-
-					<div class="size-85">
 						
-						<div id="theorem">
-							
-
-							<div class="left-txt">
-								<p>
-									
-									<span class="fragment" data-fragment-index="1">
-										$\ds 
-										e^{\alpha x}\bigg[ \bigg.
-										$
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\ds 
-										 \left( au^{\prime\prime}+2a\alpha u^\prime +a\alpha^2 u\right)
-										$
-									</span>
-								</p>
-							</div>
-							<div>
-								
-								<p>
-									<span class="fragment" data-fragment-index="3">
-										$\ds 
-										\bigg. + \left(bu^\prime+b\alpha u\right) \bigg.
-										$
-									</span>
-									<span class="fragment" data-fragment-index="4">
-										$\ds 
-										 + \left(cu \right)
-										$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds 
-										\bigg.  \bigg]
-										$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\ds 
-										=e^{\alpha x} \sum_{j=0}^n \beta_jx^j
-										$
-									</span>
-								</p>
-							</div>
-						</div>
 					</div>
+					
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p>18.2 The damped spring</p>
+					</div>
+	
+					<div class="size-80" style="margin-top:-10px">
+						
+						
+						<div class="" >
+							<p>
+								
+								<span>
+									$F=
+									\underbrace{-\beta x'}_{\text{damping force}}\quad
+									\underbrace{-k(s+x)}_{\text{restoring force}}+
+									\underbrace{m g}_{\text{gravitational force}}.$
+								</span>
+							</p>
+						</div>
 
-
+						<div class="left-txt" >
+							<p>
+								
+								<span>
+									As before, $k s=m g,$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									so that
+								</span>
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									$F=-\beta x'-kx.$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt" >
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Thanks to Newton's second law this yields the equation of motion
+								</span>
+								
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								<span class="fragment" data-fragment-index="1" id="blue-box">
+								$m x''+\beta x'+k x=0.$
+								</span>
+								
+							</p>
+						</div>
+						
+						
+						
+					</div>
+					
 					<br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+						<p>18.2 The damped spring</p>
 					</div>
-
-					
-					
-					<div style="font-size:85%" >
-							<div style="margin-top:-10px" class="left-txt">
+	
+					<div class="size-80" style="margin-top:-10px">
+						
+						
+						<div class="" style="font-size:80%">
+							<p>
 								
-								<p>
-									<span>
-										Dividing both sides by the exponential and grouping like terms of $u$, we have:
-									</span>
-								</p>
-							</div>
-							
-							
-					</div>
-					<div style="font-size:80%" >
-							
-							<div>
+								<span>
+									$F=
+									\underbrace{-\beta x'}_{\text{damping force}}\quad
+									\underbrace{-k(s+x)}_{\text{restoring force}}+
+									\underbrace{m g}_{\text{gravitational force}}.$
+								</span>
+							</p>
+						</div>
+
+						
+						<div class="left-txt" >
+							<p>
+								<span>
+									Thanks to Newton's second law this yields the equation of motion
+								</span>
 								
-								<p>
-									<span>
-										$\ds au^{\prime\prime}+  (2a\alpha+b)u^\prime + (a\alpha^2+b\alpha +c)u =\sum_{j=0}^n \beta_jx^j.$
-									</span>
-								</p>
-							</div>
-							
-					</div>
-					<div style="font-size:85%" >
-							
-							<div class="left-txt">
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								<span id="blue-box">
+								$m x''+\beta x'+k x=0.$
+								</span>
 								
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										This is a second order ODE, where the RHS is a polynomial.
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										But we've previously established that this means $u(x)$ is a polynomial of degree $n$.
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										Thus, the theorem is proved. 😃
-									</span>
-								</p>
-							</div>
+							</p>
+						</div>
+						<div class="left-txt" >
+							<p>
+								<span>
+									This equation only depends on the ratios of $k/m$ and $\beta/m,$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									and it is customary to not only set
+								</span>
+								
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \omega^2=\frac{k}{m}>0\,$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									but also $\,\ds 2p=\frac{\beta}{m}>0.$
+								</span>
+								
+							</p>
+						</div>
+						
+						
+						
 					</div>
 					
-
-					
-
-
 					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p>18.2 The damped spring</p>
+					</div>
+	
+					<div class="size-80" style="margin-top:-10px">
+						
+						
+						
+						<div class="left-txt" >
+							<p>
+								<span>
+									Then the equation of motion for the damped spring is given by
+								</span>
+								
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								<span id="blue-box">
+								$x''+2p\,x'+\omega^2 x=0.$
+								</span>
+								
+							</p>
+						</div>
+						<div class="left-txt" >
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									This is a homogeneous second-order linear ODE with constant coefficients.
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									The corresponding characteristic equation is given by
+								</span>
+								
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$\lambda^2+2p\lambda+\omega^2=0,$
+								</span>
+								
+							</p>
+							
+						</div>
+						<div class="left-txt" >
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									which has <span id="rr">discriminant</span>
+								</span>
+								
+							</p>
+						</div>
+						<div class="" >
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$D=4\left(p^2-\omega^2\right).$
+								</span>
+								
+							</p>
+							
+						</div>
+						
+						
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p>18.2 The damped spring</p>
+					</div>
+	
+					<div class="size-80" style="margin-top:-10px">
+						<div class=""  style="font-size:80%">
+							<p>
+								<span id="blue-box">
+								$x''+2p\,x'+\omega^2 x=0.$
+								</span>
+								
+							</p>
+						</div>
+						<div class=""  style="font-size:80%">
+							<p>
+								<span>
+									$\lambda^2+2p\lambda+\omega^2=0 \implies D=4\left(p^2-\omega^2\right).$
+								</span>
+								
+							</p>
+							
+						</div>
+						
+						<div class="left-txt"  style="margin-top:-15px">
+							<p>
+								<span>
+									There are three different cases to consider.
+								</span>
+								
+							</p>
+							<ul style="line-height:60px">
+								<li>
+									$D\lt 0$ (i.e., $p\lt \omega$). <br/>
+									<span class="fragment" data-fragment-index="1">
+										This is the <span id="rr">underdamped</span> or <span id="rr">weakly-damped</span> spring. 
+									</span>
+
+								</li>
+								<li>
+									$D=0$ (i.e., $p=\omega$).   <br/>
+
+									<span class="fragment" data-fragment-index="2">
+										This is the <span id="rr">critically-damped</span> spring.
+									</span>
+									
+								</li>
+								<li>
+									$D>0$ (i.e., $p>\omega$).   <br/>
+
+									<span class="fragment" data-fragment-index="3">This is the 
+										<span id="rr">overdamped</span>
+										 or 
+										<span id="rr">strongly-damped</span>
+										spring.
+									</span>
+								</li>
+							</ul>
+						</div>
+						
+						
+						
+					</div>
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate id="damped-spring-simulation">
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p>18.2 The damped spring</p>
+					</div>
+					
+					<div style="font-size: 50%;">
+						<p>Use mouse to drag mass and release.</p>
+					</div>
+	
+					<div style="margin-top:-10px">
+						<iframe 
+							scrolling="no"
+							style="width:700px; height: 400px;border:0px"
+							data-src="sketches/chapter-01/damped-oscillator/"		>
+						</iframe>
+					</div>
+
+					<div style="font-size: 50%;margin-top:-25px">
+						<p>Compare with the <a href="#/undamped-spring-simulation">undamped spring simulation</a> shown before.<br/>
+							<a href="https://editor.p5js.org/jcponce/sketches/sj1B4rdo0" target="_blank">Source code <i class="fa fa-solid fa-code"></i></a>
+						</p>
+					</div>
+					
+	
+					<br/><br/>
 				</section>
 
 			</section>
-			
 
 			<section>
 
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
-					</div>
-					<div class="size-80" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									<strong>
-										Example:
-									</strong>
-									Find the general solution of 
-								</span>
-							
-							</p>
-						
-						</div>
-						<div>
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									$y''+y'-2y=x^2-2x+3+4x e^{2x}$.
-								</span>
-							
-							</p>
-						</div>
-					
-					</div>
-
-					<div class="fragment" data-fragment-index="1">
-						<div class="size-85">
-							<div id="theorem">
-								<div>
-									<p>
-										<span class="fragment" data-fragment-index="1">
-											$\ds y_p = \left( -\frac{1}{2}x^2 +\frac{1}{2}x-\frac{7}{4}\right) 
-											+ \left(x - \frac{5}{4}\right)e^{2x}$
-										</span>
-									</p>
-									<p>
-										<span class="fragment" data-fragment-index="1">
-											Check it! 📝
-										</span>
-									</p>
-									<p>
-										<span class="fragment" data-fragment-index="2">
-											Find $\,y_H$: $\,\ds y_H''+ y'_H - 2y_H= 0$
-										</span>
-									</p>
-									<p>
-										<span class="fragment" data-fragment-index="3">
-											$y_H = c_1 e^{-2x}+ c_2 e^{x}.$ 📝
-										</span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
-					</div>
-					<div class="size-60" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>
-										Example:
-									</strong>
-									Find the general solution of 
-								</span>
-								<span>
-									$\,y''+y'-2y=x^2-2x+3+4x e^{2x}$.
-								</span>
-							
-							</p>
-						</div>
-					
-					</div>
-					<div class="size-85">
-						<div id="theorem">
-							<div class="left-txt">
-								<p>
-									<span>
-										General solution:
-									</span>
-								</p>
-								<p>
-									<span>
-										$y= y_H + y_p$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										$\;\;\, = c_1 e^{-2x}+ c_2 e^{x} $
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\qquad\quad \ds +\, \left( -\frac{1}{2}x^2 +\frac{1}{2}x-\frac{7}{4}\right) 
-										+ \left(x - \frac{5}{4}\right)e^{2x}$ 
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate id="theorem-02">
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
-					</div>
-					
-					<div class="left-txt" id="theorem-blue">
-						<div style="margin-top:-10px">
-							<p>
-							
-								<span>
-									<strong>Theorem:</strong>
-									If $y_{P_1}$ is a particular solution of
-									$\,ay''+by'+cy=r_1(x)$ and $y_{P_2}$ is a particular solution of
-									$\,ay''+by'+cy=r_2(x),$ then
-									$y_P=y_{P_1}+y_{P_2}$ is a particular solution of
-									$\,ay''+by'+cy=r_1(x)+r_2(x).$
-								</span>
-							
-							
-							</p>
-						</div>
-					
-						
-						
-					</div>
-
-					<br/><br/><br/>
-				</section>
-
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
-					</div>
-					
-					<div class="size-90" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									To prove this, suppose we know $y_{P_1}$ and $y_{P_2}$ such that
-								</span>
-							
-							</p>
-						</div>
-						<div class="">
-							<p>
-							
-								<span>
-									$\begin{align*}
-									ay_{P_1}^{\prime\prime}+by_{P_1}^\prime +cy_{P_1}&=r_1(x)\\
-									ay_{P_2}^{\prime\prime}+by_{P_2}^\prime +cy_{P_2}&=r_2(x).
-									\end{align*}$
-								</span>
-							
-							</p>
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									Let $z(x)=y_{P_1}(x)+y_{P_2}(x).$
-								</span>
-								<span class="fragment" data-fragment-index="1">
-									Then
-
-								</span>
-							
-							</p>
-						</div>
-						<div class="">
-							<p>
-							
-								<span class="fragment" data-fragment-index="1">
-									$\begin{align*}
-									z^\prime &= y_{P_1}^\prime+y_{P_2}^\prime\\
-									z^{\prime\prime} &= y_{P_1}^{\prime\prime}+y_{P_2}^{\prime\prime},
-									\end{align*}$
-								</span>
-							
-							</p>
-						</div>
-					
-					</div>
-					
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.5 $r(x)$ is the sum of the previous two cases</strong></p>
-					</div>
-					
-					<div class="size-65" style="margin-top:-10px">
-						
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Let $z(x)=y_{P_1}(x)+y_{P_2}(x).$
-								</span>
-								<span>
-									Then
-
-								</span>
-							
-							</p>
-						</div>
-						<div class="">
-							<p>
-							
-								<span>
-									$\begin{align*}
-									z^\prime &= y_{P_1}^\prime+y_{P_2}^\prime\\
-									z^{\prime\prime} &= y_{P_1}^{\prime\prime}+y_{P_2}^{\prime\prime},
-									\end{align*}$
-								</span>
-							
-							</p>
-						</div>
-					
-					</div>
-					<div class="size-80" style="margin-top:-10px">
-						
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									and
-								</span>
-							
-							</p>
-						</div>
-						
-					
-					</div>
-					<div class="size-80" >
-						
-						<div id="theorem">
-							<div class="left-txt" style="margin-top:-20px">
-								<p>
-								
-									<span>
-										$az''+bz' + cz $
-									</span>
-								
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="1">
-										$\quad  = a\left(y_{P_1}^{\prime\prime}+y_{P_2}^{\prime\prime}\right)+b\left(y_{P_1}^\prime+y_{P_2}^\prime\right)+c\left(y_{P_1}+y_{P_2}\right)$
-									</span>
-								
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="2">
-										$ \quad =\left( ay_{P_1}^{\prime\prime}+b y_{P_1}^\prime + cy_{P_1} \right)+\left( ay_{P_2}^{\prime\prime}+b y_{P_2}^\prime + cy_{P_2} \right)$
-									</span>
-								
-								</p>
-								<p>
-								
-									<span class="fragment" data-fragment-index="3">
-										$\quad  =r_1(x)+r_2(x).\quad \bs$
-									</span>
-								
-								</p>
-							</div>
-							
-						</div>
-					
-					</div>
-					
-
-					<br/><br/>
-				</section>
-				
-				
-				
-			</section>
-
-
-			<section>
-
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
-					</div>
-					<div class="size-80" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									<strong>
-										Example:
-									</strong>
-									Find a particular solution to 
-								</span>
-							
-							</p>
-						
-						</div>
-						<div>
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									$y'' + 4 y' + 5 y = 12 \cos x+4 \sin x.$
-								</span>
-							
-							</p>
-						</div>
-					
-					</div>
-
-					<div class="fragment" data-fragment-index="1">
-						<div class="size-85">
-							<div id="theorem">
-								<div>
-									<p>
-										<span class="fragment" data-fragment-index="1">
-											Our guess is $\ds\, y_p = a \cos x + b \sin x$
-										</span>
-									</p>
-									<p>
-										<span class="fragment" data-fragment-index="2">
-											Then $\,y_p' = -a \sin x + b \cos x$
-										</span>
-									</p>
-									<p>
-										<span class="fragment" data-fragment-index="3">
-											and $\,y_p'' = -a \cos x - b \sin x$
-										</span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
-					</div>
-					<div class="size-60" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>
-										Example:
-									</strong>
-									Find a particular solution to 
-								</span>
-								<span>
-									$y'' + 4 y' + 5 y = 12 \cos x+4 \sin x.$
-								</span>
-							
-							</p>
-							
-						</div>
-						<div>
-							<p>
-								$y_p = a \cos x + b \sin x,\;y_p' =- a \sin x + b \cos x,\; y_p'' = -a \cos x - b \sin x$
-							</p>
-						</div>
-					
-					</div>
-
-					<div class="size-85">
-						<div id="theorem">
-							<div class="left-txt" style="margin-top:-20px">
-								<p>
-									<span>
-										$\ds y_p'' + 4 y_p' + 5 y_p$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="0">
-										$\quad \ds = \left( -a \cos x - b \sin x\right)$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$ + \,4\left( -a \sin x + b \cos x\right)$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										$\qquad \qquad + \,5\left(a \cos x + b \sin x\right)$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="3">
-										$\quad \ds = \left( 4a + 4b\right)\cos x
-										+ \left( -4a + 4b\right)\sin x$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="4">
-										$\quad \ds = 12 \cos x+4 \sin x$
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-				
-
-					<br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
-					</div>
-					<div class="size-60" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									<strong>
-										Example:
-									</strong>
-									Find a particular solution to 
-								</span>
-								<span>
-									$y'' + 4 y' + 5 y = 12 \cos x+4 \sin x.$
-								</span>
-							
-							</p>
-							
-						</div>
-						
-					
-					</div>
-
-					<div class="size-85">
-						<div id="theorem">
-							<div class="left-txt" style="margin-top:-20px">
-								<p>
-									<span>
-										We obtain a system of equations
-									</span>
-								</p>
-								
-							</div>
-							<div>
-								<p>
-									<span>
-										$
-										\left\{
-											\begin{align*}
-										4a+4b &= 12\\
-										-4a+4b &=4
-										\end{align*}
-										\right.
-										$
-									</span>
-									<span class="fragment" data-fragment-index="0">
-										$\Ra 
-										\left\{
-											\begin{align*}
-										8b &= 16\\
-										8a &= 8
-										\end{align*}
-										\right.
-										$
-									</span>
-									<span class="fragment" data-fragment-index="1">
-										$\Ra
-										\left\{
-											\begin{align*}
-										b &= 2\\
-										a &= 1
-										\end{align*}
-										\right.
-										$
-									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="2">
-										Hence
-										$\,y_p =  \cos x + 2 \sin x.$
-									</span>
-								</p>
-							</div>
-						</div>
+						<p><strong>1.8.3 Underdamping</strong></p>
 					</div>
 					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								For $p\lt \omega$ the characteristic equation 
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								
+								$
+								\lambda^2+2p\lambda+\omega^2=0
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="0">
+								
+									has two complex conjugate roots
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="1">
+								$
+								\lambda_1=-p+i\sqrt{\omega^2-p^2}\;\;\text{and}\;\;
+								\lambda_2=-p-i\sqrt{\omega^2-p^2}.
+								$
+								</span>
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+									Two linearly independent solutions are thus
+								</span>
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+								$e^{-p t}\cos(\omega_p t)\;\;\text{and}\;\; 
+								e^{-p t}\sin(\omega_p t),$
+								</span>
+							</p>
+						
+						</div>
 						<div class="left-txt">
 							<p>
 							
 								<span class="fragment" data-fragment-index="3">
-									Once again, where did our guess come from?
-								</span>
+									where
 								
-							
+								</span>
 							</p>
-							
-						</div>
 						
-					
-					</div>
-
-					<br/><br/>
-				</section>
-
-				<section data-auto-animate id="theorem-03">
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
-					</div>
-					
-					<div class="left-txt" id="theorem-blue">
-						<div style="margin-top:-10px">
-							<p>
-							
-								<span>
-									<strong>Theorem:</strong>
-									Consider an ODE of the form $ay^{\prime\prime}+by^\prime+cy=r(x)$,
-									with $a,b,c \ne 0.$
-								</span>
-							
-							
-							</p>
-							<p>
-							
-								<span>
-									
-									If $r(x)$ is a linear combination of $\cos$ and $\sin$ terms, then so is $y_p.$
-									
-								</span>
-							
-							
-							</p>
-							<p>
-							
-								<span>
-									(subject to some caveats, discussed below)
-
-								</span>
-							
-							
-							</p>
-						</div>
-					
-						
-						
-					</div>
-
-					<br/><br/><br/>
-				</section>
-
-				<section data-auto-animate id="ode-trig">
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
-					</div>
-					
-					
-					<div class="size-85" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									Consider the ODE
-								</span>
-								
-							
-							</p>
-							
 						</div>
 						<div class="">
 							<p>
 							
-								<span>
-									$\begin{align*}
-									ay^{\prime\prime}+by^\prime+cy&=\alpha \cos (nx) +\beta \sin (nx) \diamond
-									\end{align*}$
-								</span>
+								<span class="fragment" data-fragment-index="3">
 								
-							
-							</p>
-							
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-									First, let's observe that
+								$
+								\omega_p=\sqrt{\omega^2-p^2}$
 								</span>
+								<span class="fragment" data-fragment-index="4">
 								
-							
-							</p>
-							
-						</div>
-						<div class="">
-							<p>
-							
-								<span class="fragment" data-fragment-index="1">
-									$\begin{align*}
-									\cos (nx)&=\frac{e^{inx}+e^{-inx}}{2}\\
-									\sin (nx)&=\frac{e^{inx}-e^{-inx}}{2i}.
-									\end{align*}$
+								$=\omega\sqrt{1-(p/\omega)^2}.$
 								</span>
-								
-							
 							</p>
-							
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-									(To see why, recall Euler's formula, $e^{ix}=\cos x+i\sin x.$)
-								</span>
-								
-							
-							</p>
-							
-						</div>
 						
+						</div>
+					
 					
 					</div>
+				
 
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+						<p><strong>1.8.3 Underdamping</strong></p>
 					</div>
-					
-					
-					<div class="size-85" style="margin-top:-10px">
+					<div class="size-80" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 							
 								<span>
-									Thus
-								</span>
-								<span>
-									$\; r(x) =\alpha \cos (nx) +\beta \sin (nx)\qquad \qquad\qquad\qquad$
+									The general solution is
 								</span>
 							
 							</p>
-							
+						
 						</div>
 						<div class="">
 							<p>
 							
+								<span>
 								
+								$
+								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
+								$
 								
+								</span>
 							
 							</p>
+						
+						</div>
+						<div class="left-txt">
 							<p>
 							
 								<span class="fragment" data-fragment-index="0">
-									$\;\;\;=\ds \alpha \left(\frac{e^{inx}+e^{-inx}}{2}\right)+\beta \left( \frac{e^{inx}-e^{-inx}}{2i} \right)$
-								</span>
 								
+									This figure shows an example of underdamped motion: 
+								</span>
 							
 							</p>
-							<p>
-							
-								<span class="fragment" data-fragment-index="1">
-									$\;\;\;=\ds\left(\frac{\alpha}{2}+\frac{\beta}{2i}\right)e^{inx}+\left(\frac{\alpha}{2}-\frac{\beta}{2i}\right)e^{-inx}.\quad$
-								</span>
-								
-							
-							</p>
-							
+						
 						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-									From <a href="theorem-01">section 1.9.4</a>, we know that the simplified ODE
-								</span>
-								
-							
-							</p>
-							
-						</div>
-						<div class="">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-									$
-									\ds ay^{\prime\prime}+by^\prime+cy =\left(\frac{\alpha}{2}+\frac{\beta}{2i}\right)e^{inx},
-									$
-								</span>
-								
-							
-							</p>
-							
-						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="2">
-									has solution $y_{p_1}=\gamma e^{inx},$ for some $\gamma.$
-								</span>
-								
-							
-							</p>
-							
-						</div>
+
 						
 					
+					
 					</div>
+
+					<div class="fragment" data-fragment-index="0" style="margin-top:-20px">
+						<img style="width:50%" src="images/lect-11/underdamped.png">
+					</div>
+				
 
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+						<p><strong>1.8.3 Underdamping</strong></p>
 					</div>
-					
-					
-					<div class="size-85" style="margin-top:-10px">
+					<div class="size-50" style="margin-top:-10px">
 						
+						<div class="">
+							<p>
+							
+								<span>
+								
+								$
+								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						
+
+						
+					
+					
+					</div>
+
+					<div style="margin-top:-30px">
+						<img style="width:72%" src="images/lect-11/underdamped.png">
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 							
 								<span>
-									From <a href="#theorem-01">section 1.9.4</a>, we know that the simplified ODE
+									It is best to write the general solution in terms of a single trigonometric
+									function:
 								</span>
-								
 							
 							</p>
-							
+						
 						</div>
 						<div class="">
 							<p>
 							
 								<span>
-									$
-									\ds ay^{\prime\prime}+by^\prime+cy =\left(\frac{\alpha}{2}+\frac{\beta}{2i}\right)e^{inx},
-									$
-								</span>
 								
+								$
+								x(t)=Ae^{-p t}\cos(\omega_p t-\phi)
+								
+								$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+								
+								$
+								
+								=A(t)\cos(\omega_p t-\phi).
+								$
+								
+								</span>
 							
 							</p>
-							
+						
 						</div>
 						<div class="left-txt">
 							<p>
 							
-								<span>
-									has solution $y_{p_1}=\gamma e^{inx},$ for some $\gamma.$
-								</span>
+								<span class="fragment" data-fragment-index="1">
 								
+									Here $A(t)$ is a time-dependent amplitude 
+									(as shown in the above figure with
+									the dashed lines):
+								</span>
 							
 							</p>
+						
+						</div>
+						<div class="">
+							<p>
 							
+								<span class="fragment" data-fragment-index="2">
+								
+									$A(t)=Ae^{-p t}$
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+									and $\omega_p$ is the frequency of the underdamped spring.
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									Since
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="">
+							<p>
+							
+								<span>
+								
+								$
+								\ds \frac{\omega_p}{\omega}
+								
+								$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+								
+								$
+								=\sqrt{1-(p/\omega)^2}
+								$
+								
+								</span>
+								<span class="fragment" data-fragment-index="1">
+								
+								$
+								\lt 1
+								$
+								
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="2">
+								
+									the damping of the spring leads to a
+									<span id="rr">frequency red-shift</span> and an increase in the period of the spring.
+								</span>
+							
+							</p>
+						
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								<span class="fragment" data-fragment-index="3">
+								
+									When $p$ approaches $\omega$ the period tends to infinity
+									so that we may expect that the critically-damped spring
+									does not display oscillatory motion. 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									This is the case considered in the
+									next section.
+
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<span>
+									<strong>Example:</strong> 
+									A mass of $1$kg is attached to a spring hanging under gravity 
+									with damping constant $0.2$ and spring constant $4$. 
+									Find the position of the mass after time $t$ if it is pulled down $1$m 
+									from the
+									equilibrium position and released without kick.
+								</span>
+							
+							</p>
+						
+						</div>
+						
+					
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Recall $\,\ds x''+ \frac{\beta}{m}x' +\frac{k}{m}x = 0$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Then $\,m = 1,$ 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\,\beta = 0.2,$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\,k = 4.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Initial conditions: 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$x(0)=1,$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\,x'(0)=0.$
+								</span>
+							</p>
+						
+						</div>
+						
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					<div class="size-70" style="margin-top:-10px">
+						<div class="">
+							
+							<p>
+								<span>
+									$\ds x''+ \frac{\beta}{m}x' +\frac{k}{m}x = 0;$
+								</span>
+								<span>
+									$\;m = 1,$ 
+								</span>
+								<span>
+									$\,\beta = 0.2,$
+								</span>
+								<span>
+									$\,k = 4.$
+								</span>
+							</p>
+							<p>
+								<span>
+									Initial conditions: 
+								</span>
+								<span>
+									$x(0)=1,$
+								</span>
+								<span>
+									$\,x'(0)=0.$
+								</span>
+							</p>
+						
+						</div>
+						
+					
+					</div>
+					
+
+					<div class="size-80" style="margin-top:-10px">
+						<div id="theorem">
+							<div class="left-txt">
+							
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Thus
+										$\;\ds x''+ 0.2x' +4x = 0. $
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										What is the solution $x(t)$?
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										Consider
+										$\;\ds \lambda^2+ 0.2\lambda +4 = 0. $
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="3">
+										$\ds \Ra \lambda = \frac{-0.2\pm \sqrt{(0.2)^2-16}}{2}$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\ds \approx - 0.1 \pm 1.9979 i$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										$\ds \Ra \lambda  \approx - 0.1 \pm 2 i$
+									</span>
+								</p>
+							
+							</div>
+						</div>
+						
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					
+					<div class="size-70" style="margin-top:-10px">
+						<div class="">
+							
+							
+							<p>
+								<span>
+									Initial conditions: 
+								</span>
+								<span>
+									$x(0)=1,$
+								</span>
+								<span>
+									$\,x'(0)=0.$
+								</span>
+							</p>
+						
 						</div>
 						
 					
 					</div>
 
 					<div class="size-80" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
+						<div id="theorem">
+							<div class="left-txt">
 							
-								<span>
-									Furthermore, $y_{p_2}=\delta e^{-inx}$ solves
-								</span>
-								
+								<p>
+									
+									<span>
+										$\ds \Ra \lambda  \approx - 0.1 \pm 2 i$
+									</span>
+								</p>
+
+								<p>
+									<span>
+										General sol: $\ds x(t) \approx $
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$\ds e^{-0.1 t}\left(c_1 \cos (2t) + c_2 \sin (2t)\right) $
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\ds x(0) = 1 $
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds  = c_1(1)  + c_2 (0)$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\,\ds \Ra c_1 =1.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\ds x'(t) \approx $
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\ds \left(-0.1\right) e^{-0.1 t}\left(c_1 \cos (2t) + c_2 \sin (2t)\right) $
+									</span>
+									
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										$\qquad \qquad \ds  + \, e^{-0.1 t}\left(-2c_1 \sin (2t) + 2c_2 \cos (2t)\right) $
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="7">
+										$\ds x'(0) = 0 $
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										$\ds =  -0.1 c_1  + 2 c_2$
+									</span>
+									<span class="fragment" data-fragment-index="9">
+										$\,\ds \Ra c_2 =\frac{0.1}{2}$
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$\ds  =0.05.$
+									</span>
+								</p>
 							
-							</p>
-							
+							</div>
 						</div>
-						<div class="">
-							<p>
-							
-								<span>
-									$\begin{align*}
-									ay^{\prime\prime}+by^\prime+cy&=\left(\frac{\alpha}{2}-\frac{\beta}{2i}\right)e^{-inx}.
-									\end{align*}$
-								</span>
-								
-							
-							</p>
-							
-							
-						</div>
-						
-						
 						
 					
 					</div>
+				
 
-					<br/><br/><br/>
+					<br/><br/>
 				</section>
+
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
-						<p><strong>1.9.6 $r(x)$ is a simple trigonometric function</strong></p>
+						<p><strong>1.8.3 Underdamping</strong></p>
 					</div>
-					
-					
 					<div class="size-80" style="margin-top:-10px">
-						<div class="">
-							<p>
-							
-								<span>
-									👉 $\;y_{p_1}=\gamma e^{inx},\,$  $\,y_{p_2}=\delta e^{-inx}$ 
-								</span>
-								
-							
-							</p>
-							
-						</div>
-						
 						<div class="left-txt">
 							<p>
 							
 								<span>
-									Thus, using <a href="#theorem-02">section 1.9.5</a> the solution to <a href="#ode-trig">$\diamond$</a> is
+									<strong>Example:</strong> 
+									A mass of $1$kg is attached to a spring hanging under gravity 
+									with damping constant $0.2$ and spring constant $4$. 
+									Find the position of the mass after time $t$ if it is pulled down $1$m 
+									from the
+									equilibrium position and released without kick.
 								</span>
-								
 							
 							</p>
-							
+						
 						</div>
 						
+					
+					</div>
+					
+					<div class="size-80" style="margin-top:-10px">
+						<div id="theorem">
+							<div class="left-txt" style="margin-top:-10px">
+							
+								<p>
+									
+									<span>
+										$\ds \Ra \lambda  \approx - 0.1 \pm 2 i$
+									</span>
+								</p>
+
+								<p>
+									<span>
+										General sol: $\ds x(t) \approx $
+									</span>
+									<span>
+										$\ds e^{-0.1 t}\left(c_1 \cos (2t) + c_2 \sin (2t)\right) $
+									</span>
+								</p>
+								<p>
+									Thus 
+									<span>
+										$\,\ds  c_1 =1\,$
+									</span>
+									and 
+									<span>
+										$\,\ds  c_2  =0.05.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Therefore
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$\ds\; x(t) \approx  e^{-0.1 t}\left( \cos (2t) + 0.05 \sin (2t)\right).$
+									</span>
+								</p>
+								
+							
+							</div>
+						</div>
 						
 					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
 					</div>
 
 					<div>
-						<div class="size-85">
-							<div id="theorem">
-								<div class="left-txt" style="margin-top:-20px;font-size:120%">
-									<p>
-										<span class="fragment" data-fragment-index="2">
-										   $y_{P_1} + y_{P_2}$
-										</span>
-										<span class="fragment" data-fragment-index="3">
-										   $= \gamma e^{in x} + \delta e^{-inx}$
-										</span>
-									</p>
-								</div>
-								<div class="left-txt">
-									<p>
-										
-										<span class="fragment" data-fragment-index="4">
-										   $= \gamma \big(\cos (nx) + i \sin (nx)\big) + \delta \big(\cos (nx) - i \sin (nx)\big)$
-										</span>
-									</p>
-								</div>
-								<div class="left-txt"style="font-size:120%">
-									<p>
-										
-										<span class="fragment" data-fragment-index="5">
-										   $= \left(\gamma + \delta\right) \cos nx + \left(\gamma - \delta\right) \sin nx$
-										</span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="size-85" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="6">
-									and the theorem is proved.
-								</span>
-								
-							
-							</p>
-							
-						</div>
-						
-						
-						
-					
+						<iframe scrolling="no" title="L11: Underdamping" src="https://www.geogebra.org/material/iframe/id/rr8cmngt/width/772/height/474/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						 width="772px" height="474px" style="border:0px;" allowfullscreen=""> </iframe>
 					</div>
 
 					<br/><br/>
 				</section>
-
+				
+				
+				
+				
 			</section>
 
-			
-
-			<section>
-				<h4>1 Ordinary Differential Equations</h4>
-				<div id="sbt">
-					<p><strong>1.9.7 Main points</strong></p>
-				</div>
-
-				
-				<div class="size-95">
-					<ul style="line-height:60px">
-						<li>
-							You should be able to find a particular solution for the cases we have
-talked about.
-						</li>
-						<li>
-							You should know how to find the general solution as the sum of a
-particular solution and the complementary function.
-						</li>
-					</ul>
-				</div>
-
-				
-				<br/><br/><br/><br/>
-			</section>
-			
-			
+	
 
 			<section>
 
@@ -1457,6 +1187,7 @@ particular solution and the complementary function.
 
 		</div>
 	</div>
+
 	
 	<script src="revealjs/dist/reveal.js"></script>
 	<script src="revealjs/plugin/math/math.js"></script>
