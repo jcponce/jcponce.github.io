@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>MATH1052/7052 - Lecture 16</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<p>Lecture 16</p>
+				<br/><br/>
+			</section>
+
+			<!--Section with format-->
+
+			<section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						<div class="left-txt">
+							<p>
+							
+								<strong>Example:</strong>
+								Solve the ODE
+								\[
+								y''+y'-2y= x^2-2x+3.
+								\]
+								The polynomial on the right hand side is of <span id="rr">degree</span> 2. 
+								<span class="fragment" data-fragment-index="1">
+									Let's first "guess" that the
+								functional form of $y_p$ is also a polynomial of degree 2, with unknown coefficients.
+								</span>
+							
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									We write $y_p=ax^2+bx+c.$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Differentiate this function 2 times to get
+								</span>
+							</p>
+						
+							
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$\ds 
+									\begin{align*}
+									y_p'&=2ax+b \\
+									y_p''&=2a.
+									\end{align*}
+									$
+								</span>
+							</p>
+						</div>
+					
+					
+					</div>
+
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div>
+							<p>
+								<span>
+									$\ds 
+									\begin{align*}
+									y_p'&=2ax+b \\
+									y_p''&=2a.
+									\end{align*}
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+							
+								Substituting back in to the ODE, we get
+							
+							</p>
+						
+							
+						</div>
+						<div class="">
+							<p>
+							$2a+(2ax+b)-2(ax^2+bx+c) =x^2-2x+3.$
+							</p>
+						
+							
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+							
+								Expanding, and grouping like powers of $x$ together yields
+							</p>
+						
+							
+						</div>
+						<div class="">
+							<p class="fragment" data-fragment-index="0">
+							$-2ax^2+(2a-2b)x+(2a+b-2c)=x^2-2x+3.$
+							</p>
+						
+							
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="1">
+								Two polynomials are equal if and only if their coefficients are also equal.
+							</p>
+						
+							
+						</div>
+					
+					
+					</div>
+
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								This gives us three equations and 3 unknowns, which we can solve.
+							</p>
+						
+							
+						</div>
+						<div class="">
+							<p>
+								<span>
+									$ \quad -2a =1$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\implies a=-1/2\;$
+								</span>
+							
+							
+							</p>
+						
+							<p>
+								<span>
+									$2a-2b =-2$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\implies b=1/2 \;\;$
+								</span>
+							</p>
+							<p>
+								<span>
+									$2a+b-2c =3$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\implies c=-7/4.\quad\;\;\;$
+								</span>
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="4">
+								Thus,
+
+							</p>
+						
+							
+						</div>
+						<div class="">
+							<p class="fragment" data-fragment-index="4">
+							$\ds y_p =-\frac{1}{2}x^2+\frac{1}{2}x-\frac{7}{4}.$
+							</p>
+						
+							
+						</div>
+						
+					
+					
+					</div>
+
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					<div class="size-90" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								So our initial guess was correct. The ODE's right hand side was a quadratic, and so was the particular solution. 
+								<span class="fragment" data-fragment-index="0">
+									But where did our guess come from?
+								</span>
+							</p>
+						
+							
+						</div>
+						<div class="fragment" data-fragment-index="1">
+							<div class="left-txt" id="theorem-blue">
+								<div style="margin-top:-20px">
+									<p>
+									
+										<span>
+											<strong>Theorem:</strong>
+											Consider an ODE of the form
+											$ay^{\prime\prime}+by^\prime+cy=r(x)$,
+											with $c \ne 0$.
+										</span>
+									
+									
+									</p>
+									<p>
+		
+										If $r(x)$ is a polynomial of degree $n$, $y_p$ is also.
+									</p>
+								</div>
+							
+								
+								
+							</div>
+						</div>
+						
+						
+					</div>
+
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					<div class="size-85" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								To see this, suppose we have an ODE of the form
+								
+							</p>
+						
+							
+						</div>
+						<div>
+
+							<p>
+								<span>
+									$ ay^{\prime\prime}+by^\prime+cy =\sum_{j=0}^n \alpha_jx^j, $
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								with $a,b,c \ne 0.$
+							</p>
+						
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									We can differentiate both sides $n$ times with respect to $x$;
+
+								</span>
+							</p>
+						</div>
+						
+						
+						
+					</div>
+
+					<div class="size-90">
+						<div id="theorem" class="fragment" data-fragment-index="2">
+							<div style="margin-top:-20px">
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds \frac{d^n}{dx^n}\left(ay_p^{\prime\prime}+by_p^\prime+cy_p\right)$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\ds=\frac{d^n}{dx^n}\sum_{j=0}^n \alpha_jx^j$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$ay_p^{(n+2)}+by_p^{(n+1)}+cy_p^{(n)}=n!\alpha_n.$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					
+
+					<div class="size-75">
+						<div id="theorem">
+							<div style="margin-top:-10px">
+								
+								<p>
+									<span>
+										$ay_p^{(n+2)}+by_p^{(n+1)}+cy_p^{(n)}=n!\alpha_n.$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="size-80" style="margin-top:-10px">
+						
+						
+						<div class="left-txt">
+							<p>
+								Since we don't require the most general solution,
+								<span class="fragment" data-fragment-index="1">
+								we may take $y_p^{(n)}$ to be a constant, which 
+								implies $y_p^{(n+1)}=y_p^{(n+2)}=0.$
+								</span>
+							</p>
+						
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									This yields;
+								</span>
+							</p>
+							
+						</div>
+						
+						
+						
+						
+					</div>
+
+					<div class="size-85 left-txt">
+						<div id="theorem" class="fragment" data-fragment-index="2">
+							<div style="margin-top:-20px">
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds \;\; y_{p}^{(n)}$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds =\frac{n!\alpha_n}{c}$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds =d_1$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$\ds y_{p}^{(n-1)}$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$\ds=\int d_1 \, dx=d_1x+d_2$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					
+
+					
+
+					<div class="size-85 left-txt">
+						<div id="theorem">
+							<div style="margin-top:-20px">
+								<p>
+									<span>
+										$\ds \;\; y_{p}^{(n)}$
+									</span>
+									<span>
+										$\ds =\frac{n!\alpha_n}{c}$
+									</span>
+									<span>
+										$\ds =d_1$
+									</span>
+								</p>
+								<p>
+									<span>
+										$\ds y_{p}^{(n-1)}$
+									</span>
+									<span>
+										$\ds=\int d_1 \, dx=d_1x+d_2$
+									</span>
+								</p>
+								<p>
+									<span>
+										$\ds y_{p}^{(n-2)}$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds=\int d_1x+d_2 \, dx$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds=\frac{d_1}{2}x^2+d_2x+d_3$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\qquad \;\vdots$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\ds \;\; \;\; y_{p}$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\ds =\frac{d_1}{n!}x^n+\frac{d_2}{(n-1)!}x^{n-1}+\dots +d_n.$
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.3 $r(x)$ is a polynomial</strong></p>
+					</div>
+					
+					<div style="font-size:73%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										<strong>
+											Example:
+										</strong>
+										Find a particular solution of $\, 3y''-2y'+4y=2x^3+1$.
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+						<div id="theorem">
+							<div style="margin-top:-20px" class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Our guess: $\; y_p = a x^3+ bx^2 + cx + d$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										📝 Find $a, b, c, d.$
+									</span>
+
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										📝  Use the method of undertermined coefficients to show that 
+									</span>
+								</p>
+								
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds y_p = \frac{x^3}{2}+ \frac{3x^2}{4} - \frac{3x}{2} - \frac{13}{8} $
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+
+
+					<br/><br/>
+				</section>
+				
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:75%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										<strong>
+											Example:
+										</strong>
+										Find a particular solution to $\,y''+y'-2y=4xe^{2x}$.
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+							<div style="margin-top:-0px" class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										We have a degree one polynomial, multiplied by $e^{2x}.$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Let's guess that $y_p$ is of the form
+									</span>
+								</p>
+								
+								
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\ds y_p =(ax+b)e^{2x}. $
+									</span>
+								</p>
+							</div>
+							<div style="margin-top:-0px" class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										This means
+									</span>
+								</p>
+								
+								
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds 
+										y_p'=(2ax+2b+a)e^{2x}
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$\ds 
+										y_p''=(4ax+4b+4a)e^{2x}
+										$
+									</span>
+								</p>
+							</div>
+
+
+					</div>
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:80%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Substituting these into the ODE, we have
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+							
+							<div>
+								<p>
+									<span>
+										$\ds y_p''+y'_p-2y_p =4xe^{2x} $
+									</span>
+								</p>
+							</div>
+							<div style="font-size:80%">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds (4ax+4b+4a)e^{2x} $
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds +\,(2ax+2b+a)e^{2x}  $
+									</span>
+									
+									<span class="fragment" data-fragment-index="3">
+										$ \ds -\,2(ax+b)e^{2x} $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds =4xe^{2x} $
+									</span>
+								</p>
+								
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$\ds \Ra 4ax+4b+5a =4x+0.$
+									</span>
+								</p>
+							</div>
+
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										This gives us two equations, and two unknowns
+									</span>
+								</p>
+							</div>
+							<div>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										$\ds 
+										4a =4
+										$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\ds 
+										\Ra a=1
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										$\ds 
+										4b+5a =0
+										$
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										$\ds 
+										\Ra b=-\frac{5}{4}.
+										$
+									</span>
+								</p>
+							</div>
+							
+
+
+					</div>
+
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate id="theorem-01">
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:75%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Hence, $\displaystyle y_p=\left(x-\frac{5}{4}\right)e^{2x}.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										Where did this guess come from?
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-70">
+						<div class="fragment" data-fragment-index="1">
+							<div class="left-txt" id="theorem-blue">
+								<div style="margin-top:-20px">
+									<p>
+									
+										<span>
+											<strong>Theorem:</strong>
+											Consider an ODE of the form
+											$ay^{\prime\prime}+by^\prime+cy=r(x)$.
+											
+										</span>
+									
+									
+									</p>
+									<p>
+										If $\ds r(x)=e^{\alpha x}\sum_{j=0}^n \beta_jx^j,$	
+									</p>
+									<p>
+										$\ds y_p=e^{\alpha x}\sum_{j=0}^n \gamma_jx^j$ for undetermined coefficients $\gamma_j.$
+									</p>
+									<p>
+										(subject to some caveats, discussed below)
+									</p>
+								</div>
+							
+								
+								
+							</div>
+						</div>
+					</div>
+
+
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+					
+					<div style="font-size:80%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										To prove this, suppose we have an ODE of the form
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+							
+							<div>
+								<p>
+									<span>
+										$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
+									</span>
+								</p>
+							</div>
+
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										Let 
+									</span>
+								</p>
+							</div>
+							<div>
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										$\ds \;
+										y_p =u(x)e^{\alpha x}\qquad \quad
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										$\ds 
+										\implies y_p^\prime =(u^\prime +\alpha u) e^{\alpha x}\qquad \quad\;
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="6">
+										$\ds 
+										\implies y_p^{\prime\prime} =(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
+										$
+									</span>
+								</p>
+							</div>
+					</div>
+
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+
+					<div style="font-size:65%" >
+						<div>
+							<p>
+								<span>
+									$\ds ay^{\prime\prime}+by^\prime+cy =e^{\alpha x}\sum_{j=0}^n \beta_jx^j.$
+								</span>
+								<span>
+									$\ds \;\;
+									\left\{
+									\begin{align*}
+									   y_p &=u(x)e^{\alpha x}\\
+									   y_p^\prime &=(u^\prime +\alpha u) e^{\alpha x}\\
+									   y_p^{\prime\prime} &=(u^{\prime\prime}+2\alpha u^\prime +\alpha^2 u)e^{\alpha x}.
+									\end{align*}
+									\right.
+									$
+								</span>
+							</p>
+						</div>
+						
+					</div>
+					
+					<div style="font-size:80%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Substituting these into the left hand side of the ODE, we have
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					<div class="size-85">
+						
+						<div id="theorem">
+							
+
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										$\ds 
+										e^{\alpha x}\bigg[ \bigg.
+										$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds 
+										 \left( au^{\prime\prime}+2a\alpha u^\prime +a\alpha^2 u\right)
+										$
+									</span>
+								</p>
+							</div>
+							<div>
+								
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										$\ds 
+										\bigg. + \left(bu^\prime+b\alpha u\right) \bigg.
+										$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds 
+										 + \left(cu \right)
+										$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds 
+										\bigg.  \bigg]
+										$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds 
+										=e^{\alpha x} \sum_{j=0}^n \beta_jx^j
+										$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.9.4 $r(x)$ is a polynomial times an exponential</strong></p>
+					</div>
+
+					
+					
+					<div style="font-size:85%" >
+							<div style="margin-top:-10px" class="left-txt">
+								
+								<p>
+									<span>
+										Dividing both sides by the exponential and grouping like terms of $u$, we have:
+									</span>
+								</p>
+							</div>
+							
+							
+					</div>
+					<div style="font-size:80%" >
+							
+							<div>
+								
+								<p>
+									<span>
+										$\ds au^{\prime\prime}+  (2a\alpha+b)u^\prime + (a\alpha^2+b\alpha +c)u =\sum_{j=0}^n \beta_jx^j.$
+									</span>
+								</p>
+							</div>
+							
+					</div>
+					<div style="font-size:85%" >
+							
+							<div class="left-txt">
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										This is a second order ODE, where the RHS is a polynomial.
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										But we've previously established that this means $u(x)$ is a polynomial of degree $n$.
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										Thus, the theorem is proved. 😃
+									</span>
+								</p>
+							</div>
+					</div>
+					
+
+					
+
+
+					<br/><br/><br/>
+				</section>
+
+			</section>
+			
+
+			
+			
+			
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
