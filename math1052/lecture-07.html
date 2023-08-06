@@ -856,8 +856,7 @@ plot(t, y);
 					</div>
 	<div style="font-size:120%">
 	<pre><code data-trim data-noescape data-line-numbers="1-2|3|4|5|1-6">
-	% Anonymous function
-	logistic = @(t, y) y * (1 - y); 
+	logistic = @(t, y) y * (1 - y); % Anonymous function
 	y0 = 0.1; 
 	tspan = [0, 6];
 	[t, y] = ode45(logistic, tspan, y0);
