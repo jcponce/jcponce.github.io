@@ -249,7 +249,7 @@
 					</div>
 					
 
-					<br/><br/>
+					<br/><br/><br/>
 				</section>
 				
 				
@@ -427,13 +427,13 @@ solution has been found.
 								</span>
 								<span class="fragment" data-fragment-index="2">
 									So, if you are clever enough to guess one
-solution (and a guess it will have to be, 
+solution (and a guess it will have to be, given that we have no general
+method) 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									you can obtain a second, linearly independent solution.
 								</span>
 								<span class="fragment" data-fragment-index="3">
-									given that we have no general
-method) you can obtain a second, linearly independent solution.
-								</span>
-								<span class="fragment" data-fragment-index="4">
 									This goes by the name of <span id="rr">reduction of order</span>.
 								</span>
 							</p>
@@ -443,7 +443,7 @@ method) you can obtain a second, linearly independent solution.
 					</div>
 					
 					
-					<br/>
+					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -506,7 +506,7 @@ method) you can obtain a second, linearly independent solution.
 					</div>
 					
 					
-					<br/>
+					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -793,13 +793,13 @@ using an integrating factor.
 								
 								<p>
 									<span class="fragment" data-fragment-index="3">
-										$ \Ra \ds \dot v + \dfrac{6}{x}v $
+										$ \Ra\, \ds x^6 \dot v + x^6\dfrac{6}{x}v $
 									</span>
 									<span class="fragment" data-fragment-index="4">
-										$ = \ds\frac{d}{dx}\left(\left(x^6\right) v\right) $
+										$ \,\Ra\, \ds x^6 \dot v + 6x^5 v $
 									</span>
 									<span class="fragment" data-fragment-index="5">
-										$ = \ds\frac{d}{dx}\left(Iv\right) $
+										$ = \ds\frac{d}{dx}\left(\left(x^6\right) v\right) $
 									</span>
 									<span class="fragment" data-fragment-index="6">
 										$  = 0 $
@@ -808,26 +808,30 @@ using an integrating factor.
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="7">
-										$ \Ra  I v = C $
-									</span>
-									<span class="fragment" data-fragment-index="8">
-										$ \Ra  v = \dfrac{C}{I} $
+										$ \Ra\,  x^6 v = C_0 $
 									</span>
 									<span class="fragment" data-fragment-index="9">
-										$  = \dfrac{C}{x^6} .$
+										$ \,\Ra v = \dfrac{C_0}{x^6} .\;\;$
 									</span>
-								</p>
-								<p>
-									<span class="fragment" data-fragment-index="10">
-										So $ \ds u = \int v\,dx  $
+									<span class="fragment" data-fragment-index="1">
+										Now, since $ \, \dot u = v,$
 									</span>
 									<span class="fragment" data-fragment-index="11">
-										$  \ds =\int \frac{C}{x^6}~dx$
+										then
+									</span>
+
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="11">
+										$ \ds u = \int v\,dx  $
 									</span>
 									<span class="fragment" data-fragment-index="12">
-										$ \ds =\frac{-C}{5x^5} + C_1 $
+										$  \ds =\int \frac{C_0}{x^6}~dx$
 									</span>
 									<span class="fragment" data-fragment-index="13">
+										$ \ds =\frac{-C_0}{5x^5} + C_1 $
+									</span>
+									<span class="fragment" data-fragment-index="14">
 										$ \ds =\frac{C_0}{x^5} + C_1 .$
 									</span>
 									
