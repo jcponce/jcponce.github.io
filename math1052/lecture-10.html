@@ -69,8 +69,7 @@
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
-									Second-order ODEs are covered in Stewart in Sections 17.1 and
-17.2. 
+									Second-order ODEs are covered in Stewart in Sections 17.1 and 17.2. 
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									They often correspond with unforced (homogeneous) oscillators in
@@ -82,7 +81,7 @@
 						</div>
 					</div>
 					
-					<br/><br/><br/>
+					<br/><br/><br/><br/>
 			</section>
 
 			<section>
@@ -115,7 +114,7 @@
 					</div>
 					
 
-					<br/><br/><br/><br/><br/>
+					<br/><br/><br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -249,7 +248,7 @@
 					</div>
 					
 
-					<br/><br/>
+					<br/><br/><br/><br/>
 				</section>
 				
 				
@@ -272,10 +271,9 @@
 									$$
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									then so is 
-	$$
-	y(t) = c_1\, y_1(t) + c_2\, y_2(t).
-	$$
+									then so is $$
+									y(t) = c_1\, y_1(t) + c_2\, y_2(t).
+									$$
 								</span>
 	
 							</p>
@@ -350,7 +348,7 @@
 					
 					<br/>
 				</section>
-				<section data-auto-animate>
+				<section data-auto-animate id="superposition-principle">
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
 						<p><strong>1.7.2 The superposition principle</strong></p>
@@ -375,11 +373,11 @@
 						<div class="left-txt">
 							
 							<p>
-								<span class="fragment" data-fragment-index="1">
+								<span>
 									For first-order ODEs we have seen that the general solution contains one
 									arbitrary constant.  
 								</span>
-								<span class="fragment" data-fragment-index="2">
+								<span>
 									The above result suggests that for second-order ODEs the
 									general solution should contain <em>two</em> arbitrary constants, and this is in
 									fact the case.
@@ -425,15 +423,15 @@
 									There is however a method to find a second solution once a first
 solution has been found.
 								</span>
-								<span class="fragment" data-fragment-index="2">
+								<span class="fragment" data-fragment-index="1">
 									So, if you are clever enough to guess one
-solution (and a guess it will have to be, 
+solution (and a guess it will have to be, given that we have no general
+method) 
 								</span>
-								<span class="fragment" data-fragment-index="3">
-									given that we have no general
-method) you can obtain a second, linearly independent solution.
+								<span class="fragment" data-fragment-index="1">
+									you can obtain a second, linearly independent solution.
 								</span>
-								<span class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="1">
 									This goes by the name of <span id="rr">reduction of order</span>.
 								</span>
 							</p>
@@ -443,7 +441,7 @@ method) you can obtain a second, linearly independent solution.
 					</div>
 					
 					
-					<br/>
+					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -506,7 +504,7 @@ method) you can obtain a second, linearly independent solution.
 					</div>
 					
 					
-					<br/>
+					<br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -781,7 +779,7 @@ using an integrating factor.
 										Here $I =  \ds \exp\left(\int \frac{6}{x}~dx\right)$ 
 									</span>
 									<span class="fragment" data-fragment-index="1">
-										$=  \exp\left(6\ln x\right)$
+										$=  \exp\left(6\ln |x|\right)$
 									</span>
 									<span class="fragment" data-fragment-index="2">
 										$= x^6.$
@@ -793,13 +791,13 @@ using an integrating factor.
 								
 								<p>
 									<span class="fragment" data-fragment-index="3">
-										$ \Ra \ds \dot v + \dfrac{6}{x}v $
+										$ \Ra\, \ds x^6 \dot v + x^6\dfrac{6}{x}v $
 									</span>
 									<span class="fragment" data-fragment-index="4">
-										$ = \ds\frac{d}{dx}\left(\left(x^6\right) v\right) $
+										$ \,\Ra\, \ds x^6 \dot v + 6x^5 v $
 									</span>
 									<span class="fragment" data-fragment-index="5">
-										$ = \ds\frac{d}{dx}\left(Iv\right) $
+										$ = \ds\frac{d}{dx}\left(\left(x^6\right) v\right) $
 									</span>
 									<span class="fragment" data-fragment-index="6">
 										$  = 0 $
@@ -808,27 +806,31 @@ using an integrating factor.
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="7">
-										$ \Ra  I v = C $
-									</span>
-									<span class="fragment" data-fragment-index="8">
-										$ \Ra  v = \dfrac{C}{I} $
+										$ \Ra\,  x^6 v = K $
 									</span>
 									<span class="fragment" data-fragment-index="9">
-										$  = \dfrac{C}{x^6} .$
+										$ \,\Ra v = \dfrac{K}{x^6} .\;\;$
 									</span>
-								</p>
-								<p>
 									<span class="fragment" data-fragment-index="10">
-										So $ \ds u = \int v\,dx  $
+										Now, since $ \, \dot u = v,$
 									</span>
 									<span class="fragment" data-fragment-index="11">
-										$  \ds =\int \frac{C}{x^6}~dx$
+										then
+									</span>
+
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="11">
+										$ \ds u = \int v\,dx  $
 									</span>
 									<span class="fragment" data-fragment-index="12">
-										$ \ds =\frac{-C}{5x^5} + C_1 $
+										$  \ds =\int \frac{K}{x^6}~dx$
 									</span>
 									<span class="fragment" data-fragment-index="13">
-										$ \ds =\frac{C_0}{x^5} + C_1 .$
+										$ \ds =\frac{-K}{5x^5} + K_1 $
+									</span>
+									<span class="fragment" data-fragment-index="14">
+										$ \ds =\frac{K_0}{x^5} + K_1 .$
 									</span>
 									
 								</p>
@@ -860,13 +862,16 @@ using an integrating factor.
 
 					</div>
 
-					<div  style="margin-top:-10px;font-size:79%">
+					<div  style="margin-top:-10px;font-size:78%">
 						
 						<div id="theorem">
 							<div class="left-txt"  style="margin-top:-25px">
 								<p>
 									<span>
-										We have that $\, \ds u  \ds =\frac{C_0}{x^5} + C_1.$
+										👉
+									</span>
+									<span>
+										 $\, \ds u  \ds =\frac{K_0}{x^5} + K_1.$
 									</span>
 									<span class="fragment" data-fragment-index="0">
 										Then 
@@ -881,10 +886,10 @@ using an integrating factor.
 										$y_2 = u(x) x^2$ 
 									</span>
 									<span class="fragment" data-fragment-index="1">
-										$= \ds \left(\frac{C_0}{x^5} + C_1 \right)x^2$
+										$= \ds \left(\frac{K_0}{x^5} + K_1 \right)x^2$
 									</span>
 									<span class="fragment" data-fragment-index="2">
-										 $ = \ds\frac{C_0}{x^3} + C_1x^2.$ 
+										 $ = \ds\frac{K_0}{x^3} + K_1x^2.$ 
 									</span>
 								</p>
 								
@@ -892,20 +897,21 @@ using an integrating factor.
 							<div class="left-txt">
 								<p>
 									<span class="fragment" data-fragment-index="3">
-										Set $ C_0=1$ and $C_1= 0$
+										Set $\, K_0=1\,$ &amp; $\,K_1= 0$
 									</span>
 									<span class="fragment" data-fragment-index="4">
-										$\Ra \ds y_2 = \dfrac{1}{x^3} $ is another solution.
+										$\,\Ra\ds y_2 = \dfrac{1}{x^3}$ is another solution.
 									</span>
 								</p>
-								
+								<span class="fragment" data-fragment-index="5">
+									😃 By the  <a href="#/superposition-principle" target="_blank">superposition principle</a>, the general solution is:
+								</span>
 								
 							</div>
 							<div>
 								<p>
 									<span class="fragment" data-fragment-index="5">
-										The general solution is: 
-										$ y = \ds D_1 \dfrac{1}{x^3} + D_2x^2.$
+										 $ y = \ds c_1 \dfrac{1}{x^3} + c_2x^2.$
 									</span>
 									
 									
@@ -922,6 +928,445 @@ using an integrating factor.
 			</section>
 
 			
+			<section>
+
+				<section data-auto-animate id="characteristic-equation">
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					<div class="size-75" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									We next discuss how to solve a homogeneous linear second-order ODE with
+									constant coefficients:
+							</p>
+							
+							
+							
+						</div>
+						<div class=""  style="margin-top:-10px">
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									
+$ay''+by'+cy=0, \quad a\neq 0.$
+
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									The trick is to try to find a solution of the form
+$y=e^{\lambda t}$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Substituting this into the ODE gives
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class=""  style="margin-top:-10px">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$
+a\lambda^2e^{\lambda t} + b\lambda e^{\lambda t} +ce^{\lambda
+t}=0.
+$
+								</span>
+								
+							</p>
+							
+							
+							
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+									Since $e^{\lambda t}\neq 0$ we may divide both sides of the above equation
+by this term to be left with the quadratic equation
+								</span>
+							</p>
+							
+							
+							
+						</div>
+						<div class="">
+							<p>
+								
+								<span class="fragment" data-fragment-index="3">
+$
+a\lambda^2 + b\lambda + c  =  0.
+$
+								</span>
+							</p>
+							
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p>
+								
+								<span class="fragment" data-fragment-index="4">
+									This equation is called the <span id="rr">characteristic equation</span> of the ODE.
+								</span>
+							</p>
+							
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							<p>
+								<span>
+									<strong>Important remark: </strong>
+									
+								</span>
+								<span>
+									When you are solving ODEs of this type on your assignments and exams, 
+								</span>
+								<span>
+									you
+									don't have to <em>derive</em> the characteristic equation.  
+								</span>
+								<span>
+									It is fine to simply
+									start from the characteristic equation and solve the ODE from there.									
+								</span>
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									Various scenarios can now arise, which we discuss in more detail below. 
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									<strong>Case 1: Two distinct real roots</strong>
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="5">
+									If $b^2-4ac>0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									two distinct real roots, say $\lambda_1$ and $\lambda_2$.
+								</span>
+								
+								
+							</p>
+
+							
+							
+							
+						</div>
+					</div>
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-80" style="margin-top:-15px">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									<strong>Case 1: Two distinct real roots</strong>
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span>
+									If $b^2-4ac>0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									two distinct real roots, say $\lambda_1$ and $\lambda_2$.
+								</span>
+								
+								
+							</p>
+							<p>
+								
+								<span>
+									In this case the general solution to the ODE is
+									$$
+									y=c_1e^{\lambda_1t}+c_2e^{\lambda_2t}.
+									$$
+								</span>
+								
+								
+							</p>
+							
+
+							
+							
+							
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:-20px">
+						<p>
+								
+							<span class="fragment" data-fragment-index="1">
+								<strong>Question:</strong> 
+								What will this solution look like for very large $t$?
+							</span>
+							
+							
+						</p>
+						<div id="theorem"  style="margin-top:-10px" class="fragment" data-fragment-index="1">
+							<div class="left-txt"  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										If $\lambda_1,\lambda_2\lt 0,$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$y\to 0$ as $t\to \infty.$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										If $\lambda_1$ or $\lambda_2\gt 0,$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$y\to \pm \infty$ depending on the sign of $c_1,c_2.$
+									</span>
+									
+									
+								</p>
+	
+								
+								
+								
+							</div>
+						</div>
+					</div>
+
+
+					
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.7.4 Homogeneous linear second-order ODEs with constant coefficients</strong></p>
+					</div>
+					
+					<div class="size-75" style="margin-top:-15px">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									<strong>Question:</strong> 
+									Solve the ODE $\;y''-3y'+2y=0$.
+								</span>
+								
+								
+							</p>
+
+							
+							
+							
+						</div>
+					</div>
+
+					<div class="size-85" style="margin-top:-10px">
+						
+						<div id="theorem"  style="margin-top:-10px">
+							<div class="left-txt"  style="margin-top:-25px">
+							
+							
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										The characteristic equation is $\lambda^2 -3 \lambda +2  =0 $
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										Factorise: $\left(\lambda-1\right)\left(\lambda-2\right)=0.$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										Then $\lambda_1=1, \lambda_2=2.$
+									</span>
+									
+									
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										We have two linear independet solutions
+									</span>
+									
+									
+								</p>
+								
+	
+								
+								
+								
+							</div>
+							<div>
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										$y_1=e^t, \quad y_2 = e^{2t}$
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="5">
+										Thus the general solution is
+									</span>
+									
+									
+								</p>
+							</div>
+							<div class="">
+								<p>
+									
+									<span class="fragment" data-fragment-index="5">
+										$y=c_1 e^t+ c_2e^{2t}.$
+									</span>
+									
+									
+								</p>
+							</div>
+						</div>
+					</div>
+					
+
+					<br/><br/>
+				</section>
+
+				
+				
+			</section>
+
+			<section>
+				<h4>1 Ordinary Differential Equations</h4>
+					
+
+					<div class="size-85" style="margin-top:0px">
+						
+						<div class="left-txt"  style="margin-top:0px">
+							
+							
+								
+								<p>
+									
+									<span>
+										<strong>Case 2: A single root of multiplicity 2</strong>
+									</span>
+									
+									
+								</p>
+								<p>
+									<span  class="fragment" data-fragment-index="1">
+										If $b^2-4ac=0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+										<span id="rr">one root</span>, say $\mu.$
+									</span>
+								</p>
+								
+								
+								
+						</div>
+						<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										$\quad$ <em>General soln</em>: $y(t) = \left(c_1 + c_2t \right) e^{\mu t}.$
+									</span>
+									
+									
+								</p>
+						</div>
+						<hr>
+						<div class="left-txt" >
+								<p>
+									
+									<span>
+										<strong>Case 3: Complex root</strong>
+									</span>
+									
+									
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="2">
+										If $b^2-4ac\lt 0$ the characteristic equation $a\lambda^2+b\lambda+c=0$ has
+									 <span id="rr">two complex conjugate roots</span>, 
+									 say $\alpha\pm  i\beta.$
+									</span>
+								</p>
+							</div>
+							<div class="left-txt">
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										$\quad$ <em>General soln</em>: 
+										$
+										\ds y(t)=\Bigl(b_1\cos(\beta t)+b_2 \sin(\beta t)\Bigr)
+										e^{\alpha t}.
+										$
+									</span>
+									
+									
+								</p>
+						</div>
+						
+					</div>
+					<br/><br/>
+
+			</section>
 			
 
 			<section>
