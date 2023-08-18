@@ -909,7 +909,7 @@
 					<div id="sbt">
 						<p><strong>1.8.3 Underdamping</strong></p>
 					</div>
-					<div class="size-70" style="margin-top:-10px">
+					<div class="size-65" style="margin-top:-10px">
 						<div class="">
 							
 							<p>
@@ -944,7 +944,7 @@
 					</div>
 					
 
-					<div class="size-80" style="margin-top:-10px">
+					<div class="size-75" style="margin-top:-10px">
 						<div id="theorem">
 							<div class="left-txt">
 							
@@ -959,25 +959,101 @@
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="2">
-										Consider
-										$\;\ds \lambda^2+ 0.2\lambda +4 = 0. $
+										Rewrite
+										$\;\ds x''+ \dfrac{1}{5}x' +4x = 0. $
 									</span>
 								</p>
 								<p>
-									
 									<span class="fragment" data-fragment-index="3">
-										$\ds \Ra \lambda = \frac{-0.2\pm \sqrt{(0.2)^2-16}}{2}$
-									</span>
-									<span class="fragment" data-fragment-index="3">
-										$\ds \approx - 0.1 \pm 1.9979 i$
+										Consider
+										$\;\ds \lambda^2+ \dfrac{1}{5}\lambda +4 = 0. $
 									</span>
 								</p>
 								<p>
 									
 									<span class="fragment" data-fragment-index="4">
-										$\ds \Ra \lambda  \approx - 0.1 \pm 2 i$
+										$\ds \Ra \lambda = \frac{-\dfrac{1}{5}\pm \sqrt{\left(\dfrac{1}{5}\right)^2-4(1)(4)}}{2}$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\ds = - \frac{1}{10} \pm \frac{\sqrt{399}}{10} i$
 									</span>
 								</p>
+								
+							
+							</div>
+						</div>
+						
+					
+					</div>
+				
+
+					<br/><br/>
+				</section>
+				
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<div id="sbt">
+						<p><strong>1.8.3 Underdamping</strong></p>
+					</div>
+					
+					<div class="size-70" style="margin-top:-10px">
+						<div class="">
+							
+							
+							<p>
+								<span>
+									Initial conditions: 
+								</span>
+								<span>
+									$x(0)=1,$
+								</span>
+								<span>
+									$\,x'(0)=0.$
+								</span>
+							</p>
+						
+						</div>
+						
+					
+					</div>
+
+					<div class="size-80" style="margin-top:-10px">
+						<div id="theorem">
+							<div class="left-txt">
+							
+								<p>
+									
+									<span>
+										$\ds \Ra \lambda  = - \frac{1}{10} \pm \frac{\sqrt{399}}{10} i$
+									</span>
+								</p>
+
+								<p>
+									<span>
+										General sol: 
+									</span>
+								</p>
+								<p>
+									<span>
+										$\ds x(t) = $
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$\ds e^{-\frac{1}{10} t}\left(c_1 \cos \left(\frac{\sqrt{399}}{10} t\right) + c_2 \sin \left(\frac{\sqrt{399}}{10} t\right)\right) $
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\ds x(0) = 1 $
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds  = c_1(1)  + c_2 (0)$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\,\ds \Ra c_1 =1.$
+									</span>
+								</p>
+								
 							
 							</div>
 						</div>
@@ -1015,48 +1091,36 @@
 					
 					</div>
 
-					<div class="size-80" style="margin-top:-10px">
+					<div class="size-70" style="margin-top:-5px">
 						<div id="theorem">
-							<div class="left-txt">
-							
-								<p>
-									
-									<span>
-										$\ds \Ra \lambda  \approx - 0.1 \pm 2 i$
-									</span>
-								</p>
+							<div class="left-txt" style="margin-top:-5px">
 
 								<p>
 									<span>
-										General sol: $\ds x(t) \approx $
+										$\ds x(t) = $
 									</span>
-									<span class="fragment" data-fragment-index="0">
-										$\ds e^{-0.1 t}\left(c_1 \cos (2t) + c_2 \sin (2t)\right) $
+									<span>
+										$\ds e^{-\frac{1}{10} t}\left(c_1 \cos \left(\frac{\sqrt{399}}{10} t\right) + c_2 \sin \left(\frac{\sqrt{399}}{10} t\right)\right) $
 									</span>
 								</p>
 								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\ds x(0) = 1 $
-									</span>
-									<span class="fragment" data-fragment-index="2">
-										$\ds  = c_1(1)  + c_2 (0)$
-									</span>
-									<span class="fragment" data-fragment-index="3">
+									
+									<span>
 										$\,\ds \Ra c_1 =1.$
 									</span>
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="4">
-										$\ds x'(t) \approx $
+										$\ds x'(t) = $
 									</span>
 									<span class="fragment" data-fragment-index="5">
-										$\ds \left(-0.1\right) e^{-0.1 t}\left(c_1 \cos (2t) + c_2 \sin (2t)\right) $
+										$\ds -\frac{1}{10} e^{-\frac{1}{10} t}\left(c_1 \cos \left(\frac{\sqrt{399}}{10} t\right) + c_2 \sin \left(\frac{\sqrt{399}}{10} t\right)\right) $
 									</span>
 									
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="6">
-										$\qquad \qquad \ds  + \, e^{-0.1 t}\left(-2c_1 \sin (2t) + 2c_2 \cos (2t)\right) $
+										$\quad \quad \ds  + \, e^{-\frac{1}{10} t}\left(-\frac{\sqrt{399}}{10}c_1 \sin \left(\frac{\sqrt{399}}{10} t\right) + \frac{\sqrt{399}}{10} c_2 \cos \left(\frac{\sqrt{399}}{10} t\right)\right) $
 									</span>
 								</p>
 								<p>
@@ -1064,14 +1128,12 @@
 										$\ds x'(0) = 0 $
 									</span>
 									<span class="fragment" data-fragment-index="8">
-										$\ds =  -0.1 c_1  + 2 c_2$
+										$\ds =  -\dfrac{1}{10} c_1  + \frac{\sqrt{399}}{10} c_2$
 									</span>
 									<span class="fragment" data-fragment-index="9">
-										$\,\ds \Ra c_2 =\frac{0.1}{2}$
+										$\,\ds \Ra c_2 =\frac{1}{\sqrt{399}}$
 									</span>
-									<span class="fragment" data-fragment-index="10">
-										$\ds  =0.05.$
-									</span>
+									
 								</p>
 							
 							</div>
@@ -1089,7 +1151,7 @@
 					<div id="sbt">
 						<p><strong>1.8.3 Underdamping</strong></p>
 					</div>
-					<div class="size-80" style="margin-top:-10px">
+					<div class="size-45" style="margin-top:-10px">
 						<div class="left-txt">
 							<p>
 							
@@ -1109,23 +1171,23 @@
 					
 					</div>
 					
-					<div class="size-80" style="margin-top:-10px">
+					<div class="size-75" style="margin-top:-10px">
 						<div id="theorem">
 							<div class="left-txt" style="margin-top:-10px">
 							
 								<p>
 									
 									<span>
-										$\ds \Ra \lambda  \approx - 0.1 \pm 2 i$
+										$\ds \Ra \lambda  =- \frac{1}{10} \pm \sqrt{399}{10} i$
 									</span>
 								</p>
 
 								<p>
 									<span>
-										General sol: $\ds x(t) \approx $
+										Sol: $\ds x(t) = $
 									</span>
 									<span>
-										$\ds e^{-0.1 t}\left(c_1 \cos (2t) + c_2 \sin (2t)\right) $
+										$\ds e^{-\frac{1}{10} t}\left[c_1 \cos \left(\frac{\sqrt{399}}{10} t\right) + c_2 \sin \left(\frac{\sqrt{399}}{10} t\right)\right] $
 									</span>
 								</p>
 								<p>
@@ -1135,15 +1197,18 @@
 									</span>
 									and 
 									<span>
-										$\,\ds  c_2  =0.05.$
+										$\,\ds  c_2  =\frac{1}{\sqrt{399}}.$
 									</span>
 								</p>
 								<p>
 									<span class="fragment" data-fragment-index="0">
 										Therefore
 									</span>
+								</p>
+								<p>
+									
 									<span class="fragment" data-fragment-index="0">
-										$\ds\; x(t) \approx  e^{-0.1 t}\left( \cos (2t) + 0.05 \sin (2t)\right).$
+										$\ds\; x(t) =   e^{-\frac{1}{10} t}\left[ \cos \left(\frac{\sqrt{399}}{10} t\right) + \frac{1}{\sqrt{399}} \sin \left(\frac{\sqrt{399}}{10} t\right)\right] .$
 									</span>
 								</p>
 								
