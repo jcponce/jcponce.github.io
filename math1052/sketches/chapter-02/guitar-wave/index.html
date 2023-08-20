@@ -117,7 +117,7 @@
     view = mathbox.cartesian(
 	  {
         range: [[xMin, xMax], [yMin, yMax], [zMin,zMax]],
-        scale: [2,1,2],
+        scale: [2.1,1,2.1],
       }
 	);
 
@@ -183,14 +183,15 @@
 	
     // GUI controls
 	
+   
 	var gui = new dat.GUI();
-	
+	 
 	gui.add( this, 'functionText' ).name('y = f(x) = ');
 	
 	var graphColorStyle = "Rainbow";
 	var graphColorStyleList = ["Solid Blue", "Grayscale", "Rainbow"];
 	var graphColorGUI = gui.add( this, "graphColorStyle", graphColorStyleList ).name('Graph style').onChange( updateGraphFunc );
-
+  /*
 
 	var graphWireVisibleGUI = gui.add( this, "graphWireVisible" ).name("View wireframe").onChange(
 		function()
@@ -222,8 +223,9 @@
 	// onChange or onFinishChange
 	aGUI.onChange( updateGraphFunc );
 	bGUI.onChange( updateGraphFunc );
-	
+	*/
 	gui.close();
+  
 	
 	updateGraphFunc();
 	</script>
