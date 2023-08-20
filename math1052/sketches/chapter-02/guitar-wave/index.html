@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MathBox - 3D Grapher</title>
+  <title>MathBox - Waves Guitar</title>
   <script src="mathbox-bundle.js"></script>
   <script src="dat.gui.js"></script>
   
@@ -122,25 +122,25 @@
 	);
 
 	// axes
-	var xAxis = view.axis( {axis: 1, width: 8, detail: 40, color:"red"} );
-    var xScale = view.scale( {axis: 1, divide: 10, nice:true, zero:true} );
-    var xTicks = view.ticks( {width: 5, size: 15, color: "red", zBias:2} );
-    var xFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: xScale} );
-    var xTicksLabel = view.label( {color: "red", zIndex: 0, offset:[0,-20], points: xScale, text: xFormat} );
+	//var xAxis = view.axis( {axis: 1, width: 8, detail: 40, color:"red"} );
+    //var xScale = view.scale( {axis: 1, divide: 10, nice:true, zero:true} );
+    //var xTicks = view.ticks( {width: 5, size: 15, color: "red", zBias:2} );
+    //var xFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: xScale} );
+    //var xTicksLabel = view.label( {color: "red", zIndex: 0, offset:[0,-20], points: xScale, text: xFormat} );
 	
-	var yAxis = view.axis( {axis: 3, width: 8, detail: 40, color:"green"} );
-    var yScale = view.scale( {axis: 3, divide: 5, nice:true, zero:false} );
-    var yTicks = view.ticks( {width: 5, size: 15, color: "green", zBias:2} );
-    var yFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: yScale} );
-    var yTicksLabel = view.label( {color: "green", zIndex: 0, offset:[0,0], points: yScale, text: yFormat} );
+	//var yAxis = view.axis( {axis: 3, width: 8, detail: 40, color:"green"} );
+    //var yScale = view.scale( {axis: 3, divide: 5, nice:true, zero:false} );
+    //var yTicks = view.ticks( {width: 5, size: 15, color: "green", zBias:2} );
+    //var yFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: yScale} );
+    //var yTicksLabel = view.label( {color: "green", zIndex: 0, offset:[0,0], points: yScale, text: yFormat} );
 	
-	var zAxis = view.axis( {axis: 2, width: 8, detail: 40, color:"blue"} );
-    var zScale = view.scale( {axis: 2, divide: 5, nice:true, zero:false} );
-    var zTicks = view.ticks( {width: 5, size: 15, color: "blue", zBias:2} );
-    var zFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: zScale} );
-    var zTicksLabel = view.label( {color: "blue", zIndex: 0, offset:[0,0], points: zScale, text: zFormat} );
+	//var zAxis = view.axis( {axis: 2, width: 8, detail: 40, color:"blue"} );
+    //var zScale = view.scale( {axis: 2, divide: 5, nice:true, zero:true} );
+    //var zTicks = view.ticks( {width: 5, size: 15, color: "blue", zBias:2} );
+    //var zFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: zScale} );
+    //var zTicksLabel = view.label( {color: "blue", zIndex: 0, offset:[0,0], points: zScale, text: zFormat} );
 	
-	view.grid( {axes:[1,3], width: 2, divideX: 20, divideY: 20, opacity:0.25} );
+	view.grid( {axes:[1,3], width: 2, divideX: 20, divideY: 20, opacity:0.5} );
 	
 	var graphData = view.area({
 		axes: [1,3], channels: 3, width: 64, height: 64,
@@ -186,7 +186,7 @@
    
 	var gui = new dat.GUI();
 	 
-	gui.add( this, 'functionText' ).name('y = f(x) = ');
+	//gui.add( this, 'functionText' ).name('y = f(x) = ');
 	
 	var graphColorStyle = "Rainbow";
 	var graphColorStyleList = ["Solid Blue", "Grayscale", "Rainbow"];
