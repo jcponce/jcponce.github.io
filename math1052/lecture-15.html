@@ -706,35 +706,35 @@
 					
 					<div class="size-85">
 						<div class="left-txt">
-							<p><em>Can we solve the ODE:</em>
+							<p class="fragment" data-fragment-index="0"><em>Can we solve the ODE:</em>
 							
 								$\,\ds  \frac{\dup^2\theta}{\dup t^2}+\frac{g}{r}\sin\theta=0?$
 							</p>
 						</div>
 						<div class="left-txt">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									Rewrite it as
 								</span>
 							</p>
 						</div>
 						<div class="">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									$\ds  \frac{\dup^2\theta}{\dup t^2}=-\frac{g}{r}\sin\theta.$
 								</span>
 							</p>
 						</div>
 						<div class="left-txt">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="2">
 									Multiplying both sides by $\ds\frac{\dup\theta}{\dup t}$ we get
 								</span>
 							</p>
 						</div>
 						<div class="">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="2">
 									$\ds  \frac{\dup\theta}{\dup t} \cdot \frac{\dup^2\theta}{\dup t^2}=-\frac{g}{r}\sin\theta\cdot \frac{\dup\theta}{\dup t}.$
 								</span>
 							</p>
@@ -781,14 +781,14 @@
 						</div>
 						<div class="left-txt">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									Evaluating we obtain:
 								</span>
 							</p>
 						</div>
 						<div class="">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									$\ds  \frac{1}{2}\left(\frac{\dup\theta}{\dup t}\right)^2=\frac{g}{r}\cos\theta  +c_1.$
 								</span>
 							</p>
@@ -828,12 +828,15 @@
 						<div class="">
 							<p>
 								<span>
-									$\ds  \left(\frac{\dup\theta}{\dup t}\right)^2=\frac{2g\cos\theta}{r} +2c_1\,\Ra 
-									\frac{\dup\theta}{\dup t}=\pm\sqrt{\frac{2g\cos\theta}{r}  +c_2}$
+									$\ds  \left(\frac{\dup\theta}{\dup t}\right)^2=\frac{2g}{r}\cos\theta +2c_1\,$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\Ra \ds
+									\frac{\dup\theta}{\dup t}=\pm\sqrt{\frac{2g}{r} \cos\theta +c_2}$
 								</span>
 							</p>
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									$\ds\Ra  \frac{1}{\sqrt{\frac{2g}{r}\cos\theta  +c_2}}\frac{\dup\theta}{\dup t} =
 									\pm 1.$
 								</span>
@@ -871,32 +874,106 @@
 						<div class="left-txt">
 							<p>
 								<span>
-									Integrating both sides with respecto to $t$:
+									Integrating both sides with respect to $t$:
 								</span>
 							</p>
 						</div>
 						<div class="">
 							
 							<p>
-								<span style="font-size:140%">
-									😬
+								<span style="font-size:140%"  class="fragment" data-fragment-index="3">
+									😵‍💫 ?
 								</span>
-								<span>
+								<span  class="fragment" data-fragment-index="3">
 									 $\,=$
 								</span>
 								<span>
 									$\ds\int \frac{1}{\sqrt{\frac{2g}{r}\cos\theta  +c_2}}\dup\theta = 
 									\pm \int \dup t$
 								</span>
-								<span>
+								<span  class="fragment" data-fragment-index="2">
 									$= 
 									\pm t+ c_3.$
 								</span>
 							</p>
 							<p>
-								<span>LHS integral is not!</span>
+								<span class="fragment" data-fragment-index="3">
+									<strong>LHS integral is not!</strong>
+								</span>
 								$\qquad $
-								<span>RHS integral is easy!</span>
+								<span class="fragment" data-fragment-index="1">
+									RHS integral is easy!
+								</span>
+							</p>
+						</div>
+					</div>
+	
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Extra note about the pendulum</h4>
+					
+	
+					
+					<div style="font-size:83%">
+						<div class="left-txt">
+							<p><em>Can we solve the ODE:</em>
+							
+								$\,\ds  \frac{\dup^2\theta}{\dup t^2}+\frac{g}{r}\sin\theta=0?$
+							</p>
+						</div>
+						
+						
+
+						<div class="left-txt">
+							<p>
+								<span>
+									The integral
+								</span>
+							</p>
+						</div>
+						<div class="">
+							
+							<p>
+								
+								<span>
+									$\ds\int \frac{1}{\sqrt{\frac{2g}{r}\cos\theta  +c_2}}\dup\theta $
+								</span>
+								
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									is a particular case of 
+								</span>
+							</p>
+						</div>
+						<div class="">
+							
+							<p>
+								
+								<span class="fragment" data-fragment-index="1">
+									$\ds\int \frac{1}{\sqrt{a\cos x  +b}}\dup x $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds= \frac{2}{\sqrt{a+b}} F\left(\frac{x}{2} | \frac{2a}{a+b}\right)+C$
+								</span>
+								
+							</p>
+							
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									where $F$ is the 
+									<a target="_blank"
+										href="https://en.wikipedia.org/wiki/Elliptic_integral#Incomplete_elliptic_integral_of_the_first_kind">
+										Incomplete elliptic integral of the first kind.
+									</a>
+								</span>
 							</p>
 						</div>
 					</div>
