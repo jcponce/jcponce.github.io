@@ -122,19 +122,25 @@
 	);
 
 	// axes
-	//var xAxis = view.axis( {axis: 1, width: 8, detail: 40, color:"red"} );
-    //var xScale = view.scale( {axis: 1, divide: 10, nice:true, zero:true} );
+	var xAxis = view.transform({
+			position: [0, 0, -5],
+		}).axis( {axis: 1, width: 8, detail: 40, color:"red"} );
+    var xScale = view.scale( {axis: 1, divide: 10, nice:true, zero:true} );
     //var xTicks = view.ticks( {width: 5, size: 15, color: "red", zBias:2} );
     //var xFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: xScale} );
     //var xTicksLabel = view.label( {color: "red", zIndex: 0, offset:[0,-20], points: xScale, text: xFormat} );
 	
-	//var yAxis = view.axis( {axis: 3, width: 8, detail: 40, color:"green"} );
-    //var yScale = view.scale( {axis: 3, divide: 5, nice:true, zero:false} );
+	var yAxis = view.transform({
+      position: [0, 0, 0],
+    }).axis( {axis: 3, width: 8, detail: 40, color:"green"} );
+    var yScale = view.scale( {axis: 3, divide: 5, nice:true, zero:false} );
     //var yTicks = view.ticks( {width: 5, size: 15, color: "green", zBias:2} );
     //var yFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: yScale} );
     //var yTicksLabel = view.label( {color: "green", zIndex: 0, offset:[0,0], points: yScale, text: yFormat} );
 	
-	//var zAxis = view.axis( {axis: 2, width: 8, detail: 40, color:"blue"} );
+	var zAxis = view.transform({
+      position: [0, -1, -5],
+    }).axis( {axis: 2, width: 8, detail: 40, color:"blue"} );
     //var zScale = view.scale( {axis: 2, divide: 5, nice:true, zero:true} );
     //var zTicks = view.ticks( {width: 5, size: 15, color: "blue", zBias:2} );
     //var zFormat = view.format( {digits: 2, font:"Arial", weight: "bold", style: "normal", source: zScale} );
