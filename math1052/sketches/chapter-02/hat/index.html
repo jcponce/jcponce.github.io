@@ -28,7 +28,7 @@
   <body>
     <script>
       mathbox = MathBox.mathBox({
-        plugins: ["core", "controls", "cursor", "stats"],
+        plugins: ["core", "controls", "cursor"],
         controls: {
           klass: THREE.OrbitControls,
         },
@@ -40,12 +40,27 @@
 
       view = mathbox.cartesian({
         range: [
-          [-Math.PI, Math.PI],
-          [0, 3],
-          [0, 3.14],
+          [-3, 3],
+          [0, 1],
+          [-3, 3],
         ],
-        scale: [1.5, 1, 1],
+        scale: [1, 0.5, 1],
       });
+
+      view.camera(
+        {
+          lookAt: [0, 0, 0],
+        },
+        {
+          position: function (t) {
+            return [
+              -3 * Math.cos(t * 0.1),
+              0.3 + 0.3 * Math.cos(t * 0.381),
+              -3 * Math.sin(t *0.1),
+            ];
+          },
+        }
+      );
 
       view.axis({
         axis: 1,
@@ -60,53 +75,45 @@
         axes: [1, 3],
       });
 
-	  function xFunc(u,v) {
-		return u * Math.cos(v);
-	  } 
-	  function yFunc(u,v) {
-		return u * Math.sin(v)+1;
-	  } 
-	  function zFunc(u,v) {
-		var a = Math.pow(u * Math.cos(v), 2);
-		var b = Math.pow(u * Math.sin(v), 2);
-		var c = Math.pow(a + b, 6);
-		return Math.PI/2 - Math.atan(c);
-	  } 
-
       var sampler = view.area({
         id: "sampler",
         width: 64,
         height: 64,
         axes: [1, 3],
-        expr: function (emit, u, v, i, j, time) {
-          emit(xFunc(u, v), zFunc(u, v), yFunc(u, v));
-          /*emit(
+        expr: function (emit, x, y, i, j, time) {
+          emit(x, 0.35 + 0.25 * (Math.sin(x + time) * Math.sin(y + time)), y);
+          emit(
             x,
             0.35 +
-              0.25 *
+              0.21 *
                 (Math.sin(x * 1.31 + time * 1.13) *
                   Math.sin(y * 1.46 - time * 0.94)) +
               0.5,
             y
-          );*/
-         /* 
-		  emit(
+          );
+          emit(
             x,
             0.35 +
-              0.25 *
+              0.15 *
                 (Math.sin(x * 1.25 + Math.sin(y + time) - time * 1.34) *
                   Math.sin(y * 1.17 - time * 0.79)) +
               1,
             y
-          );*/
+          );
         },
-        items: 1,
+        items: 3,
         channels: 3,
       });
+
+      var remap = function (v) {
+        return Math.sqrt(0.5 + 0.5 * v);
+      };
 
       var color = view
         .matrix({
           expr: function (emit, i, j, time) {
+            
+            ///*
             var r = 0.5 + Math.cos(time * 0.873) * j;
             var g = 0.5 + Math.sin(time) * i;
             var b = 1;
@@ -120,18 +127,28 @@
             var rr = ((r * r + r * Math.sin(time * 0.354)) / 2) * 0.9;
             var gg = b + (r + g) * 0.25 * Math.cos(time * 0.289);
             var bb = g + r * 0.5 + b * 0.5;
+            
 
             rr = rr + (n - rr) * 0.75;
             gg = gg + (n - gg) * 0.75;
             bb = bb + (n - bb) * 0.75;
+            //*/
+
+            /*
+            var y = remap(Math.sin(i * 5 + time + Math.sin(j * 3.41 + i * 1.48))) *
+                    remap(Math.sin(j * 5 + time + Math.cos(i * 3.22 + j)));
+            var r = Math.sin(y * 4) + y * y * y;
+            var g = (0.5 - 0.5 * Math.cos(y * 3) + y * y) * 0.85;
+            var b = y;
+            */
 
             emit(0.4, 0.7, 1, 1);
-            //emit(1, 1, 1, 1);
-            //emit(rr, gg, bb, 1);
+            emit(1, 1, 1, 1);
+            emit(rr, gg, bb, 1.0);
           },
           width: 2,
           height: 2,
-          items: 1,
+          items: 3,
           channels: 4,
         })
         .repeat({
@@ -140,12 +157,12 @@
 
       view.surface({
         shaded: true,
-        //lineX: true,
-        //lineY: true,
+        lineX: true,
+        lineY: true,
         points: sampler,
         colors: color,
         color: 0xffffff,
-        width: 5,
+        width: 2,
       });
     </script>
   </body>
