@@ -142,6 +142,7 @@
 				RevealMath.MathJax2, 
 				RevealMenu, 
 				RevealChalkboard, 
+				CopyCode,
 				RevealHighlight, 
 				RevealZoom, 
 				RevealSearch
