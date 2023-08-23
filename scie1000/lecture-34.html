@@ -173,55 +173,109 @@
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
-					<h4>1 Ordinary Differential Equations</h4>
-					<div id="sbt">
-						<p><strong>1.8.3 Underdamping</strong></p>
-					</div>
-					<div class="size-80" style="margin-top:-10px">
-						<div class="left-txt">
-							<p>
-							
-								<span>
-									The general solution is
-								</span>
-							
-							</p>
-						
-						</div>
+					
+					
+					<div class="" style="margin-top:0px;font-size:120%">
 						<div class="">
-							<p>
-							
-								<span>
-								
-								$
-								x(t)=e^{-p t}\Bigl(c_1\cos(\omega_p t)+c_2\sin(\omega_p t)\Bigr).
-								$
-								
-								</span>
-							
-							</p>
+							<pre style="height:400px"><code data-trim data-noescape>
+# Uses Euler's method and Lotka-Volterra equations to model 
+# populations of lynx and hare from 1900 to 1920.
+from pylab import *
+# Initialise variables for Euler's method.
+stepsize = 0.01
+times = arange(0 , 20+stepsize , stepsize )
+a=0.484
+b=0.028
+c=1
+d=0.032
+hares = zeros(int(size(times))) 
+lynx= zeros(int(size(times))) 
+hares[0] = 30.0
+lynx[0] = 4.0
+</code></pre>
 						
 						</div>
-						<div class="left-txt">
-							<p>
-							
-								<span class="fragment" data-fragment-index="0">
-								
-									This figure shows an example of underdamped motion: 
-								</span>
-							
-							</p>
+					</div>
+
+				
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					
+					
+					<div class="" style="margin-top:0px;font-size:120%">
+						<div class="">
+							<pre style="height:550px"><code data-trim data-noescape>
+# Step through Euler' s method
+for i in range(0,size(times)-1):
+    dh = a * hares[i] - b * hares[i] * lynx[i]
+    dl = - c * lynx[i] + d * hares[i] * lynx[i] 
+    hares[i+1] = hares[i] + stepsize * dh 
+    lynx[i+1] = lynx[i] + stepsize * dl
+# Output graphs 
+plot(times, hares, linewidth=2, label='Hares') 
+plot(times , lynx , linewidth=2, label='Lynx') 
+xlabel ("Time ( years since 1900)")
+ylabel("Number of individuals (thousands)")
+xlim (0 ,20)
+ylim (0 ,70)
+grid(True)
+legend()
+show()
+								  </code></pre>
 						
 						</div>
+					</div>
 
+				
+				
+
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					
+					
+					<div class="" style="margin-top:0px;font-size:75%">
+						<div class="">
+							<pre style="height:600px"><code data-trim data-noescape>
+# Uses Euler's method and Lotka-Volterra equations to model 
+# populations of lynx and hare from 1900 to 1920.
+from pylab import *
+# Initialise variables for Euler's method.
+stepsize = 0.01
+times = arange(0 , 20+stepsize , stepsize )
+a=0.484
+b=0.028
+c=1
+d=0.032
+hares = zeros(int(size(times))) 
+lynx= zeros(int(size(times))) 
+hares[0] = 30.0
+lynx[0] = 4.0
+# Step through Euler' s method
+for i in range(0,size(times)-1):
+    dh = a * hares[i] - b * hares[i] * lynx[i]
+    dl = - c * lynx[i] + d * hares[i] * lynx[i] 
+    hares[i+1] = hares[i] + stepsize * dh 
+    lynx[i+1] = lynx[i] + stepsize * dl
+# Output graphs 
+plot(times, hares, linewidth=2, label='Hares') 
+plot(times , lynx , linewidth=2, label='Lynx') 
+xlabel ("Time ( years since 1900)")
+ylabel("Number of individuals (thousands)")
+xlim (0 ,20)
+ylim (0 ,70)
+grid(True)
+legend()
+show()
+								  </code></pre>
 						
-					
-					
+						</div>
 					</div>
 
-					<div class="fragment" data-fragment-index="0" style="margin-top:-20px">
-						<img style="width:50%" src="images/lect-11/underdamped.png">
-					</div>
+				
 				
 
 					<br/><br/>
