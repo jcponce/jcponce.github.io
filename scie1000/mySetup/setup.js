@@ -141,8 +141,7 @@
 				RevealCustomControls, 
 				RevealMath.MathJax2, 
 				RevealMenu, 
-				RevealChalkboard, 
-				CopyCode,
+				RevealChalkboard,
 				RevealHighlight, 
 				RevealZoom, 
 				RevealSearch
