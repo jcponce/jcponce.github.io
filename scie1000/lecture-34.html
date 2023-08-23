@@ -173,7 +173,7 @@
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
-					
+					<h5>Program 12.2: Lotka-Volterra model of hares and lynx</h5>
 					
 					<div class="" style="margin-top:0px;font-size:120%">
 						<div class="">
@@ -204,7 +204,7 @@ lynx[0] = 4.0
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
-					
+					<h5>Program 12.2: Lotka-Volterra model of hares and lynx</h5>
 					
 					<div class="" style="margin-top:0px;font-size:115%">
 						<div class="">
@@ -237,14 +237,15 @@ show()
 					<br/><br/>
 				</section>
 				<section data-auto-animate>
+					<h6>Program 12.2: Lotka-Volterra model of hares and lynx</h6>
 					
-					
-					<div class="" style="margin-top:0px;font-size:71%">
+					<div class="" style="margin-top:0px;font-size:67%;margin-top:-10px">
 						<div class="">
-							<pre style="height:600px;width:500px"><code data-trim data-noescape data-line-numbers="1-30">
+							<pre style="height:620px;width:500px"><code data-trim data-noescape data-line-numbers="1-33">
 # Uses Euler's method and Lotka-Volterra equations to model 
 # populations of lynx and hare from 1900 to 1920.
 from pylab import *
+
 # Initialise variables for Euler's method.
 stepsize = 0.01
 times = arange(0 , 20+stepsize , stepsize )
@@ -256,12 +257,14 @@ hares = zeros(int(size(times)))
 lynx= zeros(int(size(times))) 
 hares[0] = 30.0
 lynx[0] = 4.0
+
 # Step through Euler' s method
 for i in range(0,size(times)-1):
     dh = a * hares[i] - b * hares[i] * lynx[i]
     dl = - c * lynx[i] + d * hares[i] * lynx[i] 
     hares[i+1] = hares[i] + stepsize * dh 
     lynx[i+1] = lynx[i] + stepsize * dl
+
 # Output graphs 
 plot(times, hares, 'b-', linewidth=2, label='Hares') 
 plot(times , lynx, 'r-', linewidth=2, label='Lynx')  
