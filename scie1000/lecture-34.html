@@ -177,10 +177,11 @@
 					
 					<div class="" style="margin-top:0px;font-size:120%">
 						<div class="">
-							<pre style="height:400px"><code data-trim data-noescape>
+							<pre style="height:510px"><code data-trim data-noescape data-line-numbers="1-3|5-7|8-11|12-13|1-15">
 # Uses Euler's method and Lotka-Volterra equations to model 
 # populations of lynx and hare from 1900 to 1920.
 from pylab import *
+
 # Initialise variables for Euler's method.
 stepsize = 0.01
 times = arange(0 , 20+stepsize , stepsize )
@@ -205,18 +206,19 @@ lynx[0] = 4.0
 				<section data-auto-animate>
 					
 					
-					<div class="" style="margin-top:0px;font-size:120%">
+					<div class="" style="margin-top:0px;font-size:115%">
 						<div class="">
-							<pre style="height:550px"><code data-trim data-noescape>
+							<pre style="height:553px"><code data-trim data-noescape  data-ln-start-from="17" data-line-numbers="1-6|8-10|11-16|1-17">
 # Step through Euler' s method
 for i in range(0,size(times)-1):
     dh = a * hares[i] - b * hares[i] * lynx[i]
     dl = - c * lynx[i] + d * hares[i] * lynx[i] 
     hares[i+1] = hares[i] + stepsize * dh 
     lynx[i+1] = lynx[i] + stepsize * dl
+
 # Output graphs 
-plot(times, hares, linewidth=2, label='Hares') 
-plot(times , lynx , linewidth=2, label='Lynx') 
+plot(times, hares, 'b-', linewidth=2, label='Hares') 
+plot(times , lynx, 'r-', linewidth=2, label='Lynx') 
 xlabel ("Time ( years since 1900)")
 ylabel("Number of individuals (thousands)")
 xlim (0 ,20)
@@ -237,9 +239,9 @@ show()
 				<section data-auto-animate>
 					
 					
-					<div class="" style="margin-top:0px;font-size:75%">
+					<div class="" style="margin-top:0px;font-size:71%">
 						<div class="">
-							<pre style="height:600px"><code data-trim data-noescape>
+							<pre style="height:600px;width:500px"><code data-trim data-noescape data-line-numbers="1-30">
 # Uses Euler's method and Lotka-Volterra equations to model 
 # populations of lynx and hare from 1900 to 1920.
 from pylab import *
@@ -261,8 +263,8 @@ for i in range(0,size(times)-1):
     hares[i+1] = hares[i] + stepsize * dh 
     lynx[i+1] = lynx[i] + stepsize * dl
 # Output graphs 
-plot(times, hares, linewidth=2, label='Hares') 
-plot(times , lynx , linewidth=2, label='Lynx') 
+plot(times, hares, 'b-', linewidth=2, label='Hares') 
+plot(times , lynx, 'r-', linewidth=2, label='Lynx')  
 xlabel ("Time ( years since 1900)")
 ylabel("Number of individuals (thousands)")
 xlim (0 ,20)
