@@ -42,6 +42,9 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	<script src="mySetup/google-analytics-ga4.js"></script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
 	
 </head>
 
@@ -1452,7 +1455,7 @@ $z=f(x,y)=x^2$.
 					<br/>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>2 Functions of Several Variables</h4>
 				    <div id="sbt">
 					<p><strong>2.4.1 Main points</strong></p>
@@ -1475,6 +1478,72 @@ $z=f(x,y)=x^2$.
 
 				
 				<br/><br/><br/><br/>
+				</section>
+			</section>
+			
+			<section>
+				<section data-auto-animate>
+					<h5>The Gamma function</h5>
+					<div style="margin-top:50px">
+						<img style="width:70%" src="https://complex-analysis.com/images/chp03/Jahnke_gamma_function.png">
+					</div>
+					<div style="margin-top:10px;font-size:40%">
+						<p>
+							<a href="http://mathworld.wolfram.com/GammaFunction.html" target="_blank"><em>Gamma function</em></a> by Jahnke and Emde, 1909.
+						</p>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>The Gamma function</h5>
+					<div>
+						<div class="mathcell w3-hide-small" style="width: 6.4in; height: 5.5in">
+							<script>
+							  var parent = document.currentScript.parentNode;
+				  
+							  var id = generateId();
+							  parent.id = id;
+				  
+							  MathCell(id, []);
+				  
+							  parent.update = function (id) {
+			  
+								var ga = (x, y) => gamma(complex(x, y));
+				  
+								var p = parametric(
+								  (x, y) => [
+											  x, 
+											  y, 
+											  ga(x,y)
+											], [-4.999, 4.999, 201], [-4.999, 4.999, 201], {
+									complexFunction: 'abs',
+									colormap: 'complexArgument'
+								  }
+								);
+				  
+								var config = {
+								  type: 'threejs',
+								  zMax: 8,
+								  viewpoint: [-0.2,-1,0.5]
+								  
+								};
+				  
+								evaluate(id, [p], config);
+				  
+							  }
+				  
+							  parent.update(id);
+							</script>
+						  </div>
+					</div>
+
+					<div style="margin-top:10px;font-size:40%">
+						<p>
+							<strong>Source:</strong> <a href="https://complex-analysis.com/content/analytic_landscapes.html" target="_blank"><em>Analytic landscapes</em></a>
+						</p>
+					</div>
+					<br/>
 				</section>
 			</section>
 
