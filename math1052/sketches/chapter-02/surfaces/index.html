@@ -81,13 +81,14 @@
         height: 64,
         axes: [1, 3],
         expr: function (emit, x, y, i, j, time) {
-          emit(x, 0.35 + 0.25 * (Math.sin(x + time) * Math.sin(y + time)), y);
+          var sp = 0.5;
+          emit(x, 0.35 + 0.25 * (Math.sin(x + time * sp) * Math.sin(y + time * sp)), y);
           emit(
             x,
             0.35 +
               0.21 *
-                (Math.sin(x * 1.31 + time * 1.13) *
-                  Math.sin(y * 1.46 - time * 0.94)) +
+                (Math.sin(x * 1.31 + time * 1.13 * sp) *
+                  Math.sin(y * 1.46 - time * 0.94 * sp)) +
               0.5,
             y
           );
@@ -95,8 +96,8 @@
             x,
             0.35 +
               0.15 *
-                (Math.sin(x * 1.25 + Math.sin(y + time) - time * 1.34) *
-                  Math.sin(y * 1.17 - time * 0.79)) +
+                (Math.sin(x * 1.25 + Math.sin(y + time * sp) - time * 1.34 * sp) *
+                  Math.sin(y * 1.17 - time * 0.79 * sp)) +
               1,
             y
           );
