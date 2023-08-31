@@ -111,7 +111,7 @@
 
 	
 	// setting proxy:true allows interactive controls to override base position
-	var camera = mathbox.camera( { proxy: true, position: [3,0,-3] } );
+	var camera = mathbox.camera( { proxy: true, position: [3.5,0,-3.3] } );
 
 	 // save as variable to adjust later
     view = mathbox.cartesian(
@@ -124,19 +124,19 @@
 	// axes
 	var xAxis = view.transform({
 			position: [0, 0, -5],
-		}).axis( {axis: 1, width: 8, detail: 40, color:"red"} );
+		}).axis( {axis: 1, width: 10, detail: 40, color:"red"} );
     var xScale = view.scale( {axis: 1, divide: 10, nice:true, zero:true} );
     
 	
 	var yAxis = view.transform({
       position: [0, 0, 0],
-    }).axis( {axis: 3, width: 8, detail: 40, color:"green"} );
+    }).axis( {axis: 3, width: 10, detail: 40, color:"green"} );
     var yScale = view.scale( {axis: 3, divide: 5, nice:true, zero:false} );
     
 	
 	var zAxis = view.transform({
       position: [0, -1, -5],
-    }).axis( {axis: 2, width: 8, detail: 40, color:"blue"} );
+    }).axis( {axis: 2, width: 10, detail: 40, color:"blue"} );
 
 	// This is for adding colors to axes lables
 	var colors = {
@@ -157,7 +157,7 @@
 	view
         .array({
           data: [
-            [xMax-2.1, 0.1, -5.2],
+            [xMax-3.5, 0.1, -5.2],
             [0, zMax-6, -5.3],
             [-0.1, 0, yMax - 5.2],
           ],
@@ -175,11 +175,11 @@
           font: "Arial",
           weight: "bold",
           style: "normal",
-          //size: "12px",
+		  
           source: 2,
         });
 	
-	view.grid( {axes:[1,3], width: 2, divideX: 20, divideY: 20, opacity:0.5} );
+	view.grid( {axes:[1,3], width: 4, divideX: 20, divideY: 20, opacity:0.5} );
 	
 	var graphData = view.area({
 		axes: [1,3], channels: 3, width: 64, height: 64,
