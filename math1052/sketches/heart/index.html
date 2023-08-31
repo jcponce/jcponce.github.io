@@ -54,7 +54,7 @@
       var three = mathbox.three;
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
-      var graphData, view;
+      var graphData, graphDataFrame, view;
 
       
 
@@ -92,6 +92,9 @@
         var yFunc = Parser.parse(yFunctionText).toJSFunction(["u", "v"]);
         var zFunc = Parser.parse(zFunctionText).toJSFunction(["u", "v"]);
         graphData.set("expr", function (emit, u, v, i, j, t) {
+          emit(xFunc(u, v), zFunc(u, v), yFunc(u, v));
+        });
+        graphDataFrame.set("expr", function (emit, u, v, i, j, t) {
           emit(xFunc(u, v), zFunc(u, v), yFunc(u, v));
         });
        
@@ -335,8 +338,15 @@
         ],
       });
 
-      var resolution = 72;
+      var resolution = 80;
       var graphData = domain.area({
+        width: resolution,
+        height: resolution,
+        // expr: set later
+        axes: [1, 2], // u,v
+        channels: 3, // 3D space
+      });
+      var graphDataFrame = domain.area({
         width: resolution,
         height: resolution,
         // expr: set later
@@ -364,7 +374,8 @@
 
       var graphWireVisible = true;
       var surfaceViewLine = view.surface({
-        points: graphData,
+        points: graphDataFrame,
+        width: 2,
         fill: false,
         shaded: false,
         lineX: graphWireVisible,
