@@ -56,6 +56,8 @@
 
       var graphData, view;
 
+      
+
       //var xFunctionText = "cos(u)*(a + b*cos(v))";
       //var yFunctionText = "sin(u)*(a + b*cos(v))";
       //var zFunctionText = "b*sin(v)";
@@ -82,6 +84,8 @@
         vMin = 0,
         vMax = 3.14;
 
+      
+
       // start of updateGraph function ==============================================================
       var updateGraphFunc = function () {
         var xFunc = Parser.parse(xFunctionText).toJSFunction(["u", "v"]);
@@ -90,6 +94,7 @@
         graphData.set("expr", function (emit, u, v, i, j, t) {
           emit(xFunc(u, v), zFunc(u, v), yFunc(u, v));
         });
+       
 
         view.set("range", [
           [xMin, xMax],
@@ -156,14 +161,17 @@
         scale: [-1.5, 1.5, 1.5], //I need to use negative value to set correctly the x-y axis
       });
 
+      
       // axes
+      var graphAxesVisible = false;
       var xAxis = view.axis({
         axis: 1,
         width: 8,
         detail: 40,
         color: "red",
+        visible: graphAxesVisible,
       });
-
+      
       var xScale = view.scale({
         axis: 1,
         divide: 10,
@@ -175,6 +183,7 @@
         size: 15,
         color: "red",
         zBias: 2,
+        visible: graphAxesVisible,
       });
       var xFormat = view.format({
         digits: 2,
@@ -189,6 +198,7 @@
         offset: [0, -20],
         points: xScale,
         text: xFormat,
+        visible: graphAxesVisible,
       });
 
       var yAxis = view.axis({
@@ -196,6 +206,7 @@
         width: 8,
         detail: 40,
         color: "green",
+        visible: graphAxesVisible,
       });
       var yScale = view.scale({
         axis: 3,
@@ -208,6 +219,7 @@
         size: 15,
         color: "green",
         zBias: 2,
+        visible: graphAxesVisible,
       });
       var yFormat = view.format({
         digits: 2,
@@ -222,6 +234,7 @@
         offset: [0, 0],
         points: yScale,
         text: yFormat,
+        visible: graphAxesVisible,
       });
 
       var zAxis = view.axis({
@@ -229,6 +242,7 @@
         width: 8,
         detail: 40,
         color: "blue",
+        visible: graphAxesVisible,
       });
       var zScale = view.scale({
         axis: 2,
@@ -241,6 +255,7 @@
         size: 15,
         color: "blue",
         zBias: 2,
+        visible: graphAxesVisible,
       });
       var zFormat = view.format({
         digits: 2,
@@ -255,6 +270,7 @@
         offset: [0, 0],
         points: zScale,
         text: zFormat,
+        visible: graphAxesVisible,
       });
 
       // Now let's add labels for each axis //
@@ -301,12 +317,14 @@
           source: zScale,
         });
 
-      view.grid({
+      
+      var xyPlane = view.grid({
         axes: [1, 3],
         width: 2,
         divideX: 20,
         divideY: 20,
         opacity: 0.25,
+        visible: graphAxesVisible,
       });
 
       // need separate range for surface domain values. can't use values from view.
@@ -590,13 +608,28 @@
       //var boolShade = graphStyle.add( this, "bShade", bShade).name('Shaded');
       //console.log( boolShade.value());
 
-     /* var graphAxesVisibleGUI = graphStyle
-        .add(this, "graphAxes")
+      
+
+      var parDef = {
+        Axes: true,
+      }
+     
+      var graphAxesVisibleGUI = graphStyle
+        .add(this, "graphAxesVisible")
         .name("Axes")
         .onChange(function () {
-          surfaceAxes.set("visible", graphAxesVisible);
-        });
-        */
+          xAxis.set("visible", graphAxesVisible);
+          yAxis.set("visible", graphAxesVisible);
+          zAxis.set("visible", graphAxesVisible);
+          xTicks.set("visible", graphAxesVisible);
+          yTicks.set("visible", graphAxesVisible);
+          zTicks.set("visible", graphAxesVisible);
+          xTicksLabel.set("visible", graphAxesVisible);
+          yTicksLabel.set("visible", graphAxesVisible);
+          zTicksLabel.set("visible", graphAxesVisible);
+          xyPlane.set("visible", graphAxesVisible);
+      });
+      
       var graphWireVisibleGUI = graphStyle
         .add(this, "graphWireVisible")
         .name("Mesh")
