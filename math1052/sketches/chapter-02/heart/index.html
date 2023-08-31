@@ -60,10 +60,10 @@
       //var yFunctionText = "sin(u)*(a + b*cos(v))";
       //var zFunctionText = "b*sin(v)";
       var xFunctionText =
-        "sin(v) * (15 * sin(u) - 4 * sin(3 * u))";
+        "0.1*sin(v) * (15 * sin(u) - 4 * sin(3 * u))";
       var yFunctionText =
-        "8 * cos(v)";
-      var zFunctionText = "sin(v) * (19 * cos(u) - 5 * cos(2 * u) - 2 * cos( 3 * u))";
+        "0.1*8 * cos(v)";
+      var zFunctionText = "0.1*sin(v) * (19 * cos(u) - 5 * cos(2 * u) - 2 * cos( 3 * u))";
 
       function colorMap(x, y) {
         return (1 + Math.cos(3*y+x))/2;
@@ -153,7 +153,7 @@
           [yMin, yMax],
           [zMin, zMax],
         ],
-        scale: [-0.2, 0.2, 0.2], //I need to use negative value to set correctly the x-y axis
+        scale: [-1.5, 1.5, 1.5], //I need to use negative value to set correctly the x-y axis
       });
 
       // axes
