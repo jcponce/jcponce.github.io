@@ -228,7 +228,7 @@
 
 				<section data-auto-animate>
 					<h4>32.1 A simple example: </h4>
-					<p class="sbt">Find the volume of a sphere of radius $R$.</p>
+					<p class="sbt">Find the volume of a sphere of radius $R.$</p>
 
 
 					<table id="eqarray" class="size-75">
@@ -293,7 +293,7 @@
 
 				<section data-auto-animate>
 					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
-					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}.$</p>
 
 					<div class="left-txt size-80">
 						<p class="fragment" data-fragment-index="0">
@@ -321,7 +321,7 @@
 
 				<section data-auto-animate>
 					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
-					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}.$</p>
 
 					<div class="left-txt size-75">
 						<p>
@@ -375,7 +375,7 @@
 
 				<section data-auto-animate>
 					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
-					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}$.</p>
+					<p class="sbt"> whose density is given by $\rho (x,y,z) = e^{-\left(x^2+y^2+z^2\right)^{1/2}}.$</p>
 
 					<table id="eqarray" class="size-70">
 						<tr>
@@ -438,25 +438,41 @@
 				<section data-auto-animate>
 					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
 
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								The challenge is now to compute: $\displaystyle \int_{r=0}^{r=R}r^2e^{-r}~dr.$
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Recall the technique
+								<strong>Integration by parts</strong>.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									Consider the functions $u,$ $v.$
+								</span>
+								<span class="fragment" data-fragment-index="2">Using the product rule we have</span>
+							</p>
+							
 
-					<p class="left-txt size-75">
-						The challenge is now to compute: $\displaystyle \int_{r=0}^{r=R}r^2e^{-r}~dr.$
-					</p>
+					
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="3">
+								$d(uv) = u ~dv + v ~du $
+								<span class="fragment" data-fragment-index="4">$\implies u~dv = d(uv) - v~du$</span>
+								<span class="fragment" data-fragment-index="5">
+									$$\implies \int u~dv = uv - \int v~du$$
+								</span>
+							</p>
+						</div>
+					</div>
 
-					<p class="left-txt size-75 fragment" data-fragment-index="0">Recall the technique
-						<strong>Integration by parts</strong>.
-						<span class="fragment" data-fragment-index="1">
-							Consider the functions $u,$ $v.$
-						</span>
-						<span class="fragment" data-fragment-index="2">Using the product rule we have</span>
-					</p>
-					<p class=" size-70 fragment" data-fragment-index="3">
-						$d(uv) = u ~dv + v ~du $
-						<span class="fragment" data-fragment-index="4">$\implies u~dv = d(uv) - v~du$</span>
-						<span class="fragment" data-fragment-index="5">
-							$$\implies \int u~dv = uv - \int v~du$$
-						</span>
-					</p>
+					
+
+					
 
 					<br/><br/><br/>
 
@@ -466,10 +482,10 @@
 					<h4>32.2 Find the mass of a sphere of radius $R$</h4>
 
 
-					<p class="size-75">
-						Take $u = r^2$ and $dv= e^{-r}~dr$.
+					<p class="size-80 left-txt">
+						Take $u = r^2$ and $dv= e^{-r}~dr.$
 						<span class="fragment" data-fragment-index="0">
-							So $du = 2r ~dr$ and $v = -e^{-r}$.
+							So $du = 2r ~dr$ and $v = -e^{-r}.$
 						</span>
 					</p>
 					<table id="eqarray" class="size-75">
@@ -509,9 +525,9 @@
 
 					<div class="size-65" style="margin-top:-15px">
 						<p >
-							Now take $u = r$ and $dv= e^{-r}~dr$.
-							<span class="fragment" data-fragment-index="0">
-								So $du = dr$ and $v = -e^{-r}$.
+							Now take $u = r$ and $dv= e^{-r}~dr.$
+							<span>
+								So $du = dr$ and $v = -e^{-r}.$
 							</span>
 						</p>
 					</div>
@@ -624,7 +640,7 @@
 
 					</table>
 
-					<br/><br/>
+					<br/><br/><br/>
 
 				</section>
 
