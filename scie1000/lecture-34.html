@@ -612,11 +612,11 @@ lynx[0] = 4.0
 				<section data-auto-animate>
 					<h5>Program 12.2: Lotka-Volterra model of hares and lynx</h5>
 					
-					<div class="" style="margin-top:0px;font-size:115%">
+					<div class="" style="margin-top:0px;font-size:110%">
 						<div class="">
 							<pre style="height:553px"><code data-trim data-noescape  data-ln-start-from="17" data-line-numbers="1-6|8-10|11-16|1-17">
 # Step through Euler' s method
-for i in range(0,size(times)-1):
+for i in range(0, size(times) - 1):
     dh = a * hares[i] - b * hares[i] * lynx[i]
     dl = - c * lynx[i] + d * hares[i] * lynx[i] 
     hares[i+1] = hares[i] + stepsize * dh 
@@ -624,11 +624,11 @@ for i in range(0,size(times)-1):
 
 # Output graphs 
 plot(times, hares, 'b-', linewidth=2, label='Hares') 
-plot(times , lynx, 'r-', linewidth=2, label='Lynx') 
+plot(times, lynx, 'r-', linewidth=2, label='Lynx') 
 xlabel("Time ( years since 1900)")
 ylabel("Number of individuals (thousands)")
-xlim(0 ,20)
-ylim(0 ,70)
+xlim(0, 20)
+ylim(0, 70)
 grid(True)
 legend()
 show()
@@ -644,7 +644,7 @@ show()
 				</section>
 				<section data-auto-animate>
 					<h6>Program 12.2: Lotka-Volterra model of hares and lynx 
-						<a target="_blank" href="https://trinket.io/embed/python3/d2b157c778">
+						<a target="_blank" href="https://trinket.io/embed/python3/19a82db14f">
 						<i class="fa fa-external-link-alt"></i></a>
 					</h6>
 					
@@ -668,7 +668,7 @@ hares[0] = 30.0
 lynx[0] = 4.0
 
 # Step through Euler' s method
-for i in range(0,size(times)-1):
+for i in range(0, size(times) - 1):
     dh = a * hares[i] - b * hares[i] * lynx[i]
     dl = - c * lynx[i] + d * hares[i] * lynx[i] 
     hares[i+1] = hares[i] + stepsize * dh 
@@ -679,8 +679,8 @@ plot(times, hares, 'b-', linewidth=2, label='Hares')
 plot(times, lynx, 'r-', linewidth=2, label='Lynx')  
 xlabel("Time ( years since 1900)")
 ylabel("Number of individuals (thousands)")
-xlim(0 ,20)
-ylim(0 ,70)
+xlim(0, 20)
+ylim(0, 70)
 grid(True)
 legend()
 show()
@@ -695,10 +695,10 @@ show()
 					<br/><br/>
 				</section>
 				<!--
-					https://trinket.io/python3/d2b157c778
-					<iframe src="https://trinket.io/embed/python3/d2b157c778" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+					https://trinket.io/python3/19a82db14f
+					<iframe src="https://trinket.io/embed/python3/19a82db14f" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 				-->
-				<section  data-background-iframe="https://trinket.io/embed/python3/d2b157c778"
+				<section  data-background-iframe="https://trinket.io/embed/python3/19a82db14f"
 				data-background-interactive>
 
 				</section>
