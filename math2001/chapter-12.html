@@ -74,9 +74,9 @@
               </p>
               <ul class="fragment" data-fragment-index="2">
                 <li>
-                  Given a vector ${\bf v}$ in a real inner product space $V$,
+                  Given a vector ${\bf v}$ in a real inner product space $V,$
                   give the best approximation to ${\bf v}$ in a
-                  finite-dimensional subspace $U$ of $V$.
+                  finite-dimensional subspace $U$ of $V.$
                 </li>
               </ul>
               <p class="fragment" data-fragment-index="3">
@@ -147,7 +147,7 @@
                 <p>
                   <strong>Theorem </strong>(Best Approximation Theorem). If $U$
                   is a finite-dimensional subspace of a real inner product space
-                  $V$, and if $\mathbf{v}\in V,$ then $\mathrm{Proj}_U(\bfv)$ is
+                  $V,$ and if $\mathbf{v}\in V,$ then $\mathrm{Proj}_U(\bfv)$ is
                   the best approximation to $\mathbf{v}$ from $U$ in the sense
                   that $$||\mathbf{v}-\mathrm{Proj}_U(\bfv)|| \leq
                   ||\mathbf{v}-\mathbf{u}||, ~~\forall \mathbf{u}\in U.$$
@@ -178,7 +178,7 @@
                 <p>
                   <strong>Theorem </strong>(Best Approximation Theorem). If $U$
                   is a finite-dimensional subspace of a real inner product space
-                  $V$, and if $\mathbf{v}\in V,$ then $\mathrm{Proj}_U(\bfv)$ is
+                  $V,$ and if $\mathbf{v}\in V,$ then $\mathrm{Proj}_U(\bfv)$ is
                   the best approximation to $\mathbf{v}$ from $U$ in the sense
                   that $||\mathbf{v}-\mathrm{Proj}_U(\bfv)|| \leq 
                   ||\mathbf{v}-\mathbf{u}||, ~~\forall \mathbf{u}\in U.$
@@ -261,7 +261,7 @@
                 <span  class="fragment" data-fragment-index="1">
                   <strong>Solution 1.</strong>
                 Use Gram-Schmidt process to construct an orthonormal basis
-                $\{\bfe_1, \bfe_2,\cdots,\bfe_n\}$ of $U$.
+                $\{\bfe_1, \bfe_2,\cdots,\bfe_n\}$ of $U.$
                 </span>
                 <span class="fragment" data-fragment-index="2">
                   Then $$ \mathrm{Proj}_U(\bfv)=
@@ -275,7 +275,7 @@
                 subspace $U$.
                 <span class="fragment" data-fragment-index="4">
                   Then any $\u \in U$ can be written as $\u = \alpha_1 \u_1+ \alpha_2
-                  \u_2+ \cdots \alpha_n \u_n$.
+                  \u_2+ \cdots \alpha_n \u_n.$
                 </span>
               </p>
             </div>
@@ -291,18 +291,17 @@
               <p>
                 <strong>Solution 2.</strong>
                 Let $\gamma=\{\bfu_1, \bfu_2,\cdots,\bfu_n\}$ be a basis of the
-                subspace $U$.
+                subspace $U.$
                 <span>
                   Then any $\u \in U$ can be written as $\u = \alpha_1 \u_1+ \alpha_2
-                  \u_2+ \cdots \alpha_n \u_n$.
+                  \u_2+ \cdots \alpha_n \u_n.$
                 </span>
               </p>
             </div>
-
-            <div class="left-txt size-65">
+            <div class="left-txt size-70">
               <p>
                 We seek coefficients $\alpha_1,\alpha_2,\dots \alpha_n$ that
-                minimise $||\mathbf{v}-\u||$,
+                minimise $||\mathbf{v}-\u||,$
                 <span class="fragment" data-fragment-index="0">
                   or equivalently, minimise
                   $||\mathbf{v}-\u||^2=||\mathbf{v}-(\alpha_1
@@ -310,6 +309,10 @@
                   \mathbf{u}_n)||^2$ (same outcome, avoid square root).
                 </span>
               </p>
+            </div>
+
+            <div class="left-txt size-65">
+              
               <p
                 style="margin-bottom: 5px;"
                 class="fragment"
@@ -318,43 +321,38 @@
                 $||\mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2 \mathbf{u}_2+\dots
                 +\alpha_n \mathbf{u}_n)||^2$
               </p>
-              <table id="eqarray">
-                <tr class="fragment" data-fragment-index="2">
-                  <td>
-                    $\quad$
-                  </td>
-                  <td>
-                    $=\langle \mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2
+
+              <p>
+                    <span class="fragment" data-fragment-index="2">
+                      $\;\;=\langle \mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2
                     \mathbf{u}_2+\dots +\alpha_n \mathbf{u}_n),
                     \mathbf{v}-(\alpha_1 \mathbf{u}_1+\alpha_2
                     \mathbf{u}_2+\dots +\alpha_n \mathbf{u}_n) \rangle$
-                  </td>
-                </tr>
-                <tr class="fragment" data-fragment-index="3">
-                  <td>
-                    $\quad$
-                  </td>
-                  <td>
-                    $=\langle \mathbf{v},\mathbf{v} \rangle-2\alpha_1 \langle
-                    \mathbf{v},\mathbf{u}_1 \rangle -2\alpha_2 \langle
-                    \mathbf{v},\mathbf{u}_2 \rangle -\dots-2\alpha_n \langle
-                    \mathbf{v},\mathbf{u}_n \rangle
-                    +\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_j \langle
-                    \mathbf{u}_i, \mathbf{u}_j \rangle$
-                  </td>
-                </tr>
-                <tr class="fragment" data-fragment-index="4">
-                  <td>
-                    $\quad$
-                  </td>
-                  <td>
-                    $=E(\alpha_1,\alpha_2,\dots,\alpha_n).$
-                  </td>
-                </tr>
-              </table>
-              <p class="fragment" data-fragment-index="5">
+                    </span>
+              </p>
+              <p>
+                    <span class="fragment" data-fragment-index="3">
+                      $\;\;=\langle \mathbf{v},\mathbf{v} \rangle-2\alpha_1 \langle
+                      \mathbf{v},\mathbf{u}_1 \rangle -2\alpha_2 \langle
+                      \mathbf{v},\mathbf{u}_2 \rangle -\dots-2\alpha_n \langle
+                      \mathbf{v},\mathbf{u}_n \rangle
+                      +\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_j \langle
+                      \mathbf{u}_i, \mathbf{u}_j \rangle$
+                    </span>
+              </p>
+              <p>
+                    <span class="fragment" data-fragment-index="4">
+                      $\;\;=E(\alpha_1,\alpha_2,\dots,\alpha_n).$
+                    </span>
+              </p>
+              
+             
+            </div>
+            <div class="left-txt size-70">
+               <p class="fragment" data-fragment-index="5">
                 $E$ is a real valued function and is called the "error".
               </p>
+             
             </div>
 
             <br />
@@ -368,7 +366,7 @@
             <div class="left-txt size-70">
               <p>
                 From MATH1052/MATH1072: we minimise $E$. Set $\nabla
-                E=\mathbf{0}$, which gives
+                E=\mathbf{0},$ which gives
                 <span class="fragment" data-fragment-index="0">
                   \begin{align*} \frac{\partial E}{\partial \alpha_k}=-2\langle
                   \mathbf{v},\mathbf{u}_k \rangle+2\sum_{l=1}^n \alpha_l
@@ -438,7 +436,7 @@
                 <em>Note:</em> If $\gamma$ is orthonormal $\implies$ matrix on
                 LHS$\,=I$ (the identity matrix)
                 <span class="fragment" data-fragment-index="2">
-                  $\implies$ $\alpha_i=\langle \mathbf{v}, \mathbf{u}_i\rangle$,
+                  $\implies$ $\alpha_i=\langle \mathbf{v}, \mathbf{u}_i\rangle,$
                   which coincides with <a href="#/2/2/2">Solution 1</a>, as
                   expected.
                 </span>
@@ -478,7 +476,7 @@
             </div>
             <br/><br/><br/><br/>
           </section>
-          <section data-auto-animate>
+          <section>
             <h4>12.2 Inconsistent linear systems</h4>
             <div class="size-40">
               <div class="left-txt">
@@ -514,14 +512,14 @@
           
 
           <section data-auto-animate>
-            <h4>12.2 Inconsistent linear systems</h4>
-            <div class="size-80">
+            <h5>12.2 Inconsistent linear systems</h5>
+            <div class="size-85">
               <div class="left-txt">
                 <p>
                   To this end, let $A\in M_{m,n}(\mathbb{R})$ and ${\bf b}\in
-                  M_{m,1}(\mathbb{R})$.
+                  M_{m,1}(\mathbb{R}).$
                   <span class="fragment" data-fragment-index="1">
-                    For $m>n$, the linear system described by $A{\bf x}={\bf b}$
+                    For $m>n,$ the linear system described by $A{\bf x}={\bf b}$
                     is over-determined and does not in general have a solution.
                   </span>
                   <span class="fragment" data-fragment-index="2">
@@ -548,8 +546,8 @@
             <br/><br/><br/>
           </section>
           <section data-auto-animate>
-            <h4 style="font-size:90%">12.2 Inconsistent linear systems</h4>
-            <div class="size-40">
+            <h5>12.2 Inconsistent linear systems</h5>
+            <div class="size-45">
               <div class="left-txt">
                 <p>
                   <span>
@@ -576,11 +574,11 @@
           </section>
 
           <section data-auto-animate>
-            <h4>12.2 Inconsistent linear systems</h4>
+            <h5>12.2 Inconsistent linear systems</h5>
             <div class="size-70">
               <div class="left-txt">
                 <p>
-                  To find $\hat{\bf x}$, let us recall the
+                  To find $\hat{\bf x},$ let us recall the
                   <strong>column space</strong>
                   of the matrix $A$.
                   <span class="fragment" data-fragment-index="0">
@@ -603,9 +601,9 @@
                     + x_n{\bf a}_n,\quad x_k\in \R. \end{align*}
                   </span>
                   <span class="fragment" data-fragment-index="2">
-                    So $A{\bf x}$ is a linear combination of the columns of $A$,
-                    i.e. a vector of the form $A{\bf x}$ is always a vector in
-                    $\mathrm{Col}(A)$.
+                    So $A{\bf x}$ is a linear combination of the columns of $A,$
+                    i.e., a vector of the form $A{\bf x}$ is always a vector in
+                    $\mathrm{Col}(A).$
                   </span>
                 </p>
               </div>
@@ -614,7 +612,7 @@
           </section>
 
           <section data-auto-animate>
-            <h4>12.2 Inconsistent linear systems</h4>
+            <h5>12.2 Inconsistent linear systems</h5>
             <div class="size-70">
               <div class="left-txt">
                 <p>
@@ -625,9 +623,9 @@
                     + x_n{\bf a}_n,\quad x_k\in \R. \end{align*}
                   </span>
                   <span>
-                    So $A{\bf x}$ is a linear combination of the columns of $A$,
-                    i.e. a vector of the form $A{\bf x}$ is always a vector in
-                    $\mathrm{Col}(A)$.
+                    So $A{\bf x}$ is a linear combination of the columns of $A,$
+                    i.e., a vector of the form $A{\bf x}$ is always a vector in
+                    $\mathrm{Col}(A).$
                   </span>
                 </p>
               </div>
@@ -644,19 +642,19 @@
           </section>
 
           <section data-auto-animate>
-            <h4>12.2 Inconsistent linear systems</h4>
+            <h5>12.2 Inconsistent linear systems</h5>
             
-            <div class="size-75">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
-                  It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus
+                  It follows that $A\hat{\bf x}\in\mathrm{Col}(A).$ We are thus
                   in the situation described in <a href="#/2/0/2">Section 12.1</a>.
                 </p>
                 <p>
                   For a finite-dimensional subspace $U\subset V $ and $\v\in V$ and
-                  $\u \in U$,
+                  $\u \in U,$
                   <span class="fragment" data-fragment-index="0">
-                    $\u = \mathrm{Proj}_{U}({\bf v})$ minimizes $\norm{\v-\u}^2$.
+                    $\u = \mathrm{Proj}_{U}({\bf v})$ minimizes $\norm{\v-\u}^2.$
                   </span><br/><br/>
                   <span class="fragment" data-fragment-index="1">
                     Hence $U = \mathrm{Col}(A)$ and $\v= \mathbf b$
@@ -673,10 +671,10 @@
           <section data-auto-animate>
             <h4 style="font-size:90%">12.2 Inconsistent linear systems</h4>
             
-            <div class="size-50">
+            <div class="size-55">
               <div class="left-txt">
                 <p>
-                  It follows that $A\hat{\bf x}\in\mathrm{Col}(A)$. We are thus
+                  It follows that $A\hat{\bf x}\in\mathrm{Col}(A).$ We are thus
                   in the situation described in <a href="#/2/0/2">Section 12.1</a>.
                 </p>
               </div>
@@ -690,7 +688,7 @@
 
           <section data-auto-animate>
             <h4>12.2 Inconsistent linear systems</h4>
-            <div class="size-75">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   Consequently, we know that $$ A\hat{\bf
@@ -702,7 +700,7 @@
                   <span class="fragment" data-fragment-index="1">
                     Note that, although $A\hat{\bf
                     x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf b})$ is
-                    <em>uniquely</em> given in terms of $A$ and ${\bf b}$, its
+                    <em>uniquely</em> given in terms of $A$ and ${\bf b},$ its
                     solution $\hat{\bf x}$ need <em>not</em> be.
                   </span>
                 </p>
@@ -738,7 +736,7 @@
                     $\subseteq$ 
                   </span>
                   <span class="fragment" data-fragment-index="3">
-                    - Let $\u\in \mathrm{Col}(A)^{\perp}$,
+                    - Let $\u\in \mathrm{Col}(A)^{\perp},$
                   </span>
                   <span class="fragment" data-fragment-index="4">
                     then for $\v \in \R^n$
@@ -813,7 +811,7 @@
                   $\supseteq$
                   
                   <span class="fragment" data-fragment-index="0">
-                    - Let $\u\in N\left(A^T\right)$,
+                    - Let $\u\in N\left(A^T\right),$
                   </span>
                   <span class="fragment" data-fragment-index="1">
                     then for $A^T \u = \mathbf 0$.
@@ -869,7 +867,7 @@
                     \; \Ra \;\mathrm{Col}(A)^{\perp} \supseteq N\left(A^T\right).
                     $
                   </span>
-                  <span class="fragment" data-fragment-index="10">
+                  <span class="fragment" data-fragment-index="9">
                     $
                     \quad \blacksquare
                     $
@@ -884,18 +882,18 @@
         <section>
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
-            <div class="size-80">
+            <div class="size-85">
               <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="0">
                     Recall from <a href=chapter-11.html#/orthogonal-projection/0 target="_blank">Section 11.4</a> that
                     $\bfv-\mathrm{Proj}_U(\bfv)=\mathrm{Proj}_{U^\bot}(\bfv)\in
                     U^\bot$ for any finite-dimensional subspace $U$ of $V$ and
-                    $\bfv\in V$.
+                    $\bfv\in V,$
                   </span>
                   <span class="fragment" data-fragment-index="1">
                     Since $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf
-                    b})$, we thus have $$ {\bf b}-A\hat{\bf
+                    b}),$ we thus have $$ {\bf b}-A\hat{\bf
                     x}\in\mathrm{Col}(A)^\bot. $$
                   </span>
                   
@@ -903,7 +901,7 @@
               </div>
             </div>
             
-            <br /><br/><br/><br/>
+            <br /><br/><br/><br/><br/>
           </section>
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
@@ -914,11 +912,11 @@
                     Recall from <a href=chapter-11.html#/orthogonal-projection/0 target="_blank">Section 11.4</a> that
                     $\bfv-\mathrm{Proj}_U(\bfv)=\mathrm{Proj}_{U^\bot}(\bfv)\in
                     U^\bot$ for any finite-dimensional subspace $U$ of $V$ and
-                    $\bfv\in V$.
+                    $\bfv\in V.$
                   </span>
                   <span>
                     Since $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf
-                    b})$, we thus have $$ {\bf b}-A\hat{\bf
+                    b}),$ we thus have $$ {\bf b}-A\hat{\bf
                     x}\in\mathrm{Col}(A)^\bot. $$
                   </span>
                   
@@ -935,24 +933,24 @@
           
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
-            <div class="size-75">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   <span>
                     Recall from <a href=chapter-11.html#/5/0/1>Section 11.4</a> that
                     $\bfv-\mathrm{Proj}_U(\bfv)=\mathrm{Proj}_{U^\bot}(\bfv)\in
                     U^\bot$ for any finite-dimensional subspace $U$ of $V$ and
-                    $\bfv\in V$.
+                    $\bfv\in V.$
                   </span>
                   <span>
                     Since $A\hat{\bf x}=\mathrm{Proj}_{\mathrm{Col}(A)}({\bf
-                    b})$, we thus have $$ {\bf b}-A\hat{\bf
+                    b}),$ we thus have $$ {\bf b}-A\hat{\bf
                     x}\in\mathrm{Col}(A)^\bot. $$
                   </span>
                 </p>
                 <p><span>
-                  Because $\mathrm{Col}(A)^\bot=N\left(A^T\right)$, it follows that
-                  $A^T({\bf b}-A\hat{\bf x})={\bf 0}$, so $$ A^T\!A\hat{\bf
+                  Because $\mathrm{Col}(A)^\bot=N\left(A^T\right),$ it follows that
+                  $A^T({\bf b}-A\hat{\bf x})={\bf 0},$ so $$ A^T\!A\hat{\bf
                   x}=A^T{\bf b}. $$
                   </span>
                 </p>
@@ -967,8 +965,8 @@
               <div class="left-txt">
                 <p>
                   Since $A\in M_{m,n}(\mathbb{R})\; \Rightarrow\; A^T\!A\in
-                  M_{n,n}(\mathbb{R})$, the equation $A^T\!A\hat{\bf x}=A^T{\bf
-                  b}$ can always be solved for $\hat{\bf x}$, for example by
+                  M_{n,n}(\mathbb{R}),$ the equation $A^T\!A\hat{\bf x}=A^T{\bf
+                  b}$ can always be solved for $\hat{\bf x},$ for example by
                   Gaussian elimination.
 
                   <span class="fragment" data-fragment-index="0">
@@ -1074,7 +1072,7 @@
                   <span class="fragment" data-fragment-index="15">
                     $\;\Ra\; \v \in N(A).$
                   </span>
-                  <span class="fragment" data-fragment-index="16">
+                  <span class="fragment" data-fragment-index="15">
                     $\quad \blacksquare$
                   </span>
                 </p>
@@ -1122,7 +1120,7 @@
                   <span class="fragment" data-fragment-index="4">
                     $\;\iff \;$ $A^TA$ is invertible.
                   </span>
-                  <span class="fragment" data-fragment-index="5">
+                  <span class="fragment" data-fragment-index="4">
                     $\quad \blacksquare$
                   </span>
                 </p>
@@ -1133,7 +1131,7 @@
 
           <section data-auto-animate>
             <h4>12.4 Solving for $\hat{\bf x}$</h4>
-            <div class="size-80">
+            <div class="size-85">
               <div class="left-txt">
                 <p>
                   <span style="font-size:120%">
@@ -1162,7 +1160,7 @@
         <section>
           <section data-auto-animate>
             <h4>12.5 Fitting a curve to data</h4>
-            <div class="size-75">
+            <div class="size-80">
               <div class="left-txt">
                 <p>
                   <span class="fragment" data-fragment-index="0">
@@ -1189,7 +1187,7 @@
             <br /><br />
           </section>
 
-          <section data-auto-animate>
+          <section>
             <h4>12.5 Fitting a curve to data</h4>
             <div class="size-50">
               <div class="left-txt">
@@ -1215,7 +1213,7 @@
                   <strong>Example: Quadratic fit.</strong>
                   <span class="fragment" data-fragment-index="0">
                     Suppose some physical system is modeled by a quadratic
-                    function $p(t)$.
+                    function $p(t).$
                   </span>
                   <span class="fragment" data-fragment-index="1">
                     Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
@@ -1228,20 +1226,20 @@
             <br /><br /><br /><br /><br /><br />
 
           </section>
-          <section data-auto-animate>
-            <h4 style="font-size:80%">12.5 Fitting a curve to data</h4>
+          <section>
+            <h5>12.5 Fitting a curve to data</h5>
             <div class="size-40">
               <div class="left-txt">
                 <p>
                   <strong>Example: Quadratic fit.</strong>
                   <span>
                     Suppose some physical system is modeled by a quadratic
-                    function $p(t)$.
+                    function $p(t).$
                   </span>
                   <span>
                     Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
                     (2,2),\ (4,7),\ (5,10). $$ Find the least squares
-                    approximation for $p(t)$.
+                    approximation for $p(t).$
                   </span>
                 </p>
               </div>
@@ -1352,19 +1350,19 @@
             <br /><br />
           </section>
           <section data-auto-animate>
-            <h4 style="font-size:80%">12.5 Fitting a curve to data</h4>
+            <h5>12.5 Fitting a curve to data</h5>
             <div class="size-40">
               <div class="left-txt">
                 <p>
                   <strong>Example: Quadratic fit.</strong>
                   <span>
                     Suppose some physical system is modeled by a quadratic
-                    function $p(t)$.
+                    function $p(t).$
                   </span>
                   <span>
                     Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
                     (2,2),\ (4,7),\ (5,10). $$ Find the least squares
-                    approximation for $p(t)$.
+                    approximation for $p(t).$
                   </span>
                 </p>
               </div>
@@ -1423,19 +1421,19 @@
             <br /><br/><br/>
           </section>
           <section data-auto-animate>
-            <h4 style="font-size:80%">12.5 Fitting a curve to data</h4>
+            <h5>12.5 Fitting a curve to data</h5>
             <div class="size-40">
               <div class="left-txt">
                 <p>
                   <strong>Example: Quadratic fit.</strong>
                   <span>
                     Suppose some physical system is modeled by a quadratic
-                    function $p(t)$.
+                    function $p(t).$
                   </span>
                   <span>
                     Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
                     (2,2),\ (4,7),\ (5,10). $$ Find the least squares
-                    approximation for $p(t)$.
+                    approximation for $p(t).$
                   </span>
                 </p>
               </div>
@@ -1519,7 +1517,7 @@
               <iframe scrolling="no" title="Chapter-12-5: Quadratic fit" src="https://www.geogebra.org/material/iframe/id/caz96qxd/width/706/height/427/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="706px" height="427px" style="border:0px;"> </iframe>
               <p style="font-size:30px">
                 <strong>Data:</strong> $(1,5),\
-                    (2,2),\ (4,7),\ (5,10)$.
+                    (2,2),\ (4,7),\ (5,10).$
               </p>
             </div>
             <br/><br/>
