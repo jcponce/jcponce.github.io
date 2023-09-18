@@ -107,7 +107,7 @@ function draw() {
   }
 
   //angle = map(mouseX, 0, width, 0, TWO_PI);
-  angle -= 0.0078;
+  angle -= 0.0065;
 }
  
 function connect(offset, i, j, points) {
