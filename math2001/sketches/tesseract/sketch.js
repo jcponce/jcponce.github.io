@@ -91,26 +91,26 @@ function draw() {
 
   // Connecting
   for (let i = 0; i < 4; i++) {
-    connect(0, i, (i + 1) % 4, projected3d);
-    connect(0, i + 4, ((i + 1) % 4) + 4, projected3d);
-    connect(0, i, i + 4, projected3d);
+    edge(0, i, (i + 1) % 4, projected3d);
+    edge(0, i + 4, ((i + 1) % 4) + 4, projected3d);
+    edge(0, i, i + 4, projected3d);
   }
 
   for (let i = 0; i < 4; i++) {
-    connect(8, i, (i + 1) % 4, projected3d);
-    connect(8, i + 4, ((i + 1) % 4) + 4, projected3d);
-    connect(8, i, i + 4, projected3d);
+    edge(8, i, (i + 1) % 4, projected3d);
+    edge(8, i + 4, ((i + 1) % 4) + 4, projected3d);
+    edge(8, i, i + 4, projected3d);
   }
 
   for (let i = 0; i < 8; i++) {
-    connect(0, i, i + 8, projected3d);
+    edge(0, i, i + 8, projected3d);
   }
 
   //angle = map(mouseX, 0, width, 0, TWO_PI);
   angle -= 0.0065;
 }
  
-function connect(offset, i, j, points) {
+function edge(offset, i, j, points) {
   strokeWeight(3);
   stroke(255);
   const a = points[i + offset];
