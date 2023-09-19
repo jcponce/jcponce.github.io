@@ -24,7 +24,7 @@ function setup() {
 		//uniformly scale your entire shader park scene
 		scale: 1.0, 
 		// control what geometry the shader gets applied to
-		drawGeometry: () => sphere(600)
+		drawGeometry: () => sphere(300)
 	});
 }
 

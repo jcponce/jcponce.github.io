@@ -5,11 +5,11 @@
 // not be able to access constants you define outside this function
 // Shader Park will convert this code into a shader for you.
 function shaderParkCode() {
-	let scale=input(1, 0, 10);
-	let s= getSpace();
-	let n= fractalNoise(s*scale);
+	let scale= 1.3;
+	let s = getSpace();
+	let n = fractalNoise(s*scale);
 	let grain = noise(s*100)
 	n += grain * .02;
 	color(0, 0, n/5);
-	sphere(0.7+0.2*n);
+	sphere(0.7+0.2*n); 
 }
