@@ -1,17 +1,147 @@
-/* CSS files add styling rules to your content */
 
-html, body {
-    width: 100%;
-	height: 100%;
-	margin: 0;
-	
-	color: #fff;
-	font-family: Monospace;
-	font-size: 18px;
-	line-height: 24px;
-	overscroll-behavior: none;
-	overflow: hidden;
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
+
+.selectable-text {
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  font-family: FontAwesome, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: small;
+  color: rgb(200, 200, 200);
+  overflow: hidden;
+}
+
+a {
+  color: rgb(200, 200, 200);
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+
+.hud {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(10, 10, 10, 0.9);
+  color: #FFFFFF;
+  font-size: 1.5em;
+  padding: 10px;
+
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 1px #000;
+}
+
+ul {
+  list-style-type: none;
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
+  padding: 10px;
+  color: 0xFFFFFF;
+}
+
+ul.two {
+  display: inline-block;
+  vertical-align: top;
+  /* float:left; */
+}
+
+li[gap] {
+  margin-top: 10px;
+}
+
+ul .green {
+  color: rgb(100, 200, 0);
+}
+
+ul .orange {
+  color: rgb(255, 128, 0);
+}
+
+
+
+#rotateView {
+  transform: scale(1.6);
+  font-size:1.2em;
+}
+
+#micro {
+  transform: scale(1.6);
+  font-size:1.2em;
+}
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
 
 canvas {
   width: 100%;
