@@ -8,8 +8,9 @@ function shaderParkCode() {
 	let scale = 1.3;
 	let s = getSpace();
 	let n = fractalNoise(s*scale);
+	//shine(0.8);
 	let grain = noise(s*100)
 	n += grain * .02;
-	color(0, 0, n/255*195);
+	color(n/255*195,0, 0.0);
 	sphere(0.7+0.2*n); 
 }
