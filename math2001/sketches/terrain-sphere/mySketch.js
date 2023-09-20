@@ -13,7 +13,7 @@
 let sdf;
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight, WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
 	
 	// `createShaderPark` takes in a function that defines a shape using
 	// the Shader Park API avaible here:
