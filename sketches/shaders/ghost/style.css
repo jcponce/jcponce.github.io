@@ -1,0 +1,127 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #202932;
+}
+
+canvas#ghost {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-size: 4vw;
+    text-shadow: 0 0 5px #000000;
+}
+
+.lil-gui {
+    --width: 300px;
+    max-width: 90%;
+    --widget-height: 20px;
+    font-size: 15px;
+    --input-font-size: 15px;
+    --padding: 10px;
+    --spacing: 10px;
+    --slider-knob-width: 5px;
+    --background-color: rgba(5, 0, 15, .8);
+    --widget-color: rgba(255, 255, 255, .3);
+    --focus-color: rgba(255, 255, 255, .4);
+    --hover-color: rgba(255, 255, 255, .5);
+    --font-family: monospace;
+    z-index: 1;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .selectable-text {
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+  }
+
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  a {
+    color: rgb(200, 200, 200);
+  }
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
+  
+  
+  .hud {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #FFFFFF;
+    font-size: 13pt;
+    padding: 10px;
+  
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px #000;
+  }
+  
+  ul {
+    list-style-type: none;
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
+    padding: 10px;
+    color: 0xFFFFFF;
+  }
+  
+  ul.two {
+    display: inline-block;
+    vertical-align: top;
+    /* float:left; */
+  }
+  
+  li[gap] {
+    margin-top: 10px;
+  }
+  
+  ul .green {
+    color: rgb(100, 200, 0);
+  }
+  
+  ul .orange {
+    color: rgb(255, 128, 0);
+  }
