@@ -269,7 +269,7 @@ a parametric surface.
 % Define components as anonymous functions
 fx = @(u,v) 1.4 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
 fy = @(u,v) 1.4 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
-fz = @(u,v) 0.7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v) + 3);
+fz = @(u,v) .7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v)+3);
 % Plot surface
 fsurf(funx,funy,funz,[0 6*pi 0 2*pi]) 
 camlight % Fancy shading 
@@ -298,7 +298,7 @@ box on % Add frame
 						<pre><code data-trim data-noescape data-line-numbers="1-4">
 fx = @(u,v) 1.4 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
 fy = @(u,v) 1.4 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
-fz = @(u,v) 0.7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v) + 3);
+fz = @(u,v) .7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v) + 3);
 fsurf(funx,funy,funz,[0 6*pi 0 2*pi]) 
 						</code></pre>
 					</div>
