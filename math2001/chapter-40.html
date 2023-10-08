@@ -294,11 +294,11 @@ box on % Add frame
 					</div>
 				
 
-					<div style="font-size:75%;margin-top:-60px">
+					<div style="font-size:80%;margin-top:-60px">
 						<pre><code data-trim data-noescape data-line-numbers="1-4">
-funx = @(u,v) 0.7 .* 2 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
-funy = @(u,v) 0.7 .* 2 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
-funz = @(u,v) 0.7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v) + 3);
+fx = @(u,v) 1.4 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
+fy = @(u,v) 1.4 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
+fz = @(u,v) 0.7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v) + 3);
 fsurf(funx,funy,funz,[0 6*pi 0 2*pi]) 
 						</code></pre>
 					</div>
