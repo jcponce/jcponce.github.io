@@ -262,20 +262,22 @@ a parametric surface.
 
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h5>Parametrisation in MATLAB</h5>
 					<div style="font-size:110%">
-						<pre><code data-trim data-noescape data-line-numbers="1|2|3|4|1-10">
+						<pre><code data-trim data-noescape data-line-numbers="1-2|3|4|5-6|1-12">
+% Define components as anonymous functions
 funx = @(u,v) 0.7 .* 2 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
 funy = @(u,v) 0.7 .* 2 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
 funz = @(u,v) 0.7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v) + 3);
+% Plot surface
 fsurf(funx,funy,funz,[0 6*pi 0 2*pi]) 
-camlight
+camlight % Fancy shading 
 title('Parametric surface')
 xlabel('x');
 ylabel('y');
 zlabel('z');
-box on
+box on % Add frame
 						</code></pre>
 					</div>
 					
@@ -284,15 +286,15 @@ box on
 					<br/>
 					<br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h5>Parametrisation in MATLAB</h5>
 
 					<div style="margin-top:-40px">
-						<img   style="width:70%;" src="images/chapter-40/sea-shell.svg">
+						<img   style="width:65%;" src="images/chapter-40/sea-shell.svg">
 					</div>
 				
 
-					<div style="font-size:50%;margin-top:-60px">
+					<div style="font-size:75%;margin-top:-60px">
 						<pre><code data-trim data-noescape data-line-numbers="1-4">
 funx = @(u,v) 0.7 .* 2 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
 funy = @(u,v) 0.7 .* 2 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
