@@ -226,7 +226,7 @@ function on $D$.
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
 						<p><strong>3.1.1 Review of the 1-variable case</strong></p>
@@ -261,7 +261,7 @@ function on $D$.
 					</div>
 					<br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
 						<p><strong>3.1.1 Review of the 1-variable case</strong></p>
@@ -295,7 +295,7 @@ function on $D$.
 					</div>
 					<br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
 						<p><strong>3.1.1 Review of the 1-variable case</strong></p>
@@ -337,7 +337,7 @@ equal to $\pi$:
 					</div>
 					<br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
 						<p><strong>3.1.1 Review of the 1-variable case</strong></p>
@@ -377,7 +377,7 @@ should hang their heads in shame.
 
 			<section>
 
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
 						<p><strong>3.1.2 Multivariable limits</strong></p>
@@ -418,7 +418,7 @@ with domain given by $\R^2\backslash\{(0,0)\}$.
 					</div>
 					<br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
 						<p><strong>3.1.2 Multivariable limits</strong></p>
@@ -476,7 +476,7 @@ with domain given by $\R^2\backslash\{(0,0)\}$.
 					
 					<br/><br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
 						<p><strong>3.1.2 Multivariable limits</strong></p>
@@ -502,11 +502,11 @@ exist.
 						</div>
 					</div>
 
-					<div id="blue-box"  class="fragment" data-fragment-index="0">
+					<div id="blue-box"  class="fragment" data-fragment-index="0"  style="text-align:center;">
 						<div class="size-75">
 							<div class="">
 	
-								<div style="text-align:center">
+								<div>
 									<p>
 										<strong>Test for showing no limit exists</strong>
 									</p>
@@ -535,10 +535,36 @@ $\ds{\lim_{(x,y) \to (a,b)}f(x,y)}$ does not exist.
 					<br/><br/>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
-					<div id="sbt" style="margin-top:-20px">
-						<p><strong>3.1.2 Multivariable limits</strong></p>
+					
+					<div style="text-align: center;margin: auto;width: 70%;">
+						<div id="blue-box-small"  style="text-align:center;">
+						<div class="size-50">
+							<div class="">
+	
+								<div>
+									<p>
+										<strong>Test for showing no limit exists</strong>
+									</p>
+								</div>
+								<p>
+									<span>
+										If $\begin{cases}
+										f(x,y)\to L_1 & \text{as $(x,y) \to (a,b)$ along the path $C_1\in D$}
+										\\[2mm]
+										f(x,y)\to L_2 & \text{as $(x,y) \to (a,b)$ along the path $C_2\in D$}
+										\end{cases}$
+									</span>
+								</p>
+								<p>
+									such that $L_1\neq L_2,$ then the limit
+$\ds{\lim_{(x,y) \to (a,b)}f(x,y)}$ does not exist.
+								</p>
+								
+							</div>
+						</div>
+					</div>
 					</div>
 					<div class="size-70">
 						<div class="left-txt">
@@ -562,8 +588,45 @@ are considered.
 									$\lim_{(x,y)\to (1,0)} f(x,y)$ exists and is $1$.
 								</span>
 							</p>
+							
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					
+					<div class="size-70">
+						<div class="left-txt">
+
 							<p>
-								<span class="fragment" data-fragment-index="1">
+								<span>
+									<strong>
+										Important remark:
+									</strong>
+									The above notation is somewhat deficient and perhaps one should
+write
+\[
+\displaystyle{\lim_{(x,y) \rightarrow_D (a,b)}f(x,y)}
+\]
+to indicate that only paths in $D$ 
+terminating in $(a,b)$ (which itself may or may not be in $D$)
+are considered.
+								</span>
+								<span>
+									For example, if $f(x,y)=x^2+y^2$ with $D=\{(x,y):~x^2+y^2\lt 1\}$ then
+									$\lim_{(x,y)\to (1,0)} f(x,y)$ exists and is $1$.
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<div class="size-75">
+						<div class="left-txt">
+
+							
+							<p>
+								<span>
 									However, if 
 \[
 f(x,y)=\begin{cases}
@@ -586,7 +649,7 @@ x^2+y^2 & \text{for $D=\{(x,y):~x^2+y^2\lt1\}$} \\
 
 			<section>
 
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					
 					
@@ -613,7 +676,7 @@ Show that $\lim_{(x,y)\to (0,0)} f(x,y)$ does not exist.
 					<br/>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					
 
