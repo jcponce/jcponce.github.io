@@ -703,6 +703,31 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 					<div class="size-90">
 						<div class="left-txt">
 							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $S$ be a surface parametrised by
+	$$
+	\r(u,v) = x(u,v)~\i+y(u,v)~\j+z(u,v)~\k.
+	$$
+	
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Here we find the tangent plane to $S$ at a point $P$ specified by $\r(a,b)$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									There are two important families of curves on $S$. One where $u$ is a constant,
+	the other where $v$ is a constant.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>40.3 Tangent planes</h4>
+					
+					<div class="size-55" style="margin-top:-20px" >
+						<div class="left-txt">
+							<p>
 								<span>
 									Let $S$ be a surface parametrised by
 	$$
@@ -720,11 +745,7 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 							</p>
 						</div>
 					</div>
-				</section>
-				<section data-auto-animate>
-					<h4>40.3 Tangent planes</h4>
-					
-					<div class="size-90">
+					<div class="size-60">
 						<div class="left-txt">
 							<p>
 								<span>
@@ -737,6 +758,10 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 							</p>
 						</div>
 					</div>
+					<div style="margin-top:-30px" >
+						<img style="width:83%" src="images/chapter-40/parametrization-surface.png">
+					</div>
+					<br/>
 				</section>
 				<section data-auto-animate>
 					<h4>40.3 Tangent planes</h4>
@@ -752,7 +777,7 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 								Setting $u=a$ defines a curve on $S$ parametrised by $\r(a,v)$, for all values
 	of $v$ such that $(a,v)$ lies in $D$.
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="0">
 								A tangent vector to this curve at $P$ is 
 	
 							</span>
@@ -760,7 +785,7 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 					</div>
 					<div>
 						<p>
-							<span>
+							<span class="fragment" data-fragment-index="0">
 								$\ds r_v = \frac{\partial x}{\partial v}(a,b)~\i+\frac{\partial y}{\partial v}(a,b)~\j+\frac{\partial z}{\partial v}(a,b)~\k.$
 							</span>
 						</p>
@@ -768,10 +793,10 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 					<div class="left-txt">
 						<p>
 							
-							<span>
+							<span class="fragment" data-fragment-index="1">
 								Similarly setting $v=b$ defines another curve on $S$ parametrised by $\r(u,b)$.
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="2">
 								A tangent vector to this curve at $P$ is
 								
 							</span>
@@ -782,7 +807,7 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 					
 					<div>
 						<p>
-							<span>
+							<span class="fragment" data-fragment-index="2">
 								$\ds \r_u = \frac{\partial x}{\partial u}(a,b)~\i+\frac{\partial y}{\partial u}(a,b)~\j+\frac{\partial z}{\partial u}(a,b)~\k.$
 							</span>
 						</p>
@@ -790,7 +815,7 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 					<div class="left-txt">
 						
 						<p>
-							<span>
+							<span class="fragment" data-fragment-index="3">
 								If $\r_u$ and $\r_v$ are continuous and $\r_u\times\r_v$ 
 								is never $\mathbf O$
 								inside $D$ (we make an exception for points on the boundary of $D$), we call
@@ -806,34 +831,35 @@ Surface(r cos(0) sin(ϕ), r sin(0) sin(ϕ), r cos(ϕ), r, 0, 2, ϕ, 0, π)
 				<section data-auto-animate>
 					<h4>40.3 Tangent planes</h4>
 					
-					<div class="size-75">
+					<div class="size-85">
 						<div class="left-txt">
 							<p>
 								<span>
 									For a smooth surface, $\r_u\times\r_v$ is a normal vector at any point inside
-$D$. 
+									$D.$
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									This vector evaluated at $(u,v)=(a,b)$ is also normal to the tangent plane 
-at the point $P=(x(a,b),y(a,b),z(a,b))$.
+at the point $P=(x(a,b),y(a,b),z(a,b)).$
 
 								</span>
 								
 							</p>
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									The equation of the tangent plane at $P$ is given by
 								</span>
 							</p>
 						</div>
 						<div>
 							<p>
-								<span>
-									$\ds (\r_u(a,b)\times\r_v(a,b))\cdot((x~\i+y~\j+z~\k) - \r(a,b))=0.$
+								<span class="fragment" data-fragment-index="1">
+									$\ds \big(\r_u(a,b)\times\r_v(a,b)\big)\cdot \big((x~\i+y~\j+z~\k) - \r(a,b)\big)=0.$
 								</span>
 							</p>
 						</div>
 					</div>
+					<br/><br/><br/><br/>
 				</section>
 				<section data-auto-animate>
 					<h5>40.3.1 Find the tangent plane to the surface parametrised by 
