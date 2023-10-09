@@ -297,11 +297,11 @@ a parametric surface.
 					<div style="font-size:90%">
 						<pre><code data-trim data-noescape data-line-numbers="1-2|3|4|5-6|1-12">
 % Define components as anonymous functions
-fx = @(u,v) 1.4 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
-fy = @(u,v) 1.4 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
-fz = @(u,v) .7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v)+3);
+fx = @(u,v) 1.4 * (exp(u/29) - 1).* cos(u) .* (cos(v/2)).^2;
+fy = @(u,v) 1.4 * (1 - exp(u/29)) .* sin(u) .* (cos(v/2)).^2;
+fz = @(u,v) .7 * (exp(u/29).* sin(v) - exp(u/16) - sin(v)+3);
 % Plot surface
-fsurf(funx,funy,funz,[0 6*pi 0 2*pi]) 
+fsurf(fx,fy,fz,[0 6*pi 0 2*pi]) 
 camlight % Fancy shading 
 title('Parametric surface')
 xlabel('x');
@@ -324,12 +324,12 @@ box on % Add frame
 					</div>
 				
 
-					<div style="font-size:80%;margin-top:-60px">
+					<div style="font-size:90%;margin-top:-60px">
 						<pre><code data-trim data-noescape data-line-numbers="1-4">
-fx = @(u,v) 1.4 .* (exp(u./29) - 1).* cos(u) .* (cos(v./2))^2;
-fy = @(u,v) 1.4 .* (1 - exp(u./29)) .* sin(u) .* (cos(v./2))^2;
-fz = @(u,v) .7 .* (exp(u./29).* sin(v) - exp(u./16) - sin(v) + 3);
-fsurf(funx,funy,funz,[0 6*pi 0 2*pi]) 
+fx = @(u,v) 1.4 * (exp(u/29) - 1).* cos(u) .* (cos(v/2)).^2;
+fy = @(u,v) 1.4 * (1 - exp(u/29)) .* sin(u) .* (cos(v/2)).^2;
+fz = @(u,v) .7 * (exp(u/29).* sin(v) - exp(u/16) - sin(v)+3);
+fsurf(fx,fy,fz,[0 6*pi 0 2*pi]) 
 						</code></pre>
 					</div>
 					
