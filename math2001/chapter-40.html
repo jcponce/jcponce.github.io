@@ -306,31 +306,133 @@ fsurf(funx,funy,funz,[0 6*pi 0 2*pi])
 					<br/>
 					
 				</section>
+
+				<section data-background-iframe="https://trinket.io/embed/python3/f9f0dc3bd2"
+					data-background-interactive>
+					
+					<div style="position: relative;bottom:-500px;font-size:80%;">
+						<h5>Plotting surfaces in Python</h5>
+					</div>
+				</section>
 			</section>
 			
 			<!--
 				<iframe src="https://trinket.io/embed/python3/f9f0dc3bd2" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 			-->
 			
-			<section data-background-iframe="https://trinket.io/embed/python3/f9f0dc3bd2"
-					data-background-interactive>
-					
-					<div style="position: relative;bottom:-500px;font-size:80%;">
-						<p><strong>Plotting surfaces in Python</strong></p>
-					</div>
-			</section>
+			
 
 			<section>
 				<section data-background-iframe="https://www.geogebra.org/classic/dzy3kts9"
 					data-background-interactive>
 				</section>
 				
-				<section data-background-iframe="https://www.geogebra.org/classic/dzy3kts9"
-					data-background-interactive>
+				<section data-auto-animate>
+					<h5>
+						Example 1
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Setting $z=2$ with $0\leq\theta\leq 2\pi$, $0\leq r\leq 3$ describes a disc
+of radius 3, centred at the $z$ axis lying in the plane $z=2$:
+								</span>
+								
+								
+							</p>
+							
+						</div>
+						
+					</div>
+
+					<div style="margin-top:-20px;margin-top:-20px" >
+						<img style="width:60%" src="images/chapter-40/ex-01.png">
+					</div>
+
+					<div style="width:90%;position:absolute;left:3%;">
+						<div style="font-size:100%;margin-top:-30px">
+							<pre><code data-trim data-noescape data-line-numbers="1-4">
+Surface(r cos(θ), r sin(θ), 2, r, 0, 3, θ, 0, 2 π)
+							</code></pre>
+						</div>
+					</div>
+
+					<br/><br/>
 				</section>
-				<section data-background-iframe="https://www.geogebra.org/classic/dzy3kts9"
-					data-background-interactive>
+				<section data-auto-animate>
+					<h5>
+						Example 2 
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Setting $r=5$ with $0\leq\theta\leq 2\pi$, $1\leq z\leq 3$ describes the
+surface of a
+cylinder of radius 5 and of height 2 between $z=1$ and $z=3$:
+								</span>
+								
+								
+							</p>
+							
+						</div>
+						
+					</div>
+
+					<div style="margin-top:-20px;margin-top:-20px" >
+						<img style="width:60%" src="images/chapter-40/ex-02.png">
+					</div>
+
+					<div style="width:90%;position:absolute;left:3%;">
+						<div style="font-size:100%;margin-top:-30px">
+							<pre><code data-trim data-noescape data-line-numbers="1-4">
+Surface(5 cos(θ), 5 sin(θ), z, z, 1, 3, θ, 0, 2 π)
+							</code></pre>
+						</div>
+					</div>
+
+					<br/><br/>
+
+
 				</section>
+				<section data-auto-animate>
+					<h5>
+						Example 3
+					</h5>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									Setting $\theta = \pi/2$ with $2\leq z\leq 4$, $0\leq r\leq 1$ describes 
+a rectangle lying in the $y$-$z$ plane. Another description of the same surface would
+be $x=0, \ \{ (y,z)\ |\ 0\leq y\leq 1,\ 2\leq z\leq 4\}$: 
+								</span>
+								
+								
+							</p>
+							
+						</div>
+						
+					</div>
+
+					<div style="margin-top:-20px;margin-top:-20px" >
+						<img style="width:60%" src="images/chapter-40/ex-03.png">
+					</div>
+
+					<div style="width:90%;position:absolute;left:3%;">
+						<div style="font-size:100%;margin-top:-30px">
+							<pre><code data-trim data-noescape data-line-numbers="1-4">
+Surface(r cos(((π)/(2))), r sin(((π)/(2))), z, r, 1, 3, z, 2, 4) 
+							</code></pre>
+						</div>
+					</div>
+
+					<br/><br/>
+
+
+				</section>
+				
 			</section>
 
 			<section data-background-iframe="sketches/surface-plotter"
