@@ -419,8 +419,10 @@ with domain given by $\R^2\backslash\{(0,0)\}$.
 					<br/><br/>
 				</section>
 
-				<section>
-					<div class="fragment" data-fragment-index="2">
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					
+					<div>
 						<div class="mathcell" style="width:600px;height:600px;">
 							<script>
 							
@@ -435,7 +437,7 @@ with domain given by $\R^2\backslash\{(0,0)\}$.
 	
 									  function z(x,y) { return [ x, y, x * x /( x * x + y * y ) ]; }
 	
-									  var s = parametric( z, [-1.5,1.5,500], [-1.5,1.5,500],
+									  var s = parametric( z, [-1,1,400], [-1,1,400],
 										 { colormap: (x,y) => colorFromHue( ( x * x /( x * x + y * y ) ) * 0.7 ) } );
 	
 									  var data = [ s ];
@@ -444,7 +446,13 @@ with domain given by $\R^2\backslash\{(0,0)\}$.
 										type: 'threejs',
 									    viewpoint: [1,0.8,0.9],
 										axesLabels: true, 
-										aspectRatio: [1,1,1] 
+										aspectRatio: [1,1,1],
+										xMin:	-1,
+										xMax:	1,
+										yMin:	-1,
+										yMax:	1,
+										zMin:	-0.5,
+										zMax:	1.5,
 									  };
 	
 									  evaluate( id, data, config );
