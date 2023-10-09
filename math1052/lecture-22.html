@@ -63,18 +63,86 @@
 
 			<section>
 				<section data-auto-animate>
-					<h3>3 Partial Derivatives and Tangent Planes</h3>
-					
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.2 Multivariable limits</strong></p>
+					</div>
 
-					<div class="size-95">
+					<div class="size-80">
 						<div class="left-txt">
 							<p>
 								<span>
-									We will need to consider derivatives of functions
-of more than one variable. To do this,
-we first check how the familiar concepts of <span id="rr">limits</span>
-and <span id="rr">continuity</span> extend to functions of more than one variable.
-This material is covered in Section 14.2 (Section 14.2) of Stewart.
+									<strong>
+										Important remark: 
+									</strong>
+									There are infinitely many paths terminating in a given point, say $(a,b),$ in
+$\R^2,$ raising the question if one can ever prove 
+that $\lim_{(x,y)\to (a,b)}f(x,y)$ does exist.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									The bad news is that these methods
+(typically $\epsilon$-$\delta$ proofs) are not part of this course.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.2 Multivariable limits</strong></p>
+					</div>
+
+					<div class="size-55">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Important remark: 
+									</strong>
+									There are infinitely many paths terminating in a given point, say $(a,b),$ in
+$\R^2,$ raising the question if one can ever prove 
+that $\lim_{(x,y)\to (a,b)}f(x,y)$ does exist.
+								</span>
+								<span>
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span>
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span>
+									The bad news is that these methods
+(typically $\epsilon$-$\delta$ proofs) are not part of this course.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									See Stewart Sec 14.2, Example 4 for a rigorous $\epsilon$-$\delta$ proof
+that
+\[
+\lim_{(x,y)\to (0,0)} f(x,y)=0,
+\]
+where 
+\[f(x,y)=\frac{3x^2y}{(x^2+y^2)}\] and $D=\R^2\backslash\{(0,0)\}$. 
 								</span>
 							</p>
 						</div>
@@ -84,105 +152,40 @@ This material is covered in Section 14.2 (Section 14.2) of Stewart.
 				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
 					<div id="sbt" style="margin-top:-20px">
-						<p><strong>3.1.1 Review of the 1-variable case</strong></p>
+						<p><strong>3.1.2 Multivariable limits</strong></p>
 					</div>
 
-					<div class="size-90">
-						<div class="left-txt">
-							<p>
-								<span>
-									Let $f:D\to\R$ be a function with domain $D$ an open subset of $\R$.
-For $a\in D$ we say that <span id="rr">the limit</span>
-$\displaystyle{\lim_{x \to a} f(x)}$ exists if and only if,
-(i) the limit from the left exists, (ii) the limit from the right
-exists,
-and (iii) these two limits coincide, i.e.,
-\[
-\lim_{x \to a^-} f(x)=\lim_{x \to a^+} f(x).
-\]
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>3.1 Limits and Continuity</h5>
-					<div id="sbt" style="margin-top:-20px">
-						<p><strong>3.1.1 Review of the 1-variable case</strong></p>
-					</div>
-
-					<div class="size-60">
-						<div class="left-txt">
-							<p>
-								<span>
-									Let $f:D\to\R$ be a function with domain $D$ an open subset of $\R$.
-For $a\in D$ we say that <span id="rr">the limit</span>
-$\displaystyle{\lim_{x \to a} f(x)}$ exists if and only if,
-(i) the limit from the left exists, (ii) the limit from the right
-exists,
-and (iii) these two limits coincide, i.e.,
-\[
-\lim_{x \to a^-} f(x)=\lim_{x \to a^+} f(x).
-\]
-
-								</span>
-							</p>
-						</div>
-					</div>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>
-								<span>
-									
-Furthermore, if the limit exists and is equal the actual value of $f$ at 
-$a$, i.e., if
-\[
-\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = f(a),
-\]
-we say that $f$ is <span id="rr">continuous</span> at $x=a.$
-
-								</span>
-							</p>
-						</div>
-					</div>
-					<br/><br/><br/><br/><br/><br/><br/>
-				</section>
-				<section data-auto-animate>
-					<h5>3.1 Limits and Continuity</h5>
-					<div id="sbt" style="margin-top:-20px">
-						<p><strong>3.1.1 Review of the 1-variable case</strong></p>
-					</div>
-
-					
 					<div class="size-70">
 						<div class="left-txt">
 							<p>
 								<span>
-									
-If $f$ is continuous on all of $D$ we say that $f$ is a continuous
-function on $D$.
+									<strong>
+										Example: 
+									</strong>
+									Give a non-rigorous proof that the above limit is indeed correct 
+by writing $x=r\cos\theta$ and $y=r\sin\theta$.
 								</span>
+								
+								
 							</p>
 						</div>
 					</div>
 
-					<div style="margin-top:-10px">
-						<div id="theorem">
-
-							<div class="left-txt" style="font-size:80%;margin-top:-15px">
+					<div id="theorem">
+						<div>
+							<div>
 								<p>
-									<span class="fragment" data-fragment-index="0">
-										Complete the square: $\,z = \left(x-1\right)^2 -1 + 4y^2+1$
+									<span>
+										<br/><br/><br/><br/><br/><br/><br/>
 									</span>
 								</p>
-								
-								<br/><br/><br/><br/><br/><br/><br/><br/><br/>	
 							</div>
 						</div>
 					</div>
+					
 					<br/><br/>
 				</section>
+				
 			</section>
 
 			<section>
