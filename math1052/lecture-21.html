@@ -43,8 +43,8 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
 	<script src="mySetup/google-analytics-ga4.js"></script>
 
-	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
-	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+	<script src="mathcell/math.js"></script>
+	<script src="mathcell/mathcell.js"></script>
 	
 </head>
 
@@ -417,6 +417,45 @@ with domain given by $\R^2\backslash\{(0,0)\}$.
 						</code></pre>
 					</div>
 					<br/><br/>
+				</section>
+
+				<section>
+					<div class="fragment" data-fragment-index="2">
+						<div class="mathcell" style="width:600px;height:600px;">
+							<script>
+							
+								var parent = document.currentScript.parentNode;
+	
+								var id = generateId();
+								parent.id = id;
+	
+								MathCell( id, [] );
+	
+								parent.update = function( id ) {
+	
+									  function z(x,y) { return [ x, y, x * x /( x * x + y * y ) ]; }
+	
+									  var s = parametric( z, [-1.5,1.5,100], [-1.5,1.5,100],
+										 { colormap: (x,y) => colorFromHue( ( x * x /( x * x + y * y ) ) * 0.7 ) } );
+	
+									  var data = [ s ];
+	
+									  var config = { 
+										type: 'threejs',
+									    viewpoint: [1,0.8,0.9],
+										axesLabels: true, 
+										aspectRatio: [1,1,1] 
+									  };
+	
+									  evaluate( id, data, config );
+								}
+	
+								parent.update( id );
+	
+								
+							</script>
+						</div>
+					</div>
 				</section>
 				<section data-auto-animate>
 					<h5>3.1 Limits and Continuity</h5>
