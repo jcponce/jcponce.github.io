@@ -110,11 +110,11 @@ $$
 $$
 \r(u,v) = x(u,v)~\i+y(u,v)~\j+z(u,v)~\k
 $$ 
-traces out the surface as $u,v$ vary over some region $D$ in the
+traces out the surface as $u,v$ vary over some region $D$ in the<br/>
 "$uv$-plane".
 								</span>
 								<span class="fragment" data-fragment-index="2">
-									So for every point $(u,v)$ in $D$, there corresponds a point on
+									So for every point $(u,v)$ in $D,$ there corresponds a point on
 									the surface $S$.
 									
 								</span>
@@ -152,17 +152,7 @@ to the point $(u,v)$ in the region $D$ in the $uv$-plane.
 					</div>
 					<br/>
 				</section>
-				<section data-auto-animate>
-					<h4>40.1 Parametric surfaces</h4>
-
-					
-
-					<div style="margin-top:0px" >
-						<iframe scrolling="no" title="Parametrization" data-src="https://www.geogebra.org/material/iframe/id/shrbv6cs/width/643/height/496/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="643px" height="496px" style="border:0px;"> </iframe>
-					</div>
-					<br/>
-					<br/>
-				</section>
+				
 
 
 
@@ -245,6 +235,18 @@ determine bounds on the parameters.
 
 				</section>
 
+				<section data-auto-animate>
+					<h5>What's the point to define parametrisations of surfaces?</h5>
+
+					
+
+					<div style="margin-top:0px" >
+						<iframe scrolling="no" title="Parametrization" data-src="https://www.geogebra.org/material/iframe/id/shrbv6cs/width/643/height/496/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="643px" height="496px" style="border:0px;"> </iframe>
+					</div>
+					<br/>
+					<br/>
+				</section>
+
 				<section data-background-iframe="sketches/hyperbolic-helicoid"
 					data-background-interactive>
 			
@@ -316,7 +318,7 @@ a parametric surface.
 
 				<section data-auto-animate>
 					<h5>Parametrisation in MATLAB</h5>
-					<div style="font-size:90%">
+					<div style="font-size:94%">
 						<pre><code data-trim data-noescape data-line-numbers="1-2|3|4|5-6|1-12">
 % Define components as anonymous functions
 fx = @(u,v) 1.4 * (exp(u/29) - 1).* cos(u) .* (cos(v/2)).^2;
@@ -346,7 +348,7 @@ box on % Add frame
 					</div>
 				
 
-					<div style="font-size:90%;margin-top:-60px">
+					<div style="font-size:94%;margin-top:-60px">
 						<pre><code data-trim data-noescape data-line-numbers="1-4">
 fx = @(u,v) 1.4 * (exp(u/29) - 1).* cos(u) .* (cos(v/2)).^2;
 fy = @(u,v) 1.4 * (1 - exp(u/29)) .* sin(u) .* (cos(v/2)).^2;
