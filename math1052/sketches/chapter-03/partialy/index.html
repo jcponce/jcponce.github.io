@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>MathBox - Partial x</title>
+    <title>MathBox - Partial y</title>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.min.js"
@@ -82,6 +82,9 @@
 
       // Axes + grid
       view
+        .transform({
+          position: [0, -1, 0],
+        })
         .axis({
           axis: 1,
           width: 3,
@@ -114,9 +117,9 @@
         view
         .array({
           data: [
-            [2, 0, 0],
+            [2, -1, 0],
             [0, 2, 0],
-            [0, 0, 2],
+            [0, -1, 2],
           ],
           channels: 3, // necessary
           live: false,
@@ -158,7 +161,7 @@
           var x3 = x2 * cos + z2 * sin;
           var z3 = -x2 * sin + z2 * cos;
 
-          emit(x, 1 - x3 * x3 - z3 * z3 + 3, z);
+          emit(x, 1 - x3 * x3 - z3 * z3 + 1, z);
         },
         width: 65,
         height: 65,
@@ -169,7 +172,7 @@
       var sliceX = view
         .group()
         .slice({
-          height: [-18, -17],
+          height: [-17, -18],
         })
         .line({
           color: 0xc00040,
