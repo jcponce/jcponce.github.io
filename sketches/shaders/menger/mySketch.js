@@ -2,6 +2,11 @@
 let theShader;
 let shaderBg;
 
+// Other variables I need for text message
+let textResponsive;
+let fadeAway;
+let timing;
+
 function preload() {
   // load the shader
   theShader = loadShader("shader.vert", "shader.frag");
@@ -35,6 +40,8 @@ function draw() {
   xMouse = (xMouse * width) / height;
   yMouse = yMouse;
 
+  timing = millis() / 1000.0;
+
   // pass the interactive information to the shader
   theShader.setUniform("iResolution", [width, height]);
   theShader.setUniform("iTime", millis() / 1000.0);
@@ -47,6 +54,7 @@ function draw() {
   image(shaderBg, 0, 0, width, height);
 
   // flip coordinate information box
+  /*
   let flipX = 0;
   let flipY = 0;
   if (width - mouseX < 200) {
@@ -55,6 +63,7 @@ function draw() {
   if (height - mouseY < 100) {
     flipY = -35;
   }
+  */
 
   // draw coordinate information box if you want
 
@@ -72,6 +81,16 @@ function draw() {
   text("y: " + nfc(yMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 30 + flipY);
 
 */
+
+    // finally, let's draw the text message on top
+    textResponsive = width;
+    //console.log(timing);
+    if(timing < 100){
+      push();
+      fill(0, sigmoid(timing));
+      rect(0,0,width, height);
+      pop();
+    }
 
   //console.log(imView);
 }
@@ -94,4 +113,11 @@ function mouseReleased() {
     imView = false;
   }
   cursor('grab');
+}
+
+// A sigmoid function :)
+// I need this for the text message to fade away
+function sigmoid(t){
+  let k = 400.0 - 200.0 / (1.0 + exp(-t + 15.0));
+  return k;
 }

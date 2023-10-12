@@ -150,6 +150,12 @@ vec4 rayMarch(in vec3 from, in vec3 dir, in vec2 fragCoord) {
 	return vec4(color,1.0);
 }
 
+// A sigmoid function :)
+float sigmoid(float t){
+    float k = - 10.0 / (1.0 + exp(t - 15.0));
+    return k;
+}
+
 
 void main() {
     // copy the vTexCoord
