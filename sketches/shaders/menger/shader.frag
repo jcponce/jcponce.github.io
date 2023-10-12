@@ -80,7 +80,7 @@ float DE(in vec3 z)
 
 	float d = 1000.0;
 	for (int n = 0; n < Iterations; n++) {
-		z.xy = rotate(z.xy,4.0+2.0*cos( iTime/15.0));		
+		z.xy = rotate(z.xy,4.0+2.0*cos( iTime/30.0));		
 		z = abs(z);
 		if (z.x<z.y){ z.xy = z.yx;}
 		if (z.x< z.z){ z.xz = z.zx;}
