@@ -85,7 +85,7 @@ function draw() {
     // finally, let's draw the text message on top
     textResponsive = width;
     //console.log(timing);
-    if(timing < 50){
+    if(timing < 15){
       push();
       fill(0, sigmoid(timing));
       rect(0,0,width, height);
@@ -118,6 +118,6 @@ function mouseReleased() {
 // A sigmoid function :)
 // I need this for the text message to fade away
 function sigmoid(t){
-  let k = 300.0 - 200.0 / (1.0 + exp(-t + 15.0));
+  let k = 300.0 - 200.0 / (1.0 + exp(-t + 7.0));
   return k;
 }
