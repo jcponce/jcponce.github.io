@@ -118,6 +118,6 @@ function mouseReleased() {
 // A sigmoid function :)
 // I need this for the text message to fade away
 function sigmoid(t){
-  let k = 300.0 - 200.0 / (1.0 + exp(-t + 7.0));
+  let k = 300.0 - 300.0 / (1.0 + exp(-t + 5.0));
   return k;
 }
