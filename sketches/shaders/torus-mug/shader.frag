@@ -93,7 +93,7 @@ float torusm(vec3 r, float m)
     vec3 rr = r;
     rr.x += 1.7;
     vec2 p = vec2(length(rr.xy) - 1.5, rr.z);
-    float tor = (length(p) - 0.55);
+    float tor = (length(p) - 0.55); //thinner/thicker
 	
     return tor * m;
 }
@@ -152,7 +152,7 @@ vec2 map(vec3 r)
 
 vec3 matCol(vec2 o)
 {
-    return vec3(0.0, 0.0, 0.9);
+    return vec3(0.0, 0.0, 0.9); //Mug color
 }
 
 
@@ -195,13 +195,13 @@ void main() {
     vec3 rd = cam * normalize(vec3(uv * 2., -1.));
     vec3 r = ro;
    
-    vec3 bcol = vec3(.5, (.4+uv.y)*0.91, (.95+uv.y*0.1)*0.8)*2. + vec3(0.9);
+    vec3 bcol = vec3(.5, (.4+uv.y)*0.91, (.95+uv.y*0.1)*0.8)*2. + vec3(0.9); //background color
     vec4 col = vec4(0.);
     col.rgb = bcol;
    
     float sh = 1.;
    
-    int ch = 1;
+    //int ch = 1;
    
     for (int i = 0; i < MAXIT; ++i) {
         vec2 d = map(r);
@@ -222,10 +222,7 @@ void main() {
     }
    
     
-	col.rgb *= exp(-sh * 0.8);
-    
-    
-    //vec3 col =  palette(color  - iTime*.04);
+	col.rgb *= exp(-sh * 0.5);
       
   // gl_FragColor is a built in shader variable, and your .frag file must contain it
   // We are setting the vec3 color into a new vec4, with a transparency of 1 (no opacity)
