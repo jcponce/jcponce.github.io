@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Linear Algebra - Eigenvalues &amp; Eigenvectors</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script src="mySetup/google-analytics-ga4.js"></script>
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h3 style="font-size:150%">Linear Algebra</h3>
+				<p>Lecture Eigenvalues & Eigenvectors</p>
+				<br/><br/>
+			</section>
+
+			<!--Section with format-->
+			<section>
+ 
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1 Introduction</strong></p>
+					<div class="">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									This material is covered in Stewart, Section 9.1 (Section 9.1).
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									In almost all fields of scientific endeavour, quantifying 
+									time-dependent occurrences almost inevitably comes down to a 
+									 
+								</span>
+								<span class="fragment" data-fragment-index="1" style="color:red">differential equation</span>
+								<span class="fragment" data-fragment-index="1">
+									(DE). 
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1 Introduction</strong></p>
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span>
+									A DE is an equation which contains one or more derivatives of an 
+unknown function. There are two types of DEs:
+								</span>
+							</p>
+							
+							<ul>
+								<li class="fragment" data-fragment-index="0">
+									<span s style="color:rgb(222, 8, 8)">ordinary</span> differential equations (ODEs),
+where the unknown function is a function of only one variable, and 
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									<span  style="color:rgb(222, 8, 8)">partial</span> differential equations (PDEs) where the unknown function is a function of more than one variable. 
+We will not consider PDEs in this course.
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br/>
+				</section>
+				
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.1 Examples of ODEs</strong></p>
+					<div class="size-90">
+						<div class="left-txt">
+							
+							
+							<ul>
+								<li class="fragment" data-fragment-index="0">
+									Unbounded population growth: $P'(t)=kP$.
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									Bounded population growth: $P'(t)=kP(1-P/\theta)$.
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									Motion due to gravity: $m y''(t) = -mg$.
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									Spring system: $mx''(t)=-kx$.
+								</li>
+							</ul>
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									In ODEs, one often takes $t$ instead of $x$ for the
+									independent variable, where $t$ denotes time.
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									Also, derivatives, such as $x'(t)$ and $x''(t)$ with respect to time are 
+									often written as $\dot{x}$ and $\ddot{x}$ respectively.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.2 How do ODEs arise?</strong></p>
+					<div class="size-70">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									<strong>Population modelling.</strong>
+Assume a population grows at a constant rate proportional to the size of the 
+population. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									If $P=P(t)$ stands for the population at time $t$, then
+the model states that
+$$
+\dif{P}{t} \propto P,
+$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									i.e.,
+$$
+\dif{P}{t}=k P,
+$$
+where $k$ is the growth constant.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									If $k>0$ the population is growing 
+									(think humans) and if $k\lt 0$ the population is decreasing (think tigers).
+
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.2 How do ODEs arise?</strong></p>
+					<div class="size-40">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span>
+									<strong>Population modelling.</strong>
+									Assume a population grows at a constant rate proportional to the size of the 
+									population. 
+								</span>
+								<span>
+									If $P=P(t)$ stands for the population at time $t$, then
+									the model states that
+									$$
+									\dif{P}{t} \propto P,
+									$$
+								</span>
+								<span>
+									i.e.,
+									$$
+									\dif{P}{t}=k P,
+									$$
+									where $k$ is the growth constant.
+								</span>
+								<span>
+									If $k>0$ the population is growing 
+									(think humans) and if $k\lt 0$ the population is decreasing (think tigers).
+
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+
+							<p>
+								<strong>Question:</strong> What happens for $k=0$?
+							</p>
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$P$ is constant. &nbsp;
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										(equilibrium solution)
+									</span>
+									
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.2 How do ODEs arise?</strong></p>
+					<div class="size-90">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span>
+									<strong>Newton's eureka moment.</strong>
+									Newton's <span style="color:rgb(222, 8, 8)">second law of motion</span> states that
+									$$
+									\text{mass }\times \text{ acceleration } = \text{ force.}
+									$$
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.2 How do ODEs arise?</strong></p>
+					<div class="size-55">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Newton's eureka moment.</strong>
+									Newton's <span style="color:rgb(222, 8, 8)">second law of motion</span> states that
+									$$
+									\text{mass }\times \text{ acceleration } = \text{ force.}
+									$$
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									Let $y=y(t)$ be the vertical displacement from ground at time $t$
+of an apple of mass $m$, soon to land on Newton's head.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Then the acceleration is $\displaystyle{\frac{\dup^2y}{\dup t^2}}$ so that
+$$
+m\, \frac{\dup^2y}{\dup t^2} = -mg,
+$$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									where $g$ is the constant of acceleration at the surface of the earth
+due to gravity.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.3 Solution to an ODE</strong></p>
+					<div class="size-90">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span>
+									Suppose that we are given an ODE for $y$ which is an unknown function of $x$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then $y=f(x)$ is said to be a <span style="color:rgb(222, 8, 8)">solution</span>  to the ODE if the ODE is
+<span style="color:rgb(222, 8, 8)">satisfied</span> when $y=f(x)$ and its derivatives are substituted into the
+equation.
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									<strong>Example:</strong>
+									Show that $y=y(x)=A \exp(x^2/2)$ is a
+<span style="color:rgb(222, 8, 8)">solution</span> to the ODE $y'=xy$.
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.3 Solution to an ODE</strong></p>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+									Show that $y=y(x)=A \exp(x^2/2)$ is a
+<span style="color:rgb(222, 8, 8)">solution</span> to the ODE $y'=xy$.
+								</span>
+							</p>
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										We need to show that $y=Ae^x$ satisfies the ODE.
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										Calculate <br/>
+										$ y'$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$= \ds\frac{d}{dx}\left(Ae^{x^2/2}\right)$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$= Ax e^{x^2/2}$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$= x \left(A e^{x^2/2}\right)$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$= x y,$
+									</span>
+
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									which is true for all $A\in \R.$
+								</p>
+							</div>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.3 Solution to an ODE</strong></p>
+					<div class="size-80">
+						<div class="left-txt">
+							
+							
+							
+							<p>
+								<span>
+									When asked to <span style="color:rgb(222, 8, 8)">solve</span> an ODE, you are expected to find 
+									<em>all</em> possible
+solutions. 
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									This means that you need to find the 
+									<span style="color:rgb(222, 8, 8)">general solution</span> to the
+									ODE.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									For an ODE that involves only the unknown function $y$ and its first
+derivative,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									the general solution will involve <em>one</em> arbitrary constant.
+								</span>
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									You should already know how to solve ODEs of the form
+$$
+\dif{y}{x} = f(x) \quad\text{or}\quad \frac{\dup^2y}{\dup x^2} = g(x). 
+$$
+								</span>
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>1 Ordinary Differential Equations</h4>
+					<p style="font-size:60%"><strong>1.1.3 Solution to an ODE</strong></p>
+					<div class="size-85">
+						<div class="left-txt">
+							
+							
+							<p>
+								
+								<span>
+									<strong>Example:</strong>
+									Find the general solution to the differential equation $y'=x^2$.
+								</span>
+							</p>
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\ds \frac{dy}{dx} = x^2$
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\ds \Ra y = \int x^2 dx$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\ds = \frac{x^3}{3}+C.$
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									This is the general solution.
+								</p>
+							</div>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				
+
+			</section> 
+
+			<!--Section with background image-->
+			<section  data-auto-animate data-background-color="rgb(0,0,0)"
+					data-background-image="https://dynamicmath.xyz/math2001/images/review/maryam.jpeg"
+					data-background-opacity="0.3"
+					data-background-position="right 45% bottom -10px"
+					>
+
+					<p style="font-size:58px"><em>The beauty of mathematics shows itself to patient followers.</em></p>
+					
+					<p style="font-size:38px"><a href="https://en.wikipedia.org/wiki/Maryam_Mirzakhani" target="_blank">Maryam Mirzakhani</a></p>
+					
+					
+					<br/><br/><br/><br/>
+			</section>
+
+			<section data-auto-animate>
+				<h4>9.2 Uniform convergence</h4>
+				<p class="sbt">Nonuniform convergence criterion</p>
+				<div class="left-txt size-90">
+					<p><strong>Theorem:</strong>
+						Let $f_n \colon S \to \R$
+						and $f \colon S \to \R$
+						be functions.
+					</p>
+				</div>
+
+				<div class="size-90">
+					The sequence $\{ f_n \}$ <strong>does not converge uniformly</strong>
+					<br />
+					<p>if and only if</p>
+				</div>
+
+				<div class="left-txt size-90">
+					<p>
+						for some $\epsilon_0\gt 0$ there is a subsequence $\{ f_{n_k} \}$
+						of $\{ f_n \}$ and a sequence $\{ x_k \}$ in $S$ such that
+						\[
+						\abs{\,f_{n_k}\left(x_k\right)-f(x_k)}\geq \epsilon_0 \text{ for all } k\in \N.
+						\]
+					</p>
+
+				</div>
+				<br/><br/>
+			</section>
+
+			<!--Section with table-->
+			<section data-auto-animate>
+				<h3>Vector Calculus</h3>
+				<p><strong>Green's Theorem</strong></p>
+			 	<div class="left-txt size-60">
+					
+					<table>
+						<tr>
+							<td style="width:50%">
+								<p>
+									
+									\[
+									\iint\limits_D\left( \frac{\partial F_2}{\partial x}- \frac{\partial F_1}{\partial y} \right) \,dA = \int\limits_C F_1\, dx + F_2 \,dy
+									\]
+								</p>
+							</td>
+							<td style="width:50%">
+
+								<img src="https://dynamicmath.xyz/math2001/images/review/green.png">
+							</td>
+						</tr>
+					</table>
+
+			 	</div>
+
+			 		<br/><br/>
+			</section>
+
+			<!--
+				LaTeX
+				https://docs.latexbase.com/
+				https://www.johndcook.com/blog/math_symbols/
+			-->
+
+			<!--Section with iframe background-->
+			<section  
+				data-background-color="rgb(0,0,0)" 
+				data-background-iframe="https://dynamicmath.xyz/math2001/sketches/solids-02/"
+  			    data-background-interactive>
+  
+			</section>
+
+			<!--Section with GGB iframe-->
+			<section data-auto-animate>
+				<h3>Multiple integrals</h3>
+				<p class="size-70">1. <strong>Fubini's theorem</strong></p>
+				<div>
+				  <iframe
+					scrolling="no"
+					title="Fubini's theorem: Square regions"
+					src="https://www.geogebra.org/material/iframe/id/pkcqbzhy/width/637/height/472/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+					width="637px"
+					height="472px"
+					style="border: 0px"
+					data-preload
+					allowfullscreen=""
+				  >
+				  </iframe>
+				</div>
+				<br/>
+			</section>
+
+
+
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
