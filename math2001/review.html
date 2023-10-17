@@ -264,16 +264,22 @@
 			<section>
 
 				<section data-auto-animate>
-					<h3>Vector Calculus</h3>
-					<p class="size-60 fragment" data-fragment-index="0"><strong>Main results</strong></p>
+					<h4>Vector Calculus</h4>
 					
-					<div class="size-60">
+					<div style="margin-top:-15px">
+						<span  class="size-60" >
+							<p><strong>Main results</strong></p>
+						</span>
+						
+					</div>
+					
+					<div class="size-60"  style="margin-top:-15px">
 
 						<table>
 							<tr>
 								<td>
 									<ul style="line-height:80px;display: block;">
-										<li class="fragment fade-down" data-fragment-index="5">
+										<li class="fragment fade-down" data-fragment-index="6">
 											<span style="color:#0000ff">$\displaystyle \int_a^b F'(x)\,dx =F(b)-F(a)$</span>
 										</li>
 										<li class="fragment" data-fragment-index="1">
@@ -283,11 +289,15 @@
 											$\displaystyle \iint\limits_D\left( \frac{\partial F_2}{\partial x}- \frac{\partial F_1}{\partial y} \right) \,dA = \int\limits_C F_1\, dx + F_2 \,dy$
 										</li>
 										<li class="fragment" data-fragment-index="3">
-											$\displaystyle \iint\limits_S \curl \F \cdot dS = \int\limits_C \F \cdot d\r$
+											$\displaystyle \iint\limits_D \div \F \, dA = \int\limits_S \F \cdot \n\, dS	$
 										</li>
 										<li class="fragment" data-fragment-index="4">
 											$\displaystyle \iiint\limits_E \div \F \, dV = \iint\limits_S \F \cdot \n\, dS	$
 										</li>
+										<li class="fragment" data-fragment-index="5">
+											$\displaystyle \iint\limits_S \curl \F \cdot dS = \int\limits_C \F \cdot d\r$
+										</li>
+										
 									</ul>
 								</td>
 								<td>
@@ -392,7 +402,7 @@
 
 				<section data-auto-animate>
 					<h3>Vector Calculus</h3>
-					<p><strong>Stokes's Theorem</strong></p>
+					<p><strong>Gauss' Divergence Theorem in 2D</strong></p>
 				 <div class="left-txt size-70">
 						
 						<table>
@@ -401,24 +411,27 @@
 									<p>
 										
 										\[
-										\iint\limits_S \curl \F \cdot \n dS = \int\limits_C \F \cdot d\r										\]
+										\iint\limits_D \div \F \, dA = \int\limits_S \F \cdot \n\, dS						
+										\]
 									</p>
 								</td>
 								<td style="width:50%">
 	
-									<img src="images/review/stokes.png">
+									<img src="images/review/2d-div.png">
 								</td>
 							</tr>
 						</table>
 	
 				 </div>
-	
+				 
 				 <br/><br/>
+	
+				
 				</section>
 
 				<section data-auto-animate>
 					<h3>Vector Calculus</h3>
-					<p><strong>Gauss' Divergence Theorem</strong></p>
+					<p><strong>Gauss' Divergence Theorem in 3D</strong></p>
 				 <div class="left-txt size-70">
 						
 						<table>
@@ -445,20 +458,49 @@
 				
 				</section>
 
-				<section data-background-image="images/review/all.png"
+				<section data-auto-animate>
+					<h3>Vector Calculus</h3>
+					<p><strong>Stokes's Theorem</strong></p>
+				 <div class="left-txt size-70">
+						
+						<table>
+							<tr>
+								<td style="width:50%">
+									<p>
+										
+										\[
+										\iint\limits_S \curl \F \cdot \n dS = \int\limits_C \F \cdot d\r										\]
+									</p>
+								</td>
+								<td style="width:50%">
+	
+									<img src="images/review/stokes.png">
+								</td>
+							</tr>
+						</table>
+	
+				 </div>
+	
+				 <br/><br/>
+				</section>
+
+				
+
+				<section data-background-image="images/review/all-2.png"
 				
 				data-background-opacity="0.45"  data-auto-animate>
 				<h3>Vector Calculus</h3>
-				<p class="size-60"><strong>Main results</strong></p>
-					<div style="font-size:65%">
+				
+					<div style="font-size:60%;margin-top:-10px">
 						<p>
 							\[
 							\begin{array}{l}
 							\displaystyle \int_a^b F'(x)\,dx  = F(b)-F(a)\\
 							\displaystyle \int\limits_C \nabla f \cdot d\r =f\left(\r(b)\right)-f\left(\r(a)\right)\\
 							\displaystyle \iint\limits_D\left( \frac{\partial F_2}{\partial x}- \frac{\partial F_1}{\partial y} \right) \,dA  = \int\limits_C F_1\, dx + F_2 \,dy\\
+							\displaystyle \iint\limits_D \div \F \, dA = \int\limits_S \F \cdot \n\, dS\\
+							\displaystyle \iiint\limits_E \div \F \, dV = \iint\limits_S \F \cdot \n\, dS\\
 							\displaystyle \iint\limits_S \curl \F \cdot dS = \int\limits_C \F \cdot d\r\\
-							\displaystyle \iiint\limits_E \div \F \, dV = \iint\limits_S \F \cdot \n\, dS
 							\end{array}
 							\]
 						</p>
@@ -527,6 +569,8 @@
 						</p>
 					</div>
 
+					
+
 					<br/>
 					
 					<!--<div class="fragment" data-fragment-index="2" >
@@ -586,6 +630,7 @@
 						</p>
 					</div>
 
+					
 					<br/>
 					
 				
