@@ -755,6 +755,531 @@ show that $\lim_{(x,y)\to (0,0)} f(x,y)$ does not exist.
 			</section>
 
 			<section>
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.2 Multivariable limits</strong></p>
+					</div>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Important remark: 
+									</strong>
+									There are infinitely many paths terminating in a given point, say $(a,b),$ in
+$\R^2,$ raising the question if one can ever prove 
+that $\lim_{(x,y)\to (a,b)}f(x,y)$ does exist.
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									The bad news is that these methods
+(typically $\epsilon$-$\delta$ proofs) are not part of this course.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.2 Multivariable limits</strong></p>
+					</div>
+
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Important remark: 
+									</strong>
+									There are infinitely many paths terminating in a given point, say $(a,b),$ in
+$\R^2,$ raising the question if one can ever prove 
+that $\lim_{(x,y)\to (a,b)}f(x,y)$ does exist.
+								</span>
+								<span>
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span>
+									The good news is that there are methods that can deal with infinitely
+many paths simultaneously. 
+								</span>
+								<span>
+									The bad news is that these methods
+(typically $\epsilon$-$\delta$ proofs) are not part of this course.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									See Stewart Sec 14.2, Example 4 for a rigorous $\epsilon$-$\delta$ proof
+									that
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p>
+								
+								<span>$\ds
+								\lim_{(x,y)\to (0,0)} f(x,y)=0,
+								$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span>
+									where 
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p>
+								
+								<span>
+
+$\ds f(x,y)=\frac{3x^2y}{(x^2+y^2)}$ 
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								
+								<span>and $D=\R^2\backslash\{(0,0)\}$. 
+								</span>
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.2 Multivariable limits</strong></p>
+					</div>
+
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Example: 
+									</strong>
+									Give a non-rigorous proof that the above limit is indeed correct 
+by writing $x=r\cos\theta$ and $y=r\sin\theta$.
+								</span>
+								
+								
+							</p>
+						</div>
+					</div>
+
+					<div id="theorem">
+						<div class="size-70" style="margin-top:-20px">
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										We have
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$\qquad f\left(r \cos \theta, r\sin \theta\right) = \dfrac{3(r\cos \theta)^2(r\sin \theta)}{(r\cos \theta)^2+(r\sin \theta)^2}$
+									</span>
+								</p>
+							</div>
+							<div class="left-txt">
+								
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\qquad \;\qquad \qquad \qquad = \dfrac{3r^3\cos^2 \theta\sin \theta}{r^2}$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$=3r\cos^2 \theta\sin \theta$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="3">
+										Note that 
+									</span>
+
+								</p>
+							</div>
+							<div class="">
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="4">
+										$ -1\leq $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$ \cos^2 \theta\sin \theta$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\leq  1$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="5">
+										$ -3r\leq $
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$ 3r\cos^2 \theta\sin \theta$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\leq  3r$
+									</span>
+								</p>
+								
+							</div>
+
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.2 Multivariable limits</strong></p>
+					</div>
+
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Example: 
+									</strong>
+									Give a non-rigorous proof that the above limit is indeed correct 
+by writing $x=r\cos\theta$ and $y=r\sin\theta$.
+								</span>
+								
+								
+							</p>
+						</div>
+					</div>
+
+					<div id="theorem">
+						<div class="size-70" style="margin-top:-20px">
+							
+							<div class="left-txt">
+								
+								<p>
+									<span>
+										By the squeeze theorem
+									</span>
+								</p>
+								
+							</div>
+							<div class="">
+								
+								
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$ 0 =$
+									</span>
+									<span>
+										$ \ds \lim_{r\to 0} -3r\leq $
+									</span>
+									<span>
+										$\ds \lim_{r\to 0} 3r\cos^2 \theta\sin \theta$
+									</span>
+									<span>
+										$\ds \leq\lim_{r\to 0} 3r$
+									</span>
+									<span class="fragment" data-fragment-index="0">
+										$ =0 $
+									</span>
+								</p>
+								
+								
+							</div>
+
+							
+							
+							<div class="left-txt">
+								
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										Hence
+										$\,\ds \lim_{(x,y)\to (0,0)}\frac{3x^2y}{(x^2+y^2)} $
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$=\ds \lim_{r\to 0} 3r\cos^2 \theta\sin \theta$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$=0.$
+									</span>
+
+								</p>
+								
+							</div>
+
+							<div class="left-txt">
+								
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										With this fact we can define $f$ in all $\R^2$ as
+									</span>
+								</p>
+								
+								
+							</div>
+							<div class="">
+								
+								<p>
+									<span class="fragment" data-fragment-index="4">
+										$\ds 
+										f(x,y)= 
+										\left\{
+										\begin{array}{cr}
+										\dfrac{3x^2y}{(x^2+y^2)}, &amp; (x,y)\neq 0\\
+										0,  &amp; (x,y)=0
+										\end{array}
+										\right.
+										.$
+									</span>
+								</p>
+								
+							</div>
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
+				
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.3 Multivariable continuity</strong></p>
+					</div>
+
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Definition. 
+									</strong>
+									Let $f:D\to\R$ be a function with domain $D,$ an open subset of $\R^2.$
+									Let $(a,b)\in D.$ Then $f(x,y)$ is <span id="rr">continuous</span> at $(a,b)$ if
+									\[
+									\lim_{(x,y) \to (a,b)}f(x,y)=f(a,b),
+									\]
+								</span>
+								
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									i.e., the limit $(x,y)\to (a,b)$ of $f(x,y)$ exists and is equal to $f(a,b).$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									If a function is continuous on all of $D$ we say simply that it is 
+									<span id="rr">continuous</span> on $D.$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Most of the functions we will consider are continuous.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									For example, polynomials in $x$ and $y$ are continuous on $\R^2.$
+As a rule of thumb, if a function with domain $D$ is defined by a 
+single expression it will be continuous on $D.$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.3 Multivariable continuity</strong></p>
+					</div>
+
+					<div class="size-65">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Example: 
+									</strong>
+									Returning to the <a href="lecture-21.html#/4">first example</a>, where $\displaystyle
+f(x,y) =\frac{x^2 - y^2}{x^2 + y^2}$ and $D=\R^2\backslash\{(0,0)\},$ is
+$f(x,y)$ a continuous function?
+								</span>
+								
+								
+							</p>
+						</div>
+					</div>
+
+					<div id="theorem">
+						<div class="size-70" style="margin-top:-20px">
+							
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+											Here 
+									</span>
+								</p>
+							</div>
+							<div class="">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$f(x,y )=\dfrac{P(x,y)}{Q(x,y)}$
+									</span>
+								</p>
+							</div>
+							<div class="left-txt">
+								
+								<p>
+									
+									<span class="fragment" data-fragment-index="1">
+										with $P(x,y) = x^2-y^2$ and $Q(x,y) = x^2+y^2.$
+									</span>
+								</p>
+								<p>
+									
+									<span class="fragment" data-fragment-index="2">
+										Note that  $Q(x,y) \neq 0.$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										The point  $(0,0) \notin D. $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										Thus $f$ is continuous for all $(x,y)\in D.$
+									</span>
+								</p>
+								
+							</div>
+							
+						</div>
+					</div>
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.3 Multivariable continuity</strong></p>
+					</div>
+
+					<div class="size-65">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Example: 
+									</strong>
+									 If we edit the above example by 
+									 instead defining $f$ on all of $\R^2$ by
+									 taking $f(0,0)=0,$ then is $f$ a continuous function?
+								</span>
+								
+								
+							</p>
+						</div>
+					</div>
+
+					<div id="theorem">
+						<div class="size-70" style="margin-top:-20px">
+							
+							<div class="left-txt">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										No, all of a sudden $f$ would no longer be a continuous function:
+										$f$ would be continuous on all of $D$ except for the point $(0,0)$.
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										That is
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$$\ds 
+										f(x,y)= 
+										\left\{
+										\begin{array}{cr}
+										\dfrac{x^2 - y^2}{x^2 + y^2}, &amp; (x,y)\neq 0\\
+										0,  &amp; (x,y)=0
+										\end{array}
+										\right.
+										$$
+									</span>
+									
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1"> is not continuous,</span> 
+									<span class="fragment" data-fragment-index="2">
+										since
+										$$\lim_{(x,y)\to (0,0)}\dfrac{x^2 - y^2}{x^2 + y^2} = \text{does not exist!}$$
+									</span>
+								</p>
+							</div>
+							
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.1 Limits and Continuity</h5>
+					<div id="sbt" style="margin-top:-20px">
+						<p><strong>3.1.4 Main points</strong></p>
+					</div>
+					<br/>
+					<div class="size-95">
+						<div class="left-txt">
+							<ul>
+								<li>
+									You should be able to show when a limit does not exist.
+								</li>
+								<li>
+									You should understand continuity of multivariate functions.
+								</li>
+
+							</ul>
+						</div>
+					</div>
+
+					
+					<br/><br/><br/><br/><br/>
+				</section>
+
+			</section>
+
+			<section>
 
 				<h4>Credits</h4>
 				<div include-html="credits.html"></div>
