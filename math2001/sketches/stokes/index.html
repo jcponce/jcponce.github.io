@@ -46,7 +46,7 @@
 		});
 		mathbox.camera({
 			proxy: true,
-			position: [1.5, 0.1, 1.0]
+			position: [-1.5, 0.1, 1.0]
 		});
 
 		var xMin = -4,
@@ -144,15 +144,10 @@
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
 				
-				var autoTorsion = t//0.2 * 2 * Math.PI *  ( t - Math.floor( t ) );
+				var autoTorsion = t;//0.2 * 2 * Math.PI *  ( t - Math.floor( t ) );
 
-				emit(
-						Fx(u, v, autoTorsion),
-						Fz(u, v, autoTorsion),
-						Fy(u, v, autoTorsion)
-					)
-
-				/*if (play) {
+				
+				if (play) {
 					emit(
 						Fx(u, v, autoTorsion),
 						Fz(u, v, autoTorsion),
@@ -165,7 +160,7 @@
 						Fy(u, v, torsion)
 					)
 				}
-				*/
+				
 			},
 		});
 		view.surface({
@@ -188,13 +183,35 @@
           var b = Math.PI * Math.sin(theta);
 
           emit(a, 0, b);
+          
         },
         items: 1,
         channels: 3,
       });
 
       view.line({
-        color: "#fa3628",
+        color: "#d72013",
+        width: 6,
+        size: 2.5,
+        start: true,
+        end: false,
+      });
+
+		view.interval({
+        width: 128,
+        expr: function (emit, x, i, time) {
+          var theta = x;
+          var a = -Math.PI * Math.sin(theta);
+          var b = Math.PI * Math.cos(theta);
+
+          emit(a, 0, b);
+        },
+        items: 1,
+        channels: 3,
+      });
+
+      view.line({
+        color: "#d72013",
         width: 6,
         size: 2.5,
         start: true,
