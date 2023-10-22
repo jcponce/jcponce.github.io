@@ -116,7 +116,7 @@
 				[yMin, yMax],
 				[zMin, zMax]
 			],
-			scale: [1, 1/2, 1],
+			scale: [1, 0.65, 1],
 		});
 
 		// Create u,v domain
@@ -451,7 +451,7 @@
 			channels: 3,
 			expr: function (emit, u, v, i, j, t) {
 				
-				var autoTorsion = t;//0.2 * 2 * Math.PI *  ( t - Math.floor( t ) );
+				var autoTorsion = 0.55 * t;//0.2 * 2 * Math.PI *  ( t - Math.floor( t ) );
 
 				
 				if (play) {
