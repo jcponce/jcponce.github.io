@@ -149,7 +149,7 @@
         var offset = rad - 1;
         var torus = 1 / (0.1 + offset * offset + y * y);
 
-        v.set(x * y * torus, -offset * torus, z * y * torus);
+        v.set(2*x * y * torus, - 8*offset * torus, 2*z * y * torus);
         return v;
       };
 
