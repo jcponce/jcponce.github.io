@@ -49,8 +49,8 @@
         y: 0,
         z: 0,
         jitter: 1,
-        steps: 10,
-        respawn: 0.0005,
+        steps: 12,
+        respawn: 0.0009,
         fixed: false,
         field1: false,
         field2: true,
@@ -151,7 +151,7 @@
         z += props.z;
 
         var rad = Math.sqrt(x * x + z * z);
-        var offset = rad - 1;
+        var offset = 1*rad - 1;
         var torus = 1 / (0.1 + offset * offset + y * y);
 
         v.set(2*x * y * torus, - 8*offset * torus, 2*z * y * torus);
