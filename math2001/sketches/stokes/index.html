@@ -31,7 +31,7 @@
 		// Vector field variables
 
 		// Number of samples on each 3D axis
-		var SAMPLES = 10;
+		var SAMPLES = 12;
 
 		// Accuracy of integration steps
 		var DIVIDE = 8;
@@ -41,7 +41,7 @@
 		var JITTER = 1 / SAMPLES;
 
 		// Maximum integration steps drawn
-		var MAX_STEPS = 15;
+		var MAX_STEPS = 18;
 
 		var props = {
         speed: 1,
@@ -49,7 +49,7 @@
         y: 0,
         z: 0,
         jitter: 1,
-        steps: 12,
+        steps: 10,
         respawn: 0.0009,
         fixed: false,
         field1: false,
@@ -77,11 +77,11 @@
 		});
 		mathbox.camera({
 			proxy: true,
-			position: [0.0, 0.1, 2.0]
+			position: [0.0, 0.3, 2.0]
 		});
 
 
-		var wbx = 4.5;
+		var wbx = 6.5;
 		var xMin = -wbx,
 			xMax = wbx,
 			yMin = -wbx,
@@ -116,7 +116,7 @@
 				[yMin, yMax],
 				[zMin, zMax]
 			],
-			scale: [1, 0.65, 1],
+			scale: [1.5, 1.5 * 0.65, 1.5],
 		});
 
 		// Create u,v domain
@@ -486,8 +486,8 @@
         width: 128,
         expr: function (emit, x, i, time) {
           var theta = x;
-          var a = Math.PI * Math.cos(theta);
-          var b = Math.PI * Math.sin(theta);
+          var a = Math.PI * Math.cos(theta + Math.PI/2);
+          var b = Math.PI * Math.sin(theta + Math.PI/2);
 
           emit(a, 0, b);
           
@@ -498,8 +498,8 @@
 
       view.line({
         color: "#d72013",
-        width: 6,
-        size: 2.5,
+        width: 4,
+        size: 3,
         start: true,
         end: false,
       });
@@ -519,8 +519,8 @@
 
       view.line({
         color: "#d72013",
-        width: 6,
-        size: 2.5,
+        width: 4,
+        size: 1,
         start: false,
         end: false,
       });
