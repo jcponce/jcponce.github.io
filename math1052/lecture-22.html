@@ -241,17 +241,18 @@ at $P=(1,-1,-1)$ in the $y$ direction, i.e., where $x=1.$
 					
 
 					<div id="sbt" style="margin-top:-10px">
-						<p><strong>3.2.1 Slope in the $x$-direction</strong></p>
+						<p><strong>3.2.2 Slope in the $y$-direction</strong></p>
 					</div>
 					
 					<div id="theorem">
 						<div class="size-90" style="margin-top:-10px">
 							<div class="left-txt">
 								<p>
-									<span>
+									<span class="fragment" data-fragment-index="0">
+									
 										When $x=1$ 
-									</span class="fragment" data-fragment-index="0">
-									<span>
+									</span >
+									<span class="fragment" data-fragment-index="1">
 										we have
 $$z = f(1,y) = h(y),$$
 									</span>
@@ -260,7 +261,7 @@ $$z = f(1,y) = h(y),$$
 								</p>
 								<p>
 									
-									<span class="fragment" data-fragment-index="2">
+									<span class="fragment" data-fragment-index="3">
 										 where $h(y) = -y^2$.
 									</span>
 									
@@ -271,10 +272,10 @@ $$z = f(1,y) = h(y),$$
 							</div>
 							<div>
 								<p>
-									<span class="fragment" data-fragment-index="2">
+									<span class="fragment" data-fragment-index="4">
 										So $h'(y) = -2y\,$
 									</span>
-									<span class="fragment" data-fragment-index="3">
+									<span class="fragment" data-fragment-index="5">
 										and $\,h'(-1) = -2.$
 									</span>
 									
@@ -294,7 +295,7 @@ $$z = f(1,y) = h(y),$$
 					
 
 					<div id="sbt" style="margin-top:-10px">
-						<p><strong>3.2.1 Slope in the $x$-direction</strong></p>
+						<p><strong>3.2.2 Slope in the $y$-direction</strong></p>
 					</div>
 					
 					
@@ -358,7 +359,7 @@ being held fixed as constants when doing the differentiation.
 				<section data-auto-animate>
 					<h5>3.2 Partial Derivatives</h5>
 					<div id="sbt" style="margin-top:-10px">
-						<p><strong>3.2.1 Slope in the $x$-direction</strong></p>
+						<p><strong>3.2.2 Slope in the $y$-direction</strong></p>
 					</div>
 					
 					<div class="size-70">
@@ -384,7 +385,7 @@ being held fixed as constants when doing the differentiation.
 				<section data-auto-animate>
 					<h5>3.2 Partial Derivatives</h5>
 					<div id="sbt" style="margin-top:-10px">
-						<p><strong>3.2.1 Slope in the $x$-direction</strong></p>
+						<p><strong>3.2.2 Slope in the $y$-direction</strong></p>
 					</div>
 
 					<div class="size-75">
@@ -409,7 +410,259 @@ being held fixed as constants when doing the differentiation.
 
 			</section>
 
+
+			<section>
+				<section data-auto-animate>
+					<h5>3.2 Partial Derivatives</h5>
+					<div id="sbt" style="margin-top:-10px">
+						<p><strong>3.2.3 Partial derivatives for $f(x,y,z)$</strong></p>
+					</div>
+	
+					<div class="size-70">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong> 
+									The volume of a box $V(x,y,z)=xyz.$
+								</span>
+							</p>
+							<p>
+								<span>
+									If $x$ changes by a small amount, say $\Delta x$, denote the
+	corresponding change in $V$ by $\Delta V.$ 
+								</span>
+								<span>
+									We can easily visualise that
+									$\Delta V = yz \Delta x.$
+									
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					<div style="margin-top:-10px">
+						<div id="theorem">
+							<br/><br/><br/><br/><br/><br/>
+							
+						</div>
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.2 Partial Derivatives</h5>
+					<div id="sbt" style="margin-top:-10px">
+						<p><strong>3.2.3 Partial derivatives for $f(x,y,z)$</strong></p>
+					</div>
+	
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									Therefore,
+$$\dfrac{\Delta V}{\Delta x} = yz.$$
+								</span>
+							</p>
+							<p>
+								<span>
+									Letting $\Delta x \to 0$ we have $\dfrac{\partial V}{\partial x} = yz$.
+								</span>
+							</p>
+							<p>
+								<span>
+									For partial derivatives only one independent variable changes
+and all other independent variables remain fixed.
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>3.2 Partial Derivatives</h5>
+					<div id="sbt" style="margin-top:-10px">
+						<p><strong>3.2.3 Partial derivatives for $f(x,y,z)$</strong></p>
+					</div>
+	
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong> 
+									Parallel resistance
+								</span>
+							</p>
+							<p>
+								<span>
+									In an electrical circuit, the combined resistance $R$, 
+from three resistors $R_1, R_2$ and $R_3$ connected in parallel, is 
+\[
+\frac{1}{R} = \frac{1}{R_1}+ \frac{1}{R_2} + \frac{1}{R_3}.
+\]
+What is the rate of change of the total resistance $R$ with respect to $R_1$?
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					
+					
+					<br/><br/></br><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.2 Partial Derivatives</h5>
+					
+	
+					<div class="size-60">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong> 
+									Parallel resistance
+								</span> 
+								<span>
+									
+$
+\quad \ds\frac{1}{R} = \frac{1}{R_1}+ \frac{1}{R_2} + \frac{1}{R_3}.
+$
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					
+					<div style="margin-top:-10px">
+						<div id="theorem">
+							<br/><br/><br/><br/><br/><br/><br/><br/>
+							
+						</div>
+					</div>
+					
+					<br/>
+				</section>
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h5>3.2 Partial Derivatives</h5>
+					<div id="sbt" style="margin-top:-10px">
+						<p><strong>3.2.4 Higher order derivatives</strong></p>
+					</div>
+	
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									The second order partial derivatives of $f$, if they exist, are written as
+									\begin{align*}
+f_{xx} & = \frac{\partial^2f}{\partial x^2},   &  \hspace{-1cm}
+f_{yx} & = \frac{\partial^2f}{\partial x\partial y}=
+\frac{\partial}{\partial x}\Bigl(\frac{\partial f}{\partial y}\Bigr),
+\\[3mm]
+f_{yy} & = \dfrac{\partial^2f}{\partial y^2}, & \hspace{-1cm}
+f_{xy} & = \dfrac{\partial^2f}{\partial y\partial x}
+ = \frac{\partial}{\partial y}\Bigl(\frac{\partial f}{\partial x}\Bigr).
+\end{align*}
+								</span>
+							</p>
+							<p>
+								<span>
+									If $f_{xy}$ and $f_{yx}$ are both continuous, then $f_{xy} = f_{yx}$.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					
+					
+					<br/><br/></br><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.2 Partial Derivatives</h5>
+					<div id="sbt" style="margin-top:-10px">
+						<p><strong>3.2.4 Higher order derivatives</strong></p>
+					</div>
+	
+					<div class="size-95">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong> 
+									Returning to the example on page ?? for which 
+$f(x,y) = x \sin y + y \cos x,$ calculate all of the second order
+partial derivatives of $f$ and show that 
+$$\displaystyle\frac{\partial^2f}{\partial x\partial y}= \dfrac{\partial^2f}{\partial y\partial
+x}.$$
+								</span> 
+								
+								
+							</p>
+						</div>
+					</div>
+					
+					
+					
+					
+					<br/><br/></br><br/>
+				</section>
+				<section data-auto-animate>
+					<h5>3.2 Partial Derivatives</h5>
+					<div id="sbt" style="margin-top:-10px">
+						<p><strong>3.2.4 Higher order derivatives</strong></p>
+					</div>
+	
+					<div class="size-55">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong> 
+									 
+$f(x,y) = x \sin y + y \cos x,$ calculate all of the second order
+partial derivatives of $f$ and show that $\displaystyle\frac{\partial^2f}{\partial x\partial y}= \dfrac{\partial^2f}{\partial y\partial
+x}$.
+								</span> 
+							
+								
+							</p>
+						</div>
+					</div>
+					
+					<div style="margin-top:-10px">
+						<div id="theorem">
+							<br/><br/><br/><br/><br/><br/><br/>
+							
+						</div>
+					</div>
+					
+					
+					<br/><br/>
+				</section>
+			</section>
 				
+
+			<section>
+				<h4>Main Points</h4>
+
+				<br/>
+				<div>
+					<ul>
+						<li>
+						You should know the definition and meaning of partial derivatives.
+							
+						</li>
+						<li>
+							You should be able to evaluate partial derivatives of functions.
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<br/><br/><br/><br/><br/>
+			</section>
 
 				
 			<section>
