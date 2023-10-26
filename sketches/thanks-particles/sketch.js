@@ -1,7 +1,10 @@
+// Based upon 
 // Daniel Shiffman
-// https://thecodingtrain.com/
+// http://codingtra.in
 // Steering Text Paths
 // Video: https://www.youtube.com/watch?v=4hA7G3gup-4
+
+// This version by Juan Carlos Ponce Campuzano 26/Oct/2023
 
 let font;
 let vehicles = [];
@@ -48,3 +51,4 @@ function draw() {
     v.show();
   }
 }
+
