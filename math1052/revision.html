@@ -201,13 +201,307 @@
 				</section>
 			</section>
 
+			<section>
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>Limits and Continuity</strong></p>
+					</div>
+
+					<div class="size-75">
+						<div class="">
+
+							<div>
+								<p>
+									<strong>Test for showing no limit exists</strong>
+								</p>
+							</div>
+							<p>
+								<span>
+									If $\begin{cases}
+									f(x,y)\to L_1 & \text{as $(x,y) \to (a,b)$ along the path $C_1\in D$}
+									\\[2mm]
+									f(x,y)\to L_2 & \text{as $(x,y) \to (a,b)$ along the path $C_2\in D$}
+									\end{cases}$
+								</span>
+							</p>
+							<p>
+								such that $L_1\neq L_2,$ then the limit
+$\ds{\lim_{(x,y) \to (a,b)}f(x,y)}$ does not exist.
+							</p>
+							
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+			
+				
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>Limits and Continuity</strong></p>
+					</div>
+
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>
+										Definition. 
+									</strong>
+									Let $f:D\to\R$ be a function with domain $D,$ an open subset of $\R^2.$
+									Let $(a,b)\in D.$ Then $f(x,y)$ is <span id="rr">continuous</span> at $(a,b)$ if
+									\[
+									\lim_{(x,y) \to (a,b)}f(x,y)=f(a,b),
+									\]
+								</span>
+								
+								
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									i.e., the limit $(x,y)\to (a,b)$ of $f(x,y)$ exists and is equal to $f(a,b).$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									If a function is continuous on all of $D$ we say simply that it is 
+									<span id="rr">continuous</span> on $D.$
+								</span>
+								
+							</p>
+						</div>
+					</div>
+					<br/><br/><br/>
+				</section>
+
+				
+
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>Partial Derivatives</strong></p>
+					</div>
+
+					<div class="size-80" style="margin-top:0px;text-align:center">
+						<div class="">
+							<p>
+								<span>
+									$\ds\frac{\partial f}{\partial x}(a,b) = f_x(a,b) 
+=\lim_{h \ra 0}\frac{f(a+h,b)-f(a,b)}{h} .$
+								</span>
+								
+							</p>
+							
+							
+						</div>
+					</div>
+
+					<div class="size-80" style="margin-top:-10px;text-align:center">
+						<div class="">
+							<p>
+								<span>
+									$\ds\frac{\partial f}{\partial y}(a,b) = f_y(a,b) 
+									=\lim_{h \ra 0}\frac{f(a,b+h)-f(a,b)}{h}  .$
+								</span>
+								
+							</p>
+							
+							
+						</div>
+					</div>
+
+					
+
+					<br/><br/>
+				</section>
+
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>Partial Derivatives</strong></p>
+					</div>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span>
+									The second order partial derivatives of $f$, if they exist, are written as
+									\begin{align*}
+f_{xx} & = \frac{\partial^2f}{\partial x^2},   &  \hspace{-1cm}
+f_{yx} & = \frac{\partial^2f}{\partial x\partial y}=
+\frac{\partial}{\partial x}\Bigl(\frac{\partial f}{\partial y}\Bigr),
+\\[3mm]
+f_{yy} & = \dfrac{\partial^2f}{\partial y^2}, & \hspace{-1cm}
+f_{xy} & = \dfrac{\partial^2f}{\partial y\partial x}
+ = \frac{\partial}{\partial y}\Bigl(\frac{\partial f}{\partial x}\Bigr).
+\end{align*}
+								</span>
+							</p>
+							<p>
+								<span>
+									If $f_{xy}$ and $f_{yx}$ are both continuous, then $f_{xy} = f_{yx}$.
+								</span>
+								
+							</p>
+						</div>
+					</div>
+
+					
+
+					<br/><br/>
+				</section>
+
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>Tangent Plane</strong></p>
+					</div>
+
+					<div class="size-80" style="margin-top:-0px">
+						<div class="left-txt">
+							<p>
+								In general, the equation of the tangent plane to a given surface 
+$z=f(x,y)$ at $(a,b,f(a,b)),$ is
+							</p>
+
+						</div>
+						<div>
+							<p>
+								
+$
+z=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b),
+$
+
+
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<p>
+							
+or, equivalently,
+
+
+							</p>
+
+						</div>
+						
+						<div class="left-txt">
+							<p>
+$
+\qquad (x,y,z)= \bigl(a,b,f(a,b)\bigr)
+$
+
+							</p>
+							
+
+						</div>
+						<div>
+							<p>
+$
+\qquad +\,
+\lambda\bigl(1,0,f_x(a,b)\bigr)+
+\mu\bigl(0,1,f_y(a,b)\bigr),
+$
+
+							</p>
+						
+
+						</div>
+						<div class="left-txt">
+								<p>
+$
+\text{with }\;\;\lambda,\mu\in\R.
+$
+
+							</p>
+						</div>
+					</div>
+
+					
+
+					<br/><br/>
+				</section>
+				
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>Linear Approximations</strong></p>
+					</div>
+
+					<div class="size-70" style="margin-top:-20px">
+						<div>
+							<ul style="line-height:50px">
+								<li>
+									<span>
+										A <span id="rr">cross-section</span> is the intersection of a surface with 
+										a vertical plane such as $y=C.$
+									</span>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+
+					
+
+					<br/><br/>
+				</section>
+
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>Gradientsand Directional Derivatives</strong></p>
+					</div>
+
+					<div class="size-70" style="margin-top:-20px">
+						<div>
+							<ul style="line-height:50px">
+								<li>
+									<span>
+										A <span id="rr">cross-section</span> is the intersection of a surface with 
+										a vertical plane such as $y=C.$
+									</span>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+
+					
+					<br/><br/>
+				</section>
+				<section  data-auto-animate >
+					<h4>Chapter 3</h4>
+					<div id="sbt" >
+						<p><strong>The Chain Rule and Applications</strong></p>
+					</div>
+
+					<div class="size-70" style="margin-top:-20px">
+						<div>
+							<ul style="line-height:50px">
+								<li>
+									<span>
+										A <span id="rr">cross-section</span> is the intersection of a surface with 
+										a vertical plane such as $y=C.$
+									</span>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+
+
+					<br/><br/>
+				</section>
+			</section>
+
+
+
 
 			<section  data-auto-animate data-background-color="rgb(0,0,0)" data-background-iframe="../../sketches/thanks-particles/" data-background-interactive>
 	
-				
-				
-				
-				<br/>
 			</section>
 			
 
