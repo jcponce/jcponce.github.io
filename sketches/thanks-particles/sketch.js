@@ -13,7 +13,7 @@ function preload() {
   font = loadFont('AvenirNextLTPro-Demi.otf');
 }
 
-let w, h;
+let w, h, points;
 
 function setup() {
   w = windowWidth;
@@ -26,7 +26,7 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
 
-  var points = font.textToPoints('Thanks!', w/2-350, h/2, 200, {
+  points = font.textToPoints('Thanks!', w/2-350, h/2, 200, {
     sampleFactor: 0.1
     //simplifyThreshold : 0.1
   });
@@ -52,3 +52,13 @@ function draw() {
   }
 }
 
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  w = windowWidth;
+  h = windowHeight;
+  points = font.textToPoints('Thanks!', w/2-350, h/2, 200, {
+    sampleFactor: 0.1
+    //simplifyThreshold : 0.1
+  });
+}
