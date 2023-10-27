@@ -53,12 +53,4 @@ function draw() {
 }
 
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  w = windowWidth;
-  h = windowHeight;
-  points = font.textToPoints('Thanks!', w/2-350, h/2, 200, {
-    sampleFactor: 0.1
-    //simplifyThreshold : 0.1
-  });
-}
+
