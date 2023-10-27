@@ -27,7 +27,7 @@ function setup() {
   // text('train', 100, 200);
 
   points = font.textToPoints('All the best!', w/2-350, h/2+40, 120, {
-    sampleFactor: 0.1
+    sampleFactor: 0.15
     //simplifyThreshold : 0.1
   });
 
