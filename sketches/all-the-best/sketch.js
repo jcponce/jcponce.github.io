@@ -17,7 +17,7 @@ let w, h, points;
 
 function setup() {
   w = 800;
-  h = 250;
+  h = 150;
   createCanvas(w, h);
   background(0);
   // textFont(font);
@@ -26,7 +26,7 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
 
-  points = font.textToPoints('All the best!', w/2-350, h/2+30, 120, {
+  points = font.textToPoints('All the best!', w/2-350, h/2+40, 120, {
     sampleFactor: 0.1
     //simplifyThreshold : 0.1
   });
