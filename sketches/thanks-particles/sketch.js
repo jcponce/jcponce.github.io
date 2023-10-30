@@ -27,7 +27,7 @@ function setup() {
   // text('train', 100, 200);
 
   points = font.textToPoints('Thanks!', w/2-350, h/2, 200, {
-    sampleFactor: 0.1
+    sampleFactor: 0.12
     //simplifyThreshold : 0.1
   });
 

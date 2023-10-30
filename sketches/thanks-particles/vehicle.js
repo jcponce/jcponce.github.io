@@ -13,8 +13,8 @@ class Vehicle {
     this.target = createVector(x, y);
     this.vel = p5.Vector.random2D();
     this.acc = createVector();
-    this.r = 7;
-    this.maxspeed = 4;
+    this.r = 8;
+    this.maxspeed = 5;
     this.maxforce = 1;
   }
 
@@ -42,7 +42,7 @@ class Vehicle {
 
   show() {
     colorMode(HSB);
-    stroke(this.i,255,255);
+    stroke(this.i/(2),255,255);
     strokeWeight(this.r);
     point(this.pos.x, this.pos.y);
   }
