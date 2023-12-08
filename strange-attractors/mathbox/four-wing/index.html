@@ -17,8 +17,8 @@
 
     // GUI props
     let props = {
-      a: 0.2,
-      b: 0.01,
+      a: 2.07,
+      b: 1.79,
       c: -0.4
     };
 
@@ -26,9 +26,9 @@
     let dfdt = ([x, y, z]) => {
       let {a, b, c} = props;
       return [
-        5 * (a * (f * x) + f * y * f * z),
-        5 * (b * (f * x) + c * (f * y) - f * x * f * z),
-        5 * (-f * z - f * x * f * y),
+        2.5 * ( y + a * x * y + x * z ),
+        2.5 * (1 - b * (x * x) +  y * z),
+        2.5 * (x -  x * x -  y * y),
       ];
     }
 
@@ -60,7 +60,7 @@
 
     // Spawn dat gui
     let gui = new dat.GUI();
-    gui.add(props, 'b').min(-1).max(1).step(.001).onChange(recalculate);
+    gui.add(props, 'b').min(-2).max(2).step(.001).onChange(recalculate);
     
     // Spawn mathbox
     let mathbox = window.mathbox = mathBox({
