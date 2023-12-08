@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MathBox - Thomas Attractor</title>
+  <title>MathBox - Four-Wing Attractor</title>
   <script src="../assets/mathbox-bundle.min.js"></script>
   <script src="../assets/dat.gui.min.js"></script>
   <link rel="stylesheet" href="../assets/mathbox.css">
@@ -17,37 +17,28 @@
 
     // GUI props
     let props = {
-      b: 0.208186,
+      a: 0.2,
+      b: 0.01,
+      c: -0.4
     };
 
-    let f = 0.6; // scale factor
+    let f = 0.5; // scale factor
     let dfdt = ([x, y, z]) => {
-      let {b} = props;
+      let {a, b, c} = props;
       return [
-        50 * (Math.sin(f*y) - b * f*x),
-        50 * (Math.sin(f*z) - b * f*y),
-        50 * (Math.sin(f*x) - b * f*z),
+        5 * (a * (f * x) + f * y * f * z),
+        5 * (b * (f * x) + c * (f * y) - f * x * f * z),
+        5 * (-f * z - f * x * f * y),
       ];
     }
-
-    /*
-    let dfdt = ([x, y, z]) => {
-      let {σ, r, b} = props;
-      return [
-        (-σ * (x - y) + (Math.sin(y / 5) * Math.sin(z / 5) * 200)) * .65,
-        (r * x - y - x * z + (Math.sin(x / 5) * Math.sin(z / 5) * 200)) * .65,
-        (x * y - b * z + Math.cos(y / 5) * Math.cos(x / 5) * 200) * .65,
-      ];
-    }
-    */
 
 
     let dedt = ([x, y, z], [dx, dy, dz]) => {
-      let {b} = props;
+      let {a, b, c} = props;
       return [
-        Math.sin(dy) - b * dx,
-        Math.sin(dz) - b * dy,
-        Math.sin(dx) - b * dz,
+        a * dx + dy * dz,
+        b * dx + c * dy - dx * dz,
+        -dz - dx * dy,
       ];
     }
 
@@ -69,7 +60,7 @@
 
     // Spawn dat gui
     let gui = new dat.GUI();
-    gui.add(props, 'b').min(0).max(0.5).step(.001).onChange(recalculate);
+    gui.add(props, 'b').min(-1).max(1).step(.001).onChange(recalculate);
     
     // Spawn mathbox
     let mathbox = window.mathbox = mathBox({
