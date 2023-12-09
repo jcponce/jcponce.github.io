@@ -19,7 +19,7 @@
      let props = {
       σ: 10,
       r: 28,
-      b: 8/3,
+      b: 1.89,
     };
 
     // Lorenz System
@@ -31,6 +31,17 @@
         x * y - b * z,
       ];
     }
+
+    /*
+    let dfdt = ([x, y, z]) => {
+      let {σ, r, b} = props;
+      return [
+        -b*x-4*y-4*z-y*y,
+        -b*y-4*z-4*x-z*z,
+        -b*z-4*x-4*y-x*x,
+      ];
+    }
+    */
 
     let dedt = ([x, y, z], [dx, dy, dz]) => {
       let {σ, r, b} = props;
