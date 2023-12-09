@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MathBox - Harlvorsen Attractor</title>
+  <script src="../assets/mathbox-bundle.min.js"></script>
+  <script src="../assets/dat.gui.min.js"></script>
+  <link rel="stylesheet" href="../assets/mathbox.css">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>
+<body>
+  <script>
+
+    /*
+    Adapted from Steven Wittens using MathBox 8/Dec/2023
+    */
+
+     // GUI props
+     let props = {
+      a: 1.89
+    };
+
+    // Lorenz System
+    let dfdt = ([x, y, z]) => {
+      let {a} = props;
+      return [
+        -a*x-4*y-4*z-y*y,
+        -a*y-4*z-4*x-z*z,
+        -a*z-4*x-4*y-x*x,
+      ];
+    }
+
+    /*
+    let dfdt = ([x, y, z]) => {
+      let {σ, r, b} = props;
+      return [
+        -b*x-4*y-4*z-y*y,
+        -b*y-4*z-4*x-z*z,
+        -b*z-4*x-4*y-x*x,
+      ];
+    }
+    */
+
+    let dedt = ([x, y, z], [dx, dy, dz]) => {
+      let {σ, r, b} = props;
+      return [
+        -σ * (dx - dy),
+        r * dx - dy - (dx * z + x * dz),
+        dx * y + x * dy - b * dz,
+      ];
+    }
+
+    // Simulation Parameters
+    let W = 10;
+    let D = 32;
+    let N = 32;
+    let dt = 1/300;
+
+    // (Re)set initial position
+    let ps;
+    let lerp = (a, b, t) => a + (b - a) * t;
+    let seq = (n, s = 0, t = 1) => [...new Array(n)].map((_, i) => s + i * t);
+    let range = (a, b, n) => seq(n, a, (b - a) / (n - 1));  
+    let recalculate = () => {
+      ps = range(-W, W, D).map(y => range(-W, W, D).map(x => [x, y, 0]));      
+    }
+    recalculate();
+
+    // Spawn dat gui
+    let gui = new dat.GUI();
+    gui.add(props, 'a').min(1).max(5).step(.01).onChange(recalculate);
+    
+    // Spawn mathbox
+    let mathbox = window.mathbox = mathBox({
+      plugins: [
+        'core', 
+        'controls', 
+        'cursor', 
+        //'stats'
+      ],
+      controls: {
+        klass: THREE.OrbitControls
+      },
+    });
+
+    // Black background
+    let three = window.three = mathbox.three;
+    three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
+
+    // Set camera
+    mathbox.camera({
+      proxy: true,
+      position: [-4, -3, 0],
+      fov: 30,
+    });
+
+
+  // View
+  mathbox
+    .unit({
+      scale: 720,
+      focus: 6,
+    })
+      .cartesian({
+        range: [[-W, W], [-W, W], [-W, W]],
+        scale: [1, 1, 1],
+      })
+        .grid({
+          origin: [W, -W, -W],
+          axes: 'xz',
+          opacity: .0,
+        })
+        .grid({
+          origin: [W, -W, -W],
+          axes: 'xy',
+          opacity: .0,
+        })
+        .grid({
+          origin: [W, -W, W],
+          axes: 'yz',
+          opacity: .0,
+        })
+
+        .area({
+          axes: 'xy',
+          width: D,
+          height: D,
+          history: N + 1,
+          channels: 4,
+          items: 2,
+          expr: (emit, x, y, i, j) => {
+            // Integrate one step of lorenz
+            let p = ps[j][i];
+            let dp = dfdt(p);
+            p[0] = p[0] + dp[0]*dt;
+            p[1] = p[1] + dp[1]*dt;
+            p[2] = p[2] + dp[2]*dt;
+            emit(p[0], p[1], p[2], 0);
+            
+            // Color by velocity
+            let rmp = e => Math.sqrt(e*e*1.5+.25);
+            let sq = e => (e);
+
+            let l = Math.sqrt(dp[0]*dp[0] + dp[1]*dp[1] + dp[2]*dp[2]);
+            let il = 1/l;
+
+            let r = lerp(rmp(dp[0]*il), .18, .5);
+            let g = lerp(rmp(dp[1]*il), .55, .5);
+            let b = lerp(rmp(dp[2]*il),   1, .5);
+      
+            emit(sq(g), sq(r), sq(b), 1);
+          },
+        })
+        .transpose({
+          order: 'zxy',
+        })
+        .slice({
+          items: [0, 1],
+        })
+        .slice({
+          source: '<<',
+          items: [1, 2],
+        })
+        .line({
+          points: '<<',
+          colors: '<',
+          width: 2,
+          depth: .5,
+          color: [2,0,5],//0xFF3090,
+          thick: true,
+        })
+  </script>
+</body>
+</html>
+
+
