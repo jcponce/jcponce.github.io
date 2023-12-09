@@ -62,7 +62,6 @@
     let dt = 1/500;
 
     // (Re)set initial position
-
     let lerp = (a, b, t) => a + (b - a) * t;
 
     // Array of n elements starting at 's' with step 't'
@@ -70,7 +69,7 @@
 
     // Partition on the interval [a,b] defined as an array
     let range = (a, b, n) => seq(n, a, (b - a) / (n - 1));  
-    
+
     let ps;
     let recalculate = () => {
       ps = range(-W, W, D).map(y => range(-W, W, D).map(x => [x, y, 0]));      
