@@ -44,7 +44,7 @@ let points = [];
 
 function setup() {
   pixelDensity(1);
-
+  //let canvas = createCanvas(1920, 1080, WEBGL);
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes("antialias", true);
 
