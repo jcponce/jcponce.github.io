@@ -68,6 +68,8 @@ function setup() {
   points[13] = new P4Vector(1, -1, 1, -1);
   points[14] = new P4Vector(1, 1, 1, -1);
   points[15] = new P4Vector(-1, 1, 1, -1);
+
+  cursor('grab');
 }
 
 function windowResized() {
@@ -168,4 +170,20 @@ function edge(offset, i, j, points) {
   const a = points[i + offset];
   const b = points[j + offset];
   line(a.x, a.y, a.z, b.x, b.y, b.z);
+}
+
+let imView = false;
+
+function mousePressed() {
+  if (imView === false) {
+    imView = true;
+  }
+  cursor('grabbing');
+}
+
+function mouseReleased() {
+  if (imView === true) {
+    imView = false;
+  }
+  cursor('grab');
 }
