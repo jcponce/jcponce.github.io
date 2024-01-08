@@ -100,7 +100,7 @@ void main() {
     vec2 m = (iMouse.xy * 2. - iResolution.xy) / iResolution.y;
   
 		// Default circular motion if mouse not clicked
-    if(!iView) m = vec2(0.0, 0.0); 
+    if(!iView) m = vec2(0.7, -0.1); 
   
     vec3 ro = vec3(0.0, 0.0, -3.0); // ray origin
     vec3 rd = normalize(vec3(uv, 1.0)); // ray direction
