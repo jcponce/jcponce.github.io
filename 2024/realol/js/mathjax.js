@@ -1,3 +1,4 @@
+// MathJax setup with Macros
 MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
