@@ -13,29 +13,30 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="css/w3-theme-blue.css">
-    <link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Scripts -->
+    <script src="js/scripts.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- MathCell -->
     <script src="js/math.js"></script>
     <script src="js/mathcell.js"></script>
 
     <!--MathJax starts-->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        processEscapes: true
-      },
-        TeX: { 
-          equationNumbers: { autoNumber: "AMS" },
-          extensions: ["AMSmath.js", "AMSsymbols.js"],
-          Macros: {
-            
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'ams',
+          //packages: {'[-]': ['ams']}, // it is already included in v.3
+          macros: {
             R: "\\mathbb{R}",
-						C: "\\mathbb{C}",
-						N: "\\mathbb{N}",
+					  C: "\\mathbb{C}",
+            N: "\\mathbb{N}",
 						Z: "\\mathbb{Z}",
 						Q: "\\mathbb{Q}",
 						Re: "{\\mbox{Re}}\\,",
@@ -60,18 +61,15 @@
 						nec: "{\\boxed{\\Rightarrow}}",
 						suf: "{\\boxed{\\Leftarrow}}",
 						coloneqq: "{\\,:=\\,}",
-                          
-          }
-        }
-      });
+          }  
+        },
+      };
     </script>
-
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML">
-  </script>
-  <!--MathJax Ends-->
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <!--MathJax Ends-->
 </head>
-
 
 <body>
 
@@ -103,7 +101,7 @@
 <div class="w3-main w3-large" style="margin-left:250px;">
 
 <!-- Bar on top shows/hides after scrolling -->
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+<div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
   <p><i class="fa fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
   <span id="myIntro" class="w3-hide">Chapter 1: Introduction</span></p>
 </div>
@@ -148,7 +146,7 @@ Albert Einstein</p>
 <hr>
 <h2>This is an example of paragraphs with maths:</h2>
 
-<p>Dada una topolog&#xED;a $\tau$ para $X$ decimos que $\mathcal{B}\subset \tau$ es una <strong> base </strong> para
+<p>Dada una topolog&#xED;a $\tau$ para $X$ decimos que \(\mathcal{B}\subset \tau\) es una <strong> base </strong> para
   $\tau$ si todo abierto
   $A\in \tau$ puede expresarse como uni&#xF3;n de elementos de $\mathcal{B}$. La intenci&#xF3;n de definir una base para
   una topolog&#xED;a
@@ -158,6 +156,17 @@ Albert Einstein</p>
 <p> Observemos que $\mathcal{B}=\{ X \}$ es una base para
   la topolog&#xED;a trivial. Por otro lado, la colecci&#xF3;n
   $\mathcal{B}=\{\{x\}|\; x\in X\}$ es base para la topolog&#xED;a discreta.</p>
+
+<p>This is an equation with number
+  \begin{eqnarray}\label{eq}
+  ax^2+bx+c=0 
+  \end{eqnarray}
+</p>
+
+<p>Now I can reference ($\ref{eq}$) above.</p>
+
+<p>Some AMS extensions: 
+  $$\Bbbk \text{ and } \because \text{ and } \pitchfork$$</p>
 
   <p class="w3-responsive">The Discrete Fourier Transform is defined as
     \begin{aligned}
@@ -173,6 +182,57 @@ Albert Einstein</p>
     ,X_{N-1}.$$
     </p>
 
+    <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive" style="padding:8px 16px 8px 16px;">
+      <p>
+        <strong>Theorem 12.1.5. </strong>
+        Suppose that $U \subseteq \R^n$ is an open set and that 
+         $f \colon U \to \R^m$ is differentiable.
+        <span>
+          Then all the partial derivatives at $p$
+        exist
+        </span>
+        <span>
+          and, in terms of the standard bases of $\R^n$ and $\R^m,$
+        </span>
+        <span>
+          $f'(p)$ is represented by the matrix
+        </span>
+      </p>
+      <p></p>
+    </div>
+
+    
+
+    <p>
+      <span>
+      $$
+      \begin{bmatrix}
+      \dfrac{\partial f_1}{\partial x_1}(p)
+      &
+      \dfrac{\partial f_1}{\partial x_2}(p)
+      & \ldots &
+      \dfrac{\partial f_1}{\partial x_n}(p)
+      \\[6pt]
+      \dfrac{\partial f_2}{\partial x_1}(p)
+      &
+      \dfrac{\partial f_2}{\partial x_2}(p)
+      & \ldots &
+      \dfrac{\partial f_2}{\partial x_n}(p)
+      \\
+      \vdots & \vdots & \ddots & \vdots
+      \\
+      \dfrac{\partial f_m}{\partial x_1}(p)
+      &
+      \dfrac{\partial f_m}{\partial x_2}(p)
+      & \ldots &
+      \dfrac{\partial f_m}{\partial x_n}(p)
+      \end{bmatrix} .
+      $$
+      </span>
+      
+    </p>
+
+<p>I can reference again the equation ($\ref{eq}$) above.</p>
 
 <br>
 
@@ -315,30 +375,46 @@ width="100%" height="450px" scrolling="no"></iframe>
 
 <!-- Footer -->
 <footer class="w3-container w3-center w3-theme" style="padding:32px">
-  <p>
-    <span class="w3-opacity-min">
+
+  <div class="w3-row w3-opacity-min">
+
+    <div class="w3-col m6">
+      <span class="w3-hide-small w3-hide-medium">
+        Real Analysis <i class="fa-regular fa-copyright"></i>  
+        <span><script>document.write(new Date().getFullYear());</script></span>
+        by J. C. Ponce Campuzano
+      </span>
+      <span class="w3-hide-large">
+        Real Analysis <i class="fa-regular fa-copyright"></i>  
+        <span><script>document.write(new Date().getFullYear());</script></span>
+        <br/>by J. C. Ponce Campuzano
+      </span>
+    </div>
+
+    <div class="w3-col m3 w3-hide-small">
       
-      <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" class="twitter-share-button"
-				data-show-count="false">Post</a>
-			  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>&nbsp;&nbsp;&nbsp;-->
-      <a href="https://twitter.com/jcponcemath"><i class="fab fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
-      <a href="https://www.patreon.com/jcponce"><i class="fab fa-patreon"></i></a>&nbsp;&nbsp;&nbsp;
-      <a href="https://github.com/jcponce"><i class="fab fa-github"></i></a>
-      &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><i class="fab fa-creative-commons"></i></a>
-      &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <span><script>document.write(new Date().getFullYear());</script></span>
-    </span>
-  </p>
+      <a style="text-decoration: none;" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+        <i class="fa-brands fa-creative-commons"></i>&nbsp;
+        <i class="fa-brands fa-creative-commons-by"></i>&nbsp;
+        <i class="fa-brands fa-creative-commons-nc"></i>&nbsp;
+        <i class="fa-brands fa-creative-commons-sa"></i>
+      </a>
+    </div>
+
+    <div class="w3-col m3 w3-hide-small">
+      <a href="https://www.patreon.com/jcponce" target="_blank"><i class="fa-brands fa-patreon"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/jcponce" target="_blank"><i class="fa-brands fa-github"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="https://twitter.com/jcponcemath" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="https://twitter.com/@jcponcemath" target="_blank"><i class="fa-brands fa-mastodon"></i></a>
+    </div>
+   
+  </div>
   
 </footer>
      
 </div>
 
 <!-- !PAGE CONTENT ENDS! -->
-
-<script src="js/scripts.js"></script>
-
      
 </body>
 </html> 
