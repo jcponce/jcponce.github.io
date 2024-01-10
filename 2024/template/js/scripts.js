@@ -12,7 +12,7 @@ function w3_close() {
 // Change style of top container on scroll
 window.onscroll = function() {myTopBar()};
 function myTopBar() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+  if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
     document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
     document.getElementById("myTitle").classList.add("w3-show-inline-block");
   } else {
