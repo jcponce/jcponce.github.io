@@ -10,11 +10,9 @@
   <meta name="author" content="Juan Carlos Ponce Campuzano">
   <meta name="language" content="en-US">
 
-  <!-- Icons -->
   <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
 
-  <!-- Style -->
   <link rel="stylesheet" href="css/w3.css">
   <link rel="stylesheet" href="css/w3-theme-blue.css">
   <link rel="stylesheet" href="css/style.css">
@@ -25,19 +23,18 @@
   <script src="js/scripts.js"></script>
   <script src="js/w3codecolor.js"></script>-->
 
-  <!-- MathCell -->
+  <!-- MathCell applets & MathJax -->
   <script src="js/math.js"></script>
   <script src="js/mathcell.js"></script>
-
-  <!-- MathJax starts: See mathjax.js for configurations -->
   <script src="js/mathjax.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
-  <!-- MathJax Ends -->
+
 </head>
 
 <body>
 
-  <!-- Sidebar/menu -->
+  <!-- Sidebar -->
   <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;"
     id="mySidebar">
     <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="#"><img src="imgs/my-logo-black.png"
@@ -84,7 +81,7 @@
         <a href="https://github.com/jcponce" target="_blank"><i class="fa-brands fa-github"></i></a>&nbsp;&nbsp;&nbsp;
         <a href="https://twitter.com/jcponcemath" target="_blank"><i
             class="fa-brands fa-x-twitter"></i></a>&nbsp;&nbsp;&nbsp;
-        <a href="https://twitter.com/@jcponcemath" target="_blank"><i class="fa-brands fa-mastodon"></i></a>
+        <a href="https://mathstodon.xyz/@jcponcemath" target="_blank"><i class="fa-brands fa-mastodon"></i></a>
       </div>
     </div>
   </nav>
@@ -106,7 +103,6 @@
       </div>
 
     </div>
-
 
     <!-- Header -->
     <header class="w3-container w3-theme" style="padding:64px 32px">
@@ -201,7 +197,7 @@
       <p>Now I can reference ($\ref{eq}$) above.</p>
 
       <p>Some AMS extensions:
-        $$\Bbbk \text{ and } \because \text{ and } \pitchfork$$</p>
+        $$\LARGE \Bbbk \text{ and } \because \text{ and } \pitchfork$$</p>
 
       <p>The Discrete Fourier Transform is defined as
         <span class="w3-responsive">
@@ -218,6 +214,15 @@
         into another sequence of complex numbers,
         $$\displaystyle \mathbf {X} :=X_{0},X_{1},\ldots
         ,X_{N-1}.$$
+        Let's try another
+        <span class="w3-responsive">
+          \begin{eqnarray}\label{DFT}
+          X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+          &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+          {2\pi
+          }{N}}n\right)\right],}
+          \end{eqnarray}
+        </span>
       </p>
 
       <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive" style="padding:8px 16px 8px 16px;">
@@ -235,73 +240,27 @@
           <span>
             $f'(p)$ is represented by the matrix
           </span>
+          <span class="w3-responsive">
+            \begin{eqnarray}\label{DFT2}
+            X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+            &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+            {2\pi
+            }{N}}n\right)\right],}
+            \end{eqnarray}
+          </span>
         </p>
         <p></p>
       </div>
 
-
-
-      <p>
-        <span class="w3-responsive">
-          $$
-          f'(p)\coloneqq
-          \begin{bmatrix}
-          \dfrac{\partial f_1}{\partial x_1}(p)
-          &
-          \dfrac{\partial f_1}{\partial x_2}(p)
-          & \ldots &
-          \dfrac{\partial f_1}{\partial x_n}(p)
-          \\[6pt]
-          \dfrac{\partial f_2}{\partial x_1}(p)
-          &
-          \dfrac{\partial f_2}{\partial x_2}(p)
-          & \ldots &
-          \dfrac{\partial f_2}{\partial x_n}(p)
-          \\
-          \vdots & \vdots & \ddots & \vdots
-          \\
-          \dfrac{\partial f_m}{\partial x_1}(p)
-          &
-          \dfrac{\partial f_m}{\partial x_2}(p)
-          & \ldots &
-          \dfrac{\partial f_m}{\partial x_n}(p)
-          \end{bmatrix} .
-          $$
-        </span>
-
-      </p>
-
-      <p>I can reference again the equation ($\ref{eq}$) above.</p>
-
-      <br>
-
-      <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive" style="padding:8px 16px 8px 16px;">
-        <p><strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$. Existe una
-          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:
-        </p>
-        <ol>
-          <li>
-            $X=\cup \{B\,|\, B\in \mathcal{B}\}$
-          </li>
-          <li>
-            Dados $A,B\in \mathcal{B}$ y $x\in A\cap B$ existe $C\in \mathcal{B}$ tal que $x\in C\subset A\cap B$.
-          </li>
-        </ol>
-        <p></p>
-      </div>
-
-      <h3>Subsection 1.1</h3>
-
-      <p>This is a paragraph. Below there is a theorem that shows/hides for large/small screens.
-        The problem is that the numbering of equation will be messed up.
-      </p>
+      <br/>
 
       <!-- This theorem with proof is responsive and shows up for medium and large screens -->
-      <div class="w3-card w3-container w3-light-gray w3-border-left" style="padding:8px 16px 8px 16px;">
-        <p><strong>Theorem 2:</strong>
-          <em>Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
+      <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive" style="padding:8px 16px 8px 16px;">
+        <p>
+          <strong>Theorem 2:</strong>
+          Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
             $S=X+iY$. Then
-            <span class="w3-responsive" style="overflow: hidden;">
+            <span class="w3-responsive">
               \begin{eqnarray}\label{teo01}
               \sum_{n=1}^{\infty} z_n=S
               \end{eqnarray}
@@ -309,12 +268,48 @@
             if and only if
             <span class="w3-responsive" style="overflow: hidden;">
               \begin{eqnarray}\label{teo02}
-              \sum_{n=1}^{\infty} x_n=X\quad \text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
+              \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
               \end{eqnarray}
             </span>
-          </em>
+            Then
+            <span class="w3-responsive">
+              \begin{eqnarray}\label{DFT3}
+              X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+              &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+              {2\pi
+              }{N}}n\right)\right].}
+              \end{eqnarray}
+            </span>
         </p>
-        <br />
+        <p>
+          <span class="w3-responsive">
+            $$
+            f'(p)\coloneqq
+            \begin{bmatrix}
+            \dfrac{\partial f_1}{\partial x_1}(p)
+            &
+            \dfrac{\partial f_1}{\partial x_2}(p)
+            & \ldots &
+            \dfrac{\partial f_1}{\partial x_n}(p)
+            \\[6pt]
+            \dfrac{\partial f_2}{\partial x_1}(p)
+            &
+            \dfrac{\partial f_2}{\partial x_2}(p)
+            & \ldots &
+            \dfrac{\partial f_2}{\partial x_n}(p)
+            \\
+            \vdots & \vdots & \ddots & \vdots
+            \\
+            \dfrac{\partial f_m}{\partial x_1}(p)
+            &
+            \dfrac{\partial f_m}{\partial x_2}(p)
+            & \ldots &
+            \dfrac{\partial f_m}{\partial x_n}(p)
+            \end{bmatrix} .
+            $$
+          </span>
+  
+        </p>
       </div>
 
       <br />
@@ -354,6 +349,64 @@
           $\blacksquare$
         </p>
       </details>
+
+      <p>Again let's write a matrix:</p>
+
+      <p>
+        <span class="w3-responsive">
+          $$
+          f'(p)\coloneqq
+          \begin{bmatrix}
+          \dfrac{\partial f_1}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_1}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_1}{\partial x_n}(p)
+          \\[6pt]
+          \dfrac{\partial f_2}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_2}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_2}{\partial x_n}(p)
+          \\
+          \vdots & \vdots & \ddots & \vdots
+          \\
+          \dfrac{\partial f_m}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_m}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_m}{\partial x_n}(p)
+          \end{bmatrix} .
+          $$
+        </span>
+
+      </p>
+
+      <p>I can reference again the equation ($\ref{eq}$) above.</p>
+
+      <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive" style="padding:8px 16px 8px 16px;">
+        <p><strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:
+        </p>
+        <ol>
+          <li>
+            $X=\cup \{B\,|\, B\in \mathcal{B}\}$
+          </li>
+          <li>
+            Dados $A,B\in \mathcal{B}$ y $x\in A\cap B$ existe $C\in \mathcal{B}$ tal que $x\in C\subset A\cap B$.
+          </li>
+        </ol>
+        <p></p>
+      </div>
+
+      <hr/>
+      <h3>Subsection 1.1</h3>
+
+      <p>This is a paragraph. Below there is a theorem that shows/hides for large/small screens.
+        The problem is that the numbering of equation will be messed up.
+      </p>
+
+    
 
 
       <hr>
@@ -650,6 +703,13 @@
     </div>
     <!-- The Modal ends -->
 
+    <!-- General scripts -->
+    <script src="js/w3codecolor.js"></script>
+    <script>w3CodeColor(); // Provide color format for code</script>
+    <script src="js/scripts.js"></script>
+    <script> includeHTML(); // Import html info file</script>
+
+    <!-- Buttons to navigate -->
     <div class="w3-container w3-center w3-padding-large">
       <a href="#"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
           Previous</button></a>
@@ -659,7 +719,6 @@
 
     <br />
 
-    <!-- Footer -->
     <footer class="w3-container w3-center w3-theme" style="padding:32px">
 
       <div class="w3-row w3-opacity-min">
@@ -692,8 +751,6 @@
           </a>
         </div>
 
-
-
       </div>
 
     </footer>
@@ -701,12 +758,6 @@
   </div>
 
   <!-- !PAGE CONTENT ENDS! -->
-
-  <!-- General scripts -->
-  <script src="js/w3codecolor.js"></script>
-  <script>w3CodeColor(); // Provide color format for code</script>
-  <script src="js/scripts.js"></script>
-  <script> includeHTML(); // Import html info file</script>
 
 </body>
 
