@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Template for Books</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Template for Books">
+  <meta name="keywords" content="keywords">
+  <meta name="author" content="Juan Carlos Ponce Campuzano">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/w3.css">
+  <link rel="stylesheet" href="css/w3-theme-blue.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Martel+Sans">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- General scripts 
+  <script src="js/scripts.js"></script>
+  <script src="js/w3codecolor.js"></script>-->  
+
+  <!-- MathCell -->
+  <script src="js/math.js"></script>
+  <script src="js/mathcell.js"></script>
+
+  <!-- MathJax starts: See mathjax.js for configurations -->
+  <script src="js/mathjax.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <!-- MathJax Ends -->
+</head>
+
+<body>
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;"
+    id="mySidebar">
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="#"><img src="imgs/my-logo-black.png"
+        style="width:35%;margin-top: 5px;margin-bottom: 5px;"></a>
+    <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i
+        class="fa-solid fa-xmark w3-large"></i></a>
+
+    <a class="w3-bar-item w3-button" id="chapterBar" href="#">Chapter 1</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 1</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 2</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 3</a>
+    <a class="w3-bar-item w3-button" id="chapterBar" href="#">Chapter 2</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 1</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 2</a>
+
+
+    <div>
+      <a class="w3-bar-item w3-button" onclick="myAccordion('ch1')" href="javascript:void(0)">Dropdown example
+        <i class="fa fa-caret-down"></i></a>
+      <div id="ch1" class="w3-hide">
+        <a class="w3-bar-item w3-button" href="#">&nbsp; Section 1</a>
+        <a class="w3-bar-item w3-button" href="#">&nbsp; Section 2</a>
+        <a class="w3-bar-item w3-button" href="#">&nbsp; Section 3</a>
+      </div>
+    </div>
+
+
+    <a class="w3-bar-item w3-button" id="chapterBar" href="#">Chapter 3</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 1</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 2</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 3</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 4</a>
+
+    <a class="w3-bar-item w3-button" id="chapterBar" href="#">Chapter 4</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 1</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 2</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 3</a>
+    <a class="w3-bar-item w3-button" href="#">&nbsp; Section 4</a>
+
+    <div class="w3-container w3-center w3-theme" id="mySocial">
+      <div class="">
+        <a href="https://www.patreon.com/jcponce" target="_blank"><i
+            class="fa-brands fa-patreon"></i></a>&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/jcponce" target="_blank"><i class="fa-brands fa-github"></i></a>&nbsp;&nbsp;&nbsp;
+        <a href="https://twitter.com/jcponcemath" target="_blank"><i
+            class="fa-brands fa-x-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+        <a href="https://twitter.com/@jcponcemath" target="_blank"><i class="fa-brands fa-mastodon"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
+  </div>
+
+  <!-- !PAGE CONTENT! -->
+
+  <div class="w3-main w3-large" style="margin-left:250px;">
+
+    <!-- Bar on top shows/hides after scrolling -->
+    <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
+      <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+        <span id="myTitle" class="w3-hide">Chapter 1: Introduction</span>
+      </p>
+    </div>
+
+
+    <!-- Header -->
+    <header class="w3-container w3-theme" style="padding:64px 32px">
+      <h1 class="w3-xxxlarge">Introduction</h1>
+    </header>
+
+    <!-- Main text -->
+    <div class="w3-container" style="padding:32px">
+
+      <h2>Section 1</h2>
+
+      <p>This is an example of a list using W3.CSS</p>
+
+      <ul class="w3-leftbar w3-theme-border" style="list-style:none">
+        <li>Smaller and faster than other CSS frameworks.</li>
+        <li>Easier to learn, and easier to use than other CSS frameworks.</li>
+        <li>Uses standard CSS only (No jQuery or JavaScript library).</li>
+        <li>Speeds up mobile HTML apps.</li>
+        <li>Provides CSS equality for all devices. PC, laptop, tablet, and mobile:</li>
+      </ul>
+
+      <p>This is a GIF:</p>
+
+      <div style="text-align: center;">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJDbwRHyvFdQLTSeFQGv8Fu7vh2m-ah4JCwoP9oNtLHwpPlOgww50HOu-DIAIryl-8357glsTyawl84kdHIs4p8WkiO3wyycbrGzH8NPtJND0RaoIwhp5p_XNL0F2IQvZjYW1yR2AEaK5indISRPWFkKJoMtAUnGApPxCH3HCkZC-zOrsG14dmZxrUXXfH/w1152/ggb-snow.gif"
+          style="width:70%" alt="Responsive">
+      </div>
+
+      <h3>Subsection 1.1</h3>
+
+      <p>This is a paragraph. Below there is a theorem that shows/hides for large/small screens.
+        The problem is that the numbering of equation will be messed up.
+      </p>
+
+      <!-- This theorem with proof is responsive and shows up for small screens -->
+      <div class="w3-hide-large w3-hide-medium">
+        <div class="w3-card w3-container w3-light-gray w3-border-left theorem">
+          <p><strong>Theorem 2:</strong>
+            <em>Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
+              $S=X+iY$. Then
+              <span class="w3-responsive">
+                \begin{eqnarray}\label{teo01-small}
+                \sum_{n=1}^{\infty} z_n=S
+                \end{eqnarray}
+              </span>
+              if and only if
+              <span class="w3-responsive">
+                \begin{eqnarray}\label{teo02-small}
+                \sum_{n=1}^{\infty} x_n=X\quad \text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
+                \end{eqnarray}
+              </span>
+            </em>
+          </p>
+        </div>
+
+        <details>
+          <summary class="w3-hover-text-blue"><strong>Proof</strong>
+          </summary>
+
+          <p>To prove this theorem, we first write the partial sums (2) as
+            \begin{eqnarray}\label{teo03-small}
+            S_N = X_N+iY_N,
+            \end{eqnarray}
+            where
+            \[
+            X_N = \sum_{n=1}^{N}x_n \quad \text{and}\quad Y_N = \sum_{n=1}^{N}y_n.
+            \]
+            Now statement (\ref{teo01-small}) is true if and only if
+            \begin{eqnarray}\label{teo04-small}
+            \lim_{N\rightarrow \infty} S_N = S;
+            \end{eqnarray}
+            and, in view of relation (\ref{teo03-small}) and Theorem 1 on sequences, limit (\ref{teo04}) holds if and
+            only if
+            <span class="w3-responsive">
+              \begin{eqnarray}\label{teo05-small}
+              \lim_{N\rightarrow \infty} X_N=X\quad \text{and}\quad \lim_{N\rightarrow \infty} Y_N=Y.
+              \end{eqnarray}
+            </span>
+            Limits (\ref{teo05-small}) therefore imply statement (\ref{teo01-small}), and conversely.
+            Since $X_N=X$ and $Y_N=Y$ are partial sums of the series (\ref{teo02-small}), the theorem is proved.
+            $\blacksquare$
+          </p>
+        </details>
+      </div>
+
+
+      <!-- This theorem with proof is responsive and shows up for medium and large screens -->
+      <div class="w3-hide-small">
+        <div class="w3-card w3-container w3-light-gray w3-border-left" style="padding:8px 16px 8px 16px;">
+          <p><strong>Theorem 2:</strong>
+            <em>Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
+              $S=X+iY$. Then
+              <span>
+                \begin{eqnarray}\label{teo01}
+                \sum_{n=1}^{\infty} z_n=S
+                \end{eqnarray}
+              </span>
+              if and only if
+              <span>
+                \begin{eqnarray}\label{teo02}
+                \sum_{n=1}^{\infty} x_n=X\quad \text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
+                \end{eqnarray}
+              </span>
+            </em>
+          </p>
+          <br />
+        </div>
+
+        <br />
+
+
+        <details>
+          <summary class="w3-hover-text-blue" style="background-color:#f2f2f2"><b style="font-size:20px">Proof</b>
+          </summary>
+
+          <br>
+
+          <p>To prove this theorem, we first write the partial sums (2) as
+            \begin{eqnarray}\label{teo03}
+            S_N = X_N+iY_N,
+            \end{eqnarray}
+            where
+            \[
+            X_N = \sum_{n=1}^{N}x_n \quad \text{and}\quad Y_N = \sum_{n=1}^{N}y_n.
+            \]
+            Now statement (\ref{teo01}) is true if and only if
+            \begin{eqnarray}\label{teo04}
+            \lim_{N\rightarrow \infty} S_N = S;
+            \end{eqnarray}
+            and, in view of relation (\ref{teo03}) and Theorem 1 on sequences, limit (\ref{teo04}) holds if and
+            only if
+            <span class="">
+              \begin{eqnarray}\label{teo05}
+              \lim_{N\rightarrow \infty} X_N=X\quad \text{and}\quad \lim_{N\rightarrow \infty} Y_N=Y.
+              \end{eqnarray}
+            </span>
+            Limits (\ref{teo05}) therefore imply statement (\ref{teo01}), and conversely.
+            Since $X_N=X$ and $Y_N=Y$ are partial sums of the series (\ref{teo02}), the theorem is proved.
+            $\blacksquare$
+          </p>
+        </details>
+      </div>
+
+      <hr>
+      <h2>W3.CSS is Free</h2>
+      <p>W3.CSS is free to use. No license is necessary.</p>
+
+      <hr>
+      <h2>Easy to Use</h2>
+      <div class="w3-container w3-sand w3-leftbar">
+        <p><i>Make it as simple as possible, but not simpler.</i><br>
+          Albert Einstein</p>
+      </div>
+
+      <hr>
+      <h2>This is an example of paragraphs with maths:</h2>
+
+      <p>Dada una topolog&#xED;a $\tau$ para $X$ decimos que \(\mathcal{B}\subset \tau\) es una <strong> base </strong>
+        para
+        $\tau$ si todo abierto
+        $A\in \tau$ puede expresarse como uni&#xF3;n de elementos de $\mathcal{B}$. La intenci&#xF3;n de definir una
+        base para
+        una topolog&#xED;a
+        es el de hacer posible una descripci&#xF3;n de la topolog&#xED;a sin dar de manera expl&#xED;cita todos los
+        abiertos que
+        la comprenden.</p>
+
+      <p> Observemos que $\mathcal{B}=\{ X \}$ es una base para
+        la topolog&#xED;a trivial. Por otro lado, la colecci&#xF3;n
+        $\mathcal{B}=\{\{x\}|\; x\in X\}$ es base para la topolog&#xED;a discreta.</p>
+
+      <p>This is an equation with number
+        \begin{eqnarray}\label{eq}
+        ax^2+bx+c=0
+        \end{eqnarray}
+      </p>
+
+      <p>Now I can reference ($\ref{eq}$) above.</p>
+
+      <p>Some AMS extensions:
+        $$\Bbbk \text{ and } \because \text{ and } \pitchfork$$</p>
+
+      <p>The Discrete Fourier Transform is defined as
+        <span class="w3-responsive">
+          \begin{aligned}
+          X_{k}&={\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+          &={ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+          {2\pi
+          }{N}}n\right)\right],}
+          \end{aligned}
+        </span>
+        where the last expression follows from the first one by Euler's formula.
+        Essentially, it transforms a sequence of $N$ complex numbers
+        $$\displaystyle \mathbf {x} :=x_{0},x_{1},\ldots ,x_{N-1}$$
+        into another sequence of complex numbers,
+        $$\displaystyle \mathbf {X} :=X_{0},X_{1},\ldots
+        ,X_{N-1}.$$
+      </p>
+
+      <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive" style="padding:8px 16px 8px 16px;">
+        <p>
+          <strong>Theorem 12.1.5. </strong>
+          Suppose that $U \subseteq \R^n$ is an open set and that
+          $f \colon U \to \R^m$ is differentiable.
+          <span>
+            Then all the partial derivatives at $p$
+            exist
+          </span>
+          <span>
+            and, in terms of the standard bases of $\R^n$ and $\R^m,$
+          </span>
+          <span>
+            $f'(p)$ is represented by the matrix
+          </span>
+        </p>
+        <p></p>
+      </div>
+
+
+
+      <p>
+        <span class="w3-responsive">
+          $$
+          f'(p)\coloneqq
+          \begin{bmatrix}
+          \dfrac{\partial f_1}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_1}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_1}{\partial x_n}(p)
+          \\[6pt]
+          \dfrac{\partial f_2}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_2}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_2}{\partial x_n}(p)
+          \\
+          \vdots & \vdots & \ddots & \vdots
+          \\
+          \dfrac{\partial f_m}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_m}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_m}{\partial x_n}(p)
+          \end{bmatrix} .
+          $$
+        </span>
+
+      </p>
+
+      <p>I can reference again the equation ($\ref{eq}$) above.</p>
+
+      <br>
+
+      <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive" style="padding:8px 16px 8px 16px;">
+        <p><strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:
+        </p>
+        <ol>
+          <li>
+            $X=\cup \{B\,|\, B\in \mathcal{B}\}$
+          </li>
+          <li>
+            Dados $A,B\in \mathcal{B}$ y $x\in A\cap B$ existe $C\in \mathcal{B}$ tal que $x\in C\subset A\cap B$.
+          </li>
+        </ol>
+        <p></p>
+      </div>
+
+      <hr>
+      <h2>Now let's see other CSS personalized features</h2>
+
+      <p>Checking other features:</p>
+
+      <p>Code: w3-theme-l5</p>
+
+      <p class="w3-theme-l5">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme-l4</p>
+
+      <p class="w3-theme-l4">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme-l1</p>
+
+      <p class="w3-theme-l1">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme-d1</p>
+
+      <p class="w3-theme-d1">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme-d5</p>
+
+      <p class="w3-theme-d5">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme-light</p>
+
+      <p class="w3-theme-light">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+        \mathcal{P}(X)$. Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme-dark</p>
+
+      <p class="w3-theme-dark">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme-action</p>
+
+      <p class="w3-theme-action">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+        \mathcal{P}(X)$. Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-theme</p>
+
+      <p class="w3-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-text-theme</p>
+
+      <p class="w3-text-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+        Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-border-theme</p>
+
+      <p class="w3-border-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+        \mathcal{P}(X)$. Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-hover-theme</p>
+
+      <p class="w3-hover-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+        \mathcal{P}(X)$. Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-hover-text-theme</p>
+
+      <p class="w3-hover-text-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+        \mathcal{P}(X)$. Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+      <p>Code: w3-hover-border-theme</p>
+
+      <p class="w3-hover-border-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+        \mathcal{P}(X)$. Existe una
+        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+
+
+
+      <hr>
+      <h2>W3.CSS Web Site Templates</h2>
+
+      <p>We have created some responsive W3CSS templates for you to use.</p>
+      <p>You are free to modify, save, share, use or do whatever you want with them:</p>
+
+
+      <div class="w3-panel w3-light-grey w3-padding-16 w3-card">
+        <h3 class="w3-center">Band Template</h3>
+        <div class="w3-content" style="max-width:800px">
+          <a href="tryw3css_templates_band.htm" target="_blank" title="Band Demo"><img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsFZ33_5TIReirHCQmXsDKeS59JD6FuOjKhz-fTgDT1aGfVvoY_QsQ8C-m91Wxs-eII_6z5dliu6BZXV3FkhOt-R0cuhwhUNTtsSdGiDVyRODJJXp0bQkhsG7NrjfSrt40-xfIwnTfQlj-LloLkSPu0-GACy4ADLj39mVuYA0pmVrmfJbJoCJ8-cr8yj-u/s4400/trees-recursion-randomness.jpg"
+              style="width:98%;margin:20px 0" alt="Band Template"></a><br>
+          <div class="w3-row">
+            <div class="w3-col m6">
+              <a href="tryw3css_templates_band.htm" target="_blank" class="w3-button w3-padding-large w3-dark-grey"
+                style="width:98.5%">Demo</a>
+            </div>
+            <div class="w3-col m6">
+              <a href="w3css_templates.asp" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">More
+                Templates &raquo;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <h2>These are examples with iframes</h2>
+
+      <p>This is an example of interactive applet made with MathBox:</p>
+
+      <iframe scrolling="no" style="border:0px;" src="https://topologia-general.github.io/sketches/hopf/" width="100%"
+        height="450px"></iframe>
+
+      <br />
+      <hr>
+
+      <p>This is an example from GeoGebra:</p>
+
+      <iframe scrolling="no" title="Slope field explorer" allowfullscreen=""
+        src="https://www.geogebra.org/material/iframe/id/dabkhkqr/width/712/height/404/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+        width="100%" height="404px" style="border:0px;"> </iframe>
+
+      <br />
+      <hr>
+
+      <p>This is an example with MathCell:</p>
+
+      <div class="mathcell" style="width:100%;height:500px;">
+        <script>
+
+          var parent = document.currentScript.parentNode;
+
+          var id = generateId();
+          parent.id = id;
+
+          MathCell(id, []);
+
+          parent.update = function (id) {
+
+            function z(x, y) { return [x, y, x * x / (x * x + y * y)]; }
+
+            var s = parametric(z, [-1, 1, 300], [-1, 1, 300],
+              { colormap: (x, y) => colorFromHue((x * x / (x * x + y * y)) * 0.7) });
+
+            var data = [s];
+
+            var config = {
+              type: 'threejs',
+              viewpoint: [1, 0.8, 0.9],
+              axesLabels: true,
+              aspectRatio: [1, 1, 1],
+              xMin: -1,
+              xMax: 1,
+              yMin: -1,
+              yMax: 1,
+              zMin: -0.5,
+              zMax: 1.5,
+            };
+
+            evaluate(id, data, config);
+          }
+
+          parent.update(id);
+
+
+        </script>
+      </div>
+
+      <br />
+      <hr>
+
+      <p>This is an example of interactive applet made with p5js:</p>
+
+      <iframe style="border:0px;" src="https://www.dynamicmath.xyz/sketches/tesseract/" width="100%" height="450px"
+        scrolling="no"></iframe>
+
+      <br />
+      <hr>
+
+      <div class="w3-container w3-padding-16 w3-card" style="background-color:#eee">
+        <h3 class="w3-center">Blog Template</h3>
+        <div class="w3-content" style="max-width:800px">
+          <img
+            src="https://1.bp.blogspot.com/-2_huADWhZdY/YMqimifJnHI/AAAAAAAAaek/sRHDckfIlHAGzVvG-XLhlV24ShPoxcYOACLcBGAsYHQ/w1152/complexroots.png"
+            style="width:98%;margin:20px 0" alt="Blog Template"><br>
+          <div class="w3-row">
+            <div class="w3-col m6">
+              <a href="tryw3css_templates_blog.htm" target="_blank" class="w3-button w3-padding-large w3-dark-grey"
+                style="width:98.5%">Demo</a>
+            </div>
+            <div class="w3-col m6">
+              <a href="w3css_templates.asp" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">More
+                Templates &raquo;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <h2>Usin code</h2>
+
+      <p>The folowing are examples with code snippets</p>
+
+      <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+        <h1 class="w3-jumbo">CSS</h1>
+        <p class="w3-xlarge">The Language for Styling Web Pages</p>
+        <a class="w3-button w3-theme w3-hover-white" href="#">LEARN CSS</a>
+        <a class="w3-button w3-theme w3-hover-white" href="#">CSS REFERENCE</a>
+        <p class="w3-large">
+        <p>
+        <div class="w3-code cssHigh notranslate">
+          body {<br>
+          &nbsp;&nbsp;&nbsp; background-color: #d0e4fe;<br>}<br>h1 {<br>
+          &nbsp;&nbsp;&nbsp; color: orange;<br>
+          &nbsp;&nbsp;&nbsp; text-align: center;<br>}<br>p {<br>
+          &nbsp;&nbsp;&nbsp; font-family: &quot;Times New Roman&quot;;<br>
+          &nbsp;&nbsp;&nbsp; font-size: 20px;<br>}
+        </div>
+        <a class="w3-button w3-theme w3-hover-white" href="/css/tryit.asp?filename=trycss_default" target="_blank">Try
+          it Yourself</a>
+      </div>
+
+      <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+        <h1 class="w3-jumbo">JS</h1>
+        <p class="w3-xlarge">The Language for Interaction in Web pages</p>
+        <a class="w3-button w3-theme w3-hover-white" href="#">LEARN JS</a>
+        <a class="w3-button w3-theme w3-hover-white" href="#">JS REFERENCE</a>
+        <p class="w3-large">
+        <p>
+        <div class="w3-code jsHigh notranslate">
+          let x = 0;<br />
+          function add(x, y){<br />
+          &nbsp;&nbsp;&nbsp;return x + y;<br />
+          }
+        </div>
+        <a class="w3-button w3-theme w3-hover-white" href="/css/tryit.asp?filename=trycss_default" target="_blank">Try
+          it Yourself</a>
+      </div>
+
+
+    </div>
+    <!-- Main text ends -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h3>Hello! 👋</h3>
+        </div>
+        <div class="modal-body">
+          <div w3-include-html="support.html"></div>
+        </div>
+        <div class="modal-footer">
+          <p>Thank you! 🙏 I highly appreciate your support! 🤗</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- The Modal ends -->
+
+    <div class="w3-container w3-center w3-padding-large">
+      <a href="#"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
+          Previous</button></a>
+      <a href="#"><button class="w3-right w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">Next
+          &#10095;</button></a>
+    </div>
+
+    <br />
+
+    <!-- Footer -->
+    <footer class="w3-container w3-center w3-theme" style="padding:32px">
+
+      <div class="w3-row w3-opacity-min">
+
+        <div class="w3-col m6">
+          <span class="w3-hide-small w3-hide-medium">
+            Real Analysis <i class="fa-regular fa-copyright"></i>
+            <span>
+              <script>document.write(new Date().getFullYear());</script>
+            </span>
+            by J. C. Ponce Campuzano
+          </span>
+          <span class="w3-hide-large">
+            Real Analysis <i class="fa-regular fa-copyright"></i>
+            <span>
+              <script>document.write(new Date().getFullYear());</script>
+            </span>
+            <br />by J. C. Ponce Campuzano
+          </span>
+        </div>
+
+        <div class="w3-col m6">
+
+          <a style="text-decoration: none;" rel="license"
+            href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+            <i class="fa-brands fa-creative-commons"></i>&nbsp;
+            <i class="fa-brands fa-creative-commons-by"></i>&nbsp;
+            <i class="fa-brands fa-creative-commons-nc"></i>&nbsp;
+            <i class="fa-brands fa-creative-commons-sa"></i>
+          </a>
+        </div>
+
+
+
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- !PAGE CONTENT ENDS! -->
+
+  <!-- General scripts -->
+  <script src="js/w3codecolor.js"></script>
+  <script>w3CodeColor(); // Provide color format for code</script>
+  <script src="js/scripts.js"></script>
+  <script> includeHTML(); // Import html info file</script>
+
+</body>
+
+</html>
