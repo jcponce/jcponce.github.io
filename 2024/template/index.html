@@ -36,8 +36,8 @@
   <!-- Sidebar -->
   <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;"
     id="mySidebar">
-    <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="#"><img src="imgs/my-logo-black.png"
-        style="width:35%;margin-top: 5px;margin-bottom: 5px;"></a>
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="#"><img id="myLogo"
+        src="imgs/my-logo-black.png" style="width:35%;margin-top: 5px;margin-bottom: 5px;"></a>
     <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i
         class="fa-solid fa-xmark w3-large"></i></a>
 
@@ -73,7 +73,7 @@
     <a class="w3-bar-item w3-button" href="#">&nbsp; Section 3</a>
     <a class="w3-bar-item w3-button" href="#">&nbsp; Section 4</a>
 
-    
+
     <div class="w3-container w3-center w3-padding-16 w3-hide-medium w3-hide-large ">
       <hr style="margin-bottom: 16px;border-width: 1px;">
       <button onclick="document.getElementById('myModal').style.display='block'"
@@ -106,16 +106,21 @@
       <div id="myTextBar">
         <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
           <span id="myTitle" class="w3-hide">Chapter 1: Introduction</span>
-          <button style="position: sticky; left:90%; font-size: 15px;"
+
+          <button style="position: sticky; left:90%; font-size: 14px;padding: 5px;"
             onclick="document.getElementById('myModal').style.display='block'"
-            class="w3-button w3-theme w3-round-large w3-hover-shadow w3-hide-small ">
+            class="w3-button w3-theme w3-round-large w3-hover-shadow w3-hide-small w3-hover-light-gray ">
             <i class="fa-regular fa-heart"></i> Donate
           </button>
+
+          <span onclick="myDarkMode()" style="cursor: pointer; position: sticky; left:87%; font-size: 14px;padding: 5px;"
+            class="w3-theme w3-round-large w3-hover-light-gray">
+            <i class="fa-solid fa-circle-half-stroke"></i></span>
         </p>
-
       </div>
-
     </div>
+
+
 
     <!-- Header -->
     <header class="w3-container w3-theme" style="padding:64px 32px">

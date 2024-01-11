@@ -1,16 +1,16 @@
 // Open and close the sidebar on medium and small screens
 function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-  }
-  
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
 }
-  
+
 // Change style of top container on scroll
-window.onscroll = function() {myTopBar()};
+window.onscroll = function () { myTopBar() };
 function myTopBar() {
   if (document.body.scrollTop > 130 || document.documentElement.scrollTop > 130) {
     document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
@@ -20,18 +20,38 @@ function myTopBar() {
     document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
   }
 }
-  
+
 // Accordions
 function myAccordion(id) {
   let x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
     x.previousElementSibling.className += " w3-theme";
-  } else { 
+  } else {
     x.className = x.className.replace("w3-show", "");
-    x.previousElementSibling.className = 
-    x.previousElementSibling.className.replace(" w3-theme", "");
+    x.previousElementSibling.className =
+      x.previousElementSibling.className.replace(" w3-theme", "");
   }
+}
+
+let show = false;
+function myDarkMode() {
+  const x = document.body;
+  const y = document.getElementById("mySidebar");
+
+  x.classList.toggle("dark-mode");
+  y.classList.toggle("dark-mode");
+
+  const image = document.getElementById('myLogo');
+
+  if(show == false){
+    show = true;
+    image.src = 'imgs/my-logo-white.png'; 
+  } else {
+    show = false;
+    image.src = 'imgs/my-logo-black.png'; 
+  }
+  //console.log(show);
 }
 
 /* 
@@ -52,30 +72,30 @@ let span = document.getElementsByClassName("close")[0];
 //}
 
 /* 
-	The follwing function is to include an HTML file in the slides
-	Source: https://www.w3schools.com/howto/howto_html_include.asp
+  The follwing function is to include an HTML file in the slides
+  Source: https://www.w3schools.com/howto/howto_html_include.asp
 */
-function showMessage(){
+function showMessage() {
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
   clearInterval(myInterval);
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
     clearInterval(myInterval);
   }
-  
+
 }
 
 let myInterval = setInterval(function () {
-    showMessage ();
+  showMessage();
 }, 1800000);
 // 3000 3 seconds
 // 8000 8 seconds
