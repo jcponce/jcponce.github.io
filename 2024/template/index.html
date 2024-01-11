@@ -27,7 +27,6 @@
   <script src="js/math.js"></script>
   <script src="js/mathcell.js"></script>
   <script src="js/mathjax.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
 
 </head>
@@ -74,6 +73,15 @@
     <a class="w3-bar-item w3-button" href="#">&nbsp; Section 3</a>
     <a class="w3-bar-item w3-button" href="#">&nbsp; Section 4</a>
 
+    
+    <div class="w3-container w3-center w3-padding-16 w3-hide-medium w3-hide-large ">
+      <hr style="margin-bottom: 16px;border-width: 1px;">
+      <button onclick="document.getElementById('myModal').style.display='block'"
+        class="w3-button w3-theme w3-round-xlarge w3-hover-shadow">
+        <i class="fa-regular fa-heart"></i> Donate
+      </button>
+    </div>
+
     <div class="w3-container w3-center w3-theme" id="mySocial">
       <div class="">
         <a href="https://www.patreon.com/jcponce" target="_blank"><i
@@ -98,7 +106,13 @@
       <div id="myTextBar">
         <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
           <span id="myTitle" class="w3-hide">Chapter 1: Introduction</span>
+          <button style="position: sticky; left:90%; font-size: 15px;"
+            onclick="document.getElementById('myModal').style.display='block'"
+            class="w3-button w3-theme w3-round-large w3-hover-shadow w3-hide-small ">
+            <i class="fa-regular fa-heart"></i> Donate
+          </button>
         </p>
+
       </div>
 
     </div>
@@ -250,34 +264,34 @@
         </p>
       </div>
 
-      <br/>
+      <br />
 
       <!-- This theorem with proof is responsive and shows up for medium and large screens -->
       <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive theorem">
         <p>
           <strong>Theorem 2:</strong>
           Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
-            $S=X+iY$. Then
-            <span class="w3-responsive">
-              \begin{eqnarray}\label{teo01}
-              \sum_{n=1}^{\infty} z_n=S
-              \end{eqnarray}
-            </span>
-            if and only if
-            <span class="w3-responsive" style="overflow: hidden;">
-              \begin{eqnarray}\label{teo02}
-              \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
-              \end{eqnarray}
-            </span>
-            Then
-            <span class="w3-responsive">
-              \begin{eqnarray}\label{DFT3}
-              X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
-              &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
-              {2\pi
-              }{N}}n\right)\right].}
-              \end{eqnarray}
-            </span>
+          $S=X+iY$. Then
+          <span class="w3-responsive">
+            \begin{eqnarray}\label{teo01}
+            \sum_{n=1}^{\infty} z_n=S
+            \end{eqnarray}
+          </span>
+          if and only if
+          <span class="w3-responsive" style="overflow: hidden;">
+            \begin{eqnarray}\label{teo02}
+            \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
+            \end{eqnarray}
+          </span>
+          Then
+          <span class="w3-responsive">
+            \begin{eqnarray}\label{DFT3}
+            X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+            &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+            {2\pi
+            }{N}}n\right)\right].}
+            \end{eqnarray}
+          </span>
         </p>
         <p>
           <span class="w3-responsive">
@@ -395,14 +409,14 @@
         </ol>
       </div>
 
-      <hr/>
+      <hr />
       <h3>Subsection 1.1</h3>
 
       <p>This is a paragraph. Below there is a theorem that shows/hides for large/small screens.
         The problem is that the numbering of equation will be messed up.
       </p>
 
-    
+
 
 
       <hr>
@@ -709,6 +723,7 @@
     <div class="w3-container w3-center w3-padding-large">
       <a href="#"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
           Previous</button></a>
+
       <a href="#"><button class="w3-right w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">Next
           &#10095;</button></a>
     </div>
