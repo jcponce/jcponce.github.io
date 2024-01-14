@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sine Wave 3D</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <script src="mathcell.js"></script>
+
+    <div class="mathcell displayCell" style="width: 500px; height: 500px">
+      <script>
+
+        var parent = document.currentScript.parentNode;
+
+        var id = generateId();
+        parent.id = id;
+
+        MathCell( id, [ { type: 'slider', min: -3/2, max: 3/2, default: -3/2,
+                                          name: 't', label: 't' } ] );
+        
+        // Auxiliary Math functions
+        
+        function sin(x) {
+          return Math.sin(x);
+        }
+        
+        function cos(x) {
+          return Math.cos(x);
+        }
+        
+        function pow(b, e) {
+          return Math.pow(b, e);
+        }
+        
+        function abs(x){
+          return Math.abs(x);
+        }
+        
+        function sqrt(x){
+          return Math.sqrt(x);
+        }
+        
+        function exp(x){
+          return Math.exp(x);
+        }
+        
+        // Define sphere
+        //var R = 1;
+        
+        function sphx(u, v, R) {
+         return R * cos(u) * cos(v);
+        }
+        function sphy(u, v, R) {
+         return R * cos(u) * sin(v);
+        }
+        function sphz(u, v, R) {
+         return R * sin(u);
+        }
+        
+        // Define surface
+        
+        
+        var q = 2/3;
+       
+        var omega = 2;
+        
+        var n = 3;
+        
+        function fx(u, v, t){
+          return t * cos(v) + (1-abs(q * t)) * sin((n-1) * v) - u * sin(v);
+        }
+        
+        function fy(u, v, t){
+          return t * sin(v) + (1-abs(q * t)) * cos((n-1) * v) +  u * cos(v);
+        }
+        
+        function fz(u, v, t){
+          return u * sin(n * v) - t/n * cos(n * v) - q * t * u;
+        }
+        
+        ////////////
+        
+        function gx(u, v, t){
+          return t * cos(v) + (1-abs(q * t)) * sin((n-1) * v) - omega * sin(u)/pow(cos(u), n) * sin(v);
+        }
+        
+        function gy(u, v, t){
+          return t * sin(v) + (1-abs(q * t)) * cos((n-1) * v) +  omega * sin(u)/pow(cos(u), n) * cos(v);
+        }
+        
+        function gz(u, v, t){
+          return omega * sin(u)/pow(cos(u), n) * sin(n * v) - t/n * cos(n * v) - q * t * omega * sin(u)/pow(cos(u), n);
+        }
+        //console.log(gy(0,1,3/2));
+        
+        // Define stereographic projection
+        
+        
+        var xi = 1;
+        var eta = 1;
+        var kapp = (n - 1) / (2 * n);
+        
+        function stereox(x, y, z) {
+          return x * (xi + eta * pow(x*x+ y*y,-kapp));
+        }
+        
+        function stereoy(x, y, z) {
+          return y * (xi + eta * pow(x*x+ y*y,-kapp));
+        }
+        
+        function stereoz(x, y, z) {
+          return z / (xi + eta * (x*x+ y*y));
+        }
+        
+        // Define inversion
+        
+        var alph = 1;
+        var beta = 1/25;
+        var gamma = 2 * sqrt(alph * beta);
+        
+        function inversionx(x,y,z) {
+          return x * exp(gamma * z) / (alph + beta * (x*x+ y*y))
+        }
+        
+        function inversiony(x,y,z) {
+          return y * exp(gamma * z) / (alph + beta * (x*x+ y*y))
+        }
+        
+        function inversionz(x,y,z) {
+          var a = alph - beta * (x*x+ y*y);
+          var b = alph + beta * (x*x+ y*y);
+          var c = a / b * exp(gamma * z)/ gamma;
+          var d = - pow(gamma, -1) * (alph - beta) / (alph + beta);
+          return c + d;
+        }
+
+        // Define composition 1
+        function hx(u,v,t){
+          return stereox(gx(u, v, t), gy(u, v, t), gz(u, v, t))
+        }
+        
+        function hy(u,v,t){
+          return stereoy(gy(u, v, t), gy(u, v, t), gz(u, v, t))
+        }
+        
+        function hz(u,v,t){
+          return stereoz(gz(u, v, t), gy(u, v, t), gz(u, v, t))
+        }
+        
+        // Define composition 2
+        function px(u,v,t){
+          return inversionx(hx(u, v, t), hy(u, v, t), hz(u, v, t))
+        }
+        
+        function py(u,v,t){
+          return inversiony(hx(u, v, t), hy(u, v, t), hz(u, v, t))
+        }
+        
+        function pz(u,v,t){
+          return inversionz(hx(u, v, t), hy(u, v, t), hz(u, v, t))
+        }
+
+        
+        
+
+        var PI = Math.PI;
+        
+
+        parent.update = function( id ) {
+
+          var tau = getVariable( id, 't' );
+
+          var s = parametric( 
+            (u, v) => [ 
+                       px(u, v, tau),
+                       py(u, v, tau),
+                       pz(u, v, tau) 
+                     ],
+                     [-2,2], [-PI,PI], { opacity: .8, singleSide: true, colormap: (u,v) => colorFromHue(u) }
+                            );
+
+          var data = [ s ];
+
+          var config = { type: 'threejs', viewpoint: [0.9,1,1] , aspectRatio:	[1,1,1] };
+
+          evaluate( id, data, config );
+
+        }
+
+        parent.update( id );
+      </script>
+    </div>
+  </body>
+</html>
