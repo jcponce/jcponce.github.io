@@ -20,13 +20,9 @@ function setup() {
   h = windowHeight;
   createCanvas(w, h);
   background(0);
-  // textFont(font);
-  // textSize(192);
-  // fill(255);
-  // noStroke();
-  // text('train', 100, 200);
 
-  points = font.textToPoints('∞Thanks!', w/2-450, h-25, 200, {
+  s = w * 0.18
+  points = font.textToPoints('∞Thanks!', w/2-2.2*s, h/2+s/3, s, {
     sampleFactor: 0.12
     //simplifyThreshold : 0.1
   });
@@ -35,9 +31,6 @@ function setup() {
     var pt = points[i];
     var vehicle = new Vehicle(pt.x, pt.y,i);
     vehicles.push(vehicle);
-    // stroke(255);
-    // strokeWeight(8);
-    // point(pt.x, pt.y);
   }
 }
 
@@ -57,8 +50,10 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   w = windowWidth;
   h = windowHeight;
-  points = font.textToPoints('∞Thanks!', w/2-450, h-25, 200, {
+  s = w * 0.5
+  points = font.textToPoints('∞Thanks!', w/2-2*s, h/2, s, {
     sampleFactor: 0.12
     //simplifyThreshold : 0.1
   });
+  redraw();
 }
