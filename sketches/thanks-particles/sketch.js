@@ -50,7 +50,7 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   w = windowWidth;
   h = windowHeight;
-  s = w * 0.5
+  s = w * 0.5;
   points = font.textToPoints('∞Thanks!', w/2-2*s, h/2, s, {
     sampleFactor: 0.12
     //simplifyThreshold : 0.1
