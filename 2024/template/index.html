@@ -12,21 +12,17 @@
 
   <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
-
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/w3.css">
   <link rel="stylesheet" href="css/w3-theme-blue.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Martel+Sans">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- General scripts 
-  <script src="js/scripts.js"></script>
-  <script src="js/w3codecolor.js"></script>-->
-
-  <!-- MathCell applets & MathJax -->
+  
+  <!-- MathCell applets + MathJax -->
   <script src="js/math.js"></script>
   <script src="js/mathcell.js"></script>
   <script src="js/mathjax.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
 
 </head>
@@ -36,13 +32,12 @@
   <!-- Sidebar -->
   <div w3-include-html="toc.html"></div>
 
-  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
-  </div>
-
   <!-- !PAGE CONTENT! -->
 
   <div class="w3-main w3-large" style="margin-left:250px;">
 
+    <!-- Main text starts here -->
+    
     <!-- Bar on top shows/hides after scrolling -->
     <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
       <div id="myTextBar">
@@ -62,9 +57,6 @@
         </p>
       </div>
     </div>
-
-
-    <!-- Main text -->
 
     <!-- Header -->
     <header class="w3-container w3-theme" style="padding:64px 32px">
@@ -187,7 +179,7 @@
         </span>
       </p>
 
-      <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive theorem">
+      <div class="theorem">
         <p>
           <strong>Theorem 12.1.5. </strong>
           Suppose that $U \subseteq \R^n$ is an open set and that
@@ -216,7 +208,7 @@
       <br />
 
       <!-- This theorem with proof is responsive and shows up for medium and large screens -->
-      <div class="w3-card w3-container w3-light-gray w3-border-left w3-responsive theorem">
+      <div class="theorem">
         <p>
           <strong>Theorem 2:</strong>
           Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
@@ -486,6 +478,7 @@
       <iframe scrolling="no" title="Slope field explorer" allowfullscreen=""
         src="https://www.geogebra.org/material/iframe/id/dabkhkqr/width/712/height/404/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
         width="100%" height="404px" style="border:0px;"> </iframe>
+      
 
       <br />
       <hr>
@@ -640,6 +633,16 @@
 
 
     </div>
+    
+    <!-- Buttons to navigate -->
+    <div class="w3-container w3-center w3-padding-large">
+      <a href="#"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
+          Previous</button></a>
+
+      <a href="#"><button class="w3-right w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">Next
+          &#10095;</button></a>
+    </div>
+
     <!-- Main text ends -->
 
     <!-- The Modal -->
@@ -662,62 +665,19 @@
     </div>
     <!-- The Modal ends -->
 
-    <!-- General scripts -->
-    <script src="js/w3codecolor.js"></script>
-    <script>w3CodeColor(); // Provide color format for code</script>
-    <script src="js/scripts.js"></script>
-    <script> includeHTML(); // Import html info file</script>
-
-    <!-- Buttons to navigate -->
-    <div class="w3-container w3-center w3-padding-large">
-      <a href="#"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
-          Previous</button></a>
-
-      <a href="#"><button class="w3-right w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">Next
-          &#10095;</button></a>
-    </div>
-
     <br />
 
-    <footer class="w3-container w3-center w3-theme" style="padding:32px">
-
-      <div class="w3-row w3-opacity-min">
-
-        <div class="w3-col m6">
-          <span class="w3-hide-small w3-hide-medium">
-            Real Analysis <i class="fa-regular fa-copyright"></i>
-            <span>
-              <script>document.write(new Date().getFullYear());</script>
-            </span>
-            by J. C. Ponce Campuzano
-          </span>
-          <span class="w3-hide-large">
-            Real Analysis <i class="fa-regular fa-copyright"></i>
-            <span>
-              <script>document.write(new Date().getFullYear());</script>
-            </span>
-            <br />by J. C. Ponce Campuzano
-          </span>
-        </div>
-
-        <div class="w3-col m6">
-
-          <a style="text-decoration: none;" rel="license"
-            href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
-            <i class="fa-brands fa-creative-commons"></i>&nbsp;
-            <i class="fa-brands fa-creative-commons-by"></i>&nbsp;
-            <i class="fa-brands fa-creative-commons-nc"></i>&nbsp;
-            <i class="fa-brands fa-creative-commons-sa"></i>
-          </a>
-        </div>
-
-      </div>
-
-    </footer>
+    <div w3-include-html="footer.html"></div>
 
   </div>
 
   <!-- !PAGE CONTENT ENDS! -->
+
+  <!-- General scripts -->
+  <script src="js/w3codecolor.js"></script>
+  <script>w3CodeColor(); // Provide color format for code</script>
+  <script src="js/scripts.js"></script>
+  <script> includeHTML(); // Import html info file</script>
 
 </body>
 
