@@ -32,13 +32,30 @@
 <body id="top">
 
     <div class="fixed-bar">
-        <a href="#" class="link">
-            <span class="arrow">&#8592;</span>
-        </a>
-        <a href="index.html" class="link">
+        <div class="link-container">
+            <a href="index.html" class="link">
+                <span class="arrow">&#8592;</span>
+            </a>
+            <span class="extra-text" id="dark-mode-toggle"><i class="fa-solid fa-circle-half-stroke"></i></span> 
+        </div>
+
+        
+
+        
+        
+        <!--
+            <a href="index.html" class="link">
             <span class="content-original">Table of Contents</span>
             <span class="content-hover">Real Analysis</span>
         </a>
+        -->
+        <div class="link">
+            
+            <a href=""  class="link">
+                <span class="content-original">Table of Contents</span>
+                <span class="content-hover">Real Analysis</span>
+            </a>
+          </div>
         <a href="#" class="link">
             <span class="arrow">&#8594;</span>
         </a>
@@ -144,7 +161,7 @@
                 such that for all $n \geq N_2$, we have
                 $\abs{x_n-L_2} \lt \frac{\vre}{2}$.
                 Now take an $n$ such that $n \geq N_1$ and also $n \geq N_2$, and estimate
-                <span class="responsive">
+                <div  class="scroll-wrapper">
                     \begin{equation*}
                 \begin{split}
                 \abs{L_2-L_1}
@@ -154,7 +171,7 @@
                 \frac{\vre}{2} + \frac{\vre}{2} = \vre .
                 \end{split}
                 \end{equation*}
-                </span>
+                </div>
                 Since $\abs{L_2-L_1} \lt \vre$ for all $\vre > 0$, then $\abs{L_2-L_1} = 0$
                 and $L_2=L_1$. Therefore the limit (if it exists) is unique.
             </div>
@@ -336,12 +353,14 @@
 
 
     <script>
+        /*
         const typeFaceToggle = document.getElementById('typeface-toggle')
         const typeface = document.getElementById('typeface')
         typeFaceToggle.addEventListener('click', () => {
             document.body.classList.toggle('libertinus')
             typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
         })
+        */
 
         const darkModeToggle = document.getElementById('dark-mode-toggle')
         darkModeToggle.addEventListener('click', () => {

@@ -21,6 +21,11 @@
     /* Ensuring the bar is above other content */
 }
 
+.link-container {
+    display: flex;
+    align-items: center;
+  }
+
 .link {
     text-decoration: none;
     color: black !important;
@@ -32,7 +37,7 @@
 }
 
 .link:hover {
-    background-color: rgba(222, 222, 222, 0.451);
+    background-color: rgba(222, 222, 222, 0.8);
     font-weight: bold;
 }
 
@@ -56,14 +61,34 @@
     display: none;
 }
 
+.extra-text {
+    position:relative;
+    left: 0;
+    margin-left: 5px;
+}
+
+.extra-text-container {
+    display: flex;
+    align-items: center;
+}
+
+#dark-mode-toggle {
+    cursor: pointer;
+    padding: 5px;
+}
+
+#dark-mode-toggle:hover {
+    background-color: rgba(222, 222, 222, 0.8);
+}
+
 /* Media query for smaller screens */
 @media only screen and (max-width: 600px) {
     .fixed-bar {
-      width: 100%;
+        width: 100%;
     }
-  }
+}
 
-footer{
+footer {
     text-align: center;
     padding: 20px;
 }
@@ -74,6 +99,26 @@ footer{
 }
 
 .responsive {
-    display:block;
-    overflow-x:auto;
+    display: block;
+    overflow-x: auto;
+}
+
+@media (min-width:993px) {
+    .hide-large {
+        display: none !important
+    }
+}
+
+
+@media (max-width:600px) {
+    .hide-small {
+        display: none !important
+    }
+}
+
+
+@media (max-width:992px) and (min-width:601px) {
+    .hide-medium {
+        display: none !important
+    }
 }
