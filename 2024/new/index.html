@@ -2,72 +2,172 @@
 <html lang="en">
 
 <head>
-    <title>Your Website</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.dynamicmath.xyz/2024/template/css/w3.css">
-    <link rel="stylesheet" href="https://www.dynamicmath.xyz/2024/template/css/w3-theme-blue.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="tm5Y6ZNTf-lBqbwniGjQPv1q02o2TuUQZ9GTYa4SMLg" />
+  <title>Real Analysis</title>
 
-    <!-- MathCell applets + MathJax -->
+  <meta name="description"
+    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents." />
+  <meta name="keywords" content="latex.css,css library,class-less css,latex css" />
+  <meta property="og:title" content="LaTeX.css" />
+  <meta property="og:url" content="https://latex.now.sh" />
+  <meta property="og:description"
+    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents." />
+  <meta property="og:type" content="website" />
 
-    <script src="https://www.dynamicmath.xyz/2024/template/js/math.js"></script>
-    <script src="https://www.dynamicmath.xyz/2024/template/js/mathcell.js"></script>
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
 
-    <script type="text/javascript" async id="MathJax-script" src="https://polyfill.io/v3/polyfill.min.js?features=es6">
-    </script>
-    <script src="https://www.dynamicmath.xyz/2024/template/js/mathjax.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="prism/prism.css" />
 
+  <link rel="stylesheet" href="assets/mystyle.css" />
 
-    <script type="text/javascript" async id="MathJax-script" src="https://polyfill.io/v3/polyfill.min.js?features=es6">
-    </script>
-    <script type="text/javascript" async id="MathJax-script"
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+  <script src="js/scripts.js"></script>
 
-
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-<body>
-    <div class="container" id="container">
-        <div class="sidebar" id="sidebar">
+<body id="top">
 
-            <div class="close-btn" onclick="closeSidebar()" id="closeBtn">&times;</div>
+  <br /><br /><br />
 
-            <ul>
-                <li onclick="loadContent('index.html')">Home</li>
-                <li onclick="loadContent('chapter-01.html', 'chapter-01')">Chapter 01</li>
-                <li onclick="loadContent('chapter-02.html', 'chapter-02')">Chapter 02</li>
-                <li onclick="loadContent('chapter-03.html', 'chapter-03')">Chapter 03</li>
-                <li onclick="loadContent('chapter-04.html', 'chapter-04')">Chapter 04</li>
-                <li onclick="loadContent('chapter-05.html', 'chapter-05')">Chapter 05</li>
-
+  <header>
+    <h1>Real Analisys</h1>
+    <p class="author">
+      Juan Carlos Ponce Campuzano<br />
+      Jan
+      <script>document.write(new Date().getFullYear());</script>
+    </p>
+  </header>
 
 
 
-                <!-- Add more items as needed -->
-            </ul>
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
+  <nav role="navigation" class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="sequences.html">Sequences</a></li>
+      <li>
+        <a href="#class-based-elements">Class-based Elements</a>
+        <ol>
+          <li><a href="#author-abstract">Author and Abstract</a></li>
+          <li>
+            <a href="#tdpl">Theorems, Definitions and Proofs</a>
+            <ol>
+              <li><a href="#proofs-theorems">Proofs & Theorems</a></li>
+              <li><a href="#lemmas">Lemmas</a></li>
+              <li><a href="#definitions">Definitions</a></li>
+            </ol>
+          </li>
+          <li><a href="#paragraphs">Paragraphs</a></li>
+          <li><a href="#table-classes">Table Classes</a>
+            <ol>
+              <li><a href="#table-borders">Custom Table Borders</a></li>
+              <li><a href="#table-column-aligment">Table Column Alignment</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li><a href="#language-support">Language Support</a></li>
+      <li><a href="#sidenotes">Sidenotes</a></li>
+      <li><a href="#dark-mode">Dark Mode</a></li>
+      <li><a href="#alternative-typeface">Alternative Typeface</a></li>
+      <li>
+        <a href="#html-elements">HTML Elements</a>
+        <ol>
+          <li><a href="#text-formatting">Text Formatting</a></li>
+          <li><a href="#blockquotes">Blockquotes</a></li>
+          <li><a href="#definition-lists">Definition Lists</a></li>
+          <li><a href="#tables">Tables</a></li>
+          <li><a href="#images">Images</a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#miscellaneous">Miscellaneous</a>
+        <ol>
+          <li><a href="#scroll-overflow">Scroll Overflow</a></li>
+          <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
+        </ol>
+      </li>
+    </ol>
+  </nav>
 
-        <div class="content" id="content">
-            <!-- Content will be loaded here -->
-        </div>
+  <main>
+    <article>
+      <h2 id="getting-started">Introduction</h2>
 
-        <div class="toggle-btn" onclick="toggleSidebar()" id="toggleBtn">&#9776;</div>
-    </div>
+      <p>
+        Welcome to the fascinating world of real analysis, where math leaps off the page through interactive visuals. In
+        this book, we break free from the ordinary, offering an immersive exploration of real analysis principles with
+        engaging visualizations.
+      </p>
+      <p>
+       
+        Real analysis isn't just math; it's a key to unlocking the structure of the mathematical universe. Thanks to
+        technology, we're bringing abstract ideas to life with interactive tools, creating a tangible learning
+        experience.
+
+      </p>
+      <p>
+        As you journey through this book, discover a mix of theory and interactive tools designed for a deep
+        understanding of real analysis. From limits to sequences, each chapter unfolds with visualizations, turning
+        abstract concepts into an interactive landscape.
+
+      </p>
+      <p>
+        Whether you're a first-time explorer or a seasoned math traveler, our approach empowers you to grasp complex
+        ideas intuitively. Visualizations here aren't just aids; they're windows into the elegance that defines real
+        analysis.
+
+      </p>
+      <p>
+        Join us in this enlightening adventure, where math concepts come alive, bridging the gap between theory and
+        intuition. Let's navigate through the visual landscapes of real analysis, turning abstract ideas into tangible
+        insights and fostering a profound appreciation for the beauty of mathematics.
+      </p>
 
 
-    <div class="footer">
-        <p>&copy; 2024 John Doe</p>
-    </div>
+      <blockquote cite="http://www.worldwildlife.org/who/index.html">
+        <em>Is is by logic that we prove, but by intuition that we discover.</em>
+        <br/>- Henri Poincaré
+      </blockquote>
 
 
-    <script src="script.js"></script>
+    </article>
+  </main>
 
+  <br/>
+  <hr />
+
+  <footer>
+    [ <a href="../">intro</a>,
+    <a href="https://github.com/complex-analysis">source</a>,
+    <a href="https://github.com/complex-analysis/complex-analysis.github.io/issues">issues</a> ]
+
+    <br />
+
+    <a style="text-decoration: none;" rel="license"
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+      <i class="fa-brands fa-creative-commons"></i>&nbsp;
+      <i class="fa-brands fa-creative-commons-by"></i>&nbsp;
+      <i class="fa-brands fa-creative-commons-nc"></i>&nbsp;
+      <i class="fa-brands fa-creative-commons-sa"></i>
+    </a>
+
+    <br />
+    <strong style="font-size: 18px">ISBN: ?????????</strong> <br>
+    <strong style="font-size: 18px">
+      <span>&copy; Juan Carlos Ponce Campuzano
+        <script>document.write(new Date().getFullYear());</script>
+      </span>
+    </strong>
+
+  </footer>
+
+  <script async src="prism/prism.js"></script>
+
+  <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
 </body>
 
 </html>

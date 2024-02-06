@@ -1,0 +1,70 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+
+/* Fixed bar styles */
+.fixed-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 85ch;
+    height: 50px;
+    background-color: hsla(210, 20%, 98%, 0.9);
+    /* White with 30% transparency */
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1000;
+    /* Ensuring the bar is above other content */
+}
+
+.link {
+    text-decoration: none;
+    color: black !important;
+    margin: 0 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.link:hover {
+    background-color: rgba(222, 222, 222, 0.451);
+    font-weight: bold;
+}
+
+.arrow {
+    margin-right: 5px;
+}
+
+.content-original {
+    display: none;
+}
+
+.content-hover {
+    display: inline;
+}
+
+.link:hover .content-original {
+    display: inline;
+}
+
+.link:hover .content-hover {
+    display: none;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+    .fixed-bar {
+      width: 100%;
+    }
+  }
+
+footer{
+    text-align: center;
+    padding: 20px;
+}
+
