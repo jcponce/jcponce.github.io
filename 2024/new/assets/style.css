@@ -3,6 +3,9 @@
  *
  * Source: https://github.com/vincentdoerig/latex-css
  * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+ * 
+ * This version has some minor changes
+ * by Juan Carlos Ponce Campuzano, 7/Feb/2024
 */
 
 @font-face {
@@ -10,9 +13,9 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url('./fonts/LM-regular.woff2') format('woff2'),
-    url('./fonts/LM-regular.woff') format('woff'),
-    url('./fonts/LM-regular.ttf') format('truetype');
+  src: url('../fonts/LM-regular.woff2') format('woff2'),
+    url('../fonts/LM-regular.woff') format('woff'),
+    url('../fonts/LM-regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -20,9 +23,9 @@
   font-style: italic;
   font-weight: normal;
   font-display: swap;
-  src: url('./fonts/LM-italic.woff2') format('woff2'),
-    url('./fonts/LM-italic.woff') format('woff'),
-    url('./fonts/LM-italic.ttf') format('truetype');
+  src: url('../fonts/LM-italic.woff2') format('woff2'),
+    url('../fonts/LM-italic.woff') format('woff'),
+    url('../fonts/LM-italic.ttf') format('truetype');
 }
 
 @font-face {
@@ -30,9 +33,9 @@
   font-style: normal;
   font-weight: bold;
   font-display: swap;
-  src: url('./fonts/LM-bold.woff2') format('woff2'),
-    url('./fonts/LM-bold.woff') format('woff'),
-    url('./fonts/LM-bold.ttf') format('truetype');
+  src: url('../fonts/LM-bold.woff2') format('woff2'),
+    url('../fonts/LM-bold.woff') format('woff'),
+    url('../fonts/LM-bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -40,9 +43,9 @@
   font-style: italic;
   font-weight: bold;
   font-display: swap;
-  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
-    url('./fonts/LM-bold-italic.woff') format('woff'),
-    url('./fonts/LM-bold-italic.ttf') format('truetype');
+  src: url('../fonts/LM-bold-italic.woff2') format('woff2'),
+    url('../fonts/LM-bold-italic.woff') format('woff'),
+    url('../fonts/LM-bold-italic.ttf') format('truetype');
 }
 
 @font-face {
@@ -50,7 +53,7 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url('./fonts/Libertinus-regular.woff2') format('woff2');
+  src: url('../fonts/Libertinus-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -58,7 +61,7 @@
   font-style: italic;
   font-weight: normal;
   font-display: swap;
-  src: url('./fonts/Libertinus-italic.woff2') format('woff2');
+  src: url('../fonts/Libertinus-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -66,7 +69,7 @@
   font-style: normal;
   font-weight: bold;
   font-display: swap;
-  src: url('./fonts/Libertinus-bold.woff2') format('woff2');
+  src: url('../fonts/Libertinus-bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -74,7 +77,7 @@
   font-style: italic;
   font-weight: bold;
   font-display: swap;
-  src: url('./fonts/Libertinus-bold-italic.woff2') format('woff2');
+  src: url('../fonts/Libertinus-bold-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -82,7 +85,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('./fonts/Libertinus-semibold.woff2') format('woff2');
+  src: url('../fonts/Libertinus-semibold.woff2') format('woff2');
 }
 
 @font-face {
@@ -90,7 +93,7 @@
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url('./fonts/Libertinus-semibold-italic.woff2') format('woff2');
+  src: url('../fonts/Libertinus-semibold-italic.woff2') format('woff2');
 }
 
 /* Box sizing rules */
@@ -103,11 +106,11 @@
 :root {
   --body-color: hsl(0, 5%, 10%);
   --body-bg-color: hsl(210, 20%, 98%);
-  /* I changed this */
+  /* I changed link visited this */
   --link-visited: hsl(194, 100%, 26%);
   --link-focus-outline: hsl(220, 90%, 52%);
   --link-hover: hsl(220, 90%, 52%);
-  /* I added this */
+  /* I added hover color */
   --pre-bg-color: hsl(210, 28%, 93%);
   --kbd-bg-color: hsl(210, 5%, 100%);
   --kbd-border-color: hsl(210, 5%, 70%);
@@ -200,7 +203,7 @@ body {
   margin: 0 auto;
   padding: 2rem 1.25rem;
 
-  counter-reset: theorem definition example sidenote-counter;
+  counter-reset: theorem definition example sidenote-counter h2counter;
 
   color: var(--body-color);
   background-color: var(--body-bg-color);
@@ -755,21 +758,35 @@ input.sidenote-toggle {
 }
 
 /* Heading typography */
+/* I added also numbered headers */ 
 h1 {
   font-size: 2.5rem;
   line-height: 3.25rem;
   margin-bottom: 1.625rem;
+  counter-reset: h2counter;
 }
 
 h2 {
   font-size: 1.7rem;
   line-height: 2rem;
   margin-top: 3rem;
+  counter-reset: h3counter;
+}
+
+h2:before {
+  content: counter(h2counter) ".\0000a0\0000a0";
+  counter-increment: h2counter;
+  counter-reset: h3counter;
 }
 
 h3 {
   font-size: 1.4rem;
   margin-top: 2.5rem;
+}
+
+h3:before {
+  content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+  counter-increment: h3counter;
 }
 
 h4 {
