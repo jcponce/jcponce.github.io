@@ -486,7 +486,7 @@ h1:first-child {
 
 /* Nested ordered list for ToC */
 nav ol {
-  counter-reset: item;
+  /*counter-reset: item;*/
   padding-left: 2rem;
 }
 
@@ -495,9 +495,10 @@ nav li {
 }
 
 nav li:before {
-  content: counters(item, '.') ' ';
-  counter-increment: item;
-  padding-right: 0.85rem;
+  font-weight: bold;
+  content: '•';
+  /*counter-increment: item;*/
+  padding-right: 0.35rem;
 }
 
 /* Center definitions (most useful for display equations) */
