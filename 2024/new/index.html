@@ -19,13 +19,12 @@
   <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
 
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="stylesheet" href="prism/prism.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/prism/prism.css" />
 
-  <link rel="stylesheet" href="assets/mystyle.css" />
+  <link rel="stylesheet" href="css/mystyle.css" />
 
-  <script src="js/scripts.js"></script>
-
+  <script src="js/mathjax.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -38,31 +37,31 @@
     <div class="" style="height: 100vh;">
 
 
-      <div class="hide-small hide-medium">
-        <iframe frameborder="0"  width="100%" height="400px" scrolling="no" 
-              src="https://www.dynamicmath.xyz/sketches/shaders/infinite-space-bw/" 
-              style="border: 1px solid black; overflow: hidden;">
+      <div class="hide-small">
+        <iframe frameborder="0" width="100%" height="400px" scrolling="no"
+          src="https://www.dynamicmath.xyz/sketches/shaders/infinite-space-bw/"
+          style="border: 1px solid black; overflow: hidden;">
         </iframe>
       </div>
 
-      <div class="hide-large">
-        <iframe frameborder="0"  width="100%" height="200px" scrolling="no" 
-              src="https://www.dynamicmath.xyz/sketches/shaders/infinite-space-bw/" 
-              style="border: 1px solid black; overflow: hidden;">
+      <div class="hide-large hide-medium">
+        <iframe frameborder="0" width="100%" height="200px" scrolling="no"
+          src="https://www.dynamicmath.xyz/sketches/shaders/infinite-space-bw/"
+          style="border: 1px solid black; overflow: hidden;">
         </iframe>
       </div>
       <div class="">
 
 
-        <h1 class="hide-small hide-medium"><b>Real Analysis</b></h1>
+        <h1 class="hide-small"><b>Real Analysis</b></h1>
 
-        <p class="hide-large" style="font-size:34px;text-align:center;"><b>Real Analysis</b></p>
+        <p class="hide-large hide-medium" style="font-size:34px;text-align:center;"><b>Real Analysis</b></p>
 
-        <p class="hide-small hide-medium author">Juan Carlos Ponce Campuzano <br/>
+        <p class="hide-small author">Juan Carlos Ponce Campuzano <br />
           <script>document.write(new Date().getFullYear());</script>
         </p>
 
-        <p class="hide-large author" style="font-size:16px">Juan Carlos <br /> Ponce Campuzano <br/>
+        <p class="hide-large hide-medium author" style="font-size:16px">Juan Carlos <br /> Ponce Campuzano <br />
           <script>document.write(new Date().getFullYear());</script>
         </p>
 
@@ -83,9 +82,9 @@
   </header>
 
 
-  <hr/>
+  <hr />
 
-  
+
 
   <main>
     <article>
@@ -97,7 +96,7 @@
         engaging visualizations.
       </p>
       <p>
-       
+
         Real analysis isn't just math; it's a key to unlocking the structure of the mathematical universe. Thanks to
         technology, we're bringing abstract ideas to life with interactive tools, creating a tangible learning
         experience.
@@ -131,13 +130,47 @@
     </article>
   </main>
 
-  <a href="table-of-contents.html" style="text-decoration: none;"><p class="nextPage">NEXT: Page</p></a>
-  <hr />
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span><br />
+        <p style="text-align: center;font-size: 1.5em;"><strong>Hello! 👋</strong></p>
+      </div>
+      <div class="modal-body">
+        <div w3-include-html="support.html"></div>
+      </div>
+      <div class="modal-footer">
+        <p style="text-align: center;margin-bottom: 10px;">Thank you! 🙏 I highly appreciate your support! 🤗</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- The Modal ends -->
+
+  <a href="#" style="text-decoration: none;">
+    <p class="nextPage">NEXT: Page</p>
+  </a>
+  <hr>
 
   <footer>
-    [ <a href="../">intro</a>,
-    <a href="https://github.com/complex-analysis">source</a>,
-    <a href="https://github.com/complex-analysis/complex-analysis.github.io/issues">issues</a> ]
+    <span class="hide-small">
+      [ <a href="../"><i class="fa-solid fa-house"></i> Home</a>,
+      <a href="#"><i class="fa-solid fa-code"></i> Source</a>,
+      <a href="#"><i class="fa-solid fa-lightbulb"></i> Issues</a>,
+      <a href="" onclick="document.getElementById('myModal').style.display='block'">
+        <i class="fa-regular fa-heart"></i> Donate</a>
+      ]
+    </span>
+    <span class="hide-medium hide-large" style="font-size: 0.85em;">
+      [ <a href="../"><i class="fa-solid fa-house"></i> Home</a> -
+      <a href="" onclick="document.getElementById('myModal').style.display='block'">
+        <i class="fa-regular fa-heart"></i> Donate</a>
+      ]
+    </span>
+
 
     <br />
 
@@ -149,17 +182,28 @@
       <i class="fa-brands fa-creative-commons-sa"></i>
     </a>
 
+
     <br />
-    <strong style="font-size: 18px">ISBN: ?????????</strong> <br>
-    <strong style="font-size: 18px">
-      <span>&copy; Juan Carlos Ponce Campuzano
+    <!---<strong style="font-size: 18px">ISBN: ?????????</strong> <br>-->
+    <strong>
+      <span class="hide-small" style="font-size: 18px">&copy; Juan Carlos Ponce Campuzano
+        <script>document.write(new Date().getFullYear());</script>
+      </span>
+      <span class="hide-medium hide-large" style="font-size: 15px">&copy; J.C. Ponce Campuzano
         <script>document.write(new Date().getFullYear());</script>
       </span>
     </strong>
 
+
   </footer>
 
-  <script async src="prism/prism.js"></script>
+  <!-- Ends main content -->
+
+
+  <script src="js/scripts.js"></script>
+  <script> includeHTML(); // Import html info file </script>
+
+  <script async src="css/prism/prism.js"></script>
 
   <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
 </body>

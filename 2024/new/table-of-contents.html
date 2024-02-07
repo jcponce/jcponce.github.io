@@ -19,17 +19,18 @@
     <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
 
-    <link rel="stylesheet" href="assets/style.css" />
-    <link rel="stylesheet" href="prism/prism.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/prism/prism.css" />
 
-    <link rel="stylesheet" href="assets/mystyle.css" />
+    <link rel="stylesheet" href="css/mystyle.css" />
 
-    <script src="js/scripts.js"></script>
-
+    <script src="js/mathjax.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body id="top">
+
+    <!-- Starts main content -->
 
     <div class="fixed-bar">
         <div class="link-container">
@@ -37,15 +38,17 @@
                 <span class="arrow">&#8592;</span>
             </a>
             <span class="extra-text" id="dark-mode-toggle"><i class="fa-solid fa-circle-half-stroke"></i></span>
+            <span class="extra-text" id="donate" onclick="document.getElementById('myModal').style.display='block'">
+                <i class="fa-regular fa-heart"></i></span>
         </div>
         <div class="link">
 
-            <a href="index.html" class="link">
+            <a href="table-of-contents.html" class="link">
                 <span class="content-original">Table of Contents</span>
                 <span class="content-hover">Real Analysis</span>
             </a>
         </div>
-        <a href="sequences.html" class="link">
+        <a href="#" class="link">
             <span class="arrow">&#8594;</span>
         </a>
     </div>
@@ -116,14 +119,48 @@
         </ol>
     </nav>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
-    <a href="sequences.html" style="text-decoration: none;"><p class="nextPage">NEXT: Page</p></a>
-    <hr />
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span><br />
+                <p style="text-align: center;font-size: 1.5em;"><strong>Hello! 👋</strong></p>
+            </div>
+            <div class="modal-body">
+                <div w3-include-html="support.html"></div>
+            </div>
+            <div class="modal-footer">
+                <p style="text-align: center;margin-bottom: 10px;">Thank you! 🙏 I highly appreciate your support! 🤗
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <!-- The Modal ends -->
+
+    <a href="#" style="text-decoration: none;">
+        <p class="nextPage">NEXT: Page</p>
+    </a>
+    <hr>
 
     <footer>
-        [ <a href="../">intro</a>,
-        <a href="https://github.com/complex-analysis">source</a>,
-        <a href="https://github.com/complex-analysis/complex-analysis.github.io/issues">issues</a> ]
+        <span class="hide-small">
+            [ <a href="../"><i class="fa-solid fa-house"></i> Home</a>,
+            <a href="#"><i class="fa-solid fa-code"></i> Source</a>,
+            <a href="#"><i class="fa-solid fa-lightbulb"></i> Issues</a>,
+            <a href="" onclick="document.getElementById('myModal').style.display='block'">
+                <i class="fa-regular fa-heart"></i> Donate</a>
+            ]
+        </span>
+        <span class="hide-medium hide-large" style="font-size: 0.85em;">
+            [ <a href="../"><i class="fa-solid fa-house"></i> Home</a> -
+            <a href="" onclick="document.getElementById('myModal').style.display='block'">
+                <i class="fa-regular fa-heart"></i> Donate</a>
+            ]
+        </span>
+
 
         <br />
 
@@ -135,33 +172,28 @@
             <i class="fa-brands fa-creative-commons-sa"></i>
         </a>
 
+
         <br />
-        <strong style="font-size: 18px">ISBN: ?????????</strong> <br>
-        <strong style="font-size: 18px">
-            <span>&copy; Juan Carlos Ponce Campuzano
+        <!---<strong style="font-size: 18px">ISBN: ?????????</strong> <br>-->
+        <strong>
+            <span class="hide-small" style="font-size: 18px">&copy; Juan Carlos Ponce Campuzano
+                <script>document.write(new Date().getFullYear());</script>
+            </span>
+            <span class="hide-medium hide-large" style="font-size: 15px">&copy; J.C. Ponce Campuzano
                 <script>document.write(new Date().getFullYear());</script>
             </span>
         </strong>
 
+
     </footer>
 
-    <script>
-        /*
-        const typeFaceToggle = document.getElementById('typeface-toggle')
-        const typeface = document.getElementById('typeface')
-        typeFaceToggle.addEventListener('click', () => {
-            document.body.classList.toggle('libertinus')
-            typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
-        })
-        */
+    <!-- Ends main content -->
 
-        const darkModeToggle = document.getElementById('dark-mode-toggle')
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('latex-dark')
-        })
-    </script>
 
-    <script async src="prism/prism.js"></script>
+    <script src="js/scripts.js"></script>
+    <script> includeHTML(); // Import html info file </script>
+
+    <script async src="css/prism/prism.js"></script>
 
     <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
 </body>

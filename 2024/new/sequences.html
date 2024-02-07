@@ -17,34 +17,35 @@
     <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
 
-    
-
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/prism/prism.css" />
 
     <link rel="stylesheet" href="css/mystyle.css" />
 
     <script src="js/mathjax.js"></script>
-
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body id="top">
+
+    <!-- Starts main content -->
 
     <div class="fixed-bar">
         <div class="link-container">
             <a href="index.html" class="link">
                 <span class="arrow">&#8592;</span>
             </a>
-            <span class="extra-text" id="dark-mode-toggle"><i class="fa-solid fa-circle-half-stroke"></i></span> 
+            <span class="extra-text" id="dark-mode-toggle"><i class="fa-solid fa-circle-half-stroke"></i></span>
+            <span class="extra-text" id="donate" onclick="document.getElementById('myModal').style.display='block'">
+                <i class="fa-regular fa-heart"></i></span>
         </div>
         <div class="link">
-            
-            <a href="table-of-contents.html"  class="link">
+
+            <a href="table-of-contents.html" class="link">
                 <span class="content-original">Table of Contents</span>
                 <span class="content-hover">Real Analysis</span>
             </a>
-          </div>
+        </div>
         <a href="#" class="link">
             <span class="arrow">&#8594;</span>
         </a>
@@ -156,16 +157,16 @@
                 such that for all $n \geq N_2$, we have
                 $\abs{x_n-L_2} \lt \frac{\vre}{2}$.
                 Now take an $n$ such that $n \geq N_1$ and also $n \geq N_2$, and estimate
-                <div  class="scroll-wrapper">
+                <div class="scroll-wrapper">
                     \begin{equation*}
-                \begin{split}
-                \abs{L_2-L_1}
-                & =
-                \abs{x_n-L_1 - (x_n -L_2)} \leq
-                \abs{x_n-L_1} + \abs{x_n -L_2} \lt
-                \frac{\vre}{2} + \frac{\vre}{2} = \vre .
-                \end{split}
-                \end{equation*}
+                    \begin{split}
+                    \abs{L_2-L_1}
+                    & =
+                    \abs{x_n-L_1 - (x_n -L_2)} \leq
+                    \abs{x_n-L_1} + \abs{x_n -L_2} \lt
+                    \frac{\vre}{2} + \frac{\vre}{2} = \vre .
+                    \end{split}
+                    \end{equation*}
                 </div>
                 Since $\abs{L_2-L_1} \lt \vre$ for all $\vre > 0$, then $\abs{L_2-L_1} = 0$
                 and $L_2=L_1$. Therefore the limit (if it exists) is unique.
@@ -236,7 +237,7 @@
             </div>
 
             <details>
-                <summary ><b>Proof</b>
+                <summary><b>Proof</b>
                 </summary>
 
                 <br>
@@ -323,33 +324,43 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">&times;</span><br />
-            <p style="text-align: center;font-size: 1.5em;"><strong>Hello! 👋</strong></p>
-          </div>
-          <div class="modal-body">
-            <div w3-include-html="support.html"></div>
-          </div>
-          <div class="modal-footer">
-            <p style="text-align: center;margin-bottom: 10px;">Thank you! 🙏 I highly appreciate your support! 🤗</p>
-          </div>
+            <div class="modal-header">
+                <span class="close">&times;</span><br />
+                <p style="text-align: center;font-size: 1.5em;"><strong>Hello! 👋</strong></p>
+            </div>
+            <div class="modal-body">
+                <div w3-include-html="support.html"></div>
+            </div>
+            <div class="modal-footer">
+                <p style="text-align: center;margin-bottom: 10px;">Thank you! 🙏 I highly appreciate your support! 🤗
+                </p>
+            </div>
         </div>
-  
-      </div>
-      <!-- The Modal ends -->
 
-    <a href="#" style="text-decoration: none;"><p class="nextPage">NEXT: Page</p></a>
+    </div>
+    <!-- The Modal ends -->
+
+    <a href="#" style="text-decoration: none;">
+        <p class="nextPage">NEXT: Page</p>
+    </a>
     <hr>
 
     <footer>
-        [ <a href="../">intro</a>,
-        <a href="#">source</a>,
-        <a href="#">issues</a>,
-        <a href="" style="font-size: 0.9em;" onclick="document.getElementById('myModal').style.display='block'">
-            <i class="fa-regular fa-heart"></i> Donate
-        </a>
-        ]
-        
+        <span class="hide-small">
+            [ <a href="../"><i class="fa-solid fa-house"></i> Home</a>,
+            <a href="#"><i class="fa-solid fa-code"></i> Source</a>,
+            <a href="#"><i class="fa-solid fa-lightbulb"></i> Issues</a>,
+            <a href="" onclick="document.getElementById('myModal').style.display='block'">
+                <i class="fa-regular fa-heart"></i> Donate</a>
+            ]
+        </span>
+        <span class="hide-medium hide-large" style="font-size: 0.85em;">
+            [ <a href="../"><i class="fa-solid fa-house"></i> Home</a> -
+            <a href="" onclick="document.getElementById('myModal').style.display='block'">
+                <i class="fa-regular fa-heart"></i> Donate</a>
+            ]
+        </span>
+
 
         <br />
 
@@ -360,21 +371,24 @@
             <i class="fa-brands fa-creative-commons-nc"></i>&nbsp;
             <i class="fa-brands fa-creative-commons-sa"></i>
         </a>
-        
+
 
         <br />
         <!---<strong style="font-size: 18px">ISBN: ?????????</strong> <br>-->
-        <strong style="font-size: 18px">
-            <span>&copy; Juan Carlos Ponce Campuzano
+        <strong>
+            <span class="hide-small" style="font-size: 18px">&copy; Juan Carlos Ponce Campuzano
+                <script>document.write(new Date().getFullYear());</script>
+            </span>
+            <span class="hide-medium hide-large" style="font-size: 15px">&copy; J.C. Ponce Campuzano
                 <script>document.write(new Date().getFullYear());</script>
             </span>
         </strong>
-        
+
 
     </footer>
 
+    <!-- Ends main content -->
 
-   
 
     <script src="js/scripts.js"></script>
     <script> includeHTML(); // Import html info file </script>
