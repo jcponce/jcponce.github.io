@@ -114,3 +114,6 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// Finally call this function to include html
+includeHTML(); 
