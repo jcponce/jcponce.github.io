@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Real Analysis</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An introduction to Real Analysis" />
+  <meta name="keywords" content="real, analysis, mathematics" />
+
+  <meta property="og:title" content="Real Analysis" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="An introduction to Real Analysis" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/xstyle.css">
+<link rel="stylesheet" href="css/prism/prism.css">
+<link rel="stylesheet" href="css/prism/prism.js">
+
+</head>
+
+<body data-type="book" id="top">
+
+  <div class="container">
+    <section data-type="chapter" id="sequences-9WN6hRW">
+
+  <!-- Starts main content -->
+
+  <p class="callout hide-large hide-medium"><strong>⚠️ Warning!</strong>
+    If you can see this message is because your screen is too small.
+    Hence, some applets won't be displayed correctly.
+    You can rotate your device to landscape.
+    Or resize your window so it's more wide than tall.
+  </p>
+
+  <div class="fixed-bar">
+    <div class="link-container">
+      <a href="table-of-contents.html" class="link">
+        <span class="arrow">←</span>
+      </a>
+      <span class="extra-text" id="dark-mode-toggle"><i class="fa-solid fa-circle-half-stroke"></i></span>
+      <span class="extra-text" id="donate" onclick="document.getElementById('myModal').style.display='block'">
+        <i class="fa-regular fa-heart"></i></span>
+    </div>
+    <div class="link">
+
+      <a href="table-of-contents.html" class="link">
+        <span class="content-original">Table of Contents</span>
+        <span class="content-hover">Real Analysis</span>
+      </a>
+    </div>
+    <a href="#" class="link">
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <br><br><br>
+
+  <header>
+    <h1>Sequences</h1>
+
+  </header>
+
+  <main>
+    <article>
+
+      <h2 id="introduction">Introduction</h2>
+
+      <div class="definition">
+        A <strong>sequence</strong> (of real numbers) is a function $x \colon \N \to
+        \R$. Instead of $x(n),$ we
+        usually denote the $n$th element in the sequence by $x_n$. We
+        use the notation $\{ x_n \}$, or more precisely
+        \begin{equation*}
+        \{ x_n \}_{n=1}^\infty
+        \end{equation*}
+        to denote a sequence.
+      </div>
+
+      <h3>This is a header 3</h3>
+      <h4>This is a header 4</h4>
+
+      <p>
+        Other notations for $\{ x_n \}$ commonly used are:
+        $$\left(x_n\right)_{n=1}^{\infty} \quad \text{and} \quad \{ x_n \}_{n\in\N}.$$
+      </p>
+
+      <div class="definition">
+        <ol>
+          <li>
+            A sequence $\{ x_n \}$ is <em>bounded above</em> if there exists a $ B\in \R$ such that
+            $x_n\leq B$ for all $n\in \N$.
+          </li>
+          <li>
+            A sequence $\{ x_n \}$ is <em>bounded below</em> if there exists a $ B\in \R$ such that $B
+            \leq x_n $ for all $n\in \N$.
+          </li>
+          <li>
+            A sequence $\{ x_n \}$ is <em>bounded</em> if
+            there exists a $B \in \R$ such that
+            \begin{equation*}
+            \abs{x_n} \leq B \qquad \text{for all } n \in \N.
+            \end{equation*}
+          </li>
+
+        </ol>
+        In other words, the sequence $\{x_n\}$ is bounded whenever
+        the set $\{ x_n : n \in \N \}$
+        is bounded, or equivalently when it is bounded as a function.
+
+      </div>
+
+      <h3>This is a header 3</h3>
+
+      <div class="example">
+        If we need to give a concrete sequence, we often give each term as a formula in terms of $n$.
+        For instance, $\{ \frac{1}{n} \}_{n=1}^\infty$, or simply $\{
+        \frac{1}{n} \}$, stands for
+        the sequence
+        $$1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4},
+        \frac{1}{5}, \ldots .$$
+        The sequence $\{ \frac{1}{n} \}$ is a bounded sequence ($B=1$ suffices).
+        <br>
+
+        On the other hand, the sequence $\{ n \}$ stands for
+        $$1,2,3,4,\ldots,$$
+        and this sequence is not bounded (why?).
+
+      </div>
+
+      <h3>This is header 3</h3>
+
+      <p>
+        While the notation for a sequence
+        is similar to that of a set, the notions are
+        distinct. For example, the sequence $\{ {(-1)}^n \}$ is the sequence
+        $$-1,1,-1,1,-1,1,\ldots$$
+        whereas the set of values, the
+        <em>range of the sequence</em>,
+        is just the set $\{ -1, 1 \}$. We can write this set
+        as $\{ {(-1)}^n : n \in \N \}$. When ambiguity can arise, we use the words
+        <em>sequence</em> or <em>set</em>
+        to distinguish the two concepts.
+
+        The following is one of the <em>most fundamental concepts</em> in this real analysis.
+        You need to make
+        sure you understand it thoroughly and you must be able to use it comfortably.
+      </p>
+
+      <div class="theorem">
+        A convergent sequence has a unique limit.
+      </div>
+
+
+      <div class="proof">
+        Assume that the sequence $\{ x_n \}$ has limits $L_1$ and $L_2$.
+        Take an arbitrary $\vre &gt; 0$.
+        From the definition find an $N_1$ such that for all $n \geq N_1$,
+        $\abs{x_n-L_1} \lt \frac{\vre}{2}$. Similarly, find an $N_2$
+        such that for all $n \geq N_2$, we have
+        $\abs{x_n-L_2} \lt \frac{\vre}{2}$.
+        Now take an $n$ such that $n \geq N_1$ and also $n \geq N_2$, and estimate
+        <div class="scroll-wrapper">
+          \begin{equation*}
+          \begin{split}
+          \abs{L_2-L_1}
+          &amp; =
+          \abs{x_n-L_1 - (x_n -L_2)} \leq
+          \abs{x_n-L_1} + \abs{x_n -L_2} \lt
+          \frac{\vre}{2} + \frac{\vre}{2} = \vre .
+          \end{split}
+          \end{equation*}
+        </div>
+        Since $\abs{L_2-L_1} \lt \vre$ for all $\vre &gt; 0$, then $\abs{L_2-L_1} = 0$
+        and $L_2=L_1$. Therefore the limit (if it exists) is unique.
+      </div>
+
+      <p>This is an equation with number
+        \begin{eqnarray}\label{eq}
+        ax^2+bx+c=0
+        \end{eqnarray}
+      </p>
+
+
+      <div class="theorem">
+        <p>
+          <strong>Theorem 2:</strong>
+          Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
+          $S=X+iY$. Then
+          <span>
+            \begin{eqnarray}\label{teo01}
+            \sum_{n=1}^{\infty} z_n=S
+            \end{eqnarray}
+          </span>
+          if and only if
+          <span>
+            \begin{eqnarray}\label{teo02}
+            \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
+            \end{eqnarray}
+          </span>
+          Then
+          <span>
+            \begin{eqnarray}\label{DFT3}
+            X_{k}&amp;=&amp;{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+            &amp;=&amp;{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin
+            \left({k\frac
+            {2\pi
+            }{N}}n\right)\right].}
+            \end{eqnarray}
+          </span>
+        </p>
+        <p>
+          <span>
+            $$
+            f'(p)\coloneqq
+            \begin{bmatrix}
+            \dfrac{\partial f_1}{\partial x_1}(p)
+            &amp;
+            \dfrac{\partial f_1}{\partial x_2}(p)
+            &amp; \ldots &amp;
+            \dfrac{\partial f_1}{\partial x_n}(p)
+            \\[6pt]
+            \dfrac{\partial f_2}{\partial x_1}(p)
+            &amp;
+            \dfrac{\partial f_2}{\partial x_2}(p)
+            &amp; \ldots &amp;
+            \dfrac{\partial f_2}{\partial x_n}(p)
+            \\
+            \vdots &amp; \vdots &amp; \ddots &amp; \vdots
+            \\
+            \dfrac{\partial f_m}{\partial x_1}(p)
+            &amp;
+            \dfrac{\partial f_m}{\partial x_2}(p)
+            &amp; \ldots &amp;
+            \dfrac{\partial f_m}{\partial x_n}(p)
+            \end{bmatrix} .
+            $$
+          </span>
+        </p>
+      </div>
+
+      <details>
+        <summary><b>Proof</b>
+        </summary>
+
+        <br>
+
+        <p>To prove this theorem, we first write the partial sums (2) as
+          \begin{eqnarray}\label{teo03}
+          S_N = X_N+iY_N,
+          \end{eqnarray}
+          where
+          <span class="w3-responsive" style="overflow: hidden;">
+            \[
+            X_N = \sum_{n=1}^{N}x_n \quad \text{and}\quad Y_N = \sum_{n=1}^{N}y_n.
+            \]
+          </span>
+
+          Now statement (\ref{teo01}) is true if and only if
+          <span class="w3-responsive" style="overflow: hidden;">
+            \begin{eqnarray}\label{teo04}
+            \lim_{N\rightarrow \infty} S_N = S;
+            \end{eqnarray}
+          </span>
+          and, in view of relation (\ref{teo03}) and Theorem 1 on sequences, limit (\ref{teo04}) holds if and
+          only if
+          <span class="w3-responsive" style="overflow: hidden;">
+            \begin{eqnarray}\label{teo05}
+            \lim_{N\rightarrow \infty} X_N=X\quad \text{and}\quad \lim_{N\rightarrow \infty} Y_N=Y.
+            \end{eqnarray}
+          </span>
+          Limits (\ref{teo05}) therefore imply statement (\ref{teo01}), and conversely.
+          Since $X_N=X$ and $Y_N=Y$ are partial sums of the series (\ref{teo02}), the theorem is proved.
+          $\blacksquare$
+        </p>
+      </details>
+
+      <p>I can reference again the equation ($\ref{eq}$) above.</p>
+
+
+      <h2>These are examples with iframes</h2>
+
+      <p>This is an example of interactive applet made with MathBox:</p>
+
+      <iframe scrolling="no" style="border:0px;" src="https://topologia-general.github.io/sketches/hopf/" width="100%" height="450px"></iframe>
+
+      <br>
+      <hr>
+
+      <h3>This is an example from GeoGebra:</h3>
+
+
+
+      <br>
+
+      <div class="myFrame">
+        <iframe scrolling="no" title="Slope field explorer" allowfullscreen="" src="https://www.geogebra.org/material/iframe/id/dabkhkqr/width/712/height/404/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="712px" height="404" style="border:0px;"> </iframe>
+      </div>
+
+
+      <br>
+      <hr>
+
+      <h3>This is an example with MathCell:</h3>
+
+      <div class="myFrame">
+
+      </div>
+
+      <div class="myFrame hide-small">
+        <iframe scrolling="no" style="border:0px;" src="https://www.dynamicmath.xyz/sketches/mathcell/eversion/" width="500px" height="500px"></iframe>
+      </div>
+      <div class="myFrame hide-medium hide-large">
+        <p class="callout">
+          <img style="float: left;padding: 8px;" src="imgs/loadcat.gif">
+          Sorry, this applet is not supported for small screens. <br>
+          Rotate your device to landscape. <br>
+          Or resize your window so it's more wide than tall.
+        </p>
+      </div>
+
+
+      <br>
+      <hr>
+
+      <h3>This is an example of interactive applet made with p5js:</h3>
+
+      <iframe style="border:0px;" src="https://www.dynamicmath.xyz/sketches/tesseract/" width="100%" height="450px" scrolling="no"></iframe>
+
+      <br>
+
+
+    </article>
+  </main>
+
+  <button class="hide-small" onclick="topFunction()" id="toTop" title="Go to top">⇧</button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">×</span><br>
+        <strong>👋 Hello!</strong>
+      </div>
+      <div class="modal-body">
+        <div w3-include-html="support.html"></div>
+      </div>
+      <div class="modal-footer">
+        Thank you! 🙏 I highly appreciate your support! 🤗
+      </div>
+    </div>
+
+  </div>
+  <!-- The Modal ends -->
+
+  <a href="#" style="text-decoration: none;">
+    <p class="nextPage">NEXT: Page</p>
+  </a>
+  <!-- Ends main content -->
+
+  
+
+</section>
+  </div>
+
+
+  <hr>
+
+  <footer>
+    <span class="hide-small">
+      <span style="font-weight: bold;">[</span>
+      <a href="../"><i class="fa-solid fa-house"></i> Home</a>,
+      <a href="#"><i class="fa-solid fa-code"></i> Source</a>,
+      <a href="#"><i class="fa-solid fa-lightbulb"></i> Issues</a>,
+      <span id="donate-footer" onclick="document.getElementById('myModal').style.display='block'">
+        <i class="fa-regular fa-heart"></i> Donate</span>
+      <span style="font-weight: bold;">]</span>
+    </span>
+    <span class="hide-medium hide-large" style="font-size: 0.85em;">
+      <span style="font-weight: bold;">[</span>
+      <a href="../"><i class="fa-solid fa-house"></i> Home</a> -
+      <span id="donate-footer" onclick="document.getElementById('myModal').style.display='block'">
+        <i class="fa-regular fa-heart"></i> Donate</span>
+      <span style="font-weight: bold;">]</span>
+    </span>
+
+
+    <br />
+
+    <a style="text-decoration: none;" rel="license"
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+      <i class="fa-brands fa-creative-commons"></i>&nbsp;
+      <i class="fa-brands fa-creative-commons-by"></i>&nbsp;
+      <i class="fa-brands fa-creative-commons-nc"></i>&nbsp;
+      <i class="fa-brands fa-creative-commons-sa"></i>
+    </a>
+
+
+    <br />
+    <!---<strong style="font-size: 18px">ISBN: ?????????</strong> <br>-->
+    <strong>
+      <span class="hide-small" style="font-size: 18px">&copy; Juan Carlos Ponce Campuzano
+        <script>document.write(new Date().getFullYear());</script>
+      </span>
+      <span class="hide-medium hide-large" style="font-size: 15px">&copy; J.C. Ponce Campuzano
+        <script>document.write(new Date().getFullYear());</script>
+      </span>
+    </strong>
+
+
+  </footer>
+
+  <script src="js/mathjax.js"></script>
+<script src="js/scripts.js"></script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script>
+    // Finally call this function to include html
+    includeHTML(); 
+  </script>
+
+
+  <script async src="css/prism/prism.js"></script>
+</body>
+
+</html>
