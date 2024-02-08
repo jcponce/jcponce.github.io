@@ -68,10 +68,17 @@
   <main>
     <article>
 
-      <h2 id="introduction">Introduction</h2>
+      <h2 id="definitions">Definitions</h2>
+
+      <p>
+        In this chapter we explore the most basic type of a limit in Real
+        Analysis, that is the limit of a
+        sequence of real numbers. You probably have seen sequences used informally
+        in algebra or calculus.
+      </p>
 
       <div class="definition">
-        A <strong>sequence</strong> (of real numbers) is a function $x \colon \N \to
+        A <strong>sequence</strong> of real numbers is a function $x \colon \N \to
         \R$. Instead of $x(n),$ we
         usually denote the $n$th element in the sequence by $x_n$. We
         use the notation $\{ x_n \}$, or more precisely
@@ -81,9 +88,6 @@
         to denote a sequence.
       </div>
 
-      <h3>This is a header 3</h3>
-      <h4>This is a header 4</h4>
-
       <p>
         Other notations for $\{ x_n \}$ commonly used are:
         $$\left(x_n\right)_{n=1}^{\infty} \quad \text{and} \quad \{ x_n \}_{n\in\N}.$$
@@ -92,57 +96,86 @@
       <div class="definition">
         <ol>
           <li>
-            A sequence $\{ x_n \}$ is <em>bounded above</em> if there exists a $ B\in \R$ such that
-            $x_n\leq B$ for all $n\in \N$.
+            A sequence $\{ x_n \}$ is <strong>bounded above</strong> if there exists a $ B\in \R$ such that $x_n\leq B$
+            for all $n\in \N$.
+
           </li>
           <li>
-            A sequence $\{ x_n \}$ is <em>bounded below</em> if there exists a $ B\in \R$ such that $B
-            \leq x_n $ for all $n\in \N$.
+            A sequence $\{ x_n \}$ is <strong>bounded below</strong> if there exists a $ B\in \R$ such that $B \leq x_n
+            $ for all $n\in \N$.
           </li>
           <li>
-            A sequence $\{ x_n \}$ is <em>bounded</em> if
+            A sequence $\{ x_n \}$ is <strong>bounded</strong> if
             there exists a $B \in \R$ such that
             \begin{equation*}
             \abs{x_n} \leq B \qquad \text{for all } n \in \N.
             \end{equation*}
           </li>
-
         </ol>
-        In other words, the sequence $\{x_n\}$ is bounded whenever
-        the set $\{ x_n : n \in \N \}$
-        is bounded, or equivalently when it is bounded as a function.
+
+
+        <p>
+          <span>
+            In other words, the sequence $\{x_n\}$ is bounded whenever
+            the set $\{ x_n : n \in \N \}$
+            is bounded, or equivalently when it is bounded as a function.
+          </span>
+        </p>
+
+
 
       </div>
 
-      <h3>This is a header 3</h3>
 
       <div class="example">
-        If we need to give a concrete sequence, we often give each term as a formula in terms of $n$.
-        For instance, $\{ \frac{1}{n} \}_{n=1}^\infty$, or simply $\{
-        \frac{1}{n} \}$, stands for
-        the sequence
-        $$1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4},
-        \frac{1}{5}, \ldots .$$
-        The sequence $\{ \frac{1}{n} \}$ is a bounded sequence ($B=1$ suffices).
-        <br>
+        <p>
+          <span>
+            If we need to give a concrete sequence, we provide each term as a formula in terms of $n$.
+          </span>
+          <span>
+            For instance, $\left\{ \dfrac{1}{n} \right\}_{n=1}^\infty$,
+          </span>
+          <span>
+            or simply $\left\{
+            \dfrac{1}{n} \right\}$,
+          </span>
+          <span>
+            stands for
+            the sequence
+            $$\ds 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4},
+            \frac{1}{5}, \ldots $$
+          </span>
+          <span>
+            Notice that this is a bounded sequence.
+          </span>
 
-        On the other hand, the sequence $\{ n \}$ stands for
-        $$1,2,3,4,\ldots,$$
-        and this sequence is not bounded (why?).
+        </p>
 
       </div>
 
-      <h3>This is header 3</h3>
+      <div class="example">
+        <p>
+          <span>
+            On the other hand, the sequence $\{ n^2 \}$ stands for
+            $$2,4,9,16,\ldots,$$
+          </span>
+          <span>
+            and this sequence is not bounded.
+          </span>
+
+
+        </p>
+      </div>
 
       <p>
-        While the notation for a sequence
-        is similar to that of a set, the notions are
-        distinct. For example, the sequence $\{ {(-1)}^n \}$ is the sequence
+        The notation for a sequence
+        is similar to that of a set. However, the notions are
+        different. For instance, the sequence $\{ {(-1)}^n \}$ is the sequence
         $$-1,1,-1,1,-1,1,\ldots$$
         whereas the set of values, the
         <em>range of the sequence</em>,
-        is just the set $\{ -1, 1 \}$. We can write this set
-        as $\{ {(-1)}^n : n \in \N \}$. When ambiguity can arise, we use the words
+        is just the set $\{ -1, 1 \}.$ We can write this set
+        as $\{ {(-1)}^n : n \in \N \}.$ When ambiguity can arise, we use the words
         <em>sequence</em> or <em>set</em>
         to distinguish the two concepts.
 
@@ -150,6 +183,224 @@
         You need to make
         sure you understand it thoroughly and you must be able to use it comfortably.
       </p>
+
+      <h3 id="convergence-of-sequeces">Convergence of sequences</h3>
+
+      <div class="definition">
+        <p>
+          A sequence $\{ x_n \}$ is said to <em>converge</em> to a number
+          $L \in \R$ if for every $\epsilon &gt; 0$, there exists an $M \in \N$ such
+          that $\abs{x_n - L} \lt \epsilon$ for all $n \geq M$.
+          <span>
+            The number $L$
+            is said to be the <em>limit</em> of $\{ x_n \}$. We write
+            \begin{equation*}
+            \lim_{n\to \infty} x_n := L .
+            \end{equation*}
+          </span>
+        </p>
+      </div>
+
+
+      <figure>
+        <img alt="Convergence in one dimension" style="width: 100%;" loading="lazy" src="https://www.dynamicmath.xyz/math2400/images/summary-02/convergence-1d.png">
+
+        <figcaption>
+          Convergence in one dimension.
+        </figcaption>
+      </figure>
+
+
+      <div class="myFrame">
+        <iframe scrolling="no" title="Convergence of sequences" src="https://www.geogebra.org/material/iframe/id/rmx2ud6p/width/572/height/402/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="572px" height="402px" style="border:0px;" allowfullscreen=""> </iframe>
+        <br>
+        <span style="text-align: center;">Drag the slider!</span>
+      </div>
+
+      <div class="example">
+        <p>
+          The sequence $\{x_n\}_{n=1}^{\infty}$, where $x_n =c$,
+          $\forall n \in \N$ and $c\in\R$ fixed is known as the <strong>constant sequence</strong>.
+        </p>
+
+        <p>
+          <span>
+            This is a sequence $$\{ c \} = c,c,c,\ldots$$ consisting of a single constant $c$ repeating indefinitely.
+          </span>
+          <span>
+            It converges to $c$.
+          </span>
+
+        </p>
+
+      </div>
+
+      <div class="example">
+        <p>
+          <strong>Claim:</strong> The sequence $\left\{ \dfrac{1}{n} \right\}$ is convergent and
+          \begin{equation*}
+          \lim_{n\to \infty} \frac{1}{n} = 0 .
+          \end{equation*}
+        </p>
+
+        <p>
+          <span>
+            <strong>Proof.</strong>
+          </span>
+          <span>
+            Given an $\vre &gt; 0$, we find an $N \in \N$ such that
+            $0 \lt \dfrac{1}{N} \lt \vre$
+
+          </span>
+          <span>(thanks to the
+            <a href="#" target="_blank">Archimedean property</a> 😎).</span>
+        </p>
+        <p>
+          Then for all $n \geq N$,
+          <span class="responsive">
+            $$\ds \abs{x_n - 0} = \abs{\frac{1}{n}} = \frac{1}{n} \leq \frac{1}{N}\lt \vre .\;\;\blacksquare$$
+          </span>
+        </p>
+
+      </div>
+
+      <div class="example">
+        <p>
+          <strong>Claim:</strong> The sequence $\{ {(-1)}^n \}$ is divergent.
+        </p>
+        <p>
+          <span>
+            <strong>Proof.</strong>
+          </span>
+          <span>
+            If there were a limit $L$,
+          </span>
+          <span>
+            then for $\vre = \dfrac{1}{2}$ we expect an $N$ that
+            satisfies the definition.
+          </span>
+        </p>
+        <p>
+          <span>
+            Suppose such an $N$ exists.
+          </span>
+          <span>
+            Then for an even $n \geq N$ we compute
+          </span>
+          <span class="responsive">
+            $$\ds \frac{1}{2} &gt; \abs{x_n - L} = \abs{1 - L}$$
+          </span>
+          and
+          <span class="responsive">
+            $$ \frac{1}{2} &gt; \abs{x_{n+1} - L} = \abs{-1 - L} .$$
+          </span>
+          But
+          <span class="responsive">$$\ds 2 = \abs{1 - L - (-1 -L)} \leq \abs{1 - L} + \abs{-1 -L}$$</span>
+          which is a contradiction!
+        </p>
+
+      </div>
+
+
+
+      <h3 id="intuitive-vs-rigorous">Intuitive vs Rigorous proofs of limits</h3>
+
+      <p>Let's see one more example of proof using the definition of the limit of a sequence. With a little study and
+        practice, you should be able to do proofs of this sort yourself.
+      </p>
+
+      <div class="example">
+        <p>
+          Show that
+        </p>
+        <p>
+
+          $$\lim_{n\ra \infty} \frac{n+1}{n} = 1.$$
+
+          <strong>Discussion:</strong> Our task is to consider an arbitrary
+          $\vre$ and show that there exists a number $N\in \N$ (which will depend on $\vre$) such that $n\geq N$ implies
+          $$\abs{\frac{n+1}{n}-1} \lt \vre .$$ So we expect our formal proof to begin with
+          "Let $\vre&gt; 0 $ be arbitrary"
+          and to end with something like
+          "Hence $n \geq N$ implies $\abs{\frac{n+1}{n}-1} \lt \vre .$" In between the
+          proof we should specify an $N\in \N$ with <em>a particular property</em> and then verify that for every $n
+          \geq N$ implies $\abs{\frac{n+1}{n}-1} \lt \vre.$
+        </p>
+
+        <p>
+          We will initially work backward from our desired conclusion, but in the formal proof
+          we will have to be sure our steps are reversible. In the present example, we want
+          $$\abs{\frac{n+1}{n}-1} \lt \vre$$ and we want to know how big $n$ must be. So we will operate on this
+          inequality algebraically and try to "solve" for $n$. So, since $$\abs{\frac{n+1}{n}-1}=\frac{1}{n}\lt\vre,$$
+          we want $n&gt; \dfrac{1}{\vre}$. Thus, if our steps are reversible, choosing $N\in \N$ to be greater than
+          $\dfrac{1}{\vre}$ implies $\abs{\frac{n+1}{n}-1} \lt \vre.$ With this observation, we are ready to write
+          the formal argument.
+        </p>
+        <div class="proof">
+          Let $\vre &gt; 0$ be arbitrary.
+          Choose $N\in \N$ with $N&gt;\dfrac{1}{\vre}.$ Then, $n\geq N$ implies
+          $n &gt; \dfrac{1}{\vre}$ or $\vre &gt; \dfrac{1}{n}.$
+          Therefore, for all $n \geq N,$
+          \begin{equation*}
+          \abs{\frac{n+1}{n} - 1} = \abs{\frac{1}{n}} = \frac{1}{n} \lt \vre .
+          \end{equation*}
+        </div>
+      </div>
+
+      <p>
+        The definition of convergence given earlier is the result of hundreds of years of refining the intuitive notion
+        of limit into a mathematically rigorous statement. The logic involved is complicated and is intimately tied to
+        the use of the <em>quantifiers</em> “for all” and “there exists.” Learning to write a grammatically correct
+        convergence proof goes hand in hand with a deep understanding of why the quantifiers appear in the order that
+        they do.
+      </p>
+
+      <p>
+        The definition begins with the phrase
+      </p>
+      <p style="text-align: center;">
+        "For every $\vre&gt;0$, there exists $N\in \N$ such that ..."
+      </p>
+      <p>
+        Looking at the previous example,
+        we see that our formal proof begins with, “Let $\vre&gt;0$ be an arbitrary
+        number.” This is followed by a construction of $N$ and then a
+        demonstration that this choice of $N$ has the
+        desired property. This, in fact, is a basic outline for how
+        every convergence proof should be presented.
+      </p>
+
+      <hr>
+      <h4 id="template-for-a-proof-seq">Template for a proof that $\lim {x_n} = L$</h4>
+
+      <ul>
+        <li>"Let $\vre &gt;0 $ be arbitrary."</li>
+        <li>
+          Demonstrate a choice for $N \in \N$. This step usually requires the most work, almost all of which is done
+          prior to actually writing the formal proof.
+        </li>
+        <li>
+          Now, show that $N$ actually works.
+        </li>
+        <li>
+          "Assume $n\geq N$."
+        </li>
+        <li>
+          With $N$ well chosen, it should be possible to derive the inequality $\abs{x_n - L}\lt\vre.$
+        </li>
+      </ul>
+      <br>
+
+      <hr>
+
+      <h3>Useful results</h3>
+
+      <p>
+        The proof of the following theorem shows another useful technique in analysis. Many proofs in real analysis
+        follow the same general scheme. In this case, we want to show a certain quantity is zero. Using the triangle
+        inequality we write the quantity as two quantities, and then we estimate each one by arbitrarily small numbers.
+      </p>
+
 
       <div class="theorem">
         A convergent sequence has a unique limit.
@@ -179,156 +430,27 @@
         and $L_2=L_1$. Therefore the limit (if it exists) is unique.
       </div>
 
-      <p>This is an equation with number
-        \begin{eqnarray}\label{eq}
-        ax^2+bx+c=0
-        \end{eqnarray}
-      </p>
 
-
-      <div class="theorem">
+      <div class="theorem" id="theo:convergent-seq-bounded">
         <p>
-          Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
-          $S=X+iY$. Then
-          <span>
-            \begin{eqnarray}\label{teo01}
-            \sum_{n=1}^{\infty} z_n=S
-            \end{eqnarray}
-          </span>
-          if and only if
-          <span>
-            \begin{eqnarray}\label{teo02}
-            \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
-            \end{eqnarray}
-          </span>
-          Then
-          <span>
-            \begin{eqnarray}\label{DFT3}
-            X_{k}&amp;=&amp;{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
-            &amp;=&amp;{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin
-            \left({k\frac
-            {2\pi
-            }{N}}n\right)\right].}
-            \end{eqnarray}
-          </span>
+          A convergent sequence $\{ x_n \}$ is bounded.
         </p>
+      </div>
+
+      <div class="proof">
         <p>
-          <span>
-            $$
-            f'(p)\coloneqq
-            \begin{bmatrix}
-            \dfrac{\partial f_1}{\partial x_1}(p)
-            &amp;
-            \dfrac{\partial f_1}{\partial x_2}(p)
-            &amp; \ldots &amp;
-            \dfrac{\partial f_1}{\partial x_n}(p)
-            \\[6pt]
-            \dfrac{\partial f_2}{\partial x_1}(p)
-            &amp;
-            \dfrac{\partial f_2}{\partial x_2}(p)
-            &amp; \ldots &amp;
-            \dfrac{\partial f_2}{\partial x_n}(p)
-            \\
-            \vdots &amp; \vdots &amp; \ddots &amp; \vdots
-            \\
-            \dfrac{\partial f_m}{\partial x_1}(p)
-            &amp;
-            \dfrac{\partial f_m}{\partial x_2}(p)
-            &amp; \ldots &amp;
-            \dfrac{\partial f_m}{\partial x_n}(p)
-            \end{bmatrix} .
-            $$
-          </span>
+          Suppose $\{ x_n \}$ converges to $L$. Thus there exists an $N \in \N$
+          such that for all $n \geq N$, we have
+          $\abs{x_n - L} \lt 1$. Let $C_1 :=\abs{L}+1$ and note that for $n \geq N$, \begin{equation*} \begin{split}
+          \abs{x_n} &amp;=\abs{x_n - L + L} \leq \abs{x_n - L} + \abs{L} \\ &amp; \lt 1 + \abs{L}=C_1 . \end{split}
+          \end{equation*} The set $\{ \abs{x_1}, \abs{x_2}, \ldots, \abs{x_{N-1}} \}$ is a finite set and hence let
+          \begin{equation*} C_2 :=\max \{ \abs{x_1}, \abs{x_2}, \ldots, \abs{x_{N-1}} \} . \end{equation*} 
+          Let $B
+          :=\max \{ C_1, C_2 \}$. Then for all $n \in \N$, \begin{equation*} \abs{x_n} \leq B.
+          \end{equation*} 
         </p>
       </div>
 
-      <details>
-        <summary><b>Proof</b>
-        </summary>
-
-        <br>
-
-        <p>To prove this theorem, we first write the partial sums (2) as
-          \begin{eqnarray}\label{teo03}
-          S_N = X_N+iY_N,
-          \end{eqnarray}
-          where
-          <span class="w3-responsive" style="overflow: hidden;">
-            \[
-            X_N = \sum_{n=1}^{N}x_n \quad \text{and}\quad Y_N = \sum_{n=1}^{N}y_n.
-            \]
-          </span>
-
-          Now statement (\ref{teo01}) is true if and only if
-          <span class="w3-responsive" style="overflow: hidden;">
-            \begin{eqnarray}\label{teo04}
-            \lim_{N\rightarrow \infty} S_N = S;
-            \end{eqnarray}
-          </span>
-          and, in view of relation (\ref{teo03}) and Theorem 1 on sequences, limit (\ref{teo04}) holds if and
-          only if
-          <span class="w3-responsive" style="overflow: hidden;">
-            \begin{eqnarray}\label{teo05}
-            \lim_{N\rightarrow \infty} X_N=X\quad \text{and}\quad \lim_{N\rightarrow \infty} Y_N=Y.
-            \end{eqnarray}
-          </span>
-          Limits (\ref{teo05}) therefore imply statement (\ref{teo01}), and conversely.
-          Since $X_N=X$ and $Y_N=Y$ are partial sums of the series (\ref{teo02}), the theorem is proved.
-          $\blacksquare$
-        </p>
-      </details>
-
-      <p>I can reference again the equation ($\ref{eq}$) above.</p>
-
-
-      <h2>These are examples with iframes</h2>
-
-      <p>This is an example of interactive applet made with MathBox:</p>
-
-      <iframe scrolling="no" style="border:0px;" src="https://topologia-general.github.io/sketches/hopf/" width="100%" height="450px"></iframe>
-
-      <br>
-      <hr>
-
-      <h3>This is an example from GeoGebra:</h3>
-
-
-
-      <br>
-
-      <div class="myFrame">
-        <iframe scrolling="no" title="Slope field explorer" allowfullscreen="" src="https://www.geogebra.org/material/iframe/id/dabkhkqr/width/712/height/404/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="712px" height="404" style="border:0px;"> </iframe>
-      </div>
-
-
-      <br>
-      <hr>
-
-      <h3>This is an example with MathCell:</h3>
-
-      <div class="myFrame">
-
-      </div>
-
-      <div class="myFrame hide-small">
-        <iframe scrolling="no" style="border:0px;" src="https://www.dynamicmath.xyz/sketches/mathcell/eversion/" width="500px" height="500px"></iframe>
-      </div>
-      <div class="myFrame hide-medium hide-large">
-        <p class="callout">
-          <img style="float: left;padding: 8px;" src="imgs/loadcat.gif">
-          Sorry, this applet is not supported for small screens. <br>
-          Rotate your device to landscape. <br>
-          Or resize your window so it's more wide than tall.
-        </p>
-      </div>
-
-
-      <br>
-      <hr>
-
-      <h3>This is an example of interactive applet made with p5js:</h3>
-
-      <iframe style="border:0px;" src="https://www.dynamicmath.xyz/sketches/tesseract/" width="100%" height="450px" scrolling="no"></iframe>
 
       <br>
 
