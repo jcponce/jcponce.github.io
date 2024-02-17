@@ -1,9 +1,64 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Martel+Sans");
 
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-regular.woff2') format('woff2'),
+    url('./fonts/LM-regular.woff') format('woff'),
+    url('./fonts/LM-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-italic.woff2') format('woff2'),
+    url('./fonts/LM-italic.woff') format('woff'),
+    url('./fonts/LM-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold.woff2') format('woff2'),
+    url('./fonts/LM-bold.woff') format('woff'),
+    url('./fonts/LM-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
+    url('./fonts/LM-bold-italic.woff') format('woff'),
+    url('./fonts/LM-bold-italic.ttf') format('truetype');
+}
+
+:root {
+  --summary-background-color: #f2f2f2;
+  --summary-color: black;
+}
+
 /* Set my favourite font */
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: Georgia, Times, "Times New Roman", serif;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+body {
+  counter-reset: theorem corollary definition example figure-counter section-1 subsection-1 subsubsection-1 section-2 subsection-2 subsubsection-2 section-3 subsection-3 subsubsection-3;
 }
 
 .dark-mode {
@@ -12,7 +67,7 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 .highlight {
@@ -57,7 +112,9 @@ input[type=text] {
   .search-container {
     float: none;
   }
-  input[type=text], .search-container button {
+
+  input[type=text],
+  .search-container button {
     float: none;
     display: block;
     text-align: center;
@@ -65,8 +122,9 @@ input[type=text] {
     margin: 0;
     padding: 14px;
   }
+
   input[type=text] {
-    border: 1px solid #ccc;  
+    border: 1px solid #ccc;
   }
 }
 
@@ -85,15 +143,15 @@ input[type=text] {
 }
 
 #mySocial {
-  width: 100%;
+  width: 250px;
   padding: 32px;
-  position: relative;
-  bottom: 0px
+  position: fixed;
+  bottom: 0px;
 }
 
 /* It shows info if needed on hover text*/
 #mytooltip {
-  position: absolute;
+  position: static;
   left: 0;
   bottom: 22px;
   text-align: left;
@@ -106,19 +164,12 @@ input[type=text] {
   /* Will be AT LEAST 20em wide */
 }
 
-.theorem {
-  /* top left bottom right */
-  padding: 8px 16px 8px 16px;
-  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  content:"";display:table;clear:both;
-  color:#000!important;background-color:#f1f1f1!important;
-  border-left:5px solid #ccc!important; 
-  display:block;overflow-x:auto;
-}
-
 /* This is for expandable text box */
 summary {
+  background-color: var(--summary-background-color);
+  color: var(--summary-color);
   cursor: pointer;
+  font-size:20px
 }
 
 /* The Modal (background) */
@@ -242,3 +293,264 @@ summary {
     line-height: 1; }
 
 */
+
+/* Numbered headers. Starts at 1 */
+.head-1 {
+  counter-increment: section-1;
+  font-weight: bold;
+  font-size: 2.125rem;
+}
+
+.head-1::before {
+  content: counter(section-1) ". ";
+}
+
+.head-1.head-1-level2 {
+  counter-increment: subsection-1;
+  font-size: 1.775rem;
+}
+
+.head-1.head-1-level2::before {
+  content: counter(section-1) "." counter(subsection-1) ". ";
+}
+
+.head-1.head-1-level3 {
+  counter-increment: subsubsection-1;
+  font-size: 1.4rem;
+}
+
+.head-1.head-1-level3::before {
+  content: counter(section-1) "." counter(subsection-1) "." counter(subsubsection-1) ". ";
+}
+/* Numbered headers. Starts at 2 */
+.head-2 {
+  counter-increment: section-2 2;
+  font-weight: bold;
+  font-size: 2.125rem;
+}
+
+.head-2::before {
+  content: counter(section-2) ". ";
+}
+
+.head-2.head-2-level2 {
+  counter-increment: subsection-2;
+  font-size: 1.875rem;
+}
+
+.head-2.head-2-level2::before {
+  content: counter(section-2) "." counter(subsection-2) ". ";
+}
+
+.head-2.head-2-level3 {
+  counter-increment: subsubsection-2;
+  font-size: 1.5rem;
+}
+
+.head-2.head-2-level3::before {
+  content: counter(section-2) "." counter(subsection-2) "." counter(subsubsection-2) ". ";
+}
+/* Numbered headers. Starts at 3 */
+.head-3 {
+  counter-increment: section-3 3;
+  font-weight: bold;
+  font-size: 2.125rem;
+}
+
+.head-3::before {
+  content: counter(section-3) ". ";
+}
+
+.head-3.head-3-level2 {
+  counter-increment: subsection-3;
+  font-size: 1.875rem;
+}
+
+.head-3.head-3-level2::before {
+  content: counter(section-3) "." counter(subsection-3) ". ";
+}
+
+.head-3.head-3-level3 {
+  counter-increment: subsubsection-3;
+  font-size: 1.5rem;
+}
+
+.head-3.head-3-level3::before {
+  content: counter(section-3) "." counter(subsection-3) "." counter(subsubsection-3) ". ";
+}
+
+
+/* Theorem */
+.theorem {
+  counter-increment: theorem;
+  margin: 12px 0;
+  font-style: italic;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  content: "";
+  display: table;
+  clear: both;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #16b190 !important;
+  background-color:#f1f1f1!important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.theorem::before {
+  content: 'Theorem ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Corollary */
+.corollary {
+  counter-increment: corollary;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #3b87f9 !important;
+  background-color:#f1f1f1!important;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.corollary::before {
+  content: 'Corollary ' counter(corollary) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+.lemma {
+  counter-increment: theorem;
+  margin: 12px 0;
+  font-style: italic;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #3b87f9 !important;
+  background-color:#f1f1f1!important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.lemma::before {
+  content: 'Lemma ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+
+/* Proof */
+.proof {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  position: relative;
+}
+
+.proof::before {
+  content: 'Proof. ' attr(title);
+  font-style: italic;
+}
+
+.proof:after {
+  content: '◾️';
+  filter: var(--proof-symbol-filter);
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+.definition {
+  counter-increment: definition;
+  margin: 12px 0;
+  font-style: normal;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  content: "";
+  display: table;
+  clear: both;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #3b87f9 !important;
+  background-color:#f1f1f1!important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.definition::before {
+  content: 'Definition ' counter(definition) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Example: I added this class */
+.example {
+  counter-increment: example;
+  margin: 25px 0;
+  font-style: normal;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #6106d7 !important;
+  margin-left: 10px;
+  background-color:#f1f1f1!important;
+  display: block;
+  overflow-y: hidden;
+}
+
+.example::before {
+  content: 'Example ' counter(example) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* This is for add a little exercise */
+.practice {
+  padding: 0px 20px 8px 20px !important;
+}
+
+/* Resetting default list-style-type for figure */
+figure {
+  counter-increment: figure-counter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styling for the figure caption */
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+
+/* Numbering for the figure */
+/* Styling for the figure caption */
+figcaption:before {
+  content: "Figure " counter(figure-counter);
+  font-style: normal;
+  font-weight: bold;
+  margin-bottom: 5px;
+  /* Add some space between the image and the "Figure number" */
+
+}
+
+
+/* Format the LaTeX symbol correctly (a higher up, e lower) */
+.latex span:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  vertical-align: 0.28em;
+  margin-left: -0.48em;
+  margin-right: -0.15em;
+  line-height: 1ex;
+}
+
+.latex span:nth-child(2) {
+  text-transform: uppercase;
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+  line-height: 1ex;
+}

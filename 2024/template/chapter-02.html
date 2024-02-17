@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Template for Books</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Template for Books">
+  <meta name="keywords" content="keywords">
+  <meta name="author" content="Juan Carlos Ponce Campuzano">
+  <meta name="language" content="en-US">
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/w3.css">
+  <link rel="stylesheet" href="css/w3-theme-blue.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- MathCell applets + MathJax -->
+  <script src="js/math.js"></script>
+  <script src="js/mathcell.js"></script>
+  <script src="js/mathjax.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div w3-include-html="toc.html"></div>
+
+  <!-- !PAGE CONTENT! -->
+
+  <div class="w3-main w3-large" style="margin-left:250px;">
+
+    <!-- Main text starts here -->
+    
+    <!-- Bar on top shows/hides after scrolling -->
+    <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
+      <div id="myTextBar">
+        <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+          <span id="myTitle" class="w3-hide">Chapter 2: More options</span>
+
+          <button style="position: sticky; left:90%; font-size: 14px;padding: 5px;"
+            onclick="document.getElementById('myModal').style.display='block'"
+            class="w3-button w3-theme w3-round-large w3-hover-shadow w3-hide-small w3-hover-light-gray ">
+            <i class="fa-regular fa-heart"></i> Donate
+          </button>
+
+          <span onclick="myDarkMode()"
+            style="cursor: pointer; position: sticky; left:87%; font-size: 14px;padding: 5px;"
+            class="w3-theme w3-round-large w3-hover-light-gray">
+            <i class="fa-solid fa-circle-half-stroke"></i></span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-theme" style="padding:64px 32px">
+      <div class="head-2 w3-xxxlarge">More options</div>
+    </header>
+
+    <!-- Sections -->
+    <div class="w3-container" style="padding:32px">
+
+      
+      <div class="head-2 head-2-level2">W3.CSS is Free</div>
+      <p>W3.CSS is free to use. No license is necessary.</p>
+
+      <hr>
+      <h2>Easy to Use</h2>
+      <div class="w3-container w3-sand w3-leftbar">
+        <p><i>Make it as simple as possible, but not simpler.</i><br>
+          Albert Einstein</p>
+      </div>
+
+      <hr>
+      <h2>This is an example of paragraphs with maths:</h2>
+
+      <p>Dada una topolog&#xED;a $\tau$ para $X$ decimos que \(\mathcal{B}\subset \tau\) es una <strong> base </strong>
+        para
+        $\tau$ si todo abierto
+        $A\in \tau$ puede expresarse como uni&#xF3;n de elementos de $\mathcal{B}$. La intenci&#xF3;n de definir una
+        base para
+        una topolog&#xED;a
+        es el de hacer posible una descripci&#xF3;n de la topolog&#xED;a sin dar de manera expl&#xED;cita todos los
+        abiertos que
+        la comprenden.</p>
+
+      <p> Observemos que $\mathcal{B}=\{ X \}$ es una base para
+        la topolog&#xED;a trivial. Por otro lado, la colecci&#xF3;n
+        $\mathcal{B}=\{\{x\}|\; x\in X\}$ es base para la topolog&#xED;a discreta.</p>
+
+      <p>This is an equation with number
+        \begin{eqnarray}\label{eq}
+        ax^2+bx+c=0
+        \end{eqnarray}
+      </p>
+
+      <p>Now I can reference ($\ref{eq}$) above.</p>
+
+      <p>Some AMS extensions:
+        $$\LARGE \Bbbk \text{ and } \because \text{ and } \pitchfork$$</p>
+
+      <p>The Discrete Fourier Transform is defined as
+        <span class="w3-responsive">
+          \begin{aligned}
+          X_{k}&={\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+          &={ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+          {2\pi
+          }{N}}n\right)\right],}
+          \end{aligned}
+        </span>
+        where the last expression follows from the first one by Euler's formula.
+        Essentially, it transforms a sequence of $N$ complex numbers
+        $$\displaystyle \mathbf {x} :=x_{0},x_{1},\ldots ,x_{N-1}$$
+        into another sequence of complex numbers,
+        $$\displaystyle \mathbf {X} :=X_{0},X_{1},\ldots
+        ,X_{N-1}.$$
+        Let's try another
+        <span class="w3-responsive">
+          \begin{eqnarray}\label{DFT}
+          X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+          &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+          {2\pi
+          }{N}}n\right)\right],}
+          \end{eqnarray}
+        </span>
+      </p>
+
+      <div class="theorem">
+        <p>
+          Suppose that $U \subseteq \R^n$ is an open set and that
+          $f \colon U \to \R^m$ is differentiable.
+          <span>
+            Then all the partial derivatives at $p$
+            exist
+          </span>
+          <span>
+            and, in terms of the standard bases of $\R^n$ and $\R^m,$
+          </span>
+          <span>
+            $f'(p)$ is represented by the matrix
+          </span>
+          <span class="w3-responsive">
+            \begin{eqnarray}\label{DFT2}
+            X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+            &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+            {2\pi
+            }{N}}n\right)\right],}
+            \end{eqnarray}
+          </span>
+        </p>
+      </div>
+
+      <br />
+
+      <!-- This theorem with proof is responsive and shows up for medium and large screens -->
+      <div class="theorem">
+        <p>
+          Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
+          $S=X+iY$. Then
+          <span class="w3-responsive">
+            \begin{eqnarray}\label{teo01}
+            \sum_{n=1}^{\infty} z_n=S
+            \end{eqnarray}
+          </span>
+          if and only if
+          <span class="w3-responsive" style="overflow: hidden;">
+            \begin{eqnarray}\label{teo02}
+            \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
+            \end{eqnarray}
+          </span>
+          Then
+          <span class="w3-responsive">
+            \begin{eqnarray}\label{DFT3}
+            X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+            &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+            {2\pi
+            }{N}}n\right)\right].}
+            \end{eqnarray}
+          </span>
+        </p>
+        <p>
+          <span class="w3-responsive">
+            $$
+            f'(p)\coloneqq
+            \begin{bmatrix}
+            \dfrac{\partial f_1}{\partial x_1}(p)
+            &
+            \dfrac{\partial f_1}{\partial x_2}(p)
+            & \ldots &
+            \dfrac{\partial f_1}{\partial x_n}(p)
+            \\[6pt]
+            \dfrac{\partial f_2}{\partial x_1}(p)
+            &
+            \dfrac{\partial f_2}{\partial x_2}(p)
+            & \ldots &
+            \dfrac{\partial f_2}{\partial x_n}(p)
+            \\
+            \vdots & \vdots & \ddots & \vdots
+            \\
+            \dfrac{\partial f_m}{\partial x_1}(p)
+            &
+            \dfrac{\partial f_m}{\partial x_2}(p)
+            & \ldots &
+            \dfrac{\partial f_m}{\partial x_n}(p)
+            \end{bmatrix} .
+            $$
+          </span>
+        </p>
+      </div>
+
+      <br />
+
+      <details>
+        <summary class="w3-hover-text-blue"><b>Proof</b>
+        </summary>
+
+        <br>
+
+        <p>To prove this theorem, we first write the partial sums (2) as
+          \begin{eqnarray}\label{teo03}
+          S_N = X_N+iY_N,
+          \end{eqnarray}
+          where
+          <span class="w3-responsive" style="overflow: hidden;">
+            \[
+            X_N = \sum_{n=1}^{N}x_n \quad \text{and}\quad Y_N = \sum_{n=1}^{N}y_n.
+            \]
+          </span>
+
+          Now statement (\ref{teo01}) is true if and only if
+          <span class="w3-responsive" style="overflow: hidden;">
+            \begin{eqnarray}\label{teo04}
+            \lim_{N\rightarrow \infty} S_N = S;
+            \end{eqnarray}
+          </span>
+          and, in view of relation (\ref{teo03}) and Theorem 1 on sequences, limit (\ref{teo04}) holds if and
+          only if
+          <span class="w3-responsive" style="overflow: hidden;">
+            \begin{eqnarray}\label{teo05}
+            \lim_{N\rightarrow \infty} X_N=X\quad \text{and}\quad \lim_{N\rightarrow \infty} Y_N=Y.
+            \end{eqnarray}
+          </span>
+          Limits (\ref{teo05}) therefore imply statement (\ref{teo01}), and conversely.
+          Since $X_N=X$ and $Y_N=Y$ are partial sums of the series (\ref{teo02}), the theorem is proved.
+          $\blacksquare$
+        </p>
+      </details>
+
+      <p>Again let's write a matrix:</p>
+
+      <p>
+        <span class="w3-responsive">
+          $$
+          f'(p)\coloneqq
+          \begin{bmatrix}
+          \dfrac{\partial f_1}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_1}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_1}{\partial x_n}(p)
+          \\[6pt]
+          \dfrac{\partial f_2}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_2}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_2}{\partial x_n}(p)
+          \\
+          \vdots & \vdots & \ddots & \vdots
+          \\
+          \dfrac{\partial f_m}{\partial x_1}(p)
+          &
+          \dfrac{\partial f_m}{\partial x_2}(p)
+          & \ldots &
+          \dfrac{\partial f_m}{\partial x_n}(p)
+          \end{bmatrix} .
+          $$
+        </span>
+
+      </p>
+
+      <p>I can reference again the equation ($\ref{eq}$) above.</p>
+
+      <div class="theorem">
+        <p>Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:
+        </p>
+        <ol>
+          <li>
+            $X=\cup \{B\,|\, B\in \mathcal{B}\}$
+          </li>
+          <li>
+            Dados $A,B\in \mathcal{B}$ y $x\in A\cap B$ existe $C\in \mathcal{B}$ tal que $x\in C\subset A\cap B$.
+          </li>
+        </ol>
+      </div>
+
+      <hr />
+      <h3>Subsection 1.1</h3>
+
+      <p>This is a paragraph. Below there is a theorem that shows/hides for large/small screens.
+        The problem is that the numbering of equation will be messed up.
+      </p>
+
+
+
+
+
+
+    </div>
+    
+    <!-- Buttons to navigate -->
+    <div class="w3-container w3-center w3-padding-large">
+      <a href="chapter-01.html"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
+          Previous</button></a>
+
+      <a href="chapter-03.html"><button class="w3-right w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">Next
+          &#10095;</button></a>
+    </div>
+
+    <!-- Main text ends -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span><br />
+          <h3>Hello! 👋</h3>
+        </div>
+        <div class="modal-body">
+          <div w3-include-html="support.html"></div>
+        </div>
+        <div class="modal-footer">
+          <p>Thank you! 🙏 I highly appreciate your support! 🤗</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- The Modal ends -->
+
+    <br />
+
+    <div w3-include-html="footer.html"></div>
+
+  </div>
+
+  <!-- !PAGE CONTENT ENDS! -->
+
+  <!-- General scripts -->
+  <script src="js/w3codecolor.js"></script>
+  <script>w3CodeColor(); // Provide color format for code</script>
+  <script src="js/scripts.js"></script>
+  <script> includeHTML(); // Import html info file</script>
+
+</body>
+
+</html>

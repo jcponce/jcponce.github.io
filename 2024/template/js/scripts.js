@@ -34,6 +34,19 @@ function myAccordion(id) {
   }
 }
 
+// Highlight navbar
+function myHighlightedNavBar(id) {
+  let x = document.getElementById(id);
+  if (x.className.indexOf("w3-grey") == -1) {
+    x.className += " w3-grey";
+    x.previousElementSibling.className += " w3-theme";
+  } else {
+    x.className = x.className.replace("w3-grey", "");
+    x.previousElementSibling.className =
+      x.previousElementSibling.className.replace(" w3-theme", "");
+  }
+}
+
 
 
 
