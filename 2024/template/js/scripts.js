@@ -10,7 +10,7 @@ function w3_close() {
 }
 
 // Change style of top container on scroll
-window.onscroll = function () { myTopBar() };
+window.onscroll = function () { myTopBar(), scrollFunction() };
 function myTopBar() {
   if (document.body.scrollTop > 130 || document.documentElement.scrollTop > 130) {
     document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
@@ -185,7 +185,7 @@ links.forEach(function (link) {
 let mybutton = document.getElementById("toTop");
 let prevScrollpos = window.scrollY;
 
-window.onscroll = function () { scrollFunction() };
+//window.onscroll = function () { scrollFunction() };
 
 // When the user scrolls down 500px from the top of the document, show the button
 function scrollFunction() {
