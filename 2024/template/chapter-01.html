@@ -12,12 +12,12 @@
 
   <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
-  
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/w3.css">
   <link rel="stylesheet" href="css/w3-theme-blue.css">
   <link rel="stylesheet" href="css/style.css">
-  
+
   <!-- MathCell applets + MathJax -->
   <script src="js/math.js"></script>
   <script src="js/mathcell.js"></script>
@@ -37,23 +37,22 @@
   <div class="w3-main w3-large" style="margin-left:250px;">
 
     <!-- Main text starts here -->
-    
+
     <!-- Bar on top shows/hides after scrolling -->
     <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
       <div id="myTextBar">
         <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-          <span id="myTitle" class="w3-hide">Chapter 1: Introduction</span>
-
-          <button style="position: sticky; left:90%; font-size: 14px;padding: 5px;"
-            onclick="document.getElementById('myModal').style.display='block'"
-            class="w3-button w3-theme w3-round-large w3-hover-shadow w3-hide-small w3-hover-light-gray ">
-            <i class="fa-regular fa-heart"></i> Donate
-          </button>
+          <span id="myTitle" class="w3-hide">Chap 1 Test</span>
 
           <span onclick="myDarkMode()"
-            style="cursor: pointer; position: sticky; left:87%; font-size: 14px;padding: 5px;"
-            class="w3-theme w3-round-large w3-hover-light-gray">
-            <i class="fa-solid fa-circle-half-stroke"></i></span>
+            class="topDark w3-theme w3-round-large w3-hover-light-gray w3-hover-shadow ">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+          </span>
+          <button 
+            onclick="document.getElementById('myModal').style.display='block'"
+            class="topDonate w3-button w3-theme w3-round-large w3-hover-shadow w3-hide-small w3-hide-medium w3-hover-light-gray ">
+            <i class="fa-regular fa-heart"></i> Donate
+          </button>
         </p>
       </div>
     </div>
@@ -90,7 +89,8 @@
       </div>
 
       <figure>
-        <img alt="Snow" style="width: 80%;" loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJDbwRHyvFdQLTSeFQGv8Fu7vh2m-ah4JCwoP9oNtLHwpPlOgww50HOu-DIAIryl-8357glsTyawl84kdHIs4p8WkiO3wyycbrGzH8NPtJND0RaoIwhp5p_XNL0F2IQvZjYW1yR2AEaK5indISRPWFkKJoMtAUnGApPxCH3HCkZC-zOrsG14dmZxrUXXfH/w1152/ggb-snow.gif">
+        <img alt="Snow" style="width: 80%;" loading="lazy"
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJDbwRHyvFdQLTSeFQGv8Fu7vh2m-ah4JCwoP9oNtLHwpPlOgww50HOu-DIAIryl-8357glsTyawl84kdHIs4p8WkiO3wyycbrGzH8NPtJND0RaoIwhp5p_XNL0F2IQvZjYW1yR2AEaK5indISRPWFkKJoMtAUnGApPxCH3HCkZC-zOrsG14dmZxrUXXfH/w1152/ggb-snow.gif">
         <figcaption>
           Snow.
         </figcaption>
@@ -101,7 +101,8 @@
       <p>This is a PNG:</p>
 
       <figure>
-        <img alt="Snow" style="width: 80%;" loading="lazy" src="https://www.geogebra.org/resource/fkwhfwez/uieZ2zy9C1R5i9IX/material-fkwhfwez.png">
+        <img alt="Snow" style="width: 80%;" loading="lazy"
+          src="https://www.geogebra.org/resource/fkwhfwez/uieZ2zy9C1R5i9IX/material-fkwhfwez.png">
         <figcaption>
           Fractal tree.
         </figcaption>
@@ -224,30 +225,30 @@
 
       <!-- This theorem with proof is responsive and shows up for medium and large screens -->
       <div class="theorem">
-        
-          Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
-          $S=X+iY$. Then
-          <span>
-            \begin{eqnarray}\label{teo01}
-            \sum_{n=1}^{\infty} z_n=S
-            \end{eqnarray}
-          </span>
-          if and only if
-          <span>
-            \begin{eqnarray}\label{teo02}
-            \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
-            \end{eqnarray}
-          </span>
-          Then
-          <span>
-            \begin{eqnarray}\label{DFT3}
-            X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
-            &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
-            {2\pi
-            }{N}}n\right)\right].}
-            \end{eqnarray}
-          </span>
-        
+
+        Suppose that $z_n=x_n+iy_n$ ($n=1,2,3,\ldots $) and
+        $S=X+iY$. Then
+        <span>
+          \begin{eqnarray}\label{teo01}
+          \sum_{n=1}^{\infty} z_n=S
+          \end{eqnarray}
+        </span>
+        if and only if
+        <span>
+          \begin{eqnarray}\label{teo02}
+          \sum_{n=1}^{\infty} x_n=X\quad\text{and}\quad \sum_{n=1}^{\infty} y_n=Y.
+          \end{eqnarray}
+        </span>
+        Then
+        <span>
+          \begin{eqnarray}\label{DFT3}
+          X_{k}&=&{\dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\cdot e^{-i k {\frac {2\pi }{N}}n}}\\
+          &=&{ \dfrac{1}{N}\sum _{n=0}^{N-1}x_{n}\left[\cos \left(k{\frac {2\pi }{N}}n\right)-i\, \sin \left({k\frac
+          {2\pi
+          }{N}}n\right)\right].}
+          \end{eqnarray}
+        </span>
+
         <p>
           <span>
             $$
@@ -375,7 +376,7 @@
     </div>
 
     <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
-    
+
     <!-- Buttons to navigate -->
     <div class="w3-container w3-center w3-padding-large">
       <a href="index.html"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
