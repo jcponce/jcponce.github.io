@@ -155,3 +155,53 @@ function includeHTML() {
     }
   }
 };
+
+
+/* The following is to scroll up to the "id" tag for hyperlinks */
+// Function to handle smooth scrolling with offset
+function scrollToElementWithOffset(selector, offset) {
+  var target = document.querySelector(selector);
+  if (target) {
+    var targetPosition = target.getBoundingClientRect().top + window.scrollY - offset; // pageYOffset is deprecated :(
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }
+}
+
+// Adding event listeners to all links with the class 'scroll-link'
+var links = document.querySelectorAll('a[href^="#"]');
+links.forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    event.preventDefault();
+    var targetId = this.getAttribute('href');
+    scrollToElementWithOffset(targetId, 50); // 50px offset, I want it below the navbar
+  });
+});
+
+/* Button to the top */
+// Get the button
+let mybutton = document.getElementById("toTop");
+let prevScrollpos = window.scrollY;
+
+window.onscroll = function () { scrollFunction() };
+
+// When the user scrolls down 500px from the top of the document, show the button
+function scrollFunction() {
+  let currentScrollPos = window.scrollY;
+  if (prevScrollpos > currentScrollPos) {
+    mybutton.style.display = "none";
+  } else {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+      mybutton.style.display = "block";
+    }
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

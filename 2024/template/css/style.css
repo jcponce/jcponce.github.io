@@ -45,6 +45,7 @@
   --summary-background-color: #f2f2f2;
   --summary-color: black;
   --teo-def-cards: #f1f1f1;
+  --body-bg-color: hsl(210, 20%, 98%);
 }
 
 /* Set my favourite font */
@@ -59,7 +60,12 @@ h6 {
 }
 
 body {
+  background-color: var(--body-bg-color);
   counter-reset: theorem corollary definition example figure-counter section-1 subsection-1 subsubsection-1 section-2 subsection-2 subsubsection-2 section-3 subsection-3 subsubsection-3;
+}
+
+nav {
+  background-color: var(--body-bg-color);
 }
 
 .dark-mode {
@@ -557,4 +563,35 @@ figcaption:before {
   margin-left: -0.1667em;
   margin-right: -0.125em;
   line-height: 1ex;
+}
+
+#toTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background-color: rgba(145, 145, 145, 0.567);
+  color: rgb(237, 237, 237);
+  cursor: pointer;
+  width: 50px;
+  /* Adjust button width */
+  height: 50px;
+  /* Adjust button height */
+  line-height: 40px;
+  /* Adjust line-height to center text vertically */
+  text-align: center;
+  /* Center text horizontally */
+  padding: 0;
+  /* Remove padding */
+  border-radius: 50%;
+  /* Make it circular */
+}
+
+#toTop:hover {
+  background-color: #747474;
 }
