@@ -41,8 +41,14 @@
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="mySetup/google-analytics-ga4.js"></script>
-	
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-JPYTNF6MB4');
+	</script>
+
 </head>
 
 <body>
@@ -52,14 +58,14 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<section>
-				<h3 style="font-size:140%">Multivariate Calculus <br/>& <br/>Ordinary Differential Equations</h3>
+				<h3 style="font-size:140%">Multivariate Calculus <br />& <br />Ordinary Differential Equations</h3>
 				<p>Lecture 1</p>
-				<br/><br/>
+				<br /><br />
 			</section>
 
 			<!--Section with format-->
 			<section>
- 
+
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
@@ -74,18 +80,19 @@
 							</p>
 							<p>
 								<span class="fragment" data-fragment-index="1">
-									In almost all fields of scientific endeavour, quantifying 
-									time-dependent occurrences almost inevitably comes down to a 
-									 
+									In almost all fields of scientific endeavour, quantifying
+									time-dependent occurrences almost inevitably comes down to a
+
 								</span>
-								<span class="fragment" data-fragment-index="1" style="color:rgb(222, 8, 8)">differential equation</span>
+								<span class="fragment" data-fragment-index="1" style="color:rgb(222, 8, 8)">differential
+									equation</span>
 								<span class="fragment" data-fragment-index="1">
-									(DE). 
+									(DE).
 								</span>
 							</p>
 						</div>
 					</div>
-					<br/><br/><br/><br/>
+					<br /><br /><br /><br />
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -96,45 +103,45 @@
 						<div class="left-txt">
 							<p>
 								<span>
-									A DE is an equation which contains one or 
-									more derivatives of an 
+									A DE is an equation which contains one or
+									more derivatives of an
 									unknown function. There are two types of DEs:
 								</span>
 							</p>
-							
+
 							<ul>
 								<li class="fragment" data-fragment-index="0">
 									<span s style="color:rgb(222, 8, 8)">ordinary</span> differential equations (ODEs),
-									<span  class="fragment" data-fragment-index="1">
+									<span class="fragment" data-fragment-index="1">
 										where the unknown function is a function of only one variable,
 									</span>
-									<span  class="fragment" data-fragment-index="2">
-										and 
+									<span class="fragment" data-fragment-index="2">
+										and
 									</span>
 
 								</li>
 								<li class="fragment" data-fragment-index="2">
-									<span  style="color:rgb(222, 8, 8)">partial</span> differential equations (PDEs)
+									<span style="color:rgb(222, 8, 8)">partial</span> differential equations (PDEs)
 									<span class="fragment" data-fragment-index="3">
-										where the unknown function is a function of more than one variable. 
-										
+										where the unknown function is a function of more than one variable.
+
 									</span>
 									<span class="fragment" data-fragment-index="4">
-										
+
 										<strong>We will not consider PDEs in this course.</strong>
 									</span>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<br/><br/>
+					<br /><br />
 				</section>
-				
-				
 
-				
 
-			</section> 
+
+
+
+			</section>
 
 			<section>
 				<section data-auto-animate>
@@ -142,11 +149,11 @@
 					<div id="sbt">
 						<p><strong>1.1.1 Examples of ODEs</strong></p>
 					</div>
-					
+
 					<div class="size-85">
 						<div class="left-txt">
-							
-							
+
+
 							<ul>
 								<li class="fragment" data-fragment-index="0">
 									Unbounded population growth: $P'(t)=kP.$
@@ -154,20 +161,22 @@
 								<li class="fragment" data-fragment-index="1">
 									Bounded population growth: $P'(t)=kP(1-P/\theta).$
 								</li>
-								
+
 							</ul>
-							
+
 						</div>
 					</div>
 
 					<div class="fragment" data-fragment-index="2">
 						<img width="80%" data-src="images/lect-01/pop.png">
 					</div>
-					<div style="font-size:20px;margin-top:-30px"  class="fragment" data-fragment-index="2">
-						<p><strong>Source:</strong> 
-							<a href="https://www.britannica.com/science/population-ecology/Logistic-population-growth" target="_blank">Enciclopedia Britanica 2012</a></p>
+					<div style="font-size:20px;margin-top:-30px" class="fragment" data-fragment-index="2">
+						<p><strong>Source:</strong>
+							<a href="https://www.britannica.com/science/population-ecology/Logistic-population-growth"
+								target="_blank">Enciclopedia Britanica 2012</a>
+						</p>
 					</div>
-					<br/><br/>
+					<br /><br />
 				</section>
 				<!--
 					<section data-auto-animate>
@@ -205,11 +214,11 @@
 					<div id="sbt">
 						<p><strong>1.1.1 Examples of ODEs</strong></p>
 					</div>
-					
+
 					<div class="size-85">
 						<div class="left-txt">
-							
-							
+
+
 							<ul>
 								<li>
 									Motion due to gravity: $m y''(t) = -mg.$
@@ -218,7 +227,7 @@
 									Spring system: $mx''(t)=-kx.$
 								</li>
 							</ul>
-							
+
 						</div>
 					</div>
 
@@ -227,31 +236,36 @@
 							<td class="fragment" data-fragment-index="3">
 								<img width="80%" data-src="images/lect-01/falling.gif">
 								<div style="font-size:45%;margin-top:-40px;text-align:center">
-									<p><strong>Source:</strong> <a href="https://tenor.com/view/falling-gif-8007017" target="_blank">Falling</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+									<p><strong>Source:</strong> <a href="https://tenor.com/view/falling-gif-8007017"
+											target="_blank">Falling</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</p>
 								</div>
 							</td>
 							<td class="fragment" data-fragment-index="4">
 								<img width="70%" data-src="images/lect-01/shm.gif">
 								<div style="font-size:45%;margin-top:-40px;text-align:center">
-									<p><strong>Source:</strong> <a href="https://commons.wikimedia.org/wiki/File:Animated-mass-spring.gif" target="_blank">Svjo</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+									<p><strong>Source:</strong> <a
+											href="https://commons.wikimedia.org/wiki/File:Animated-mass-spring.gif"
+											target="_blank">Svjo</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</p>
 								</div>
 							</td>
 						</tr>
 
 					</table>
-					<br/><br/>
+					<br /><br />
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
 					<div id="sbt">
 						<p><strong>1.1.1 Examples of ODEs</strong></p>
 					</div>
-					
+
 					<div class="size-85">
 						<div class="left-txt">
-							
-							
-							
+
+
+
 							<p>
 								<span>
 									In ODEs, one often takes $t$ instead of $x$ for the
@@ -259,21 +273,21 @@
 								</span>
 							</p>
 							<p>
-								
+
 								<span class="fragment" data-fragment-index="5">
-									Also, derivatives, such as 
-									\[x'(t) \;\;\text{ and }\;\; x''(t)\] with respect to time are 
-									often written as 
+									Also, derivatives, such as
+									\[x'(t) \;\;\text{ and }\;\; x''(t)\] with respect to time are
+									often written as
 									\[\dot{x} \;\;\text{ and }\;\;\ddot{x},\]
 									respectively.
 								</span>
 							</p>
 						</div>
 					</div>
-					<br/><br/><br/><br/><br/>
+					<br /><br /><br /><br /><br />
 				</section>
 
-				
+
 			</section>
 
 			<section>
@@ -283,14 +297,14 @@
 					<div id="sbt">
 						<p><strong>1.1.2 How do ODEs arise?</strong></p>
 					</div>
-					
+
 					<div class="size-75">
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
 									<strong>Population modelling.</strong>
-									Assume a population grows at a rate proportional to the size of the 
-									population. 
+									Assume a population grows at a rate proportional to the size of the
+									population.
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									If $P=P(t)$ stands for the population at time $t$, then
@@ -299,35 +313,35 @@
 						</div>
 						<div class="">
 							<p>
-								
+
 								<span class="fragment" data-fragment-index="1">
 									$
 									\ds \dif{P}{t} \propto P,
 									$
 								</span>
-								
+
 							</p>
 						</div>
 						<div class="left-txt">
 							<p>
-								
-								
+
+
 								<span class="fragment" data-fragment-index="2">
 									i.e.,
 								</span>
-								
+
 							</p>
 						</div>
 						<div class="">
 							<p>
-								
-								
+
+
 								<span class="fragment" data-fragment-index="2">
 									$
 									\ds \dif{P}{t}=k P,
 									$
 								</span>
-								
+
 							</p>
 						</div>
 						<div class="left-txt">
@@ -336,14 +350,14 @@
 									where $k$ is the growth constant.
 								</span>
 								<span class="fragment" data-fragment-index="3">
-									If $k>0$ the population is growing 
+									If $k>0$ the population is growing
 									(think humans) and if $k\lt 0$ the population is decreasing (think tigers).
 
 								</span>
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -355,8 +369,8 @@
 							<p>
 								<span>
 									<strong>Population modelling.</strong>
-									Assume a population grows at a constant rate proportional to the size of the 
-									population. 
+									Assume a population grows at a constant rate proportional to the size of the
+									population.
 								</span>
 								<span>
 									If $P=P(t)$ stands for the population at time $t$, then
@@ -365,35 +379,35 @@
 						</div>
 						<div class="">
 							<p>
-								
+
 								<span>
 									$
 									\ds \dif{P}{t} \propto P,
 									$
 								</span>
-								
+
 							</p>
 						</div>
 						<div class="left-txt">
 							<p>
-								
-								
+
+
 								<span>
 									i.e.,
 								</span>
-								
+
 							</p>
 						</div>
 						<div class="">
 							<p>
-								
-								
+
+
 								<span>
 									$
 									\ds \dif{P}{t}=k P,
 									$
 								</span>
-								
+
 							</p>
 						</div>
 						<div class="left-txt">
@@ -402,7 +416,7 @@
 									where $k$ is the growth constant.
 								</span>
 								<span>
-									If $k>0$ the population is growing 
+									If $k>0$ the population is growing
 									(think humans) and if $k\lt 0$ the population is decreasing (think tigers).
 
 								</span>
@@ -423,12 +437,12 @@
 									<span class="fragment" data-fragment-index="6">
 										(equilibrium solution)
 									</span>
-									
+
 								</p>
 							</div>
 						</div>
 					</div>
-					<br/><br/><br/><br/>
+					<br /><br /><br /><br />
 				</section>
 
 				<section data-auto-animate>
@@ -438,9 +452,9 @@
 					</div>
 					<div class="size-90">
 						<div class="left-txt">
-							
-							
-							
+
+
+
 							<p>
 								<span>
 									<strong>Newton's eureka moment.</strong>
@@ -449,11 +463,11 @@
 									\text{mass }\times \text{ acceleration } = \text{ force.}
 									$$
 								</span>
-								
+
 							</p>
 						</div>
 					</div>
-					<br/><br/><br/><br/><br/><br/>
+					<br /><br /><br /><br /><br /><br />
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -470,32 +484,32 @@
 									\text{mass }\times \text{ acceleration } = \text{ force.}
 									$$
 								</span>
-								
+
 							</p>
 						</div>
 					</div>
 					<div class="size-75">
 						<div class="left-txt">
 							<p>
-								
+
 								<span>
 									Let $y=y(t)$ be the vertical displacement from ground at time $t$
-of an apple of mass $m,$ soon to land on Newton's head.
+									of an apple of mass $m,$ soon to land on Newton's head.
 								</span>
 								<span class="fragment" data-fragment-index="2">
 									Then the acceleration is $\displaystyle{\frac{\dup^2y}{\dup t^2}}$ so that
-$$
-m\, \frac{\dup^2y}{\dup t^2} = -mg,
-$$
+									$$
+									m\, \frac{\dup^2y}{\dup t^2} = -mg,
+									$$
 								</span>
 								<span class="fragment" data-fragment-index="3">
 									where $g$ is the constant of acceleration at the surface of the earth
-due to gravity.
+									due to gravity.
 								</span>
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 			</section>
@@ -507,34 +521,36 @@ due to gravity.
 					<div id="sbt">
 						<p><strong>1.1.3 Solution to an ODE</strong></p>
 					</div>
-					
+
 					<div class="size-90">
 						<div class="left-txt">
-							
-							
-							
+
+
+
 							<p>
 								<span>
 									Suppose that we are given an ODE for $y$ which is an unknown function of $x$.
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									Then $y=f(x)$ is said to be a <span style="color:rgb(222, 8, 8)">solution</span>  to the ODE if the ODE is
-<span style="color:rgb(222, 8, 8)">satisfied</span> when $y=f(x)$ and its derivatives are substituted into the
-equation.
+									Then $y=f(x)$ is said to be a <span style="color:rgb(222, 8, 8)">solution</span> to
+									the ODE if the ODE is
+									<span style="color:rgb(222, 8, 8)">satisfied</span> when $y=f(x)$ and its
+									derivatives are substituted into the
+									equation.
 								</span>
-								
+
 							</p>
 							<p>
 								<span class="fragment" data-fragment-index="2">
 									<strong>Example:</strong>
 									Show that $y=y(x)=A \exp(x^2/2)$ is a
-<span style="color:rgb(222, 8, 8)">solution</span> to the ODE $y'=xy$.
+									<span style="color:rgb(222, 8, 8)">solution</span> to the ODE $y'=xy$.
 								</span>
 							</p>
-							
+
 						</div>
 					</div>
-					<br/><br/><br/>
+					<br /><br /><br />
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -550,18 +566,18 @@ equation.
 									<span style="color:rgb(222, 8, 8)">solution</span> to the ODE $y'=xy$.
 								</span>
 							</p>
-					</div>
+						</div>
 					</div>
 					<div class="size-85">
 						<div id="theorem">
-							
+
 							<div class="left-txt">
 								<p>
 									<span class="fragment" data-fragment-index="0">
 										We need to show that $y=Ae^{x^2/2}$ satisfies the ODE.
 									</span>
 									<span class="fragment" data-fragment-index="1">
-										Calculate 
+										Calculate
 									</span>
 
 								</p>
@@ -569,7 +585,7 @@ equation.
 							<div>
 								<p>
 									<span class="fragment" data-fragment-index="1">
-										
+
 										$ y'$
 									</span>
 									<span class="fragment" data-fragment-index="3">
@@ -587,14 +603,14 @@ equation.
 								</p>
 							</div>
 							<div class="left-txt">
-								
+
 								<p class="fragment" data-fragment-index="7">
 									which is true for all $A\in \R.$
 								</p>
 							</div>
 						</div>
 					</div>
-					<br/><br/>
+					<br /><br />
 				</section>
 
 				<section data-auto-animate>
@@ -604,41 +620,42 @@ equation.
 					</div>
 					<div class="size-80">
 						<div class="left-txt">
-							
-							
-							
+
+
+
 							<p>
 								<span>
-									When asked to <span style="color:rgb(222, 8, 8)">solve</span> an ODE, you are expected to find 
+									When asked to <span style="color:rgb(222, 8, 8)">solve</span> an ODE, you are
+									expected to find
 									<em>all</em> possible
-solutions. 
+									solutions.
 								</span>
 								<span class="fragment" data-fragment-index="0">
-									This means that you need to find the 
+									This means that you need to find the
 									<span style="color:rgb(222, 8, 8)">general solution</span> to the
 									ODE.
 								</span>
 								<span class="fragment" data-fragment-index="1">
 									For an ODE that involves only the unknown function $y$ and its first
-derivative,
+									derivative,
 								</span>
 								<span class="fragment" data-fragment-index="2">
 									the general solution will involve <em>one</em> arbitrary constant.
 								</span>
-								
+
 							</p>
 							<p>
 								<span class="fragment" data-fragment-index="3">
 									You should already know how to solve ODEs of the form
-$$
-\dif{y}{x} = f(x) \quad\text{or}\quad \frac{\dup^2y}{\dup x^2} = g(x). 
-$$
+									$$
+									\dif{y}{x} = f(x) \quad\text{or}\quad \frac{\dup^2y}{\dup x^2} = g(x).
+									$$
 								</span>
 							</p>
-							
+
 						</div>
 					</div>
-					<br/><br/><br/>
+					<br /><br /><br />
 				</section>
 				<section data-auto-animate>
 					<h4>1 Ordinary Differential Equations</h4>
@@ -647,10 +664,10 @@ $$
 					</div>
 					<div class="size-85">
 						<div class="left-txt">
-							
-							
+
+
 							<p>
-								
+
 								<span>
 									<strong>Example:</strong>
 									Find the general solution to the differential equation $y'=x^2.$
@@ -672,16 +689,16 @@ $$
 									This is the general solution.
 								</p>
 							</div>
-							
+
 						</div>
 					</div>
-					<br/><br/><br/>
+					<br /><br /><br />
 				</section>
 
 
 			</section>
 
-			
+
 
 			<section>
 
@@ -694,7 +711,7 @@ $$
 		</div>
 	</div>
 
-	
+
 	<script src="revealjs/dist/reveal.js"></script>
 	<script src="revealjs/plugin/math/math.js"></script>
 	<script src="revealjs/plugin/highlight/highlight.js"></script>
