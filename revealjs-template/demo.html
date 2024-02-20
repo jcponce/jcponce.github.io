@@ -41,7 +41,14 @@
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-	<script src="mySetup/google-analytics-ga4.js"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-JPYTNF6MB4');
+	</script>
+
 </head>
 
 <body>
@@ -183,7 +190,8 @@
 				<p><small>You can include images</small></p>
 				<img data-preload style="width: 80%;" data-src="img/airfoil.jpg" />
 				<p style="color:dimgray; font-size: 14px">
-					Image by <a href="https://jcponce.github.io/complex/function-plotter/?expression=KHorMS96KSAqIGRpc2soMS96KQ==">jcponce</a>
+					Image by <a
+						href="https://jcponce.github.io/complex/function-plotter/?expression=KHorMS96KSAqIGRpc2soMS96KQ==">jcponce</a>
 				</p>
 			</section>
 
@@ -336,9 +344,11 @@
 			<section>
 				<h3>Credits</h3>
 				<p>The chalk effect is based on <a href="https://github.com/mmoustafa/Chalkboard">Chalkboard</a><br />
-					by Mohamed Moustafa.<p>
-						<p>The plugin <a href="https://github.com/denehyg/reveal.js-menu">Menu</a> was created <br />
-							by Greg Denehy.<p>
+					by Mohamed Moustafa.
+				<p>
+				<p>The plugin <a href="https://github.com/denehyg/reveal.js-menu">Menu</a> was created <br />
+					by Greg Denehy.
+				<p>
 			</section>
 
 			<section>
@@ -358,7 +368,9 @@
 					href="https://github.com/rajgoel/reveal.js-plugins/archive/master.zip"
 					class="github-button">Download Plugins</a> <br />
 
-				<a aria-label="Download template ready to use" data-style="mega" href="https://github.com/jcponce/jcponce.github.io/raw/master/revealjs-template/revealjs-template.zip" class="github-button">Download Template</a>
+				<a aria-label="Download template ready to use" data-style="mega"
+					href="https://github.com/jcponce/jcponce.github.io/raw/master/revealjs-template/revealjs-template-4-6-0-Chalkboard-2-3-3.zip"
+					class="github-button">Download Template</a>
 			</section>
 
 			<!-- Ends sections -->
