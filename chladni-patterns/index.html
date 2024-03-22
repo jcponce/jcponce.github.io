@@ -270,11 +270,20 @@
                   var size = 1;
                   var s = isosurface((x, y, z) => myFunc(x, y, z),
                     [-size, size], [-size, size], [-size, size],
-                    { material: 'normal' });
+                    { 
+                      material: 'normal',
+                      group: 'main',
+                      rotation: { axis: [0,0,1], angle: 0.001 }
+                    });
 
                   var data = [s];
 
-                  var config = { type: 'threejs', frame: false, viewpoint: [1, -1, 0.5], animate: true };
+                  var config = { 
+                    type: 'threejs', 
+                    frame: false, 
+                    viewpoint: [1, -1, 0.5], 
+                    animate: true 
+                  };
 
                   evaluate(id, data, config);
 
