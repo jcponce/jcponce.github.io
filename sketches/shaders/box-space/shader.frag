@@ -85,10 +85,10 @@ void main() {
     vec2 mousePrevious = vec2(0.0, 0.0);
     vec2 m = (iMouse.xy * 2. - iResolution.xy) / iResolution.y;
   
-    mousePrevious = m;
+    //mousePrevious = m;
 		// Default circular motion if mouse not clicked
     if(!iView) {
-      m = mousePrevious;
+      mousePrevious = m;
     }  
   
     vec3 ro = vec3(0.0, 0.0, -3.0); // ray origin
