@@ -122,8 +122,8 @@ function mouseReleased() {
 }
 
 // Change 3D view 
-let viewX = 300;
-let viewY = 300;
+let viewX = window.innerWidth/2;
+let viewY = window.innerHeight/2;
 function mouseDragged() {
   viewX = mouseX;
   viewY = map(mouseY, 0, height, height, 0);
