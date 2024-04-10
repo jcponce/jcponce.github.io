@@ -11,7 +11,7 @@ https://jcponce.github.io
 
 setup=()=>{
   W=min(windowWidth, windowHeight);
-  createCanvas(W, W);
+  createCanvas(windowWidth, windowHeight);
   stroke(255);
 }
 
