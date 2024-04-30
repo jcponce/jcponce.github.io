@@ -1,6 +1,8 @@
 /**
- * Author: Paul
+ * Original author: Paul
  * Source: https://codepen.io/prisoner849/pen/vYMvpXX
+ * This version by Juan Carlos Ponce Campuzano
+ * 30/Apr/2024
  */
 
 import * as THREE from "three";
@@ -36,7 +38,7 @@ class TextTerrain extends THREE.Object3D {
         ctx.fillStyle = `rgba(250, 250, 250, 1)`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.font = `bold ${dimStep * 0.9}px Arial`;
+        ctx.font = `bold ${dimStep * 0.9}px Georgia`;
         ctx.fillText(alphabet[i], x, y);
       }
       let tex = new THREE.CanvasTexture(c);
