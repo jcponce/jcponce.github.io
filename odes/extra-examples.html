@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Extra examples</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-JPYTNF6MB4');
+	</script>
+
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section data-auto-animate>
+				<h4>Some extra examples when $r(x)=Ce^{kx}$</h4>
+				
+					
+					<div style="font-size:85%;margin-top:0px;text-align:left">
+						<p>
+							<span>
+								Consider the ODE: $\,y''-y'-2y = e^{3x}.$
+							
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								If we set $y_p=A e^{3x},$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								then 
+								\[
+								y_p'= 3Ae^{3x}, \qquad y_p''= 9Ae^{3x}.
+								\]
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								So
+								\[
+								9Ae^{3x}-3Ae^{3x}-2A e^{3x} = e^{3x},
+								\]
+								implies $A = \dfrac{1}{4}.$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								Thus $\,y_p = \dfrac{1}{4}e^{3x}.$
+							</span>
+						</p>
+					</div>
+					<br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h4>Some extra examples when $r(x)=Ce^{kx}$</h4>
+				
+					
+					<div style="font-size:85%;margin-top:0px;text-align:left">
+						<p>
+							<span>
+								Therefore $\,y_p = \dfrac{1}{4}e^{3x}\,$
+								is a particular solution of
+								\[y''-y'-2y = e^{3x}.\]
+							
+							</span>
+						</p>
+						
+					</div>
+					<div style="font-size:85%;margin-top:0px;text-align:left">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								With this method in mind, it may seem reasonable to guess that 
+								a particular solution for
+								\[
+								y''-y'-2y = e^{2x}
+								\]
+								is $y_p=B e^{2x},\,$ with $B$ a constant.
+							</span>
+							
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								What do you think? 🤔 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								You should try it! 📝
+							</span>
+						</p>
+						
+					</div>
+					<br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h4>Some extra examples when $r(x)=Ce^{kx}$</h4>
+				
+					
+					
+					<div style="font-size:85%;margin-top:0px;text-align:left">
+						<p>
+							<span>
+								With this method in mind, it may seem reasonable to guess that 
+								a particular solution for
+								\[
+								y''-y'-2y = e^{2x}
+								\]
+								is $y_p=B e^{2x},\,$ with $B$ a constant.
+							</span>
+							
+						</p>
+						
+					</div>
+					<div style="font-size:85%;margin-top:0px;text-align:left">
+						<p>
+							<span>
+								However, in this case we <strong>cannot choose</strong> $\,y_p=Be^{2x}.$ 😥
+							</span>
+							
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								Substituing $\,y_p=Be^{2x},\,$ $\,y_p'= 2Be^{2x},\,$  $\,y_p''= 4Be^{2x}\,$
+								into the LHS of the ODE we get
+								
+							</span>
+							
+						</p>
+						
+						
+					</div>
+					<div style="font-size:85%;margin-top:0px;">
+						
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$0=$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$4Be^{2x}-2Be^{2x}-2Be^{2x}= e^{2x}$
+							</span>
+							
+						</p>
+						
+						
+					</div>
+					<br/><br/>
+			</section>
+			<section data-auto-animate>
+				<h4>Some extra examples when $r(x)=Ce^{kx}$</h4>
+				
+					
+					
+					<div style="font-size:85%;margin-top:0px;text-align:left">
+						<p>
+							<span>To find a particular solution of
+								\[
+								y''-y'-2y = e^{2x}
+								\]
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								we <strong>must</strong> to consider 
+								$\,y_p = u(x) e^{2x}\,$
+								where $\,u(x)\,$ is a function to be determined.
+							</span>
+							
+						</p>
+						
+					</div>
+					<div style="font-size:85%;margin-top:0px;text-align:left">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								Again, using the method of undetermined coefficients 
+								we obtain the correct particular solution
+							</span>
+							
+						</p>
+					</div>
+					<div style="font-size:85%;margin-top:0px;">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$
+								y_p= \dfrac{1}{3}x e^{2x}.
+								$
+							</span>
+							
+						</p>
+						
+						
+						
+					</div>
+					
+					<br/><br/>
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div style="font-size:24px">
+					
+					<p>Design, Images &amp; Applets<br />
+						<a href="https://jcponce.com" target="_blank">
+							Juan Carlos Ponce Campuzano</a> </p>
+					<br />
+				</div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Life Aquatic</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+<link rel="icon" type="image/png" href="../../images/icon/infinity32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../images/icon/infinity16.png" sizes="16x16">
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script src="pond/processing.js"></script>
+
+</head>
+<body>
+
+  <canvas  
+        id="cvs" 
+        data-processing-sources="pond/pond.pde pond/Fish.pde pond/Boid.pde pond/Flagellum.pde pond/Bubble.pde pond/Food.pde">
+  </canvas>
+  
+  <p class="footer">
+    <a  style="color: grey;" href="https://github.com/dasl-/my-life-aquatic" target="_blank">My Life Aquatic</a>  
+    by David Leibovic and Sunah Suh 
+    <br/> 
+    Made with 
+    <a style="color: grey;" href="https://processing.org/" target="_blank">Processing</a>&nbsp;
+    <a style="color: grey;" href="https://processing.org/" target="_blank"><img style='vertical-align:middle;' width="30px"src="Processing_2021_logo.svg"></a>
+  </p>
+  
+
+</body>
+
+<script type="text/javascript" src="js/buzz.js"></script>
+<script type="text/javascript">
+    var gulp = new buzz.sound("pond/gulp", {
+         formats: [ "ogg", "mp3"]
+         });
+        gulp.setVolume(100);
+                              
+    var explosion = new buzz.sound("pond/explosion", {
+         formats: [ "ogg", "mp3"]
+         });
+
+    /*var bubbleS = new buzz.sound("pond/bubbleS", {
+         formats: [ "wav" ]
+         });
+    var bubbleD = new buzz.sound("pond/bubbleD", {
+         formats: [ "wav" ]
+         });
+         */
+    </script>
+</html>
