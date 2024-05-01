@@ -239,6 +239,7 @@ renderer.setAnimationLoop(() => {
   t += dt;
   TWEEN.update();
   controls.update();
+  camera.position.set(Math.cos(0.02*t), 0.2, Math.sin(0.02*t)).setLength(50);
   textTerrain.instancedMesh.instanceMatrix.needsUpdate = true;
   renderer.render(scene, camera);
 })
