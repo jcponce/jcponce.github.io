@@ -10,7 +10,7 @@ let noiseMax = 1.1;
 let aoff = 0;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(400, 400);
   colorMode(HSB, 1, 1, 1, 1);
 }
 
