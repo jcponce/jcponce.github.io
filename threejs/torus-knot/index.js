@@ -7,7 +7,7 @@ const w = window.innerWidth;
 const h = window.innerHeight;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-camera.position.z = 5;
+camera.position.z = 4;
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(w, h);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -43,7 +43,7 @@ const light3 = new THREE.DirectionalLight(0xffffff, 3);
 light3.position.set(- 100, - 200, - 100);
 scene.add(light3);
 
-const geometry = new THREE.TorusKnotGeometry(0.6, 0.15, 100, 16);
+const geometry = new THREE.TorusKnotGeometry(0.6, 0.15, 130, 16);
 //const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } ); 
 const material = new THREE.MeshLambertMaterial({ color: 0x049ef4, emissive: 0x000000 });
 
