@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>MathBox - Klein bottle</title>
+	<script src="../mathbox/mathbox-bundle.min.js"></script>
+	<script src="../mathbox/dat.gui.js"></script>
+
+
+	<link rel="stylesheet" href="../mathbox/mathbox.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
+
+	<style>
+		body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		overflow: hidden;
+		}
+		</style>
+
+</head>
+
+<body>
+	<script>
+		// Load mathbox with controls
+		var mathbox = mathBox({
+			plugins: ['core', 'cursor', 'controls'],
+			controls: {
+				klass: THREE.OrbitControls,
+			},
+		});
+		if (mathbox.fallback) throw "WebGL error";
+
+		// Set renderer background
+		var three = mathbox.three;
+		three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
+
+		// Set mathbox units and place camera
+		mathbox.set({
+			scale: 720,
+			focus: 3
+		});
+		mathbox.camera({
+			proxy: true,
+			position: [2, 1, 2]
+		});
+
+		var PI = Math.PI;
+		var TWOPI = 2 * Math.PI;
+
+		var xMin = -2,
+			xMax = 2,
+			yMin = -2,
+			yMax = 2,
+			zMin = -2,
+			zMax = 2;
+		var uMin = 0,
+			uMax = TWOPI,
+			vMin = 0,
+			vMax = TWOPI;
+		var rot = true; //Rotation
+		var sha = true; // Shading
+
+
+		var updateGraph = function () {
+
+			view.set("range", [
+				[xMin, xMax],
+				[yMin, yMax],
+				[zMin, zMax]
+			]);
+			domain.set("range", [
+				[uMin, uMax],
+				[vMin, vMax]
+			]);
+
+		};
+ 
+		var sc = 1.85;
+		// Create cartesian view
+		var view = mathbox.clock({}, {
+				speed: function () {
+					return rot ? 1 / 40 : 0;
+				},
+			})
+			.cartesian({
+				range: [
+					[xMin, xMax],
+					[yMin, yMax],
+					[zMin, zMax]
+				],
+				scale: [sc, sc, sc],
+
+			}, {
+				quaternion: function (t) {
+					return [Math.cos(t), 0, Math.sin(-t), 0];
+				},
+			});
+
+		// Create u,v domain
+		var domain = mathbox.cartesian({
+			range: [
+				[uMin, uMax],
+				[vMin, vMax]
+			]
+		});
+
+		/* 
+		// 3D axes / grid
+		domain.axis({
+			axis: 1,
+			width: 3
+		});
+		domain.axis({
+			axis: 2,
+			width: 3
+		});
+		domain.axis({
+			axis: 3,
+			width: 3
+		});
+		//domain.grid({
+		//	width: 1,
+		//	divideX: 20,
+		//	divideY: 20
+		//});
+		*/
+
+		var m = 6;
+		var n = 5;
+		var rho = 0.15;
+
+		/*
+		Surface(
+			If(0 ≤ u < π, a cos(u) (1 + sin(u)) + c (1 - cos(u) / 2) cos(u) cos(v), 
+			a cos(u) (1 + sin(u)) + c (1 - cos(u) / 2) cos(v + π)
+			), 
+			If(0 ≤ u < π, b sin(u) + c (1 - cos(u) / 2) sin(u) cos(v), 
+			b sin(u)
+			), 
+			c (1 - cos(u) / 2) sin(v),
+			u, 0, u1, v, 0, v1
+		)
+		Surface(
+			If(
+				0 ≤ u < π,
+				a cos(u) (1 + sin(u)) + c (1 - cos(u) / 2) cos(u) cos(v),
+				a cos(u) (1 + sin(u)) + c (1 - cos(u) / 2) cos(v + π)), 
+			If(
+				0 ≤ u < π, 
+				b sin(u) + c (1 - cos(u) / 2) sin(u) cos(v), 
+				b sin(u)), 
+			c (1 - cos(u) / 2) sin(v), 
+		
+			u, 0, u1, v, 0, v1)
+		*/
+
+		var a = 0.4;
+		var b = 1.2;
+		var c = 0.4;
+
+		function Fx(u, v, t) {
+			if (u < PI) {
+				return a * Math.cos(u) * (1.0 + Math.sin(u)) + c * (1.0 - Math.cos(u) / 2.0) * Math.cos(u) * Math.cos(v);
+			} else {
+				return a * Math.cos(u) * (1.0 + Math.sin(u)) + c * (1.0 - Math.cos(u) / 2.0) * Math.cos(v + PI);
+			}
+			//return Math.cos(u) * Math.sin(v);
+		}
+
+		function Fy(u, v, t) {
+			if (u < PI) {
+				return b * Math.sin(u) + c * (1.0 - Math.cos(u) / 2.0) * Math.sin(u) * Math.cos(v);
+			} else {
+				return b * Math.sin(u);
+			}
+			//return Math.sin(u) * Math.sin(v);
+		}
+
+		function Fz(u, v, t) {
+			return c * (1 - Math.cos(u) / 2) * Math.sin(v);
+			//return Math.cos(v);
+		}
+
+		// Data for plotting
+		var resolution = 60;
+		var graphData = domain.area({
+			axes: [1, 2], // u, v
+			width: resolution,
+			height: resolution,
+			channels: 3,
+			expr: function (emit, u, v, i, j, t) {
+
+
+				emit(
+					Fx(u, v, 0),
+					Fz(u, v, 0),
+					Fy(u, v, 0)
+				)
+
+			},
+		});
+		var surfaceFill = view.surface({
+			points: graphData,
+			fill: true,
+			lineX: false,
+			lineY: false,
+			width: 0.5,
+			color: '#3090FF',
+			zBias: 1,
+			shaded: sha,
+		});
+
+		var gr = true;
+
+		var surfaceGrid = view.surface({
+			points: graphData,
+			fill: false,
+			lineX: gr,
+			lineY: gr,
+			width: 1,
+			color: '#0f0f0f',
+			zBias: 1,
+			shaded: true,
+		});
+
+		// GUI controls
+
+		
+
+		var gui = new dat.GUI();
+
+		var aGUI = gui.add(this, 'a').min(-2).max(2).step(0.1).name('a = ').onChange(updateGraph);
+		var bGUI = gui.add(this, 'b').min(-2).max(2).step(0.1).name('b = ').onChange(updateGraph);
+		var cGUI = gui.add(this, 'c').min(-2).max(2).step(0.1).name('c = ').onChange(updateGraph);
+		var uGUI = gui.add(this, 'uMax').min(0).max(TWOPI).step(PI / 100).name('u = ').onChange(updateGraph);
+		var vGUI = gui.add(this, 'vMax').min(0).max(TWOPI).step(PI / 100).name('v = ').onChange(updateGraph);
+		var rotGUI = gui.add(this, 'rot').name('Rotate');
+		var shaGUI = gui.add(this, 'sha').name('Shaded').onChange(
+			function () {
+				surfaceFill.set("shaded", sha);
+			}
+		);
+		var griGUI = gui.add(this, 'gr').name('Grid').onChange(
+			function () {
+				surfaceGrid.set("lineX", gr);
+				surfaceGrid.set("lineY", gr);
+			}
+		);
+
+		//gui.add(this, 'updateGraph').name("Update Graph");
+
+		gui.close();
+	</script>
+</body>
+
+</html>
