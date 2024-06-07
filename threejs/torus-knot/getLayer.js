@@ -1,3 +1,8 @@
+/**
+ * Based upon Bobby Roe's Simple Particle System
+ * Watch the tutorial on YouTube: (https://youtu.be/h1UQdbuF204)
+ */
+
 import * as THREE from "three";
 
 const loader = new THREE.TextureLoader();
