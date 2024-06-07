@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Torus Knot with Particle System</title>
-    <style>
-      body {
-        margin: 0;
-      }
-    </style>
-    <script type="importmap">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torus Knot with Particle System</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JPYTNF6MB4');
+  </script>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <script type="importmap">
       {
 				"imports": {
 					"three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
@@ -17,27 +27,29 @@
         }
 			}
     </script>
-  </head>
-  <body>
-    <script type="module" src="index.js"></script>
-    <script>
-      // Function to toggle full screen mode
-      function toggleFullScreen() {
-          if (!document.fullscreenElement) {
-              document.documentElement.requestFullscreen().catch(err => {
-                  console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-              });
-          } else {
-              document.exitFullscreen();
-          }
-      }
+</head>
 
-      // Event listener for keydown event
-      document.addEventListener('keydown', (event) => {
-          if (event.key === 'f' || event.key === 'F') {
-              toggleFullScreen();
-          }
-      });
+<body>
+  <script type="module" src="index.js"></script>
+  <script>
+    // Function to toggle full screen mode
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Event listener for keydown event
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'f' || event.key === 'F') {
+        toggleFullScreen();
+      }
+    });
   </script>
-  </body>
+</body>
+
 </html>
