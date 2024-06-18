@@ -124,12 +124,9 @@ if (darkModeIcon && darkModeBar && imageLogo) {
   } else {
     show = false;
     darkModeIcon.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
-    
     imageLogo.src = 'imgs/my-logo-black.png';
   }
-} else {
-  document.body.classList.toggle('dark-mode');
-}
+} 
 
 
 function myDarkMode() {
