@@ -115,7 +115,7 @@ let imageLogo = document.getElementById('myLogo');
 let show;
 
 if (darkModeIcon && darkModeBar && imageLogo) {
-  if (window.matchMedia) {
+  if (window.matchMedia.matches) {
     show = true;
     document.body.classList.toggle('dark-mode');
     darkModeBar.classList.toggle("dark-mode");
