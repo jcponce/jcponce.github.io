@@ -761,7 +761,7 @@ mathcellStyle.innerHTML = `
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: .25in .5in .5in .5in;
+  padding: 5px 30px 30px 30px;
   line-height: 2.5;
 
 }
