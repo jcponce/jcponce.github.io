@@ -41,11 +41,19 @@
     url('./fonts/LM-bold-italic.ttf') format('truetype');
 }
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --summary-background-color: #f2f2f2;
   --summary-color: black;
   --teo-def-cards: #f1f1f1;
   --body-bg-color: hsl(210, 20%, 98%);
+  --backgroung-toc: #c8c8c8;
 }
 
 /* Set my favourite font */
@@ -59,8 +67,30 @@ h6 {
   font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
+/* Make default font-size 1rem and add smooth scrolling to anchors */
+html {
+  font-size: 1.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Media query for smaller screens - Top bar */
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 0.9rem;
+  }
+}
+
 body {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  line-height: 1.5;
   background-color: var(--body-bg-color);
+
+  text-rendering: optimizeLegibility;
   counter-reset: theorem corollary definition example figure-counter section-1 subsection-1 subsubsection-1 section-2 subsection-2 subsubsection-2 section-3 subsection-3 subsubsection-3;
 }
 
@@ -73,8 +103,54 @@ nav {
   color: rgb(240, 240, 240);
 }
 
+/* Justify and hyphenate all paragraphs */
 p {
-  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  margin-top: 1rem;
+}
+
+/* Indents paragraphs like in LaTeX documents*/
+.indent-pars p {
+  text-indent: var(--text-indent-size);
+}
+
+.indent-pars p.no-indent,
+p.no-indent {
+  text-indent: 0;
+}
+
+.indent-pars ol p,
+.indent-pars ul p {
+  text-indent: 0;
+}
+
+.indent-pars h2+p,
+.indent-pars h3+p,
+.indent-pars h4+p {
+  text-indent: 0;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make links blue */
+a,
+a:visited {
+  color: var(--link-visited);
+}
+
+a:focus {
+  outline-offset: 2px;
+  outline: 2px solid var(--link-focus-outline);
+}
+
+a:hover {
+  color: var(--link-hover);
 }
 
 .highlight {
@@ -151,7 +227,8 @@ input[type=text] {
 
 #mySocial {
   width: 250px;
-  padding: 32px;
+  height: 90px;
+  padding: 16px;
   position: fixed;
   bottom: 0px;
 }
@@ -611,4 +688,22 @@ figcaption:before {
   left: 97%;
   font-size: 14px;
   padding: 2px 1px 2px 4px;
+}
+
+/*
+https://www.w3schools.com/cssref/playdemo.php?filename=playcss_accent-color
+*/
+
+.toc-chapter a {
+  outline: none;
+}
+
+ /* Highlighting active section */
+.active {
+  font-weight: bold;
+}
+.highlight-list {
+  text-decoration: none;
+  background-color: var(--backgroung-toc);
+  padding: 2px 2px;
 }

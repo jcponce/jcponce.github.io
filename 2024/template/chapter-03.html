@@ -12,12 +12,12 @@
 
   <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
-  
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/w3.css">
   <link rel="stylesheet" href="css/w3-theme-blue.css">
   <link rel="stylesheet" href="css/style.css">
-  
+
   <!-- MathCell applets + MathJax -->
   <script src="js/math.js"></script>
   <script src="js/mathcell.js"></script>
@@ -30,32 +30,66 @@
 <body>
 
   <!-- Sidebar -->
-  <div w3-include-html="toc.html"></div>
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-card" style="z-index:3;width:250px;" id="mySidebar">
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="index.html"><img id="myLogo"
+        src="imgs/my-logo-black.png" style="width:35%;margin-top: 5px;margin-bottom: 5px;"></a>
+
+
+    <a class="w3-bar-item w3-button w3-hide-large w3-large w3-center" href="javascript:void(0)"
+      onclick="w3_close()">Close <i class="fa-solid fa-xmark w3-large"></i></a>
+
+    <a class="w3-bar-item w3-button" id="chapterBar" href="chapter-01.html">Chapter 1</a>
+    <a class="w3-bar-item w3-button" id="chapterBar" href="chapter-02.html">Chapter 2</a>
+
+    <a class="w3-bar-item w3-button" id="chapterBar" href="chapter-03.html">Chapter 3</a>
+    <div class="toc-chapter" id="toc-chapter">
+
+      <a class="w3-bar-item w3-button" href="#section1">&nbsp; Section 1</a>
+      <a class="w3-bar-item w3-button" href="#section2">&nbsp; Section 2</a>
+      <a class="w3-bar-item w3-button" href="#section3">&nbsp; Section 3</a>
+    </div>
+
+    <br />
+
+    <div class="w3-container w3-center w3-theme" id="mySocial">
+      <div class="">
+        <a href="https://www.patreon.com/jcponce" target="_blank"><i class="fa-brands fa-patreon w3-button w3-round-large w3-theme"></i></a>&nbsp;&nbsp;
+        <span onclick="document.getElementById('myModal').style.display='block'"
+            class="w3-button w3-round-large w3-theme">
+            <i class="fa-regular fa-heart"></i></span>&nbsp;&nbsp;
+        <a href="https://mathstodon.xyz/@jcponcemath" target="_blank"><i class="fa-brands fa-mastodon w3-button w3-round-large w3-theme"></i></a>
+        <br />
+      </div>
+    </div>
+
+
+  </nav>
+
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
+  </div>
 
   <!-- !PAGE CONTENT! -->
 
   <div class="w3-main w3-large" style="margin-left:250px;">
 
     <!-- Main text starts here -->
-    
+
     <!-- Bar on top shows/hides after scrolling -->
     <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
-        <div id="myTextBar">
-          <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-            <span id="myTitle" class="w3-hide">Chap 3 Color scheme...</span>
-  
-            <span onclick="myDarkMode()"
-              class="topDark w3-theme w3-round-large w3-hover-light-gray w3-hover-shadow ">
-              <i class="fa-solid fa-circle-half-stroke"></i>
-            </span>
-            <button 
-              onclick="document.getElementById('myModal').style.display='block'"
-              class="topDonate w3-button w3-theme w3-round-large w3-hover-shadow w3-hide-small w3-hide-medium w3-hover-light-gray ">
-              <i class="fa-regular fa-heart"></i> Donate
-            </button>
-          </p>
-        </div>
+      <div id="myTextBar">
+        <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+          <span id="myTitle" class="w3-hide">Chap 3 Color scheme...</span>
+
+          <span onclick="myDarkMode()" id="dark-mode-toggle" class="topDark w3-theme w3-round-large">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+          </span>
+          <span onclick="document.getElementById('myModal').style.display='block'"
+            class="topDonate w3-button w3-theme w3-round-small w3-hide-small w3-hide-medium ">
+            <i class="fa-regular fa-heart"></i> Donate
+          </span>
+        </p>
       </div>
+    </div>
 
     <!-- Header -->
     <header class="w3-container w3-theme" style="padding:64px 32px">
@@ -64,277 +98,288 @@
 
     <!-- Sections -->
     <div class="w3-container" style="padding:32px">
-    <div style="color: #ffffff00;"id="ch-3-sec-1">Css</div>
-      <div class="head-3 head-3-level2">Now let's see other CSS personalized features</div>
+      <div style="color: #ffffff00;" id="ch-3-sec-1">Css</div>
 
-      <p>Checking other features:</p>
+      <div id="section1">
+        <div class="head-3 head-3-level2">Now let's see other CSS personalized features</div>
 
-      <p>Code: w3-theme-l5</p>
+        <p>Checking other features:</p>
 
-      <p class="w3-theme-l5">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-l5</p>
 
-      <p>Code: w3-theme-l4</p>
+        <p class="w3-theme-l5">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme-l4">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-l4</p>
 
-      <p>Code: w3-theme-l1</p>
+        <p class="w3-theme-l4">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme-l1">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-l1</p>
 
-      <p>Code: w3-theme-d1</p>
+        <p class="w3-theme-l1">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme-d1">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-d1</p>
 
-      <p>Code: w3-theme-d5</p>
+        <p class="w3-theme-d1">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme-d5">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-d5</p>
 
-      <p>Code: w3-theme-light</p>
+        <p class="w3-theme-d5">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme-light">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
-        \mathcal{P}(X)$. Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-light</p>
 
-      <p>Code: w3-theme-dark</p>
+        <p class="w3-theme-light">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme-dark">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-dark</p>
 
-      <p>Code: w3-theme-action</p>
+        <p class="w3-theme-dark">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme-action">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
-        \mathcal{P}(X)$. Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme-action</p>
 
-      <p>Code: w3-theme</p>
+        <p class="w3-theme-action">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-theme</p>
 
-      <p>Code: w3-text-theme</p>
+        <p class="w3-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-text-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset \mathcal{P}(X)$.
-        Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-text-theme</p>
 
-      <p>Code: w3-border-theme</p>
+        <p class="w3-text-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$.
+          Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-border-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
-        \mathcal{P}(X)$. Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-border-theme</p>
 
-      <p>Code: w3-hover-theme</p>
+        <p class="w3-border-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-hover-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
-        \mathcal{P}(X)$. Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-hover-theme</p>
 
-      <p>Code: w3-hover-text-theme</p>
+        <p class="w3-hover-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-hover-text-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
-        \mathcal{P}(X)$. Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
+        <p>Code: w3-hover-text-theme</p>
 
-      <p>Code: w3-hover-border-theme</p>
+        <p class="w3-hover-text-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple:</p>
 
-      <p class="w3-hover-border-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
-        \mathcal{P}(X)$. Existe una
-        topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple: <span class=" w3-tooltip w3-hover-theme" style="cursor:pointer"><strong>Axiom 3</strong>
-          <span id="mytooltip" class="w3-text">For $x,y\in \R,$ $x+y=y+x.$ Everytime you hover on this word, it will
-            show you some text.</span></p>
+        <p>Code: w3-hover-border-theme</p>
 
-
-      <h3>Tooltip mode: Example</h3>
-
-      <p>Use mouse to hover on "Axiom 3" to show tool tip.</p>
-
-      <p>
-        Using
-        <span class="w3-tooltip w3-hover-theme" style="cursor:pointer"><strong>Axiom 3</strong>
-          <span id="mytooltip" class="w3-text">For $x,y\in \R,$ $x+y=y+x.$ Everytime you hover on this word, it will
-            show you some text.</span>
-        </span> we can consider the following statements to be true, or maybe not.
-      </p>
-
-      <hr>
-
-      <div style="color: #ffffff00;"id="ch-3-sec-2">These are examples with iframes</div>
-      <div class="head-3 head-3-level2" id="ch-3-sec-2">These are examples with iframes</div>
-
-      <p>This is an example of interactive applet made with MathBox:</p>
-
-      <iframe scrolling="no" style="border:0px;" src="https://topologia-general.github.io/sketches/hopf/" width="100%"
-        height="450px"></iframe>
-
-      <br />
-      <hr>
-
-      <p>This is an example from GeoGebra:</p>
-
-      <iframe scrolling="no" title="Slope field explorer" allowfullscreen=""
-        src="https://www.geogebra.org/material/iframe/id/dabkhkqr/width/712/height/404/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-        width="100%" height="404px" style="border:0px;"> </iframe>
-      
-
-      <br />
-      <hr>
-
-      <p>This is an example with MathCell:</p>
-
-      <div class="mathcell" style="width:100%;height:500px;">
-        <script>
-
-          var parent = document.currentScript.parentNode;
-
-          var id = generateId();
-          parent.id = id;
-
-          MathCell(id, []);
-
-          parent.update = function (id) {
-
-            function z(x, y) { return [x, y, x * x / (x * x + y * y)]; }
-
-            var s = parametric(z, [-1, 1, 300], [-1, 1, 300],
-              { colormap: (x, y) => colorFromHue((x * x / (x * x + y * y)) * 0.7) });
-
-            var data = [s];
-
-            var config = {
-              type: 'threejs',
-              viewpoint: [1, 0.8, 0.9],
-              axesLabels: true,
-              aspectRatio: [1, 1, 1],
-              xMin: -1,
-              xMax: 1,
-              yMin: -1,
-              yMax: 1,
-              zMin: -0.5,
-              zMax: 1.5,
-            };
-
-            evaluate(id, data, config);
-          }
-
-          parent.update(id);
+        <p class="w3-hover-border-theme">&nbsp; <strong>Teorema:</strong> Sean $X$ conjunto y $\mathcal{B}\subset
+          \mathcal{P}(X)$. Existe una
+          topolog&#xED;a $\tau_{\mathcal{B}}$ para la cual $\mathcal{B}$ es base s&#xED;, y s&#xF3;lo se cumple: <span
+            class=" w3-tooltip w3-hover-theme" style="cursor:pointer"><strong>Axiom 3</strong>
+            <span id="mytooltip" class="w3-text">For $x,y\in \R,$ $x+y=y+x.$ Everytime you hover on this word, it will
+              show you some text.</span></p>
 
 
-        </script>
+        <h3>Tooltip mode: Example</h3>
+
+        <p>Use mouse to hover on "Axiom 3" to show tool tip.</p>
+
+        <p>
+          Using
+          <span class="w3-tooltip w3-hover-theme" style="cursor:pointer"><strong>Axiom 3</strong>
+            <span id="mytooltip" class="w3-text">For $x,y\in \R,$ $x+y=y+x.$ Everytime you hover on this word, it will
+              show you some text.</span>
+          </span> we can consider the following statements to be true, or maybe not.
+        </p>
       </div>
 
-      <br />
       <hr>
 
-      <p>This is an example of interactive applet made with p5js:</p>
+      <div id="section2">
+        <div style="color: #ffffff00;" id="ch-3-sec-2">These are examples with iframes</div>
+        <div class="head-3 head-3-level2" id="ch-3-sec-2">These are examples with iframes</div>
 
-      <iframe style="border:0px;" src="https://www.dynamicmath.xyz/sketches/tesseract/" width="100%" height="450px"
-        scrolling="no"></iframe>
+        <p>This is an example of interactive applet made with MathBox:</p>
 
-      <br />
-      <hr>
+        <iframe scrolling="no" style="border:0px;" src="https://topologia-general.github.io/sketches/hopf/" width="100%"
+          height="450px"></iframe>
 
-      <div class="w3-container w3-padding-16 w3-card" style="background-color:#eee">
-        <h3 class="w3-center">iFrame Template</h3>
-        <div class="w3-content" style="max-width:800px">
-          <iframe style="border:0px;" src="https://www.dynamicmath.xyz/sketches/tesseract/" width="100%" height="450px"
-            scrolling="no"></iframe>
-          <br>
-          <div class="w3-row">
-            <div class="w3-col m6">
-              <a href="https://www.dynamicmath.xyz/sketches/tesseract/" target="_blank"
-                class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">Fullscreen</a>
+        <br />
+        <hr>
+
+        <p>This is an example from GeoGebra:</p>
+
+        <iframe scrolling="no" title="Slope field explorer" allowfullscreen=""
+          src="https://www.geogebra.org/material/iframe/id/dabkhkqr/width/712/height/404/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+          width="100%" height="404px" style="border:0px;"> </iframe>
+
+
+        <br />
+        <hr>
+
+        <p>This is an example with MathCell:</p>
+
+        <div class="mathcell" style="width:100%;height:500px;">
+          <script>
+
+            var parent = document.currentScript.parentNode;
+
+            var id = generateId();
+            parent.id = id;
+
+            MathCell(id, []);
+
+            parent.update = function (id) {
+
+              function z(x, y) { return [x, y, x * x / (x * x + y * y)]; }
+
+              var s = parametric(z, [-1, 1, 300], [-1, 1, 300],
+                { colormap: (x, y) => colorFromHue((x * x / (x * x + y * y)) * 0.7) });
+
+              var data = [s];
+
+              var config = {
+                type: 'threejs',
+                viewpoint: [1, 0.8, 0.9],
+                axesLabels: true,
+                aspectRatio: [1, 1, 1],
+                xMin: -1,
+                xMax: 1,
+                yMin: -1,
+                yMax: 1,
+                zMin: -0.5,
+                zMax: 1.5,
+              };
+
+              evaluate(id, data, config);
+            }
+
+            parent.update(id);
+
+
+          </script>
+        </div>
+
+        <br />
+        <hr>
+
+        <p>This is an example of interactive applet made with p5js:</p>
+
+        <iframe style="border:0px;" src="https://www.dynamicmath.xyz/sketches/tesseract/" width="100%" height="450px"
+          scrolling="no"></iframe>
+
+        <br />
+        <hr>
+
+        <div class="w3-container w3-padding-16 w3-card" style="background-color:#eee">
+          <h3 class="w3-center">iFrame Template</h3>
+          <div class="w3-content" style="max-width:800px">
+            <iframe style="border:0px;" src="https://www.dynamicmath.xyz/sketches/tesseract/" width="100%"
+              height="450px" scrolling="no"></iframe>
+            <br>
+            <div class="w3-row">
+              <div class="w3-col m6">
+                <a href="https://www.dynamicmath.xyz/sketches/tesseract/" target="_blank"
+                  class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">Fullscreen</a>
+              </div>
+              <div class="w3-col m6">
+                <a href="w3css_templates.asp" target="_blank" class="w3-button w3-padding-large w3-dark-grey"
+                  style="width:98.5%">More
+                  Templates &raquo;</a>
+              </div>
             </div>
-            <div class="w3-col m6">
-              <a href="w3css_templates.asp" target="_blank" class="w3-button w3-padding-large w3-dark-grey"
-                style="width:98.5%">More
-                Templates &raquo;</a>
+            <hr />
+            <div class="w3-row">
+              <div class="w3-col m12">
+                <a href="https://www.dynamicmath.xyz/sketches/tesseract/" target="_blank"
+                  class="w3-button w3-padding-large w3-dark-grey" style="width:100%">Fullscreen</a>
+              </div>
             </div>
           </div>
-          <hr />
-          <div class="w3-row">
-            <div class="w3-col m12">
-              <a href="https://www.dynamicmath.xyz/sketches/tesseract/" target="_blank"
-                class="w3-button w3-padding-large w3-dark-grey" style="width:100%">Fullscreen</a>
-            </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div id="section3">
+        <div style="color: #ffffff00;" id="ch-3-sec-3">Using code</div>
+        <div class="head-3 head-3-level2">Using code</div>
+
+        <p>The folowing are examples with code snippets</p>
+
+        <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+          <h1 class="w3-jumbo">CSS</h1>
+          <p class="w3-xlarge">The Language for Styling Web Pages</p>
+          <a class="w3-button w3-theme w3-hover-white" href="#">LEARN CSS</a>
+          <a class="w3-button w3-theme w3-hover-white" href="#">CSS REFERENCE</a>
+          <p class="w3-large">
+          <p>
+          <div class="w3-code cssHigh notranslate">
+            body {<br>
+            &nbsp;&nbsp;&nbsp; background-color: #d0e4fe;<br>}<br>h1 {<br>
+            &nbsp;&nbsp;&nbsp; color: orange;<br>
+            &nbsp;&nbsp;&nbsp; text-align: center;<br>}<br>p {<br>
+            &nbsp;&nbsp;&nbsp; font-family: &quot;Times New Roman&quot;;<br>
+            &nbsp;&nbsp;&nbsp; font-size: 20px;<br>}
           </div>
+          <a class="w3-button w3-theme w3-hover-white" href="/css/tryit.asp?filename=trycss_default" target="_blank">Try
+            it Yourself</a>
         </div>
-      </div>
 
-      <hr>
-      <div style="color: #ffffff00;"id="ch-3-sec-3">Using code</div>
-      <div class="head-3 head-3-level2">Using code</div>
-
-      <p>The folowing are examples with code snippets</p>
-
-      <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-        <h1 class="w3-jumbo">CSS</h1>
-        <p class="w3-xlarge">The Language for Styling Web Pages</p>
-        <a class="w3-button w3-theme w3-hover-white" href="#">LEARN CSS</a>
-        <a class="w3-button w3-theme w3-hover-white" href="#">CSS REFERENCE</a>
-        <p class="w3-large">
-        <p>
-        <div class="w3-code cssHigh notranslate">
-          body {<br>
-          &nbsp;&nbsp;&nbsp; background-color: #d0e4fe;<br>}<br>h1 {<br>
-          &nbsp;&nbsp;&nbsp; color: orange;<br>
-          &nbsp;&nbsp;&nbsp; text-align: center;<br>}<br>p {<br>
-          &nbsp;&nbsp;&nbsp; font-family: &quot;Times New Roman&quot;;<br>
-          &nbsp;&nbsp;&nbsp; font-size: 20px;<br>}
+        <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+          <h1 class="w3-jumbo">JS</h1>
+          <p class="w3-xlarge">The Language for Interaction in Web pages</p>
+          <a class="w3-button w3-theme w3-hover-white" href="#">LEARN JS</a>
+          <a class="w3-button w3-theme w3-hover-white" href="#">JS REFERENCE</a>
+          <p class="w3-large">
+          <p>
+          <div class="w3-code jsHigh notranslate">
+            let x = 0;<br />
+            function add(x, y){<br />
+            &nbsp;&nbsp;&nbsp;return x + y;<br />
+            }
+          </div>
+          <a class="w3-button w3-theme w3-hover-white" href="/css/tryit.asp?filename=trycss_default" target="_blank">Try
+            it Yourself</a>
         </div>
-        <a class="w3-button w3-theme w3-hover-white" href="/css/tryit.asp?filename=trycss_default" target="_blank">Try
-          it Yourself</a>
-      </div>
 
-      <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-        <h1 class="w3-jumbo">JS</h1>
-        <p class="w3-xlarge">The Language for Interaction in Web pages</p>
-        <a class="w3-button w3-theme w3-hover-white" href="#">LEARN JS</a>
-        <a class="w3-button w3-theme w3-hover-white" href="#">JS REFERENCE</a>
-        <p class="w3-large">
-        <p>
-        <div class="w3-code jsHigh notranslate">
-          let x = 0;<br />
-          function add(x, y){<br />
-          &nbsp;&nbsp;&nbsp;return x + y;<br />
-          }
-        </div>
-        <a class="w3-button w3-theme w3-hover-white" href="/css/tryit.asp?filename=trycss_default" target="_blank">Try
-          it Yourself</a>
-      </div>
+        <hr>
+        <h2>W3.CSS Web Site Templates</h2>
 
-      <hr>
-      <h2>W3.CSS Web Site Templates</h2>
-
-      <p>We have created some responsive W3CSS templates for you to use.</p>
-      <p>You are free to modify, save, share, use or do whatever you want with them:</p>
+        <p>We have created some responsive W3CSS templates for you to use.</p>
+        <p>You are free to modify, save, share, use or do whatever you want with them:</p>
 
 
-      <div class="w3-panel w3-light-grey w3-padding-16 w3-card">
-        <h3 class="w3-center">Band Template</h3>
-        <div class="w3-content" style="max-width:800px">
-          <a href="tryw3css_templates_band.htm" target="_blank" title="Band Demo"><img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsFZ33_5TIReirHCQmXsDKeS59JD6FuOjKhz-fTgDT1aGfVvoY_QsQ8C-m91Wxs-eII_6z5dliu6BZXV3FkhOt-R0cuhwhUNTtsSdGiDVyRODJJXp0bQkhsG7NrjfSrt40-xfIwnTfQlj-LloLkSPu0-GACy4ADLj39mVuYA0pmVrmfJbJoCJ8-cr8yj-u/s4400/trees-recursion-randomness.jpg"
-              style="width:98%;margin:20px 0" alt="Band Template"></a><br>
-          <div class="w3-row">
-            <div class="w3-col m6">
-              <a href="tryw3css_templates_band.htm" target="_blank" class="w3-button w3-padding-large w3-dark-grey"
-                style="width:98.5%">Demo</a>
-            </div>
-            <div class="w3-col m6">
-              <a href="w3css_templates.asp" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">More
-                Templates &raquo;</a>
+        <div class="w3-panel w3-light-grey w3-padding-16 w3-card">
+          <h3 class="w3-center">Band Template</h3>
+          <div class="w3-content" style="max-width:800px">
+            <a href="tryw3css_templates_band.htm" target="_blank" title="Band Demo"><img
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsFZ33_5TIReirHCQmXsDKeS59JD6FuOjKhz-fTgDT1aGfVvoY_QsQ8C-m91Wxs-eII_6z5dliu6BZXV3FkhOt-R0cuhwhUNTtsSdGiDVyRODJJXp0bQkhsG7NrjfSrt40-xfIwnTfQlj-LloLkSPu0-GACy4ADLj39mVuYA0pmVrmfJbJoCJ8-cr8yj-u/s4400/trees-recursion-randomness.jpg"
+                style="width:98%;margin:20px 0" alt="Band Template"></a><br>
+            <div class="w3-row">
+              <div class="w3-col m6">
+                <a href="tryw3css_templates_band.htm" target="_blank" class="w3-button w3-padding-large w3-dark-grey"
+                  style="width:98.5%">Demo</a>
+              </div>
+              <div class="w3-col m6">
+                <a href="w3css_templates.asp" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">More
+                  Templates &raquo;</a>
+              </div>
             </div>
           </div>
         </div>
@@ -344,7 +389,7 @@
     </div>
 
     <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
-    
+
     <!-- Buttons to navigate -->
     <div class="w3-container w3-center w3-padding-large">
       <a href="chapter-02.html"><button class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094;
