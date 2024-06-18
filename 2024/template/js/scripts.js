@@ -110,17 +110,22 @@ window.addEventListener('scroll', function () {
 /*---------------------------------------------------------------*/
 
 let darkModeIcon = document.getElementById("dark-mode-toggle");
+let darkModeBar = document.getElementById("mySidebar");
 let imageLogo = document.getElementById('myLogo');
+let show;
 if (window.matchMedia) {
-  document.body.classList.toggle('dar-mode');
-  darkModeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
-  imageLogo.src = 'imgs/my-logo-black.png';
-} else {
+  show = true;
+  document.body.classList.toggle('dark-mode');
+  darkModeBar.classList.toggle("dark-mode");
   darkModeIcon.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
   imageLogo.src = 'imgs/my-logo-white.png';
+} else {
+  show =false;
+  darkModeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  imageLogo.src = 'imgs/my-logo-black.png';
 }
 
-let show = false;
+
 function myDarkMode() {
   const x = document.body;
   const y = document.getElementById("mySidebar");
@@ -130,6 +135,7 @@ function myDarkMode() {
 
   const image = document.getElementById('myLogo');
 
+ 
   if (show == false) {
     show = true;
     image.src = 'imgs/my-logo-white.png';
@@ -137,6 +143,7 @@ function myDarkMode() {
     show = false;
     image.src = 'imgs/my-logo-black.png';
   }
+
   //console.log(show);
 
   // Get the element containing the text
