@@ -54,6 +54,10 @@
   --teo-def-cards: #f1f1f1;
   --body-bg-color: hsl(210, 20%, 98%);
   --backgroung-toc: #c8c8c8;
+  /* Changed color link visited */
+  --link-visited: hsl(194, 100%, 26%);
+  --link-focus-outline: hsl(220, 90%, 52%);
+  --link-hover: hsl(220, 90%, 52%);
 }
 
 /* Set my favourite font */
@@ -294,9 +298,25 @@ summary {
   animation-name: animatetop;
   animation-duration: 0.4s;
   /* fonts */
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 18px;
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  font-size: 1em;
   color: #262626;
+}
+
+.button-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.button-container button {
+  margin-top: 7px;
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-bottom: 3px;
 }
 
 /* Add Animation */
@@ -351,11 +371,13 @@ summary {
 }
 
 .modal-footer {
-  padding: 2px 6px;
   background-color: #6666cc;
   color: #fffffff3;
+  padding: 2px 6px;
+}
+
+.modal-footer p {
   text-align: center;
-  font-weight: bold
 }
 
 /*  
@@ -706,4 +728,8 @@ https://www.w3schools.com/cssref/playdemo.php?filename=playcss_accent-color
   text-decoration: none;
   background-color: var(--backgroung-toc);
   padding: 2px 2px;
+}
+
+.license a {
+  color: rgb(240, 240, 240) !important;
 }
