@@ -119,11 +119,12 @@ if (darkModeIcon && darkModeBar && imageLogo) {
     show = true;
     document.body.classList.toggle('dark-mode');
     darkModeBar.classList.toggle("dark-mode");
-    darkModeIcon.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
+    darkModeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
     imageLogo.src = 'imgs/my-logo-white.png';
   } else {
     show = false;
-    darkModeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    darkModeIcon.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
+    
     imageLogo.src = 'imgs/my-logo-black.png';
   }
 } else {
