@@ -229,6 +229,8 @@ function abs( x ) {
 
 function arg( x ) {
 
+  if ( isArbitrary(x) ) return ln(x).im;
+
   // adding zero prevents unexpected behavior for -0
 
   if ( isComplex(x) ) return Math.atan2( x.im + 0, x.re + 0 );
@@ -556,7 +558,7 @@ function besselJZero( n, m, derivative=false ) {
 
   if ( !isPositiveInteger(m) ) throw Error( 'Unsupported index for Bessel zero' );
 
-  // approximations from dlmf.nist.gov/10.21#vi
+  // approximations from dlmf.nist.gov/10.21.vi
   var delta = pi/4;
 
   if ( derivative ) {
@@ -624,7 +626,7 @@ function besselYZero( n, m, derivative=false ) {
 
   if ( !isPositiveInteger(m) ) throw Error( 'Unsupported index for Bessel zero' );
 
-  // approximations from dlmf.nist.gov/10.21#vi
+  // approximations from dlmf.nist.gov/10.21.vi
   var delta = pi/4;
 
   if ( derivative ) {
@@ -1134,6 +1136,8 @@ function jacobiTheta( n, x, q, tolerance=1e-10 ) {
 
 function ellipticNome( m ) {
 
+  if ( typeof m === 'undefined' ) throw Error( 'Elliptic parameter is undefined' );
+
   if ( isComplex(m) ) return exp( div( mul( -pi, ellipticK( sub(1,m) ) ), ellipticK(m) ) );
 
   if ( m > 1 ) return ellipticNome( complex(m) );
@@ -1317,6 +1321,8 @@ function weierstrassRoots( g2, g3 ) {
 
     // p, q both negative in defining cubic
 
+    if ( isZero(p) ) return mul( root(q,3), exp( complex(0,2*pi*n/3) ) )
+
     return mul( 2/sqrt(3), sqrt(p),
                 cos( sub( div( arccos( mul( 3*sqrt(3)/2, q, pow(p,-3/2) ) ), 3 ),
                           2*pi*n/3 ) ) );
@@ -1345,21 +1351,21 @@ function weierstrassHalfPeriods( g2, g3 ) {
   var m = div( sub(e2,e3), sub(e1,e3) );
 
   var w1 = div( ellipticK(m), lambda );
-  var w3 = div( mul( complex(0,1), ellipticK( sub(1,m) ) ), lambda );
+  var w2 = div( mul( complex(0,1), ellipticK( sub(1,m) ) ), lambda );
 
-  return [ w1, w3 ];
+  return [ w1, w2 ];
 
 }
 
-function weierstrassInvariants( w1, w3 ) {
+function weierstrassInvariants( w1, w2 ) {
 
   if ( !isComplex(w1) ) w1 = complex(w1);
-  if ( !isComplex(w3) ) w3 = complex(w3);
+  if ( !isComplex(w2) ) w2 = complex(w2);
 
   // order half periods by complex slope
-  if ( w3.im/w3.re < w1.im/w1.re ) [ w1, w3 ] = [ w3, w1 ];
+  if ( w2.im/w2.re < w1.im/w1.re ) [ w1, w2 ] = [ w2, w1 ];
 
-  var ratio =  div( w3, w1 ), conjugate;
+  var ratio =  div( w2, w1 ), conjugate;
 
   if ( ratio.im < 0 ) {
     ratio.im = -ratio.im;
@@ -1395,6 +1401,8 @@ function weierstrassP( x, g2, g3 ) {
 
   if ( !isComplex(x) ) x = complex(x);
 
+  if ( isZero(g2) && isZero(g3) ) return pow( x, -2 );
+
   var [ e1, e2, e3 ] = weierstrassRoots( g2, g3 );
 
   // Whittaker & Watson, Section 22.351
@@ -1408,6 +1416,8 @@ function weierstrassP( x, g2, g3 ) {
 function weierstrassPPrime( x, g2, g3 ) {
 
   if ( !isComplex(x) ) x = complex(x);
+
+  if ( isZero(g2) && isZero(g3) ) return mul( -2, pow( x, -3 ) );
 
   var [ e1, e2, e3 ] = weierstrassRoots( g2, g3 );
 
@@ -1731,6 +1741,8 @@ function ellipticF( x, m ) {
 
 function ellipticK( m ) {
 
+  if ( typeof m === 'undefined' ) throw Error( 'Elliptic parameter is undefined' );
+
   return ellipticF( m );
 
 }
@@ -1987,6 +1999,16 @@ function pochhammer( x, n ) {
   if ( isArbitrary(x) && !isArbitrary(n) ) n = arbitrary(n);
 
   return div( gamma( add(x,n) ), gamma(x) );
+
+}
+
+function subfactorial( n ) {
+
+  var result = div( gamma( add(n,1), -1 ), exp(1) );
+
+  if ( isPositiveInteger(n) ) return round(result);
+
+  return result;
 
 }
 
@@ -2645,7 +2667,16 @@ function hypergeometric0F1( a, x, tolerance=1e-10 ) {
 
 function hypergeometric1F1( a, b, x, tolerance=1e-10 ) {
 
-  if ( isEqualTo(a,b) ) return exp(x);
+  if ( isEqualTo(a,b) ) {
+
+    if ( isNegativeInteger(a) ) {
+      var n = isComplex(a) ? -a.re : -a;
+      return summation( k => div( pow(x,k), factorial(k) ), [0,n] );
+    }
+
+    return exp(x);
+
+  }
 
   if ( isArbitrary(x) ) {
 
@@ -2656,7 +2687,9 @@ function hypergeometric1F1( a, b, x, tolerance=1e-10 ) {
 
     // asymptotic forms not yet implemented
 
-    if ( isComplex(x) ) {
+    if ( isComplex(a) || isComplex(b) || isComplex(x) ) {
+
+      if ( !isComplex(x) ) x = complex(x);
 
       // Kummer transformation
       if ( x.re < 0n ) return mul( exp(x), hypergeometric1F1( sub(b,a), b, neg(x) ) );
@@ -2817,7 +2850,14 @@ function hypergeometricU( a, b, x ) {
 
   if ( isUnity(b) ) return complexAverage( b => hypergeometricU(a,b,x), b );
 
+  // could be combined with previous special case
   if ( isPositiveInteger(a) && isEqualTo(a,b) ) return mul( exp(x), gamma(sub(1,a),x) );
+
+  // dlmf.nist.gov/13.2.7
+  if ( isNegativeInteger(a) ) {
+    var m = isComplex(a) ? -a.re : -a;
+    return mul( (-1)**m, pochhammer(b,m), hypergeometric1F1(a,b,x) );
+  }
 
   var t1 = mul( gamma(sub(b,1)), inv( gamma(a) ), pow( x, sub(1,b) ),
                 hypergeometric1F1( add(a,neg(b),1), sub(2,b), x ) );
@@ -3307,6 +3347,8 @@ function exp( x ) {
 
 }
 
+function logisticSigmoid( x ) { return inv( add( 1, exp(neg(x)) ) ); }
+
 
 function log( x, base ) {
 
@@ -3362,41 +3404,41 @@ function ln( x ) {
 
   function arbitraryTheta2( x ) {
 
-    var p = mul( arb2, x );
-    var s = p;
-    var i = 1;
-
-    if ( isComplex(x) ) {
-
-      while ( p.re !== 0n || p.im !== 0n ) {
-        for ( var j = 0 ; j < 8*i ; j++ ) p = mul( p, x );
-        s = add( s, p );
-        i++;
-      }
-
-    } else {
-
-      while ( p !== 0n ) {
-        for ( var j = 0 ; j < 8*i ; j++ ) p = mul( p, x );
-        s = s + p;
-        i++;
-      }
-
-    }
-
-    return s;
-
-  }
-
-  function arbitraryTheta3( x ) {
-
-    var p = arb2;
+    var p = arb1;
     var s = arb1;
     var i = 1;
 
     if ( isComplex(x) ) {
 
       while ( p.re !== 0n || p.im !== 0n ) {
+        for ( var j = 0 ; j < 8*i ; j++ ) p = mul( p, x );
+        s = add( s, p );
+        i++;
+      }
+
+    } else {
+
+      while ( p !== 0n ) {
+        for ( var j = 0 ; j < 8*i ; j++ ) p = mul( p, x );
+        s = s + p;
+        i++;
+      }
+
+    }
+
+    return mul( arb2, x, s );
+
+  }
+
+  function arbitraryTheta3( x ) {
+
+    var p = arb1;
+    var s = 0n;
+    var i = 1;
+
+    if ( isComplex(x) ) {
+
+      while ( p.re !== 0n || p.im !== 0n ) {
         for ( var j = 0 ; j < 4*(2*i-1) ; j++ ) p = mul( p, x );
         s = add( s, p );
         i++;
@@ -3412,38 +3454,61 @@ function ln( x ) {
 
     }
 
-    return s;
+    return add( arb1, mul( arb2, s ) );
 
   }
 
-  if ( isArbitrary(x) ) {
+  function arbitraryLn( x) {
 
-    if ( !isComplex(x) ) {
+    var arb4 = 4n*arb1, arb10 = 10n*arb1;
 
-      if ( x < 0n ) return { re: ln( -x ), im: getConstant( 'pi' ) };
+    // convergence near unit circle problematic
+    // scale argument radially and subtract scaling
+    // any number will work, convergence faster further out
 
-      if ( x === arb1 ) return 0n;
-
-      if ( x < arb1 ) return -ln( div( arb1, x ) );
-
-    }
-
-    if ( abs(x) < arb1 ) return neg( ln( div( arb1, x ) ) );
+    if ( abs(x) < arb10 ) return sub( arbitraryLn(mul(arb10,x)), ln10 );
 
     x = div( arb1, x );
 
     var t2 = arbitraryTheta2(x);
     var t3 = arbitraryTheta3(x);
 
-    var result = div( onePi, mul( arbitrary(4), arbitraryAGM( mul(t2,t2), mul(t3,t3) ) ) );
+    return div( onePi, mul( arb4, arbitraryAGM( mul(t2,t2), mul(t3,t3) ) ) );
 
-    // adjust imaginary part
-    if ( x.re < 0n ) {
-      if ( result.im > 0n ) result.im -= onePi;
-      else result.im += onePi;
+  }
+
+  if ( isArbitrary(x) ) {
+
+    if ( isComplex(x) ) {
+
+      if ( x.re === arb1 && x.im === 0n ) return { re: 0n, im: 0n };
+
+      if ( x.re === 0n && x.im === 0n )
+        throw Error( 'Arbitrary natural logarithm singularity' );
+
+      // directly set phase on complex axis
+      if ( x.re === 0n )
+        if ( x.im > 0n ) return { re: arbitraryLn(x.im), im: halfPi };
+        else return { re: arbitraryLn(-x.im), im: -halfPi };
+
+      var result = arbitraryLn(x);
+
+      // adjust imaginary part on left half-plane
+      if ( x.re < 0n ) {
+        if ( result.im > 0n ) result.im -= onePi;
+        else result.im += onePi;
+      }
+
+      return result;
+
     }
 
-    return result;
+    if ( x === arb1 ) return 0n;
+    if ( x === 0n ) throw Error( 'Arbitrary natural logarithm singularity' );
+
+    if ( x < 0n ) return { re: arbitraryLn( -x ), im: onePi };
+
+    return arbitraryLn(x);
 
   }
 
@@ -3506,6 +3571,14 @@ function lambertW( k, x, tolerance=1e-10 ) {
 }
 
 function inverseLambertW( x ) { return mul( x, exp(x) ); }
+
+function wrightOmega( x ) {
+
+  var unwinding = Math.ceil( ( im(x)/pi - 1 ) / 2 );
+
+  return lambertW( unwinding, exp(x) );
+
+}
 
 
 function chop( x, tolerance=1e-10 ) {
@@ -4269,7 +4342,7 @@ function inverseGudermannian( x ) { return mul( 2, arctanh( tan( div(x,2) ) ) );
 
 function zeta( x, tolerance=1e-10 ) {
 
-  if ( isEqualTo(x,1) ) throw Error( 'Riemann zeta pole' );
+  if ( isUnity(x) ) throw Error( 'Riemann zeta pole' );
 
   // functional equation dlmf.nist.gov/25.4.2 - connects both half planes
   if ( x < 0 || x.re < 0 )
@@ -4344,22 +4417,51 @@ function zeta( x, tolerance=1e-10 ) {
 
 function dirichletEta( x ) { return mul( zeta(x), sub( 1, pow( 2, sub(1,x) ) ) ); }
 
+function riemannXi( x ) {
+
+  if ( isZero(x) || isUnity(x) ) return isComplex(x) ? complex(.5) : .5;
+
+  var half = div( x, 2 );
+
+  return mul( half, sub(x,1), pow( pi, neg(half) ), gamma(half), zeta(x) );
+
+}
+
 
 function bernoulli( n, x ) {
 
-  if ( !Number.isInteger(n) ) throw Error( 'Noninteger index for Bernoulli number' );
+  if ( arguments.length === 2 ) {
 
-  if ( n < 0 ) throw Error( 'Unsupported index for Bernoulli number' );
+    if ( isZero(n) ) return isComplex(n) || isComplex(x) ? complex(1) : 1;
 
-  if ( arguments.length > 1 && !isZero(x) ) return mul( -n, hurwitzZeta(1-n,x) );
+    // avoid Hurwitz zeta parameter poles
+    if (  isNegativeIntegerOrZero(x) ) return complexAverage( x => bernoulli(n,x), x );
 
-  if ( n === 0 ) return 1;
+    return mul( neg(n), hurwitzZeta( sub(1,n), x ) );
 
-  if ( n === 1 ) return -.5;
+  }
 
-  if ( n & 1 ) return 0;
+  if ( Number.isInteger(n) && n >= 0 ) {
 
-  return -n * zeta(1-n);
+    if ( n === 0 ) return 1;
+
+    if ( n === 1 ) return -.5;
+
+    if ( n & 1 ) return 0;
+
+    var m = n/2;
+    if ( m <= bernoulli2nN.length )
+      return arbitrary( div( bernoulli2nN[m], bernoulli2nD[m] ) );
+
+    return -n * zeta(1-n);
+
+  }
+
+  if ( isPositiveIntegerOrZero(n) ) return complex( bernoulli( n.re ) );
+
+  // generalized Bernoulli number
+  console.log( 'Returning generalized Bernoulli number' );
+  return bernoulli( n, 0 );
 
 }
 
@@ -4376,7 +4478,7 @@ function harmonic( n ) {
 
 function hurwitzZeta( x, a, tolerance=1e-10 ) {
 
-  if ( isEqualTo(x,1) ) throw Error( 'Hurwitz zeta pole' );
+  if ( isUnity(x) ) throw Error( 'Hurwitz zeta pole' );
 
   if ( isNegativeIntegerOrZero(a) ) throw Error( 'Hurwitz zeta parameter pole' );
 
@@ -4405,6 +4507,11 @@ function hurwitzZeta( x, a, tolerance=1e-10 ) {
 
       x = arbitrary(x), a = arbitrary(a);
       var arbN = arbitrary(n), arb3 = arbitrary(3);
+
+      // at first sight including the factor (a+N)**x in this sum
+      //   appears to be unnecessary calculational overhead
+      // turns out to be more accurate by keeping it on a comparable
+      //   level of numerical precision as the other two terms
 
       var S = 0n;
       for ( var i = 0 ; i < n ; i++ )
@@ -4526,7 +4633,7 @@ function polylog( n, x, tolerance=1e-10 ) {
 
   if ( isEqualTo(n,-1) ) return div( x, mul( sub(1,x), sub(1,x) ) );
 
-  if ( abs(x) >= 1 ) {
+  if ( abs(x) > 1 ) {
 
     var twoPiI = complex(0,2*pi);
 
@@ -4734,6 +4841,8 @@ function ode( f, y, [x0,x1], step=.001, method='runge-kutta' ) {
 
 function diff( f, x, n=1, method='ridders' ) {
 
+  if ( !isPositiveInteger(n) ) throw Error( 'Only positive integer orders for differentiation' );
+
   if ( isComplex(x) || isComplex(f(x)) ) {
 
     if ( !isComplex(f(x)) ) throw Error( 'Function must handle complex math' );
@@ -4894,6 +5003,9 @@ function integrate( f, [a,b], options={} ) {
   if ( isComplex(a) || isComplex(b) || isComplex(f(a)) ) {
 
     if ( !isComplex(a) ) a = complex(a);
+    if ( !isComplex(b) ) b = complex(b);
+
+    if ( a.re === b.re && a.im === b.im ) return complex(0);
 
     if ( !isComplex(f(a)) ) throw Error( 'Function must handle complex math' );
 
@@ -4905,6 +5017,8 @@ function integrate( f, [a,b], options={} ) {
     return mul( sub(b,a), complex( real, imag ) );
 
   }
+
+  if ( a === b ) return 0;
 
   if ( options.avoidEndpoints )
     if ( a < b ) { a += tolerance; b -= tolerance; }
@@ -5123,13 +5237,13 @@ function discreteIntegral( values, step ) {
 }
 
 
-function summation( f, [a,b] ) {
+function summation( f, [a,b,step=1] ) {
 
   if ( isComplex( f(a) ) ) {
 
     var s = complex(0);
 
-    for ( var i = a ; i <= b ; i++ ) s = add( s, f(i) );
+    for ( var i = a ; i <= b ; i += step ) s = add( s, f(i) );
 
     return s;
 
@@ -5137,7 +5251,7 @@ function summation( f, [a,b] ) {
 
     var s = 0;
 
-    for ( var i = a ; i <= b ; i++ ) s += f(i);
+    for ( var i = a ; i <= b ; i += step ) s += f(i);
 
     return s;
 
@@ -5146,7 +5260,12 @@ function summation( f, [a,b] ) {
 }
 
 
-function polynomial( x, coefficients, derivative=false ) {
+function polynomial( x, coefficients, options={} ) {
+
+  var derivative = 'derivative' in options ? options.derivative : false;
+  var reverse = 'reverse' in options ? options.reverse : false;
+
+  if ( reverse ) coefficients = coefficients.slice().reverse();
 
   // Horner's method with highest power coefficient first
 
@@ -5197,7 +5316,7 @@ function findRoot( f, start, options={} ) {
     if ( f.length !== start.length )
       throw Error( 'Mismatch between equations and starting point for root' );
 
-    var root = start;
+    var root = start.slice();
 
     for ( var i = 0; i < maxIter ; i++ ) {
 
@@ -5401,6 +5520,47 @@ function spline( points, value='function', tolerance=1e-10 ) {
       throw Error( 'Unsupported spline value' );
 
   }
+
+}
+
+function padeApproximant( f, n, d, center=0 ) {
+
+  if ( !isPositiveInteger(n) || !isPositiveInteger(d) )
+    throw Error( 'Pade indices must be positive integers' );
+
+  var c = [];
+
+  if ( typeof f === 'function' ) {
+    c.push( f(center) );
+    for ( var i = 1 ; i <= n+d ; i++ ) c.push( diff( f, center, i ) / factorial(i) );
+  } else {
+    if ( f.length < n+d+1 ) throw Error( 'Need n+d+1 Pade coefficients' );
+    c = f;
+  }
+
+  var M = matrix( d ), v = vector( d );
+
+  for ( var i = 0 ; i < d ; i++ ) {
+    v[i] = -c[ n + 1 + i ];
+    // avoid negative index leading to undefined entry
+    for ( var j = 0 ; j < d && j <= n+i ; j++ ) M[i][j] = c[ n + i - j ];
+  }
+
+  // need to understand why Mathematica returns results for singular matrices
+  try { var b = luSolve( M, v ); }
+  catch { throw Error( 'Singular Pade matrix encountered' ); };
+  b.unshift( 1 );
+
+  var a = [ c[0] ];
+
+  for ( var i = 1 ; i <= n ; i++ ) {
+    var s = c[i];
+    // cannot exceed i when d > n
+    for( var j = 1 ; j <= d && j <= i ; j++ ) s += b[j] * c[i-j];
+    a.push( s );
+  }
+
+  return { N: chop(a), D: chop(b) };
 
 }
 

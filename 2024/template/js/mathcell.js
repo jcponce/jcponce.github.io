@@ -456,6 +456,7 @@ function dataReplacer( key, value ) {
 
   if ( value === Infinity ) return 'Infinity';
   if ( value === -Infinity ) return '-Infinity';
+  if ( value === undefined ) return 'NaN';
   if ( value !== value ) return 'NaN';
 
   return value;
@@ -489,6 +490,7 @@ function lerp( a, b ) {
   return function( x ) { return a[1] + ( x - a[0] ) * ( b[1] - a[1] ) / ( b[0] - a[0] ) };
 
 }
+
 
 // rounding functions
 
@@ -549,6 +551,7 @@ function floorTo( x, n, significant=true ) {
 
 }
 
+
 // transformation functions
 
 function normalize( vector ) {
@@ -570,6 +573,8 @@ function translate( points, vector ) {
 }
 
 function rotate( points, angle=0, vector=[0,0,1] ) {
+
+  // fails silently without defaults
 
   var dimension = points[0].length;
 
@@ -640,6 +645,13 @@ function rotateFromZAxis( points, vector ) {
   rotate( points, angle, [ -vector[1], vector[0], 0 ] );
 
 }
+
+function rotateObject( object, angle, vector ) {
+
+  object.forEach( e => rotate( e.vertices, angle, vector ) );
+
+}
+
 
 // presentation functions
 
@@ -744,6 +756,7 @@ mathcellStyle.innerHTML = `
 
   width: 5in;
   margin: .25in auto .25in auto;
+  background-color: white; /* light gray? */
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -2277,6 +2290,26 @@ function line( points, options={} ) {
 
 // simple 3D objects
 
+function plane( width, depth, options={} ) {
+
+  if ( !( 'color' in options ) ) options.color = defaultPlotColor;
+  if ( !( 'opacity' in options ) ) options.opacity = 1;
+
+  var x = width / 2;
+  var y = depth / 2;
+
+  var vertices = [ [x,y,0], [-x,y,0], [-x,-y,0], [x,-y,0] ];
+
+  var faces = [ [0,1,2,3] ];
+
+  if ( 'normal' in options ) rotateFromZAxis( vertices, options.normal );
+
+  if ( 'center' in options ) translate( vertices, options.center );
+
+  return [ { vertices: vertices, faces: faces, options: options, type: 'surface' } ];
+
+}
+
 function box( width, depth, height, options={} ) {
 
   if ( !( 'color' in options ) ) options.color = defaultPlotColor;
@@ -2475,19 +2508,27 @@ function svg( id, data, config ) {
 
   }
 
-  function decimalsInNumber( x ) {
+  var switchToExp = 4;
 
-    for ( var i = 0 ; i < 100 ; i++ ) {
-      if ( roundTo( x, i, false ) === x ) break;
-    }
-    return i;
+  function significant( x ) {
+
+    return Math.abs(x) < 10**(-switchToExp) || Math.abs(x) > 10**switchToExp;
 
   }
 
-  function chop( x, tolerance=1e-10 ) {
+  function decimalsInNumber( x ) {
 
-    if ( Math.abs(x) < tolerance ) x = 0;
-    return x;
+    if ( significant(x) ) {
+      x = x / 10**Math.trunc(Math.log10(x));
+      x = roundTo( x, 10 ) // remove round-off error
+      return decimalsInNumber(x) + 1;
+    }
+
+    // max decimals controlled by limit here
+    for ( var i = 0 ; i < switchToExp + 5 ; i++ ) {
+      if ( roundTo( x, i, false ) === x ) break;
+    }
+    return i;
 
   }
 
@@ -2524,13 +2565,11 @@ function svg( id, data, config ) {
   if ( yMinMax.min === -Infinity ) yMinMax.min = -numericInfinity;
   if ( yMinMax.max === Infinity )  yMinMax.max = numericInfinity;
 
-  // rounding currently to remove excessive decimals
-  // add option when needed for rounding to significant digits
-
-  var xMin = 'xMin' in config ? config.xMin : floorTo( xMinMax.min, 4, false );
-  var xMax = 'xMax' in config ? config.xMax : ceilTo( xMinMax.max, 4, false );
-  var yMin = 'yMin' in config ? config.yMin : floorTo( yMinMax.min, 4, false );
-  var yMax = 'yMax' in config ? config.yMax : ceilTo( yMinMax.max, 4, false );
+  // unnecessary rounding to remove excessive decimals kills exponential values
+  var xMin = 'xMin' in config ? config.xMin : xMinMax.min;
+  var xMax = 'xMax' in config ? config.xMax : xMinMax.max;
+  var yMin = 'yMin' in config ? config.yMin : yMinMax.min;
+  var yMax = 'yMax' in config ? config.yMax : yMinMax.max;
 
   if ( xMin === xMax ) { xMin -= 1; xMax += 1; }
   if ( yMin === yMax ) { yMin -= 1; yMax += 1; }
@@ -2574,10 +2613,13 @@ function svg( id, data, config ) {
   var xTickDecimals = decimalsInNumber( ticks[0] );
   var yTickDecimals = decimalsInNumber( ticks[1] );
 
+  var xSig = significant( ticks[0] );
+  var ySig = significant( ticks[1] );
+
   // size of largest y-axis tick label
-  var yNumSize = 10 * Math.max( roundTo( yMin, yTickDecimals, false ).toString().length,
-                                roundTo( yMax, yTickDecimals, false ).toString().length,
-                                roundTo( 3*ticks[1], yTickDecimals, false ).toString().length  );
+  var yNumSize = 10 * Math.max( roundTo( yMin, yTickDecimals, ySig ).toString().length,
+                                roundTo( yMax, yTickDecimals, ySig ).toString().length,
+                                roundTo( 3*ticks[1], yTickDecimals, ySig ).toString().length  );
 
   // offsets of numbers from axes, inverted when on right/top
   var xOffset = 10;
@@ -2647,27 +2689,34 @@ function svg( id, data, config ) {
 
     if ( ticks ) {
 
+      function formatNumber( x, decimals, sig ) {
+
+        if ( sig ) return x.toExponential(decimals-1);
+        return x.toFixed(decimals)
+
+      }
+
       var xStart = ticks[0] * Math.ceil( xMin / ticks[0] );
       for ( var i = xStart ; i <= xMax ; i += ticks[0] ) {
-        if ( chop(i) !== 0 || ( yOrigin !== yAxis && yLabel === 0 ) ) {
+        if ( Math.abs(i) > xRange/1e10 || yOrigin !== yAxis && yLabel === 0 ) {
           var x = Math.round( xOrigin + xScale*i );
           svg += `<path d="M ${ x } ${ yAxis } L ${ x } ${ yAxis - Math.sign(yOffset)*tickSize }"
                         stroke="${ ac }" />`;
           svg += `<text x="${ x }" y="${ yAxis + yOffset }" fill="${ ac }"
                         font-family="monospace" text-anchor="middle">
-                  ${ +i.toFixed(xTickDecimals) }</text>`;
+                  ${ formatNumber( i, xTickDecimals, xSig ) }</text>`;
         }
       }
 
       var yStart = ticks[1] * Math.ceil( yMin / ticks[1] );
       for ( var i = yStart ; i <= yMax ; i += ticks[1] ) {
-        if ( chop(i) !== 0 || ( xOrigin !== xAxis && xLabel === 0 ) ) {
+        if ( Math.abs(i) > yRange/1e10 || xOrigin !== xAxis && xLabel === 0 ) {
           var y = Math.round( yOrigin - yScale*i );
           svg += `<path d="M ${ xAxis } ${ y } L ${ xAxis + Math.sign(xOffset)*tickSize } ${ y }"
                         stroke="${ ac }" />`;
           svg += `<text x="${ xAxis - xOffset }" y="${ y }" fill="${ ac }"
                         font-family="monospace" text-anchor="end" dominant-baseline="central">
-                  ${ +i.toFixed(yTickDecimals) }</text>`;
+                  ${ formatNumber( i, yTickDecimals, ySig ) }</text>`;
         }
       }
 
@@ -2699,8 +2748,9 @@ function svg( id, data, config ) {
     } );
 
     // automatically skip NaN
-    var j = 0;
-    while ( isNaN( l.points[j][1] ) ) j++;
+    var j = 0, len = l.points.length;
+    while ( j < len && isNaN( l.points[j][1] ) ) j++;
+    if ( j === len ) continue;
 
     var x = l.points[j][0];
     var y = l.points[j][1];
@@ -2806,7 +2856,7 @@ function svg( id, data, config ) {
 }
 
 
-function threejsTemplate( config, lights, texts, points, lines, surfaces ) {
+function threejsTemplate( config, texts, points, lines, surfaces ) {
 
   return `
 <!DOCTYPE html>
@@ -2824,7 +2874,7 @@ function threejsTemplate( config, lights, texts, points, lines, surfaces ) {
 
 <body>
 
-<script src="https://cdn.jsdelivr.net/gh/paulmasson/threejs-with-controls@r135/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/paulmasson/threejs-with-controls@latest/build/three.min.js"></script>
 
 <script>
 
@@ -2951,22 +3001,32 @@ if ( config.viewpoint !== 'auto' ) {
 }
 
 camera.position.add( defaultOffset );
-
-var lights = ${lights};
-
-for ( var i = 0 ; i < lights.length ; i++ ) {
-  var light = new THREE.DirectionalLight( lights[i].color, 1 );
-  var v = lights[i].position;
-  light.position.set( a[0]*v[0], a[1]*v[1], a[2]*v[2] );
-  if ( lights[i].parent === 'camera' ) {
-    light.target.position.set( xMid, yMid, zMid );
-    scene.add( light.target );
-    camera.add( light );
-  } else scene.add( light );
-}
 scene.add( camera );
 
-scene.add( new THREE.AmbientLight( config.ambientLight, 1 ) );
+config.lights.forEach( l => {
+
+  switch( l.type ) {
+
+    case 'ambient':
+
+      scene.add( new THREE.AmbientLight( l.color, l.intensity ) );
+      break;
+
+    case 'directional':
+
+      var light = new THREE.DirectionalLight( l.color, l.intensity );
+      var v = l.position;
+      light.position.set( a[0]*v[0], a[1]*v[1], a[2]*v[2] );
+      if ( l.parent === 'camera' ) {
+        light.target.position.set( xMid, yMid, zMid );
+        scene.add( light.target );
+        camera.add( light );
+      } else scene.add( light );
+      break;
+
+  }
+
+} );
 
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
 controls.target.set( xMid, yMid, zMid );
@@ -3000,15 +3060,11 @@ function suspendAnimation() {
 }
 
 var texts = ${texts};
-
-for ( var i = 0 ; i < texts.length ; i++ ) {
-  var t = texts[i];
-  addLabel( t.text, t.point[0], t.point[1], t.point[2], t.options.color, t.options.fontSize );
-}
+texts.forEach( t => addLabel( t.text, t.point[0], t.point[1], t.point[2],
+                              t.options.color, t.options.fontSize ) );
 
 var points = ${points};
-
-for ( var i = 0 ; i < points.length ; i++ ) addPoint( points[i] );
+points.forEach( p => addPoint( p ) );
 
 function addPoint( p ) {
 
@@ -3046,12 +3102,11 @@ function addPoint( p ) {
 }
 
 var lines = ${lines};
+var newLines = [];
 
-var newLines = [], tempPoints = [];
+lines.forEach( l => {
 
-for ( var i = 0 ; i < lines.length ; i++ ) {
-
-  lines[i].points.forEach( v => {
+  l.points.forEach( v => {
     // apply aspect multipliers for convenience
     //   and set points outside bounds or NaN to empty array
     v[0] *= a[0]; v[1] *= a[1]; v[2] *= a[2];
@@ -3061,29 +3116,30 @@ for ( var i = 0 ; i < lines.length ; i++ ) {
   } );
 
   // split lines at empty points
-  for ( var j = 0 ; j < lines[i].points.length ; j++ )
-    if ( lines[i].points[j].length === 0 ) {
-      tempPoints = lines[i].points.splice( j );
-      if ( j === 0 ) lines[i].points = [[0,0,0]]; // dummy line for options
+  var tempPoints = [];
+  for ( var i = 0 ; i < l.points.length ; i++ )
+    if ( l.points[i].length === 0 ) {
+      tempPoints = l.points.splice( i );
+      if ( i === 0 ) l.points = [[0,0,0]]; // dummy line for options
     }
 
-  var l = [];
-  for ( var j = 0 ; j < tempPoints.length ; j++ ) {
-    var p = tempPoints[j];
-    if ( p.length > 0 ) l.push( p );
-    else if ( l.length > 0 ) {
-      newLines.push( { points: l, options: lines[i].options } );
-      l = [];
+  var tempLine = [];
+  for ( var i = 0 ; i < tempPoints.length ; i++ ) {
+    var p = tempPoints[i];
+    if ( p.length > 0 ) tempLine.push( p );
+    else if ( tempLine.length > 0 ) {
+      newLines.push( { points: tempLine, options: l.options } );
+      tempLine = [];
     }
   }
-  if ( l.length > 0 ) newLines.push( { points: l, options: lines[i].options } );
+  if ( tempLine.length > 0 ) newLines.push( { points: tempLine, options: l.options } );
 
-}
+} );
 
 newLines.forEach( l => lines.push( l ) );
-newLines = [], tempPoints = [];
+newLines = [];
 
-for ( var i = 0 ; i < lines.length ; i++ ) addLine( lines[i] );
+lines.forEach( l => addLine( l ) );
 
 function addLine( l ) {
 
@@ -3114,8 +3170,7 @@ function addLine( l ) {
 }
 
 var surfaces = ${surfaces};
-
-for ( var i = 0 ; i < surfaces.length ; i++ ) addSurface( surfaces[i] );
+surfaces.forEach( s => addSurface( s ) );
 
 function addSurface( s ) {
 
@@ -3202,7 +3257,7 @@ function addSurface( s ) {
       colors.push( c.r, c.g, c.b );
     }
     geometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
-    material.vertexColors = THREE.VertexColors;
+    material.vertexColors = true;
     material.color.set( 'white' ); // crucial!
   }
 
@@ -3300,7 +3355,6 @@ function threejs( id, data, config ) {
   // working copy of data
   var data = JSON.parse( JSON.stringify( data, dataReplacer ), dataReviver );
 
-  if ( !( 'ambientLight' in config ) ) config.ambientLight = 'rgb(127,127,127)';
   if ( !( 'aspectRatio' in config ) ) config.aspectRatio = [1,1,1];
   if ( !( 'axesLabels' in config ) || config.axesLabels === true ) config.axesLabels = ['x','y','z'];
   if ( !( 'clearColor' in config ) ) config.clearColor = 'white';
@@ -3309,6 +3363,13 @@ function threejs( id, data, config ) {
   if ( !( 'viewpoint' in config ) ) config.viewpoint = 'auto';
 
   if ( !config.frame ) config.axesLabels = false;
+
+  if ( !( 'lights' in config ) )
+    config.lights = [
+      { type: 'ambient', color: 'rgb(127,127,127)', intensity: 4 },
+      { type: 'directional', parent: 'camera', position: [-5,3,0],
+                         color: 'rgb(127,127,127)', intensity: 9 }
+    ];
 
   var n = 'output' in config ? config.output : '';
   var output = document.getElementById( id + 'output' + n );
@@ -3387,15 +3448,12 @@ function threejs( id, data, config ) {
   var border = config.no3DBorder ? 'none' : '1px solid black';
 
   config = JSON.stringify( config );
-
-  var lights = JSON.stringify( [ { position: [-5,3,0], color: 'rgb(127,127,127)', parent: 'camera' } ] );
-
   texts = JSON.stringify( texts );
   points = JSON.stringify( points );
   lines = JSON.stringify( lines, dataReplacer );
   surfaces = JSON.stringify( surfaces, dataReplacer );
 
-  var html = threejsTemplate( config, lights, texts, points, lines, surfaces );
+  var html = threejsTemplate( config, texts, points, lines, surfaces );
 
   return `<iframe style="width: 100%; height: 100%; border: ${border};"
                   srcdoc="${html.replace( /\"/g, '&quot;' )}" scrolling="no"></iframe>`;
