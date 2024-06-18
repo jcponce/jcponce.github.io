@@ -76,21 +76,9 @@ html {
   font-size: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
 
-/* Media query for smaller screens - Top bar */
-@media only screen and (max-width: 500px) {
-  html {
-    font-size: 0.9rem;
-  }
-}
 
 body {
-  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
   line-height: 1.5;
   background-color: var(--body-bg-color);
 
@@ -114,6 +102,19 @@ p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   margin-top: 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Media query for smaller screens - Top bar */
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 0.9rem;
+  }
 }
 
 /* Indents paragraphs like in LaTeX documents*/
@@ -413,7 +414,7 @@ summary {
 
 .head-1.head-1-level2 {
   counter-increment: subsection-1;
-  font-size: 1.775rem;
+  font-size: 1.5rem;
 }
 
 .head-1.head-1-level2::before {
@@ -422,7 +423,7 @@ summary {
 
 .head-1.head-1-level3 {
   counter-increment: subsubsection-1;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .head-1.head-1-level3::before {
@@ -442,7 +443,7 @@ summary {
 
 .head-2.head-2-level2 {
   counter-increment: subsection-2;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
 }
 
 .head-2.head-2-level2::before {
@@ -451,7 +452,7 @@ summary {
 
 .head-2.head-2-level3 {
   counter-increment: subsubsection-2;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .head-2.head-2-level3::before {
@@ -471,7 +472,7 @@ summary {
 
 .head-3.head-3-level2 {
   counter-increment: subsection-3;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
 }
 
 .head-3.head-3-level2::before {
@@ -480,7 +481,7 @@ summary {
 
 .head-3.head-3-level3 {
   counter-increment: subsubsection-3;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .head-3.head-3-level3::before {
