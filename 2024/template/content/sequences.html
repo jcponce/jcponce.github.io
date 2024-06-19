@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>  Sequences
+</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="An introduction to Real Analysis" />
+  <meta name="keywords" content="real, analysis, mathematics" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <!--
+    https://www.everywheremarketer.com/blog/ultimate-guide-to-social-meta-tags-open-graph-and-twitter-cards
+  -->
+  <!--Facebook-->
+  <meta property="og:title" content="Real Analysis" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="An introduction to Real Analysis" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Real Analysis">
+
+  <!--Twitter/X-->
+  <meta name="twitter:title" content="Real Analysis" />
+  <meta name="twitter:site" content="https://intro-real-analysis.github.io/" />
+  <meta name="twitter:description" content="An introduction to Real Analysis" />
+  <meta name="twitter:type" content="website" />
+  <meta name="twitter:creator" content="@jcponcemath" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- MathCell applets + MathJax -->
+  <script src="js/math.js"></script>
+  <script src="js/mathcell.js"></script>
+  <script src="js/mathjax.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+</head>
+
+<body data-type="book" id="top">
+
+  <!-- Main DIV Starts here -->
+  <div class="container">
+    <section data-type="chapter" id="sequences-9WN6hRW">
+
+    <!-- Starts main content -->
+
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-card" style="z-index:3;width:250px;" id="mySidebar">
+        <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="index.html"><img id="myLogo" src="imgs/my-logo-black.png" style="width:35%;margin-top: 5px;margin-bottom: 5px;"></a>
+
+
+        <a class="w3-bar-item w3-button w3-hide-large w3-large w3-center" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa-solid fa-xmark w3-large"></i></a>
+
+        <a class="w3-bar-item w3-button" id="chapterBar" href="sequences.html">1. Sequences</a>
+        <div class="toc-chapter" id="toc-chapter">
+
+            <a class="w3-bar-item w3-button" href="#section1">&nbsp; 1.1 Definition</a>
+            <a class="w3-bar-item w3-button" href="#section2">&nbsp; 1.2 Convergence</a>
+            <a class="w3-bar-item w3-button" href="#section3">&nbsp; 1.3 Intuitive vs Rigorous</a>
+            <a class="w3-bar-item w3-button" href="#section4">&nbsp; 1.4 Bounded sequences</a>
+        </div>
+
+        <a class="w3-bar-item w3-button" id="chapterBar" href="limits-of-functions.html">2. Limits of functions</a>
+
+
+        <a class="w3-bar-item w3-button" id="chapterBar" href="sequences-of-functions.html">3. Sequences of functions</a>
+
+        <br>
+
+
+        <div class="w3-container w3-center w3-theme" id="mySocial">
+            <div class="">
+                <a title="Patreon" href="https://www.patreon.com/jcponce" target="_blank"><i class="fa-brands fa-patreon w3-button w3-round-large w3-theme"></i></a>
+                <span title="Support" onclick="document.getElementById('myModal').style.display='block'" class="w3-button w3-round-large w3-theme">
+                    <i class="fa-regular fa-heart"></i></span>
+                <a title="GitHub" href="https://github.com/jcponce" target="_blank"><i class="fa-brands fa-github w3-button w3-round-large w3-theme"></i></a>
+                <br>
+            </div>
+        </div>
+
+
+    </nav>
+
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
+    </div>
+
+    <!-- !PAGE CONTENT! -->
+
+    <div class="w3-main w3-large" style="margin-left:250px;">
+
+        <!-- Main text starts here -->
+
+        <!-- Bar on top shows/hides after scrolling -->
+        <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
+            <div id="myTextBar">
+                <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+                    <span id="myTitle" class="w3-hide">1. Sequences</span>
+
+                    <span title="Toggle" onclick="myDarkMode()" id="dark-mode-toggle" class="topDark w3-theme w3-round-large">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </span>
+
+                    <span onclick="document.getElementById('myModal').style.display='block'" class="topDonate w3-button w3-theme w3-round-small w3-hide-small w3-hide-medium ">
+                        <i class="fa-regular fa-heart"></i> Support
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="w3-container w3-theme" style="padding:64px 32px">
+            <div class="w3-hide-large w3-hide-medium w3-hide-small"><h1>Sequences</h1></div>
+            <div class="head-1">Sequences</div>
+        </header>
+
+        <!-- Sections -->
+        <div class="w3-container" style="padding:32px">
+
+
+            <div id="section1">
+                
+        
+                <div id="definition" class="head-1 head-1-level2">Definition</div>
+        
+                <p>
+                  In this chapter we explore the most basic type of a limit in Real
+                  Analysis, that is the limit of a
+                  sequence of real numbers.
+                </p>
+        
+                <div class="definition">
+                  A <strong>sequence</strong> of real numbers is a function
+                  from the set $\N$ of natural numbers to the set $\R$
+                  of real numbers.
+                </div>
+        
+                <p>
+                  Since we will consider only sequences of real numbers we
+                  will usually say "sequence" instead of "sequence of real numbers".
+                  Whenever we consider sequences whose values are not real numbers,
+                  we will mention this explicitly.
+                </p>
+        
+                <p>
+                  We will often use the following expression:
+                </p><div style="text-align: center;">
+                  "the sequence $x_1, x_2, \ldots, x_n,\ldots$"
+                </div>
+                <p></p>
+        
+        
+                <p>
+                  What we mean by this is that we consider the sequence
+                  $f: \N \to \R$ defined by
+                  $$
+                  f(n)= x_n\quad\text{for}\quad n\in\N.
+                  $$
+                </p>
+        
+                <p>
+                  Let
+                  $$
+                  x_1, x_2, \ldots, x_n,\ldots
+                  $$
+                  be a sequence. The real numbers $x_1, x_2, \ldots, x_n,\ldots$ are called
+                  the <em>terms</em> of the sequence; $x_1$ is the <em>first term</em>
+                  of the sequence, $x_2$ is the <em>second term</em>
+                  of the sequence, $\ldots,$ $x_n$ is the $n$th <em>term</em>
+                  of the sequence.
+                </p>
+        
+        
+                <div class="example" id="examples-of-sequences">
+                  The following are examples of sequences:
+                  <ol class="alpha-list" style="line-height: 2.3em;">
+                    <li>
+                      $1, 2, 3, 4,\ldots,n\ldots;$
+                    </li>
+                    <li id="one-over-n-sequence">
+                      $1\dfrac{1}{2},\dfrac{1}{3}\ldots,\dfrac{1}{n}\ldots;$
+                    </li>
+                    <li>
+                      $1\dfrac{1}{2^2},\dfrac{1}{3^2}\ldots,\dfrac{1}{n^2}\ldots;$
+                    </li>
+                    <li>
+                      $a, a^2, a^3, a^4,\ldots,a^n\ldots$ (with $a\in \R$);
+                    </li>
+                    <li>
+                      $1, 1, 1, 1,\ldots,1\ldots;$
+                    </li>
+                    <li>
+                      $c, c, c, c,\ldots,c\ldots$ (with $c\in \R$);<label for="sn-anything" class="sidenote-toggle  sidenote-number"></label>
+                      <input type="checkbox" id="sn-anything" class="sidenote-toggle">
+                      <span class="sidenote">
+                        <!-- sidenote content -->
+                        The sequence in (f) is called <em>the constant sequence</em> $c;$
+                        hence the sequence (e) is <em>the constant sequence</em> $1.$
+                      </span>
+                    </li>
+                    <li id="one-zero-sequence">
+                      $1, 0, 1, 0, 1, 0,\ldots;$
+                    </li>
+                    <li>
+                      $1, 4, 9, \ldots,n^2\ldots;$
+                    </li>
+                    <li>
+                      $-1, 1, -1, 1,\ldots,(-1)^n\ldots;$
+                    </li>
+                  </ol>
+        
+                </div>
+        
+        
+                <p>
+                  Instead of writing
+                  $$
+                  x_1, x_2, \ldots, x_n,\ldots
+                  $$
+                  we will sometimes write
+                </p><div class="scroll-wrapper">
+                  $$
+                  \{ x_n \}_{n=1}^{\infty},\quad\{ x_k \}_{k\in\N},\quad
+                  \{x_n\},\quad\text{or}\quad\{ x_n \}_{n}.
+                  $$
+                </div>
+                <p></p>
+        
+                <p>
+                  For instance $\left\{1/n\right\}_{n\in N}$ is the sequence in <a href="#one-over-n-sequence">Example
+                    1-(b)</a>.
+                  The sequence $\{b_k\}_{k\in\N},$ where $b_k=1$ if $k$ is odd and $b_n=0$ if $k$ is even, is the
+                  sequence in <a href="#one-zero-sequence">Example 1-(g)</a>.
+                </p>
+        
+                <div class="practice">
+                  <p>
+                    <strong>Practice!</strong>
+                    Re-write the rest of the sequences from
+                    <a href="#examples-of-sequences">Example 1</a>.
+                  </p>
+                  <details>
+                    <summary>
+                      <strong>Hint</strong>
+                    </summary>
+                    <p>
+                      a. $\{n\}_{n\in\N}\,$ or $\,\{n\}_{n=1}^{\infty}\,$ or $\,\{k\}_{k\in\N}.$
+                    </p>
+                  </details>
+                </div>
+        
+                <p>
+                  The notation for a sequence
+                  is similar to that of a set. However, the notions are
+                  different. For instance, the sequence $\{ {(-1)}^n \}$ is the sequence
+                  $$-1,1,-1,1,-1,1,\ldots$$
+                  whereas the set of values, the
+                  <em>range of the sequence</em>,
+                  is just the set $\{ -1, 1 \}.$ We can write this set
+                  as $\{ {(-1)}^n : n \in \N \}.$ When ambiguity can arise, we use the words
+                  <em>sequence</em> or <em>set</em>
+                  to distinguish the two concepts.
+                </p>
+        
+              </div>
+        
+              <div id="section2">
+        
+                <div id="convergence-of-sequeces" class="head-1 head-1-level2">Convergence of sequences</div>
+        
+                <p>
+                  The following is one of the <em>most fundamental concepts</em> in this real analysis.
+                  You need to make
+                  sure you understand it thoroughly and you must be able to use it comfortably.
+                </p>
+                <div class="definition">
+                  A sequence $\{ x_n \}$ is said to <em>converge</em> to a number
+                  $L \in \R$ if for every $\epsilon &gt; 0,$ there exists an $N \in \N$ such
+                  that $\abs{x_n - L} \lt \epsilon$ for all $n \geq N.$
+                  <span>
+                    The number $L$
+                    is said to be the <em>limit</em> of $\{ x_n \}.$ We write
+                    \begin{equation*}
+                    \lim_{n\to \infty} x_n := L .
+                    \end{equation*}
+                  </span>
+                </div>
+        
+                <p>
+                  The illustration below can be a useful aid to understand the notion
+                  of limit in $\R.$ We obtain this illustration by "plotting"
+                  the termns of the given sequence on the real line. In doing so,
+                  one must be aware that the same real number may appear more than once in the
+                  sequence. When we say that the sequence $\{x_n\}$ converges to $L\in \R$
+                  we mean that if for every $\epsilon$ we consider the interval
+                  $\left(L-\epsilon, L+\epsilon\right),$ then there exists $N\in\N$ such
+                  that <em>all</em> the terms $x_n$ belong to
+                  $\left(L-\epsilon, L+\epsilon\right)$ whenever $n\geq N.$
+                </p>
+        
+                <figure>
+                  <img alt="Convergence in one dimension" style="width: 100%;" loading="lazy" src="https://www.dynamicmath.xyz/math2400/images/summary-02/convergence-1d.png">
+                  <figcaption>
+                    Convergence in one dimension. In this case, $N=10,$ so $x_n$ belong to
+                    $\left(L-\epsilon, L+\epsilon\right)$ whenever $n\geq N.$
+                  </figcaption>
+                </figure>
+        
+                <p>
+                  Another way to represent the converge of a sequence is shown in the applet below.
+                  In this image we first think of the sequence as a graph, as it is a
+                  function of $\N.$
+                </p>
+        
+                <figure>
+                  <div id="ggb-element-sequences"></div>
+                  <figcaption>
+                    Convergence in two dimensions. Drag the slider to plot the sequence.
+                  </figcaption>
+                </figure>
+        
+        
+        
+        
+                <div class="example">
+        
+                  The sequence $\{x_n\}_{n=1}^{\infty},$ where $x_n =c,$
+                  $\forall n \in \N$ and $c\in\R$ fixed.
+        
+        
+                  <span>
+                    That is $$\{x_n\}_{n=1}^{\infty}= c,c,c,\ldots$$ consisting
+                    of a single constant $c$ repeating indefinitely.
+                  </span>
+                  <span>
+                    It converges to $c.$
+                  </span>
+        
+        
+        
+                </div>
+        
+        
+        
+        
+        
+                <div class="example">
+                  <p>
+                    <strong>Claim:</strong> The sequence
+                    $\left\{ \dfrac{1}{n} \right\}$ is convergent and
+                    \begin{equation*}
+                    \lim_{n\to \infty} \frac{1}{n} = 0 .
+                    \end{equation*}
+                  </p>
+        
+                  <p>
+                    <span>
+                      <strong>Proof.</strong>
+                    </span>
+                    <span>
+                      Given an $\vre &gt; 0,$ we find an $N \in \N$ such that
+                      $0 \lt \dfrac{1}{N} \lt \vre$
+        
+                    </span>
+                    <span>(thanks to the
+                      <span class="tooltip hover-theme"><strong>Archimedean property</strong>
+                        <span id="mytooltip" class="box-text">
+                          If $x, y \in \R$ and $x &gt; 0,$ then there exists an $n \in \N$ such that
+                          $nx &gt; y .$
+                        </span>
+                      </span> 😎).</span>
+                  </p>
+                  <p>
+                    Then for all $n \geq N,$
+                  </p>
+                  <div class="scroll-wrapper">
+                    $$\ds \abs{x_n - 0} = \abs{\frac{1}{n}} = \frac{1}{n} \leq \frac{1}{N}\lt \vre .\;\;\blacksquare$$
+                  </div>
+                  <p></p>
+        
+                </div>
+        
+                <p>
+                  Before proceeding further, we should give two examples of sequences
+                  which are <em>divergent</em> (not convergent) in $\R.$
+                </p>
+        
+                <div class="example">
+                  <p>
+                    <strong>Claim:</strong> The sequence $\{ n \}_{n\in\N}$ is not convergent.
+                  </p>
+                  <p>
+                    <span>
+                      <strong>Proof.</strong>
+                    </span>
+                    <span>
+                      Suppose that the sequence $1, 2, 3,\ldots $ converges to some
+                      number $y\in \R.$ Then given $\epsilon = \dfrac{1}{3},$ there
+                      exists a $M\in\N$ such that
+                    </span>
+                  </p><div class="scroll-wrapper">
+                    $$\abs{n-y}\lt \frac{1}{3} \quad \text{if}\quad n\geq M.$$
+                  </div>
+                  <p></p>
+                  <p>
+                    In particular,
+                  </p><div class="scroll-wrapper">
+                    $$\abs{M-y}\lt \frac{1}{3} \quad \text{and}\quad \abs{M+1-y}\lt \frac{1}{3} $$
+                  </div>
+                  since $M+1\gt M.$ We deduce that
+                  <div class="scroll-wrapper">
+                    $$1= \abs{\left(M+1\right)-M}\lt \abs{ M+1-y}+\abs{y-M}\lt \frac{1}{3}+\frac{1}{3}; $$
+                  </div>
+                  that is
+                  $$1\lt \frac{2}{3}.$$
+                  Since the hypothesis that $1,2,3,\ldots$ converges in $\R$ leads to a contradiction
+                  we conclude that this sequence does <em>not</em> converge in $\R.$
+                  <p></p>
+                </div>
+        
+                <div class="example">
+                  <p>
+                    <strong>Claim:</strong> The sequence $\{ {(-1)}^n \}$ is divergent.
+                  </p>
+                  <p>
+                    <span>
+                      <strong>Proof.</strong>
+                    </span>
+                    <span>
+                      If there were a limit $L,$
+                    </span>
+                    <span>
+                      then for $\vre = \dfrac{1}{2}$ we expect an $N$ that
+                      satisfies the definition.
+                    </span>
+                  </p>
+                  <p>
+                    <span>
+                      Suppose such an $N$ exists.
+                    </span>
+                    <span>
+                      Then for an even $n \geq N$ we compute
+                    </span>
+                    <span class="responsive">
+                      $$\ds \frac{1}{2} &gt; \abs{x_n - L} = \abs{1 - L}$$
+                    </span>
+                    and
+                    <span class="responsive">
+                      $$ \frac{1}{2} &gt; \abs{x_{n+1} - L} = \abs{-1 - L} .$$
+                    </span>
+                    But
+                    <span class="responsive">$$\ds 2 = \abs{1 - L - (-1 -L)} \leq \abs{1 - L} + \abs{-1
+                      -L}\lt\frac{1}{2}+\frac{1}{2}=1$$</span>
+                    which is a contradiction!
+                  </p>
+                  <p>
+                    Therefore, the sequence $\{ {(-1)}^n \}$ is divergent.
+                  </p>
+        
+                </div>
+        
+                <p>
+                  The proof of the following theorem shows another useful technique in analysis. Many proofs in real analysis
+                  follow the same general scheme. In this case, we want to show a certain quantity is zero. Using the triangle
+                  inequality we write the quantity as two quantities, and then we estimate each one by arbitrarily small
+                  numbers.
+                </p>
+        
+        
+                <div class="theorem">
+                  A convergent sequence has a unique limit.
+                </div>
+        
+        
+                <div class="proof">
+                  Assume that the sequence $\{ x_n \}$ has limits $L_1$ and $L_2.$
+                  Take an arbitrary $\vre &gt; 0.$
+                  From the definition find an $N_1$ such that for all $n \geq N_1,$
+                  $\abs{x_n-L_1} \lt \frac{\vre}{2}.$ Similarly, find an $N_2$
+                  such that for all $n \geq N_2,$ we have
+                  $\abs{x_n-L_2} \lt \frac{\vre}{2}.$
+                  Now take an $n$ such that $n \geq N_1$ and also $n \geq N_2,$ and estimate
+                  <div class="scroll-wrapper">
+                    \begin{equation*}
+                    \begin{split}
+                    \abs{L_2-L_1}
+                    &amp; =
+                    \abs{x_n-L_1 - (x_n -L_2)} \leq
+                    \abs{x_n-L_1} + \abs{x_n -L_2} \lt
+                    \frac{\vre}{2} + \frac{\vre}{2} = \vre .
+                    \end{split}
+                    \end{equation*}
+                  </div>
+                  Since $\abs{L_2-L_1} \lt \vre$ for all $\vre &gt; 0,$ then $\abs{L_2-L_1} = 0$
+                  and $L_2=L_1.$ Therefore the limit (if it exists) is unique.
+                </div>
+              </div>
+        
+              <div id="section3">
+                <div id="intuitive-vs-rigorous" class="head-1 head-1-level2">Intuitive vs Rigorous proofs of limits</div>
+        
+        
+                <p>Let's see one more example of proof using the definition of the limit of a sequence. With a little study
+                  and
+                  practice, you should be able to do proofs of this sort yourself.
+                </p>
+        
+                <div class="example">
+                  <p>
+                    Show that
+                  </p>
+                  <p>
+        
+                    $$\lim_{n\ra \infty} \frac{n+1}{n} = 1.$$
+        
+                    <strong>Discussion:</strong> Our task is to consider an arbitrary
+                    $\vre$ and show that there exists a number $N\in \N$ (which will depend on $\vre$) such that $n\geq N$
+                    implies
+                    $$\abs{\frac{n+1}{n}-1} \lt \vre .$$ So we expect our formal proof to begin with
+                    "Let $\vre&gt; 0 $ be arbitrary"
+                    and to end with something like
+                    "Hence $n \geq N$ implies $\abs{\frac{n+1}{n}-1} \lt \vre .$" In between the
+                    proof we should specify an $N\in \N$ with <em>a particular property</em> and then verify that for every $n
+                    \geq N$ implies $\abs{\frac{n+1}{n}-1} \lt \vre.$
+                  </p>
+        
+                  <p>
+                    We will initially work backward from our desired conclusion, but in the formal proof
+                    we will have to be sure our steps are reversible. In the present example, we want
+                    $$\abs{\frac{n+1}{n}-1} \lt \vre$$ and we want to know how big $n$ must be. So we will operate on this
+                    inequality algebraically and try to "solve" for $n.$ So, since
+                    $$\abs{\frac{n+1}{n}-1}=\frac{1}{n}\lt\vre,$$
+                    we want $n&gt; \dfrac{1}{\vre}.$ Thus, if our steps are reversible, choosing $N\in \N$ to be greater than
+                    $\dfrac{1}{\vre}$ implies $\abs{\frac{n+1}{n}-1} \lt \vre.$ With this observation, we are ready to write
+                    the formal argument.
+                  </p>
+                  <div class="proof">
+                    Let $\vre &gt; 0$ be arbitrary.
+                    Choose $N\in \N$ with $N&gt;\dfrac{1}{\vre}.$ Then, $n\geq N$ implies
+                    $n &gt; \dfrac{1}{\vre}$ (or $\vre &gt; \dfrac{1}{n}$).
+                    Therefore, for all $n \geq N,$
+                    <div class="scroll-wrapper">
+                      \begin{equation*}
+                      \abs{\frac{n+1}{n} - 1} = \abs{\frac{1}{n}} = \frac{1}{n} \lt \vre .
+                      \end{equation*}
+                    </div>
+                  </div>
+                </div>
+        
+                <p>
+                  The definition of convergence given earlier is the result of hundreds of years of refining the intuitive
+                  notion
+                  of limit into a mathematically rigorous statement. The logic involved is complicated and is intimately tied
+                  to
+                  the use of the <em>quantifiers</em> "for all" and "there exists". Learning to write a grammatically correct
+                  convergence proof goes hand in hand with a deep understanding of why the quantifiers appear in the order
+                  that
+                  they do.
+                </p>
+        
+                <p>
+                  The definition begins with the phrase
+                </p>
+                <p style="text-align: center;">
+                  "For every $\vre&gt;0,$ there exists $N\in \N$ such that ..."
+                </p>
+                <p>
+                  Looking at the previous example,
+                  we see that our formal proof begins with, "Let $\vre&gt;0$ be an arbitrary
+                  number." This is followed by a construction of $N$ and then a
+                  demonstration that this choice of $N$ has the
+                  desired property. This, in fact, is a basic outline for how
+                  every convergence proof should be presented.
+                </p>
+        
+        
+                <div class="head-1 head-1-level3" id="template-for-a-proof-seq">Template for a proof that $\ds \lim_{n\to\infty} {x_n} = L$</div>
+        
+                <ul>
+                  <li>"Let $\vre &gt;0 $ be arbitrary."</li>
+                  <li>
+                    Demonstrate a choice for $N \in \N.$ This step usually requires the most work,
+                    almost all of which is done
+                    prior to actually writing the formal proof.
+                  </li>
+                  <li>
+                    Now, show that $N$ actually works.
+                  </li>
+                  <li>
+                    "Assume $n\geq N.$"
+                  </li>
+                  <li>
+                    With $N$ well chosen, it should be possible to derive
+                    the inequality $\abs{x_n - L}\lt\vre.$
+                  </li>
+                </ul>
+        
+        
+              </div>
+        
+              <div id="section4">
+        
+        
+                <div id="bounded-sequences" class="head-1 head-1-level2">Bounded sequences</div>
+        
+                <div class="definition">
+                  <ol>
+                    <li>
+                      A sequence $\{ x_n \}$ is <strong>bounded above</strong> if there exists a $ B\in \R$ such that $x_n\leq
+                      B$
+                      for all $n\in \N.$
+        
+                    </li>
+                    <li>
+                      A sequence $\{ x_n \}$ is <strong>bounded below</strong> if there exists a $ B\in \R$ such that $B \leq
+                      x_n
+                      $ for all $n\in \N.$
+                    </li>
+                    <li>
+                      A sequence $\{ x_n \}$ is <strong>bounded</strong> if
+                      there exists a $B \in \R$ such that
+                      \begin{equation*}
+                      \abs{x_n} \leq B \qquad \text{for all } n \in \N.
+                      \end{equation*}
+                    </li>
+                  </ol>
+        
+        
+                  <span>
+                    In other words, the sequence $\{x_n\}$ is bounded whenever
+                    the set $\{ x_n : n \in \N \}$
+                    is bounded, or equivalently when it is bounded as a function.
+                  </span>
+        
+                </div>
+        
+        
+        
+                <div class="theorem" id="theo:convergent-seq-bounded">
+                  A convergent sequence $\{ x_n \}$ is bounded.
+                </div>
+        
+                <div class="proof">
+                  Suppose $\{ x_n \}$ converges to $L.$ Thus there exists an $N \in \N$
+                  such that for all $n \geq N,$ we have
+                  $\abs{x_n - L} \lt 1.$ Let $C_1 :=\abs{L}+1$ and note that for $n \geq N,$
+                  <div class="scroll-wrapper">
+                    \begin{equation*} \begin{split}
+                    \abs{x_n} &amp;=\abs{x_n - L + L} \leq \abs{x_n - L} + \abs{L} \\ &amp; \lt 1 + \abs{L}=C_1 . \end{split}
+                    \end{equation*}
+                  </div>
+                  The set $\{ \abs{x_1}, \abs{x_2}, \ldots, \abs{x_{N-1}} \}$ is a finite set and hence let
+                  <div class="scroll-wrapper">
+                    \begin{equation*} C_2 :=\max \{ \abs{x_1}, \abs{x_2}, \ldots, \abs{x_{N-1}} \} . \end{equation*}
+                  </div>
+                  Let $B
+                  :=\max \{ C_1, C_2 \}.$ Then for all $n \in \N,$ \begin{equation*} \abs{x_n} \leq B.
+                  \end{equation*}
+                </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- Ends main content -->
+
+</div></section>
+  </div>
+  <!-- Main DIV Ends here -->
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span><br />
+      <h3>Hello! 👋</h3>
+    </div>
+    <div class="modal-body">
+      <p>
+        This interactive book is <strong>free for everybody</strong>,
+        as I believe that everyone should have access to high-quality learning
+        resources to explore and learn mathematics.
+        That's why many users choose to contribute to my efforts.
+        If you believe in what I do and want to help me on my journey,
+        you can do so now with the links below:
+      </p>
+
+      <div class="button-container">
+        <button id="modal-link">
+          <a href="https://www.patreon.com/jcponce"><i class="fa-brands fa-patreon"></i>
+            <strong>Patreon</strong></a>
+        </button>
+        <button id="modal-link">
+          <a target="_blank"
+            href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WTMTR7D8RYZ26&item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+book.+Sincerely+appreciate+it%21&currency_code=AUD&source=url">
+            <strong><i class="fa-brands fa-paypal"></i> PayPal</strong>
+          </a>
+        </button>
+        <button id="modal-link">
+          <a target="_blank" href="https://jcponcemath.secure-decoration.com/">
+            <strong>Get a <i class="fa-solid fa-shirt"></i></strong>
+          </a>
+        </button>
+      </div>
+
+
+      <p>
+        Your contributions help me to maintain this site
+        and, crucially, <strong>ensure it remains freely accessible</strong>
+        to anyone eager to explore this captivating field of mathematics
+        <strong>—without any distracting ads</strong>.
+      </p>
+
+      <p>
+        You can't contribute this time, no worries! Maybe you just want to
+        <i class="fa-solid fa-envelope"></i> <a href="mailto:jcponcemath@gmail.com"><strong> Send a
+            comment</strong></a>
+      </p>
+      <br />
+    </div>
+    <div class="modal-footer">
+      <p>Thank you! 🙏 I highly appreciate your support! 🤗</p>
+    </div>
+  </div>
+
+</div>
+  <!-- Button to Top -->
+  <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Navigation -->
+   
+<!-- Buttons to navigate -->
+<div class="w3-container w3-center w3-padding-large"  style="margin-left:250px;">
+    <a href="index.html"><button
+            class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094; Previous</button></a>
+
+    <a href="limits-of-functions.html"><button
+            class="w3-right w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">Next &#10095;</button></a>
+</div>
+  <br/>
+
+  <div style="margin-left:250px;">
+<footer class="w3-container w3-center w3-theme" style="padding:32px">
+
+  <div class="w3-row w3-opacity-min">
+
+    <div class="w3-col m6">
+      <span class="w3-hide-small w3-hide-medium">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span>
+        by J. C. Ponce Campuzano
+      </span>
+      <span class="w3-hide-large">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span>
+        <br />by J. C. Ponce Campuzano
+      </span>
+    </div>
+
+    <div class="w3-col m6 license">
+
+      <a style="text-decoration: none;" rel="license"
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+        <i class="fa-brands fa-creative-commons"></i>
+        <i class="fa-brands fa-creative-commons-by"></i>
+        <i class="fa-brands fa-creative-commons-nc"></i>
+        <i class="fa-brands fa-creative-commons-sa"></i>
+      </a>
+    </div>
+
+  </div>
+
+</footer>  </div>
+  
+
+  <!-- General scripts -->
+  <script src="js/w3codecolor.js"></script>
+  <script>w3CodeColor(); // Provide color format for code</script>
+  <script src="js/scripts.js"></script>
+  <script> includeHTML(); // Import html info file</script>
+
+</body>
+
+</html>

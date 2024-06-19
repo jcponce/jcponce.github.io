@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>  Limits of functions
+</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="An introduction to Real Analysis" />
+  <meta name="keywords" content="real, analysis, mathematics" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <!--
+    https://www.everywheremarketer.com/blog/ultimate-guide-to-social-meta-tags-open-graph-and-twitter-cards
+  -->
+  <!--Facebook-->
+  <meta property="og:title" content="Real Analysis" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="An introduction to Real Analysis" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Real Analysis">
+
+  <!--Twitter/X-->
+  <meta name="twitter:title" content="Real Analysis" />
+  <meta name="twitter:site" content="https://intro-real-analysis.github.io/" />
+  <meta name="twitter:description" content="An introduction to Real Analysis" />
+  <meta name="twitter:type" content="website" />
+  <meta name="twitter:creator" content="@jcponcemath" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- MathCell applets + MathJax -->
+  <script src="js/math.js"></script>
+  <script src="js/mathcell.js"></script>
+  <script src="js/mathjax.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+</head>
+
+<body data-type="book" id="top">
+
+  <!-- Main DIV Starts here -->
+  <div class="container">
+    <section data-type="chapter" id="limits-of-functions-dDpvTaP">
+
+    <!-- Starts main content -->
+
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-card" style="z-index:3;width:250px;" id="mySidebar">
+        <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="index.html"><img id="myLogo" src="imgs/my-logo-black.png" style="width:35%;margin-top: 5px;margin-bottom: 5px;"></a>
+
+
+        <a class="w3-bar-item w3-button w3-hide-large w3-large w3-center" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa-solid fa-xmark w3-large"></i></a>
+
+        <a class="w3-bar-item w3-button" id="chapterBar" href="sequences.html">1. Sequences</a>
+        <a class="w3-bar-item w3-button" id="chapterBar" href="limits-of-functions.html">2. Limits of functions</a>
+        <div class="toc-chapter" id="toc-chapter">
+
+            <a class="w3-bar-item w3-button" href="#section1">&nbsp; 2.1 Cluster points</a>
+            <a class="w3-bar-item w3-button" href="#section2">&nbsp; 2.2 Limits of functions</a>
+            <a class="w3-bar-item w3-button" href="#section3">&nbsp; 2.3 Why cluster points?</a>
+        </div>
+
+        <a class="w3-bar-item w3-button" id="chapterBar" href="sequences-of-functions.html">3. Sequences of functions</a>
+
+        <br>
+
+
+
+        <div class="w3-container w3-center w3-theme" id="mySocial">
+            <div class="">
+                <a title="Patreon" href="https://www.patreon.com/jcponce" target="_blank"><i class="fa-brands fa-patreon w3-button w3-round-large w3-theme"></i></a>
+                <span title="Support" onclick="document.getElementById('myModal').style.display='block'" class="w3-button w3-round-large w3-theme">
+                    <i class="fa-regular fa-heart"></i></span>
+                <a title="GitHub" href="https://github.com/jcponce" target="_blank"><i class="fa-brands fa-github w3-button w3-round-large w3-theme"></i></a>
+                <br>
+            </div>
+        </div>
+
+
+    </nav>
+
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
+    </div>
+
+    <!-- !PAGE CONTENT! -->
+
+    <div class="w3-main w3-large" style="margin-left:250px;">
+
+        <!-- Main text starts here -->
+
+        <!-- Bar on top shows/hides after scrolling -->
+        <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
+            <div id="myTextBar">
+                <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+                    <span id="myTitle" class="w3-hide">2. Limits of functions</span>
+
+                    <span title="Toggle" onclick="myDarkMode()" id="dark-mode-toggle" class="topDark w3-theme w3-round-large">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </span>
+                    <span onclick="document.getElementById('myModal').style.display='block'" class="topDonate w3-button w3-theme w3-round-small w3-hide-small w3-hide-medium ">
+                        <i class="fa-regular fa-heart"></i> Support
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="w3-container w3-theme" style="padding:64px 32px">
+            <div class="w3-hide-large w3-hide-medium w3-hide-small">
+                <h1>Limits of functions</h1>
+            </div>
+            <div class="head-2">Limits of functions</div>
+        </header>
+
+        <!-- Sections -->
+        <div class="w3-container" style="padding:32px">
+
+            <div id="section1">
+
+
+                <div class="head-2 head-2-level2">Cluster points</div>
+
+                <p>
+                    To start talking about limits first we need the concept of
+                    cluster point.
+                </p>
+
+                <div class="definition">
+                    Let $S\subset \R$ be a set. A numbwer $x\in \R$ is called an
+                    <strong>cluster point</strong> of $S$ if for every
+                    $\vre &gt;0,$ the set $\left( x- \vre , x + \vre \right) \cap S \setminus \{x\}$ is not empty.
+                </div>
+
+                <p>
+                    Intuitively, $x$ is an cluster point of $S$ if there are points of $S$ arbitrarily close to $x.$
+                    Notice also that a cluster point of $S$ does not need to lie in $S.$
+                </p>
+
+                <div class="example">
+                    Consider the set
+                    <div class="scroll-wrapper">
+                        $$\left[0,1\right)\cup\left\{2\right\}=\{x\in\mathbb R: 0\leq x\lt 1\}\cup\left\{2\right\}.$$
+                    </div>
+                    $0$ is the only cluster point.
+                    <img style="width: 100%;" src="https://www.dynamicmath.xyz/math2400/images/summary-04/cluster-points-01.svg">
+                </div>
+
+                <div class="example">
+                    The set of cluster points for
+                    <div class="scroll-wrapper">
+                        $$(0,1) = \left\{x\in \R~:~ 0\lt x\lt 1 \right\}$$
+                    </div>
+                    are all points in the closed interval $\left[0,1\right].$
+                    <img style="width: 100%;" src="https://www.dynamicmath.xyz/math2400/images/summary-04/cluster-points-02.svg">
+                </div>
+
+                <div class="example">
+                    The set of cluster points for
+                    <div class="scroll-wrapper">
+                        $$\left[0,1\right)\cup\left\{2\right\}=\{x\in\mathbb R: 0\leq x\lt 1\}\cup\left\{2\right\}$$
+                    </div>
+                    is the interval $\left[0,1\right].$
+                    <img style="width: 100%;" src="https://www.dynamicmath.xyz/math2400/images/summary-04/cluster-points-03.svg">
+                </div>
+
+                <div class="theorem">
+                    A number $c \in \R$ is a cluster point of $S\subset $
+                    if and only if
+                    there exists a convergent sequence of numbers $\{ x_n \}_{n=1}^\infty$ such that
+                    $x_n \not= c$ and $x_n \in S$ for all $n,$ and $\lim\limits_{n\to\infty} x_n = c.$
+                </div>
+
+                <div class="proof">
+                    Suppose $c$ is a cluster point of $S.$
+                    For every $n \in \N,$ pick $x_n$ to be an arbitrary point of
+                    $$\left(c-\frac{1}{n},c+\frac{1}{n}\right) \cap S \setminus \{c\}.$$
+                    Note that this is a nonempty set because $c$ is a cluster point of $S.$
+                    Then
+                    $x_n$ is within $\dfrac{1}{n}$ of $c.$ In other words,
+                    \begin{equation*}
+                    \abs{x_n-c} \lt \frac{1}{n} .
+                    \end{equation*}
+                    Since $\{ \frac{1}{n} \}_{n=1}^\infty$ converges
+                    to
+                    zero, $\{ x_n \}_{n=1}^\infty$ converges to $c.$ Now, if we start with a sequence of numbers $\{ x_n
+                    \}_{n=1}^\infty$ in $S$ converging to $c$ such that $x_n \not=c$ for all $n,$ then for every
+                    $\epsilon&gt; 0$ there is an $N$ such that, in particular,
+                    $\abs{x_N -c} \lt \varepsilon.$
+                    That is,
+                    $$x_N\in(c-\varepsilon,c+\varepsilon) \cap S \setminus \{c\}.$$
+                </div>
+
+
+            </div>
+
+            <div id="section2">
+
+                <div class="head-2 head-2-level2">
+                    Limits of functions
+                </div>
+
+                <p>
+                    If a function $f$ is defined on a set $S$ and $c$ is an cluster point of $S,$
+                    then we define the limit of $f(x)$ as $x$ gets close to $c.$
+                    It is irrelevant for the definition whether $f$ is defined at $c$ or not.
+                    Even if the function is defined at $c,$ the limit of the
+                    function as $x$ goes to $c$ can be totally different
+                    from $f(c).$
+                </p>
+
+                <div class="definition">
+                    Let $f \colon S \to \R$ be a function and $c$ an cluster point of $S \subset \R.$
+                    Suppose there exists an $L \in \R$ and for every $\vre &gt; 0,$
+                    there exists a $\delta &gt; 0$ such that whenever $x \in S \setminus \{ c \}$
+                    and $\abs{x - c} \lt \delta,$ we have
+                    \begin{equation*} \abs{f(x) - L} \lt \vre . \end{equation*}
+                    We
+                    then
+                    say $f(x)$ <strong>converges</strong> to $L$ as $x$ goes to $c$ and $L$ is the
+                    <strong>limit</strong> of $f(x)$ as $x$ goes to $c.$ We write
+                    \begin{equation*}
+                    \lim_{x \to c} f(x) :=L ,
+                    \end{equation*}
+                    or
+                    \begin{equation*} f(x) \to L \quad\text{as}\quad x \to c . \end{equation*}
+                    If no
+                    such $L$ exists, then we say that the limit does not exist or that $f$
+                    <strong>diverges</strong> at $c.$
+                </div>
+
+
+                <div class="example">
+
+
+                    <p> <strong>Claim:</strong> $\displaystyle \lim_{x\ra 2} 3x+1 = 7.$</p>
+
+
+                    <p>
+                        <strong>Discussion:</strong> For every $\vre &gt;0 ,$ we need to find a $\delta&gt;0$ so that
+                        \[
+                        \abs{x-2}\lt\delta \quad \implies \quad \abs{(3x+1) - 7}\lt \vre.
+                        \]
+                        So we start from what we want to estimate:
+                        \[
+                        \abs{(3x+1) - 7} = \abs{3x-6} = 3\abs{x-2}\lt 3 \delta
+                        \]
+                        If we choose $\delta := \vre/3,$ then $\abs{(3x+1) - 7} \lt \vre .$ Now we are ready to write a
+                        formal
+                        proof.
+                    </p>
+
+                    <p>
+                        <strong>Proof.</strong>
+                        Let $\vre &gt;0 .$ Put $\delta := \vre/3.$ Thus for all $x\in \R \setminus \{2\}$
+                    </p><div class="scroll-wrapper">
+                        \[
+                        \abs{x-2}\lt \delta \quad \implies \quad \abs{(3x+1) - 7}\lt 3 \left(\frac{\vre}{3} \right) =
+                        \vre.\quad \bs
+                        \]
+                    </div>
+                    <p></p>
+                </div>
+
+                <div class="example">
+                    <p>
+                        <strong>Claim:</strong> $\displaystyle \lim_{x\ra 2} x^2 = 4.$
+                    </p>
+                    <p>
+                        <strong>Discussion:</strong> Given an arbitrary $\vre &gt;0 ,$ our goal is to find a $\delta&gt;0$ so
+                        that
+                        \[
+                        \abs{x-2} \lt \delta \quad \implies \quad \abs{x^2 - 4}\lt \vre.
+                        \]
+                        Note that
+                        \begin{eqnarray}\label{eq:quadratic}
+                        \abs{x^2 - 4} = \abs{x+2}\abs{x-2}
+                        \end{eqnarray}
+                        Here we can make $\abs{x-2}$ as small as we like, but we need an upper bound on $\abs{x+2}$ in
+                        order
+                        to know how small to choose $\delta.$ In this case, the presence of the factor $\abs{x+2}$ in
+                        the
+                        expression (\ref{eq:quadratic}) may cause some initial confusion, but keep in mind that we are
+                        discussing the limit as $x$ approaches $2.$
+                        So, we need to manipulate the inequality $\abs{x-2}\lt\delta$ in order to get an upper bound for
+                        $\abs{x+2},$ that is
+                        \begin{eqnarray*}
+                        &amp;\abs{x-2}&amp; \lt \delta \\
+                        -\delta \lt &amp; x-2 &amp; \lt \delta \\
+                        4 -\delta \lt&amp; x + 2 &amp; \lt 4 + \delta\\
+                        &amp;\abs{x+2}&amp; \lt \delta + 4
+                        \end{eqnarray*}
+                        If $\delta =1,$ then $\abs{x+2} \lt 1+ 4 = 5 .$
+
+                        <br>
+                        Thus, if we choose $\delta := \min\{1, \vre / 5\},$ $\abs{x-2}\lt\delta$ implies $\abs{x^2 - 4}
+                        \lt
+                        \vre .$ Now let's write the formal proof.
+                    </p>
+
+                    <p>
+                        Let $\vre &gt;0 .$ Choose $\delta := \min\{1, \vre / 5\}.$ For all $x\in \R \setminus \{2\}$ and
+                        $\abs{x-2}\lt \delta,$ we have that \[ \abs{x^2-4} \lt \abs{x+2}\abs{x-2} \lt (5) \frac{\vre}{5}
+                        \lt
+                        \vre \] and the limit is proved.
+                    </p>
+                </div>
+
+
+
+            </div>
+
+            <div id="section3">
+                <div class="head-2 head-2-level2">Why cluster points? 🤔</div>
+
+                <p>
+                    At this point, it is likely you are asking yourself:
+                </p><blockquote>
+                    <strong>
+                        Why do we need the concept of cluster point in the definition of limit?
+                    </strong>
+                </blockquote>
+                <p></p>
+
+                <p>
+                    To answer this question suppose \(c\) is not a cluster point of \(S.\)
+                    Then there exists some \(r\) such that the interval
+                    \((c-r,c+r)\) contains no points in \(S\) other than \(c\) itself.
+                </p>
+                <p>
+                    Then, for any function \(f,\) choose any number \(L.\)
+                    Let \(\varepsilon\gt0\) be arbitrary and choose \(\delta = r.\)
+                    Since there are no points \(x\in S\setminus\{c\}\)
+                    such that \(|x-c|\lt\delta=r,\)
+                    then the statement:</p>
+                <blockquote>
+                    <strong>
+                        For every \(\varepsilon \gt 0\) there exists a \(\delta \gt 0\) such that
+
+                        if for every \(x\in S\setminus\{c\}\) and \(|x-c|\lt \delta,\)
+                        then \(|f(x)-L|\lt \varepsilon.\)
+                    </strong>
+                </blockquote>
+                <p>is vacuously true!
+                </p>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <!-- Ends main content -->
+
+</section>
+  </div>
+  <!-- Main DIV Ends here -->
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span><br />
+      <h3>Hello! 👋</h3>
+    </div>
+    <div class="modal-body">
+      <p>
+        This interactive book is <strong>free for everybody</strong>,
+        as I believe that everyone should have access to high-quality learning
+        resources to explore and learn mathematics.
+        That's why many users choose to contribute to my efforts.
+        If you believe in what I do and want to help me on my journey,
+        you can do so now with the links below:
+      </p>
+
+      <div class="button-container">
+        <button id="modal-link">
+          <a href="https://www.patreon.com/jcponce"><i class="fa-brands fa-patreon"></i>
+            <strong>Patreon</strong></a>
+        </button>
+        <button id="modal-link">
+          <a target="_blank"
+            href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WTMTR7D8RYZ26&item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+book.+Sincerely+appreciate+it%21&currency_code=AUD&source=url">
+            <strong><i class="fa-brands fa-paypal"></i> PayPal</strong>
+          </a>
+        </button>
+        <button id="modal-link">
+          <a target="_blank" href="https://jcponcemath.secure-decoration.com/">
+            <strong>Get a <i class="fa-solid fa-shirt"></i></strong>
+          </a>
+        </button>
+      </div>
+
+
+      <p>
+        Your contributions help me to maintain this site
+        and, crucially, <strong>ensure it remains freely accessible</strong>
+        to anyone eager to explore this captivating field of mathematics
+        <strong>—without any distracting ads</strong>.
+      </p>
+
+      <p>
+        You can't contribute this time, no worries! Maybe you just want to
+        <i class="fa-solid fa-envelope"></i> <a href="mailto:jcponcemath@gmail.com"><strong> Send a
+            comment</strong></a>
+      </p>
+      <br />
+    </div>
+    <div class="modal-footer">
+      <p>Thank you! 🙏 I highly appreciate your support! 🤗</p>
+    </div>
+  </div>
+
+</div>
+  <!-- Button to Top -->
+  <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Navigation -->
+   
+<!-- Buttons to navigate -->
+<div class="w3-container w3-center w3-padding-large"  style="margin-left:250px;">
+    <a href="sequences.html"><button
+            class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094; Previous</button></a>
+
+    <a href="sequences-of-functions.html"><button
+            class="w3-right w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">Next &#10095;</button></a>
+</div>
+  <br/>
+
+  <div style="margin-left:250px;">
+<footer class="w3-container w3-center w3-theme" style="padding:32px">
+
+  <div class="w3-row w3-opacity-min">
+
+    <div class="w3-col m6">
+      <span class="w3-hide-small w3-hide-medium">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span>
+        by J. C. Ponce Campuzano
+      </span>
+      <span class="w3-hide-large">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span>
+        <br />by J. C. Ponce Campuzano
+      </span>
+    </div>
+
+    <div class="w3-col m6 license">
+
+      <a style="text-decoration: none;" rel="license"
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+        <i class="fa-brands fa-creative-commons"></i>
+        <i class="fa-brands fa-creative-commons-by"></i>
+        <i class="fa-brands fa-creative-commons-nc"></i>
+        <i class="fa-brands fa-creative-commons-sa"></i>
+      </a>
+    </div>
+
+  </div>
+
+</footer>  </div>
+  
+
+  <!-- General scripts -->
+  <script src="js/w3codecolor.js"></script>
+  <script>w3CodeColor(); // Provide color format for code</script>
+  <script src="js/scripts.js"></script>
+  <script> includeHTML(); // Import html info file</script>
+
+</body>
+
+</html>

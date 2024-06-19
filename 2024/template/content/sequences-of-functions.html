@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>  Sequences of functions
+</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="An introduction to Real Analysis" />
+  <meta name="keywords" content="real, analysis, mathematics" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <!--
+    https://www.everywheremarketer.com/blog/ultimate-guide-to-social-meta-tags-open-graph-and-twitter-cards
+  -->
+  <!--Facebook-->
+  <meta property="og:title" content="Real Analysis" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="An introduction to Real Analysis" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Real Analysis">
+
+  <!--Twitter/X-->
+  <meta name="twitter:title" content="Real Analysis" />
+  <meta name="twitter:site" content="https://intro-real-analysis.github.io/" />
+  <meta name="twitter:description" content="An introduction to Real Analysis" />
+  <meta name="twitter:type" content="website" />
+  <meta name="twitter:creator" content="@jcponcemath" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- MathCell applets + MathJax -->
+  <script src="js/math.js"></script>
+  <script src="js/mathcell.js"></script>
+  <script src="js/mathjax.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+</head>
+
+<body data-type="book" id="top">
+
+  <!-- Main DIV Starts here -->
+  <div class="container">
+    <section data-type="chapter" id="sequences-of-functions-YKzYhxw">
+
+    <!-- Starts main content -->
+
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-card" style="z-index:3;width:250px;" id="mySidebar">
+        <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="index.html"><img id="myLogo" src="imgs/my-logo-black.png" style="width:35%;margin-top: 5px;margin-bottom: 5px;"></a>
+
+
+        <a class="w3-bar-item w3-button w3-hide-large w3-large w3-center" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa-solid fa-xmark w3-large"></i></a>
+
+        <a class="w3-bar-item w3-button" id="chapterBar" href="sequences.html">1. Sequences</a>
+        <a class="w3-bar-item w3-button" id="chapterBar" href="limits-of-functions.html">2. Limits of functions</a>
+
+        <a class="w3-bar-item w3-button" id="chapterBar" href="sequences-of-functions.html">3. Sequences of
+            functions</a>
+        <div class="toc-chapter" id="toc-chapter">
+
+            <a class="w3-bar-item w3-button" href="#section1">&nbsp; 3.1 Pointwise convergence</a>
+        </div>
+
+        <br>
+
+        <div class="w3-container w3-center w3-theme" id="mySocial">
+            <div class="">
+                <a title="Patreon" href="https://www.patreon.com/jcponce" target="_blank"><i class="fa-brands fa-patreon w3-button w3-round-large w3-theme"></i></a>
+                <span title="Support" onclick="document.getElementById('myModal').style.display='block'" class="w3-button w3-round-large w3-theme">
+                    <i class="fa-regular fa-heart"></i></span>
+                <a title="GitHub" href="https://github.com/jcponce" target="_blank"><i class="fa-brands fa-github w3-button w3-round-large w3-theme"></i></a>
+                <br>
+            </div>
+        </div>
+
+
+    </nav>
+
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
+    </div>
+
+    <!-- !PAGE CONTENT! -->
+
+    <div class="w3-main w3-large" style="margin-left:250px;">
+
+        <!-- Main text starts here -->
+
+        <!-- Bar on top shows/hides after scrolling -->
+        <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
+            <div id="myTextBar">
+                <p><i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+                    <span id="myTitle" class="w3-hide">3. Sequences of functions</span>
+
+                    <span title="Toggle" onclick="myDarkMode()" id="dark-mode-toggle" class="topDark w3-theme w3-round-large">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </span>
+                    <span onclick="document.getElementById('myModal').style.display='block'" class="topDonate w3-button w3-theme w3-round-small w3-hide-small w3-hide-medium ">
+                        <i class="fa-regular fa-heart"></i> Support
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="w3-container w3-theme" style="padding:64px 32px">
+            <div class="w3-hide-large w3-hide-medium w3-hide-small">
+                <h1>Sequences of functions</h1>
+            </div>
+            <div class="head-3">Sequences of functions</div>
+        </header>
+
+        <!-- Sections -->
+        <div class="w3-container" style="padding:32px">
+
+            <div id="section1">
+
+
+                <div class="head-3 head-3-level2" id="pointwise-convergence">Pointwise convergence</div>
+
+                <div class="definition">
+                    Let $S\subseteq \R.$ For every $n \in \N,$
+                    let $f_n \colon \to \R$ be a function. The sequence
+                    $\{ f_n \}_{n=1}^\infty$
+                    <strong>converges pointwise</strong> to $f \colon D\subseteq\R \to \R$ if for every $x
+                    \in D,$ then
+                    \begin{equation*}
+                    f(x) =
+                    \lim_{n\to\infty} f_n(x) .
+                    \end{equation*}
+                </div>
+
+
+                <p>Limits of sequences of numbers are unique. That is, if a sequence
+                    $\{ f_n \}_{n=1}^\infty$
+                    converges pointwise, the limit function $f$ is unique.
+                    We also say that $f_n \colon D \to \R$
+                    <strong>converges pointwise to $f$ on $E \subset D$</strong>
+                    for some $f \colon E \to \R.$ In this context we mean
+                    that
+                    $f(x) = \ds \lim_{n\to\infty} f_n(x)$ for every $x \in E.$
+                    In other words, the restrictions of $f_n$ to $E$ converge pointwise to $f.$
+                </p>
+
+                <div class="example">
+                    The sequence of functions defined on $[-1,1]$ by $f_n(x) \coloneqq x^{2n}$
+                    converges pointwise to $f \colon [-1,1] \to \R,$ where
+                    <div class="scroll-wrapper">
+                        \begin{equation*}
+                        f(x) =
+                        \begin{cases}
+                        1 &amp; \text{if } x=-1 \text{ or } x=1, \\
+                        0 &amp; \text{otherwise.}
+                        \end{cases}
+                        \end{equation*}
+                    </div>
+
+
+                    <p>
+                        Below, you can find a visual represenation of this sequence of functions.
+                        Drag the slider below to explore the sequence for different values of $n.$
+                    </p>
+
+                    <figure>
+                        <div id="ggb-element-ex-01"></div>
+                        <figcaption>
+                            The sequence of functions defined on $[-1,1]$ by $f_n(x) \coloneqq x^{2n}.$
+                        </figcaption>
+                    </figure>
+
+                    To prove that the sequence converges, consider $x \in (-1,1).$ Then
+                    $0 \leq x^2 \lt 1.$ This implies that
+                    <div class="scroll-wrapper">
+                        \begin{equation*}
+                        \abs{x^{2n} - 0} = {(x^2)}^n \to 0 \quad \text{as} \quad n \to \infty .
+                        \end{equation*}
+                    </div>
+
+                    Hence, $\ds \lim_{n\to\infty}f_n(x) = 0.$
+
+                    Now for $x = 1$ or $x=-1,$ then we have that $x^{2n} = 1$ for all $n$ and therefore
+                    $\ds \lim_{n\to\infty}f_n(x) = 1.$
+                    Finally, for $x\in \R\setminus[-1,1],$ the sequence
+                    $\bigl\{ f_n(x) \bigr\}_{n=1}^\infty$ does not converge.
+                </div>
+
+
+                <div class="example">
+                    Let $f_n:S\subseteq\R \to \R$ defined by $f_n(x) \coloneqq \sin(nx).$
+                    Is this sequence pointwise convergent? If so, over which interval $I$ does it
+                    converge pointwise?
+
+                    <p>
+                        In the applet below you can appreciate the behaviour of $f_n$ defined on $\R$ for different
+                        value of $n.$
+                    </p>
+
+                    <figure>
+                        <div id="ggb-element-ex-02"></div>
+                        <figcaption>
+                            The sequence of functions defined on $\R$ by $f_n(x) \coloneqq \sin(nx).$
+                        </figcaption>
+                    </figure>
+                    <p>
+                        In this case $f_n$ does not converge pointwise
+                        to any function on any interval. However, it
+                        may converge at certain points, such
+                        as when $x=0$ or $x=\pi.$
+                        Try to prove as an exercise that in any interval
+                        $[a,b],$ there exists an $x$ such that $\sin(xn)$ does not have a limit
+                        as $n$ goes to infinity.
+                    </p>
+                </div>
+
+                <p>
+                    We can state pointwise
+                    convergence in a different way. It is a simple application of the
+                    definition of convergence of a sequence of real numbers.
+                </p>
+
+                <div class="theorem">
+                    Let $f_n \colon D \to \R$ and $f \colon D \to \R$ be functions.
+                    Then $\{ f_n \}_{n=1}^\infty$ converges pointwise to $f$ if and only if
+                    for every $x \in D,$ and every $\epsilon &gt; 0,$ there exists
+                    an $N \in \N$ such that for all
+                    $n \geq N,$ we have
+                    <div class="scroll-wrapper">
+                        \begin{equation*}
+                        \abs{f_n(x)-f(x)} \lt \epsilon .
+                        \end{equation*}
+                    </div>
+
+                </div>
+
+                <details>
+                    <summary>
+                        <strong>Proof</strong>
+                    </summary>
+                    <p>Coming soon! :)</p>
+
+                    <img src="imgs/loadcat.gif">
+                </details>
+
+
+
+                <div class="definition">
+                    Let $f_n \colon D \to \R$
+                    and $f \colon D \to \R$
+                    be functions. The sequence $\{ f_n \}_{n=1}^\infty$
+                    <strong>converges uniformly</strong> to $f$ if for
+                    every $\epsilon &gt; 0,$ there exists an $N \in \N$ such that
+                    for all $n \geq N,$ we have
+                    <div class="scroll-wrapper">
+                        \begin{equation*}
+                        \abs{f_n(x) - f(x)} \lt \epsilon \quad \text{for all } \quad x \in D.
+                        \end{equation*}
+                    </div>
+                </div>
+
+                <figure>
+                    <div id="ggb-element-ex-03"></div>
+                    <figcaption>
+                        Uniform convergence.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Let $\{ f_n \}_{n=1}^\infty$ be a sequence of functions $f_n \colon D \to \R.$
+                    If $\{ f_n \}_{n=1}^\infty$ converges
+                    uniformly to $f \colon S \to \R,$ then
+                    $\{ f_n \}_{n=1}^\infty$ converges pointwise to $f.$
+                </p>
+
+                <p>
+                    The converse does not hold. For instance,
+                    the functions $f_n(x) \coloneqq x^{2n}$ do not converge uniformly on $[-1,1],$
+                    even though they converge pointwise. We can prove this by contradiction.
+                    That is, assume that the convergence is uniform.
+                    Let's choose $\epsilon \coloneqq \dfrac{1}{2}.$
+                    Then there exists an $N\in\N$ such that
+                </p><div class="scroll-wrapper">
+                    $$x^{2N} = \abs{x^{2N} - 0} \lt \frac{1}{2}\quad \text{for all}\quad x \in (-1,1),$$
+                </div>
+                <p>
+                    since $f_n(x)$ converges to 0 on $(-1,1).$
+                    This means that for every sequence
+                    $\{ x_k \}_{k=1}^\infty$ in $(-1,1)$
+                    such that $\ds \lim_{k\to\infty} x_k=1,$
+                    we have $x_k^{2N} \lt \dfrac{1}{2}$ for all $k.$
+                    On the other hand, notice that
+                    $x^{2N}$ is a continuous function of $x$ (it is a polynomial).
+                    Therefore, we obtain
+                </p>
+                <div class="scroll-wrapper">
+                    \begin{equation*}
+                    1=1^{2N}=\lim_{k\to\infty} x_k^{2N} \leq \frac{1}{2} ,
+                    \end{equation*}
+
+                </div>
+                <p>which is a contradiction.</p>
+
+                <p>
+                    However, if we restrict our domain to $[-a,a]$ where $0 \lt a \lt 1,$ then
+                    $\{ f_n \}_{n=1}^\infty$ converges uniformly to 0 on $[-a,a].$
+                    Also note that
+                    $a^{2n} \to 0$ as $n \to \infty.$ For every $\epsilon &gt; 0,$
+                    pick $N \in \N$ such that
+                    $a^{2n} \lt \epsilon$ for all $n \geq N.$
+                    When $x \in [-a,a],$ we have
+                    $\abs{x} \leq a.$ Thus
+                    for all $n \geq N$ and all $x \in [-a,a],$
+                    \begin{equation*}
+                    \abs{x^{2n}} = \abs{x}^{2n} \leq a^{2n} \lt \epsilon .
+                    \end{equation*}
+                </p>
+
+                <div class="example">
+                    Let $f_n(x) := \dfrac{x}{n}$ defined on $\R$ for every $n\in \N.$
+                    Observe that $\{f_n\}$ converges to $f=0,$ since
+                    <div class="scroll-wrapper">
+                        \begin{equation*}
+                        \lim f_n(x) = \lim \frac{x}{n} = x\lim\frac{1}{n}=0 \;\text{ for all }\,x\in \R.
+                        \end{equation*}
+                    </div>
+
+                    If we let $n_k:=k$ and $x_k := k .$ Then $f_{n_k}(x_k)=1$
+                    so that
+                    \begin{equation*}
+                    \abs{\,f_{n_k}(x_k)-f(x_k)}= \abs{1-0}=1.
+                    \end{equation*}
+
+                    Therefore the sequence $\{f_n\}$ does not converges uniformly to $f.$
+                </div>
+
+                <div class="theorem">
+                    Let $f_n \colon S \to \R$
+                    and $f \colon S \to \R$
+                    be functions. The sequence $\{ f_n \}$ does not converge uniformly to $f$ if and only if
+                    for some $\epsilon_0\gt 0$ there is a subsequence $\{ f_{n_k} \}$
+                    of $\{ f_n \}$ and a sequence $\{ x_k \}$ in $S$ such that
+                    \begin{equation*}
+                    \abs{\,f_{n_k}\left(x_k\right)-f(x_k)}\geq \epsilon_0\; \text{ for all } \;k\in \N.
+                    \end{equation*}
+                </div>
+
+                <details>
+                    <summary>
+                        <strong>Proof</strong>
+                    </summary>
+                    <p>Coming soon! :)</p>
+                    <p style="font-size: 1.5em;">$\log 😅 =💧\log 😄$</p>
+                </details>
+
+                <br>
+
+            </div>
+
+
+        </div>
+
+        <!-- Ends main content -->
+
+
+        <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+
+        
+        <script>
+            let example01 = {
+                "width": 507,
+                "height": 459,
+                "material_id": "tqawquk4",
+                "borderColor": "888888",
+                "playButton": false,
+                "showFullscreenButton": true,
+                "enableShiftDragZoom": false,
+                "showResetIcon": true
+            };
+            let applet01 = new GGBApplet(example01, true);
+            window.addEventListener("load", function () {
+                applet01.inject('ggb-element-ex-01');
+            });
+
+            let example02 = {
+                "width": 505,
+                "height": 459,
+                "material_id": "uvmzrkpg",
+                "borderColor": "888888",
+                "playButton": false,
+                "showFullscreenButton": true,
+                "enableShiftDragZoom": false,
+                "showResetIcon": true
+            };
+            let applet02 = new GGBApplet(example02, true);
+            window.addEventListener("load", () => {
+                applet02.inject('ggb-element-ex-02');
+            });
+
+            let example03 = {
+                "width": 507,
+                "height": 459,
+                "material_id": "k8vhgx2b",
+                "borderColor": "888888",
+                "playButton": false,
+                "showFullscreenButton": true,
+                "enableShiftDragZoom": false,
+                "showResetIcon": true
+            };
+            let applet03 = new GGBApplet(example03, true);
+            window.addEventListener("load", () => {
+                applet03.inject('ggb-element-ex-03');
+            });
+        </script>
+
+</div></section>
+  </div>
+  <!-- Main DIV Ends here -->
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span><br />
+      <h3>Hello! 👋</h3>
+    </div>
+    <div class="modal-body">
+      <p>
+        This interactive book is <strong>free for everybody</strong>,
+        as I believe that everyone should have access to high-quality learning
+        resources to explore and learn mathematics.
+        That's why many users choose to contribute to my efforts.
+        If you believe in what I do and want to help me on my journey,
+        you can do so now with the links below:
+      </p>
+
+      <div class="button-container">
+        <button id="modal-link">
+          <a href="https://www.patreon.com/jcponce"><i class="fa-brands fa-patreon"></i>
+            <strong>Patreon</strong></a>
+        </button>
+        <button id="modal-link">
+          <a target="_blank"
+            href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WTMTR7D8RYZ26&item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+book.+Sincerely+appreciate+it%21&currency_code=AUD&source=url">
+            <strong><i class="fa-brands fa-paypal"></i> PayPal</strong>
+          </a>
+        </button>
+        <button id="modal-link">
+          <a target="_blank" href="https://jcponcemath.secure-decoration.com/">
+            <strong>Get a <i class="fa-solid fa-shirt"></i></strong>
+          </a>
+        </button>
+      </div>
+
+
+      <p>
+        Your contributions help me to maintain this site
+        and, crucially, <strong>ensure it remains freely accessible</strong>
+        to anyone eager to explore this captivating field of mathematics
+        <strong>—without any distracting ads</strong>.
+      </p>
+
+      <p>
+        You can't contribute this time, no worries! Maybe you just want to
+        <i class="fa-solid fa-envelope"></i> <a href="mailto:jcponcemath@gmail.com"><strong> Send a
+            comment</strong></a>
+      </p>
+      <br />
+    </div>
+    <div class="modal-footer">
+      <p>Thank you! 🙏 I highly appreciate your support! 🤗</p>
+    </div>
+  </div>
+
+</div>
+  <!-- Button to Top -->
+  <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Navigation -->
+   
+<!-- Buttons to navigate -->
+<div class="w3-container w3-center w3-padding-large"  style="margin-left:250px;">
+    <a href="limits-of-functions.html"><button
+            class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094; Previous</button></a>
+
+</div>
+  <br/>
+
+  <div style="margin-left:250px;">
+<footer class="w3-container w3-center w3-theme" style="padding:32px">
+
+  <div class="w3-row w3-opacity-min">
+
+    <div class="w3-col m6">
+      <span class="w3-hide-small w3-hide-medium">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span>
+        by J. C. Ponce Campuzano
+      </span>
+      <span class="w3-hide-large">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span>
+        <br />by J. C. Ponce Campuzano
+      </span>
+    </div>
+
+    <div class="w3-col m6 license">
+
+      <a style="text-decoration: none;" rel="license"
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+        <i class="fa-brands fa-creative-commons"></i>
+        <i class="fa-brands fa-creative-commons-by"></i>
+        <i class="fa-brands fa-creative-commons-nc"></i>
+        <i class="fa-brands fa-creative-commons-sa"></i>
+      </a>
+    </div>
+
+  </div>
+
+</footer>  </div>
+  
+
+  <!-- General scripts -->
+  <script src="js/w3codecolor.js"></script>
+  <script>w3CodeColor(); // Provide color format for code</script>
+  <script src="js/scripts.js"></script>
+  <script> includeHTML(); // Import html info file</script>
+
+</body>
+
+</html>
