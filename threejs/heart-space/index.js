@@ -55,8 +55,8 @@ heartShape.bezierCurveTo( x + 16, y + 7, x + 16, y, x + 10, y );
 heartShape.bezierCurveTo( x + 7, y, x + 5, y + 5, x + 5, y + 5 );
 
 const geo = new THREE.ShapeGeometry( heartShape );
-const sizeHeart = 0.06;
-geo.scale(sizeHeart, sizeHeart, sizeHeart);
+//const sizeHeart = 0.06;
+//geo.scale(sizeHeart, sizeHeart, sizeHeart);
 
 // Define a color palette
 const colorPalette = [
@@ -74,13 +74,19 @@ function getRandomColor() {
   return colorPalette[randomIndex];
 }
 
+// Function to get a random size within a range
+function getRandomSize(minSize, maxSize) {
+  return Math.random() * (maxSize - minSize) + minSize;
+}
+
 const edges = new THREE.EdgesGeometry(geo);
-function getBox(color) {
+function getBox(color, size) {
   const mat = new THREE.MeshBasicMaterial({
     color: color,
   });
-  const box = new THREE.LineSegments(edges, mat);
-  return box;
+  const heart = new THREE.LineSegments(edges, mat);
+  heart.scale.set(size, size, size);
+  return heart;
 }
 
 const heartGroup = new THREE.Group();
@@ -93,9 +99,12 @@ scene.add(heartGroup);
 
 const numHearts = 1500;
 const radius = 50;
+const minHeartSize = 0.01; // minimum heart size
+const maxHeartSize = 0.1; // maximum heart size
 for (let i = 0; i < numHearts; i++) {
   const randomColor = getRandomColor();
-  const heart = getBox(randomColor);
+  const randomSize = getRandomSize(minHeartSize, maxHeartSize);
+  const heart = getBox(randomColor, randomSize);
   const { x, y, z } = getRandomSpherePoint({ radius });
   heart.position.set(x, y, z);
   heart.rotation.set(x, y, z);
