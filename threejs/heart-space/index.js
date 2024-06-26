@@ -91,8 +91,8 @@ heartGroup.userData.update = (timeStamp) => {
 };
 scene.add(heartGroup);
 
-const numHearts = 1500;
-const radius = 60;
+const numHearts = 1200;
+const radius = 50;
 for (let i = 0; i < numHearts; i++) {
   const randomColor = getRandomColor();
   const heart = getBox(randomColor);
