@@ -80,7 +80,7 @@ function getRandomSize(minSize, maxSize) {
 }
 
 const edges = new THREE.EdgesGeometry(geo);
-function getBox(color, size) {
+function getHeart(color, size) {
   const mat = new THREE.MeshBasicMaterial({
     color: color,
   });
@@ -98,13 +98,13 @@ heartGroup.userData.update = (timeStamp) => {
 scene.add(heartGroup);
 
 const numHearts = 1800;
-const radius = 40;
+const radius = 45;
 const minHeartSize = 0.01; // minimum heart size
 const maxHeartSize = 0.1; // maximum heart size
 for (let i = 0; i < numHearts; i++) {
   const randomColor = getRandomColor();
   const randomSize = getRandomSize(minHeartSize, maxHeartSize);
-  const heart = getBox(randomColor, randomSize);
+  const heart = getHeart(randomColor, randomSize);
   const { x, y, z } = getRandomSpherePoint({ radius });
   heart.position.set(x, y, z);
   heart.rotation.set(x, y, z);
