@@ -111,8 +111,8 @@ for (let i = 0; i < numHearts; i++) {
   heartGroup.add(heart);
 }
 
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
-scene.add(hemiLight);
+//const hemiLight = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+//scene.add(hemiLight);
 
 function animate(timeStamp = 0) {
   requestAnimationFrame(animate);
