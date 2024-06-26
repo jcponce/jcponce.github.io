@@ -98,7 +98,7 @@ heartGroup.userData.update = (timeStamp) => {
 scene.add(heartGroup);
 
 const numHearts = 1800;
-const radius = 50;
+const radius = 40;
 const minHeartSize = 0.01; // minimum heart size
 const maxHeartSize = 0.1; // maximum heart size
 for (let i = 0; i < numHearts; i++) {
