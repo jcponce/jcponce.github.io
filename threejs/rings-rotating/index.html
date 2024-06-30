@@ -10,6 +10,16 @@ https://threejs.org/examples/#webgl_lights_rectarealight
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link type="text/css" rel="stylesheet" href="main.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
 </head>
 
 <body>
@@ -140,7 +150,7 @@ https://threejs.org/examples/#webgl_lights_rectarealight
             pointLight.position.x = Math.cos(angle) * radius;
             //pointLight.position.y = Math.sin(angle) * radius;
             //pointLight.position.z = (1+Math.sin(angle) * Math.sin(angle) )* radius;
-            pointLight.position.z =  Math.sin(angle) * radius;
+            pointLight.position.z = Math.sin(angle) * radius;
 
             // Create a quaternion for the custom rotation
             const quaternion1 = new THREE.Quaternion().setFromAxisAngle(axis1, angle);
