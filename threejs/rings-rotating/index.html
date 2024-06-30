@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+A fun experiment adapted from THREE.RectAreaLight by abelnatio
+https://threejs.org/examples/#webgl_lights_rectarealight
+-->
+<html lang="en">
+
+<head>
+    <title>Rotating Rings - Three.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <div id="info">
+
+        <a href="https://www.dynamicmath.xyz/threejs/" target="_blank" rel="noopener">dynamicmath.xyz</a>
+    </div>
+
+    <script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+                    "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+				}
+			}
+		</script>
+
+    <script type="module">
+
+        import * as THREE from 'three';
+
+        import Stats from 'jsm/libs/stats.module.js';
+
+        import { OrbitControls } from 'jsm/controls/OrbitControls.js';
+        import { RectAreaLightHelper } from 'jsm/helpers/RectAreaLightHelper.js';
+        import { RectAreaLightUniformsLib } from 'jsm/lights/RectAreaLightUniformsLib.js';
+
+        let renderer, scene, camera;
+        let stats;
+        let torii = [];
+        let pointLight;
+
+        init();
+
+
+
+        function init() {
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setAnimationLoop(animation);
+            document.body.appendChild(renderer.domElement);
+
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.set(0, 5, - 15);
+
+            scene = new THREE.Scene();
+
+            RectAreaLightUniformsLib.init();
+
+            const rectLight1 = new THREE.RectAreaLight("rgba(22, 219, 147, 1)", 10, 4, 10);
+            rectLight1.position.set(- 5, 5, 5);
+            scene.add(rectLight1);
+
+            const rectLight2 = new THREE.RectAreaLight("rgba(4, 139, 168, 1)", 10, 4, 10);
+            rectLight2.position.set(0, 5, 5);
+            scene.add(rectLight2);
+
+            const rectLight3 = new THREE.RectAreaLight("rgba(164, 3, 111, 1)", 10, 4, 10);
+            rectLight3.position.set(5, 5, 5);
+            scene.add(rectLight3);
+
+            scene.add(new RectAreaLightHelper(rectLight1));
+            scene.add(new RectAreaLightHelper(rectLight2));
+            scene.add(new RectAreaLightHelper(rectLight3));
+
+            const geoFloor = new THREE.BoxGeometry(2000, 0.1, 2000);
+            const matStdFloor = new THREE.MeshStandardMaterial({ color: 0xbcbcbc, roughness: 0.1, metalness: 0 });
+            const mshStdFloor = new THREE.Mesh(geoFloor, matStdFloor);
+            scene.add(mshStdFloor);
+
+            // Create three torii with different radii
+            const radii = [1, 2, 3];
+            radii.forEach((radius, index) => {
+                const geometry = new THREE.TorusGeometry(radius, 0.3, 16, 100);
+                const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0, metalness: 0 });
+                const torus = new THREE.Mesh(geometry, material);
+                torus.position.set(0, 5, 0);
+                scene.add(torus);
+                torii.push(torus);
+            });
+
+            // Create a point light and add it to the scene
+            pointLight = new THREE.PointLight(0xffffff, 25, 20);
+            pointLight.position.set(0, 5, 0);
+            scene.add(pointLight);
+
+            //const sphereSize = 1;
+            //const pointLightHelper = new THREE.PointLightHelper(pointLight, sphereSize);
+            //scene.add(pointLightHelper);
+
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.target.set(0, 5, 0);
+            controls.update();
+
+            //
+
+            window.addEventListener('resize', onWindowResize);
+
+            stats = new Stats();
+            document.body.appendChild(stats.dom);
+
+        }
+
+        function onWindowResize() {
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = (window.innerWidth / window.innerHeight);
+            camera.updateProjectionMatrix();
+
+        }
+
+        function animation(time) {
+
+            const speedFactor = 0.5;  // Adjust this factor to slow down or speed up the rotations
+
+            let radius = 6;
+
+            // Custom axis for the additional rotation
+            const axis1 = new THREE.Vector3(1, 1, 1).normalize();
+            const axis2 = new THREE.Vector3(1, -1, 1).normalize();
+            const axis3 = new THREE.Vector3(1, 1, -1).normalize();
+            const angle = time / 1000 * speedFactor;
+
+
+            pointLight.position.x = Math.cos(angle) * radius;
+            //pointLight.position.y = Math.sin(angle) * radius;
+            //pointLight.position.z = (1+Math.sin(angle) * Math.sin(angle) )* radius;
+            pointLight.position.z =  Math.sin(angle) * radius;
+
+            // Create a quaternion for the custom rotation
+            const quaternion1 = new THREE.Quaternion().setFromAxisAngle(axis1, angle);
+            const quaternion2 = new THREE.Quaternion().setFromAxisAngle(axis2, angle);
+            const quaternion3 = new THREE.Quaternion().setFromAxisAngle(axis3, angle);
+
+            torii.forEach((torus, index) => {
+                if (index === 0) {
+                    torus.rotation.x = time / 1000 * speedFactor;
+                    // Apply the custom axis rotation to all torii
+                    torus.quaternion.multiplyQuaternions(quaternion1, new THREE.Quaternion().setFromAxisAngle(axis1, angle));
+                } else if (index === 1) {
+                    torus.rotation.y = time / 1000 * speedFactor;
+                    torus.quaternion.multiplyQuaternions(quaternion2, new THREE.Quaternion().setFromAxisAngle(axis2, angle));
+                } else if (index === 2) {
+                    torus.rotation.z = time / 1000 * speedFactor;
+                    // Apply the custom axis rotation to all torii
+                    torus.quaternion.multiplyQuaternions(quaternion3, new THREE.Quaternion().setFromAxisAngle(axis3, angle));
+                }
+
+
+            });
+
+
+            renderer.render(scene, camera);
+
+            stats.update();
+
+        }
+
+    </script>
+</body>
+
+</html>
