@@ -53,7 +53,7 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap
 Init
 --------------------*/
 const meshes = []
-const matcap = new THREE.TextureLoader().load('./public/marble_color.jpg')
+const matcap = new THREE.TextureLoader().load('https://raw.githubusercontent.com/nidorx/matcaps/master/1024/5C4E41_CCCDD6_9B979B_B1AFB0.png')
 const init = () => {
   const ballGeo = new THREE.SphereBufferGeometry(.3, 32, 32)
   const ballMat = new THREE.MeshMatcapMaterial( { 
@@ -89,7 +89,7 @@ const init = () => {
       repeat: -1,
       ease: 'power1.inOut',
       yoyo: true,
-      delay: i * 0.1
+      delay: i * 0.15
     }) 
     meshes.push(group)
   }
