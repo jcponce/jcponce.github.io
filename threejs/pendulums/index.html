@@ -1,47 +1,37 @@
 <!DOCTYPE html>
-<!--
-A fun experiment adapted from NordicBeaver
-https://github.com/NordicBeaver/threejs-pendulums/tree/master/src
--->
 <html lang="en">
 
 <head>
-    <title>Pendulums - Three.js</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="main.css">
+    <title>ThreeJs Pendulums</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Global site tag (gtag.js) - Google Analytics 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-JPYTNF6MB4');
-    </script>-->
-
-   
+    <script type="importmap">
+    {
+        "imports": {
+                  "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+        "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+      }
+          }
+    </script>
+    <script src="main.js" type="module"></script>
 
 
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #sceneCanvas {
+            width: 100%
+        }
+    </style>
 </head>
 
 <body>
-
-    <div id="info">
-
-        <a href="https://www.dynamicmath.xyz/threejs/" target="_blank" rel="noopener">dynamicmath.xyz</a>
-    </div>
-
-    <canvas id="canvas"></canvas>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js'></script>
-    <script src='https://supahfunk.github.io/supah-codepen/OrbitControls.110.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js'></script>
-    
-    <script src="./main.js"></script>
-
-
+    <canvas id="sceneCanvas"></canvas>
 </body>
 
 </html>
