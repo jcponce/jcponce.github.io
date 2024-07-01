@@ -78,6 +78,8 @@ function init() {
 
     controls.update(); // Update controls in animation loop
 
+    //scene.rotation.y += 0.001 * Math.cos(time * 0.0005)
+
     renderer.render(scene, camera);
     window.requestAnimationFrame(animationFrame);
   }
