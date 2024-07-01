@@ -1,85 +1,132 @@
-import * as THREE from 'three';
-import { createPendulum, Pendulum } from './pendulum.js';
-import { createGround } from './ground.js';
+/*--------------------
+Renderer
+--------------------*/
+const renderer = new THREE.WebGLRenderer({ 
+  canvas: document.getElementById('canvas'), 
+  antialias: true
+})
+renderer.setSize( window.innerWidth, window.innerHeight )
 
-function main() {
-  const sceneCanvas = document.getElementById('sceneCanvas');
-  sceneCanvas.width = window.innerWidth;
-  sceneCanvas.height = window.innerHeight;
 
-  const scene = new THREE.Scene();
+/*--------------------
+Camera & Scene
+--------------------*/
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
+camera.position.z = 5
+const scene = new THREE.Scene()
+scene.background = new THREE.Color( 0xe0e0e0 )
+scene.fog = new THREE.Fog( 0xe0e0e0, 1, 15 )
 
-  const aspect = window.innerWidth / window.innerHeight;
-  const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
-  camera.position.z = Math.max(7 / aspect, 5);
-  camera.position.y = 1;
-  camera.lookAt(0, -1, 0);
 
-  const renderer = new THREE.WebGLRenderer({ canvas: sceneCanvas, antialias: true });
-  renderer.shadowMap.enabled = true;
+/*--------------------
+Controls
+--------------------*/
+const controls = new THREE.OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
+controls.dampingFactor = 0.1
 
-  window.addEventListener('resize', () => {
-    sceneCanvas.width = window.innerWidth;
-    sceneCanvas.height = window.innerHeight;
-    const aspect = window.innerWidth / window.innerHeight;
-    camera.aspect = aspect;
-    camera.position.z = Math.max(8 / aspect, 6);
-    camera.lookAt(0, 0, 0);
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
 
-  scene.background = new THREE.Color(0xc7dcff);
+/*--------------------
+Light
+--------------------*/
+const ambientLight = new THREE.AmbientLight(0xffffff, .5)
+scene.add(ambientLight)
 
-  const light = new THREE.AmbientLight(0xdddddd, 0.4);
-  scene.add(light);
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-  directionalLight.position.set(4, 10, 4);
-  directionalLight.shadow.camera.top = 20;
-  directionalLight.shadow.camera.right = 20;
-  directionalLight.shadow.camera.bottom = -20;
-  directionalLight.shadow.camera.left = -20;
-  directionalLight.castShadow = true;
-  scene.add(directionalLight);
+const light2 = new THREE.PointLight(0xffffff, .5)
+light2.position.set(0, 1, 0)
+scene.add(light2)
 
-  let groundPromise = createGround();
-  let pendulumPromises = [];
+const light = new THREE.PointLight(0xffffff, .1)
+light.position.set(0, 2, 0)
+scene.add(light)
+light.castShadow = true
+light.shadow.mapSize.width = 4096
+light.shadow.mapSize.height = 4096
+light.shadow.camera.near = 0.1
+light.shadow.camera.far = 30
 
-  Promise.all([groundPromise, ...pendulumPromises]).then(results => {
-    const ground = results[0];
-    scene.add(ground);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
-    const pendulums = results.slice(1);
+
+/*--------------------
+Init
+--------------------*/
+const meshes = []
+const matcap = new THREE.TextureLoader().load('./public/marble_color.jpg')
+const init = () => {
+  const ballGeo = new THREE.SphereBufferGeometry(.3, 32, 32)
+  const ballMat = new THREE.MeshMatcapMaterial( { 
+    matcap: matcap
+  })
+  const hairGeo = new THREE.CylinderBufferGeometry(.006, .006, 8,  32)
+  const hairMat = new THREE.MeshPhongMaterial( { 
+    color: 0xcccccc
+  })
+
+  for (let i = 0; i < 10; i++) {
+    const group = new THREE.Group()
+    scene.add(group)
     
-    scene.fog = new THREE.Fog(0xc7dcff, 1, 80);
-
-    let startTime = null;
-    let lastFrameTime = null;
-    function animationFrame(time) {
-      if (startTime == null) {
-        startTime = time;
-      }
-      if (lastFrameTime == null) {
-        lastFrameTime = time;
-      }
-      const deltaTime = time - lastFrameTime;
-      lastFrameTime = time;
-      const totalTime = time - startTime;
-      update(deltaTime, totalTime);
-      renderer.render(scene, camera);
-      window.requestAnimationFrame(animationFrame);
-    }
-
-    function update(deltaTime, totalTime) {
-      pendulums.forEach((p) => {
-        p.update(totalTime);
-      });
-    }
-
-    window.requestAnimationFrame(animationFrame);
-  }).catch(error => {
-    console.error('Error loading assets:', error);
-  });
+    const ball = new THREE.Mesh( ballGeo, ballMat )
+    ball.position.y = -6
+    ball.castShadow = true
+    ball.receiveShadow = true
+    group.add( ball )
+    
+    const hair = new THREE.Mesh( hairGeo, hairMat )
+    hair.position.y = -2
+    group.add( hair )
+    
+    group.position.x = -3. + i * .7
+    group.position.y = 6
+    
+    gsap.fromTo(group.rotation, {
+      x: -.3,
+    }, {
+      duration: 1.5,
+      x: .3,
+      repeat: -1,
+      ease: 'power1.inOut',
+      yoyo: true,
+      delay: i * 0.1
+    }) 
+    meshes.push(group)
+  }
+  
+  const geoPlane = new THREE.PlaneBufferGeometry(100, 100)
+  const mat3 = new THREE.MeshPhongMaterial( { 
+    color: 0xffffff,
+    shininess: 0.4,
+    metalness: 0.2,
+  })
+  const plane = new THREE.Mesh(geoPlane, mat3)
+  plane.rotation.x = -Math.PI / 2
+  plane.position.y = -2
+  plane.receiveShadow = true
+  scene.add(plane)
 }
+init()
 
-main();
+
+/*--------------------
+Renderer
+--------------------*/
+const render = () => {
+	requestAnimationFrame( render )
+	renderer.render( scene, camera )
+  controls.update()
+  scene.rotation.y += .0005
+}
+render()
+
+
+/*--------------------
+Resize
+--------------------*/
+const resize = () => {
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+  renderer.setSize( window.innerWidth, window.innerHeight )
+}
+window.addEventListener('resize', resize)
