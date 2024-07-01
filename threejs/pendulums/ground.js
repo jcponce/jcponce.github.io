@@ -1,25 +1,20 @@
 import * as THREE from 'three';
 
-import textureColorPath from 'url:./public/paving_color.jpg';
-import textureRoughnessPath from 'url:./public/paving_roughness.jpg';
-import textureNormalPath from 'url:./public/paving_normal.jpg';
-import textureAmbientOcclusionPath from 'url:./public/paving_ambient_occlusion.jpg';
-
-async function loadTexture(loader, url) {
-  const texture = await loader.loadAsync(url);
+function loadTexture(loader, url) {
+  const texture = loader.load(url);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(100, 10);
   return texture;
 }
 
-export async function createGround() {
+function createGround() {
   const loader = new THREE.TextureLoader();
 
-  const textureColor = await loadTexture(loader, textureColorPath);
-  const textureRoughness = await loadTexture(loader, textureRoughnessPath);
-  const textureNormal = await loadTexture(loader, textureNormalPath);
-  const textureAmbientOcclusion = await loadTexture(loader, textureAmbientOcclusionPath);
+  const textureColor = loadTexture(loader, './public/paving_color.jpg');
+  const textureRoughness = loadTexture(loader, './public/paving_roughness.jpg');
+  const textureNormal = loadTexture(loader, './public/paving_normal.jpg');
+  const textureAmbientOcclusion = loadTexture(loader, './public/paving_ambient_occlusion.jpg');
 
   const planeGeometry = new THREE.PlaneGeometry(1000, 100);
   const planeMaterial = new THREE.MeshStandardMaterial({
@@ -39,3 +34,5 @@ export async function createGround() {
 
   return mesh;
 }
+
+export default createGround;
