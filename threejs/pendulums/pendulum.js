@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 function createStringMesh(scene) {
-  const geometry = new THREE.CylinderGeometry(0.001, 0.001, 8);
+  const geometry = new THREE.CylinderGeometry(0.005, 0.005, 8);
   const material = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0, metalness: 0.2 });
   const string = new THREE.Mesh(geometry, material);
   scene.add(string);
@@ -19,7 +19,7 @@ function createBallMesh(scene) {
     map: marbleTextureColor,
     roughness: 1,
     roughnessMap: marbleTextureRoughness,
-    metalness: 0.2,
+    metalness: 0.1,
   });
   const ball = new THREE.Mesh(geometry, material);
   ball.castShadow = true;

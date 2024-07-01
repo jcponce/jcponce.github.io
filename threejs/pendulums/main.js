@@ -1,9 +1,12 @@
 import * as THREE from 'three';
+
 import createGround from "./ground.js";
 import createPendulum from "./pendulum.js";
 import { OrbitControls } from 'jsm/controls/OrbitControls.js';
 
-function main() {
+init();
+
+function init() {
   const sceneCanvas = document.getElementById('sceneCanvas');
   sceneCanvas.width = window.innerWidth;
   sceneCanvas.height = window.innerHeight;
@@ -38,7 +41,7 @@ function main() {
 
   const light = new THREE.AmbientLight(0xdddddd, 0.4);
   scene.add(light);
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
   directionalLight.position.set(4, 10, 4);
   directionalLight.shadow.camera.top = 20;
   directionalLight.shadow.camera.right = 20;
@@ -88,7 +91,3 @@ function main() {
 
   window.requestAnimationFrame(animationFrame);
 }
-
-
-
-main();
