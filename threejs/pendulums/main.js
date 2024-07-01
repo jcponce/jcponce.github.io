@@ -2,8 +2,6 @@ import * as THREE from 'three';
 import createGround from "./ground.js";
 import createPendulum from "./pendulum.js";
 import { OrbitControls } from 'jsm/controls/OrbitControls.js';
-//import { createPendulum, Pendulum } from './pendulum';
-//import { createGround } from './ground';
 
 function main() {
   const sceneCanvas = document.getElementById('sceneCanvas');
@@ -60,7 +58,7 @@ function main() {
   //console.log(pendulums)
 
   scene.fog = new THREE.Fog(0xc7dcff, 1, 80);
-  
+
   let startTime = null;
   let lastFrameTime = null;
   function animationFrame(time) {
@@ -72,30 +70,21 @@ function main() {
     }
     const deltaTime = time - lastFrameTime;
     lastFrameTime = time;
-    
     const totalTime = time - startTime;
-
     update(deltaTime, totalTime);
 
     controls.update(); // Update controls in animation loop
+
     renderer.render(scene, camera);
     window.requestAnimationFrame(animationFrame);
   }
-    
+
 
   function update(deltaTime, totalTime) {
     pendulums.forEach((p) => {
-     p.update(totalTime);
-   });
+      p.update(totalTime);
+    });
   }
-
-  //function animate() {
-  //  requestAnimationFrame(animate);
-  //  controls.update(); // Update controls in animation loop
-  //  renderer.render(scene, camera);
-  //}
-
-  //animate();
 
   window.requestAnimationFrame(animationFrame);
 }
