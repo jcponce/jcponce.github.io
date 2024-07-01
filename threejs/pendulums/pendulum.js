@@ -11,15 +11,17 @@ function createStringMesh(scene) {
 function createBallMesh(scene) {
   const loader = new THREE.TextureLoader();
 
-  const marbleTextureColor = loader.load('./public/marble_color.jpg');
+  const marbleTextureColor = loader.load('./matcaps/6.png');
   const marbleTextureRoughness = loader.load('./public/marble_roughness.jpg');
 
   const geometry = new THREE.SphereGeometry(0.5);
-  const material = new THREE.MeshStandardMaterial({
-    map: marbleTextureColor,
-    roughness: 1,
-    roughnessMap: marbleTextureRoughness,
-    metalness: 0.1,
+  //const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture })
+  const material = new THREE.MeshMatcapMaterial({
+    //map: marbleTextureColor,
+    matcap: marbleTextureColor,
+    //roughness: 1,
+    //roughnessMap: marbleTextureRoughness,
+    //metalness: 0.1,
   });
   const ball = new THREE.Mesh(geometry, material);
   ball.castShadow = true;
