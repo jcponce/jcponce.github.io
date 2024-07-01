@@ -8,13 +8,12 @@ function createStringMesh(scene) {
   return string;
 }
 
-function loadTexture(loader, texturePath) {
-  return new Promise((resolve, reject) => {
-    loader.load(texturePath, resolve, undefined, reject);
-  });
-}
+function createBallMesh(scene) {
+  const loader = new THREE.TextureLoader();
 
-function createBallMesh(scene, marbleTextureColor, marbleTextureRoughness) {
+  const marbleTextureColor = loader.load('./public/marble_color.jpg');
+  const marbleTextureRoughness = loader.load('./public/marble_roughness.jpg');
+
   const geometry = new THREE.SphereGeometry(0.5);
   const material = new THREE.MeshStandardMaterial({
     map: marbleTextureColor,
@@ -29,6 +28,7 @@ function createBallMesh(scene, marbleTextureColor, marbleTextureRoughness) {
 }
 
 export class Pendulum {
+
   constructor(stringMesh, ballMesh, frequency, amplitude) {
     this.string = stringMesh;
     this.ball = ballMesh;
@@ -37,40 +37,29 @@ export class Pendulum {
   }
 
   update(totalTime) {
-    // Update pendulum rotation based on frequency and amplitude
     this.string.rotation.z = this.amplitude * Math.cos((this.frequency * totalTime) / 1000);
     this.ball.rotation.z = this.amplitude * Math.cos((this.frequency * totalTime) / 1000);
   }
 }
 
-export function createPendulum(scene, origin, frequency = 1, amplitude = 0.5) {
+function createPendulum(
+  scene,
+  origin,
+  frequency = 1,
+  amplitude = 0.5
+) {
   const stringMesh = createStringMesh(scene);
   stringMesh.position.add(origin);
   stringMesh.translateY(6);
   stringMesh.geometry.translate(0, -4, 0);
 
-  const loader = new THREE.TextureLoader();
+  const ballMesh = createBallMesh(scene);
+  ballMesh.position.add(origin);
+  ballMesh.translateY(6);
+  ballMesh.geometry.translate(0, -8.5, 0);
 
-  // Adjust these paths according to your project structure
-  const marbleTextureColorPath = './public/marble_color.jpg';
-  const marbleTextureRoughnessPath = './public/marble_roughness.jpg';
-
-  // Load all textures concurrently
-  const marbleTextureColorPromise = loadTexture(loader, marbleTextureColorPath);
-  const marbleTextureRoughnessPromise = loadTexture(loader, marbleTextureRoughnessPath);
-
-  return Promise.all([marbleTextureColorPromise, marbleTextureRoughnessPromise])
-    .then(([marbleTextureColor, marbleTextureRoughness]) => {
-      const ballMesh = createBallMesh(scene, marbleTextureColor, marbleTextureRoughness);
-      ballMesh.position.add(origin);
-      ballMesh.translateY(6);
-      ballMesh.geometry.translate(0, -8.5, 0);
-
-      const pendulum = new Pendulum(stringMesh, ballMesh, frequency, amplitude);
-      return pendulum;
-    })
-    .catch(error => {
-      console.error('Error loading textures:', error);
-      throw error; // Propagate the error further if needed
-    });
+  const pendulum = new Pendulum(stringMesh, ballMesh, frequency, amplitude);
+  return pendulum;
 }
+
+export default createPendulum;

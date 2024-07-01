@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import createGround from "./ground.js";
+import createPendulum from "./pendulum.js";
 import { OrbitControls } from 'jsm/controls/OrbitControls.js';
 //import { createPendulum, Pendulum } from './pendulum';
 //import { createGround } from './ground';
@@ -51,17 +52,15 @@ function main() {
   const ground = createGround();
   scene.add(ground);
 
-  //const pendulums = [];
-  //for (let i = 0; i < 12; i++) {
-  //  const pendulum = await createPendulum(scene, new THREE.Vector3(0, 0, -i * 1.2), 1.2 + i * 0.05);
-  //  pendulums.push(pendulum);
-  //}
+  const pendulums = [];
+  for (let i = 0; i < 12; i++) {
+    const pendulum = createPendulum(scene, new THREE.Vector3(0, 0, -i * 1.2), 1.2 + i * 0.05);
+    pendulums.push(pendulum);
+  }
+  //console.log(pendulums)
 
   scene.fog = new THREE.Fog(0xc7dcff, 1, 80);
-  //console.log(scene)
-  //renderer.render(scene, camera);
-
-  /*
+  
   let startTime = null;
   let lastFrameTime = null;
   function animationFrame(time) {
@@ -74,28 +73,31 @@ function main() {
     const deltaTime = time - lastFrameTime;
     lastFrameTime = time;
     
-    //const totalTime = time - startTime;
-    //update(deltaTime, totalTime);
+    const totalTime = time - startTime;
+
+    update(deltaTime, totalTime);
+
+    controls.update(); // Update controls in animation loop
     renderer.render(scene, camera);
     window.requestAnimationFrame(animationFrame);
   }
-    */
+    
 
-  //function update(deltaTime, totalTime) {
-  //  pendulums.forEach((p) => {
-  //   p.update(totalTime);
-  // });
-  //}
-
-  function animate() {
-    requestAnimationFrame(animate);
-    controls.update(); // Update controls in animation loop
-    renderer.render(scene, camera);
+  function update(deltaTime, totalTime) {
+    pendulums.forEach((p) => {
+     p.update(totalTime);
+   });
   }
 
-  animate();
+  //function animate() {
+  //  requestAnimationFrame(animate);
+  //  controls.update(); // Update controls in animation loop
+  //  renderer.render(scene, camera);
+  //}
 
-  //window.requestAnimationFrame(animationFrame);
+  //animate();
+
+  window.requestAnimationFrame(animationFrame);
 }
 
 
