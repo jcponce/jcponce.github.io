@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+A fun experiment adapted from NordicBeaver
+https://github.com/NordicBeaver/threejs-pendulums/tree/master/src
+-->
+<html lang="en">
+
+<head>
+    <title>Pendulums - Three.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="main.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
+
+
+</head>
+
+<body>
+
+    <div id="info">
+
+        <a href="https://www.dynamicmath.xyz/threejs/" target="_blank" rel="noopener">dynamicmath.xyz</a>
+    </div>
+
+    <canvas id="sceneCanvas"></canvas>
+
+    <script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+                    "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+				}
+			}
+	</script>
+
+    <script type="module" src="/ground.js"></script>
+    <script type="module" src="/pendulum.js"></script>
+    <script type="module" src="/main.js"></script>
+
+    
+</body>
+
+</html>
