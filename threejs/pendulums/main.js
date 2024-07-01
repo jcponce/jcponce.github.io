@@ -1,9 +1,8 @@
 import * as THREE from 'three';
 import { createPendulum, Pendulum } from './pendulum.js';
-
 import { createGround } from './ground.js';
 
-async function main() {
+function main() {
   const sceneCanvas = document.getElementById('sceneCanvas');
   sceneCanvas.width = window.innerWidth;
   sceneCanvas.height = window.innerHeight;
@@ -43,41 +42,44 @@ async function main() {
   directionalLight.castShadow = true;
   scene.add(directionalLight);
 
-  const ground = await createGround();
-  scene.add(ground);
+  let groundPromise = createGround();
+  let pendulumPromises = [];
 
-  const pendulums = [];
-  for (let i = 0; i < 12; i++) {
-    const pendulum = await createPendulum(scene, new THREE.Vector3(0, 0, -i * 1.2), 1.2 + i * 0.05);
-    pendulums.push(pendulum);
-  }
+  Promise.all([groundPromise, ...pendulumPromises]).then(results => {
+    const ground = results[0];
+    scene.add(ground);
 
-  scene.fog = new THREE.Fog(0xc7dcff, 1, 80);
+    const pendulums = results.slice(1);
+    
+    scene.fog = new THREE.Fog(0xc7dcff, 1, 80);
 
-  let startTime = null;
-  let lastFrameTime = null;
-  function animationFrame(time) {
-    if (startTime == null) {
-      startTime = time;
-    }
-    if (lastFrameTime == null) {
+    let startTime = null;
+    let lastFrameTime = null;
+    function animationFrame(time) {
+      if (startTime == null) {
+        startTime = time;
+      }
+      if (lastFrameTime == null) {
+        lastFrameTime = time;
+      }
+      const deltaTime = time - lastFrameTime;
       lastFrameTime = time;
+      const totalTime = time - startTime;
+      update(deltaTime, totalTime);
+      renderer.render(scene, camera);
+      window.requestAnimationFrame(animationFrame);
     }
-    const deltaTime = time - lastFrameTime;
-    lastFrameTime = time;
-    const totalTime = time - startTime;
-    update(deltaTime, totalTime);
-    renderer.render(scene, camera);
+
+    function update(deltaTime, totalTime) {
+      pendulums.forEach((p) => {
+        p.update(totalTime);
+      });
+    }
+
     window.requestAnimationFrame(animationFrame);
-  }
-
-  function update(deltaTime, totalTime) {
-    pendulums.forEach((p) => {
-      p.update(totalTime);
-    });
-  }
-
-  window.requestAnimationFrame(animationFrame);
+  }).catch(error => {
+    console.error('Error loading assets:', error);
+  });
 }
 
 main();

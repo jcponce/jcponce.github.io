@@ -21,6 +21,18 @@ https://github.com/NordicBeaver/threejs-pendulums/tree/master/src
         gtag('config', 'G-JPYTNF6MB4');
     </script>-->
 
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+                "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="./ground.js"></script>
+    <script type="module" src="./pendulum.js"></script>
+    <script type="module" src="./main.js"></script>
+
 
 </head>
 
@@ -31,22 +43,11 @@ https://github.com/NordicBeaver/threejs-pendulums/tree/master/src
         <a href="https://www.dynamicmath.xyz/threejs/" target="_blank" rel="noopener">dynamicmath.xyz</a>
     </div>
 
+    
+
     <canvas id="sceneCanvas"></canvas>
 
-    <script type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
-                    "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
-				}
-			}
-	</script>
 
-    <script type="module" src="/ground.js"></script>
-    <script type="module" src="/pendulum.js"></script>
-    <script type="module" src="/main.js"></script>
-
-    
 </body>
 
 </html>
