@@ -10,9 +10,11 @@ function createStringMesh(scene) {
 
 function createBallMesh(scene) {
   const loader = new THREE.TextureLoader();
+  //const loader = new THREE.DDSLoader();
 
   const marbleTextureColor = loader.load('./matcaps/3.png');
-  const marbleTextureRoughness = loader.load('./public/marble_roughness.jpg');
+  //const marbleTextureColor = loader.load('./public/disturb_dx10_bc6h_signed_nomip.dds');
+  //const marbleTextureRoughness = loader.load('./public/marble_roughness.jpg');
 
   const geometry = new THREE.SphereGeometry(0.5);
   //const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture })

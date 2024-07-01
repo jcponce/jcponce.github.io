@@ -4,6 +4,8 @@ import createGround from "./ground.js";
 import createPendulum from "./pendulum.js";
 import { OrbitControls } from 'jsm/controls/OrbitControls.js';
 
+
+
 init();
 
 function init() {
@@ -37,7 +39,8 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
-  scene.background = new THREE.Color(0xc7dcff);
+  let colorBack = 0xbbe5edff;
+  scene.background = new THREE.Color(colorBack);
 
   const light = new THREE.AmbientLight(0xdddddd, 0.4);
   scene.add(light);
@@ -60,7 +63,7 @@ function init() {
   }
   //console.log(pendulums)
 
-  scene.fog = new THREE.Fog(0xc7dcff, 1, 80);
+  scene.fog = new THREE.Fog(colorBack, 1, 80);
 
   let startTime = null;
   let lastFrameTime = null;

@@ -15,12 +15,18 @@ function createGround() {
   const textureRoughness = loadTexture(loader, './public/paving_roughness.jpg');
   const textureNormal = loadTexture(loader, './public/paving_normal.jpg');
   const textureAmbientOcclusion = loadTexture(loader, './public/paving_ambient_occlusion.jpg');
+  /*
+  const textureColor = loadTexture(loader, './textures/brick_diffuse.jpg');
+  const textureRoughness = loadTexture(loader, './textures/brick_roughness.jpg');
+  const textureNormal = loadTexture(loader, './public/paving_normal.jpg');
+  const textureAmbientOcclusion = loadTexture(loader, './public/paving_ambient_occlusion.jpg');
+  */
 
   const planeGeometry = new THREE.PlaneGeometry(1000, 100);
   const planeMaterial = new THREE.MeshStandardMaterial({
     map: textureColor,
     normalMap: textureNormal,
-    normalScale: new THREE.Vector2(2, 2),
+    normalScale: new THREE.Vector2(3, 3),
     roughness: 1,
     roughnessMap: textureRoughness,
     aoMap: textureAmbientOcclusion,
