@@ -11,16 +11,19 @@ function loadTexture(loader, url) {
 function createGround() {
   const loader = new THREE.TextureLoader();
 
+  /*
   const textureColor = loadTexture(loader, './public/paving_color.jpg');
   const textureRoughness = loadTexture(loader, './public/paving_roughness.jpg');
   const textureNormal = loadTexture(loader, './public/paving_normal.jpg');
   const textureAmbientOcclusion = loadTexture(loader, './public/paving_ambient_occlusion.jpg');
-  /*
-  const textureColor = loadTexture(loader, './textures/brick_diffuse.jpg');
-  const textureRoughness = loadTexture(loader, './textures/brick_roughness.jpg');
-  const textureNormal = loadTexture(loader, './public/paving_normal.jpg');
-  const textureAmbientOcclusion = loadTexture(loader, './public/paving_ambient_occlusion.jpg');
   */
+  ///*
+  const textureColor = loadTexture(loader, './textures/Wood_Wicker_011_basecolor.png');
+  const textureRoughness = loadTexture(loader, './textures/Wood_Wicker_011_roughness.png');
+  const textureNormal = loadTexture(loader, './textures/Wood_Wicker_011_normal.png');
+  //const textureOpacity = loadTexture(loader, './textures/Wood_Wicker_011_opacity.png');
+  //const textureAmbientOcclusion = loadTexture(loader, './textures/Wood_Wicker_011_height.png');
+  //*/
 
   const planeGeometry = new THREE.PlaneGeometry(1000, 100);
   const planeMaterial = new THREE.MeshStandardMaterial({
@@ -29,8 +32,9 @@ function createGround() {
     normalScale: new THREE.Vector2(3, 3),
     roughness: 1,
     roughnessMap: textureRoughness,
-    aoMap: textureAmbientOcclusion,
-    aoMapIntensity: 1,
+    //alphaMap: textureOpacity,
+    //aoMap: textureAmbientOcclusion,
+    //aoMapIntensity: 0,
   });
   const mesh = new THREE.Mesh(planeGeometry, planeMaterial);
 
