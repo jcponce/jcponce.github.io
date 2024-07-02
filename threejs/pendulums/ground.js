@@ -22,8 +22,6 @@ function createGround() {
   const textureColor = loadTexture(loader, './textures/Wood_Wicker_011_basecolor.png');
   const textureRoughness = loadTexture(loader, './textures/Wood_Wicker_011_roughness.png');
   const textureNormal = loadTexture(loader, './textures/Wood_Wicker_011_normal.png');
-  //const textureOpacity = loadTexture(loader, './textures/Wood_Wicker_011_opacity.png');
-  //const textureAmbientOcclusion = loadTexture(loader, './textures/Wood_Wicker_011_height.png');
   //*/
 
   const planeGeometry = new THREE.PlaneGeometry(1000, 100);
