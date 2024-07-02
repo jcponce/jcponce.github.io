@@ -2,10 +2,10 @@ import * as THREE from 'three';
 
 function createStringMesh(scene) {
   const geometry = new THREE.CylinderGeometry(0.025, 0.025, 8);
-  const material = new THREE.MeshStandardMaterial({ 
-    color: 0xeeeeee, 
-    roughness: 0, 
-    metalness: 0.2 
+  const material = new THREE.MeshStandardMaterial({
+    color: 0xeeeeee,
+    roughness: 0,
+    metalness: 0.2
   });
   const string = new THREE.Mesh(geometry, material);
   scene.add(string);
@@ -55,12 +55,21 @@ class Pendulum {
     this.ball = ballMesh;
     this.frequency = frequency;
     this.amplitude = amplitude;
+    //this.damping = 1;
   }
 
   update(totalTime) {
     let speed = 750;
     this.string.rotation.z = this.amplitude * Math.cos((this.frequency * totalTime) / speed);
     this.ball.rotation.z = this.amplitude * Math.cos((this.frequency * totalTime) / speed);
+    //let damping = 1;
+    //if (this.damping > 0) {
+    //this.string.rotation.z = this.amplitude * Math.cos((this.frequency * totalTime) / speed) * this.damping;
+    //this.ball.rotation.z = this.amplitude * Math.cos((this.frequency * totalTime) / speed) * this.damping;
+    //}
+
+    //this.damping -= 0.0001;
+    //console.log(this.damping)
   }
 }
 
