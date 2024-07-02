@@ -41,7 +41,7 @@ function init() {
   let colorBack = 0xbbe5edff;
   scene.background = new THREE.Color(colorBack);
 
-  const light = new THREE.AmbientLight(0xdddddd, 0.4);
+  const light = new THREE.AmbientLight(0xdddddd, 0.2);
   scene.add(light);
   const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
   directionalLight.position.set(4, 10, 4);
@@ -55,14 +55,13 @@ function init() {
   const ground = createGround();
   scene.add(ground);
 
+  scene.fog = new THREE.Fog(colorBack, 1, 80);
+
   const pendulums = [];
   for (let i = 0; i < 12; i++) {
-    const pendulum = createPendulum(scene, new THREE.Vector3(0, 0, -i * 1.2), 1.2 + i * 0.05);
+    const pendulum = createPendulum(scene, new THREE.Vector3(0, 0, -i * 1.2), 1.2 + i * 0.05, 0.5, i/11);
     pendulums.push(pendulum);
   }
-  //console.log(pendulums)
-
-  scene.fog = new THREE.Fog(colorBack, 1, 80);
 
   let startTime = null;
   let lastFrameTime = null;

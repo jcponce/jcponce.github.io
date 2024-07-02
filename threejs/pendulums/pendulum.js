@@ -8,7 +8,18 @@ function createStringMesh(scene) {
   return string;
 }
 
-function createBallMesh(scene) {
+function createBallMesh(scene, hue) {
+  // Generate color from HSV using THREE.Color
+  const color = new THREE.Color();
+  color.setHSL(hue, 0.9, 0.5); // HSV with full saturation and 50% lightness
+
+  const geometry = new THREE.SphereGeometry(0.5);
+  const material = new THREE.MeshStandardMaterial({
+    color: color,
+    roughness: 0.5,
+    metalness: 0.8
+  });
+  /*
   const loader = new THREE.TextureLoader();
   //const loader = new THREE.DDSLoader();
 
@@ -25,6 +36,7 @@ function createBallMesh(scene) {
     //roughnessMap: marbleTextureRoughness,
     //metalness: 0.1,
   });
+  */
   const ball = new THREE.Mesh(geometry, material);
   ball.castShadow = true;
   scene.add(ball);
@@ -50,14 +62,15 @@ function createPendulum(
   scene,
   origin,
   frequency = 1,
-  amplitude = 0.5
+  amplitude = 0.5,
+  hue = 0
 ) {
   const stringMesh = createStringMesh(scene);
   stringMesh.position.add(origin);
   stringMesh.translateY(6);
   stringMesh.geometry.translate(0, -4, 0);
 
-  const ballMesh = createBallMesh(scene);
+  const ballMesh = createBallMesh(scene, hue);
   ballMesh.position.add(origin);
   ballMesh.translateY(6);
   ballMesh.geometry.translate(0, -8.5, 0);
