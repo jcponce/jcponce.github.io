@@ -18,6 +18,7 @@ function createGround() {
   const textureAmbientOcclusion = loadTexture(loader, './public/paving_ambient_occlusion.jpg');
   */
   ///*
+  //https://3dtextures.me/2024/06/22/wood-wicker-011/
   const textureColor = loadTexture(loader, './textures/Wood_Wicker_011_basecolor.png');
   const textureRoughness = loadTexture(loader, './textures/Wood_Wicker_011_roughness.png');
   const textureNormal = loadTexture(loader, './textures/Wood_Wicker_011_normal.png');
