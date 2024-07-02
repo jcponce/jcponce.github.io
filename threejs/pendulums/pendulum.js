@@ -15,14 +15,14 @@ function createStringMesh(scene) {
 function createBallMesh(scene, hue) {
   // Generate color from HSV using THREE.Color
   const color = new THREE.Color();
-  color.setHSL(hue, 0.9, 0.5); // HSV with full saturation and 50% lightness
+  color.setHSL(hue, 1, 0.5); // HSV with full saturation and 50% lightness
 
   const geometry = new THREE.SphereGeometry(0.5);
   const material = new THREE.MeshStandardMaterial({
     color: color,
     roughness: 0.2,
     metalness: 0.8,
-    emissive: 'rgba(10, 2, 50, 1)'
+    //emissive: 'rgba(200,200,200, 1)'
   });
   /*
   const loader = new THREE.TextureLoader();

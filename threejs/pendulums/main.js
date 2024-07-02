@@ -38,12 +38,12 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
-  let colorBack = 0x0000f;
+  let colorBack = 0x0a0a0a;
   scene.background = new THREE.Color(colorBack);
 
-  const light = new THREE.AmbientLight(0xdddddd, 0.2);
+  const light = new THREE.AmbientLight(0xffffff, 0.8);
   scene.add(light);
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
   directionalLight.position.set(4, 10, 4);
 
   // Adjust shadow camera settings
@@ -68,7 +68,7 @@ function init() {
   const ground = createGround();
   scene.add(ground);
 
-  scene.fog = new THREE.Fog(colorBack, 1, 40);
+  scene.fog = new THREE.Fog(colorBack, 1, 60);
 
   const pendulums = [];
   for (let i = 0; i < 12; i++) {
