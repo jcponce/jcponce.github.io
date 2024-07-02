@@ -38,7 +38,7 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
-  let colorBack = 0xbbe5edff;
+  let colorBack = 0x0000f;
   scene.background = new THREE.Color(colorBack);
 
   const light = new THREE.AmbientLight(0xdddddd, 0.2);
@@ -55,7 +55,7 @@ function init() {
   const ground = createGround();
   scene.add(ground);
 
-  scene.fog = new THREE.Fog(colorBack, 1, 80);
+  scene.fog = new THREE.Fog(colorBack, 1, 40);
 
   const pendulums = [];
   for (let i = 0; i < 12; i++) {
