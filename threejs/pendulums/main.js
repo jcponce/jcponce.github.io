@@ -41,9 +41,9 @@ function init() {
   let colorBack = 0x0a0a0a;
   scene.background = new THREE.Color(colorBack);
 
-  const light = new THREE.AmbientLight(0xffffff, 0.8);
+  const light = new THREE.AmbientLight(0xffffff, 0.1);
   scene.add(light);
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
   directionalLight.position.set(4, 10, 4);
 
   // Adjust shadow camera settings
