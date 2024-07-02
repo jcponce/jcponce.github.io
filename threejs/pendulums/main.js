@@ -45,11 +45,24 @@ function init() {
   scene.add(light);
   const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
   directionalLight.position.set(4, 10, 4);
+
+  // Adjust shadow camera settings
+  directionalLight.shadow.camera.near = 0.5; // Default is 0.5
+  directionalLight.shadow.camera.far = 50; // Default is 500
   directionalLight.shadow.camera.top = 20;
   directionalLight.shadow.camera.right = 20;
   directionalLight.shadow.camera.bottom = -20;
   directionalLight.shadow.camera.left = -20;
   directionalLight.castShadow = true;
+
+  // Adjust shadow map settings
+  directionalLight.shadow.mapSize.width = 2048; // Default is 512
+  directionalLight.shadow.mapSize.height = 2048; // Default is 512
+
+  // Set shadow map type
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap; // or THREE.PCFShadowMap
+
   scene.add(directionalLight);
 
   const ground = createGround();

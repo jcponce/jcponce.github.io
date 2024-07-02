@@ -2,7 +2,11 @@ import * as THREE from 'three';
 
 function createStringMesh(scene) {
   const geometry = new THREE.CylinderGeometry(0.025, 0.025, 8);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0, metalness: 0.2 });
+  const material = new THREE.MeshStandardMaterial({ 
+    color: 0xeeeeee, 
+    roughness: 0, 
+    metalness: 0.2 
+  });
   const string = new THREE.Mesh(geometry, material);
   scene.add(string);
   return string;
@@ -16,8 +20,9 @@ function createBallMesh(scene, hue) {
   const geometry = new THREE.SphereGeometry(0.5);
   const material = new THREE.MeshStandardMaterial({
     color: color,
-    roughness: 0.5,
-    metalness: 0.8
+    roughness: 0.2,
+    metalness: 0.8,
+    emissive: 'rgba(10, 2, 50, 1)'
   });
   /*
   const loader = new THREE.TextureLoader();
