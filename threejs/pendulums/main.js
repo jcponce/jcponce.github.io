@@ -4,8 +4,6 @@ import createGround from "./ground.js";
 import createPendulum from "./pendulum.js";
 import { OrbitControls } from 'jsm/controls/OrbitControls.js';
 
-
-
 init();
 
 function init() {
@@ -28,7 +26,6 @@ function init() {
   controls.enableDamping = true; // Optional: Enable damping (smooth panning and zooming)
   controls.dampingFactor = 0.1; // Optional: Set damping factor
 
-  
 
   window.addEventListener('resize', () => {
     sceneCanvas.width = window.innerWidth;
