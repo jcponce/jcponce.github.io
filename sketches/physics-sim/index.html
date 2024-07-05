@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kevin's Physics World</title>
+	<link href='style.css' rel='stylesheet'>
+
+	<script src="//use.typekit.net/thv4cxy.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+<canvas id='world'></canvas>
+
+<div class='modal hidden'>
+	<p>Click and drag to launch particles</p>
+	<span class='dismiss'>&times;</span>
+</div>
+
+<div class='controls'>
+	<div class='sliders'>
+	<label>K</label>
+	<input type='range' min='0.01' max='0.5' step='0.01'value='0.05' id='k'>
+	
+	<label>Friction</label>
+	<input type='range' min='0' max='1' step='0.01'value ='0.2' id='friction'>
+
+	<label>Damping</label>
+	<input type='range' min='0' max='1' step='0.01' value='0' id='damping'>
+
+	<label>Restitution</label>
+	<input type='range' min='0' max='1' step='0.01' value='0.3' id='restitution'>
+
+	<label>Particles</label>
+	<input type='range' min='1' max='100' value='40' id='numParticles'>
+
+	<label>Particle Lifespan</label>
+	<input type='range' min='100' max='1000' value='1000' id='lifespan'>
+	<a class='btn' id='clear' href='#'>Reset</a>
+	
+	</div>
+
+	<div class='checks'>
+
+	<fieldset>
+	<input type='checkbox' id='connectors' checked>
+	<label for='connectors'>Show Connections</label>
+	</fieldset>
+
+	<fieldset>
+	<input type='checkbox' id='vectors' checked>
+	<label for='vectors'>Show Vectors</label>
+	</fieldset>
+
+	<fieldset>
+	<input type='checkbox' id='smbh'>
+	<label for='smbh'>SMBH</label>
+	</fieldset>
+
+	<fieldset>
+	<input type='checkbox' id='walls'>
+	<label for='walls'>Walls</label>
+	</fieldset>
+
+	<fieldset>
+	<input type='checkbox' id='random' checked>
+	<label for='random'>Random Spawn</label>
+	</fieldset>
+
+	<fieldset>
+	<input type='checkbox' id='particleGravity' checked>
+	<label for='particleGravity'>Particle Attraction</label>
+	</fieldset>
+
+	<fieldset>
+	<input type='checkbox' id='verticalGravity'>
+	<label for='verticalGravity'>Vertical Gravity</label>
+	</fieldset>
+
+	<a class='btn btn-secondary' href='http://kevinzweerink.com'>Kevin Zweerink</a>
+
+	</div>
+
+</div>
+<script src='const.js'></script>
+<script src='object.js'></script>
+<script src='world.js'></script>
+<script src='editor.js'></script>
+<script type="text/javascript">
+	var worldStage = document.getElementById('world');
+
+	worldStage.style.width = window.innerWidth + 'px';
+	worldStage.style.height = window.innerHeight - document.querySelector('.controls').clientHeight + 'px';
+
+	worldStage.width = worldStage.clientWidth;
+	worldStage.height = worldStage.clientHeight;
+
+	var w = new World(worldStage);
+	w.particleAttraction = true;
+	// w.centralGravity = true;
+	w.showRanges = true;
+	w.emitter.radius = 3;
+	w.emitter.rangeMin = -5;
+	w.emitter.y = w.h * .5;
+	w.emitter.rangeMax = 5;
+	w.emitter.max = 40;
+	w.emitter.randomSpawn = true;
+	w.emitting = true;
+</script>
+
+<script	type='text/javascript'>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29576730-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+html, body {
+	margin:0;
+	background: #111;
+	overflow: hidden;
+}
+
+#world {
+	display: block;
+	cursor: crosshair;
+}
+
+.modal.hidden {
+	opacity: 0;
+
+	-webkit-transition: opacity .2s ease;
+	-moz-transition: opacity .2s ease;
+	transition: opacity .2s ease;
+	
+}
+
+.modal {
+
+	-webkit-transition: opacity .2s ease;
+	-moz-transition: opacity .2s ease;
+	transition: opacity .2s ease;
+
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	position: absolute;
+	top: -4rem;
+	right: 2rem;
+	z-index: 100;
+	background: #111;
+	border: 1px solid #FFF;
+	padding: 1rem 1.5rem 1rem 2rem;
+	border-radius: 4px;
+	opacity: .85;
+}
+
+.modal p, .modal span {
+	font-family: 'adelle-sans', helvetica, sans-serif;
+	display: inline-block;
+	color: #FFF;
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+	vertical-align: middle;
+	font-size: .85rem;
+}
+
+.modal p {
+	margin-right: 2rem;
+}
+
+.modal .dismiss {
+	font-size: 1.5rem;
+	float: right;
+	margin-top: -.3rem;
+	cursor: pointer;
+}
+
+.controls {
+	-webkit-transition: height .15s ease;
+	transition: height .15s ease;
+
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	background: #111;
+	border-top: 1px solid rgba(255,255,255,0.5);
+	padding: 1rem;
+	color: #FFF;
+
+	height: 3rem;
+
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.controls:hover {
+	height: 5.5rem;
+}
+
+.sliders {
+	margin-bottom: 1.5rem;
+}
+
+fieldset {
+	display: inline-block;
+	padding: 0;
+	margin: 0 1rem 0 0;
+	border: none;
+}
+
+.controls label, .btn {
+	vertical-align: center;
+	font-family: 'adelle-sans', helvetica, sans-serif;
+	font-weight: 300;
+	font-size: .75rem;
+	line-height: 1;
+}
+
+.btn {
+	display: inline-block;
+	color: #111;
+	background: #FFF;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 4px;
+	text-decoration: none;
+	padding: .25rem .5rem;
+	font-size: .65rem;
+	line-height: 1;
+	font-weight: 500;
+}
+
+.btn.btn-secondary {
+	background: #111;
+	color: #FFF;
+	text-transform: capitalize;
+	font-size: .75rem;
+	letter-spacing: 0;
+	padding: 0;
+	font-weight: 300;
+	opacity: .7;
+}
+
+.controls .btn {
+	float: right;
+}
+
+input[type=checkbox] {
+	position: absolute;
+	top: -99999px;
+	left: -99999px;
+}
+
+input[type=checkbox] ~ label {
+	padding: .25rem .5rem;
+	border: 1px solid #FFF;
+	border-radius: 4px;
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+input[type=checkbox] ~ label::before {
+	content: '\2713';
+	margin-right: .5rem;
+	opacity: .1;
+}
+
+input[type=checkbox]:checked ~ label::before {
+	opacity: 1;
+}
+
+input[type=checkbox]:checked ~ label {
+	opacity: 1;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: -7px 0;
+  width: 7%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 2px;
+  cursor: pointer;
+  box-shadow: none;
+  background: #ffffff;
+  border-radius: 0px;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: none;
+  border: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ffffff;
+}
+input[type=range]::-moz-range-track {
+  height: 3px;
+  cursor: pointer;
+  box-shadow: none;
+  background: #ffffff;
+  border-radius: 0px;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: none;
+  border: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #bfbfbf;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border-radius: 0px;
+  box-shadow: none;
+}
+input[type=range]::-ms-fill-upper {
+  background: #ffffff;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: none;
+  border: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+  height: 3px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #ffffff;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #ffffff;
+}
+
+.controls input {
+	margin-right: 2rem;
+	margin-left: .5rem;
+	vertical-align: middle;
+}
