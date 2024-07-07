@@ -1,5 +1,5 @@
-int numTypes = 6;
-int colorStep = 360 / numTypes;
+int numTypes;
+int colorStep;
 int numParticles = 1000;
 ArrayList<Particle> swarm;
 
@@ -12,6 +12,9 @@ void setup() {
   //fullScreen();
   colorMode(HSB, 360, 100, 100);
   noStroke();
+
+  numTypes = int(random(2, 6));
+  colorStep = 360 / numTypes;
   swarm = new ArrayList<Particle>();
   for (int i = 0; i < numParticles; i++) {
     swarm.add(new Particle());
