@@ -62,7 +62,9 @@ class Particle {
   int type;
 
   Particle() {
-    position = new PVector(random(width), random(height));
+    float rad = random(100);
+    float ang = random(TWO_PI);
+    position = new PVector(rad * cos(ang) + width/2, rad * sin(ang)+height/2);
     velocity = new PVector(0, 0);
     type = int(random(numTypes));
   }
@@ -122,6 +124,6 @@ class Particle {
 
   void display() {
     fill(this.type * colorStep, 100, 100);
-    ellipse(this.position.x, this.position.y, 5, 5);
+    ellipse(this.position.x, this.position.y, 8, 8);
   }
 }
