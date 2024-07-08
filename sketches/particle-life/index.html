@@ -83,6 +83,13 @@
             z-index: 3;
         }
 
+        #traceButton {
+            position: fixed;
+            top: 10px;
+            left: 150px;
+            z-index: 3;
+        }
+
         #stopButton {
             display: none;
             z-index: 3;
@@ -141,10 +148,12 @@
     </div>
     <button id="playButton">Play</button>
     <button id="pauseButton">Pause</button>
+    <button id="traceButton">Trace Off</button>
     <button id="stopButton">Stop</button>
 </body>
 
 <script>
+    var trace = 100;
     document.addEventListener('DOMContentLoaded', () => {
         const audioPlayer = document.getElementById('audioPlayer');
         const overlay = document.getElementById('overlay');
@@ -152,6 +161,7 @@
         const playButton = document.getElementById('playButton');
         const pauseButton = document.getElementById('pauseButton');
         const stopButton = document.getElementById('stopButton');
+        const traceButton = document.getElementById('traceButton');
 
         startButton.addEventListener('click', () => {
             audioPlayer.play().then(() => {
@@ -175,6 +185,19 @@
             audioPlayer.pause();
             audioPlayer.currentTime = 0;
         });
+
+
+        traceButton.addEventListener('click', () => {
+            trace = (trace == 100) ? 40 : 100;
+            //let button = document.getElementById("traceButton");
+            if (traceButton.innerHTML === "Trace Off") {
+                traceButton.innerHTML = "Trace On";
+            } else {
+                traceButton.innerHTML = "Trace Off";
+            }
+        }
+
+        );
     });
 
 

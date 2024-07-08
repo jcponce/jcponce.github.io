@@ -10,7 +10,7 @@ float [][] radii;
 void setup() {
   size(window.innerWidth, window.innerHeight);
   //fullScreen();
-  colorMode(HSB, 360, 100, 100);
+  colorMode(HSB, 360, 100, 100, 100);
   noStroke();
 
   numTypes = int(random(2, 6));
@@ -28,12 +28,15 @@ void setup() {
 }
 
 void draw() {
-  background(0);
-
+  //background(0, 20);
+  fill(0, trace)
+  rect(0,0, width, height);
   for (Particle p : swarm) {
     p.update();
     p.display();
   }
+
+  
 
 }
 
@@ -63,6 +66,7 @@ class Particle {
   PVector position;
   PVector velocity;
   int type;
+  //int alpha;
 
   Particle() {
     float rad = random(100);
@@ -70,6 +74,12 @@ class Particle {
     position = new PVector(rad * cos(ang) + width/2, rad * sin(ang)+height/2);
     velocity = new PVector(0, 0);
     type = int(random(numTypes));
+    /*
+    if(random() < 0.5){
+       alpha = int(random(50,100));
+    } else alpha = 100;
+    */
+   
   }
 
   void update() {
@@ -126,7 +136,7 @@ class Particle {
 
 
   void display() {
-    fill(this.type * colorStep, 70, 100);
+    fill(this.type * colorStep, 70, 100, 100);
     ellipse(this.position.x, this.position.y, 8, 8);
   }
 }
