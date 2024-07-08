@@ -23,6 +23,8 @@ void setup() {
   minDistances = new float [numTypes][numTypes];
   radii = new float [numTypes][numTypes];
   setParameters();
+
+  
 }
 
 void draw() {
@@ -32,6 +34,8 @@ void draw() {
     p.update();
     p.display();
   }
+
+  music.play();
 }
 
 void mousePressed(){

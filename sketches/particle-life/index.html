@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Particle Life system</title>
-<script src="Particle_life/processing.min.js"></script>
+    <title>Particle Life system</title>
+    <script src="Particle_life/processing.min.js"></script>
 
-<style>
-    canvas {
-        outline: 0px;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-    }
-</style>
+    <style>
+        canvas {
+            outline: 0px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 
-<style type ="text/css" >
-    .footer{
-        position: fixed;
-        text-align: center;
-        bottom: 0px;
-        width: 100%;
-    }
-</style>
+    <style type="text/css">
+        .footer {
+            position: fixed;
+            text-align: center;
+            bottom: 0px;
+            width: 100%;
+        }
+    </style>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-JPYTNF6MB4');
-</script>
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
 
 
 </head>
+
 <body style="background-color:black">
-    
-  <canvas data-processing-sources="Particle_life/Particle_life.pde" ></canvas>
-  
-  <center><p style="color:white" class="footer"><a href="https://www.patreon.com/jcponce" style="color:white">Patreon</a></p></center>
+
+    <canvas data-processing-sources="Particle_life/Particle_life.pde"></canvas>
+
+    <center>
+        <p style="color:white" class="footer"><a href="https://www.patreon.com/jcponce" style="color:white">Patreon</a>
+        </p>
+    </center>
 </body>
+
+<script type="text/javascript" src="../pond/js/buzz.js"></script>
+<script type="text/javascript">
+
+    var music = new buzz.sound("https://topologia-general.github.io/sketches/audio/spenta-mainyu-jesse-gallagher.mp3", {
+        formats: ["mp3"]
+    });
+
+    //music.play();
+    //console.log(music)
+
+</script>
 
 </html>
