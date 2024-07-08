@@ -34,8 +34,7 @@ void draw() {
     p.update();
     p.display();
   }
-
-  music.play();
+  
 }
 
 void mousePressed(){
