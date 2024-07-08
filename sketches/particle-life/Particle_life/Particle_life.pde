@@ -34,7 +34,7 @@ void draw() {
     p.update();
     p.display();
   }
-  
+
 }
 
 void mousePressed(){
@@ -126,7 +126,7 @@ class Particle {
 
 
   void display() {
-    fill(this.type * colorStep, 100, 100);
+    fill(this.type * colorStep, 70, 100);
     ellipse(this.position.x, this.position.y, 8, 8);
   }
 }
