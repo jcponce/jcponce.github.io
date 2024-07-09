@@ -1,6 +1,6 @@
 int numTypes;
 int colorStep;
-int numParticles = 1000;
+int numParticles = 1100;
 ArrayList<Particle> swarm;
 
 float [][] forces;
