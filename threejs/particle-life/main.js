@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 let scene, camera, renderer, particles, particlePositions, particleColors;
-let numParticles = 1100;
+let numParticles = 1200;
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
