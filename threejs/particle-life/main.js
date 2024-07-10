@@ -46,7 +46,7 @@ function init() {
     // Load the texture
     texture = new THREE.TextureLoader().load('assets/1.png', function (texture) {
         let material = new THREE.PointsMaterial({
-            size: 20,
+            size: 25,
             //map: texture,
             sizeAttenuation: true,
             transparent: true,
