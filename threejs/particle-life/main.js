@@ -13,7 +13,7 @@ let numParticles = 1400;  // Increased number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
-//let velocities;
+//let velocities; // I think I no longer need this :P
 let texture;
 let geometry;
 let positions, colors, velocitiesBuffer;
@@ -198,7 +198,7 @@ init();
 animate();
 
 /*
-// It workds for 1300 particles
+// It works fine for 1200 particles
 
 let scene, camera, renderer, particles, particlePositions, particleColors;
 let numParticles = 700;
