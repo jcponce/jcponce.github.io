@@ -9,7 +9,7 @@
 import * as THREE from "three";
 
 let scene, camera, renderer, particles, particlePositions, particleColors;
-let numParticles = 1500;  // Increased number of particles
+let numParticles = 1400;  // Increased number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
