@@ -49,6 +49,8 @@ function init() {
         scene.add(particles);
     });
 
+    initializeParticles();
+    /*
     for (let i = 0; i < numParticles; i++) {
         let rad = Math.random() * 100;
         let ang = Math.random() * Math.PI * 2;
@@ -60,9 +62,13 @@ function init() {
         particleColors[i * 3 + 1] = color.g;
         particleColors[i * 3 + 2] = color.b;
     }
+    */
+
+
 
     window.addEventListener('resize', onWindowResize, false);
     document.addEventListener('mousedown', setParameters, false);
+    document.getElementById('resetButton').addEventListener('click', resetParticles, false);
 }
 
 function animate() {
@@ -90,57 +96,89 @@ function setParameters() {
     }
 }
 
-function updateParticles() {
+function initializeParticles() {
     for (let i = 0; i < numParticles; i++) {
-        let totalForce = new THREE.Vector3();
-        let position = new THREE.Vector3(
-            particlePositions[i * 3],
-            particlePositions[i * 3 + 1],
-            particlePositions[i * 3 + 2]
-        );
-        let type = i % numTypes;
+      let rad = Math.random() * 100;
+      let ang = Math.random() * Math.PI * 2;
+      particlePositions[i * 3] = rad * Math.cos(ang);
+      particlePositions[i * 3 + 1] = rad * Math.sin(ang);
+      particlePositions[i * 3 + 2] = 0;
+      velocities[i].set(0, 0, 0);
+      let color = new THREE.Color(`hsl(${(i % numTypes) * colorStep}, 70%, 50%)`);
+      particleColors[i * 3] = color.r;
+      particleColors[i * 3 + 1] = color.g;
+      particleColors[i * 3 + 2] = color.b;
+    }
 
-        for (let j = 0; j < numParticles; j++) {
-            if (i !== j) {
-                let otherPosition = new THREE.Vector3(
-                    particlePositions[j * 3],
-                    particlePositions[j * 3 + 1],
-                    particlePositions[j * 3 + 2]
-                );
-                let direction = otherPosition.clone().sub(position);
-                let dis = direction.length();
-                direction.normalize();
+    if (particles) {
+      particles.geometry.attributes.position.needsUpdate = true;
+      particles.geometry.attributes.color.needsUpdate = true;
+    }
+  }
 
-                let otherType = j % numTypes;
+  function resetParticles() {
+    numTypes = Math.floor(Math.random() * 4) + 2;
+    colorStep = 360 / numTypes;
 
-                if (dis < minDistances[type][otherType]) {
-                    let force = direction.clone().multiplyScalar(Math.abs(forces[type][otherType]) * -3 * ((minDistances[type][otherType] - dis) / minDistances[type][otherType]));
-                    totalForce.add(force);
-                }
+    forces = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
+    minDistances = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
+    radii = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
+    setParameters();
 
-                if (dis < radii[type][otherType]) {
-                    let force = direction.clone().multiplyScalar(forces[type][otherType] * ((radii[type][otherType] - dis) / radii[type][otherType]));
-                    totalForce.add(force);
-                }
-            }
+    initializeParticles();
+  }
+
+  function updateParticles() {
+    for (let i = 0; i < numParticles; i++) {
+      let totalForce = new THREE.Vector3();
+      let position = new THREE.Vector3(
+        particlePositions[i * 3],
+        particlePositions[i * 3 + 1],
+        particlePositions[i * 3 + 2]
+      );
+      let type = i % numTypes;
+
+      for (let j = 0; j < numParticles; j++) {
+        if (i !== j) {
+          let otherPosition = new THREE.Vector3(
+            particlePositions[j * 3],
+            particlePositions[j * 3 + 1],
+            particlePositions[j * 3 + 2]
+          );
+          let direction = otherPosition.clone().sub(position);
+          let dis = direction.length();
+          direction.normalize();
+
+          let otherType = j % numTypes;
+
+          if (dis < minDistances[type][otherType]) {
+            let force = direction.clone().multiplyScalar(Math.abs(forces[type][otherType]) * -3 * ((minDistances[type][otherType] - dis) / minDistances[type][otherType]));
+            totalForce.add(force);
+          }
+
+          if (dis < radii[type][otherType]) {
+            let force = direction.clone().multiplyScalar(forces[type][otherType] * ((radii[type][otherType] - dis) / radii[type][otherType]));
+            totalForce.add(force);
+          }
         }
+      }
 
-        velocities[i].add(totalForce.multiplyScalar(0.05));
-        position.add(velocities[i]);
-        velocities[i].multiplyScalar(0.85);
+      velocities[i].add(totalForce.multiplyScalar(0.05));
+      position.add(velocities[i]);
+      velocities[i].multiplyScalar(0.85);
 
-        if (position.x > window.innerWidth / 2) position.x -= window.innerWidth;
-        if (position.x < -window.innerWidth / 2) position.x += window.innerWidth;
-        if (position.y > window.innerHeight / 2) position.y -= window.innerHeight;
-        if (position.y < -window.innerHeight / 2) position.y += window.innerHeight;
+      if (position.x > window.innerWidth / 2) position.x -= window.innerWidth;
+      if (position.x < -window.innerWidth / 2) position.x += window.innerWidth;
+      if (position.y > window.innerHeight / 2) position.y -= window.innerHeight;
+      if (position.y < -window.innerHeight / 2) position.y += window.innerHeight;
 
-        particlePositions[i * 3] = position.x;
-        particlePositions[i * 3 + 1] = position.y;
-        particlePositions[i * 3 + 2] = position.z;
+      particlePositions[i * 3] = position.x;
+      particlePositions[i * 3 + 1] = position.y;
+      particlePositions[i * 3 + 2] = position.z;
     }
 
     particles.geometry.attributes.position.needsUpdate = true;
-}
+  }
 
 init();
 animate();
