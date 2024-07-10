@@ -1,12 +1,19 @@
-import * as THREE from "three";
+/**
+ * Inspired by Terry's Programming Particle Life
+ * https://youtu.be/xiUpAeos168?feature=shared
+ * This version by Juan Carlos Ponce Campuzano
+ * 10/Jul/2024
+ * https://www.dynamicmath.xyz/threejs/particle-life
+ */
 
+import * as THREE from "three";
 
 let scene, camera, renderer, particles, particlePositions, particleColors;
 let numParticles = 1300;  // Increased number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
-let velocities;
+//let velocities;
 let texture;
 let geometry;
 let positions, colors, velocitiesBuffer;
