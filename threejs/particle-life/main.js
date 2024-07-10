@@ -38,6 +38,7 @@ function init() {
         let material = new THREE.PointsMaterial({
             size: 20,
             //map: texture,
+            sizeAttenuation: true,
             transparent: true,
             vertexColors: true,
             alphaMap: texture,
