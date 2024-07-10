@@ -108,7 +108,7 @@ function initializeParticles() {
         velocitiesBuffer[i * 3] = 0;
         velocitiesBuffer[i * 3 + 1] = 0;
         velocitiesBuffer[i * 3 + 2] = 0;
-        let color = new THREE.Color(`hsl(${(i % numTypes) * colorStep}, 70%, 50%)`);
+        let color = new THREE.Color(`hsl(${(i % numTypes) * colorStep}, 80%, 50%)`);
         colors[i * 3] = color.r;
         colors[i * 3 + 1] = color.g;
         colors[i * 3 + 2] = color.b;
