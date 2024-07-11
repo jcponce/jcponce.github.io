@@ -4,11 +4,17 @@
  * This version by Juan Carlos Ponce Campuzano
  * 10/Jul/2024
  * https://www.dynamicmath.xyz/threejs/particle-life
+ * 
+ * There are different versions below, but I think the one I like the most
+ * is with PerspecticeCamera.
  */
+
 
 import * as THREE from "three";
 
-let scene, camera, renderer, particles, particlePositions, particleColors;
+///*
+// PerpesctiveCamera
+let scene, camera, renderer, particles;
 let numParticles = 1400;  // Increased number of particles
 let numTypes;
 let colorStep;
@@ -46,8 +52,7 @@ function init() {
     // Load the texture
     texture = new THREE.TextureLoader().load('assets/1.png', function (texture) {
         let material = new THREE.PointsMaterial({
-            size: 25,
-            //map: texture,
+            size: 30,
             sizeAttenuation: true,
             transparent: true,
             vertexColors: true,
@@ -133,6 +138,12 @@ function resetParticles() {
 }
 
 function updateParticles() {
+    // Toroidal wrapping logic
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let halfWidth = window.innerWidth / 2;
+    let halfHeight = window.innerHeight / 2;
+
     for (let i = 0; i < numParticles; i++) {
         let totalForce = new THREE.Vector3();
         let position = new THREE.Vector3(
@@ -142,6 +153,8 @@ function updateParticles() {
         );
         let type = i % numTypes;
 
+
+
         for (let j = 0; j < numParticles; j++) {
             if (i !== j) {
                 let otherPosition = new THREE.Vector3(
@@ -149,7 +162,14 @@ function updateParticles() {
                     positions[j * 3 + 1],
                     positions[j * 3 + 2]
                 );
-                let direction = otherPosition.clone().sub(position);
+
+                // Calculate the direction with toroidal wrapping
+                let direction = new THREE.Vector3().subVectors(otherPosition, position);
+                if (direction.x > halfWidth) direction.x -= width;
+                if (direction.x < -halfWidth) direction.x += width;
+                if (direction.y > halfHeight) direction.y -= height;
+                if (direction.y < -halfHeight) direction.y += height;
+
                 let dis = direction.length();
                 direction.normalize();
 
@@ -174,14 +194,15 @@ function updateParticles() {
             velocitiesBuffer[i * 3 + 2]
         );
 
+        if (position.x > halfWidth) position.x -= window.innerWidth;
+        if (position.x < -halfWidth) position.x += window.innerWidth;
+        if (position.y > halfHeight) position.y -= window.innerHeight;
+        if (position.y < -halfHeight) position.y += window.innerHeight;
+
         velocity.add(totalForce.multiplyScalar(0.05));
         position.add(velocity);
         velocity.multiplyScalar(0.85);
 
-        if (position.x > window.innerWidth / 2) position.x -= window.innerWidth;
-        if (position.x < -window.innerWidth / 2) position.x += window.innerWidth;
-        if (position.y > window.innerHeight / 2) position.y -= window.innerHeight;
-        if (position.y < -window.innerHeight / 2) position.y += window.innerHeight;
 
         positions[i * 3] = position.x;
         positions[i * 3 + 1] = position.y;
@@ -196,6 +217,232 @@ function updateParticles() {
 
 init();
 animate();
+//*/
+
+
+/*
+// Orthographic camera
+let scene, camera, renderer, particles, particlePositions, particleColors;
+let numParticles = 1000;  // Increased number of particles
+let numTypes;
+let colorStep;
+let forces, minDistances, radii;
+//let velocities; // I think I no longer need this :P
+let texture;
+let geometry;
+let positions, colors, velocitiesBuffer;
+
+function init() {
+    scene = new THREE.Scene();
+    //camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+    let aspect = window.innerWidth / window.innerHeight;
+    let d = 500;
+    camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, 0.1, 1000);
+
+    camera.position.z = 500;
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    numTypes = Math.floor(Math.random() * 7) + 2;
+    colorStep = 360 / numTypes;
+
+    forces = new Float32Array(numTypes * numTypes);
+    minDistances = new Float32Array(numTypes * numTypes);
+    radii = new Float32Array(numTypes * numTypes);
+    setParameters();
+
+    geometry = new THREE.BufferGeometry();
+    positions = new Float32Array(numParticles * 3);
+    colors = new Float32Array(numParticles * 3);
+    velocitiesBuffer = new Float32Array(numParticles * 3);
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    // Load the texture
+    texture = new THREE.TextureLoader().load('assets/1.png', function (texture) {
+        let material = new THREE.PointsMaterial({
+            size: 25,
+            //map: texture,
+            sizeAttenuation: true,
+            transparent: true,
+            vertexColors: true,
+            alphaMap: texture,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+        });
+        particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+    });
+
+    initializeParticles();
+
+    window.addEventListener('resize', onWindowResize, false);
+    document.addEventListener('mousedown', onMouseDown, false);
+    document.getElementById('resetButton').addEventListener('click', resetParticles, false);
+}
+
+function onMouseDown() {
+    if (!firstClick) {
+        setParameters();
+    }
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    if (particles) {
+        updateParticles();
+        renderer.render(scene, camera);
+    }
+}
+
+function onWindowResize() {
+    let aspect = window.innerWidth / window.innerHeight;
+    let d = 500;
+    camera.left = -d * aspect;
+    camera.right = d * aspect;
+    camera.top = d;
+    camera.bottom = -d;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+}
+
+function setParameters() {
+    for (let i = 0; i < numTypes; i++) {
+        for (let j = 0; j < numTypes; j++) {
+            let index = i * numTypes + j;
+            forces[index] = Math.random() * 0.7 + 0.3;
+            if (Math.random() < 0.5) forces[index] *= -1;
+            minDistances[index] = Math.random() * 20 + 30;
+            radii[index] = Math.random() * 180 + 70;
+        }
+    }
+}
+
+function initializeParticles() {
+    for (let i = 0; i < numParticles; i++) {
+        let rad = Math.random() * 100;
+        let ang = Math.random() * Math.PI * 2;
+        positions[i * 3] = rad * Math.cos(ang);
+        positions[i * 3 + 1] = rad * Math.sin(ang);
+        positions[i * 3 + 2] = 0;
+        velocitiesBuffer[i * 3] = 0;
+        velocitiesBuffer[i * 3 + 1] = 0;
+        velocitiesBuffer[i * 3 + 2] = 0;
+        let color = new THREE.Color(`hsl(${(i % numTypes) * colorStep}, 80%, 50%)`);
+        colors[i * 3] = color.r;
+        colors[i * 3 + 1] = color.g;
+        colors[i * 3 + 2] = color.b;
+    }
+
+    if (particles) {
+        geometry.attributes.position.needsUpdate = true;
+        geometry.attributes.color.needsUpdate = true;
+    }
+}
+
+function resetParticles() {
+    numTypes = Math.floor(Math.random() * 4) + 2;
+    colorStep = 360 / numTypes;
+
+    forces = new Float32Array(numTypes * numTypes);
+    minDistances = new Float32Array(numTypes * numTypes);
+    radii = new Float32Array(numTypes * numTypes);
+    setParameters();
+
+    initializeParticles();
+}
+
+function updateParticles() {
+    let width = camera.right - camera.left;
+    let height = camera.top - camera.bottom;
+    let halfWidth = width / 2;
+    let halfHeight = height / 2;
+
+
+    for (let i = 0; i < numParticles; i++) {
+        let totalForce = new THREE.Vector3();
+        let position = new THREE.Vector3(
+            positions[i * 3],
+            positions[i * 3 + 1],
+            positions[i * 3 + 2]
+        );
+        let type = i % numTypes;
+
+
+
+        for (let j = 0; j < numParticles; j++) {
+            if (i !== j) {
+                let otherPosition = new THREE.Vector3(
+                    positions[j * 3],
+                    positions[j * 3 + 1],
+                    positions[j * 3 + 2]
+                );
+
+                //let direction = otherPosition.clone().sub(position);
+                //let dis = direction.length();
+                //direction.normalize();
+
+                // Calculate the direction with toroidal wrapping
+          let direction = new THREE.Vector3().subVectors(otherPosition, position);
+          if (direction.x > halfWidth) direction.x -= width;
+          if (direction.x < -halfWidth) direction.x += width;
+          if (direction.y > halfHeight) direction.y -= height;
+          if (direction.y < -halfHeight) direction.y += height;
+
+          let dis = direction.length();
+          direction.normalize();
+
+                let otherType = j % numTypes;
+                let index = type * numTypes + otherType;
+
+                if (dis < minDistances[index]) {
+                    let force = direction.clone().multiplyScalar(Math.abs(forces[index]) * -3 * ((minDistances[index] - dis) / minDistances[index]));
+                    totalForce.add(force);
+                }
+
+                if (dis < radii[index]) {
+                    let force = direction.clone().multiplyScalar(forces[index] * ((radii[index] - dis) / radii[index]));
+                    totalForce.add(force);
+                }
+            }
+        }
+
+        let velocity = new THREE.Vector3(
+            velocitiesBuffer[i * 3],
+            velocitiesBuffer[i * 3 + 1],
+            velocitiesBuffer[i * 3 + 2]
+        );
+
+
+        // Toroidal wrapping logic
+        if (position.x > halfWidth) position.x -= width;
+        if (position.x < -halfWidth) position.x += width;
+        if (position.y > halfHeight) position.y -= height;
+        if (position.y < -halfHeight) position.y += height;
+
+        velocity.add(totalForce.multiplyScalar(0.05));
+        position.add(velocity);
+        velocity.multiplyScalar(0.85);
+
+
+        positions[i * 3] = position.x;
+        positions[i * 3 + 1] = position.y;
+        positions[i * 3 + 2] = position.z;
+        velocitiesBuffer[i * 3] = velocity.x;
+        velocitiesBuffer[i * 3 + 1] = velocity.y;
+        velocitiesBuffer[i * 3 + 2] = velocity.z;
+    }
+
+    geometry.attributes.position.needsUpdate = true;
+}
+
+init();
+animate();
+*/
 
 /*
 // It works fine for 1200 particles
@@ -210,7 +457,7 @@ let texture;
 
 function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 500;
 
     renderer = new THREE.WebGLRenderer();
@@ -381,7 +628,7 @@ let velocities;
 
 function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(155, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 500;
 
     renderer = new THREE.WebGLRenderer();
