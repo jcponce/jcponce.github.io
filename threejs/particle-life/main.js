@@ -242,6 +242,278 @@ animate();
 
 
 /*
+// PerpesctiveCamera with Controls for Active Blending with Spatial partitioning test
+let scene, camera, renderer, particles;
+let numParticles = 2000;  // Increased number of particles
+let numTypes;
+let colorStep;
+let forces, minDistances, radii;
+let texture;
+let geometry;
+let positions, colors, velocitiesBuffer;
+
+let material;
+let params = {
+    additiveBlending: false
+};
+
+function init() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(115, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 500;
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    numTypes = Math.floor(Math.random() * 7) + 2;
+    colorStep = 360 / numTypes;
+
+    forces = new Float32Array(numTypes * numTypes);
+    minDistances = new Float32Array(numTypes * numTypes);
+    radii = new Float32Array(numTypes * numTypes);
+    setParameters();
+
+    geometry = new THREE.BufferGeometry();
+    positions = new Float32Array(numParticles * 3);
+    colors = new Float32Array(numParticles * 3);
+    velocitiesBuffer = new Float32Array(numParticles * 3);
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    // Load the texture
+    texture = new THREE.TextureLoader().load('assets/1.png', function (texture) {
+        material = new THREE.PointsMaterial({
+            size: 30,
+            sizeAttenuation: true,
+            transparent: true,
+            vertexColors: true,
+            alphaMap: texture,
+            depthWrite: false
+        });
+        particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+    });
+
+    initializeParticles();
+
+    window.addEventListener('resize', onWindowResize, false);
+    document.addEventListener('mousedown', onMouseDown, false);
+    document.getElementById('resetButton').addEventListener('click', resetParticles, false);
+
+    // Add GUI
+    const gui = new GUI();
+    gui.add(params, 'additiveBlending').name('Additive Blending').onChange(toggleBlending);
+    gui.close();
+
+}
+
+function onMouseDown() {
+    if (!firstClick) {
+        setParameters();
+    }
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    if (particles) {
+        updateParticles();
+        renderer.render(scene, camera);
+    }
+}
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function setParameters() {
+    for (let i = 0; i < numTypes; i++) {
+        for (let j = 0; j < numTypes; j++) {
+            let index = i * numTypes + j;
+            forces[index] = Math.random() * 0.7 + 0.3;
+            if (Math.random() < 0.5) forces[index] *= -1;
+            minDistances[index] = Math.random() * 20 + 30;
+            radii[index] = Math.random() * 180 + 70;
+        }
+    }
+}
+
+function initializeParticles() {
+    for (let i = 0; i < numParticles; i++) {
+        //let rad = Math.random() * 100;
+        //let ang = Math.random() * Math.PI * 2;
+        let xvalue = Math.random(- 1000, 1000);
+        let yvalue = Math.random(- 1000, 1000);
+        //positions[i * 3] = rad * Math.cos(ang);
+        //positions[i * 3 + 1] = rad * Math.sin(ang);
+        positions[i * 3] = xvalue;
+        positions[i * 3 + 1] = yvalue;
+        positions[i * 3 + 2] = 0;
+        velocitiesBuffer[i * 3] = 0;
+        velocitiesBuffer[i * 3 + 1] = 0;
+        velocitiesBuffer[i * 3 + 2] = 0;
+        let color = new THREE.Color(`hsl(${(i % numTypes) * colorStep}, 80%, 50%)`);
+        colors[i * 3] = color.r;
+        colors[i * 3 + 1] = color.g;
+        colors[i * 3 + 2] = color.b;
+    }
+
+    if (particles) {
+        geometry.attributes.position.needsUpdate = true;
+        geometry.attributes.color.needsUpdate = true;
+    }
+}
+
+function resetParticles() {
+    numTypes = Math.floor(Math.random() * 4) + 2;
+    colorStep = 360 / numTypes;
+
+    forces = new Float32Array(numTypes * numTypes);
+    minDistances = new Float32Array(numTypes * numTypes);
+    radii = new Float32Array(numTypes * numTypes);
+    setParameters();
+
+    initializeParticles();
+}
+
+let gridCellSize = 200;  // Adjust based on your particle interaction range
+let grid = {};
+
+// Function to calculate the grid cell key for a given position
+function getGridCellKey(position) {
+  let x = Math.floor(position.x / gridCellSize);
+  let y = Math.floor(position.y / gridCellSize);
+  return `${x},${y}`;
+}
+
+
+function updateParticles() {
+    let width = camera.right - camera.left;
+    let height = camera.top - camera.bottom;
+    let halfWidth = width / 2;
+    let halfHeight = height / 2;
+  
+    // Clear the grid
+    grid = {};
+  
+    // Assign particles to grid cells
+    for (let i = 0; i < numParticles; i++) {
+      let position = new THREE.Vector3(
+        positions[i * 3],
+        positions[i * 3 + 1],
+        positions[i * 3 + 2]
+      );
+  
+      let key = getGridCellKey(position);
+      if (!grid[key]) {
+        grid[key] = [];
+      }
+      grid[key].push(i);
+    }
+  
+    for (let i = 0; i < numParticles; i++) {
+      let totalForce = new THREE.Vector3();
+      let position = new THREE.Vector3(
+        positions[i * 3],
+        positions[i * 3 + 1],
+        positions[i * 3 + 2]
+      );
+      let type = i % numTypes;
+  
+      let key = getGridCellKey(position);
+      let neighbors = getNeighboringCells(key);
+  
+      for (let neighborKey of neighbors) {
+        if (grid[neighborKey]) {
+          for (let j of grid[neighborKey]) {
+            if (i !== j) {
+              let otherPosition = new THREE.Vector3(
+                positions[j * 3],
+                positions[j * 3 + 1],
+                positions[j * 3 + 2]
+              );
+  
+              // Calculate the direction with toroidal wrapping
+              let direction = new THREE.Vector3().subVectors(otherPosition, position);
+              if (direction.x > halfWidth) direction.x -= width;
+              if (direction.x < -halfWidth) direction.x += width;
+              if (direction.y > halfHeight) direction.y -= height;
+              if (direction.y < -halfHeight) direction.y += height;
+  
+              let dis = direction.length();
+              direction.normalize();
+  
+              let otherType = j % numTypes;
+              let index = type * numTypes + otherType;
+  
+              if (dis < minDistances[index]) {
+                let force = direction.clone().multiplyScalar(Math.abs(forces[index]) * -3 * ((minDistances[index] - dis) / minDistances[index]));
+                totalForce.add(force);
+              }
+  
+              if (dis < radii[index]) {
+                let force = direction.clone().multiplyScalar(forces[index] * ((radii[index] - dis) / radii[index]));
+                totalForce.add(force);
+              }
+            }
+          }
+        }
+      }
+  
+      let velocity = new THREE.Vector3(
+        velocitiesBuffer[i * 3],
+        velocitiesBuffer[i * 3 + 1],
+        velocitiesBuffer[i * 3 + 2]
+      );
+  
+      velocity.add(totalForce.multiplyScalar(0.05));
+      position.add(velocity);
+      velocity.multiplyScalar(0.85);
+  
+      // Toroidal wrapping for positions
+      if (position.x > halfWidth) position.x -= width;
+      if (position.x < -halfWidth) position.x += width;
+      if (position.y > halfHeight) position.y -= height;
+      if (position.y < -halfHeight) position.y += height;
+  
+      positions[i * 3] = position.x;
+      positions[i * 3 + 1] = position.y;
+      positions[i * 3 + 2] = position.z;
+      velocitiesBuffer[i * 3] = velocity.x;
+      velocitiesBuffer[i * 3 + 1] = velocity.y;
+      velocitiesBuffer[i * 3 + 2] = velocity.z;
+    }
+  
+    geometry.attributes.position.needsUpdate = true;
+  }
+  
+  function getNeighboringCells(key) {
+    let [x, y] = key.split(',').map(Number);
+    let neighbors = [];
+    for (let dx = -1; dx <= 1; dx++) {
+      for (let dy = -1; dy <= 1; dy++) {
+        neighbors.push(`${x + dx},${y + dy}`);
+      }
+    }
+    return neighbors;
+  }
+  
+
+function toggleBlending(value) {
+    if (material) {
+        material.blending = value ? THREE.AdditiveBlending : THREE.NormalBlending;
+        material.needsUpdate = true;
+    }
+}
+
+init();
+animate();
+*/
+
+/*
 // Orthographic camera
 let scene, camera, renderer, particles, particlePositions, particleColors;
 let numParticles = 1000;  // Increased number of particles
