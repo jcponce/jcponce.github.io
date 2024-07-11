@@ -11,9 +11,10 @@
 
 
 import * as THREE from "three";
+import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 ///*
-// PerpesctiveCamera
+// PerpesctiveCamera with Controls for Active Blending
 let scene, camera, renderer, particles;
 let numParticles = 1400;  // Increased number of particles
 let numTypes;
@@ -23,6 +24,11 @@ let forces, minDistances, radii;
 let texture;
 let geometry;
 let positions, colors, velocitiesBuffer;
+
+let material;
+let params = {
+    additiveBlending: false
+};
 
 function init() {
     scene = new THREE.Scene();
@@ -51,14 +57,14 @@ function init() {
 
     // Load the texture
     texture = new THREE.TextureLoader().load('assets/1.png', function (texture) {
-        let material = new THREE.PointsMaterial({
+        material = new THREE.PointsMaterial({
             size: 30,
             sizeAttenuation: true,
             transparent: true,
             vertexColors: true,
             alphaMap: texture,
             depthWrite: false,
-            blending: THREE.AdditiveBlending
+            //blending: THREE.AdditiveBlending
         });
         particles = new THREE.Points(geometry, material);
         scene.add(particles);
@@ -69,6 +75,12 @@ function init() {
     window.addEventListener('resize', onWindowResize, false);
     document.addEventListener('mousedown', onMouseDown, false);
     document.getElementById('resetButton').addEventListener('click', resetParticles, false);
+
+    // Add GUI
+    const gui = new GUI();
+    gui.add(params, 'additiveBlending').name('Additive Blending').onChange(toggleBlending);
+    gui.close();
+
 }
 
 function onMouseDown() {
@@ -213,6 +225,13 @@ function updateParticles() {
     }
 
     geometry.attributes.position.needsUpdate = true;
+}
+
+function toggleBlending(value) {
+    if (material) {
+        material.blending = value ? THREE.AdditiveBlending : THREE.NormalBlending;
+        material.needsUpdate = true;
+    }
 }
 
 init();
