@@ -6,11 +6,6 @@
  * 7/Jul/2024
  * https://www.dynamicmath.xyz/sketches/particle-life
  * 
- * There are different versions below, but I think the one 
- * I like the most is with PerspecticeCamera.
- * TO-DO: 
- * - Clean the code :P
- * - Make a 3D version
  */
 
 int numTypes = 6;
