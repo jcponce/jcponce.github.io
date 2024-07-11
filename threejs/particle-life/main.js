@@ -5,8 +5,8 @@
  * 10/Jul/2024
  * https://www.dynamicmath.xyz/threejs/particle-life
  * 
- * There are different versions below, but I think the one I like the most
- * is with PerspecticeCamera.
+ * There are different versions below, but I think the one 
+ * I like the most is with PerspecticeCamera.
  * TO-DO: 
  * - Clean the code :P
  * - Make a 3D version
