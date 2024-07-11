@@ -20,7 +20,6 @@ let numParticles = 1400;  // Increased number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
-//let velocities; // I think I no longer need this :P
 let texture;
 let geometry;
 let positions, colors, velocitiesBuffer;
