@@ -1,6 +1,7 @@
 /**
- * Inspired by Terry's Programming Particle Life
+ * Inspired by Terry Soule's Programming Particle Life
  * https://youtu.be/xiUpAeos168?feature=shared
+ * 
  * This version by Juan Carlos Ponce Campuzano
  * 10/Jul/2024
  * https://www.dynamicmath.xyz/threejs/particle-life
