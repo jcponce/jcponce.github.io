@@ -20,7 +20,7 @@ import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 ///*
 // PerpesctiveCamera with Controls for Active Blending
 let scene, camera, renderer, particles;
-let numParticles = 1400;  // Increased number of particles
+let numParticles = 1300;  // Increased number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
@@ -42,7 +42,7 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    numTypes = Math.floor(Math.random() * 7) + 2;
+    numTypes = Math.floor(Math.random() * 5) + 2;
     colorStep = 360 / numTypes;
 
     forces = new Float32Array(numTypes * numTypes);
