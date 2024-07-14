@@ -86,6 +86,13 @@ function init() {
 
 }
 
+function toggleBlending(value) {
+    if (material) {
+        material.blending = value ? THREE.AdditiveBlending : THREE.NormalBlending;
+        material.needsUpdate = true;
+    }
+}
+
 function onMouseDown() {
     if (!firstClick) {
         setParameters();
@@ -230,12 +237,7 @@ function updateParticles() {
     geometry.attributes.position.needsUpdate = true;
 }
 
-function toggleBlending(value) {
-    if (material) {
-        material.blending = value ? THREE.AdditiveBlending : THREE.NormalBlending;
-        material.needsUpdate = true;
-    }
-}
+
 
 init();
 animate();
