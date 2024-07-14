@@ -20,7 +20,7 @@ import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 ///*
 // PerpesctiveCamera with Controls for Active Blending
 let scene, camera, renderer, particles;
-let numParticles = 1300;  // Increased number of particles
+let numParticles = 1200;  // Increased number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
