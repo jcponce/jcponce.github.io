@@ -30,7 +30,7 @@ let positions, colors, velocitiesBuffer;
 
 let material;
 let params = {
-    additiveBlending: false
+    additiveBlending: true
 };
 
 function init() {
@@ -66,7 +66,8 @@ function init() {
             transparent: true,
             vertexColors: true,
             alphaMap: texture,
-            depthWrite: false
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
         });
         particles = new THREE.Points(geometry, material);
         scene.add(particles);
@@ -127,7 +128,7 @@ function initializeParticles() {
         velocitiesBuffer[i * 3] = 0;
         velocitiesBuffer[i * 3 + 1] = 0;
         velocitiesBuffer[i * 3 + 2] = 0;
-        let color = new THREE.Color(`hsl(${(i % numTypes) * colorStep}, 80%, 50%)`);
+        let color = new THREE.Color(`hsl(${(i % numTypes) * colorStep}, 100%, 40%)`);
         colors[i * 3] = color.r;
         colors[i * 3 + 1] = color.g;
         colors[i * 3 + 2] = color.b;
