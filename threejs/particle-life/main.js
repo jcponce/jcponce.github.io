@@ -232,7 +232,7 @@ function updateParticles() {
         velocitiesBuffer[i * 3] = velocity.x;
         velocitiesBuffer[i * 3 + 1] = velocity.y;
         velocitiesBuffer[i * 3 + 2] = velocity.z;
-    }
+    }   
 
     geometry.attributes.position.needsUpdate = true;
 }
