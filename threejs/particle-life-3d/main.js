@@ -20,7 +20,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 let scene, camera, renderer, controls;
 let particles = [];
-let numParticles = 1000; // Increase number of particles
+let numParticles = 1300; // Increase number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
@@ -204,14 +204,16 @@ function onWindowResize() {
 }
 
 function setParameters() {
-    for (let i = 0; i < numTypes; i++) {
-        for (let j = 0; j < numTypes; j++) {
-            forces[i][j] = Math.random() * 0.7 + 0.3;
-            if (Math.random() < 0.5) forces[i][j] *= -1;
-            minDistances[i][j] = Math.random() * 20 + 30;
-            radii[i][j] = Math.random() * 180 + 70;
+    //if(!firstClick){
+        for (let i = 0; i < numTypes; i++) {
+            for (let j = 0; j < numTypes; j++) {
+                forces[i][j] = Math.random() * 0.7 + 0.3;
+                if (Math.random() < 0.5) forces[i][j] *= -1;
+                minDistances[i][j] = Math.random() * 20 + 30;
+                radii[i][j] = Math.random() * 180 + 70;
+            }
         }
-    }
+    //}
 }
 
 function updateParticles() {
