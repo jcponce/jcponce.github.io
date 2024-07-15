@@ -173,6 +173,7 @@ function init() {
 
     window.addEventListener('resize', onWindowResize, false);
     document.addEventListener('dblclick', setParameters, false);
+    //document.getElementById('resetButton').addEventListener('click', resetParticles, false);
 }
 
 function animate() {
@@ -181,6 +182,20 @@ function animate() {
     controls.update();
     renderer.render(scene, camera);
 }
+
+/*
+function resetParticles() {
+    numTypes = Math.floor(Math.random() * 7) + 2;
+    colorStep = 360 / numTypes;
+
+    forces = new Float32Array(numTypes * numTypes);
+    minDistances = new Float32Array(numTypes * numTypes);
+    radii = new Float32Array(numTypes * numTypes);
+    setParameters();
+
+    initializeParticles();
+}
+*/
 
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
