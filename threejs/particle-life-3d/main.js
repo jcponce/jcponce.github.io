@@ -22,7 +22,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 ///*
 let scene, camera, renderer, controls;
 let particles = [];
-let numParticles = 1200; // Increase number of particles
+let numParticles = 1300; // Increase number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
@@ -36,7 +36,7 @@ class Particle {
         let hue = this.type * colorStep;
         let color = new THREE.Color(`hsl(${hue}, 100%, 50%)`);
 
-        let geometry = new THREE.SphereGeometry(2, 32, 32);
+        let geometry = new THREE.SphereGeometry(2, 28, 28);
         let material = new THREE.MeshLambertMaterial({
             color: color,
             emissive: 0x000000,
@@ -121,6 +121,7 @@ function init() {
     //controls.screenSpacePanning = false;
     //controls.minDistance = 500;
     //controls.maxDistance = 3000;
+
 
     let directionalLight = new THREE.DirectionalLight(0xffffff, 4);
     directionalLight.position.set(1, 1, 1).normalize();
