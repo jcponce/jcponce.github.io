@@ -223,7 +223,7 @@ function resetParticles() {
 
 ///*
 let scene, camera, renderer, particles;
-let numParticles = 1500;
+let numParticles = 1300;
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
