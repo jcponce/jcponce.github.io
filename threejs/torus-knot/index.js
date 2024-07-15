@@ -51,9 +51,8 @@ scene.add(light3);
 const geometry = new THREE.TorusKnotGeometry(0.6, 0.15, 200, 16);
 const material = new THREE.MeshLambertMaterial({ color: 0x049ef4, emissive: 0x000000 });
 
-const torusKnot = new THREE.Mesh(geometry, material); scene.add(torusKnot);
+const torusKnot = new THREE.Mesh(geometry, material);
 scene.add(torusKnot);
-
 
 const fireEffect = getParticleSystem({
   camera,
