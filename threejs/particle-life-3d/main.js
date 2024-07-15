@@ -278,7 +278,7 @@ function init() {
 
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true; // Optional: Enable damping (smooth panning and zooming)
-    //controls.dampingFactor = 0.1; // Optional: Set damping factor
+    controls.dampingFactor = 0.05; // Optional: Set damping factor
 
     initializeParticles();
 
