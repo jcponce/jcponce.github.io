@@ -123,7 +123,7 @@ function init() {
     //controls.maxDistance = 3000;
 
 
-    let directionalLight = new THREE.DirectionalLight(0xffffff, 4);
+    let directionalLight = new THREE.DirectionalLight(0xffffff, 2);
     directionalLight.position.set(1, 1, 1).normalize();
     scene.add(directionalLight);
 
@@ -152,7 +152,7 @@ function init() {
         opacity: 0.2,
         radius: 500,
         size: 1000,
-        z: -400,
+        z: -350,
     });
     scene.add(gradientBackground);
 
