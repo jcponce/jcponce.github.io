@@ -20,7 +20,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 let scene, camera, renderer, controls;
 let particles = [];
-let numParticles = 1300; // Increase number of particles
+let numParticles = 1500; // Increase number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
