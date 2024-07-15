@@ -29,13 +29,8 @@ let worldDimensions = new THREE.Vector3(500, 500, 500);
 
 class Particle {
     constructor() {
-        let rad = Math.random() * 100;
-        let angX = Math.random() * Math.PI * 2;
-        let angY = Math.random() * Math.PI * 2;
-        this.position = new THREE.Vector3(rad * Math.cos(angX), rad * Math.sin(angX), rad * Math.sin(angY));
-        this.velocity = new THREE.Vector3(0, 0, 0);
-        this.type = Math.floor(Math.random() * numTypes);
 
+        this.initialize();
         let hue = this.type * colorStep;
         let color = new THREE.Color(`hsl(${hue}, 70%, 50%)`);
 
@@ -48,6 +43,15 @@ class Particle {
         this.mesh = new THREE.Mesh(geometry, material);
         this.mesh.position.copy(this.position);
         scene.add(this.mesh);
+    }
+
+    initialize() {
+        let rad = Math.random() * 100;
+        let angX = Math.random() * Math.PI * 2;
+        let angY = Math.random() * Math.PI * 2;
+        this.position = new THREE.Vector3(rad * Math.cos(angX), rad * Math.sin(angX), rad * Math.sin(angY));
+        this.velocity = new THREE.Vector3(0, 0, 0);
+        this.type = Math.floor(Math.random() * numTypes);
     }
 
     update() {
@@ -149,7 +153,7 @@ function init() {
     scene.add(gradientBackground);
 
 
-    numTypes = Math.floor(Math.random() * 7) + 2;
+    numTypes = Math.floor(Math.random() * 5) + 2;
     colorStep = 360 / numTypes;
 
     forces = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
@@ -163,6 +167,7 @@ function init() {
 
     window.addEventListener('resize', onWindowResize, false);
     document.addEventListener('dblclick', setParameters, false);
+    document.getElementById('resetButton').addEventListener('click', resetParticles, false);
 }
 
 function animate() {
@@ -198,6 +203,13 @@ function updateParticles() {
     }
 }
 
+
+function resetParticles() {
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].initialize();
+        particles[i].mesh.position.copy(particles[i].position);
+    }
+}
 
 
 
