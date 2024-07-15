@@ -32,7 +32,7 @@ class Particle {
 
         this.initialize();
         let hue = this.type * colorStep;
-        let color = new THREE.Color(`hsl(${hue}, 70%, 50%)`);
+        let color = new THREE.Color(`hsl(${hue}, 100%, 50%)`);
 
         let geometry = new THREE.SphereGeometry(2, 32, 32);
         let material = new THREE.MeshLambertMaterial({
