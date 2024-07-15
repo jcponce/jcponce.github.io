@@ -117,10 +117,10 @@ function init() {
 
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
+    controls.dampingFactor = 0.5;
     //controls.screenSpacePanning = false;
-    //controls.minDistance = 500;
-    //controls.maxDistance = 3000;
+    controls.minDistance = 100;
+    controls.maxDistance = 3000;
 
 
     let directionalLight = new THREE.DirectionalLight(0xffffff, 2);
