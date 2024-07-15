@@ -24,7 +24,6 @@ let numParticles = 1000; // Increase number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
-let particleGeometry, particleMaterial;
 
 let worldDimensions = new THREE.Vector3(500, 500, 500);
 
@@ -58,6 +57,15 @@ class Particle {
         for (let i = 0; i < particles.length; i++) {
             if (particles[i] !== this) {
                 let direction = particles[i].position.clone().sub(this.position);
+
+                if (direction.x > worldDimensions.x / 2) direction.x -= worldDimensions.x;
+                if (direction.x < -worldDimensions.x / 2) direction.x += worldDimensions.x;
+                if (direction.y > worldDimensions.y / 2) direction.y -= worldDimensions.y;
+                if (direction.y < -worldDimensions.y / 2) direction.y += worldDimensions.y;
+                if (direction.z > worldDimensions.z / 2) direction.z -= worldDimensions.z;
+                if (direction.z < -worldDimensions.z / 2) direction.z += worldDimensions.z;
+
+
                 let dis = direction.length();
                 direction.normalize();
 
@@ -131,13 +139,7 @@ function init() {
     const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
     scene.add(hemiLight);
 
-    numTypes = Math.floor(Math.random() * 4) + 2;
-    colorStep = 360 / numTypes;
-
-    forces = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
-    minDistances = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
-    radii = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
-    setParameters();
+    
 
     // Sprites BG
     const gradientBackground = getLayer({
@@ -156,6 +158,14 @@ function init() {
         metalness: 0.2
     });
     */
+
+    numTypes = Math.floor(Math.random() * 7) + 2;
+    colorStep = 360 / numTypes;
+
+    forces = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
+    minDistances = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
+    radii = Array.from({ length: numTypes }, () => Array(numTypes).fill(0));
+    setParameters();
 
     for (let i = 0; i < numParticles; i++) {
         particles.push(new Particle());
