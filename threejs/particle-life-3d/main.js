@@ -39,12 +39,10 @@ class Particle {
         let hue = this.type * colorStep;
         let color = new THREE.Color(`hsl(${hue}, 70%, 50%)`);
 
-        let geometry = new THREE.SphereGeometry(2, 40, 40);
+        let geometry = new THREE.SphereGeometry(2, 32, 32);
         let material = new THREE.MeshLambertMaterial({
             color: color,
             emissive: 0x000000,
-            //roughness: 0.8,
-            //metalness: 0.2
         });
 
         this.mesh = new THREE.Mesh(geometry, material);
@@ -139,9 +137,7 @@ function init() {
     const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
     scene.add(hemiLight);
 
-    
-
-    // Sprites BG
+    // Sprites BackGround
     const gradientBackground = getLayer({
         hue: 0.6,
         numSprites: 8,
@@ -151,13 +147,7 @@ function init() {
         z: -400,
     });
     scene.add(gradientBackground);
-    /*
-    particleGeometry = new THREE.SphereGeometry(5, 64, 64);
-    particleMaterial = new THREE.MeshStandardMaterial({
-        roughness: 0.8,
-        metalness: 0.2
-    });
-    */
+
 
     numTypes = Math.floor(Math.random() * 7) + 2;
     colorStep = 360 / numTypes;
@@ -173,7 +163,6 @@ function init() {
 
     window.addEventListener('resize', onWindowResize, false);
     document.addEventListener('dblclick', setParameters, false);
-    //document.getElementById('resetButton').addEventListener('click', resetParticles, false);
 }
 
 function animate() {
@@ -183,19 +172,6 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-/*
-function resetParticles() {
-    numTypes = Math.floor(Math.random() * 7) + 2;
-    colorStep = 360 / numTypes;
-
-    forces = new Float32Array(numTypes * numTypes);
-    minDistances = new Float32Array(numTypes * numTypes);
-    radii = new Float32Array(numTypes * numTypes);
-    setParameters();
-
-    initializeParticles();
-}
-*/
 
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -204,16 +180,16 @@ function onWindowResize() {
 }
 
 function setParameters() {
-    //if(!firstClick){
-        for (let i = 0; i < numTypes; i++) {
-            for (let j = 0; j < numTypes; j++) {
-                forces[i][j] = Math.random() * 0.7 + 0.3;
-                if (Math.random() < 0.5) forces[i][j] *= -1;
-                minDistances[i][j] = Math.random() * 20 + 30;
-                radii[i][j] = Math.random() * 180 + 70;
-            }
+
+    for (let i = 0; i < numTypes; i++) {
+        for (let j = 0; j < numTypes; j++) {
+            forces[i][j] = Math.random() * 0.7 + 0.3;
+            if (Math.random() < 0.5) forces[i][j] *= -1;
+            minDistances[i][j] = Math.random() * 20 + 30;
+            radii[i][j] = Math.random() * 180 + 70;
         }
-    //}
+    }
+
 }
 
 function updateParticles() {
