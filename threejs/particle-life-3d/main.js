@@ -18,6 +18,12 @@ import getLayer from "./getLayer.js";
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
+/*
+import * as THREE from "three";
+import getLayer from "./getLayer.js";
+import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
 let scene, camera, renderer, controls;
 let particles = [];
 let numParticles = 1500; // Increase number of particles
@@ -98,6 +104,7 @@ class Particle {
         this.mesh.position.copy(this.position);
     }
 }
+
 
 init();
 animate();
@@ -210,13 +217,13 @@ function resetParticles() {
         particles[i].mesh.position.copy(particles[i].position);
     }
 }
+*/
 
 
 
-
-/*
+///*
 let scene, camera, renderer, particles;
-let numParticles = 1200;
+let numParticles = 1500;
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
@@ -239,7 +246,7 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    numTypes = Math.floor(Math.random() * 5) + 2;
+    numTypes = Math.floor(Math.random() * 7) + 2;
     colorStep = 360 / numTypes;
 
     forces = new Float32Array(numTypes * numTypes);
@@ -255,9 +262,9 @@ function init() {
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    texture = new THREE.TextureLoader().load('assets/1.png', function (texture) {
+    texture = new THREE.TextureLoader().load('assets/point1.png', function (texture) {
         material = new THREE.PointsMaterial({
-            size: 30,
+            size: 8,
             sizeAttenuation: true,
             transparent: true,
             vertexColors: true,
@@ -440,4 +447,4 @@ function updateParticles() {
 
 init();
 animate();
-*/
+//*/
