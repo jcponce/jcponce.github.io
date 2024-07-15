@@ -26,7 +26,7 @@ let colorStep;
 let forces, minDistances, radii;
 let particleGeometry, particleMaterial;
 
-let worldDimensions = new THREE.Vector3(1000, 1000, 1000);
+let worldDimensions = new THREE.Vector3(500, 500, 500);
 
 class Particle {
     constructor() {
@@ -40,10 +40,10 @@ class Particle {
         let hue = this.type * colorStep;
         let color = new THREE.Color(`hsl(${hue}, 70%, 50%)`);
 
-        let geometry = new THREE.SphereGeometry(3, 40, 40);
+        let geometry = new THREE.SphereGeometry(2, 40, 40);
         let material = new THREE.MeshLambertMaterial({
             color: color,
-            emissive: 0x000000
+            emissive: 0x000000,
             //roughness: 0.8,
             //metalness: 0.2
         });
@@ -60,6 +60,7 @@ class Particle {
                 let direction = particles[i].position.clone().sub(this.position);
                 let dis = direction.length();
                 direction.normalize();
+
 
                 if (dis < minDistances[this.type][particles[i].type]) {
                     let force = direction.clone().multiplyScalar(Math.abs(forces[this.type][particles[i].type]) * -3 * ((minDistances[this.type][particles[i].type] - dis) / minDistances[this.type][particles[i].type]));
