@@ -38,8 +38,8 @@ let params = {
     };
     
     colorMode(RGB, 200, 200, 200, 200);
-    fill(90)
-    stroke(255);
+    //fill(90)
+    //stroke(255);
     strokeWeight(0.05);
 
     steps_per_frame = int(random(3, 12));
@@ -59,8 +59,18 @@ let params = {
     for (let i = 0; i < point_n; ++i) {
       let x = points[i * 2], y = points[i * 2 + 1];
       let r = params.c_rep / (fields.R_val[i] * 5.0);
+      //stroke(255)
+      push();
+      fill(200,10);
+      noStroke();
+      ellipse(x, y, r * 2.5, r * 2.5);
+      pop();
 
-      ellipse(x, y, r * 2, r * 2);
+      push();
+      stroke(255);
+      strokeWeight(0.1);
+      point(x, y);
+      pop();
     }
   }
   
