@@ -51,7 +51,7 @@ let params = {
   
   function draw() {
     for (let i = 0; i < steps_per_frame; ++i) step();
-    background(0, 30);
+    background(0,20);
     translate(width / 2, height / 2);
     scale(width / 45.0);
     
@@ -61,7 +61,7 @@ let params = {
       let r = params.c_rep / (fields.R_val[i] * 5.0);
       //stroke(255)
       push();
-      fill(200,10);
+      fill(100);
       noStroke();
       ellipse(x, y, r * 2.5, r * 2.5);
       pop();
