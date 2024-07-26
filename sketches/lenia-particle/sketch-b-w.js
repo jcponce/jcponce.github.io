@@ -21,7 +21,7 @@ let params = {
     dt: 0.1
   };
   
-  let point_n = 200;
+  let point_n = 250;
   let points;
   let fields;
   let steps_per_frame; // Adjust this based on desired speed
@@ -61,9 +61,9 @@ let params = {
       let r = params.c_rep / (fields.R_val[i] * 5.0);
       //stroke(255)
       push();
-      fill(100);
+      fill(180, 10);
       noStroke();
-      ellipse(x, y, r * 2.5, r * 2.5);
+      ellipse(x, y, r * 2.1, r * 2.1);
       pop();
 
       push();
