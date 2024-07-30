@@ -85,9 +85,8 @@ function draw() {
 
 		fish.update();
 		fish.render();
-
-		// If there is any food in the pond
-		///*
+		
+		///* // If there is any food in the pond
 		if (foods.length > 0) {
 			// Check if a fish is near one and apply arrive behavior
 			for (let j = 0; j < foods.length; j++) {
