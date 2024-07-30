@@ -19,13 +19,15 @@ let numBoids = 10;
 let boids = [];
 
 let ripples = [];
-let dropSound1, dropSound2;
+let dropSound1, dropSound2, gulp, explosion;
 let nextDropFrame = 0;
 
 function preload() {
 	soundFormats('mp3', 'ogg');
 	dropSound1 = loadSound('water-drops-1.mp3');
 	dropSound2 = loadSound('water-drops-2.mp3');
+	gulp = loadSound('gulp.mp3');
+	explosion = loadSound('explosion.mp3');
 }
 
 function setup() {
@@ -144,12 +146,17 @@ function draw() {
 		// Play a random one-second segment of the drop sound
 		let vol = map(ripple.maxRadius, 80, 120, 0.05, 0.1);
 		let kind = int(map(ripple.speed, 1, 3, 1, 3));
-		if (random() < 0.5)
-			dropSound1.play(0, 1, vol, kind, 1);
-		else dropSound2.play(0, 1, vol, kind, 1);
+		
+		if(playSounds){
+			if (random() < 0.5) {
+				dropSound1.play(0, 1, vol, kind, 1);
+			} else {
+				dropSound2.play(0, 1, vol, kind, 1);
+			}
+		}
 
-			// Set the next drop frame with random interval
-			nextDropFrame = frameCount + int(random(10, 50));
+		// Set the next drop frame with random interval
+		nextDropFrame = frameCount + int(random(10, 50));
 	}
 
 	// Update and draw ripples
@@ -169,7 +176,16 @@ function draw() {
 	}
 
 
+}
 
+let playSounds = false;
+function keyPressed() {
+	if (key === 'p') {
+		playSounds = true;
+	}
+	if (key === 's') {
+		playSounds = false;
+	}
 }
 
 function myFishAteFood(food) {
