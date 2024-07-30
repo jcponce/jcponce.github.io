@@ -79,13 +79,13 @@ function draw() {
 	if (myFish.getFoodEaten() > 11 && !myFish.getIsExploding()) {
 		myFish.explode();
 	}
-	
+
 
 	for (let fish of boids) {
 
 		fish.update();
 		fish.render();
-		
+
 		///* // If there is any food in the pond
 		if (foods.length > 0) {
 			// Check if a fish is near one and apply arrive behavior
@@ -94,18 +94,14 @@ function draw() {
 				let fLoc = food.location.copy();
 				let bLoc = fish.location.copy();
 				let d = bLoc.dist(fLoc);
-				
+
 				if (d < 200.0) {
 					fish.arrive(fLoc);
 					if (fish.hasArrive === true) {
-						
 						food.isDead = true;
 						fish.hasArrive = false;
-						
-						
 					}
 					fish.wander();
-					
 				}
 			}
 		}
@@ -146,12 +142,12 @@ function draw() {
 		// Play a random one-second segment of the drop sound
 		let vol = map(ripple.maxRadius, 80, 120, 0.05, 0.1);
 		let kind = int(map(ripple.speed, 1, 3, 1, 3));
-		
-		if(playSounds){
+
+		if (playSounds) {
 			if (random() < 0.5) {
 				dropSound1.play(0, 1, vol, kind, 1);
 			} else {
-				dropSound2.play(0, 1, vol*0.45, kind, 1);
+				dropSound2.play(0, 1, vol * 0.45, kind, 1);
 			}
 		}
 
@@ -180,10 +176,10 @@ function draw() {
 
 let playSounds = false;
 function keyPressed() {
-	if (key === 'p' || key === 'P' ) {
+	if (key === 'p' || key === 'P') {
 		playSounds = true;
 	}
-	if (key === 's' || key === 's' ) {
+	if (key === 's' || key === 's') {
 		playSounds = false;
 	}
 }
