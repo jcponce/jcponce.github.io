@@ -101,7 +101,7 @@ function draw() {
 				let bLoc = fish.location.copy();
 				let d = bLoc.dist(fLoc);
 				
-				if (d < 300.0) {
+				if (d < 200.0) {
 					fish.arrive(fLoc);
 					if (fish.hasArrive === true) {
 						
