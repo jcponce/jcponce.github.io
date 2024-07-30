@@ -90,7 +90,6 @@ function draw() {
 
 		fish.update();
 		fish.render();
-		fish.wander();
 
 		// If there is any food in the pond
 		///*
@@ -111,6 +110,7 @@ function draw() {
 						
 						
 					}
+					fish.wander();
 					
 				}
 			}
