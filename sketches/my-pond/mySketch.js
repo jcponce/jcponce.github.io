@@ -151,7 +151,7 @@ function draw() {
 			if (random() < 0.5) {
 				dropSound1.play(0, 1, vol, kind, 1);
 			} else {
-				dropSound2.play(0, 1, vol, kind, 1);
+				dropSound2.play(0, 1, vol*0.45, kind, 1);
 			}
 		}
 
@@ -162,7 +162,7 @@ function draw() {
 	// Update and draw ripples
 	for (let i = ripples.length - 1; i >= 0; i--) {
 		let r = ripples[i];
-		stroke(`rgba(198, 217, 236, ${1 - r.radius / r.maxRadius})`); // Spring Green with fading effect
+		stroke(`rgba(198, 217, 236, ${1 - r.radius / r.maxRadius})`); // Fading effect
 		push();
 		noFill();
 		ellipse(r.x, r.y, r.radius * 2);
@@ -180,10 +180,10 @@ function draw() {
 
 let playSounds = false;
 function keyPressed() {
-	if (key === 'p') {
+	if (key === 'p' || key === 'P' ) {
 		playSounds = true;
 	}
-	if (key === 's') {
+	if (key === 's' || key === 's' ) {
 		playSounds = false;
 	}
 }
