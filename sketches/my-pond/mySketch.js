@@ -92,7 +92,7 @@ function draw() {
 		fish.render();
 
 		// If there is any food in the pond
-		/*
+		///*
 		if (foods.length > 0) {
 			// Check if a fish is near one and apply arrive behavior
 			for (let j = 0; j < foods.length; j++) {
@@ -100,7 +100,7 @@ function draw() {
 				let fLoc = food.location.copy();
 				let bLoc = fish.location.copy();
 				let d = bLoc.dist(fLoc);
-				if (d < 80.0) {
+				if (d < 300.0) {
 					fish.arrive(fLoc);
 					if (fish.hasArrive === true) {
 						food.isDead = true;
@@ -109,7 +109,7 @@ function draw() {
 				}
 			}
 		}
-		*/
+		//*/
 
 	}
 
