@@ -90,6 +90,7 @@ function draw() {
 
 		fish.update();
 		fish.render();
+		fish.wander();
 
 		// If there is any food in the pond
 		///*
@@ -100,12 +101,17 @@ function draw() {
 				let fLoc = food.location.copy();
 				let bLoc = fish.location.copy();
 				let d = bLoc.dist(fLoc);
+				
 				if (d < 300.0) {
 					fish.arrive(fLoc);
 					if (fish.hasArrive === true) {
+						
 						food.isDead = true;
 						fish.hasArrive = false;
+						
+						
 					}
+					
 				}
 			}
 		}
