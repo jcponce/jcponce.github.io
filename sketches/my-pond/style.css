@@ -15,6 +15,13 @@ body {
 	animation: hideFooter 20s forwards;
 }
 
+/* Hide footer for screens smaller than 600px */
+@media (max-width: 600px) {
+    .footer {
+        display: none;
+    }
+}
+
 @keyframes hideFooter {
     0% {
         opacity: 1;
@@ -37,13 +44,3 @@ a:hover {
 	color: rgb(255,255,255);
 }
 
-canvas {
-	display: block;
-	background-color: #69D2E7;
-	background-image: linear-gradient(bottom, rgb(0, 0, 128) 0%, rgb(9, 148, 136) 50%, rgb(158, 182, 255) 75%);
-	background-image: -o-linear-gradient(bottom, rgb(0, 0, 128) 0%, rgb(9, 148, 136) 50%, rgb(158, 182, 255) 75%);
-	background-image: -moz-linear-gradient(bottom, rgb(0, 0, 128) 0%, rgb(9, 148, 136) 50%, rgb(158, 182, 255) 75%);
-	background-image: -webkit-linear-gradient(bottom, rgb(0, 0, 128) 0%, rgb(9, 148, 136) 50%, rgb(158, 182, 255) 75%);
-	background-image: -ms-linear-gradient(bottom, rgb(0, 0, 128) 0%, rgb(9, 148, 136) 50%, rgb(158, 182, 255) 75%);
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(0, 0, 128)), color-stop(0.5, rgb(9, 148, 136)), color-stop(0.75, rgb(158, 182, 255)));
-}
