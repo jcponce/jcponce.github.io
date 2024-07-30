@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- keep the line below for OpenProcessing compatibility -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <p class="footer">
+    Inspired by
+    <a href="https://github.com/dasl-/my-life-aquatic" target="_blank">My Life Aquatic</a>
+
+  </p>
+
+  <script src="Boid.js"></script>
+  <script src="Bubble.js"></script>
+  <script src="Fish.js"></script>
+  <script src="Flagellum.js"></script>
+  <script src="Food.js"></script>
+  <script src="mySketch.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.2.1/buzz.min.js"></script>
+  <script type="text/javascript">
+    var gulp = new buzz.sound("gulp", {
+      formats: ["ogg", "mp3"]
+    });
+    gulp.setVolume(100);
+
+    var explosion = new buzz.sound("explosion", {
+      formats: ["ogg", "mp3"]
+    });
+
+    // Initialize the sound objects
+    var waterDrops1 = new buzz.sound("water-drops-1", {
+            formats: ["mp3"]
+        });
+        var waterDrops2 = new buzz.sound("water-drops-2", {
+            formats: ["mp3"]
+        });
+        waterDrops1.setVolume(100);
+        waterDrops2.setVolume(5);
+
+        var isPlaying = false;
+        var playTimeout, pauseTimeout;
+        var currentSound = 1;
+
+        // Function to play the sound for a random period
+        function playRandomPeriod() {
+            // Generate a random play duration between 1 and 5 seconds
+            var playDuration = Math.random() * 5000 + 1000;
+            
+            // Play the current sound
+            if (currentSound === 1) {
+                waterDrops1.play();
+            } else {
+                waterDrops2.play();
+            }
+
+            // Schedule the sound to stop after the play duration
+            playTimeout = setTimeout(function() {
+                if (currentSound === 1) {
+                    waterDrops1.pause();
+                } else {
+                    waterDrops2.pause();
+                }
+                
+                // Switch to the other sound
+                currentSound = (currentSound === 1) ? 2 : 1;
+                
+                // Generate a random pause duration between 1 and 4 seconds
+                var pauseDuration = Math.random() * 3000 + 1000;
+                
+                // Schedule the sound to play again after the pause duration
+                pauseTimeout = setTimeout(playRandomPeriod, pauseDuration);
+            }, playDuration);
+        }
+
+        // Function to toggle the sound loop on and off
+        function togglePlayPause() {
+            if (isPlaying) {
+                // Stop the sounds and clear timeouts
+                waterDrops1.pause();
+                waterDrops2.pause();
+                clearTimeout(playTimeout);
+                clearTimeout(pauseTimeout);
+            } else {
+                // Start the sound loop
+                playRandomPeriod();
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Add event listener for keydown
+        document.addEventListener('keydown', function(event) {
+            if (event.key.toLowerCase() === 'p') {
+                togglePlayPause();
+            }
+        });
+  </script>
+</body>
+
+</html>
