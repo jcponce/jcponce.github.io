@@ -43,7 +43,7 @@ function setup() {
 	cursor(HAND);
 
 
-	// Create fishes
+	// Create more independent fishes
 	for (let n = 0; n < numBoids; n++) {
 		let location2 = createVector(random(100, width - 100), random(100, height - 100));
 		let fish = new Fish(location2, random(1.0, 3.5), 0.2);
