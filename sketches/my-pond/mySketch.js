@@ -12,7 +12,7 @@
  */
 
 let foregroundBubbles = [];
-let backgroundBubbles = [];
+//let backgroundBubbles = [];
 let foods = [];
 let myFish;
 let numBoids = 10;
