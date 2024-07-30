@@ -320,8 +320,6 @@ class Fish extends Boid {
 		this.mousePosition = createVector(_mousePosition.x, _mousePosition.y);
 	}
 
-
-
 	getLastAteTimer() {
 		return this.lastAteTimer;
 	}

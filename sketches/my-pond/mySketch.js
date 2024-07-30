@@ -85,6 +85,7 @@ function draw() {
 	if (myFish.getFoodEaten() > 11 && !myFish.getIsExploding()) {
 		myFish.explode();
 	}
+	
 
 	for (let fish of boids) {
 
