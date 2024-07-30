@@ -53,23 +53,17 @@ function setup() {
 
 function draw() {
 	background(0, 96, 128);
-	// We can use "background()" to color the water, 
-	// but it is easier to set the color of the canvas using CSS.
-	// That's why we need to clear the canvas
-	//clear();
 
 	let randomNumber = random(0, 1000);
-	/*
-	
 
+	/* // I don't need these bubbles
 	if (randomNumber > 980) {
 		foregroundBubbles.push(new Bubble(color(int(random(100, 255)), 200)));
 	} else if (randomNumber < 20) {
 		backgroundBubbles.push(new Bubble(color(int(random(100, 255)), 100)));
 	}
-	*/
-
-	/*for (let i = backgroundBubbles.length - 1; i >= 0; i--) {
+	
+	for (let i = backgroundBubbles.length - 1; i >= 0; i--) {
 		let bubble = backgroundBubbles[i];
 		if (bubble.getLocation().y < -50) {
 			backgroundBubbles.splice(i, 1);
