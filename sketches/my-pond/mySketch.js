@@ -49,10 +49,13 @@ function setup() {
 		let fish = new Fish(location2, random(1.0, 3.5), 0.2);
 		boids.push(fish);
 	}
+
+	
 }
 
 function draw() {
 	background(0, 96, 128);
+	
 
 	let randomNumber = random(0, 1000);
 
