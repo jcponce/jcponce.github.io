@@ -161,13 +161,13 @@ const resetParameters = () => {
  */
 const gui = new GUI();
 gui.add(params, 'Attractor');
-const sigmaController = gui.add(params, 'sigma', 1, 12, 0.1).onFinishChange(() => {
+const sigmaController = gui.add(params, 'sigma', 1, 12, 0.01).listen().decimals(2).onFinishChange(() => {
     resetInitialPositions();
 });
-const rhoController = gui.add(params, 'rho', -10, 30, 0.1).onFinishChange(() => {
+const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2).onFinishChange(() => {
     resetInitialPositions();
 });
-const betaController = gui.add(params, 'beta', -2, 5, 0.1).onFinishChange(() => {
+const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2).onFinishChange(() => {
     resetInitialPositions();
 });
 gui.add({ Reset: resetParameters }, 'Reset');
