@@ -1,8 +1,8 @@
 /**
- * Lorenz Attractor modified
+ * Lorenz Attractor variation
  */
 const initialParams = {
-    Attractor: "Lorenz modified",
+    Attractor: "Lorenz variation",
     sigma: 10,
     rho: 28,
     beta: 8 / 3,
@@ -10,7 +10,7 @@ const initialParams = {
 
 const params = { ...initialParams };
 
-let lorenzAttractorModified = (x, y, z) => {
+let lorenzAttractorVariation = (x, y, z) => {
     const { sigma, rho, beta } = params;
  
     const dx = (sigma * (y - x) + (sin(y / 5) * sin(z / 5) * 200)) * .65;

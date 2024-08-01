@@ -167,7 +167,7 @@ resetInitialPositions();
 const animate = () => {
     for (let i = 0; i < count; i++) {
         const { x, y, z } = initialPositions[i];
-        const { dx, dy, dz } = lorenzAttractorModified(x, y, z);
+        const { dx, dy, dz } = lorenzAttractorVariation(x, y, z);
 
         initialPositions[i].x += dx * dt;
         initialPositions[i].y += dy * dt;
