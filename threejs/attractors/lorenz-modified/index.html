@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!--MathJax starts-->
+    <script>
+        window.MathJax = {
+            tex: {
+                tags: "ams",
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <!--MathJax Ends-->
+</head>
+
+<body>
+
+    <canvas class="webgl"></canvas>
+
+    <div class="hud">
+
+        <p>
+            \[
+            \left\{ \begin{eqnarray*}
+            x'&=&\sigma (-x + y) + \sin\left(\frac{y}{5}\right) \sin\left(\frac{z}{5}\right)  \\
+            y'&=& -x z + \rho x - y  + \sin\left(\frac{x}{5}\right) \sin\left(\frac{z}{5}\right)   \\
+            y'&=& x y - \beta z + \cos\left(\frac{y}{5}\right) \cos\left(\frac{x}{5}\right)
+            \end{eqnarray*}\right.
+            \]
+        </p>
+
+
+
+    </div>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.min.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+          }
+        }
+    </script>
+    <script src="../common/math.js"></script>
+    <script src="../attractors/lorenz-modified.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
