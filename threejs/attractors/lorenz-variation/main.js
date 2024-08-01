@@ -36,18 +36,18 @@ particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 
 particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
 // Material
-const particlesMaterial = new THREE.PointsMaterial();
-particlesMaterial.size = 0.7;
-particlesMaterial.sizeAttenuation = true;
-particlesMaterial.color = new THREE.Color('#4ab8e2');
-
-particlesMaterial.transparent = true;
-particlesMaterial.alphaMap = particleTexture;
-particlesMaterial.alphaTest = 0.5;
-//particlesMaterial.depthTest = false;
-particlesMaterial.depthWrite = false;
-particlesMaterial.blending = THREE.AdditiveBlending;
-particlesMaterial.vertexColors = true;
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.7,
+    sizeAttenuation: true,
+    color: new THREE.Color('#4ab8e2'),
+    transparent: true,
+    alphaMap: particleTexture,
+    alphaTest: 0.5,
+    //depthTest: false,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexColors: true,
+});
 
 // Points
 const particles = new THREE.Points(particlesGeometry, particlesMaterial);
