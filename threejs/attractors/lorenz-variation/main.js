@@ -151,10 +151,12 @@ const resetParameters = () => {
     params.sigma = initialParams.sigma;
     params.rho = initialParams.rho;
     params.beta = initialParams.beta;
+    params.kappa = initialParams.kappa;
     sigmaController.updateDisplay();
     rhoController.updateDisplay();
     betaController.updateDisplay();
-    resetInitialPositions();
+    kappaController.updateDisplay();
+    //resetInitialPositions();
 };
 
 /*
@@ -168,19 +170,12 @@ const goToSource = () => {
  */
 const gui = new GUI();
 gui.add(params, 'Attractor');
-const sigmaController = gui.add(params, 'sigma', 1, 12, 0.01).listen().decimals(2).onFinishChange(() => {
-    resetInitialPositions();
-});
-const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2).onFinishChange(() => {
-    resetInitialPositions();
-});
-const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2).onFinishChange(() => {
-    resetInitialPositions();
-});
-const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0).onFinishChange(() => {
-    resetInitialPositions();
-});
+const sigmaController = gui.add(params, 'sigma', 1, 12, 0.01).listen().decimals(2);
+const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2);
+const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2);
+const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0);
 gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
+gui.add({ Initial: resetInitialPositions }, 'Initial').name('Reset initial conditions');
 gui.addColor(particlesMaterial, 'color');
 gui.close();
 
