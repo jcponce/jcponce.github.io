@@ -51,10 +51,8 @@ const particlesMaterial = new THREE.PointsMaterial({
 
 // Points
 const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-particles.position.z = -15;
-particles.scale.x = 0.5;
-particles.scale.y = 0.5;
-particles.scale.z = 0.5;
+particles.position.set(0, 0, -15);
+particles.scale.set(0.5, 0.5, 0.5);
 scene.add(particles);
 
 /**
