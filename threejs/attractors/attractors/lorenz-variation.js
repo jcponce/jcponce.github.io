@@ -10,7 +10,7 @@ const initialParams = {
 
 const params = { ...initialParams };
 
-let lorenzAttractorVariation = (x, y, z) => {
+let attractor = (x, y, z) => {
     const { sigma, rho, beta } = params;
  
     const dx = (sigma * (y - x) + (sin(y / 5) * sin(z / 5) * 200)) * .65;
