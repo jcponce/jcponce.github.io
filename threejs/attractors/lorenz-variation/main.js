@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import GUI from 'three/addons/libs/lil-gui.module.min.js';
 
 /*
- * Three.js stuff
+ * 1. Three.js stuff
  */
 // Canvas
 const canvas = document.querySelector('canvas.webgl');
@@ -12,13 +12,13 @@ const canvas = document.querySelector('canvas.webgl');
 const scene = new THREE.Scene();
 
 /**
- * Textures
+ * 1.1 Textures
  */
 const textureLoader = new THREE.TextureLoader();
 const particleTexture = textureLoader.load('../textures/particles/1.png');
 
 /**
- * Particles
+ * 1.2 Particles
  */
 // Geometry
 const particlesGeometry = new THREE.BufferGeometry();
@@ -58,7 +58,7 @@ particles.scale.z = 0.5;
 scene.add(particles);
 
 /**
- * Sizes
+ * 1.3 Resize window
  */
 const sizes = {
     width: window.innerWidth,
@@ -80,7 +80,7 @@ window.addEventListener('resize', () => {
 });
 
 /**
- * Camera
+ * 1.3 Camera
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
@@ -94,7 +94,7 @@ controls.autoRotate = true;
 controls.autoRotateSpeed =  1;
  
 /**
- * Renderer
+ * 1.5 Renderer
  */
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas
@@ -109,7 +109,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 //scene.add(axesHelper);
 
 /**
- * Lorenz Attractor variation
+ * 2. Lorenz Attractor variation
  */
 const initialParams = {
     Attractor: "Lorenz variation",
@@ -118,6 +118,7 @@ const initialParams = {
     beta: 8 / 3,
 };
 
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#copy_an_array
 const params = { ...initialParams };
 
 let attractor = (x, y, z) => {
@@ -131,7 +132,7 @@ let attractor = (x, y, z) => {
 };
 
 /**
- * Reset functions
+ * 2.2 Reset functions
  */
 const resetInitialPositions = () => {
     initialPositions = [];
@@ -156,7 +157,7 @@ const resetParameters = () => {
 };
 
 /**
- * UI controls
+ * 3. UI controls
  */
 const gui = new GUI();
 
@@ -179,7 +180,7 @@ gui.close();
 
 
 /**
- * Animate
+ * 4. Animate stuff
  */
 const dt = 0.002; // Time step for attractor simulation
 let initialPositions = [];
