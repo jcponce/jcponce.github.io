@@ -91,8 +91,8 @@ scene.add(camera);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.autoRotate = true;
-controls.autoRotateSpeed =  1;
- 
+controls.autoRotateSpeed = 1;
+
 /**
  * 1.5 Renderer
  */
@@ -123,7 +123,7 @@ const params = { ...initialParams };
 
 let attractor = (x, y, z) => {
     const { sigma, rho, beta } = params;
- 
+
     const dx = (sigma * (y - x) + (sin(y / 5) * sin(z / 5) * 200)) * .65;
     const dy = (x * (rho - z) - y + (sin(x / 5) * sin(z / 5) * 200)) * .65;
     const dz = (x * y - beta * z + cos(y / 5) * cos(x / 5) * 200) * .65;
@@ -160,9 +160,7 @@ const resetParameters = () => {
  * 3. UI controls
  */
 const gui = new GUI();
-
 gui.add(params, 'Attractor');
-
 const sigmaController = gui.add(params, 'sigma', 1, 12, 0.1).onFinishChange(() => {
     resetInitialPositions();
 });
@@ -173,11 +171,8 @@ const betaController = gui.add(params, 'beta', -2, 5, 0.1).onFinishChange(() => 
     resetInitialPositions();
 });
 gui.add({ Reset: resetParameters }, 'Reset');
-
 gui.addColor(particlesMaterial, 'color');
-
 gui.close();
-
 
 /**
  * 4. Animate stuff
