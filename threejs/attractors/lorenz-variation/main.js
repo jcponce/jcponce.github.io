@@ -176,7 +176,7 @@ const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2)
 const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0);
 gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
 gui.add({ Initial: resetInitialPositions }, 'Initial').name('Reset initial conditions');
-gui.addColor(particlesMaterial, 'color');
+gui.addColor(particlesMaterial, 'color').name('Color');
 gui.close();
 
 /**
