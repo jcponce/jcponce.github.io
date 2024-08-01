@@ -156,9 +156,11 @@ const resetParameters = () => {
     resetInitialPositions();
 };
 
+/*
 const goToSource = () => {
     window.location.href = "https://github.com/jcponce/jcponce.github.io/blob/master/threejs/attractors/lorenz-variation/main.js";
 }
+*/
 
 /**
  * 3. UI controls
@@ -176,7 +178,6 @@ const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2)
 });
 gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
 gui.addColor(particlesMaterial, 'color');
-gui.add({Source: goToSource }, 'Source').name('Source code');
 gui.close();
 
 /**
