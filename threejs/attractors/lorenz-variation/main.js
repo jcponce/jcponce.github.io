@@ -133,8 +133,28 @@ let attractor = (x, y, z) => {
     return { dx, dy, dz };
 };
 
+/*
+const goToSource = () => {
+    window.location.href = "https://github.com/jcponce/jcponce.github.io/blob/master/threejs/attractors/lorenz-variation/main.js";
+}
+*/
+
 /**
- * 2.2 Reset functions
+ * 3. UI controls
+ */
+const gui = new GUI();
+gui.add(params, 'Attractor');
+const sigmaController = gui.add(params, 'sigma', 1, 12, 0.01).listen().decimals(2);
+const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2);
+const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2);
+const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0);
+gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
+gui.add({ Initial: resetInitialPositions }, 'Initial').name('Reset initial conditions');
+gui.addColor(particlesMaterial, 'color').name('Color');
+gui.close();
+
+/**
+ * 3.1 Reset functions
  */
 const resetInitialPositions = () => {
     initialPositions = [];
@@ -159,26 +179,6 @@ const resetParameters = () => {
     kappaController.updateDisplay();
     //resetInitialPositions();
 };
-
-/*
-const goToSource = () => {
-    window.location.href = "https://github.com/jcponce/jcponce.github.io/blob/master/threejs/attractors/lorenz-variation/main.js";
-}
-*/
-
-/**
- * 3. UI controls
- */
-const gui = new GUI();
-gui.add(params, 'Attractor');
-const sigmaController = gui.add(params, 'sigma', 1, 12, 0.01).listen().decimals(2);
-const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2);
-const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2);
-const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0);
-gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
-gui.add({ Initial: resetInitialPositions }, 'Initial').name('Reset initial conditions');
-gui.addColor(particlesMaterial, 'color').name('Color');
-gui.close();
 
 /**
  * 4. Animate stuff
