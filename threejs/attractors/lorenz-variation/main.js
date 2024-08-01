@@ -103,7 +103,7 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 /**
- * Axes
+ * Axes for reference
  */
 //const axesHelper = new THREE.AxesHelper(5);
 //scene.add(axesHelper);
