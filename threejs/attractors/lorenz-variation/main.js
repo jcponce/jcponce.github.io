@@ -116,17 +116,18 @@ const initialParams = {
     sigma: 10,
     rho: 28,
     beta: 8 / 3,
+    kappa: 200
 };
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#copy_an_array
 const params = { ...initialParams };
 
 let attractor = (x, y, z) => {
-    const { sigma, rho, beta } = params;
+    const { sigma, rho, beta, kappa } = params;
 
-    const dx = (sigma * (y - x) + (sin(y / 5) * sin(z / 5) * 200)) * .65;
-    const dy = (x * (rho - z) - y + (sin(x / 5) * sin(z / 5) * 200)) * .65;
-    const dz = (x * y - beta * z + cos(y / 5) * cos(x / 5) * 200) * .65;
+    const dx = (sigma * (y - x) + (sin(y / 5) * sin(z / 5) * kappa)) * .65;
+    const dy = (x * (rho - z) - y + (sin(x / 5) * sin(z / 5) * kappa)) * .65;
+    const dz = (x * y - beta * z + cos(y / 5) * cos(x / 5) * kappa) * .65;
 
     return { dx, dy, dz };
 };
@@ -174,6 +175,9 @@ const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2)
     resetInitialPositions();
 });
 const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2).onFinishChange(() => {
+    resetInitialPositions();
+});
+const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0).onFinishChange(() => {
     resetInitialPositions();
 });
 gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
