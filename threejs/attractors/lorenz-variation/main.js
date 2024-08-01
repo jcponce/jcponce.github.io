@@ -86,11 +86,14 @@ camera.position.set(0, 0, 20).setLength(30);
 scene.add(camera);
 
 // Controls
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
-controls.dampingFactor = 0.03;
-controls.autoRotate = true;
-controls.autoRotateSpeed = 1;
+Object.assign(controls, {
+    enableDamping: true,
+    dampingFactor: 0.03,
+    autoRotate: true,
+    autoRotateSpeed: 1
+});
 
 /**
  * 1.5 Renderer
