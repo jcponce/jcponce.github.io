@@ -218,4 +218,20 @@ const animate = () => {
     window.requestAnimationFrame(animate);
 };
 
+/**
+ * 5. Save image function
+ */
+const saveImage = () => {
+    renderer.render(scene, camera);
+    const link = document.createElement('a');
+    link.href = renderer.domElement.toDataURL('image/jpeg');
+    link.download = 'my-lorenz-variation.jpg';
+    link.click();
+};
+
+/**
+ * Add save image button to GUI
+ */
+gui.add({ Save: saveImage }, 'Save').name('Save image');
+
 animate();
