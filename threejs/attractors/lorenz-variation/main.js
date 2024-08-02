@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import GUI from 'three/addons/libs/lil-gui.module.min.js';
 
 /*
- * 1. Three.js stuff
+ * Three.js stuff
  */
 // Canvas
 const canvas = document.querySelector('canvas.webgl');
@@ -12,13 +12,13 @@ const canvas = document.querySelector('canvas.webgl');
 const scene = new THREE.Scene();
 
 /**
- * 1.1 Textures
+ * Textures
  */
 const textureLoader = new THREE.TextureLoader();
 const particleTexture = textureLoader.load('../textures/particles/1.png');
 
 /**
- * 1.2 Particles
+ * Particles
  */
 // Geometry
 const particlesGeometry = new THREE.BufferGeometry();
@@ -56,7 +56,7 @@ particles.scale.set(0.5, 0.5, 0.5);
 scene.add(particles);
 
 /**
- * 1.3 Resize window
+ * Resize window
  */
 const sizes = {
     width: window.innerWidth,
@@ -78,7 +78,7 @@ window.addEventListener('resize', () => {
 });
 
 /**
- * 1.3 Camera
+ * Camera
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
@@ -96,7 +96,7 @@ Object.assign(controls, {
 });
 
 /**
- * 1.5 Renderer
+ * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas
@@ -111,8 +111,9 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 //scene.add(axesHelper);
 
 /**
- * 2. Lorenz Attractor variation
+ * Lorenz Attractor variation
  */
+// An adaptation from Steven Wittens' work: https://acko.net/files/dump/tiles/lorenzwarp.html
 const initialParams = {
     Attractor: "Lorenz variation",
     sigma: 10,
@@ -136,14 +137,14 @@ let attractor = (x, y, z) => {
     return { dx, dy, dz };
 };
 
-/*
+
 const goToSource = () => {
     window.location.href = "https://github.com/jcponce/jcponce.github.io/blob/master/threejs/attractors/lorenz-variation/main.js";
 }
-*/
+
 
 /**
- * 3 Reset functions
+ * Reset functions
  */
 const resetInitialPositions = () => {
     initialPositions = [];
@@ -171,7 +172,7 @@ const resetParameters = () => {
 };
 
 /**
- * 4. UI controls
+ * Controls
  */
 const gui = new GUI();
 gui.add(params, 'Attractor');
@@ -181,20 +182,20 @@ const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2)
 const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2);
 const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0);
 gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
+gui.add({ Initial: resetInitialPositions }, 'Initial').name('Reset initial conditions');
 
 const speedController = gui.add(params, 'speed', 0, 2, 0.01).name('Animation speed').listen().decimals(2);
-gui.add({ Initial: resetInitialPositions }, 'Initial').name('Reset initial conditions');
-gui.addColor(particlesMaterial, 'color').name('Color');
 gui.add(params, 'autoRotate').name('Auto Rotate').onChange(value => {
     controls.autoRotate = value;
 });
+
+gui.addColor(particlesMaterial, 'color').name('Color');
 gui.add({fullScreen: toggleFullScreen}, 'fullScreen').name('Toggle Full Screen');
+gui.add({ source: goToSource }, 'source').name('Source code');
 gui.close();
 
-
-
 /**
- * 4. Animate stuff
+ * Animate stuff
  */
 const dt = 0.002; // Time step for attractor simulation
 let initialPositions = [];
@@ -229,7 +230,7 @@ const animate = () => {
 };
 
 /**
- * 5. Save image function
+ * Save image function
  */
 const saveImage = () => {
     renderer.render(scene, camera);
@@ -239,9 +240,7 @@ const saveImage = () => {
     link.click();
 };
 
-/**
- * Add save image button to GUI
- */
+//Add save image button to GUI
 gui.add({ Save: saveImage }, 'Save').name('Save image');
 
 animate();
