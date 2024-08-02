@@ -92,7 +92,7 @@ Object.assign(controls, {
     enableDamping: true,
     dampingFactor: 0.03,
     autoRotate: true,
-    autoRotateSpeed: 1
+    autoRotateSpeed: 2
 });
 
 /**
@@ -118,18 +118,20 @@ const initialParams = {
     sigma: 10,
     rho: 28,
     beta: 8 / 3,
-    kappa: 200
+    kappa: 200,
+    speed: 0.65,
+    autoRotate: true
 };
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#copy_an_array
 const params = { ...initialParams };
 
 let attractor = (x, y, z) => {
-    const { sigma, rho, beta, kappa } = params;
+    const { sigma, rho, beta, kappa, speed } = params;
 
-    const dx = (sigma * (y - x) + (sin(y / 5) * sin(z / 5) * kappa)) * .65;
-    const dy = (x * (rho - z) - y + (sin(x / 5) * sin(z / 5) * kappa)) * .65;
-    const dz = (x * y - beta * z + cos(y / 5) * cos(x / 5) * kappa) * .65;
+    const dx = (sigma * (y - x) + (sin(y / 5) * sin(z / 5) * kappa)) * speed;
+    const dy = (x * (rho - z) - y + (sin(x / 5) * sin(z / 5) * kappa)) * speed;
+    const dz = (x * y - beta * z + cos(y / 5) * cos(x / 5) * kappa) * speed;
 
     return { dx, dy, dz };
 };
@@ -164,6 +166,7 @@ const resetParameters = () => {
     rhoController.updateDisplay();
     betaController.updateDisplay();
     kappaController.updateDisplay();
+    speedController.updateDisplay();
     //resetInitialPositions();
 };
 
@@ -172,13 +175,19 @@ const resetParameters = () => {
  */
 const gui = new GUI();
 gui.add(params, 'Attractor');
+
 const sigmaController = gui.add(params, 'sigma', 1, 12, 0.01).listen().decimals(2);
 const rhoController = gui.add(params, 'rho', -10, 30, 0.01).listen().decimals(2);
 const betaController = gui.add(params, 'beta', -2, 5, 0.01).listen().decimals(2);
 const kappaController = gui.add(params, 'kappa', 0, 300, 1).listen().decimals(0);
 gui.add({ Reset: resetParameters }, 'Reset').name('Reset parameters');
+
+const speedController = gui.add(params, 'speed', 0, 2, 0.01).name('Animation speed').listen().decimals(2);
 gui.add({ Initial: resetInitialPositions }, 'Initial').name('Reset initial conditions');
 gui.addColor(particlesMaterial, 'color').name('Color');
+gui.add(params, 'autoRotate').name('Auto Rotate').onChange(value => {
+    controls.autoRotate = value;
+});
 gui.close();
 
 
