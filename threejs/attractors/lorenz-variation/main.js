@@ -188,6 +188,7 @@ gui.addColor(particlesMaterial, 'color').name('Color');
 gui.add(params, 'autoRotate').name('Auto Rotate').onChange(value => {
     controls.autoRotate = value;
 });
+gui.add({fullScreen: toggleFullScreen}, 'fullScreen').name('Toggle Full Screen');
 gui.close();
 
 
