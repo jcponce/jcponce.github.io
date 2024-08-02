@@ -137,11 +137,11 @@ let attractor = (x, y, z) => {
     return { dx, dy, dz };
 };
 
-
+/*
 const goToSource = () => {
     window.location.href = "https://github.com/jcponce/jcponce.github.io/blob/master/threejs/attractors/lorenz-variation/main.js";
 }
-
+*/
 
 /**
  * Reset functions
@@ -191,7 +191,7 @@ gui.add(params, 'autoRotate').name('Auto Rotate').onChange(value => {
 
 gui.addColor(particlesMaterial, 'color').name('Color');
 gui.add({fullScreen: toggleFullScreen}, 'fullScreen').name('Toggle Full Screen');
-gui.add({ source: goToSource }, 'source').name('Source code');
+//gui.add({ source: goToSource }, 'source').name('Source code');
 gui.close();
 
 /**
