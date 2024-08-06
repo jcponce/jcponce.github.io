@@ -100,8 +100,8 @@ function getRandomTorusPoint({ radius = 5, tubeRadius = 20 }) {
   return { x, y, z };
 }
 
-const numLoops = 2000; // Increase the number of loops
-const radius = 50;
+const numLoops = 2500; // Increase the number of loops
+const radius = 100;
 const minLoopSize = 0.3; // minimum loop size
 const maxLoopSize = 1.3; // maximum loop size
 const segments = 50;
