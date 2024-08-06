@@ -28,7 +28,7 @@ controls.autoRotateSpeed = 0.5;
 const renderScene = new RenderPass(scene, camera);
 const bloomPass = new UnrealBloomPass(new THREE.Vector2(w, h), 1.5, 0.4, 100);
 bloomPass.threshold = 0;
-bloomPass.strength = 1.5;
+bloomPass.strength = 1;
 bloomPass.radius = 0;
 const composer = new EffectComposer(renderer);
 composer.addPass(renderScene);
@@ -74,7 +74,7 @@ function createWigglingLoop(segments, time, offset = 0) {
 }
 
 const numLoops = 2000; // Increase the number of loops
-const radius = 45;
+const radius = 50;
 const minLoopSize = 0.3; // minimum loop size
 const maxLoopSize = 1.3; // maximum loop size
 const segments = 50;
