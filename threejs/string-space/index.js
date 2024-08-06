@@ -76,20 +76,25 @@ function createWigglingLoop(segments, time) {
   return points;
 }
 
-const numLoops = 700;
+const numLoops = 1000;
 const radius = 45;
 const minLoopSize = 0.3; // minimum loop size
 const maxLoopSize = 1.3; // maximum loop size
-const segments = 45;
+const segments = 50;
+
+const instancedGeometry = new THREE.BufferGeometry();
+//const positions = new Float32Array((segments + 1) * 3);
+//instancedGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
 for (let i = 0; i < numLoops; i++) {
   const randomColor = getRandomColor();
   const randomSize = getRandomSize(minLoopSize, maxLoopSize);
   const loopPoints = createWigglingLoop(segments, i / 10);
-  const loopGeometry = new THREE.BufferGeometry().setFromPoints(loopPoints);
+  instancedGeometry.setFromPoints(loopPoints);
   const loopMaterial = new THREE.LineBasicMaterial({ color: randomColor });
-  const loop = new THREE.Line(loopGeometry, loopMaterial);
+  const loop = new THREE.Line(instancedGeometry, loopMaterial);
   const { x, y, z } = getRandomSpherePoint({ radius });
+  
   loop.position.set(x, y, z);
   loop.rotation.set(x, y, z);
   loop.scale.set(randomSize, randomSize, randomSize);
