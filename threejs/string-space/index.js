@@ -4,6 +4,7 @@ import { EffectComposer } from "jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "jsm/postprocessing/UnrealBloomPass.js";
 import { SimplexNoise } from "jsm/math/SimplexNoise.js";
+import GUI from 'jsm/libs/lil-gui.module.min.js';
 
 // Updated with over 1000 strings in the 3D space
 const simplex = new SimplexNoise();
@@ -71,6 +72,32 @@ function createWigglingLoop(segments, time, offset = 0) {
     points.push(new THREE.Vector3(x, y, z));
   }
   return points;
+}
+
+// Function to get a random point on a sphere
+function getRandomSpherePoint({ radius = 10 }) {
+  const minRadius = radius * 0.25;
+  const maxRadius = radius - minRadius;
+  const range = Math.random() * maxRadius + minRadius;
+  const u = Math.random();
+  const v = Math.random();
+  const theta = 2 * Math.PI * u;
+  const phi = Math.acos(2 * v - 1);
+  return {
+    x: range * Math.sin(phi) * Math.cos(theta),
+    y: range * Math.sin(phi) * Math.sin(theta),
+    z: range * Math.cos(phi),
+  };
+}
+
+// Function to get a random point on a torus
+function getRandomTorusPoint({ radius = 5, tubeRadius = 20 }) {
+  const u = Math.random() * Math.PI * 2;
+  const v = Math.random() * Math.PI * 2;
+  const x = (radius + tubeRadius * Math.cos(v)) * Math.cos(u);
+  const y = (radius + tubeRadius * Math.cos(v)) * Math.sin(u);
+  const z = tubeRadius * Math.sin(v);
+  return { x, y, z };
 }
 
 const numLoops = 2000; // Increase the number of loops
@@ -172,20 +199,24 @@ function handleWindowResize() {
 }
 window.addEventListener("resize", handleWindowResize, false);
 
-function getRandomSpherePoint({ radius = 10 }) {
-  const minRadius = radius * 0.25;
-  const maxRadius = radius - minRadius;
-  const range = Math.random() * maxRadius + minRadius;
-  const u = Math.random();
-  const v = Math.random();
-  const theta = 2 * Math.PI * u;
-  const phi = Math.acos(2 * v - 1);
-  return {
-    x: range * Math.sin(phi) * Math.cos(theta),
-    y: range * Math.sin(phi) * Math.sin(theta),
-    z: range * Math.cos(phi),
-  };
-}
+
+
+// GUI setup
+const gui = new GUI();
+const settings = {
+  pointType: 'Sphere',
+};
+
+gui.add(settings, 'pointType', ['Sphere', 'Torus']).onChange(value => {
+  for (let i = 0; i < numLoops; i++) {
+    const { x, y, z } = (value === 'Sphere') ? getRandomSpherePoint({ radius }) : getRandomTorusPoint({ radius });
+    offsets[i * 3] = x;
+    offsets[i * 3 + 1] = y;
+    offsets[i * 3 + 2] = z;
+  }
+  instancedGeometry.attributes.offset.needsUpdate = true;
+});
+gui.close();
 
 /* //Works for numLoops<700
 const simplex = new SimplexNoise();
