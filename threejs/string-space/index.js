@@ -5,7 +5,189 @@ import { RenderPass } from "jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "jsm/postprocessing/UnrealBloomPass.js";
 import { SimplexNoise } from "jsm/math/SimplexNoise.js";
 
-///* //Works for numLoops<700
+// Updated with over 1000 strings in the 3D space
+const simplex = new SimplexNoise();
+
+const w = window.innerWidth;
+const h = window.innerHeight;
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x000000, 0.035);
+const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
+camera.position.z = 25;
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(w, h);
+document.body.appendChild(renderer.domElement);
+
+let controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.1;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.5;
+
+// post-processing
+const renderScene = new RenderPass(scene, camera);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(w, h), 1.5, 0.4, 100);
+bloomPass.threshold = 0;
+bloomPass.strength = 1.5;
+bloomPass.radius = 0;
+const composer = new EffectComposer(renderer);
+composer.addPass(renderScene);
+composer.addPass(bloomPass);
+
+const loopGroup = new THREE.Group();
+loopGroup.userData.update = (timeStamp) => {};
+scene.add(loopGroup);
+
+// Define a color palette
+const colorPalette = [
+  0xff0000, // Red
+  0x00ff00, // Green
+  0x0000ff, // Blue
+  0xffff00, // Yellow
+  0xff00ff, // Magenta
+  0x00ffff, // Cyan
+];
+
+// Function to get a random color from the palette
+function getRandomColor() {
+  const randomIndex = Math.floor(Math.random() * colorPalette.length);
+  return colorPalette[randomIndex];
+}
+
+// Function to get a random size within a range
+function getRandomSize(minSize, maxSize) {
+  return Math.random() * (maxSize - minSize) + minSize;
+}
+
+// Function to create a wiggling loop using SimplexNoise in 3D
+function createWigglingLoop(segments, time, offset = 0) {
+  const points = [];
+  const noiseFactor = 0.3;
+  for (let i = 0; i <= segments; i++) {
+    const theta = (i / segments) * Math.PI * 2;
+    const x = Math.cos(theta) * (2 + simplex.noise3d(time + Math.cos(theta), time + Math.sin(theta), time) * noiseFactor);
+    const y = Math.sin(theta) * (2 + simplex.noise3d(time + Math.cos(theta), time + Math.sin(theta), time) * noiseFactor);
+    const z = simplex.noise3d(time + Math.cos(theta), time - Math.sin(theta), time) * noiseFactor;
+    points.push(new THREE.Vector3(x, y, z));
+  }
+  return points;
+}
+
+const numLoops = 2000; // Increase the number of loops
+const radius = 45;
+const minLoopSize = 0.3; // minimum loop size
+const maxLoopSize = 1.3; // maximum loop size
+const segments = 50;
+
+const loopGeometry = new THREE.BufferGeometry();
+const positions = new Float32Array((segments + 1) * 3);
+loopGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+const instancedGeometry = new THREE.InstancedBufferGeometry();
+instancedGeometry.index = loopGeometry.index;
+instancedGeometry.attributes.position = loopGeometry.attributes.position;
+
+const offsets = new Float32Array(numLoops * 3);
+const instanceColors = new Float32Array(numLoops * 3); // Renamed color attribute to instanceColor
+const sizes = new Float32Array(numLoops);
+const rotations = new Float32Array(numLoops * 3);
+
+for (let i = 0; i < numLoops; i++) {
+  const randomColor = new THREE.Color(getRandomColor());
+  instanceColors[i * 3] = randomColor.r;
+  instanceColors[i * 3 + 1] = randomColor.g;
+  instanceColors[i * 3 + 2] = randomColor.b;
+  sizes[i] = getRandomSize(minLoopSize, maxLoopSize);
+  const { x, y, z } = getRandomSpherePoint({ radius });
+  offsets[i * 3] = x;
+  offsets[i * 3 + 1] = y;
+  offsets[i * 3 + 2] = z;
+  rotations[i * 3] = Math.random() * 2 * Math.PI;
+  rotations[i * 3 + 1] = Math.random() * 2 * Math.PI;
+  rotations[i * 3 + 2] = Math.random() * 2 * Math.PI;
+}
+
+instancedGeometry.setAttribute('offset', new THREE.InstancedBufferAttribute(offsets, 3));
+instancedGeometry.setAttribute('instanceColor', new THREE.InstancedBufferAttribute(instanceColors, 3)); // Renamed color attribute to instanceColor
+instancedGeometry.setAttribute('size', new THREE.InstancedBufferAttribute(sizes, 1));
+instancedGeometry.setAttribute('rotation', new THREE.InstancedBufferAttribute(rotations, 3));
+
+const material = new THREE.ShaderMaterial({
+  vertexShader: `
+    attribute vec3 offset;
+    attribute vec3 instanceColor;
+    attribute float size;
+    attribute vec3 rotation;
+    varying vec3 vColor;
+    void main() {
+      vColor = instanceColor;
+      vec3 newPosition = position * size;
+
+      // Apply rotation
+      mat3 rotationMatrix = mat3(
+        cos(rotation.y) * cos(rotation.z), -cos(rotation.y) * sin(rotation.z), sin(rotation.y),
+        cos(rotation.x) * sin(rotation.z) + sin(rotation.x) * sin(rotation.y) * cos(rotation.z), cos(rotation.x) * cos(rotation.z) - sin(rotation.x) * sin(rotation.y) * sin(rotation.z), -sin(rotation.x) * cos(rotation.y),
+        sin(rotation.x) * sin(rotation.z) - cos(rotation.x) * sin(rotation.y) * cos(rotation.z), sin(rotation.x) * cos(rotation.z) + cos(rotation.x) * sin(rotation.y) * sin(rotation.z), cos(rotation.x) * cos(rotation.y)
+      );
+
+      newPosition = rotationMatrix * newPosition + offset;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+    }
+  `,
+  fragmentShader: `
+    varying vec3 vColor;
+    void main() {
+      gl_FragColor = vec4(vColor, 1.0);
+    }
+  `,
+  vertexColors: true
+});
+
+const mesh = new THREE.Line(instancedGeometry, material);
+loopGroup.add(mesh);
+
+function animate(timeStamp = 0) {
+  requestAnimationFrame(animate);
+  const positions = loopGeometry.attributes.position.array;
+  for (let i = 0; i < numLoops; i++) {
+    const loopPoints = createWigglingLoop(segments, timeStamp * 0.001 + i / 10);
+    for (let j = 0; j <= segments; j++) {
+      const p = loopPoints[j];
+      positions[j * 3] = p.x;
+      positions[j * 3 + 1] = p.y;
+      positions[j * 3 + 2] = p.z;
+    }
+  }
+  loopGeometry.attributes.position.needsUpdate = true;
+  controls.update();
+  composer.render(scene, camera);
+}
+
+animate();
+
+function handleWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener("resize", handleWindowResize, false);
+
+function getRandomSpherePoint({ radius = 10 }) {
+  const minRadius = radius * 0.25;
+  const maxRadius = radius - minRadius;
+  const range = Math.random() * maxRadius + minRadius;
+  const u = Math.random();
+  const v = Math.random();
+  const theta = 2 * Math.PI * u;
+  const phi = Math.acos(2 * v - 1);
+  return {
+    x: range * Math.sin(phi) * Math.cos(theta),
+    y: range * Math.sin(phi) * Math.sin(theta),
+    z: range * Math.cos(phi),
+  };
+}
+
+/* //Works for numLoops<700
 const simplex = new SimplexNoise();
 
 const w = window.innerWidth;
@@ -139,7 +321,7 @@ function getRandomSpherePoint({ radius = 10 }) {
     z: range * Math.cos(phi),
   };
 }
-//*/
+*/
 
 /*//Weird string space
 const simplex = new SimplexNoise();
