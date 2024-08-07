@@ -74,6 +74,13 @@ function createWigglingLoop(segments, time, offset = 0) {
   return points;
 }
 
+
+const numLoops = 1000; // Increase the number of loops
+const radius = 100;
+const minLoopSize = 0.2; // minimum loop size
+const maxLoopSize = 2.5; // maximum loop size
+const segments = 50;
+
 // Function to get a random point on a sphere
 function getRandomSpherePoint({ radius = 10 }) {
   const minRadius = radius * 0.25;
@@ -90,21 +97,24 @@ function getRandomSpherePoint({ radius = 10 }) {
   };
 }
 
+const radiusTorus = 30;
+const tubeRadius = 15;
 // Function to get a random point on a torus
-function getRandomTorusPoint({ radius = 5, tubeRadius = 20 }) {
+function getRandomTorusPoint({ radiusTorus = 30, tubeRadius = 15 }) {
+  // const minRadius = radiusTorus * 0.25;
+  // const maxRadius = radiusTorus - minRadius;
+  // const range = Math.random() * maxRadius + minRadius;
+  // const minTubeRadius = 0;
+  // const maxTubeRadius = tubeRadius - minTubeRadius;
+  // const rangeTube = Math.random() * maxTubeRadius + minTubeRadius;
   const u = Math.random() * Math.PI * 2;
   const v = Math.random() * Math.PI * 2;
-  const x = (radius + tubeRadius * Math.cos(v)) * Math.cos(u);
-  const y = (radius + tubeRadius * Math.cos(v)) * Math.sin(u);
-  const z = tubeRadius * Math.sin(v);
+  const x = (radiusTorus + tubeRadius *  Math.cos(v)) * Math.cos(u);
+  const y =  tubeRadius * Math.sin(v);
+  const z = (radiusTorus + tubeRadius *  Math.cos(v)) * Math.sin(u);
+
   return { x, y, z };
 }
-
-const numLoops = 2500; // Increase the number of loops
-const radius = 100;
-const minLoopSize = 0.2; // minimum loop size
-const maxLoopSize = 2.5; // maximum loop size
-const segments = 50;
 
 const loopGeometry = new THREE.BufferGeometry();
 const positions = new Float32Array((segments + 1) * 3);
@@ -209,7 +219,7 @@ const settings = {
 
 gui.add(settings, 'pointType', ['Sphere', 'Torus']).onChange(value => {
   for (let i = 0; i < numLoops; i++) {
-    const { x, y, z } = (value === 'Sphere') ? getRandomSpherePoint({ radius }) : getRandomTorusPoint({ radius });
+    const { x, y, z } = (value === 'Sphere') ? getRandomSpherePoint({ radius }) : getRandomTorusPoint({ radiusTorus, tubeRadius });
     offsets[i * 3] = x;
     offsets[i * 3 + 1] = y;
     offsets[i * 3 + 2] = z;
