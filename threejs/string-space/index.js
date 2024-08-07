@@ -75,7 +75,7 @@ function createWigglingLoop(segments, time, offset = 0) {
 }
 
 
-const numLoops = 1000; // Increase the number of loops
+const numLoops = 1500; // Increase the number of loops
 const radius = 100;
 const minLoopSize = 0.2; // minimum loop size
 const maxLoopSize = 2.5; // maximum loop size
@@ -97,10 +97,10 @@ function getRandomSpherePoint({ radius = 10 }) {
   };
 }
 
-const radiusTorus = 30;
-const tubeRadius = 15;
+const radiusTorus = 40;
+const tubeRadius = 20;
 // Function to get a random point on a torus
-function getRandomTorusPoint({ radiusTorus = 30, tubeRadius = 15 }) {
+function getRandomTorusPoint({ radiusTorus = 25, tubeRadius = 10 }) {
   // const minRadius = radiusTorus * 0.25;
   // const maxRadius = radiusTorus - minRadius;
   // const range = Math.random() * maxRadius + minRadius;
