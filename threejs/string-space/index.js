@@ -63,7 +63,7 @@ function getRandomSize(minSize, maxSize) {
 // Function to create a wiggling loop using SimplexNoise in 3D
 function createWigglingLoop(segments, time, offset = 0) {
   const points = [];
-  const noiseFactor = 0.3;
+  const noiseFactor = 0.4;
   for (let i = 0; i <= segments; i++) {
     const theta = (i / segments) * Math.PI * 2;
     const x = Math.cos(theta) * (2 + simplex.noise3d(time + Math.cos(theta), time + Math.sin(theta), time) * noiseFactor);
@@ -215,8 +215,12 @@ window.addEventListener("resize", handleWindowResize, false);
 const gui = new GUI();
 const settings = {
   pointType: 'Sphere',
+  autoRotate: true
 };
 
+gui.add(settings, 'autoRotate').name('Auto Rotate').onChange(value => {
+  controls.autoRotate = value;
+});
 gui.add(settings, 'pointType', ['Sphere', 'Torus']).onChange(value => {
   for (let i = 0; i < numLoops; i++) {
     const { x, y, z } = (value === 'Sphere') ? getRandomSpherePoint({ radius }) : getRandomTorusPoint({ radiusTorus, tubeRadius });
