@@ -18,9 +18,9 @@ import * as THREE from "three";
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 ///*
-// PerpesctiveCamera with Controls for Active Blending
+// PerpesctiveCamera with Controls for Additive Blending
 let scene, camera, renderer, particles;
-let numParticles = 1200;  // Increased number of particles
+let numParticles = 1500;  // Increased number of particles
 let numTypes;
 let colorStep;
 let forces, minDistances, radii;
@@ -245,7 +245,7 @@ animate();
 
 
 /*
-// PerpesctiveCamera with Controls for Active Blending with Spatial partitioning test
+// Orthographc with Controls for Active Blending with Spatial partitioning test
 let scene, camera, renderer, particles;
 let numParticles = 2000;  // Increased number of particles
 let numTypes;
@@ -257,12 +257,16 @@ let positions, colors, velocitiesBuffer;
 
 let material;
 let params = {
-    additiveBlending: false
+    additiveBlending: true
 };
 
 function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(115, window.innerWidth / window.innerHeight, 0.1, 1000);
+    let aspect = window.innerWidth / window.innerHeight;
+    let d = 500;
+    camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, 0.1, 1000);
+
+    camera.position.z = 500;
     camera.position.z = 500;
 
     renderer = new THREE.WebGLRenderer();
@@ -288,12 +292,13 @@ function init() {
     // Load the texture
     texture = new THREE.TextureLoader().load('assets/1.png', function (texture) {
         material = new THREE.PointsMaterial({
-            size: 30,
+            size: 20,
             sizeAttenuation: true,
             transparent: true,
             vertexColors: true,
             alphaMap: texture,
-            depthWrite: false
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
         });
         particles = new THREE.Points(geometry, material);
         scene.add(particles);
@@ -394,10 +399,10 @@ function getGridCellKey(position) {
 
 
 function updateParticles() {
-    let width = camera.right - camera.left;
-    let height = camera.top - camera.bottom;
-    let halfWidth = width / 2;
-    let halfHeight = height / 2;
+    let width = (camera.right - camera.left);
+    let height = (camera.top - camera.bottom);
+    let halfWidth = width * 0.5;
+    let halfHeight = height * 0.5;
   
     // Clear the grid
     grid = {};
@@ -445,7 +450,7 @@ function updateParticles() {
               if (direction.x < -halfWidth) direction.x += width;
               if (direction.y > halfHeight) direction.y -= height;
               if (direction.y < -halfHeight) direction.y += height;
-  
+              
               let dis = direction.length();
               direction.normalize();
   
@@ -477,11 +482,11 @@ function updateParticles() {
       velocity.multiplyScalar(0.85);
   
       // Toroidal wrapping for positions
-      if (position.x > halfWidth) position.x -= width;
-      if (position.x < -halfWidth) position.x += width;
-      if (position.y > halfHeight) position.y -= height;
-      if (position.y < -halfHeight) position.y += height;
-  
+     if (position.x > halfWidth) position.x -= width;
+     if (position.x < -halfWidth) position.x += width;
+     if (position.y > halfHeight) position.y -= height;
+     if (position.y < -halfHeight) position.y += height;
+
       positions[i * 3] = position.x;
       positions[i * 3 + 1] = position.y;
       positions[i * 3 + 2] = position.z;
