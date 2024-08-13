@@ -22,6 +22,7 @@ function init() {
     // Controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
+    controls.dampingFactor = 0.03;
 
     // Icosahedron Geometry
     const geometry = new THREE.IcosahedronGeometry(1.5);
