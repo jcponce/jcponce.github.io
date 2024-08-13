@@ -53,7 +53,7 @@
   <script type="importmap">
 			{
 				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+					"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
           "jsm/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
         }
 			}
@@ -66,6 +66,26 @@
     <p>❤️ <a href="https://www.patreon.com/jcponce">Patreon</a></p>
   </div>
   <script type="module" src="index.js"></script>
+
+  <script>
+    // Function to toggle full screen mode
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Event listener for keydown event
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'f' || event.key === 'F') {
+        toggleFullScreen();
+      }
+    });
+  </script>
 </body>
 
 </html>
