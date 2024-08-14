@@ -32,8 +32,7 @@ function init() {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
 
-    // Icosahedron Geometry
-    //const geometry = new THREE.IcosahedronGeometry(1);
+    // Dodecahedron Geometry
     const geometry = new THREE.DodecahedronGeometry(1);
     const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff });
 
@@ -47,7 +46,7 @@ function init() {
         parent: scene,
         rate: 50.0,
         texture: 'img/circle.png',
-      });
+    });
 
     // Glow Effect (Bloom)
     composer = new EffectComposer(renderer);
@@ -88,15 +87,15 @@ function updateFractal() {
     // Generate new fractal with updated n
     const vertices = [];
     goldenDragon(-5, 0, 5, 0, true, Math.floor(n), vertices);
-    
+
     const fractalGeometry = new THREE.BufferGeometry().setFromPoints(vertices);
     const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff });
     const fractalLine = new THREE.Line(fractalGeometry, lineMaterial);
     fractalLine.position.z = -5; // Position behind the icosahedron
-    fractalLine.position.y = -1; 
-    fractalLine.position.x = 2; 
+    fractalLine.position.y = -1;
+    fractalLine.position.x = 2;
     const s = 1.2;
-    fractalLine.scale.set(s,s,s); // Adjust the scale of the fractal
+    fractalLine.scale.set(s, s, s); // Adjust the scale of the fractal
     fractalLine.name = 'fractal';
     scene.add(fractalLine);
 
@@ -118,8 +117,8 @@ function goldenDragon(x1, y1, x2, y2, turn, n, vertices) {
     const goldenRatio = (1 + Math.sqrt(5)) / 2;
     const r1 = Math.pow(1 / goldenRatio, 1 / goldenRatio);
     const r2 = Math.pow(r1, 2);
-    const angle1 = Math.acos((1 + r1**2 - r1**4) / (2 * r1));
-    const angle2 = Math.acos((1 + r1**4 - r1**2) / (2 * r2));
+    const angle1 = Math.acos((1 + r1 ** 2 - r1 ** 4) / (2 * r1));
+    const angle2 = Math.acos((1 + r1 ** 4 - r1 ** 2) / (2 * r2));
 
     const dist = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
     if (dist < 0.05 || n <= 0) {
