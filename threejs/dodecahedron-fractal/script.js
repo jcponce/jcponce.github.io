@@ -44,7 +44,7 @@ function init() {
         camera,
         emitter: line,
         parent: scene,
-        rate: 50.0,
+        rate: 35.0,
         texture: 'img/circle.png',
     });
 
