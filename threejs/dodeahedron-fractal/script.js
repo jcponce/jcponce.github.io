@@ -3,15 +3,20 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import getLayer from "./getLayer.js";
+import { getParticleSystem } from "./getParticleSystem.js";
+
 
 let scene, camera, renderer, composer, fractalLine;
 let n = 1;
 let increasing = true;
 const maxN = 25;
 const speed = 0.03; // Adjust this value to control the speed of n's change
+let fireEffect;
 
 init();
 animate();
+
 
 function init() {
     // Scene setup
@@ -28,13 +33,21 @@ function init() {
     controls.enableDamping = true;
 
     // Icosahedron Geometry
-    const geometry = new THREE.IcosahedronGeometry(1);
-    //const geometry = new THREE.DodecahedronGeometry(1);
+    //const geometry = new THREE.IcosahedronGeometry(1);
+    const geometry = new THREE.DodecahedronGeometry(1);
     const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff });
 
     const edges = new THREE.EdgesGeometry(geometry);
     const line = new THREE.LineSegments(edges, lineMaterial);
     scene.add(line);
+
+    fireEffect = getParticleSystem({
+        camera,
+        emitter: line,
+        parent: scene,
+        rate: 50.0,
+        texture: 'img/circle.png',
+      });
 
     // Glow Effect (Bloom)
     composer = new EffectComposer(renderer);
@@ -61,7 +74,7 @@ function animate() {
 
     // Update fractal
     updateFractal();
-
+    fireEffect.update(0.016);
     composer.render();
 }
 
