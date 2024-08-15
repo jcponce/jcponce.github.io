@@ -115,7 +115,7 @@ function updateFractal() {
 }
 
 function goldenDragon(x1, y1, x2, y2, turn, n, vertices) {
-
+    // https://larryriddle.agnesscott.org/ifs/heighway/goldenDragon.htm
     const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
     if (n <= 0 || distance < 0.05) {
         vertices.push(new THREE.Vector3(x2, y2, 0));
