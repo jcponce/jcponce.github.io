@@ -33,9 +33,9 @@ function init() {
 
     // Dodecahedron Geometry
     const geometry = new THREE.DodecahedronGeometry(1);
-    const lineMaterial = new THREE.LineBasicMaterial({ 
+    const lineMaterial = new THREE.LineBasicMaterial({
         color: 0x00ffff,
-     });
+    });
 
     const edges = new THREE.EdgesGeometry(geometry);
     const line = new THREE.LineSegments(edges, lineMaterial);
@@ -115,31 +115,55 @@ function updateFractal() {
 }
 
 function goldenDragon(x1, y1, x2, y2, turn, n, vertices) {
-    const goldenRatio = (1 + Math.sqrt(5)) / 2;
-    const r1 = Math.pow(1 / goldenRatio, 1 / goldenRatio);
-    const r2 = Math.pow(r1, 2);
-    const angle1 = Math.acos((1 + r1 ** 2 - r1 ** 4) / (2 * r1));
-    const angle2 = Math.acos((1 + r1 ** 4 - r1 ** 2) / (2 * r2));
 
-    const dist = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
-    if (dist < 0.05 || n <= 0) {
+    const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    if (n <= 0 || distance < 0.05) {
         vertices.push(new THREE.Vector3(x2, y2, 0));
         return;
     }
+    const goldenRatio = (1 + Math.sqrt(5)) / 2;
+    const r1 = Math.pow(1 / goldenRatio, 1 / goldenRatio);
+    const r2 = r1 ** 2;
+    const angle1 = Math.acos((1 + r1 ** 2 - r1 ** 4) / (2 * r1));
+    const angle2 = Math.acos((1 + r1 ** 4 - r1 ** 2) / (2 * r2));
 
-    const angle = Math.atan2(y2 - y1, x2 - x1);
-    let px, py;
-    if (turn) {
-        px = x1 + dist * r1 * Math.cos(angle + angle1);
-        py = y1 + dist * r1 * Math.sin(angle + angle1);
-    } else {
-        px = x1 + dist * r2 * Math.cos(angle - angle2);
-        py = y1 + dist * r2 * Math.sin(angle - angle2);
-    }
+    const angleBetweenPoints = Math.atan2(y2 - y1, x2 - x1);
+
+    const r = turn ? r1 : r2;
+    const angle = turn ? angle1 : -angle2;  // Choose the angle based on the turn
+
+    const px = x1 + distance * r * Math.cos(angleBetweenPoints + angle);
+    const py = y1 + distance * r * Math.sin(angleBetweenPoints + angle);
 
     vertices.push(new THREE.Vector3(x1, y1, 0));
     goldenDragon(x1, y1, px, py, true, n - 1, vertices);
     goldenDragon(px, py, x2, y2, false, n - 1, vertices);
+
+    // const goldenRatio = (1 + Math.sqrt(5)) / 2;
+    // const r1 = Math.pow(1 / goldenRatio, 1 / goldenRatio);
+    // const r2 = Math.pow(r1, 2);
+    // const angle1 = Math.acos((1 + r1 ** 2 - r1 ** 4) / (2 * r1));
+    // const angle2 = Math.acos((1 + r1 ** 4 - r1 ** 2) / (2 * r2));
+
+    // const dist = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    // if (dist < 0.05 || n <= 0) {
+    //     vertices.push(new THREE.Vector3(x2, y2, 0));
+    //     return;
+    // }
+
+    // const angle = Math.atan2(y2 - y1, x2 - x1);
+    // let px, py;
+    // if (turn) {
+    //     px = x1 + dist * r1 * Math.cos(angle + angle1);
+    //     py = y1 + dist * r1 * Math.sin(angle + angle1);
+    // } else {
+    //     px = x1 + dist * r2 * Math.cos(angle - angle2);
+    //     py = y1 + dist * r2 * Math.sin(angle - angle2);
+    // }
+
+    // vertices.push(new THREE.Vector3(x1, y1, 0));
+    // goldenDragon(x1, y1, px, py, true, n - 1, vertices);
+    // goldenDragon(px, py, x2, y2, false, n - 1, vertices);
 }
 
 function onWindowResize() {
