@@ -33,7 +33,9 @@ function init() {
 
     // Dodecahedron Geometry
     const geometry = new THREE.DodecahedronGeometry(1);
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff });
+    const lineMaterial = new THREE.LineBasicMaterial({ 
+        color: 0x00ffff,
+     });
 
     const edges = new THREE.EdgesGeometry(geometry);
     const line = new THREE.LineSegments(edges, lineMaterial);
