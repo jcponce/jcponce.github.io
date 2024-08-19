@@ -8,8 +8,11 @@ void main()
 {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
-    float elevation = sin(modelPosition.x * uFrequency.x - uTime) * 0.1;
-    elevation += sin(modelPosition.y * uFrequency.y - uTime) * 0.1;
+    float sqrtX = 0.5 * modelPosition.x * uFrequency.x*modelPosition.x * uFrequency.x;
+    float sqrtY = 0.5 * modelPosition.y * uFrequency.y*modelPosition.y * uFrequency.y;
+
+    float elevation = sin(sqrtX + sqrtY - uTime * 2.5) * 0.03;
+    elevation += sin(sqrtX + sqrtY - uTime * 2.5) * 0.03;
 
     modelPosition.z += elevation;
 
