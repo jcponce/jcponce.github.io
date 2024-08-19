@@ -4,6 +4,10 @@ uniform float uTime;
 varying vec2 vUv;
 varying float vElevation;
 
+//attribute float aRandom;
+
+//varying float vRandom;
+
 void main()
 {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -23,4 +27,5 @@ void main()
 
     vUv = uv;
     vElevation = elevation;
+    //vRandom = aRandom;
 }
