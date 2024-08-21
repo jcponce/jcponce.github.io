@@ -181,7 +181,7 @@ function initializeScene() {
      */
     // Base camera
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-    camera.position.x = 5
+    camera.position.x = 10
     camera.position.y = 5
     camera.position.z = 5
     scene.add(camera)
