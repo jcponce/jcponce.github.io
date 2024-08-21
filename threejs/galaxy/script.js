@@ -43,7 +43,7 @@ function initializeScene() {
     parameters.randomness = 0.5
     parameters.randomnessPower = 3
     parameters.insideColor = '#2e74ff'
-    parameters.outsideColor = '#6de9e7'
+    parameters.outsideColor = '#f77118'
 
     let geometry = null
     let material = null
@@ -80,10 +80,6 @@ function initializeScene() {
             positions[i3] = Math.cos(branchAngle) * radius
             positions[i3 + 1] = 0
             positions[i3 + 2] = Math.sin(branchAngle) * radius
-            
-            // positions[i3] = (Math.random() - 0.5) * 5
-            // positions[i3 + 1] = (Math.random() - 0.5) * 5
-            // positions[i3 + 2] = (Math.random() - 0.5) * 5
 
 
             // Randomness
