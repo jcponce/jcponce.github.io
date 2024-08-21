@@ -1,6 +1,10 @@
 uniform float uTime;
 uniform float uSize;
 
+uniform float uSigma;
+uniform float uRho;
+uniform float uBeta;
+
 attribute float aScale;
 attribute vec3 aRandomness;
 
@@ -21,6 +25,23 @@ void main(){
 
     // Randomness
     modelPosition.xyz += aRandomness;
+
+    //  // Lorenz system
+    // vec3 pos = modelPosition.xyz;  // Introduce some initial randomness
+    // float dt = 0.01 * uTime;  // Small time step scaled by uTime
+
+    // for (int i = 0; i < 10; i++) {  // Accumulate the motion over multiple small steps
+    //     float dx = uSigma * (pos.y - pos.x);
+    //     float dy = pos.x * (uRho - pos.z) - pos.y;
+    //     float dz = pos.x * pos.y - uBeta * pos.z;
+
+    //     pos.x += dx * dt;
+    //     pos.y += dy * dt;
+    //     pos.z += dz * dt;
+    // }
+
+    // modelPosition.xyz = pos;
+    
 
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectedPosition = projectionMatrix * viewPosition;

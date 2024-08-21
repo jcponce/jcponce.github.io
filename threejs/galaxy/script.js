@@ -77,10 +77,14 @@ function initializeScene() {
 
             const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2
 
-
             positions[i3] = Math.cos(branchAngle) * radius
             positions[i3 + 1] = 0
             positions[i3 + 2] = Math.sin(branchAngle) * radius
+            
+            // positions[i3] = (Math.random() - 0.5) * 5
+            // positions[i3 + 1] = (Math.random() - 0.5) * 5
+            // positions[i3 + 2] = (Math.random() - 0.5) * 5
+
 
             // Randomness
             const randomX = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
@@ -121,7 +125,10 @@ function initializeScene() {
             fragmentShader: galaxyFragmentShader,
             uniforms: {
                 uTime: { value: 0 },
-                uSize: { value: 25 * renderer.getPixelRatio() }
+                uSize: { value: 50 * renderer.getPixelRatio() },
+                uSigma: { value: 10.0 },
+                uRho: { value: 28.0 },
+                uBeta: { value: 8.0 / 3.0 }
             }
         })
 
