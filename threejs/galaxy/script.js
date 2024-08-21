@@ -37,8 +37,8 @@ function initializeScene() {
     const parameters = {}
     parameters.count = 200000
     parameters.size = 0.005
-    parameters.radius = 5
-    parameters.branches = 3
+    parameters.radius = 10
+    parameters.branches = 5
     parameters.spin = 1
     parameters.randomness = 0.5
     parameters.randomnessPower = 3
@@ -75,15 +75,15 @@ function initializeScene() {
             // Position
             const radius = Math.random() * parameters.radius
 
-            // const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2
+            const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2
 
-            // positions[i3] = Math.cos(branchAngle) * radius
-            // positions[i3 + 1] = 0
-            // positions[i3 + 2] = Math.sin(branchAngle) * radius
+            positions[i3] = Math.cos(branchAngle) * radius
+            positions[i3 + 1] = 0
+            positions[i3 + 2] = Math.sin(branchAngle) * radius
             
-            positions[i3] = (Math.random() - 0.5) * 5
-            positions[i3 + 1] = (Math.random() - 0.5) * 5
-            positions[i3 + 2] = (Math.random() - 0.5) * 5
+            // positions[i3] = (Math.random() - 0.5) * 5
+            // positions[i3 + 1] = (Math.random() - 0.5) * 5
+            // positions[i3 + 2] = (Math.random() - 0.5) * 5
 
 
             // Randomness
@@ -139,7 +139,7 @@ function initializeScene() {
         scene.add(points)
     }
 
-    gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
+    gui.add(parameters, 'count').min(100).max(200000).step(100).onFinishChange(generateGalaxy)
     gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
     gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
     gui.add(parameters, 'randomness').min(0).max(2).step(0.001).onFinishChange(generateGalaxy)

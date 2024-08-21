@@ -26,18 +26,18 @@ vec3 thomas(vec3 position, float dt) {
 
 
 void main(){
-    //vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+    vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
-    // // Spin
-    // float angle = atan(modelPosition.x, modelPosition.z);
-    // float distanceToCenter = length(modelPosition.xz);
-    // float angleOffset = (1.0 / distanceToCenter) * uTime * 0.5;
-    // angle +=angleOffset;
-    // modelPosition.x = cos(angle)* distanceToCenter;
-    // modelPosition.z = sin(angle) * distanceToCenter;
+    // Spin
+    float angle = atan(modelPosition.x, modelPosition.z);
+    float distanceToCenter = length(modelPosition.xz);
+    float angleOffset = (1.0 / distanceToCenter) * uTime * 0.1;
+    angle +=angleOffset;
+    modelPosition.x = cos(angle)* distanceToCenter;
+    modelPosition.z = sin(angle) * distanceToCenter;
 
-    // // Randomness
-    // modelPosition.xyz += aRandomness;
+    // Randomness
+    modelPosition.xyz += aRandomness;
 
     //  // Lorenz system
     // vec3 pos = modelPosition.xyz;  // Introduce some initial randomness
@@ -61,20 +61,20 @@ void main(){
     // modelPosition = vec4(newPosition, 1.0);
 
     // Apply the Thomas attractor directly to the initial position
-    vec3 newPosition = position;
+    // vec3 newPosition = position;
 
     // Time factor for attractor dynamics
-    float totalTime = uTime * 0.0001; // Adjust this to control speed
-    for (int i = 0; i < 100; i++) {  // Increase the iteration count for smoother paths
-        newPosition = thomas(newPosition, totalTime);
-    }
+    // float totalTime = uTime * 0.0001; // Adjust this to control speed
+    // for (int i = 0; i < 100; i++) {  // Increase the iteration count for smoother paths
+    //     newPosition = thomas(newPosition, totalTime);
+    // }
 
      // Damping to prevent expansion
     //float damping = 0.79; // Damping factor (less than 1 to reduce expansion)
     //newPosition *= damping;
 
     
-    vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
+    //vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
     
 
     vec4 viewPosition = viewMatrix * modelPosition;
