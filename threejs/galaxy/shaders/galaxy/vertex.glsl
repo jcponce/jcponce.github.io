@@ -11,20 +11,33 @@ attribute vec3 aRandomness;
 
 varying vec3 vColor;
 
+vec3 thomas(vec3 position, float dt) {
+    float speed = 400.0;
+    float dx = (sin(position.y) -  0.208186 * position.x) * speed;
+    float dy = (sin(position.z) -  0.208186 * position.y) * speed;
+    float dz = (sin(position.x) -  0.208186 * position.z) * speed;
+    
+    position.x += dx * dt;
+    position.y += dy * dt;
+    position.z += dz * dt;
+
+    return position;
+}
+
 
 void main(){
-    vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+    //vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
-    // Spin
-    float angle = atan(modelPosition.x, modelPosition.z);
-    float distanceToCenter = length(modelPosition.xz);
-    float angleOffset = (1.0 / distanceToCenter) * uTime * 0.5;
-    angle +=angleOffset;
-    modelPosition.x = cos(angle)* distanceToCenter;
-    modelPosition.z = sin(angle) * distanceToCenter;
+    // // Spin
+    // float angle = atan(modelPosition.x, modelPosition.z);
+    // float distanceToCenter = length(modelPosition.xz);
+    // float angleOffset = (1.0 / distanceToCenter) * uTime * 0.5;
+    // angle +=angleOffset;
+    // modelPosition.x = cos(angle)* distanceToCenter;
+    // modelPosition.z = sin(angle) * distanceToCenter;
 
-    // Randomness
-    modelPosition.xyz += aRandomness;
+    // // Randomness
+    // modelPosition.xyz += aRandomness;
 
     //  // Lorenz system
     // vec3 pos = modelPosition.xyz;  // Introduce some initial randomness
@@ -41,6 +54,27 @@ void main(){
     // }
 
     // modelPosition.xyz = pos;
+
+    // Apply the Lorenz system
+    // float dt = 1.01 * uTime; // Scale time for better control
+    // vec3 newPosition = thomas(modelPosition.xyz, dt);
+    // modelPosition = vec4(newPosition, 1.0);
+
+    // Apply the Thomas attractor directly to the initial position
+    vec3 newPosition = position;
+
+    // Time factor for attractor dynamics
+    float totalTime = uTime * 0.0001; // Adjust this to control speed
+    for (int i = 0; i < 100; i++) {  // Increase the iteration count for smoother paths
+        newPosition = thomas(newPosition, totalTime);
+    }
+
+     // Damping to prevent expansion
+    //float damping = 0.79; // Damping factor (less than 1 to reduce expansion)
+    //newPosition *= damping;
+
+    
+    vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
     
 
     vec4 viewPosition = viewMatrix * modelPosition;

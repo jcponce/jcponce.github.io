@@ -42,8 +42,8 @@ function initializeScene() {
     parameters.spin = 1
     parameters.randomness = 0.5
     parameters.randomnessPower = 3
-    parameters.insideColor = '#ff6030'
-    parameters.outsideColor = '#1b3984'
+    parameters.insideColor = '#2e74ff'
+    parameters.outsideColor = '#6de9e7'
 
     let geometry = null
     let material = null
@@ -75,15 +75,15 @@ function initializeScene() {
             // Position
             const radius = Math.random() * parameters.radius
 
-            const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2
+            // const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2
 
-            positions[i3] = Math.cos(branchAngle) * radius
-            positions[i3 + 1] = 0
-            positions[i3 + 2] = Math.sin(branchAngle) * radius
+            // positions[i3] = Math.cos(branchAngle) * radius
+            // positions[i3 + 1] = 0
+            // positions[i3 + 2] = Math.sin(branchAngle) * radius
             
-            // positions[i3] = (Math.random() - 0.5) * 5
-            // positions[i3 + 1] = (Math.random() - 0.5) * 5
-            // positions[i3 + 2] = (Math.random() - 0.5) * 5
+            positions[i3] = (Math.random() - 0.5) * 5
+            positions[i3 + 1] = (Math.random() - 0.5) * 5
+            positions[i3 + 2] = (Math.random() - 0.5) * 5
 
 
             // Randomness
@@ -174,9 +174,9 @@ function initializeScene() {
      */
     // Base camera
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-    camera.position.x = 3
-    camera.position.y = 3
-    camera.position.z = 3
+    camera.position.x = 5
+    camera.position.y = 5
+    camera.position.z = 5
     scene.add(camera)
 
     // Controls
