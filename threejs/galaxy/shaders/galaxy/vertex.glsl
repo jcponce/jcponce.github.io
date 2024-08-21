@@ -24,6 +24,24 @@ vec3 thomas(vec3 position, float dt) {
     return position;
 }
 
+float myPoly(float u) {
+    float v = 0.0002248964217 * pow(u, 4.0) 
+              - 0.0054089716545 * pow(u, 3.0)
+              - 0.0545497636448 * pow(u, 2.0)
+              + 2.45554124608158 * pow(u, 1.0);
+    return v;
+}
+
+float animationSpeed(float u) {
+    float v;
+    if(0.0 <= u && u < 20.0){
+        v = myPoly(u);
+    } else{
+        v = u;
+    }
+    return v;
+}
+
 
 void main(){
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -31,7 +49,7 @@ void main(){
     // Spin
     float angle = atan(modelPosition.x, modelPosition.z);
     float distanceToCenter = length(modelPosition.xz);
-    float angleOffset = (1.0 / distanceToCenter) * uTime * 0.1;
+    float angleOffset = (1.0 / distanceToCenter) * animationSpeed(uTime);
     angle +=angleOffset;
     modelPosition.x = cos(angle)* distanceToCenter;
     modelPosition.z = sin(angle) * distanceToCenter;

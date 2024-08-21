@@ -152,6 +152,7 @@ function initializeScene() {
     gui.addColor(parameters, 'insideColor').onFinishChange(generateGalaxy)
     gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
     //gui.add(parameters, 'radiusSphere').min(1).max(5).step(0.01).onFinishChange(generateGalaxy)
+    gui.close()
 
     /**
      * Sizes
