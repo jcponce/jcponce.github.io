@@ -42,8 +42,9 @@ function initializeScene() {
     parameters.spin = 1
     parameters.randomness = 0.5
     parameters.randomnessPower = 3
-    parameters.insideColor = '#2e74ff'
-    parameters.outsideColor = '#f77118'
+    parameters.insideColor = '#2e89ff'
+    parameters.outsideColor = '#caa5f8'
+    parameters.radiusSphere = 2
 
     let geometry = null
     let material = null
@@ -77,9 +78,9 @@ function initializeScene() {
 
             const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2
 
-            positions[i3] = Math.cos(branchAngle) * radius
+            positions[i3] = Math.cos(branchAngle) * (radius + parameters.radiusSphere)
             positions[i3 + 1] = 0
-            positions[i3 + 2] = Math.sin(branchAngle) * radius
+            positions[i3 + 2] = Math.sin(branchAngle) * (radius + parameters.radiusSphere)
 
 
             // Randomness
@@ -135,6 +136,14 @@ function initializeScene() {
         scene.add(points)
     }
 
+   // Sphere geometry and material
+   const sphereGeometry = new THREE.SphereGeometry(parameters.radiusSphere, 32, 32);
+   const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+   const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+   scene.add(sphere);
+
+    
+
     gui.add(parameters, 'count').min(100).max(200000).step(100).onFinishChange(generateGalaxy)
     gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
     gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
@@ -142,6 +151,7 @@ function initializeScene() {
     gui.add(parameters, 'randomnessPower').min(1).max(10).step(0.001).onFinishChange(generateGalaxy)
     gui.addColor(parameters, 'insideColor').onFinishChange(generateGalaxy)
     gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
+    //gui.add(parameters, 'radiusSphere').min(1).max(5).step(0.01).onFinishChange(generateGalaxy)
 
     /**
      * Sizes
