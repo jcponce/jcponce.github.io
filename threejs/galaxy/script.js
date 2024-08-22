@@ -122,10 +122,7 @@ function initializeScene() {
             fragmentShader: galaxyFragmentShader,
             uniforms: {
                 uTime: { value: 0 },
-                uSize: { value: 50 * renderer.getPixelRatio() },
-                uSigma: { value: 10.0 },
-                uRho: { value: 28.0 },
-                uBeta: { value: 8.0 / 3.0 }
+                uSize: { value: 50 * renderer.getPixelRatio() }
             }
         })
 
@@ -136,13 +133,11 @@ function initializeScene() {
         scene.add(points)
     }
 
-   // Sphere geometry and material
-   const sphereGeometry = new THREE.SphereGeometry(parameters.radiusSphere, 32, 32);
-   const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
-   const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-   scene.add(sphere);
-
-    
+    // Sphere geometry and material
+    const sphereGeometry = new THREE.SphereGeometry(parameters.radiusSphere, 32, 32);
+    const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    scene.add(sphere);
 
     gui.add(parameters, 'count').min(100).max(200000).step(100).onFinishChange(generateGalaxy)
     gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)

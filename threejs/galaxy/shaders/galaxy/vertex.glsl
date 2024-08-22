@@ -1,10 +1,6 @@
 uniform float uTime;
 uniform float uSize;
 
-uniform float uSigma;
-uniform float uRho;
-uniform float uBeta;
-
 attribute float aScale;
 attribute vec3 aRandomness;
 
