@@ -11,19 +11,6 @@ attribute vec3 aRandomness;
 
 varying vec3 vColor;
 
-vec3 thomas(vec3 position, float dt) {
-    float speed = 400.0;
-    float dx = (sin(position.y) -  0.208186 * position.x) * speed;
-    float dy = (sin(position.z) -  0.208186 * position.y) * speed;
-    float dz = (sin(position.x) -  0.208186 * position.z) * speed;
-    
-    position.x += dx * dt;
-    position.y += dy * dt;
-    position.z += dz * dt;
-
-    return position;
-}
-
 float myPoly(float u) {
     float v = - 0.0000056015527 * pow(u, 4.0) 
               + 0.0035961847886 * pow(u, 3.0)
