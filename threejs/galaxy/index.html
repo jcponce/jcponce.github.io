@@ -2,16 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated galaxy - Shaders</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated galaxy - Shaders</title>
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JPYTNF6MB4');
+  </script>
 </head>
 
 <body>
-    <canvas class="webgl"></canvas>
+  <canvas class="webgl"></canvas>
 
-    <script type="importmap">
+  <script type="importmap">
         {
           "imports": {
             "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.min.js",
@@ -19,7 +29,27 @@
           }
         }
     </script>
-    <script type="module" src="./script.js"></script>
+  <script type="module" src="./script.js"></script>
+
+  <script>
+    // Function to toggle full screen mode
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Event listener for keydown event
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'f' || event.key === 'F') {
+        toggleFullScreen();
+      }
+    });
+  </script>
 </body>
 
 </html>
