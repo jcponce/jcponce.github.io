@@ -35,7 +35,7 @@ function initializeScene() {
      * Galaxy
      */
     const parameters = {}
-    parameters.count = 200000
+    parameters.count = 300000
     parameters.size = 0.005
     parameters.radius = 10
     parameters.branches = 5
@@ -139,7 +139,7 @@ function initializeScene() {
     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
     scene.add(sphere);
 
-    gui.add(parameters, 'count').min(100).max(200000).step(100).onFinishChange(generateGalaxy)
+    gui.add(parameters, 'count').min(100).max(500000).step(100).onFinishChange(generateGalaxy)
     gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
     gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
     gui.add(parameters, 'randomness').min(0).max(2).step(0.001).onFinishChange(generateGalaxy)
