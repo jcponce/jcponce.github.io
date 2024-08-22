@@ -25,10 +25,10 @@ vec3 thomas(vec3 position, float dt) {
 }
 
 float myPoly(float u) {
-    float v = 0.0002248964217 * pow(u, 4.0) 
-              - 0.0054089716545 * pow(u, 3.0)
-              - 0.0545497636448 * pow(u, 2.0)
-              + 2.45554124608158 * pow(u, 1.0);
+    float v = - 0.0000056015527 * pow(u, 4.0) 
+              + 0.0035961847886 * pow(u, 3.0)
+              - 0.1621348482489 * pow(u, 2.0)
+              + 2.8490754711601 * pow(u, 1.0);
     return v;
 }
 
@@ -37,7 +37,7 @@ float animationSpeed(float u) {
     if(0.0 <= u && u < 20.0){
         v = myPoly(u);
     } else{
-        v = u;
+        v = u * 0.5 + 10.0;
     }
     return v;
 }
