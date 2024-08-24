@@ -41,7 +41,7 @@ function initializeScene() {
     parameters.branches = 5
     parameters.spin = 1
     parameters.randomness = 0.5
-    parameters.randomnessPower = 4
+    parameters.randomnessPower = 3
     parameters.insideColor = '#2e89ff'
     parameters.outsideColor = '#caa5f8'
     parameters.radiusSphere = 2
