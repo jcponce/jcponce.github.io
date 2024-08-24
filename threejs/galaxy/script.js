@@ -41,7 +41,7 @@ function initializeScene() {
     parameters.branches = 5
     parameters.spin = 1
     parameters.randomness = 0.5
-    parameters.randomnessPower = 3
+    parameters.randomnessPower = 2
     parameters.insideColor = '#2e89ff'
     parameters.outsideColor = '#caa5f8'
     parameters.radiusSphere = 2
@@ -176,9 +176,9 @@ function initializeScene() {
      */
     // Base camera
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-    camera.position.x = 10
-    camera.position.y = 5
-    camera.position.z = 10
+    camera.position.x = 9
+    camera.position.y = 4
+    camera.position.z = 9
     scene.add(camera)
 
     // Controls
