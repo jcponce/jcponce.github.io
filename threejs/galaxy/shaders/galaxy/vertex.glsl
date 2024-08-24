@@ -8,9 +8,9 @@ attribute vec3 aRandomness;
 varying vec3 vColor;
 
 float myPoly(float u) {
-    float v = + 0.00198 * pow(u, 3.0) 
-              - 0.13105 * pow(u, 2.0)
-              + 3.03774 * pow(u, 1.0);
+    float v = + 0.0019462767 * pow(u, 3.0) 
+              - 0.1296830403 * pow(u, 2.0)
+              + 3.0256530414 * pow(u, 1.0);
     return v;
 }
 
