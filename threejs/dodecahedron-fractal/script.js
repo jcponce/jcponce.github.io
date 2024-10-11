@@ -10,12 +10,12 @@ let scene, camera, renderer, composer, fractalLine;
 let n = 1;
 let increasing = true;
 const maxN = 25;
-const speed = 0.03; // Adjust this value to control the speed of n's change
+const speed = 0.01; // Adjust this value to control the speed of n's change
 let fireEffect;
+let controls;
 
 init();
 animate();
-
 
 function init() {
     // Scene setup
@@ -28,8 +28,10 @@ function init() {
     document.body.appendChild(renderer.domElement);
 
     // Controls
-    const controls = new OrbitControls(camera, renderer.domElement);
+    controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
+    //controls.autoRotate = true;
+    //controls.autoRotateSpeed = - 0.5;
 
     // Dodecahedron Geometry
     const geometry = new THREE.DodecahedronGeometry(1);
@@ -39,6 +41,7 @@ function init() {
 
     const edges = new THREE.EdgesGeometry(geometry);
     const line = new THREE.LineSegments(edges, lineMaterial);
+    line.position.y = -0.5;
     scene.add(line);
 
     fireEffect = getParticleSystem({
@@ -66,6 +69,8 @@ function init() {
 
 function animate() {
     requestAnimationFrame(animate);
+
+    //controls.update();
 
     // Rotate the icosahedron
     scene.children[0].rotation.y += 0.001;
