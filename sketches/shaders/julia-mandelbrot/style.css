@@ -1,0 +1,57 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+}
+
+.myLink {
+    position: fixed;
+    top: -10px;
+    left: 8px;
+    color: rgb(191, 191, 191);
+    font-size: 1.2rem;
+    text-decoration: none;
+    /* Removes the underline from the link */
+}
+
+.myLink:hover {
+    color: rgb(255, 255, 255);
+    /* Change color on hover */
+}
+
+.footer {
+    position: fixed;
+    text-align: center;
+    bottom: 8px;
+    width: 100%;
+    color: rgb(191, 191, 191);
+    font-size: 1.2rem;
+    animation: hideFooter 20s forwards;
+}
+
+/* Hide footer for screens smaller than 600px */
+@media (max-width: 600px) {
+    .footer {
+        display: none;
+    }
+}
+
+@keyframes hideFooter {
+    0% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
