@@ -24,7 +24,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
   
-  cursor('crosshair')
+  
   
 
   // shaders require WEBGL mode to work
@@ -57,8 +57,14 @@ function draw() {
   // rect gives us some geometry on the screen to draw the shader on
   shaderBg.rect(0, 0, width, height);
   image(shaderBg, 0, 0, width, height);
-}
 
+  if(mouseIsPressed){
+    cursor('none');
+  } else {
+    cursor('crosshair');
+  }
+  
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

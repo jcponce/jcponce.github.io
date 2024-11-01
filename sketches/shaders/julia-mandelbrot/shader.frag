@@ -63,7 +63,7 @@ void main(void)
   
   if (mouseActive == 0. || iMouse.z > 0.) {
         colj = mix(colm, colj, clamp(length(colj), 0., 1.)); // mix between mandelbrot and julia
-        colj = mix(colj, vec3(0.,1.,0.), smoothstep(.03, .02, length(mouse - p))); // add dot
+        colj = mix(colj, vec3(0.,1.,1.), smoothstep(.03, .02, length(mouse - p))); // add dot
     }
    
   
