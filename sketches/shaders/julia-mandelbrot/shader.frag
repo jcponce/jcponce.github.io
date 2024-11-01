@@ -28,8 +28,6 @@ void main(void)
   
   vec2 p = vec2(u, v);
   
-  
-  
     vec2 mouse = vec2(iMouse.x,iMouse.y);
     
     float mouseActive = iMouse.x + iMouse.y;
@@ -56,7 +54,7 @@ void main(void)
         
         if (dot(zj,zj) > 40.) { // stop julia
             float smooth_iter = iter + 2. - log(log(dot(zj,zj)))/log(2.);
-            colj = clamp(cos(vec3(1.1,1.2,1.3) * pow(smooth_iter*2., .5)), 0., 1.);
+            colj = clamp(cos(vec3(1.1,1.2,.8) * pow(smooth_iter*2., .5)), 0., 1.);
             zj = vec2(0.); cj = vec2(0.);
         }
         
@@ -65,7 +63,7 @@ void main(void)
   
   if (mouseActive == 0. || iMouse.z > 0.) {
         colj = mix(colm, colj, clamp(length(colj), 0., 1.)); // mix between mandelbrot and julia
-        colj = mix(colj, vec3(1.,0.,.0), smoothstep(.03, .02, length(mouse - p))); // add dot
+        colj = mix(colj, vec3(0.,1.,0.), smoothstep(.03, .02, length(mouse - p))); // add dot
     }
    
   
