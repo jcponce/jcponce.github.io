@@ -21,7 +21,7 @@ void main(void)
 
   float u = coord.x * 2.0 - 1.0;
   float v = coord.y * 2.0 - 1.0;
-  const float scale = 0.87;
+  const float scale = 0.85;
 
   // Make sure pixels are square
   u = u / scale * iResolution.x / iResolution.y;
@@ -29,7 +29,7 @@ void main(void)
   
   vec2 p = vec2(u, v);
   
-    vec2 mouse = vec2(iMouse.x,iMouse.y);
+    vec2 mouse = vec2(iMouse.x, iMouse.y) /scale;
     
     float mouseActive = iMouse.x + iMouse.y;
     if (mouseActive == 0.) mouse = vec2(cos(iTime*.15-1.4), sin(iTime*.15-1.4))*.98; // default mouse animation
