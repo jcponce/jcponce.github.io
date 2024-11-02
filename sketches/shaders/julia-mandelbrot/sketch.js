@@ -17,6 +17,14 @@ function preload() {
   theShader = loadShader("shader.vert", "shader.frag");
 }
 
+let gui;
+let params = {
+  red: 1.1,
+  green: 1.2,
+  blue: 0.8,
+  d: 0.5
+};
+
 function setup() {
   // disables scaling for retina screens which can create inconsistent scaling between displays
   pixelDensity(1);
@@ -25,7 +33,15 @@ function setup() {
   noStroke();
   
   
+  // Initialize the lil-gui
+  gui = new lil.GUI();
   
+  // Add controls for variables
+  gui.add(params, 'red', 0, 3, 0.01);
+  gui.add(params, 'green', 0, 3, 0.01);
+  gui.add(params, 'blue', 0, 3, 0.01);
+  gui.add(params, 'd', 0.3, 1.5, 0.01);
+  gui.close();
 
   // shaders require WEBGL mode to work
   shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
@@ -53,6 +69,7 @@ function draw() {
   theShader.setUniform("iResolution", [width, height]);
   theShader.setUniform("iTime", millis() / 1000.0);
   theShader.setUniform("iMouse", [xMouse, yMouse, zMouse]);
+  theShader.setUniform("iColor", [params.red, params.green, params.blue, params.d]);
 
   // rect gives us some geometry on the screen to draw the shader on
   shaderBg.rect(0, 0, width, height);

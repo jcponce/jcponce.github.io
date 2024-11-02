@@ -9,6 +9,7 @@ precision highp float;
 // These are our passed in information from the sketch.js
 uniform vec2 iResolution;
 uniform vec3 iMouse;
+uniform vec4 iColor;
 uniform float iTime;
 
 varying vec2 vTexCoord;
@@ -54,7 +55,7 @@ void main(void)
         
         if (dot(zj,zj) > 40.) { // stop julia
             float smooth_iter = iter + 2. - log(log(dot(zj,zj)))/log(2.);
-            colj = clamp(cos(vec3(1.1,1.2,.8) * pow(smooth_iter*2., .5)), 0., 1.);
+            colj = clamp(cos(vec3(iColor.x,iColor.y,iColor.z) * pow(smooth_iter * 2., iColor.w)), 0., 1.);
             zj = vec2(0.); cj = vec2(0.);
         }
         
