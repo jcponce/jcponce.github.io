@@ -1,8 +1,9 @@
 /*
-Learning Shaders 
+
+Julia sets exploration with Mandelbrot set
 Author: Juan Carlos Ponce Campuzano
 Website: https://jcponce.github.io
-Date: 02/Nov/2024
+Date: 04/Nov/2024
 
 */
 

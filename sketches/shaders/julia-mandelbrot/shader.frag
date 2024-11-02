@@ -1,5 +1,10 @@
-// https://www.shadertoy.com/view/DsBGRz by
-// https://www.shadertoy.com/user/kishimisu
+/*
+ * Inspired by Kishimisu
+ * https://www.shadertoy.com/user/kishimisu
+ * https://www.shadertoy.com/view/DsBGRz 
+ * This version by Juan Carlos Ponce Campuzano
+ * 03/Nov/2024
+ */
 
 // These are necessary definitions that let you graphics card know how to render the shader
 #ifdef GL_ES
