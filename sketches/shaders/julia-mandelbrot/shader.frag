@@ -21,7 +21,7 @@ void main(void)
 
   float u = coord.x * 2.0 - 1.0;
   float v = coord.y * 2.0 - 1.0;
-  const float scale = 1.0;
+  const float scale = 0.87;
 
   // Make sure pixels are square
   u = u / scale * iResolution.x / iResolution.y;
