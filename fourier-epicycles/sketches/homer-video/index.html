@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <title>Homer Simpson</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js"></script>
+  
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <script>
+    window.onkeypress = function(event) {
+      if (event.keyCode == 70) {
+        openFullscreen();
+      }
+    }
+  </script>
+
+  <script>
+    var elem = document.documentElement;
+
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+  
+  
+  <script src="signal.js"></script>
+  <script src="fourier.js"></script>
+  <script src="sketch.js"></script>
+</body>
+
+</html>
