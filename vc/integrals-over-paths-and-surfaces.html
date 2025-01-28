@@ -110,6 +110,7 @@
     <div id="myTextBar">
       <p>
         <i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+        
         <span id="myTitle" class="w3-hide">Integrals Over Paths and Surfaces</span>
 
         <span title="Dark/Night Mode" id="dark-mode-toggle" class="topDark w3-theme w3-hide-small">
@@ -196,7 +197,7 @@
           \end{eqnarray*}
           along the path $\c.$ Thus we obtain
           \begin{eqnarray*}
-          \int_{\c}f(x,y,z)\,ds &amp;=&amp; \int_0^{2pi} \left(1+ t^2\right)\sqrt{2}\,dt\\
+          \int_{\c}f(x,y,z)\,ds &amp;=&amp; \int_0^{2\pi} \left(1+ t^2\right)\sqrt{2}\,dt\\
           &amp;=&amp; \sqrt{2} \left[\frac{t^3}{3}+ t\right]_0^{2\pi}\\
           &amp;=&amp; \frac{2\sqrt{2}\pi}{3} \left(4\pi^2 + 3\right).
           \end{eqnarray*}
@@ -297,6 +298,8 @@
 
     </div>
 
+    <hr>
+
     <div id="section-2">
 
       <h2>Line Integrals</h2>
@@ -309,11 +312,6 @@
         this force in moving a particle along a
         smooth curve $C.$
       </p>
-      <p>
-        We divide $C$ into subarcs $P_{i-1}$-$P_i$ with lengths $\Delta s_i$
-        by dividing the parameter interval $[a, b]$
-        into subintervals of equal width.
-      </p>
 
       <figure>
         <img style="width: 70%; display: block;" src="https://www.dynamicmath.xyz/math2001/images/chapter-35/chapter-35-work-1.gif">
@@ -323,16 +321,17 @@
       </figure>
 
       <p>
+        We divide $C$ into subarcs $P_{i-1}$-$P_i$ with lengths $\Delta s_i$
+        by dividing the parameter interval $[a, b]$
+        into subintervals of equal width.
         Choose a point $P_i^*$ on the $i$th
         subarc corresponding to the parameter value $t_i^*.$
-
         <span>
           If $\Delta s_i$ is small, then as the particle moves from
           $P_{i-1}$ to $P_i$ along the curve, it proceeds approximately
           in the direction of $\T(t_i^*),$ the unit tangent vector at
           $P_i^*.$
         </span>
-
       </p>
 
       <figure>
@@ -341,14 +340,6 @@
           Tangent vector.
         </figcaption>
       </figure>
-
-      <p>
-        Thus the work done by the force $\F$ in moving the
-        particle from $P_{i-1}$ to $P_i$ is approximately
-        \[
-        \F^* \pd \T^* \Delta s_i
-        \]
-      </p>
 
       <p>
         Thus the work done by the force $\F$ in moving the
@@ -368,7 +359,7 @@
 
       <p>
         Intuitively, we see that these approximations
-        have to become better as $n\to \infty$ ($\Delta s_i\to 0$).
+        have to become better as $n\to \infty$ $(\Delta s_i\to 0).$
 
       </p>
       <p>
@@ -493,7 +484,7 @@
         \]
         instead of $\c(t).$ By definition, the line integral is then given by
         \[
-        \int_a^b \F \big(\r(t)\big)\pd \frac{d\r}{dr}dt.
+        \int_a^b \F \big(\r(t)\big)\pd \frac{d\r}{dt}dt.
         \]
         By canceling the $dt$'s, and using the parametrization independence to replace
         the limits of integration with the geometric curve $C,$ we obtain the notation
@@ -517,7 +508,7 @@
         \]
         Then
         \begin{eqnarray*}
-        \F(\c(t))\pd \c'(t) &amp;=&amp; \left(\sin t, \cos t, t\right) \pd \left(\cos t, -\sin t , t\right)\\
+        \F(\c(t))\pd \c'(t) &amp;=&amp; \left(\sin t, \cos t, t\right) \pd \left(\cos t, -\sin t , 1\right)\\
         &amp;=&amp; \sin t\cos t -\cos t \sin t+ t = t,
         \end{eqnarray*}
         and so
@@ -607,10 +598,9 @@
       </div>
 
 
-
-
-
     </div>
+
+    <hr>
 
     <div id="section-3">
       <h2>Line Integrals of Gradient Fields</h2>
@@ -701,6 +691,8 @@
 
 
     </div>
+
+    <hr>
 
     <div id="section-4">
 
