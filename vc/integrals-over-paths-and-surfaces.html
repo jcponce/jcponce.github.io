@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>  Integrals Over Paths and Surfaces
+</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="An introduction to Vector Calculus" />
+  <meta name="keywords" content="vector, calculus, analysis, mathematics" />
+
+  <!--
+    https://www.everywheremarketer.com/blog/ultimate-guide-to-social-meta-tags-open-graph-and-twitter-cards
+  -->
+  <!--Facebook-->
+  <meta property="og:title" content="Vector Calulus" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="An introduction to Vector Calculus" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vector Calulus">
+
+  <!--Twitter/X-->
+  <meta name="twitter:title" content="Vector Calulus" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:description" content="An introduction to Vector Calulus" />
+  <meta name="twitter:type" content="website" />
+  <meta name="twitter:creator" content="@jcponcemath" />
+
+  <link rel="icon" type="image/png" href="imgs/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="imgs/infinity16.png" sizes="16x16">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- Google tag (gtag.js) -->
+ 
+
+  <!-- MathCell applets + MathJax -->
+  <script src="js/math.js"></script>
+  <script src="js/mathcell.js"></script>
+  <script src="js/mathjax.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+</head>
+
+<body data-type="book" id="top">
+
+  <!-- Loader fullscreen -->
+  <div class="myLoader" id="loader">
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="loadingMessage">Loading...</div>
+  </div> 
+
+  <div class="w3-main w3-large" style="margin-left:250px;">
+
+
+
+    <!-- Main DIV Starts here -->
+    <div class="container">
+      <section data-type="chapter" id="integrals-over-paths-and-surfaces-QBG6Iv2">
+
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-card" id="mySidebar">
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-center" href="/"><img id="myLogo" src="imgs/my-logo-black.png"></a>
+
+    <a class="w3-bar-item w3-button w3-hide-large w3-large w3-center" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa-solid fa-xmark w3-large"></i></a>
+
+    <a class="w3-bar-item w3-button" id="chapterBar" href="integrals-over-paths-and-surfaces.html">Integrals Over Paths
+      and Surfaces</a>
+
+
+    <div class="toc-chapter" id="toc-chapter">
+            <a class="w3-bar-item w3-button" href="#section-1">The Path Integral</a>
+            <a class="w3-bar-item w3-button" href="#section-2">Line Integrals</a>
+            <a class="w3-bar-item w3-button" href="#section-3">Line Integrals of Gradient Fields</a>
+            <a class="w3-bar-item w3-button" href="#section-4">Parametrization of
+    surfaces</a>
+    </div>
+
+    <br>
+
+
+    <div class="w3-container w3-center w3-theme" id="mySocial">
+      <div class="">
+        <a title="Patreon" href="https://www.patreon.com/jcponce" target="_blank"><i class="fa-brands fa-patreon w3-button w3-round-large w3-theme"></i></a>
+        <span title="Support" onclick="document.getElementById('myModal').style.display='block'" class="w3-button w3-round-large w3-theme">
+          <i class="fa-regular fa-heart"></i></span>
+        <a title="GitHub" href="https://github.com/jcponce" target="_blank"><i class="fa-brands fa-github w3-button w3-round-large w3-theme"></i></a>
+        <br>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Overlay to close navbar -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
+  </div>
+
+  <!-- Main text starts here -->
+
+  <!-- Bar on top shows/hides after scrolling -->
+  <div id="myTop" class="w3-container w3-top w3-theme-bar w3-large">
+    <div id="myTextBar">
+      <p>
+        <i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+        <span id="myTitle" class="w3-hide">Integrals over paths and surfaces</span>
+
+        <span title="Dark/Night Mode" id="dark-mode-toggle" class="topDark w3-theme w3-hide-small">
+          <i class="fa-regular fa-sun"></i>
+        </span>
+
+        <span onclick="document.getElementById('myModal').style.display='block'" class="topDonate w3-button w3-theme w3-round-small w3-hide-small">
+          <i class="fa-regular fa-heart"></i> Support
+        </span>
+
+      </p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="w3-container w3-theme header-section">
+
+    <h1>Integrals Over Paths and Surfaces</h1>
+
+  </header>
+
+  <!-- Sections -->
+  <div class="w3-container section-content">
+
+    <div id="section-1">
+
+      <div id="path-integral">
+        <h2>The Path Integral</h2>
+      </div>
+
+      <p>
+        Suppose we have a scalar function $f: \R^3 \to \R,$ so that $f$ sends
+        points in $\R^3$ to real numbers. It will be useful to define the
+        integral of such functions $f$ along a path
+        \[
+        \c : [a,b]\to \R^3, \text{ where } \c(t) = \left(x(t), y(t), z(t) \right).
+        \]
+      </p>
+
+      <div class="definition">
+        If $\c:[a,b]\to \R^3$ is of class $C^1$ and the composite function
+        $t\mapsto f \left(x(t), y(t), z(t) \right)$ is continuous on $[a,b],$
+        then the <strong>path integral</strong>, or the <strong>integral of</strong>
+        $f(x,y,z)$ <strong>along the path</strong> $\c,$ is defined as
+        \[
+        \int_{\c} f\,ds = \int_a^b f \left(x(t), y(t), z(t) \right)\norm{\c'(t)}\, dt.
+        \]
+      </div>
+
+      <p>
+        Sometimes $\int_{\c}f\,ds$ is denoted as
+        \[
+        \int_{\c}f(x,y,z)\,ds
+        \]
+        or
+        \[
+        \int_{a}^{b} f\left(\c(t)\right)\norm{\c'(t)}\, dt.
+        \]
+        If $\c$ is only piecewise $C^1$, or $f\left(\c(t)\right)$ is piecewise continuous,
+        we define $\int_{\c}f\,ds$ by breaking $[a,b]$ into pieces over which
+        $f\left(\c(t)\right)\norm{\c'(t)}$ is continuous, and then we sum the integrals
+        over the pieces.
+      </p>
+
+      <div class="example">
+        Let $\c$ be the helix $\c:[0,2\pi]\to \R^3$ define as $t\mapsto \left(\cos t, \sin t, t\right),$
+        and let $f(x,y,z)=x^2+ y^2+ z^2.$
+
+        <p>
+          To compute $\int_{\c}f(x,y,z)\,ds,$ first we need $\norm{\c'(t)}:$
+          \begin{eqnarray*}
+          \norm{\c'(t)} &amp;=&amp; \sqrt{ \left[\frac{d(\cos t)}{dt}\right]^2 + \left[\frac{d(\sin t)}{dt}\right]^2+
+          \left[\frac{dt}{dt}\right]^2}\\
+          &amp;=&amp; \sqrt{\sin^2 t + \cos^2 t + 1} \\
+          &amp;=&amp; \sqrt{2}.
+          \end{eqnarray*}
+        </p>
+        <p>
+          Next we substitute for $x,y,z$ in terms of $t$ to obtain
+          \begin{eqnarray*}
+          f(x,y,z) &amp;=&amp; x^2+y^2+z^2\\
+          &amp;=&amp; \sqrt{\sin^2 t + \cos^2 t + t^2}\\
+          &amp;=&amp; 1+ t^2.
+          \end{eqnarray*}
+          along the path $\c.$ Thus we obtain
+          \begin{eqnarray*}
+          \int_{\c}f(x,y,z)\,ds &amp;=&amp; \int_0^{2pi} \left(1+ t^2\right)\sqrt{2}\,dt\\
+          &amp;=&amp; \sqrt{2} \left[\frac{t^3}{3}+ t\right]_0^{2\pi}\\
+          &amp;=&amp; \frac{2\sqrt{2}\pi}{3} \left(4\pi^2 + 3\right).
+          \end{eqnarray*}
+        </p>
+      </div>
+
+      <p>
+        The definition of path integral can be understood more intuitively
+        by approximating the path integral using sums that resemble
+        Riemann sums in calculus. For simplicity, let $\c$ be of
+        $C^1$ on $I=[a,b].$ Subdivide the interval $I=[a,b]$ by
+        means of a partition
+        \[
+        a=t_0 \lt t_1 \lt \ldots \lt t_N=b.
+        \]
+        Now $\c$ divided into smaller paths $\c_i$ defined on
+        $\left[t_i,t_{i+1}\right]$ for $0\le i \le N-1.$
+      </p>
+
+      <figure>
+        <div id="ggb-element-path-integral"></div>
+        <figcaption>
+          Slowly, drag the slider <tt>N</tt>. Use mouse to move 3D graphics view.
+        </figcaption>
+      </figure>
+
+      <p>
+        We consider now the arc length $\Delta s_i$ of $\c_i$ defined as
+        \[
+        \Delta s_i = \int_{t_i}^{t_{i+1}}\norm{\c'(t)}\, dt.
+        \]
+      </p>
+      <p>
+        If $N$ is large, the arc length $\Delta s_i$ is small and $f(x,y,z)$ is
+        approximately constant for points on $\c_i.$ Now we consider the sums
+        \[
+        S_N = \sum_{i=0}^{N-1}f\left(x_i, y_i, z_i\right)\delta s_i,
+        \]
+        where $\left(x_i, y_i, z_i\right)= \c(t)$ for some $t_i\in \left[t_i,t_{i+1}\right].$
+        By the mean-value theorem we know that $\Delta s_i=\norm{\c'(t_i^{*})}\Delta t_i,$
+        where $t_i^*\in \left[t_i,t_{i+1}\right]$ and $\Delta t_i = t_{i+1}-t_i.$
+        Thus, from calculus, we have
+        \begin{eqnarray*}
+        \lim_{N\to \infty} S_N &amp; = &amp; \lim_{N\to \infty} \sum_{i=0}^{N-1}f\left(x_i, y_i, z_i\right)
+        \norm{\c'(t_i^{*})}\Delta t_i \\
+        &amp; = &amp;\int_{I}f\left(x(t),y(t),z(t)\right)\norm{c'(t)}\,dt \\
+        &amp; = &amp; \int_{\c} f\left(x,y,z\right)~ds.
+        \end{eqnarray*}
+      </p>
+
+      <p>
+        Suppose that image of $\c$ represents a wire. If $f(x,y,z)$ represents
+        the mass density at $(x,y,z),$ then the integral of $f$ will be the total
+        mass of the wire.
+        On the other hand, if $f(x,y,z)$ indicates temperature, then the integral of $f$
+        determines the average temperature along the wire.
+      </p>
+
+
+
+      <h3>The Path Integral for Planar Curves</h3>
+
+      <p>
+        A particular case of the path integral happens when the path
+        $\c$ describes a plane curve. Assume that all points $\c(t)$
+        lie in the $xy$ plane and $f$ is a real-valued function of two variables.
+        The path integral of $f$ along $\c$ is
+      </p>
+      <div class="eqwrapper">
+        \begin{eqnarray*}
+        \int_{\c} f(x,y)~ ds = \int_a^b f\left(x(t),y(t)\right)\sqrt{\left[x'(t)\right]^2+\left[y'(t)\right]^2}~dt.
+        \end{eqnarray*}
+      </div>
+
+
+      <p>
+        If $f(x,y)\geq 0,$ this integral has a geometric interpretation as the
+        <emph>area of a fence</emph>.
+        It is possible to construct a "fence" with base the image of $\c$ and with
+        height $f(x,y)$ at $(x,y).$ If $\c$ moves only once along the image of
+        $\c,$ then $\int_{\c}f(x,y)\,ds$ represents the area of a side of this fence.
+      </p>
+
+      <figure>
+        <div id="ggb-element-area-fence"></div>
+        <figcaption>
+          Slowly, drag the slider <tt>t</tt>. Use mouse to move 3D graphics view.
+        </figcaption>
+      </figure>
+
+      <!--
+      <figure>
+        <div id="ggb-element-int-path"></div>
+        <figcaption>
+          Drag the slider!
+        </figcaption>
+      </figure>-->
+
+    </div>
+
+    <div id="section-2">
+
+      <h2>Line Integrals</h2>
+
+      <h3>Work done by force fields</h3>
+
+      <p>
+        Consider a force field $\F(x,y)$ and a piecewiese continuous smooth curve $C.$
+        We wish to compute the work done by
+        this force in moving a particle along a
+        smooth curve $C.$
+      </p>
+      <p>
+        We divide $C$ into subarcs $P_{i-1}$-$P_i$ with lengths $\Delta s_i$
+        by dividing the parameter interval $[a, b]$
+        into subintervals of equal width.
+      </p>
+
+      <figure>
+        <img style="width: 70%; display: block;" src="https://www.dynamicmath.xyz/math2001/images/chapter-35/chapter-35-work-1.gif">
+        <figcaption>
+          Particle moving along $C.$
+        </figcaption>
+      </figure>
+
+      <p>
+        Choose a point $P_i^*$ on the $i$th
+        subarc corresponding to the parameter value $t_i^*.$
+
+        <span>
+          If $\Delta s_i$ is small, then as the particle moves from
+          $P_{i-1}$ to $P_i$ along the curve, it proceeds approximately
+          in the direction of $\T(t_i^*),$ the unit tangent vector at
+          $P_i^*.$
+        </span>
+
+      </p>
+
+      <figure>
+        <img style="width: 70%; display: block;" src="https://www.dynamicmath.xyz/math2001/images/chapter-35/chapter-35-work-5.svg">
+        <figcaption>
+          Tangent vector.
+        </figcaption>
+      </figure>
+
+      <p>
+        Thus the work done by the force $\F$ in moving the
+        particle from $P_{i-1}$ to $P_i$ is approximately
+        \[
+        \F^* \pd \T^* \Delta s_i
+        \]
+      </p>
+
+      <p>
+        Thus the work done by the force $\F$ in moving the
+        particle from $P_{i-1}$ to $P_i$ is approximately
+        \[
+        \F^* \pd \T^* \Delta s_i
+        \]
+      </p>
+      <p>
+        and the total work done in moving
+        the particle along $C$ is approximately
+        \[
+        \sum_{i=1}^n \F^* \pd \T^* \Delta s_i
+        \]
+
+      </p>
+
+      <p>
+        Intuitively, we see that these approximations
+        have to become better as $n\to \infty$ ($\Delta s_i\to 0$).
+
+      </p>
+      <p>
+        Therefore we define the work $W$ done
+        by the force field $\F$ as the
+        limit of the Riemann sums in $\sum_{i=1}^n \F^* \pd \T^* \Delta s_i.$
+        That is
+        \[
+        W = \int_C\F\pd \T~ds
+        \]
+      </p>
+
+      <figure>
+        <img style="width: 70%; display: block;" src="https://www.dynamicmath.xyz/math2001/images/chapter-35/chapter-35-work-9.gif">
+        <figcaption>
+          Particle moving along $C$ affected by the force field.
+        </figcaption>
+      </figure>
+
+      The previous discussion of work in two dimensions motivates the following definition.
+
+      <div class="definition">
+        Let $\F$ be a vector field on $\R^3$ that is continuous on the path
+        $\c':[a,b]\to \R^3.$ The <strong>line integral of</strong> $\F$ along $\c$ is
+        defined as
+        \[
+        \int_{\c} \F\pd d\s = \int_a^b \F\left(\c(t)\right)\pd \c'(t)~dt.
+        \]
+        In other words, we integrate the dot product of $\F$ with $\c'$ over the interval
+        $[a,b].$
+      </div>
+
+      <p>
+        Similarly to the case with scalar functions, we can also define $ \int_{\c} \F\pd d\s $
+        when $ \F\left(\c(t)\right)\pd \c'(t)$ is only piecewise continuous.
+      </p>
+
+      <h3>Common notation</h3>
+
+      <p>
+        <span>
+          Let $\,\F= F_1(x,y,z)~\i + F_2(x,y,z)~\j + F_3(x,y,z)~\k$ be a vector field.
+        </span>
+        <span>
+          If the paths $\c$ satisfy $\c'(t)\neq \mathbf 0,$
+          the line integral $\int_{\c} \F \pd d\s$ is often expressed as
+          \[
+          \int_{\c} \F \pd \T ~ds,
+          \]
+        </span>
+        where $\T = \c'(t)/\norm{\c'(t)}$ denotes the tangle unit vector.
+      </p>
+
+      <!--<p>
+        The expressions use the notation $\c = x~\i + y~\j + z~\k,$ $d\s = dx~\i + dy~\j+ dz~\k.$
+        In this notation,
+        \[
+        \text{work done by } \F \text{ along the curve } \c: W = \int_{\c}\F \pd d\s.
+        \] </p>
+        -->
+
+
+      <p>
+        To prove this
+        let $\c(t) =x(t)~\i+y(t)~\j+z(t)~\k$ with $t\in[a,b].$
+        Then the unit tangent vector to $\c$ is
+      </p>
+      <div class="eqwrapper">
+        \[
+        \T=\frac{\c'(t)}{\norm{\c'(t)}} \quad \text{and} \quad ds = \norm{\c'(t)}dt.
+        \]
+      </div>
+      <p>
+        Thus
+      </p>
+      <div class="eqwrapper">
+        \begin{eqnarray*}
+        \int_{\c} \F\pd \T ~ds &amp;=&amp; \int_a^b \left[\F(\c(t)) \pd \frac{\c'(t)}{\norm{\c'(t)}}\right]\norm{\c'(t)}dt \\
+        &amp;=&amp; \int_a^b \F(\c(t)) \pd \c'(t)~dt \\
+        &amp;=&amp; \int_{\c} \F \pd d\s.
+        \end{eqnarray*}
+      </div>
+
+      <p>
+        Another common way to write $\int_{\c} \F \pd d\s$ is
+        \[
+        \int_{\c}F_1~dx+ F_2~dy + F_3~dz,
+        \]
+        where $F_1,$ $F_2$ and $F_3$ are the components of the vector field $\F.$
+        The expression $F_1~dx+ F_2~dy + F_3~dz$ is called a <strong>differential form</strong>.
+        By definition, the integral of a differential form along a path
+        $\c(t) = x(t)~\i+y(t)~\j+z(t)~\k$ is
+      </p>
+      <div class="eqwrapper">
+        \begin{eqnarray*}
+        \int_{\c}F_1~dx+ F_2~dy + F_3~dz &amp;=&amp;
+        \int_{\c}\left(F_1\frac{dx}{dt}+F_2\frac{dy}{dt}+F_3\frac{dz}{dt}\right)dt\\
+        &amp;=&amp; \int_{\c}\F \pd d\s.
+        \end{eqnarray*}
+      </div>
+      <p>
+        In this case we consider $d\s$ as the differential form
+        $d\s = dx~\i+dy~\j+dz~\k.$ This is why the differential form
+        $F_1~dx+ F_2~dy + F_3~dz$ can be written as the dot product $\F\pd d\s.$
+      </p>
+
+      <p>
+        It is also common to write $\int_{\c} \F \pd d\s$ using the notation
+        \[
+        \int_C \F \pd d\r.
+        \]
+        The main reason is that we can think of describing a $C^1$ path $\c$
+        in terms of a moving <strong>position vector</strong> based at the
+        origin and ending at the point $\c(t)$ at time $t.$ Postion vectors are ofter
+        denoted by
+        \[
+        \r = x~\j+y~\j+z~\k,
+        \]
+        and so the curve $C$ is described using the notation
+        \[
+        \r(t) = x(t)~\j+y(t)~\j+z(t)~\k
+        \]
+        instead of $\c(t).$ By definition, the line integral is then given by
+        \[
+        \int_a^b \F \big(\r(t)\big)\pd \frac{d\r}{dr}dt.
+        \]
+        By canceling the $dt$'s, and using the parametrization independence to replace
+        the limits of integration with the geometric curve $C,$ we obtain the notation
+        $\int_C \F \pd d\r.$
+      </p>
+
+      <p>
+        To compute a line integral in any particular case, we can either
+        use the original definition or integrate the tangencial component of
+        $\F$ along $\c,$ whichever is easier or more appropiate.
+      </p>
+
+
+
+      <div class="example">
+        Let $c(t) = \left(\sin t, \cos t , t\right)$ with $t\in [-, 2\pi],$ and
+        $\F(x,y,z) = x~\i + y~\j + z~\k.$
+        Here we have that
+        \[
+        c'(t) = \left(\cos t, -\sin t , 1\right).
+        \]
+        Then
+        \begin{eqnarray*}
+        \F(\c(t))\pd \c'(t) &amp;=&amp; \left(\sin t, \cos t, t\right) \pd \left(\cos t, -\sin t , t\right)\\
+        &amp;=&amp; \sin t\cos t -\cos t \sin t+ t = t,
+        \end{eqnarray*}
+        and so
+        \[
+        \int_{\c}\F\pd d\s = \int_0^{2\pi} t~dt = 2\pi^2.
+        \]
+      </div>
+
+      <div class="example">
+        To evaluate
+        \[
+        \int_{\c} \cos z~dx + e^x ~dy + e^y~dz
+        \]
+        where $\c$ is the path defined as $\c(t) = \i + t~\j + e^t~\k,$ with $t\in [0,2],$
+        we start by computing
+        <div class="eqwrapper">
+          \[
+          \frac{dx}{dt}=0,\quad \frac{dy}{dt}=1,\quad \frac{dz}{dt}=e^t.
+          \]
+        </div>
+        <p>
+          Therefore
+        </p>
+        <div class="eqwrapper">
+          \begin{eqnarray*}
+          \int_{\c} F_1~dx+ F_2~dy + F_3~dz &amp;=&amp; \int_0^2 \left(0+e+e^{2t}\right)dt \\
+          &amp;=&amp; \left[et + \frac{1}{2} e^{2t}\right]_0^2\\
+          &amp;=&amp; 2e + \frac{1}{2}e^4 - \frac{1}{2}.
+          \end{eqnarray*}
+        </div>
+
+      </div>
+
+      <div class="example">
+        Suppose $\F$ is the force vector field $F(x,y,z) = x^3~\i + y~\j + z~\k.$
+        A circle of radius $R$ in the $yz$ plane can be represented with the parametrization
+        \[
+        \c(\theta) = \left(0, R \cos \theta, R \sin \theta \right)
+        \]
+        with $0\le \theta \le 2\pi.$
+        <p>
+          Since $\F\left(\c (\theta)\right)\pd \c'(\theta)= 0,$ the force field $\F$ is normal
+          to the circle at every point on the circle, which means that
+          $F$ will not do any work on a particle moving along the circle.
+        </p>
+
+        <div style="text-align: center;">
+          <iframe loading="lazy" scrolling="no" title="Work zero" src="https://www.geogebra.org/material/iframe/id/pbuarhav/width/491/height/479/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="491px" height="479px" style="border:0px;" allowfullscreen="">
+          </iframe>
+        </div>
+
+    
+        
+        <!--
+         <iframe loading="lazy" src=" https://www.desmos.com/3d/ky6wlawlna?embed"
+          style="width:100%;height:500px;border: 1px solid #000000;">
+        </iframe>
+        <iframe src="https://www.desmos.com/calculator/rwpc2wej1k?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+        <iframe loading="lazy" src="https://www.math3d.org/3oozTHEoXX"
+          style="width:100%;height:500px;border: 1px solid #000000;">
+        </iframe>-->
+
+
+
+        <p>
+          We can easily verify this by computing:
+        </p>
+        <div class="eqwrapper">
+          \begin{eqnarray*}
+          W &amp;=&amp; \int_{\c}\F \pd d\s = \int_{\c}x^3~dx + y~dy + z~dz\\
+          &amp;=&amp; \int_0^{2\pi} \left(0 - R^2\cos \theta \sin \theta + R^2 \cos \theta \sin\theta \right)d\theta = 0.
+          \end{eqnarray*}
+        </div>
+
+        <p>
+          If we consider the path $\c(t) = \cos^3 t~\i + \sin^3 t~\j +t~\k$ for 
+          $t\in[0, 7\pi/2],$ then the work done by the field is $-1/2$ (Compute the
+          integral to confirm this).
+          This means that the field impedes movement along the path. 
+        </p>
+
+        <div style="text-align: center;">
+          <iframe loading="lazy" scrolling="no" title="Work negative" src="https://www.geogebra.org/material/iframe/id/d9ek2f5c/width/491/height/479/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true" width="491px" height="479px" style="border:0px;" allowfullscreen=""> 
+        </iframe>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+    <div id="section-3">
+      <h2>Line Integrals of Gradient Fields</h2>
+
+      <p>
+        Recall that a vector field $\F$ is a <strong>gradient vector field</strong>
+        if $\F= \nabla f$ for some real-valued function $f.$
+        Thus
+        \[
+        \F = \frac{\partial f}{\partial x}~\i+\frac{\partial f}{\partial y}~\j+\frac{\partial f}{\partial z}~\k.
+        \]
+      </p>
+
+      <p>
+        From calculus we also learned that if $f$ and $F$ are single-valued continuous
+        functions defined on a closed interval $[a,b],$ and also $F$ is differentiable
+        on $(a,b),$ such that $F'=f;$ then
+        \[
+        \int_a^bf(x)~dx = F(b)-F(a),
+        \]
+        by the fundamenal theorem of calculus. Thus
+        the value of the integral of $f$ depends only on the value of $F$ at the
+        end points of the interval $[a,b].$
+      </p>
+
+      <p>
+        If a vector field $\F$ is the derivative of a function $f$, is it possible to
+        determine the value of $\int_{\c}\F\pd d\s$ by the value of $f$ at the endpoints
+        $\c(a)$ and $\c(b)?$ The answer is contained in the following
+        <strong>gereralization of the fundamental theorem of calculus</strong>.
+      </p>
+
+      <div class="theorem">
+        Suppose $f:\R^3 \to \R$ is of class $C^1$ and that
+        $\c:[a,b]\to R^3$ is a piecewise $C^1$ path. Then
+        \[
+        \int_{\c}\nabla f \pd d\s = f\big(\c(b)\big) -f\big(\c(a)\big).
+        \]
+      </div>
+      <div class="proof">
+        Consider the function
+        $F(t)= \big(f\circ \c\big)(t) = f\big(\c(t)\big) $ for $t\in[a,b].$
+        Then
+        \[
+        F'(t) = \nabla f \big(\c(t)\big) \pd \c'(t).
+        \]
+        Since $F$ is a real-valued function on the variable $t$, by the fundamental
+        theorem of calculus of single-variable calculus,
+        <div class="eqwrapper">
+          \[
+          \int_a^b F'(t)~dt = F(b)-F(a) = f\big(\c(b)\big) -f\big(\c(a)\big)
+          \]
+        </div>
+        <p>
+          Hence
+        </p>
+        <div class="eqwrapper">
+          \begin{eqnarray*}
+          \int_a^b \nabla f \pd d\s &amp;=&amp; \int_a^b \nabla f \big(\c(t)\big) \pd \c'(t)\\
+          &amp;=&amp; \int_a^b F'(t)~dt \\
+          &amp;=&amp; F(b)-F(a) \\
+          &amp;=&amp; f\big(\c(b)\big) -f\big(\c(a)\big)
+          \end{eqnarray*}
+        </div>
+      </div>
+
+      <div class="example">
+        Let $\c(t)= \left(t^4/4, \sin^3(t\pi / 2), 0\right)$ with $t\in[0,1].$
+        We would like to evaluate
+        \[
+        \int_{\c}y ~dx + x~dy.
+        \]
+        First note that from the expression $y ~dx + x~dy,$ we can deduce that the
+        vector field is $\F = y~\i + x~\j + 0~\k,$ which has a gradient $f(x,y,z)=xy.$
+        Thus
+        \[
+        f\big(\c(t)\big)=\left(\frac{t^4}{4}\right)\cdot \sin\left(\frac{t\pi}{2}\right).
+        \]
+        Therefore
+        <div class="eqwrapper">
+          \begin{eqnarray*}
+          \int_{\c}y ~dx + x~dy &amp;=&amp; f\big(\c(1)\big) -f\big(\c(0)\big)\\
+          &amp;=&amp; \frac{1}{4}(1) - 0 = \frac{1}{4}.
+          \end{eqnarray*}
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div id="section-4">
+
+      <div id="parametrization-of-surfaces">
+        <h2>Parametrization of surfaces</h2>
+      </div>
+
+      <p>
+        <span>
+          Another way of representing a surface $S$ in $\R^3$ is by a parametrization.
+        </span>
+        <span>
+          This
+          is where the coordinate variables are functions of two parameters $u$ and $v$:
+          $$
+          x=x(u,v),\ \ y=y(u,v),\ \ z=z(u,v)
+          $$
+        </span>
+        <span>
+          and the vector
+          $$
+          \PH(u,v) = x(u,v)~\i+y(u,v)~\j+z(u,v)~\k
+          $$
+          traces out the surface as $u,v$ vary over some region $D$ in the
+          "$uv$-plane".
+        </span>
+        <span>
+          So for every point $(u,v)$ in $D,$ there corresponds a point on
+          the surface $S$.
+        </span>
+      </p>
+
+      <p>
+        <span>
+          The following diagram shows the point $P$ on the surface $S$ which corresponds
+          to the point $(u,v)$ in the region $D$ in the $uv$-plane.
+        </span>
+        <span>
+          As $(u,v)$ moves
+          around all points in $D,$ the point $P$ moves around in $S,$ tracing out the entire surface.
+        </span>
+
+      </p>
+
+      <img style="width:90%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-general.png">
+
+
+      <p>
+        <span>
+          Note that a surface defined explicitly by $z=f(x,y)$ is equivalent to a parametrization
+          $$
+          \r(x,y) = x~\i+y~\j+f(x,y)~\k,
+          $$
+          where we treat the coordinate variables $x$ and $y$ as the parameters.
+        </span>
+        <span>
+          Note that
+          we have not specified any bounds on the variables.
+        </span>
+        <span>
+          Often the challenge is to not
+          only find suitable functions for a parametrization, but for a finite surface to
+          determine bounds on the parameters.
+        </span>
+
+      </p>
+
+      <h3>What's the point to define parametrizations of surfaces?</h3>
+
+      <p>
+        A good motivation to use parametrizations is that sometimes
+        surfaces cannot be the graphs of functions defined as
+        \[
+        z= f(x,y).
+        \]
+      </p>
+
+      <table>
+        <tbody><tr>
+          <td style="text-align:center">
+            <div style="margin-top:0px">
+              <img style="width:100%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-surf-01.png">
+            </div>
+
+          </td>
+          <td style="text-align:center">
+            <div style="margin-top:0px">
+              <img style="width:100%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-surf-02.png">
+            </div>
+          </td>
+        </tr>
+      </tbody></table>
+
+
+      <p>
+        Another reason is given by the limitations of the computer considering
+        the expression $z= f(x,y).$
+        For example if we try to plot
+        \[
+        x^2+y^2+z^2=4.
+        \]
+      </p>
+
+      <table style="width: 100%;">
+        <tbody><tr>
+          <td style="text-align:center;width:50%" class="fragment" data-fragment-index="0">
+            <div>
+              <img style="width:100%;" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-cartesian.png">
+            </div>
+            <div style="margin-top: 0px;">
+              <span>
+                Surface using $z= \pm \sqrt{2^2-x^2-y^2}.$ <a target="_blank" href="https://www.math3d.org/ip8gC9avC"><i class="fa fa-external-link-alt"></i></a>
+              </span>
+            </div>
+
+          </td>
+          <td style="text-align:center;width:50%" class="fragment" data-fragment-index="1">
+            <div>
+              <img style="width:100%;" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-parametric.png">
+            </div>
+            <div style="margin-top: 0px;">
+              <span>
+                Parametric surface. <a target="_blank" href="https://www.math3d.org/FeAjbY5pU"><i class="fa fa-external-link-alt"></i></a>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody></table>
+
+      <figure>
+        <div id="ggb-element"></div>
+        <figcaption>
+          Drag the slider!
+        </figcaption>
+      </figure>
+
+
+
+
+      <h2>Parametrizing surfaces using cylindrical
+        and spherical coordinates</h2>
+
+      <p>
+        <span>
+          We can use our knowledge of cylindrical and spherical coordinates to parametrize
+          certain surfaces with which these coordinates are naturally associated.
+        </span>
+
+
+      </p>
+      <p>
+        <span>
+          Recall cylindrical coordinates:
+          $$
+          x=r\cos\theta,\ \ y=r\sin\theta,\ \ z=z.
+          $$
+        </span>
+        <span>
+          Setting exactly one of the cylindrical coordinates to a constant value necessarily gives
+          a parametric surface.
+        </span>
+      </p>
+
+      <div class="example">
+
+        <p>
+          <span>
+            Setting $z=2$ with $0\leq\theta\leq 2\pi,$ $0\leq r\leq 3$ describes a disc
+            of radius 3, centred at the $z$ axis lying in the plane $z=2:$
+          </span>
+        </p>
+      </div>
+
+      <div class="example">
+
+        <p>
+          <span>
+            Setting $r=5$ with $0\leq\theta\leq 2\pi,$ $1\leq z\leq 3$ describes the
+            surface of a
+            cylinder of radius 5 and of height 2 between $z=1$ and $z=3:$
+          </span>
+        </p>
+      </div>
+
+      <div class="example">
+
+        <p>
+          <span>
+            Setting $\theta = \pi/2$ with $2\leq z\leq 4,$
+            $0\leq r\leq 1$ describes
+            a rectangle lying in the $yz$-plane. Another description of the same surface would
+            be
+            \[
+            x=0, \ \{ (y,z)\ |\ 0\leq y\leq 1,\ 2\leq z\leq 4\}.
+            \]
+          </span>
+        </p>
+      </div>
+
+      <div class="exercise">
+        Parametrize the paraboloid $z=1-x^2-y^2$ for $z\geq 0.$
+      </div>
+
+
+      <p>
+        Now consider spherical coordinates. Recall spherical coordinates:
+        $$
+        x=r\cos\theta\sin\phi,\ \ y=r\sin\theta\sin\phi,\ \ z=r\cos\phi.
+        $$
+      </p>
+      <p>
+        <span>
+          Setting exactly one of the spherical coordinates to a constant value necessarily gives
+          a parametric surface.
+        </span>
+      </p>
+
+      <div class="example">
+        <p>
+          <span>
+            Setting $r=2$ with $0\leq\theta\leq 2\pi,$
+            $0\leq\phi\leq \pi$ describes
+            the surface of a sphere of radius 2 centred at the origin:
+          </span>
+        </p>
+        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-04.png">
+
+      </div>
+
+      <div class="example">
+        <p>
+          <span>
+            Setting $\phi=\pi/3$ with $0\leq r\leq 2,$
+            $0\leq \theta\leq 2\pi$
+            describes the open cone with angle $\pi/3$ to
+            the positive $z$-axis, the
+            "mouth" of which lies on the sphere of
+            radius 2 and with vertex located at the origin:
+          </span>
+        </p>
+        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-05.png">
+
+      </div>
+
+      <div class="example">
+        <p>
+          <span>
+            Setting $\theta =0$ with $0\leq r\leq 3,$
+            $0\leq\phi\leq\pi$ describes the
+            half disc of radius 3 lying in the $xz$-plane:
+          </span>
+        </p>
+        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-06.png">
+
+      </div>
+
+      <div class="exercise">
+        Parametrize the part of the sphere $x^2+y^2+z^2=16$ that lies
+        between the planes $z=2$ and $z=-2.$
+      </div>
+
+
+
+
+    </div>
+
+
+
+  </div>
+  <!-- Ends main content -->
+
+
+  <!-- Extra scripts for applets -->
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+
+  <!--
+  <iframe scrolling="no" title="Parametrization"
+        data-src="https://www.geogebra.org/material/iframe/id/shrbv6cs/width/643/height/496/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+        width="643px" height="496px" style="border:0px;">
+      </iframe>-->
+  <script>
+
+    let paramsPathIntegral = {
+      "width": 770,
+      "height": 530,
+      "material_id": "yqtvz3zm",
+      "borderColor": "888888",
+      "playButton": true,
+      "showFullscreenButton": true,
+      "enableShiftDragZoom": true,
+      "showResetIcon": true
+    };
+
+    let paramsAreaFence = {
+      "width": 760,
+      "height": 460,
+      "material_id": "r4csvyeq",
+      "borderColor": "888888",
+      "playButton": true,
+      "showFullscreenButton": true,
+      "enableShiftDragZoom": true,
+      "showResetIcon": true
+    };
+
+    let paramsSeq = {
+      "width": 643,
+      "height": 493,
+      "material_id": "shrbv6cs",
+      "borderColor": "888888",
+      "playButton": false,
+      "showFullscreenButton": true,
+      "enableShiftDragZoom": false,
+      "showResetIcon": true
+    };
+    let paramsIntPath = {
+      "width": 617,
+      "height": 452,
+      "material_id": "ptz7hgj7",
+      "borderColor": "888888",
+      "playButton": false,
+      "showFullscreenButton": true,
+      "enableShiftDragZoom": true,
+      "showResetIcon": true
+    };
+    let appletPathIntegral = new GGBApplet(paramsPathIntegral, true);
+    let appletAreaFence = new GGBApplet(paramsAreaFence, true);
+    let appletSeq = new GGBApplet(paramsSeq, true);
+    let appletIntPath = new GGBApplet(paramsIntPath, true);
+    window.addEventListener("load", () => {
+      appletPathIntegral.inject('ggb-element-path-integral');
+      appletAreaFence.inject('ggb-element-area-fence');
+      appletIntPath.inject('ggb-element-int-path');
+      appletSeq.inject('ggb-element');
+    });
+  </script>
+
+</section>
+    </div>
+
+    <!-- Navigation -->
+<!-- Buttons to navigate -->
+<div class="w3-container w3-center w3-padding-large section-content"  id="navigation">
+    <a href="index.html"><button
+            class="w3-left w3-button w3-dark-grey w3-round-xlarge w3-hover-shadow ">&#10094; Previous</button></a>
+
+</div>
+    <br />
+
+    <!-- Footer -->
+<footer class="w3-main w3-container w3-center w3-theme" id="myFooter">
+
+  <div class="w3-row ">
+
+    <div class="w3-col m6">
+      <span class="w3-hide-small">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span><br />
+        by J. C. Ponce Campuzano
+      </span>
+      <span class="w3-hide-large w3-hide-medium">
+        Real Analysis <i class="fa-regular fa-copyright"></i>
+        <span>
+          <script>document.write(new Date().getFullYear());</script>
+        </span>
+        <br />by J. C. Ponce Campuzano
+      </span>
+    </div>
+
+    <div class="w3-col m6 license">
+
+      <a style="text-decoration: none;" rel="license"
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank">
+        <i class="fa-brands fa-creative-commons"></i>
+        <i class="fa-brands fa-creative-commons-by"></i>
+        <i class="fa-brands fa-creative-commons-nc"></i>
+        <i class="fa-brands fa-creative-commons-sa"></i>
+      </a>
+    </div>
+
+  </div>
+
+</footer>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span><br />
+          <h1 class="w3-xlarge">Hello! 👋</h1>
+        </div>
+        <div class="modal-body">
+
+          <div w3-include-html="message-modal.html"></div>
+
+          <br />
+        </div>
+        <div class="modal-footer">
+          <p class="w3-large">Thank you! 🙏 I highly appreciate your support! 🤗</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Button to Top -->
+  <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+  <!-- General scripts -->
+  <script src="js/w3codecolor.js"></script>
+  <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
