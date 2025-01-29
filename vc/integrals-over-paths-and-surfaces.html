@@ -77,10 +77,10 @@
 
 
     <div class="toc-chapter" id="toc-chapter">
-                <a class="w3-bar-item w3-button" href="#section-1">The Path Integral</a>
-                <a class="w3-bar-item w3-button" href="#section-2">Line Integrals</a>
-                <a class="w3-bar-item w3-button" href="#section-3">Line Integrals of Gradient Fields</a>
-                <a class="w3-bar-item w3-button" href="#section-4">Parametrization of
+            <a class="w3-bar-item w3-button" href="#section-1">The Path Integral</a>
+            <a class="w3-bar-item w3-button" href="#section-2">Line Integrals</a>
+            <a class="w3-bar-item w3-button" href="#section-3">Line Integrals of Gradient Fields</a>
+            <a class="w3-bar-item w3-button" href="#section-4">Parametrization of
     surfaces</a>
     </div>
 
@@ -110,7 +110,7 @@
     <div id="myTextBar">
       <p>
         <i class="fa-solid fa-bars w3-button w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-        
+
         <span id="myTitle" class="w3-hide">Integrals Over Paths and Surfaces</span>
 
         <span title="Dark/Night Mode" id="dark-mode-toggle" class="topDark w3-theme w3-hide-small">
@@ -149,6 +149,7 @@
         \c : [a,b]\to \R^3, \text{ where } \c(t) = \left(x(t), y(t), z(t) \right).
         \]
       </p>
+      <br>
 
       <div class="definition">
         If $\c:[a,b]\to \R^3$ is of class $C^1$ and the composite function
@@ -167,11 +168,11 @@
         \]
         or
         \[
-        \int_{a}^{b} f\left(\c(t)\right)\norm{\c'(t)}\, dt.
+        \int_{a}^{b} f\big(\c(t)\big)\norm{\c'(t)}\, dt.
         \]
-        If $\c$ is only piecewise $C^1$, or $f\left(\c(t)\right)$ is piecewise continuous,
+        If $\c$ is only piecewise $C^1$, or $f\big(\c(t)\big)$ is piecewise continuous,
         we define $\int_{\c}f\,ds$ by breaking $[a,b]$ into pieces over which
-        $f\left(\c(t)\right)\norm{\c'(t)}$ is continuous, and then we sum the integrals
+        $f\big(\c(t)\big)\norm{\c'(t)}$ is continuous, and then we sum the integrals
         over the pieces.
       </p>
 
@@ -234,16 +235,16 @@
         If $N$ is large, the arc length $\Delta s_i$ is small and $f(x,y,z)$ is
         approximately constant for points on $\c_i.$ Now we consider the sums
         \[
-        S_N = \sum_{i=0}^{N-1}f\left(x_i, y_i, z_i\right)\delta s_i,
+        S_N = \sum_{i=0}^{N-1}f\left(x_i, y_i, z_i\right)\Delta s_i,
         \]
         where $\left(x_i, y_i, z_i\right)= \c(t)$ for some $t_i\in \left[t_i,t_{i+1}\right].$
         By the mean-value theorem we know that $\Delta s_i=\norm{\c'(t_i^{*})}\Delta t_i,$
         where $t_i^*\in \left[t_i,t_{i+1}\right]$ and $\Delta t_i = t_{i+1}-t_i.$
-        Thus, from calculus, we have
+        Thus, we have
         \begin{eqnarray*}
         \lim_{N\to \infty} S_N &amp; = &amp; \lim_{N\to \infty} \sum_{i=0}^{N-1}f\left(x_i, y_i, z_i\right)
         \norm{\c'(t_i^{*})}\Delta t_i \\
-        &amp; = &amp;\int_{I}f\left(x(t),y(t),z(t)\right)\norm{c'(t)}\,dt \\
+        &amp; = &amp;\int_{I}f\big(x(t),y(t),z(t)\big)\norm{c'(t)}\,dt \\
         &amp; = &amp; \int_{\c} f\left(x,y,z\right)~ds.
         \end{eqnarray*}
       </p>
@@ -253,9 +254,9 @@
         the mass density at $(x,y,z),$ then the integral of $f$ will be the total
         mass of the wire.
         On the other hand, if $f(x,y,z)$ indicates temperature, then the integral of $f$
-        determines the average temperature along the wire.
+        determines the average temperature along the wire. Also, if $f=1,$ we
+        recover the definition of the arc length of $\c.$
       </p>
-
 
 
       <h3>The Path Integral for Planar Curves</h3>
@@ -288,13 +289,24 @@
         </figcaption>
       </figure>
 
-      <!--
-      <figure>
-        <div id="ggb-element-int-path"></div>
-        <figcaption>
-          Drag the slider!
-        </figcaption>
-      </figure>-->
+      <div class="example">
+        We wish to compute the total area of the "fence" in the path
+        $\c(t) = \cos t~\i +\sin t ~\j,$ with $t\in [0,\pi].$ The height of
+        the fence is $f(x,y) =2 + x^2 y.$
+        First we compute
+        <div class="eqwrapper">
+          \begin{eqnarray*}
+          \int_{\c}\left(2 + x^2 y\right) ds &amp;=&amp; \int_0^{\pi} \left(2 + \cos^2t \sin
+          t\right)\sqrt{\left[x'(t)\right]^2+\left[y'(t)\right]^2}~dt \\
+          &amp;=&amp; \int_0^{\pi} \left(2 + \cos^2t \sin t\right)\sqrt{\sin^2t+\cos^2t}~dt \\
+          &amp;=&amp; \int_0^{\pi} \left(2 +\cos^2t \sin t\right)~dt \\
+          &amp;=&amp; \left[2t -\frac{\cos^3 t}{3}\right]_0^{\pi} = 2\pi + \frac{2}{3}.
+          \end{eqnarray*}
+        </div>
+        Finally, we must multiply by 2 to obtain total area: $4\pi + \frac{4}{3}.$
+      </div>
+
+
 
     </div>
 
@@ -307,7 +319,18 @@
       <h3>Work done by force fields</h3>
 
       <p>
-        Consider a force field $\F(x,y)$ and a piecewiese continuous smooth curve $C.$
+        <!--
+        Recall that the work done by a variable force
+        $f(x)$  in moving a particle from $a$ to $b$ along the $x$-axis is
+        $W = \int_a^b f(x)~dx.$ -->
+        Recall that work done by a constant force $\F$ in moving an object
+        from a point $A$ to another point $B$ in
+        space is $W = \F \pd \mathbf D$, where $\mathbf D = \overrightarrow{AB}$
+        is the displacement vector.
+      </p>
+
+      <p>
+        Now consider a force field $\F(x,y)$ and a piecewiese continuous smooth curve $C.$
         We wish to compute the work done by
         this force in moving a particle along a
         smooth curve $C.$
@@ -329,7 +352,7 @@
         <span>
           If $\Delta s_i$ is small, then as the particle moves from
           $P_{i-1}$ to $P_i$ along the curve, it proceeds approximately
-          in the direction of $\T(t_i^*),$ the unit tangent vector at
+          in the direction of $\T\left(t_i^*\right),$ the unit tangent vector at
           $P_i^*.$
         </span>
       </p>
@@ -345,31 +368,36 @@
         Thus the work done by the force $\F$ in moving the
         particle from $P_{i-1}$ to $P_i$ is approximately
         \[
-        \F^* \pd \T^* \Delta s_i
+        \F\left(x_i^*,y_i^*\right) \pd \left[\T\left(t_i^*\right) \Delta s_i\right] = \left[\F\left(x_i^*,y_i^*\right)
+        \pd \T\left(t_i^*\right)\right] \Delta s_i
         \]
       </p>
       <p>
         and the total work done in moving
         the particle along $C$ is approximately
         \[
-        \sum_{i=1}^n \F^* \pd \T^* \Delta s_i
+        \sum_{i=1}^n \left[\F\left(x_i^*,y_i^*\right) \pd \T\left(t_i^*\right) \right]\Delta s_i.
         \]
 
       </p>
 
       <p>
         Intuitively, we see that these approximations
-        have to become better as $n\to \infty$ $(\Delta s_i\to 0).$
+        have to become better as
+        $n\to \infty$ (that is, $\Delta s_i\to 0$).
 
       </p>
       <p>
         Therefore we define the work $W$ done
         by the force field $\F$ as the
-        limit of the Riemann sums in $\sum_{i=1}^n \F^* \pd \T^* \Delta s_i.$
+        limit of the Riemann sums in $\sum_{i=1}^n \left[\F\left(x_i^*,y_i^*\right) \pd \T\left(t_i^*\right)
+        \right]\Delta s_i.$
         That is
         \[
         W = \int_C\F\pd \T~ds
         \]
+        This equation says that <emph>work is the line integral with
+          respect to arc length of the tangential component of the force</emph>.
       </p>
 
       <figure>
@@ -379,14 +407,28 @@
         </figcaption>
       </figure>
 
-      The previous discussion of work in two dimensions motivates the following definition.
+      <p>
+        If the smoorth curve $C$ is given by the parametrization $\c(t) = x(t)~\i+y(t)~\j,$
+        then $\T(t) = \c'(t)/\norm{\c'(t)}.$ So we can write
+      </p>
+      <div class="eqwrapper">
+        \begin{eqnarray*}
+        W = \int_a^b \left[\F\big(\c(t)\big)\pd \frac{\c'(t)}{\norm{\c(t)}}\right]\norm{\c'(t)}~dt = \int_a^b
+        \F\big(\c(t)\big)\pd\c'(t)~dt
+        \end{eqnarray*}
+      </div>
+      <p>
+        This intetral is often abbreviated as $\int_{\c}\F\pd d\s.$
+        The previous discussion of work in two dimensions motivates
+        the following definition.
+      </p>
 
       <div class="definition">
-        Let $\F$ be a vector field on $\R^3$ that is continuous on the path
-        $\c':[a,b]\to \R^3.$ The <strong>line integral of</strong> $\F$ along $\c$ is
+        Let $\F$ be a vector field on $\R^3$ that is continuous on the smooth path
+        $\c:[a,b]\to \R^3.$ The <strong>line integral of</strong> $\F$ along $\c$ is
         defined as
         \[
-        \int_{\c} \F\pd d\s = \int_a^b \F\left(\c(t)\right)\pd \c'(t)~dt.
+        \int_{\c} \F\pd d\s = \int_a^b \F\left(\c(t)\right)\pd \c'(t)~dt = \int_{\c}\F\pd \T~ds.
         \]
         In other words, we integrate the dot product of $\F$ with $\c'$ over the interval
         $[a,b].$
@@ -397,8 +439,7 @@
         when $ \F\left(\c(t)\right)\pd \c'(t)$ is only piecewise continuous.
       </p>
 
-      <h3>Common notation</h3>
-
+      <!--
       <p>
         <span>
           Let $\,\F= F_1(x,y,z)~\i + F_2(x,y,z)~\j + F_3(x,y,z)~\k$ be a vector field.
@@ -412,16 +453,6 @@
         </span>
         where $\T = \c'(t)/\norm{\c'(t)}$ denotes the tangle unit vector.
       </p>
-
-      <!--<p>
-        The expressions use the notation $\c = x~\i + y~\j + z~\k,$ $d\s = dx~\i + dy~\j+ dz~\k.$
-        In this notation,
-        \[
-        \text{work done by } \F \text{ along the curve } \c: W = \int_{\c}\F \pd d\s.
-        \] </p>
-        -->
-
-
       <p>
         To prove this
         let $\c(t) =x(t)~\i+y(t)~\j+z(t)~\k$ with $t\in[a,b].$
@@ -437,11 +468,11 @@
       </p>
       <div class="eqwrapper">
         \begin{eqnarray*}
-        \int_{\c} \F\pd \T ~ds &amp;=&amp; \int_a^b \left[\F(\c(t)) \pd \frac{\c'(t)}{\norm{\c'(t)}}\right]\norm{\c'(t)}dt \\
-        &amp;=&amp; \int_a^b \F(\c(t)) \pd \c'(t)~dt \\
-        &amp;=&amp; \int_{\c} \F \pd d\s.
+        \int_{\c} \F\pd \T ~ds &=& \int_a^b \left[\F(\c(t)) \pd \frac{\c'(t)}{\norm{\c'(t)}}\right]\norm{\c'(t)}dt \\
+        &=& \int_a^b \F(\c(t)) \pd \c'(t)~dt \\
+        &=& \int_{\c} \F \pd d\s.
         \end{eqnarray*}
-      </div>
+      </div>-->
 
       <p>
         Another common way to write $\int_{\c} \F \pd d\s$ is
@@ -492,9 +523,15 @@
       </p>
 
       <p>
-        To compute a line integral in any particular case, we can either
-        use the original definition or integrate the tangencial component of
-        $\F$ along $\c,$ whichever is easier or more appropiate.
+        Now, to compute a line integral in any particular case, we can
+        use the original definition, integrate the tangencial component of
+        $\F$ along $\c,$ or use the differential form,
+        whichever is easier or more appropiate.
+        Just keep in mind that
+        in the definition $\F\big(\c(t)\big)$ is just an abbreviation for the
+        vector field $\F\big(x(y),y(t),z(t)\big),$ so we evaluate
+        $\F\big(\c(t)\big)$ by simply putting $x = x(t),$ $y=y(t),$ and
+        $z=z(t)$ in the expression $\F(x,y,z).$
       </p>
 
 
@@ -504,7 +541,7 @@
         $\F(x,y,z) = x~\i + y~\j + z~\k.$
         Here we have that
         \[
-        c'(t) = \left(\cos t, -\sin t , 1\right).
+        \c'(t) = \left(\cos t, -\sin t , 1\right).
         \]
         Then
         \begin{eqnarray*}
@@ -585,10 +622,35 @@
 
         <p>
           If we consider the path $\c(t) = \cos^3 t~\i + \sin^3 t~\j +t~\k$ for
-          $t\in[0, 7\pi/2],$ then the work done by the field is $-1/2$ (Compute the
+          $t\in[0, 7\pi/2],$ and the vector field $\F = \sin z~\i + \cos z~\j - (xy)^3~\k,$
+          then the work done by the field is $-1/2$ (Compute the
           integral to confirm this).
-          This means that the field impedes movement along the path.
         </p>
+
+        <details>
+          <summary>Show extra work!</summary>
+          <p>
+            For $\c(t) = \cos^3 t~\i + \sin^3 t~\j +t~\k,$ we have that
+            \[
+            \c'(t) = -3\cos^2 t\sin t~\i + 3\sin^2 t \cos t~\j +\k,
+            \]
+            and for the vector field $\F = \sin z~\i + \cos z~\j - (xy)^3~\k,$
+            \[
+            F\big(\c(t)\big) = \sin t~\i + \cos t~\j - \cos t \sin t~\k.
+            \]
+            Therefore
+          </p>
+          <div class="eqwrapper">
+            \begin{eqnarray*}
+            W &amp;=&amp; \int_{\c} \F\pd d\s \\
+            &amp;=&amp; \int_0^{7\pi/2} \left(-3 \cos^2 t \sin^2 t + 3 \sin^2 t \cos^2t - \cos t \sin t \right) dt \\
+            &amp;=&amp;= -\frac{1}{2}
+            \end{eqnarray*}
+          </div>
+        </details>
+
+
+        <p>This means that the field impedes movement along the path.</p>
 
         <div style="text-align: center;">
           <iframe loading="lazy" scrolling="no" title="Work negative" src="https://www.geogebra.org/material/iframe/id/d9ek2f5c/width/491/height/479/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true" width="491px" height="479px" style="border:0px;" allowfullscreen="">
@@ -714,7 +776,7 @@
         <span>
           and the vector
           $$
-          \PH(u,v) = x(u,v)~\i+y(u,v)~\j+z(u,v)~\k
+          \r(u,v) = x(u,v)~\i+y(u,v)~\j+z(u,v)~\k
           $$
           traces out the surface as $u,v$ vary over some region $D$ in the
           "$uv$-plane".
@@ -737,8 +799,13 @@
 
       </p>
 
-      <img style="width:90%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-general.png">
+      <figure>
+        <img style="width:100%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-general.png">
 
+        <figcaption>
+          The region $D$ is mapped to the surface $S.$
+        </figcaption>
+      </figure>
 
       <p>
         <span>
@@ -768,10 +835,59 @@
         \[
         z= f(x,y).
         \]
+        For example, many surfaces can be defined as level surfaces of
+        functions. If we consider $S$ a set
+        of points $(x,y,z)$ satisfying the equation $x^3+z-z^3=0,$
+        we obtain a surface resembling a sheet with two folds extending
+        infinitely along the $y$-axis. However, $S$ is not the graph of some
+        function $z=f(x,y),$ because this means that for each
+        $\left(x_0,y_0\right)\in \R^2$ there must be only one
+        $z_0$ with $\left(x_0,y_0,z_0\right)\in S.$ This condition
+        does not hold as you can appreciate in Figure.
       </p>
 
+      <figure>
+        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-surf-01.png">
+
+        <figcaption>
+          A surface that is not a graph of a function $z=f(x,y).$
+        </figcaption>
+      </figure>
+
+      <p>
+        Another example is the famous torus, or surface of a doughnut.
+      </p>
+
+
+      <figure>
+        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-surf-02.png">
+
+        <figcaption>
+          The torus is not the graph of a function of the form $z=f(x,y).$
+        </figcaption>
+      </figure>
+
+      <p>
+        The motivation behind the extended definition stems 
+        in part from the idea that a surface can be formed 
+        by transforming the plane through processes such 
+        as rolling, bending, stretching, and pushing. 
+        For instance, to create a torus, one can start 
+        with a squared region of the plane, roll it into a tube, 
+        and then connect the two ends together. Drag the slider 
+        in the following Figure:
+      </p>
+
+      <figure>
+        <div id="ggb-element"></div>
+        <figcaption>
+          Drag the slider!
+        </figcaption>
+      </figure>
+
+      <!--
       <table>
-        <tbody><tr>
+        <tr>
           <td style="text-align:center">
             <div style="margin-top:0px">
               <img style="width:100%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/par-surf-01.png">
@@ -784,52 +900,78 @@
             </div>
           </td>
         </tr>
-      </tbody></table>
+      </table>
+      -->
+
+     
 
 
       <p>
-        Another reason is given by the limitations of the computer considering
-        the expression $z= f(x,y).$
-        For example if we try to plot
+        Another reason is given by the limitations of the 
+        computer with the expression $z= f(x,y).$
+        For example, consider the sphere 
         \[
         x^2+y^2+z^2=4.
         \]
+        By solving the equation for $z$ we obtain 
+        $z = \pm \sqrt{2^2-x^2-y^2}.$
+        In this case, we graph the top and bottom hemispheres
+        separately. As you can appreciate in the 
+        Figure below, part of the sphere appears to be 
+        missing because of the rectangular 
+        grid system used by the computer. 
       </p>
 
+      <figure>
+        <img style="width:60%;" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-cartesian.png">
+        <figcaption>
+          Surface using $z= \pm \sqrt{2^2-x^2-y^2}.$ <a target="_blank" href="https://www.math3d.org/ip8gC9avC"><i class="fa fa-external-link-alt"></i></a>
+        </figcaption>
+      </figure>
+
+      <p>
+        We can obtain a better picture 
+        with a computer using the parametrization:
+        $\r= 2 \cos u \sin v~\i + 2 \sin u \sin v ~\j + 2\cos v.$
+      </p>
+
+      <figure>
+        <img style="width:60%;" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-parametric.png">
+        <figcaption>
+          Parametric surface. <a target="_blank" href="https://www.math3d.org/FeAjbY5pU"><i class="fa fa-external-link-alt"></i></a>
+        </figcaption>
+      </figure>
+
+      <!--
       <table style="width: 100%;">
-        <tbody><tr>
+        <tr>
           <td style="text-align:center;width:50%" class="fragment" data-fragment-index="0">
             <div>
-              <img style="width:100%;" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-cartesian.png">
+              <img style="width:100%;"
+                src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-cartesian.png">
             </div>
             <div style="margin-top: 0px;">
               <span>
-                Surface using $z= \pm \sqrt{2^2-x^2-y^2}.$ <a target="_blank" href="https://www.math3d.org/ip8gC9avC"><i class="fa fa-external-link-alt"></i></a>
+                Surface using $z= \pm \sqrt{2^2-x^2-y^2}.$ <a target="_blank" href="https://www.math3d.org/ip8gC9avC"><i
+                    class="fa fa-external-link-alt"></i></a>
               </span>
             </div>
 
           </td>
           <td style="text-align:center;width:50%" class="fragment" data-fragment-index="1">
             <div>
-              <img style="width:100%;" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-parametric.png">
+              <img style="width:100%;"
+                src="https://www.dynamicmath.xyz/math2001/images/chapter-40/sphere-parametric.png">
             </div>
             <div style="margin-top: 0px;">
               <span>
-                Parametric surface. <a target="_blank" href="https://www.math3d.org/FeAjbY5pU"><i class="fa fa-external-link-alt"></i></a>
+                Parametric surface. <a target="_blank" href="https://www.math3d.org/FeAjbY5pU"><i
+                    class="fa fa-external-link-alt"></i></a>
               </span>
             </div>
           </td>
         </tr>
-      </tbody></table>
-
-      <figure>
-        <div id="ggb-element"></div>
-        <figcaption>
-          Drag the slider!
-        </figcaption>
-      </figure>
-
-
+      </table>-->
 
 
       <h2>Parametrizing surfaces using cylindrical
@@ -864,6 +1006,20 @@
             of radius 3, centred at the $z$ axis lying in the plane $z=2:$
           </span>
         </p>
+
+        <img style="width:70%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-01.png">
+        
+        <p>
+          GeoGebra code:
+        </p>
+        <div class="w3-code jsHigh notranslate">
+          Surface(r * cos(θ), r * sin(θ), 2, r, 0, 3, θ, 0, 2 π)
+        </div>
+        <a class="w3-medium w3-button w3-round-xlarge w3-theme w3-hover-white" href="https://geogebra.org/3d?command=Surface(r*cos(θ),r*sin(θ),2,r,0,3,θ,0,2pi)" target="_blank">
+          Open 3D graph <i class="fas fa-external-link-alt"></i>
+        </a>
+        
+
       </div>
 
       <div class="example">
@@ -875,6 +1031,20 @@
             cylinder of radius 5 and of height 2 between $z=1$ and $z=3:$
           </span>
         </p>
+
+        <img style="width:70%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-02.png">
+      
+        <p>
+          GeoGebra code:
+        </p>
+        <div class="w3-code jsHigh notranslate">
+          Surface(5 cos(θ), 5 sin(θ), z, z, 1, 3, θ, 0, 2 π)
+        </div>
+        <a class="w3-medium w3-button w3-round-xlarge w3-theme w3-hover-white" href="https://geogebra.org/3d?command=Surface(5*cos(θ),5*sin(θ),z,z,1,3,θ,0,2pi)" target="_blank">
+          Open 3D graph <i class="fas fa-external-link-alt"></i>
+        </a>
+
+
       </div>
 
       <div class="example">
@@ -890,6 +1060,18 @@
             \]
           </span>
         </p>
+        <img style="width:70%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-03.png">
+
+        <p>
+          GeoGebra code:
+        </p>
+        <div class="w3-code jsHigh notranslate">
+          Surface(r*cos(π/2), r*sin(π/2), z, r, 1, 3, z, 2, 4)
+        </div>
+        <a class="w3-medium w3-button w3-round-xlarge w3-theme w3-hover-white" href="https://geogebra.org/3d?command=Surface(r*cos(pi/2),r*sin(pi/2),z,r,1,3,z,2,4)" target="_blank">
+          Open 3D graph <i class="fas fa-external-link-alt"></i>
+        </a>
+
       </div>
 
       <div class="exercise">
@@ -918,7 +1100,17 @@
             the surface of a sphere of radius 2 centred at the origin:
           </span>
         </p>
-        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-04.png">
+        <img style="width:70%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-04.png">
+        
+        <p>
+          GeoGebra code:
+        </p>
+        <div class="w3-code jsHigh notranslate">
+           Surface(2 cos(θ)sin(ϕ), 2 sin(θ)sin(ϕ), 2 cos(ϕ), θ, 0, 2π, ϕ, 0, π)
+        </div>
+        <a class="w3-medium w3-button w3-round-xlarge w3-theme w3-hover-white" href="https://geogebra.org/3d?command=Surface(2*cos(θ)*sin(ϕ),2*sin(θ)*sin(ϕ),2*cos(ϕ),θ,0,2pi,ϕ,0,pi)" target="_blank">
+          Open 3D graph <i class="fas fa-external-link-alt"></i>
+        </a>
 
       </div>
 
@@ -933,7 +1125,17 @@
             radius 2 and with vertex located at the origin:
           </span>
         </p>
-        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-05.png">
+        <img style="width:70%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-05.png">
+        
+        <p>
+          GeoGebra code:
+        </p>
+        <div class="w3-code jsHigh notranslate">
+          Surface(r*cos(θ)sin(π/3), r*sin(θ)sin(π/3), r*cos(π/3), r, 0, 2, θ, 0, π)
+        </div>
+        <a class="w3-medium w3-button w3-round-xlarge w3-theme w3-hover-white" href="https://geogebra.org/3d?command=Surface(r*cos(θ)*sin(pi/3),r*sin(θ)*sin(pi/3),r*cos(pi/3),r,0,2,θ,0,pi)" target="_blank">
+          Open 3D graph <i class="fas fa-external-link-alt"></i>
+        </a>
 
       </div>
 
@@ -945,8 +1147,18 @@
             half disc of radius 3 lying in the $xz$-plane:
           </span>
         </p>
-        <img style="width:60%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-06.png">
-
+        <img style="width:70%" src="https://www.dynamicmath.xyz/math2001/images/chapter-40/ex-06.png">
+      
+        <p>
+          GeoGebra code:
+        </p>
+        <div class="w3-code jsHigh notranslate">
+          Surface(r*cos(0)sin(ϕ), r*sin(0)sin(ϕ), r*cos(ϕ), r, 0, 2, ϕ, 0, π)
+        </div>
+        <a class="w3-medium w3-button w3-round-xlarge w3-theme w3-hover-white" href="https://geogebra.org/3d?command=Surface(r*cos(0)*sin(ϕ),r*sin(0)*sin(ϕ),r*cos(ϕ),r,0,2,ϕ,0,pi)" target="_blank">
+          Open 3D graph <i class="fas fa-external-link-alt"></i>
+        </a>
+        
       </div>
 
       <div class="exercise">
