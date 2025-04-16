@@ -24,6 +24,7 @@ function setup() {
   }
 
   cursor('pointer');
+  //noCursor();
   
 }
 
