@@ -66,129 +66,197 @@
 						Engineering Mathematics 1
 					</span>
 				</h2>
-				
+
 				<p style="margin-top: 50px;">Week 7 - Matrices</p>
 			</section>
 
 
-			<section>
-				
+			<section data-auto-animate>
+
 				<h5>Augmented matrix system - solving a set of equations</h5>
-				
+
 				<div class="size-80">
-					<ul style="width: 100%;">
-						<li class="fragment" data-fragment-index="0">
-							Recall the system of equations that we considered last week:
-							\[
-							\begin{array}{r}	
-							x& +&y&+&z&=&4 \\ 
-							x& -&y&-&2z &=& 1 \\ 
-							2x&+& y& -&z &=& 2 \\ 
+					<p class="fragment left-txt" data-fragment-index="0">
+						- Recall the system of equations that we considered last week:
+						\[
+						\begin{array}{r}
+						x& +&y&+&z&=&4 \\
+						x& -&y&-&2z &=& 1 \\
+						2x&+& y& -&z &=& 2 \\
+						\end{array}
+						\]
+					</p>
+
+					<p class="fragment left-txt" data-fragment-index="1">
+						- Rewrite as a matrix equation:
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="5">
+							\(A \mathbf x = \)
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 1 & 1 \\
+							1 & -1 & -2 \\
+							2 & 1 & -1 \\
 							\end{array}
-							\]
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							<span  >
-								Rewrite as a matrix equation:
-							</span>
-							<p style="text-align: center;">
-								<span  class="fragment" data-fragment-index="3">
-									\(A x = \)
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									\(
-										\left(
-										\begin{array}{r}	
-										1 & 1 & 1 \\ 
-										1 & -1 & -2 \\ 
-										2 & 1 & -1 \\ 
-										\end{array}
-										\right)
-										\left(
-										\begin{array}{c}	
-										4  \\ 
-										1  \\ 
-										2  \\ 
-										\end{array}
-										\right)
-									\)
-								</span>
-								<span  class="fragment" data-fragment-index="4">
-									\(
-									= a	
-									\)
-								</span>
-							</p>
-						</li>
-					</ul>
+							\right)
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							\(
+
+							\left(
+							\begin{array}{c}
+							x \\
+							y \\
+							z \\
+							\end{array}
+							\right)
+
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							\(
+
+							=
+							\left(
+							\begin{array}{c}
+							4 \\
+							1 \\
+							2 \\
+							\end{array}
+							\right)
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							\(
+							= \mathbf a
+							\)
+						</span>
+					</p>
+
 				</div>
 			</section>
 
-			<section>
-				
-				<h5>Augmented matrix system - solving a set of equations</h5>
-				
-				<div class="size-80">
-					<ul style="width: 100%;">
-						<li>
-							<span>
-								Rewrite as a matrix equation:
-							</span>
-							<p style="text-align: center;">
-								<span>
-									\(A x = \)
-								</span>
-								<span>
-									\(
-										\left(
-										\begin{array}{rrr}	
-										1 & 1 & 1 \\ 
-										1 & -1 & -2 \\ 
-										2 & 1 & -1 \\ 
-										\end{array}
-										\right)
-										\left(
-										\begin{array}{r}	
-										4  \\ 
-										1  \\ 
-										2  \\ 
-										\end{array}
-										\right)
-									\)
-								</span>
-								<span>
-									\(
-									= a	
-									\)
-								</span>
-							</p>
-						</li>
-						<li>
-							Augmented form:
+			<section data-auto-animate>
 
-							<p style="text-align: center;">
-								<span  class="fragment" data-fragment-index="3">
-									\( \left(
-										\begin{array}{r|r}	
-										A & a
-										\end{array}
-										\right) \) = 
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									\(
-										\left(
-										\begin{array}{rrr|r}	
-										1 & 1 & 1 & 4\\ 
-										1 & -1 & -2 & 2\\ 
-										2 & 1 & -1 & 1 \\ 
-										\end{array}
-										\right)
-									\)
-								</span>
-								
-							</p>
-						</li>
-					</ul>
+				<h5>Augmented matrix system - solving a set of equations</h5>
+
+				<div class="size-80">
+					<p class="left-txt">
+						- Rewrite as a matrix equation:
+					</p>
+					<p>
+						<span>
+							\(A \mathbf x = \)
+						</span>
+						<span>
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 1 & 1 \\
+							1 & -1 & -2 \\
+							2 & 1 & -1 \\
+							\end{array}
+							\right)
+							\)
+						</span>
+						<span>
+							\(
+
+							\left(
+							\begin{array}{c}
+							x \\
+							y \\
+							z \\
+							\end{array}
+							\right)
+
+							\)
+						</span>
+						<span>
+							\(
+
+							=
+							\left(
+							\begin{array}{c}
+							4 \\
+							1 \\
+							2 \\
+							\end{array}
+							\right)
+							\)
+						</span>
+						<span>
+							\(
+							= \mathbf a
+							\)
+						</span>
+					</p>
+
+					<p class="left-txt">
+						Augmented form:
+					</p>
+
+					<p>
+						<span class="fragment" data-fragment-index="4">
+							\( \left(
+							\begin{array}{r|r}
+							A & \mathbf a
+							\end{array}
+							\right) \) =
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\(
+							\left(
+							\begin{array}{r}
+							\\
+							\\
+							\\
+							\end{array}
+							\right.
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							\(
+							\left.
+							\begin{array}{rrr|}
+							1 & 1 & 1 \,\\
+							1 & -1 & -2\, \\
+							2 & 1 & -1 \, \\
+							\end{array}
+							\right.
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							\(\,
+							\left.
+							\begin{array}{r}
+							4\,\\
+							1\,\\
+							2 \,\\
+							\end{array}
+							\right.
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\(
+							\left.
+							\begin{array}{r}
+							\\
+							\\
+							\\
+							\end{array}
+							\right)
+							\)
+						</span>
+
+					</p>
+
+
 				</div>
 			</section>
 
