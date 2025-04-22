@@ -1,11 +1,24 @@
-// Full list of configuration options available here:
+        // Full list of configuration options available here:
 		// https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
-			
+
+			// Display presentation control arrows
 			controls: true,
+
+			// Push each slide change to the browser history.  Implies `hash: true`
 			history: true,
+			
+			// Display the page number of the current slide
 			slideNumber: "c/t",
+
+			// Vertical centering of slides
 			center: true,
+
+			// Global override for preloading lazy-loaded iframes
+			//preloadIframes: true,
+
+			// Enables touch navigation on devices with touch input
+  			touch: false,
 
 			// Transition style
 			transition: 'fade',
@@ -15,16 +28,35 @@
 			pdfMaxPagesPerSlide: 1,
 
 			// MathJax user-defined functions
-			mathjax3: {
-				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+			mathjax2: {
+				//mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
 				config: "TeX-AMS_HTML-full",
-				tex: {
-					macros: {
+				TeX: {
+					Macros: {
 						R: "\\mathbb{R}",
 						C: "\\mathbb{C}",
 						N: "\\mathbb{N}",
 						Z: "\\mathbb{Z}",
 						Q: "\\mathbb{Q}",
+						r: "{\\mathbf{r}}",
+						i: "{\\mathbf{i}}",
+						j: "{\\mathbf{j}}",
+						k: "{\\mathbf{k}}",
+						u: "{\\mathbf{u}}",
+						v: "{\\mathbf{v}}",
+						w: "{\\mathbf{w}}",
+						bfu: "{\\mathbf{u}}",
+						bfv: "{\\mathbf{v}}",
+						bfw: "{\\mathbf{w}}",
+						bfe: "{\\mathbf{e}}",
+						n: "{\\mathbf{n}}",
+						F: "{\\mathbf{F}}",
+						BF: "{\\mathbb{F}}",
+						T: "{\\mathbf{T}}",
+						div: "{\\mbox{div}}\\,",
+						nec: "{\\boxed{\\Rightarrow}}",
+						suf: "{\\boxed{\\Leftarrow}}",
+						curl: "{\\mbox{curl}}\\,",
 						Re: "{\\mbox{Re}}\\,",
 						Im: "{\\mbox{Im}}\\,",
 						arg: "{\\mbox{arg}}\\,",
@@ -32,21 +64,27 @@
 						Log: "\\mbox{Log}\\,",
 						Int: "\\mbox{Int}\\,",
 						ra: "\\rightarrow",
+						Ra: "\\Rightarrow",
 						ds: "\\displaystyle",
 						res: "\\mbox{res}\\,",
+						arcosh: "\\mbox{arcosh}\\,",
+						arsinh: "\\mbox{arsinh}\\,",
+						artanh: "\\mbox{artanh}\\,",
+						dup: "{\\hspace{1pt}\\text{d}}",
+						mat: ["{\\left(\\begin{array}{#1} #2\\end{array}\\right)}", 2],
+						dif: ["{\\frac{\\text{d}\\hspace{1pt}#1}{\\text{d}\\hspace{1pt}#2}}", 2],
 						conj: ["{\\overline{#1}}", 1],
 						abs: ["{\\left|#1\\right|}", 1],
 						sabs: ["{\\left|#1\\right|}", 1],
 						snorm: ["{\\|#1\\|}", 1],
 						norm: ["{\\|#1\\|}", 1],
-						pd: "\\boldsymbol{\\cdot}",
 						epsilon: "\\varepsilon",
-						vre: "\\varepsilon",
-						Ra: "\\Rightarrow",
+						pd: "\\boldsymbol{\\cdot}",
+						ddy: "{\\ddot{y}}",//\newcommand{\ddy}{\ddot{y}}
+						dy: "{\\dot{y}}",//\newcommand{\dy}{\dot{y}}
 						bs: "\\blacksquare",
-						nec: "{\\boxed{\\Rightarrow}}",
-						suf: "{\\boxed{\\Leftarrow}}",
-						coloneqq: "{\\,:=\\,}",
+						//cdot: "{\\textstyle \\,\\bullet\\,}",
+						//cdot: "{\\scriptstyle \\,\\bullet\\,}",
 					}
 				}
 			},
@@ -68,11 +106,12 @@
 			},
 
 
-			chalkboard: { // font-awesome.min.css must be available
+			chalkboard: { 
+				// -> font-awesome.min.css must be available
 				//src: "chalkboard/chalkboard.json",
+				//storage: "chalkboard-demo",
 				boardmarkerWidth: 4,
 				chalkWidth: 3,
-				//storage: "chalkboard-demo",
 				grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 1},
 				//grid: false,
 				chalkEffect: 0.4,
@@ -100,12 +139,13 @@
 			// ...
 			plugins: [
 				RevealCustomControls, 
-				RevealMath.MathJax3, 
+				RevealMath.MathJax2, 
 				RevealMenu, 
 				RevealChalkboard, 
 				RevealHighlight, 
 				RevealZoom, 
-				RevealSearch],
+				RevealSearch
+			],
 		});
 
 		
