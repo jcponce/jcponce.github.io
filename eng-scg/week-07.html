@@ -638,9 +638,9 @@
 
 
 					</p>
-					
+
 				</div>
-				<br /><br /><br/><br/>
+				<br /><br /><br /><br />
 
 			</section>
 
@@ -668,7 +668,7 @@
 
 					<p style="text-align: center;">
 
-						<span >
+						<span>
 							$A \mathbf x = \mathbf a$
 						</span>
 						<span>
@@ -719,11 +719,289 @@
 						</span>
 					</p>
 				</div>
-				<br /><br />
+				<br /><br /><br />
 
 			</section>
 
-			
+			<section>
+				<h5>
+					Matrix determinant
+				</h5>
+				<div class=" left-txt">
+					<p>
+						Is there a way to tell if a square matrix has an inverse?
+					</p>
+					<p class="fragment" data-fragment-index="0">
+						\[
+						\text{det}(A) = |A| \neq 0.
+						\]
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						A matrix with zero determinant has no inverse!
+					</p>
+					<p class="fragment" data-fragment-index="3">
+						A matrix without an inverse is called a
+						<strong>
+							singular
+							matrix
+						</strong> or
+						a
+						<strong>
+							non-invertible matrix
+						</strong>.
+					</p>
+				</div>
+
+				<br /><br />
+			</section>
+
+			<section>
+				<h5>
+					Matrix determinant
+				</h5>
+				<div class=" left-txt">
+					<p>
+						For a $2\times 2 $ matrix
+						\(\,A =
+						\left(
+						\begin{array}{r}
+						a & b \\
+						c & d \\
+						\end{array}
+						\right),\;
+						\)
+						<span class="fragment" data-fragment-index="0">
+							then
+						</span>
+					</p>
+					<p style="text-align: center;">
+						<span class="fragment" data-fragment-index="0">
+							\(
+							\text{det}(A)
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\(= \left|
+							\begin{array}{r}
+							a & b \\
+							c & d \\
+							\end{array}
+							\right|
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							\(
+							= ad - bc.
+							\)
+						</span>
+					</p>
+
+
+
+
+				</div>
+
+				<br /><br />
+				<br /><br />
+			</section>
+
+			<section>
+				<h5>
+					Matrix determinant
+				</h5>
+				<div class="size-85 left-txt">
+
+					<p>
+						For a $3\times 3 $ matrix
+						\(\,A =
+						\left(
+						\begin{array}{r}
+						a & b & c\\
+						d & e & f\\
+						g & h & i
+						\end{array}
+						\right),\;
+						\)
+						<span class="fragment" data-fragment-index="0">
+							then
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							\(
+							\text{det}(A)
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\(= \left|
+							\begin{array}{r}
+							a & b & c\\
+							d & e & f\\
+							g & h & i
+							\end{array}
+							\right|
+							\)
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							\(\qquad \;
+							= a \left|
+							\begin{array}{r}
+							e & f \\
+							h & i \\
+							\end{array}
+							\right|
+
+
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							\(
+
+							- b \left|
+							\begin{array}{r}
+							b & f \\
+							g & i \\
+							\end{array}
+							\right|
+
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							\(
+
+							+ c \left|
+							\begin{array}{r}
+							d & e \\
+							g & h \\
+							\end{array}
+							\right|
+							\)
+						</span>
+					</p>
+					<p>
+
+						<span class="fragment" data-fragment-index="5">
+							\(\qquad \;
+							= a (e \,i - f\,h ) - b (d\,i - f\,g) + c (d\,h -e\,g)
+							\)
+						</span>
+					</p>
+
+				</div>
+
+				<br /><br />
+			</section>
+
+
+			<section>
+				<h5>
+					Checkpoint
+				</h5>
+				<div class="size-85 left-txt">
+					<p>
+						Which of these matrices is non-invertible?
+					</p>
+					<p>
+						i)
+						\(
+						\left(
+						\begin{array}{r}
+						0 & 1 \\
+						1 & 0
+						\end{array}
+						\right)
+						\)
+					</p>
+					<p>
+						ii)
+						\(
+						\left(
+						\begin{array}{r}
+						1 & 0 \\
+						0 & 1
+						\end{array}
+						\right)
+						\)
+					</p>
+					<p>
+						iii)
+						\(
+						\left(
+						\begin{array}{r}
+						0 & 1 & 0 \\
+						1 & 0 & 0
+						\end{array}
+						\right)
+						\)
+					</p>
+					<p>
+						iv)
+						\(
+						\left(
+						\begin{array}{r}
+						1 & 0 \\
+						0 & 0
+						\end{array}
+						\right)
+						\)
+					</p>
+				</div>
+				<br />
+			</section>
+
+
+			<section>
+				<h5>
+					Problem 4
+				</h5>
+
+				<div class="size-85 left-txt">
+					<p>
+						Find the determinants of
+					</p>
+					<p>
+						a)
+						\(
+						\left[
+						\begin{array}{r}
+						3 & 2 \\
+						4 & -1
+						\end{array}
+						\right]
+						\)
+					</p>
+					<p>
+						b)
+						\(
+						\left[
+						\begin{array}{r}
+						1 & 2 & 3 \\
+						1 & -2 & 1 \\
+						-1 & -2 & 2
+						\end{array}
+						\right]
+						\)
+					</p>
+					<p>
+						c)
+						\(
+						\left[
+						\begin{array}{r}
+						1 & 2  & 3 \\
+						1 & -2 & 1
+						\end{array}
+						\right]
+						\)
+					</p>
+				</div>
+
+				<br/>
+			</section>
+
+
+
 
 
 
