@@ -140,7 +140,7 @@
 
 				</div>
 
-				<br/>
+				<br />
 			</section>
 
 			<section data-auto-animate>
@@ -261,7 +261,7 @@
 
 				</div>
 
-				<br/><br/>
+				<br /><br />
 			</section>
 
 
@@ -271,7 +271,7 @@
 
 				<div class="size-80">
 
-					
+
 
 					<p>
 						<span>
@@ -337,7 +337,7 @@
 							Swapping,
 						</li>
 						<li class="fragment" data-fragment-index="1">
-							scaling, and/or 
+							scaling, and/or
 						</li>
 						<li class="fragment" data-fragment-index="2">
 							adding rows together.
@@ -345,16 +345,385 @@
 					</ul>
 
 					<p class="left-txt fragment" data-fragment-index="3">
-						This method is known as <strong>row reduction</strong>, 
-						<strong>Gaussian elimination</strong>, 
-						<strong>Gauss-Jordan elimination</strong>. 
+						This method is known as <strong>row reduction</strong>,
+						<strong>Gaussian elimination</strong>,
+						<strong>Gauss-Jordan elimination</strong>.
 					</p>
 
 
 				</div>
 
-				<br/>
+				<br />
 			</section>
+
+			<section>
+				<h5>Problem 1</h5>
+
+				<div class="size-75 left-txt">
+					<p>
+						Let's solve the tow problems from last week,
+						which we tackled manually:
+					</p>
+					<p class="left-txt fragment" data-fragment-index="0">
+						a)
+						\(\;\;
+						\begin{array}{r}
+						3x & + & 5y & = & 2 \\
+						2x & - & y & = & 2 \\
+						\end{array}
+						\)
+					</p>
+					<p class="left-txt fragment" data-fragment-index="1">
+						Recall from last week, solutions are $x = \dfrac{12}{13},$ $y =-\dfrac{2}{13}.$
+					</p>
+
+					<p class="left-txt fragment" data-fragment-index="2">
+						b)
+						\(\;\;
+						\begin{array}{r}
+						x & + & y & + & z &= & 4 \\
+						x & - & y & - & 2z & = & 1\\
+						2x & + & y & - & z & = & 2 \\
+						\end{array}
+						\)
+					</p>
+					<p class="left-txt fragment" data-fragment-index="3">
+						Recall from last week, solutions are $x = 4,$ $y =-3,$ $z= 3.$
+					</p>
+
+				</div>
+				<br />
+			</section>
+
+			<section data-auto-animate>
+				<h5>The inverse matrix</h5>
+
+				<div class="size-90 left-txt">
+					<p>
+						<span class="left-txt fragment" data-fragment-index="0">
+							If $A$ is a square matrix,
+						</span>
+						<span class="left-txt fragment" data-fragment-index="1">
+							its inverse matrxi $A^{-1}$ satisfies
+						</span>
+					</p>
+					<p style="text-align: center;">
+						<span class="left-txt fragment" data-fragment-index="2">
+							$AA^{-1} $
+						</span>
+						<span class="left-txt fragment" data-fragment-index="3">
+							$ = A^{-1}A $
+						</span>
+						<span class="left-txt fragment" data-fragment-index="4">
+							$=I.$
+						</span>
+					</p>
+
+					<p><strong>Remarks:</strong></p>
+					<p>
+						- Inverse matrices only exist for square matrices.
+					</p>
+					<p>
+						- Not every square matrix has an inverse!
+						<br>
+						&nbsp;&nbsp;<span>Not every set of simultaneous equations has a solution!</span>
+					</p>
+
+				</div>
+
+				<br /><br />
+			</section>
+
+			<section data-auto-animate>
+				<h5>The inverse matrix</h5>
+
+				<div class="size-90 left-txt">
+					<p>
+						<span>
+							If $A$ is a square matrix,
+						</span>
+						<span>
+							its inverse matrxi $A^{-1}$ satisfies
+						</span>
+					</p>
+					<p style="text-align: center;">
+						<span>
+							$AA^{-1} $
+						</span>
+						<span>
+							$ = A^{-1}A $
+						</span>
+						<span>
+							$=I.$
+						</span>
+					</p>
+
+
+					<p>
+						Why do we need an inverse in practice?
+
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						How can we compute the inverse of a matrix?
+
+					</p>
+					<p style="text-align: center;">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="100"
+								height="100">
+						</picture>
+					</p>
+
+					<p class="fragment" data-fragment-index="3">
+						We will find inverses using augmented matrices!
+
+					</p>
+				</div>
+
+				<br /><br />
+			</section>
+
+			<section>
+				<h5>Checkpoint</h5>
+
+				<div class="size-75 left-txt">
+					<p>
+						Which of these is the inverse matrix of
+						\(
+						\left(
+						\begin{array}{r}
+						0 & 1 \\
+						1 & 0
+						\end{array}
+						\right)
+						\)
+						? <span style="text-align: center;font-size: 70%;margin-top: -10px;">
+							(How could we check?)
+						</span>
+
+					</p>
+
+
+					<p>
+						i)
+						\(
+						\left(
+						\begin{array}{r}
+						0 & 1 \\
+						1 & 0
+						\end{array}
+						\right)
+						\)
+					</p>
+					<p>
+						ii)
+						\(
+						\left(
+						\begin{array}{r}
+						1 & 0 \\
+						0 & 1
+						\end{array}
+						\right)
+						\)
+					</p>
+					<p>
+						iii)
+						\(
+						\left(
+						\begin{array}{r}
+						0 & 1 & 0 \\
+						1 & 0 & 0
+						\end{array}
+						\right)
+						\)
+					</p>
+					<p>
+						iv)
+						\(
+						\left(
+						\begin{array}{r}
+						1 & 0 & 0 \\
+						0 & 1 & 0
+						\end{array}
+						\right)
+						\)
+					</p>
+				</div>
+
+				<br />
+			</section>
+
+			<section>
+				<h5>
+					Problem 2
+				</h5>
+
+				<div class="size-80 left-txt">
+					<p>
+						Find the inverse matrix of
+
+						\(
+						\left(
+						\begin{array}{r}
+						1 & 1 & 1 \\
+						1 & -1 & -2 \\
+						2 & 1 & -1 \\
+						\end{array}
+						\right),
+						\)
+					</p>
+					<p>
+						then show that $A^{-1}$ satisfies
+						$AA^{-1} = A^{-1}A = I.$
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						\[
+						A^{-1} =
+						\frac{1}{3}
+						\left(
+						\begin{array}{r}
+						3 & 2 & -1 \\
+						-3 & -3 & 3 \\
+						3 & 1 & -2 \\
+						\end{array}
+						\right)
+						\]
+
+					</p>
+				</div>
+				<br /><br /><br />
+
+			</section>
+
+			<section data-auto-animate>
+				<h5>
+					Problem 3
+				</h5>
+
+				<div class="size-90 left-txt">
+					<p>
+						Now we can use our inverse to solve
+					</p>
+					<p style="text-align: center;margin-top: -15px;">
+						\(\begin{array}{r}
+						x & + & y & + & z &= & 4 \\
+						x & - & y & - & 2z & = & 1\\
+						2x & + & y & - & z & = & 2 \\
+						\end{array}\)
+					</p>
+					<p class="size-80" style="color: rgb(127, 127, 127);">
+						(recall that $x= 4,$ $ y = -3,$ $z=3$).
+					</p>
+				</div>
+				<div class=" left-txt">
+
+					<p style="text-align: center;">
+
+						<span class="fragment" data-fragment-index="0">
+							$A \mathbf x = \mathbf a$
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							$\,\Rightarrow\, $
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							$ \mathbf x = $
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							$ A^{-1}A\mathbf x = A^{-1}\mathbf a$
+						</span>
+
+
+
+					</p>
+					
+				</div>
+				<br /><br /><br/><br/>
+
+			</section>
+
+			<section data-auto-animate>
+				<h5>
+					Problem 3
+				</h5>
+
+				<div class="size-50 left-txt">
+					<p>
+						Now we can use our inverse to solve
+					</p>
+					<p style="text-align: center;margin-top: -15px;">
+						\(\begin{array}{r}
+						x & + & y & + & z &= & 4 \\
+						x & - & y & - & 2z & = & 1\\
+						2x & + & y & - & z & = & 2 \\
+						\end{array}\)
+					</p>
+					<p class="size-80" style="color: rgb(127, 127, 127);">
+						(recall that $x= 4,$ $ y = -3,$ $z=3$).
+					</p>
+				</div>
+				<div class="left-txt">
+
+					<p style="text-align: center;">
+
+						<span >
+							$A \mathbf x = \mathbf a$
+						</span>
+						<span>
+							$\,\Rightarrow\, $
+						</span>
+						<span>
+							$ \mathbf x = $
+						</span>
+						<span>
+							$ A^{-1}A\mathbf x = A^{-1}\mathbf a$
+						</span>
+
+
+
+					</p>
+					<p style="text-align: center;">
+						<span>
+							$ \mathbf x = A^{-1} \mathbf a$
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							$ = \frac{1}{3}
+							\left(
+							\begin{array}{r}
+							3 & 2 & -1 \\
+							-3 & -3 & 3 \\
+							3 & 1 & -2 \\
+							\end{array}
+							\right)
+							\left(
+							\begin{array}{r}
+							4 \\
+							1 \\
+							2 \\
+							\end{array}
+							\right)
+							$
+						</span>
+						<span class="fragment" data-fragment-index="5">
+							$ =
+							\left(
+							\begin{array}{r}
+							4 \\
+							-3 \\
+							3 \\
+							\end{array}
+							\right)
+							$
+						</span>
+					</p>
+				</div>
+				<br /><br />
+
+			</section>
+
+			
 
 
 
