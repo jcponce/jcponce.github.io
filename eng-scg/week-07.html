@@ -1276,6 +1276,9 @@
 							</p>
 
 						</div>
+
+						
+						
 						<div class="" style="font-size:130%">
 
 							<p>
@@ -1304,53 +1307,115 @@
 					</div>
 					<br /><br /><br />
 				</section>
-				<section>
+
+				<section data-auto-animate>
 					<h3>Eigenvalues and Eigenvectors</h3>
 
 					<div class="">
 
-						<div class="">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Matrix-vector multiplication $\qquad \qquad$
+							</span>
+						</p>
+					</div>
 
+					<div>
+						<table  style="border:none;">
+							<tr  style="border:none;">
+								<td style="border:none;text-align: center;" class="fragment" data-fragment-index="0">
+									$\uparrow$
+								</td>
+								<td style="border:none;text-align: center;" >
+									
+								</td>
+								<td style="border:none;text-align: center;" >
+									
+								</td>
+								
+							</tr>
+							<tr  style="border:none;font-size:130%">
+								
+								<td style="border:none;">
+									$A\mathbf v $
+								</td>
+								<td style="border:none;">
+									$ =   $
+								</td>
+								<td style="border:none;">
+									$\lambda \v$
+								</td>
+							</tr>
+							<tr  style="border:none;">
+								
+								<td style="text-align: center;">
+									
+								</td>
+								<td style="text-align: center;" >
+									
+								</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="1">
+									$ \downarrow$
+								</td>
+							</tr>
+							
+						</table>
+						
+					</div>
+
+					<div class="">
+
+						<p>
+
+							<span class="fragment" data-fragment-index="1">
+								$\qquad \qquad$ Scalar multiplication
+							</span>
+						</p>
+					</div>
+					<br/>
+				</section>
+				
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:130%">
 							<p>
+								<span>
+									$A \v = \lambda \v$
+								</span>
+							</p>
+						</div>
 
+						<div class="left-txt">
+							<p>
+								to make sense of this equation,
 								<span class="fragment" data-fragment-index="0">
-									Matrix-vector multiplication $\qquad \qquad$
+									 consider the 
+									$3\times 3$
+									identity matrix:
 								</span>
 							</p>
-						</div>
 
-						<div style="font-size:130%" class="r-stack">
-							<p class="fragment fade-out" data-fragment-index="0">
-								<span>
-									$A \v $
-								</span>
-								<span>
-									$ = \lambda \v$
-								</span>
-							</p>
-							<p class="fragment fade-in-then-out" data-fragment-index="0">
-								<span>
-									$\overbrace{\,A\v}{} = \lambda \v$
-								</span>
-							</p>
-							<p class="fragment fade-in" data-fragment-index="1">
-								<span>
-									$\overbrace{\,A\v}{} = \underbrace{\,\lambda \v}{} $
-								</span>
-							</p>
 						</div>
 
 						<div class="">
-
-							<p>
-
-								<span class="fragment" data-fragment-index="1">
-									$\qquad \qquad$ Scalar multiplication
+							<p class="fragment" data-fragment-index="0">
+								<span>
+									$I =
+									\left(\begin{array}{ccc}
+									1 & 0 & 0 \\
+									0 & 1 & 0 \\
+									0 & 0 & 1 \\
+									\end{array}\right)
+									$
 								</span>
 							</p>
+							
 						</div>
 					</div>
-					<br /><br /><br /><br />
+					<br /><br />
 				</section>
 				<section data-auto-animate>
 					<h3>Eigenvalues and Eigenvectors</h3>
@@ -1365,28 +1430,18 @@
 							</p>
 						</div>
 
-						<div class="">
+						<div class="left-txt">
 							<p>
 								<span>
-									to make sense of this equation consider the matrix
+									Multiply by $\lambda$ to obtain:
 								</span>
 							</p>
 
 						</div>
 
-						<div class="r-stack">
-							<p class="fragment fade-out" data-fragment-index="0">
-								<span>
-									$I =
-									\left(\begin{array}{ccc}
-									1 & 0 & 0 \\
-									0 & 1 & 0 \\
-									0 & 0 & 1 \\
-									\end{array}\right)
-									$
-								</span>
-							</p>
-							<p class="fragment fade-in" data-fragment-index="0">
+						<div>
+							
+							<p>
 								<span>
 									$\lambda I =
 									\left(\begin{array}{ccc}
@@ -1399,9 +1454,10 @@
 							</p>
 						</div>
 					</div>
-					<br /><br /><br />
+					<br /><br /><br/>
 				</section>
-				<section>
+
+				<section data-auto-animate>
 					<h3>Eigenvalues and Eigenvectors</h3>
 
 					<div class="">
@@ -1413,6 +1469,8 @@
 								</span>
 							</p>
 						</div>
+
+						
 
 						<br>
 						<div>
@@ -1432,23 +1490,47 @@
 					</div>
 					<br /><br /><br />
 				</section>
+
 				<section data-auto-animate>
 					<h3>Eigenvalues and Eigenvectors</h3>
 
 					<div class="">
 
-						<div class="r-stack" style="font-size:160%">
-							<p class="fragment fade-out" data-fragment-index="0">
+						<div class="" style="font-size:160%">
+							<p>
 								<span>
-									$A \v -\left( \lambda I\right) \v=\mathbf 0$
+									$A \v =\left( \lambda I\right)\v$
 								</span>
 							</p>
-							<p class="fragment fade-in-then-out" data-fragment-index="0">
+						</div>
+
+						<div class="" style="font-size:160%">
+							<p>
 								<span>
-									$\left(A - \lambda I\right) \v=\mathbf 0$
+									$\Ra \,A \v -\left( \lambda I\right) \v=\mathbf 0$
 								</span>
 							</p>
-							<p class="fragment fade-in" data-fragment-index="1">
+							<p class="fragment" data-fragment-index="1">
+								<span>
+									$\Ra \,\left(A - \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+							
+						</div>
+
+						
+					</div>
+					<br /><br /><br /><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:160%">
+							
+							<p>
 								<span>
 									$\underbrace{\left(A - \lambda I\right)}{} \v=\mathbf 0$
 								</span>
@@ -1458,12 +1540,12 @@
 						<div style="font-size:80%">
 
 							<p>
-								<span class="fragment" data-fragment-index="1">
+								<span>
 									This matrix looks like $\qquad\qquad\qquad $
 								</span>
 							</p>
 							<p>
-								<span class="fragment" data-fragment-index="1">
+								<span>
 									$
 									\left(\begin{array}{ccc}
 									3-\lambda & -1 & 2 \\
@@ -1477,6 +1559,7 @@
 					</div>
 					<br /><br /><br />
 				</section>
+
 				<section data-auto-animate>
 					<h3>Eigenvalues and Eigenvectors</h3>
 
