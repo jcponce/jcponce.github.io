@@ -58,11 +58,11 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
   <script>
-     window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-     gtag('js', new Date());
+    gtag('js', new Date());
 
-     gtag('config', 'G-JPYTNF6MB4');
+    gtag('config', 'G-JPYTNF6MB4');
   </script>
 
   <script src="math.js"></script>
@@ -115,7 +115,7 @@
 
             <hr>
 
-          
+
             <h3 id="historical-background">Historical background</h3>
 
             <p>We now know that sound propagates in waves through a solid, gas, or liquid medium &#x2014; but we
@@ -139,7 +139,7 @@
               vibration on a
               rigid surface. When resonating, a plate or membrane is divided into regions that vibrate in opposite
               directions,
-              bounded by lines where no vibration occurs (nodal lines)</p>
+              bounded by lines where no vibration occurs (nodal lines).</p>
 
             <p>Chladni&apos;s technique, first published in 1787 in his book <em><a
                   href="http://echo.mpiwg-berlin.mpg.de/ECHOdocuView?url=/permanent/library/5M6VYMSC/pageimg&amp;mode=imagepath&amp;pn=5"
@@ -166,16 +166,62 @@
 
             <br />
 
-            <figure style="text-align:center">
-              <iframe loading="lazy" src="../sketches/chladni-patterns-simulation/" scrolling="no" width="500"
-              height="500px" style="border:0px;border:1px solid black"></iframe>
-            <figcaption style="font-size:12px;line-height:18px">
-              Click on view to change the pattern. 
-              <em>Based upon Patt Vira's <a href="https://youtu.be/J-siGcsK2k8" target="_blank">tutorial</a></em>.  
-            </figcaption>
-                </figure>
+            <p>
+              To simulate Chladni patterns for a square Chladni plate of side length \( L ,\) 
+              constrained at the center, we can use the equation that describes
+              the nodal lines of a standing wave as:
 
-              <br/>
+              \[
+              \cos\left(\frac{n \pi x}{L}\right) \cos\left(\frac{m \pi y}{L}\right) - \cos\left(\frac{m \pi x}{L}\right)
+              \cos\left(\frac{n \pi y}{L}\right) = 0,
+              \]
+
+              where \( n \) and \( m \) are integers. Chladni patterns 
+              corresponding to values of \( n, m \) ranging
+              from 1 to 8 are shown below. Note that the solution 
+              becomes trivial when \( n = m \), and that the table
+              of patterns is symmetric: the pattern for \((n_1, m_2)\) 
+              is the same as that for \((n_2, m_1)\).
+
+            </p>
+
+
+
+
+            <figure style="text-align:center">
+              <iframe loading="lazy" src="chladni-patterns-plate/" scrolling="no" width="450" height="450px"
+                style="border:0px;border:1px solid black"></iframe>
+              <figcaption style="font-size:12px;line-height:18px">
+                Click on view to change the pattern.
+                <em>Based upon Patt Vira's <a href="https://youtu.be/J-siGcsK2k8" target="_blank">tutorial</a></em>.
+              </figcaption>
+            </figure>
+            <br />
+
+            <p>
+              For a circular plate with radius R the solution is given in terms of polar coordinates (r,theta) by
+
+              \[J_n(K \, r) \left(C_1 \cos(n \theta) + C_2 \sin(n \theta)\right)\]
+
+              Where $J_n$ is the $n$'th order Bessel function.
+              If the plate is fixed around the rim (e. g. a
+              drum) then $K = Z_{nm} / R,$ $Z_{nm}$ is the
+              $m$'th zero of the n'th order Bessel function.
+              The term "$Z_{nm} r / R$" means the Bessel
+              function term goes to zero at the rim as
+              required by the constraint of the rim
+              being fixed.
+            </p>
+            <figure style="text-align:center">
+              <iframe loading="lazy" src="chladni-patterns-drum/" scrolling="no" width="450" height="450px"
+                style="border:0px;border:1px solid black"></iframe>
+              <figcaption style="font-size:12px;line-height:18px">
+                Click on view to change the pattern.
+                
+              </figcaption>
+            </figure>
+
+            <br />
 
             <figure style="text-align:center"><img src="chladni.jpg" alt="Chladni figures"
                 style="width:100%;max-width:750px">
@@ -185,9 +231,9 @@
             </figure>
 
 
-            
 
-            
+
+
 
             <br>
             <hr><br>
@@ -278,19 +324,19 @@
                   var size = 1;
                   var s = isosurface((x, y, z) => myFunc(x, y, z),
                     [-size, size], [-size, size], [-size, size],
-                    { 
+                    {
                       material: 'normal',
                       group: 'main',
-                      rotation: { axis: [0,0,1], angle: 0.001 }
+                      rotation: { axis: [0, 0, 1], angle: 0.001 }
                     });
 
                   var data = [s];
 
-                  var config = { 
-                    type: 'threejs', 
-                    frame: false, 
-                    viewpoint: [1, -1, 0.5], 
-                    animate: true 
+                  var config = {
+                    type: 'threejs',
+                    frame: false,
+                    viewpoint: [1, -1, 0.5],
+                    animate: true
                   };
 
                   evaluate(id, data, config);
