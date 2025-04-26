@@ -12,7 +12,7 @@ let particles = []; let num = 4000;
 let m = 5; let n = 4; let threshold = 0.05;
 let minMN = 1; let maxMN = 8;
 let changePattern = true;
-let margin = 50; let w1, w2, h1, h2;
+let margin = 40; let w1, w2, h1, h2;
 let scl = 1;
 
 function setup() {
