@@ -32,10 +32,10 @@ Press mouse to generate a new pattern
 */
 
 let particles = [];
-let num = 4000;
+let num = 3500;
 let n = 2; // angular mode
 let m = 1; // radial mode
-let R = 195; // radius of the circular plate
+let R = 180; // radius of the circular plate
 let threshold = 0.05;
 let changePattern = false;
 let firstRun = true;
@@ -53,7 +53,7 @@ let besselZeros = {
 };
 
 function setup() {
-  createCanvas(450, 450);
+  createCanvas(400, 400);
   for (let i = 0; i < num; i++) {
     particles.push(new Particle());
   }

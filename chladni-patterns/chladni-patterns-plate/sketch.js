@@ -8,7 +8,7 @@ https://www.pattvira.com/
 ----------------------------------------
 */
 
-let particles = []; let num = 4000;
+let particles = []; let num = 3500;
 let m = 5; let n = 4; let threshold = 0.05;
 let minMN = 1; let maxMN = 8;
 let changePattern = true;
@@ -16,7 +16,7 @@ let margin = 40; let w1, w2, h1, h2;
 let scl = 1;
 
 function setup() {
-  createCanvas(450, 450);
+  createCanvas(400, 400);
   w1 = margin; w2 = width - margin;
   h1 = margin; h2 = height - margin;
   for (let i=0; i<num; i++) {
