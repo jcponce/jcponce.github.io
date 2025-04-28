@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://digitalfirst.bfwpub.com/stats_applet/asset/10_prob/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Probability</title>
+        
+        <link rel="stylesheet" href="./Probability_files/style.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="./Probability_files/jquery-ui.css" type="text/css" media="screen">        
+        <script src="./Probability_files/jquery.min.js" type="text/javascript"></script>   
+        <script src="./Probability_files/jquery-ui.min.js" type="text/javascript"></script>   
+        <script src="./Probability_files/raphael-min.js"></script>
+        <script src="./Probability_files/math_script.js"></script>
+        <script src="./Probability_files/main_script.js"></script>
+    </head>
+    <body>
+        <div id="fone">
+            <div id="left_panel">
+                <div id="info"> </div>
+                <div id="enter">
+                    <form action="" method="get" id="enter_form">
+                        <div id="settings">
+
+                            <p><label class="label" for="prob_heads_slider">Probability of Heads:</label>
+                            <input class ="input" type="text" id="prob_heads" disabled>
+                            <div id="prob_heads_slider"></div>
+                            </p>
+
+                            <p style='padding-top:10px'><label class="label" for="num_trials_slider">Number of Tosses:</label>
+                            <input class ="input" type="text" id="num_trials" disabled>
+                            <div id="num_trials_slider"></div>
+							</p>
+							
+							<div style="padding-top:15px">
+                            <div id="trueProb_checkbox">
+                                <input name="show_true_probability" id="trueProb" type="checkbox"/>
+                            </div>    
+                            <div id="trueProb_label">
+                                <label for="trueProb">Show true probability</label>
+                            </div>
+                            </div>
+                        </div>
+                        <p class="inputForm">
+                            <a  id="s_button" >TOSS</a>
+                        </p>
+                        <p class="inputForm">
+                            <a id="c_button" >RESET</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div id="notepad"> 
+            </div>
+            <div id="nickels"></div>
+        </div>
+
+        <script>
+        window.onload = function() {
+    document.getElementById("c_button").addEventListener("click", function (e) {
+        e.preventDefault();
+        location.reload();
+    });
+};
+        </script>
+    
+
+</body></html>
