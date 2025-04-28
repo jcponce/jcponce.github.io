@@ -338,12 +338,14 @@
 						</p>
 						<ul>
 							<li class="fragment" data-fragment-index="1">
-								Tossing a coin: 
-								<span class="fragment" data-fragment-index="2"><strong>event</strong> = "getting a tail"</span>
+								Tossing a coin:
+								<span class="fragment" data-fragment-index="2"><strong>event</strong> = "getting a
+									tail"</span>
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								Throwing a dice: 
-								<span class="fragment" data-fragment-index="4"><strong>event</strong> = "🎲 rolling a 4"</span>
+								Throwing a dice:
+								<span class="fragment" data-fragment-index="4"><strong>event</strong> = "🎲 rolling a
+									4"</span>
 								<span class="fragment" data-fragment-index="5">
 									or "🎲 rolling an even number"
 								</span>
@@ -470,7 +472,7 @@
 				<section data-auto-animate>
 					<h5>Events</h5>
 
-					
+
 
 
 					<div class="size-75 left-txt">
@@ -524,7 +526,7 @@
 				<section data-auto-animate>
 					<h5>Events</h5>
 
-					
+
 
 
 					<div class="size-75 left-txt">
@@ -595,13 +597,13 @@
 						<p class="fragment" data-fragment-index="1">
 							The probability of $A$ occurring is a
 							number between 0 and 1.
-							<span class="fragment" data-fragment-index="2">That is, 
+							<span class="fragment" data-fragment-index="2">That is,
 								\[
 								0\leq P(A) \leq 1.
 								\]
 							</span>
 						</p>
-						
+
 
 
 						<p class="fragment" data-fragment-index="3">
@@ -619,8 +621,13 @@
 				</section>
 
 
+
+			</section>
+
+			<section>
+
 				<section>
-					<h5>Sample space</h5>
+					<h5>Counting methods & Sample space</h5>
 
 					<div class="size-75 left-txt">
 						<p>
@@ -638,14 +645,11 @@
 									<li class="fragment" data-fragment-index="2">
 										Sample space of two coins is
 										\(
-										\{\text{HH,TH,HT,TT}\}
+										\{\text{HH,HT,TH,TT}\}
 										\)
 									</li>
 									<li class="fragment" data-fragment-index="3">
-										Three coins:
-										\[
-										\{\text{HHH, THH, HTH, TTH, HHT, THT, HTT, TTT}\}
-										\]
+										Three coins: ???
 									</li>
 								</ul>
 							</li>
@@ -653,7 +657,8 @@
 								🎲 Trowing a dice: Samples space is \(\{1,2,3,4,5,6\}\)
 							</li>
 							<li class="fragment" data-fragment-index="5">
-								🃏 Suits in a pack of cards: \(\{\)hearts, diamonds, spades, clubs\(\}\)
+								🃏 Suits in a pack of cards:
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;\(\{\)♥️hearts, ♦️diamonds, ♠️spades, ♣️clubs\(\}\)
 							</li>
 						</ul>
 
@@ -661,17 +666,13 @@
 					<br /><br />
 				</section>
 				<section>
-					<h5>Sample space</h5>
+					<h5>Counting methods & Sample space</h5>
 
 					<div class="size-75 left-txt">
 
-
-
-
-
 						<p class="fragment" data-fragment-index="0">
-							The probability of an event is the number of cases of that event
-							in the sample space
+							The probability of an event is the number of cases of that
+							event in the sample space
 							<span class="fragment" data-fragment-index="1">
 								divided by the size of the sample space
 							</span>
@@ -682,15 +683,15 @@
 						</p>
 
 
-						<ul class="fragment" data-fragment-index="2">
+						<ul class="fragment" data-fragment-index="3">
 							<li>
 								\[
-								\{\text{HHH, THH, HTH, TTH, HHT, THT, HTT, TTT}\}
+								\{\text{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}\}
 								\]
 							</li>
 						</ul>
 
-						<p class="fragment" data-fragment-index="3">
+						<p class="fragment" data-fragment-index="4">
 							What is the probability of getting 2 heads in 3 tosses?
 						</p>
 
@@ -701,27 +702,137 @@
 
 					<div class="size-75">
 						<p>
-							<span class="fragment" data-fragment-index="4">
+							<span class="fragment" data-fragment-index="5">
 								\(P(\text{exactly 2 heads in 3 tosses})\)
 							</span>
-							<span class="fragment" data-fragment-index="5">
+							<span class="fragment" data-fragment-index="6">
 								\(=\dfrac{\# 2\text{ heads}}{\# \text{Total}}\)
 							</span>
 
 						</p>
 						<p>
 
-							<span class="fragment" data-fragment-index="6">
+							<span class="fragment" data-fragment-index="7">
 								\(=\dfrac{\#\{\text{THH, HTH, HHT}\}}{8}\)
 							</span>
-							<span class="fragment" data-fragment-index="7">
+							<span class="fragment" data-fragment-index="8">
 								\(=\dfrac{3}{8}\)
 							</span>
 
 						</p>
 					</div>
-					<br /><br />
+					<br />
 				</section>
+
+				<section>
+					<h5>Tree diagram for 4 coins</h5>
+
+
+					<div class="fragment" data-fragment-index="0">
+						<img style="width:80%;margin-top: -20px;margin-bottom: 0px;"
+							src="images/week-08/tree-coins.png">
+
+					</div>
+
+					<div class="size-75">
+
+						<p class="fragment" data-fragment-index="1">
+							\(
+							\{\text{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}\}
+							\)
+						</p>
+					</div>
+					<br />
+
+				</section>
+
+				<section>
+					<h5>Sample space using grids</h5>
+					<div class="size-80">
+						<p>
+							Experiment: Rolling two dice 🎲.
+						</p>
+					</div>
+					<div class="fragment size-90" data-fragment-index="0">
+						
+
+
+						<table border="1" style="border-collapse: collapse; width: 200px; height: 100px;">
+							<tr>
+								<td style="position: relative; overflow: hidden;">
+									<!-- Diagonal Line -->
+									<div style="
+								  position: absolute;
+								  top: 0;
+								  left: 0;
+								  width: 200%;
+								  height: 200%;
+								  transform: rotate(40deg);
+								  transform-origin: top left;
+								  border-top: 2px solid black;
+								"></div>
+
+									<!-- Top-right text (B) -->
+									<div style="position: absolute; top: 5px; right: 5px; font-size: 16px;font-weight: bold;">Die 2</div>
+
+									<!-- Bottom-left text (A) -->
+									<div style="position: absolute; bottom: 5px; left: 5px; font-size: 16px;font-weight: bold;">Die 1</div>
+								</td>
+								<td>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;</td>
+								<td>&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;</td>
+								<td>&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;</td>
+								<td>&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;</td>
+								<td>&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;</td>
+							</tr>
+							<tr>
+								<td>&nbsp;1&nbsp;</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;2&nbsp;</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;3&nbsp;</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;4&nbsp;</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;5&nbsp;</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+
+
+
+
+					</div>
+					<br />
+				</section>
+
 			</section>
 
 
