@@ -165,32 +165,75 @@
 
 				</section>
 
+
+			</section>
+
+			<section>
+
+				<section>
+					<h5>A couple of applications of conditional probability</h5>
+
+					<div class="size-70">
+						<table style="width: 100%;">
+							<tr>
+								<th style="width: 50%;"  class="fragment" data-fragment-index="0">
+									Medical Diagnosis
+								</th>
+								<th style="width: 50%;"  class="fragment" data-fragment-index="2">
+									Weather Forecasting
+								</th>
+							</tr>
+
+							
+	
+							<tr>
+								<td  class="fragment" data-fragment-index="1">
+									What is the probability that the
+									person actually has a
+									disease given a positive test result?
+									<br/>
+									<p style="font-size: 130%;text-align: center;"><span>😀🤪😷😉🤒🤠🤧😋</span></p>
+								</td>
+								<td  class="fragment" data-fragment-index="2">
+									Meteorologists use past data 📊📈 to update 
+									rain probabilities 
+									based on current conditions
+									like humidity, cloud cover, or wind direction.<br/>
+									<p style="font-size: 130%;text-align: center;">🌧️🌤️☀️🌦️⛈️</p>
+									
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br/><br/>
+				</section>
+
 				<section>
 					<h5>Problem: Medical Diagnosis</h5>
 
 					<div class="size-75 left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							<strong>Scenario:</strong> A patient receives a
 							positive result on a test for a rare disease 😷.
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							Let's say the disease affects 1 in 1,000 people (0.1%), and the test is 99% accurate (i.e.,
 							99% true positive rate and 1% false positive rate).
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							<strong>Question:</strong>
-							What is the probability that the person actually 
+							What is the probability that the person actually
 							has the disease given a positive test result?
 						</p>
-						
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
+
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
 					</div>
 				</section>
 
@@ -210,27 +253,28 @@
 
 						<p>
 							<strong>Question:</strong>
-							What is the probability that the person actually 
+							What is the probability that the person actually
 							has the disease given a positive test result?
 						</p>
-						
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
+
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
 					</div>
 				</section>
-				<section>
+
+				<section data-auto-animate>
 					<h5>Problem: Medical Diagnosis</h5>
 
 					<div class="size-50 left-txt">
@@ -246,37 +290,119 @@
 
 						<p>
 							<strong>Question:</strong>
-							What is the probability that the person actually 
+							What is the probability that the person actually
 							has the disease given a positive test result?
 						</p>
-						
-						
+
+
 					</div>
 
-					<div class="size-70 left-txt">
+					<div class="size-65 left-txt">
 						<p>
 							<strong>Remark:</strong>
 							We used the formula:
-							
+
 						</p>
 
-						
-						
+
+
 					</div>
-					<div class="size-70">
+					<div class="size-65">
 						<p>
 							\(P(D|+ ) = \dfrac{P(D \text{ and } +)}{P(D \text{ and } +) + P(D'\text{ and }+)}\)
 						</p>
-						<p>
-							\(= \dfrac{P(+|D) \times P(+)}{P(+)}\quad\)
+						<p class="fragment" data-fragment-index="1">
+							\(= \dfrac{P(+|D) \cdot P(D)}{P(+)}\quad\)
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Replace $D$ for $B$ and $+$ for $A:$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							\(P(B|A)= \dfrac{P(A|B) \cdot P(A)}{P(B)}\)
 						</p>
 
-						
-						
 					</div>
+
 				</section>
 
+				<section data-auto-animate>
+					<h5>Bayes' Theorem</h5>
 
+					
+					<div class="size-80" style="margin-top: 50px;margin-bottom: 50px;">
+
+						<p>
+							\(P(B|A)= \dfrac{P(A|B) \cdot P(A)}{P(B)}\)
+						</p>
+
+					</div>
+
+					<div class="size-70">
+						<p  class="fragment" data-fragment-index="0">
+							<a href="https://archive.org/details/historyofstatist00stig">Thomas Bayes</a>
+							(1701-1761)
+							english statistician and philosopher.
+						</p>
+
+						<p  class="fragment" data-fragment-index="1">
+							<strong>Multiply applications in science:</strong>
+							<br/>
+							Medical Diagnosis, Machine Learning, Spam Filtering,<br/>
+							Forensic Science, Weather Forecasting.
+						</p>
+					</div>
+
+					
+					<br/>
+					<br/>
+
+				</section>
+
+				<section>
+					<h5>Monty Hall Game</h5>
+
+					<div>
+						<iframe scrolling="no" src="sketches/three-doors-goat/" width="100%" height="400px"
+							style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+					<div class="size-60 fragment" data-fragment-index="0">
+						<p>What is the probability of winning, if you keep your first choice?</p>
+						<p>What is the probability of winning, if you switch doors?</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h5>Monty Hall Game</h5>
+
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width:60%;"
+							src="images/week-08/tree-monty-hall-1.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width:60%;"
+							src="images/week-08/tree-monty-hall-2.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width:60%;"
+							src="images/week-08/tree-monty-hall-3.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="2" style="width:60%;"
+							src="images/week-08/tree-monty-hall-4.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="3" style="width:60%;"
+							src="images/week-08/tree-monty-hall-5.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="4" style="width:60%;"
+							src="images/week-08/tree-monty-hall-6.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="5" style="width:60%;"
+							src="images/week-08/tree-monty-hall-7.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="6" style="width:60%;"
+							src="images/week-08/tree-monty-hall-8.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="7" style="width:60%;"
+							src="images/week-08/tree-monty-hall-9.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="8" style="width:60%;"
+							src="images/week-08/tree-monty-hall-10.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="9" style="width:60%;"
+							src="images/week-08/tree-monty-hall-11.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="10" style="width:60%;"
+							src="images/week-08/tree-monty-hall-12.svg">
+					</div>
+				</section>
 
 			</section>
 
