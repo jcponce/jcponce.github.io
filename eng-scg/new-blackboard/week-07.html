@@ -1,0 +1,2588 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Week 7</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-JPYTNF6MB4');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+				<h2>
+					<span class="size-70">
+						Linear Algebra <br />
+						&amp;
+						<br />
+						Engineering Mathematics 1
+					</span>
+				</h2>
+
+				<p style="margin-top: 50px;">Week 7 - Matrices</p>
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+
+					<h5>Augmented matrix system - solving a set of equations</h5>
+
+					<div class="size-80">
+						<p class="fragment left-txt" data-fragment-index="0">
+							- Recall the system of equations that we considered last week:
+							\[
+							\begin{array}{r}
+							x& +&y&+&z&=&4 \\
+							x& -&y&-&2z &=& 1 \\
+							2x&+& y& -&z &=& 2 \\
+							\end{array}
+							\]
+						</p>
+
+						<p class="fragment left-txt" data-fragment-index="1">
+							- Rewrite as a matrix equation:
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								\(A \mathbf x = \)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\(
+								\left(
+								\begin{array}{r}
+								1 & 1 & 1 \\
+								1 & -1 & -2 \\
+								2 & 1 & -1 \\
+								\end{array}
+								\right)
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								\(
+
+								\left(
+								\begin{array}{c}
+								x \\
+								y \\
+								z \\
+								\end{array}
+								\right)
+
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								\(
+
+								=
+								\left(
+								\begin{array}{c}
+								4 \\
+								1 \\
+								2 \\
+								\end{array}
+								\right)
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								\(
+								= \mathbf a
+								\)
+							</span>
+						</p>
+
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+
+					<h5>Augmented matrix system - solving a set of equations</h5>
+
+					<div class="size-80">
+						<p class="left-txt">
+							- Rewrite as a matrix equation:
+						</p>
+						<p>
+							<span>
+								\(A \mathbf x = \)
+							</span>
+							<span>
+								\(
+								\left(
+								\begin{array}{r}
+								1 & 1 & 1 \\
+								1 & -1 & -2 \\
+								2 & 1 & -1 \\
+								\end{array}
+								\right)
+								\)
+							</span>
+							<span>
+								\(
+
+								\left(
+								\begin{array}{c}
+								x \\
+								y \\
+								z \\
+								\end{array}
+								\right)
+
+								\)
+							</span>
+							<span>
+								\(
+
+								=
+								\left(
+								\begin{array}{c}
+								4 \\
+								1 \\
+								2 \\
+								\end{array}
+								\right)
+								\)
+							</span>
+							<span>
+								\(
+								= \mathbf a
+								\)
+							</span>
+						</p>
+
+						<p class="left-txt">
+							- Augmented form:
+						</p>
+
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								\( \left(
+								\begin{array}{r|r}
+								A & \mathbf a
+								\end{array}
+								\right) \) =
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								\(
+								\left(
+								\begin{array}{r}
+								\\
+								\\
+								\\
+								\end{array}
+								\right.
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\(
+								\left.
+								\begin{array}{rrr|}
+								1 & 1 & 1 \;\;\\
+								1 & -1 & -2\;\; \\
+								2 & 1 & -1 \;\; \\
+								\end{array}
+								\right.
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								\(
+								\left.
+								\begin{array}{r}
+								\;4\\
+								\;1\\
+								\;2 \\
+								\end{array}
+								\right.
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								\(
+								\left.
+								\begin{array}{r}
+								\\
+								\\
+								\\
+								\end{array}
+								\right)
+								\)
+							</span>
+
+						</p>
+
+
+					</div>
+
+					<br /><br />
+				</section>
+
+
+				<section data-auto-animate>
+
+					<h5>Augmented matrix system - solving a set of equations</h5>
+
+					<div class="size-80">
+
+
+
+						<p>
+							<span>
+								\( \left(
+								\begin{array}{r|r}
+								A & \mathbf a
+								\end{array}
+								\right) \) =
+							</span>
+							<span>
+								\(
+								\left(
+								\begin{array}{r}
+								\\
+								\\
+								\\
+								\end{array}
+								\right.
+								\)
+							</span>
+							<span>
+								\(
+								\left.
+								\begin{array}{rrr|}
+								1 & 1 & 1 \;\;\\
+								1 & -1 & -2\;\; \\
+								2 & 1 & -1 \;\; \\
+								\end{array}
+								\right.
+								\)
+							</span>
+							<span>
+								\(
+								\left.
+								\begin{array}{r}
+								\;4\\
+								\;1\\
+								\;2 \\
+								\end{array}
+								\right.
+								\)
+							</span>
+							<span>
+								\(
+								\left.
+								\begin{array}{r}
+								\\
+								\\
+								\\
+								\end{array}
+								\right)
+								\)
+							</span>
+
+						</p>
+
+						<p class="left-txt">
+							- We can perform a method of elimination by
+						</p>
+
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								Swapping,
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								scaling, and/or
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								adding rows together.
+							</li>
+						</ul>
+
+						<p class="left-txt fragment" data-fragment-index="3">
+							This method is known as <strong>row reduction</strong>,
+							<strong>Gaussian elimination</strong>,
+							<strong>Gauss-Jordan elimination</strong>.
+						</p>
+
+
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h5>Problem 1</h5>
+
+					<div class="size-75 left-txt">
+						<p>
+							Let's solve the two problems from last week,
+							which we tackled manually:
+						</p>
+						<p class="left-txt fragment" data-fragment-index="0">
+							a)
+							\(\;\;
+							\begin{array}{r}
+							3x & + & 5y & = & 2 \\
+							2x & - & y & = & 2 \\
+							\end{array}
+							\)
+						</p>
+						<p class="left-txt fragment" data-fragment-index="1">
+							Recall from last week, solutions are $x = \dfrac{12}{13},$ $y =-\dfrac{2}{13}.$
+						</p>
+
+						<p class="left-txt fragment" data-fragment-index="2">
+							b)
+							\(\;\;
+							\begin{array}{r}
+							x & + & y & + & z &= & 4 \\
+							x & - & y & - & 2z & = & 1\\
+							2x & + & y & - & z & = & 2 \\
+							\end{array}
+							\)
+						</p>
+						<p class="left-txt fragment" data-fragment-index="3">
+							Recall from last week, solutions are $x = 4,$ $y =-3,$ $z= 3.$
+						</p>
+
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h5>
+						Visualization: Gaussian elimination
+					</h5>
+
+					<iframe scrolling="no" title="Visualization of Gauss elimination"
+						src="https://www.geogebra.org/material/iframe/id/sjhdteny/width/780/height/452/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="780px" height="452px" style="border:0px;" allowfullscreen=""> </iframe>
+
+						<br/><br/>
+
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h5>The inverse matrix</h5>
+
+					<div class="size-90 left-txt">
+						<p>
+							<span class="left-txt fragment" data-fragment-index="0">
+								If $A$ is a square matrix,
+							</span>
+							<span class="left-txt fragment" data-fragment-index="1">
+								its inverse matrix $A^{-1}$ satisfies
+							</span>
+						</p>
+						<p style="text-align: center;">
+							<span class="left-txt fragment" data-fragment-index="2">
+								$AA^{-1} $
+							</span>
+							<span class="left-txt fragment" data-fragment-index="3">
+								$ = A^{-1}A $
+							</span>
+							<span class="left-txt fragment" data-fragment-index="4">
+								$=I.$
+							</span>
+						</p>
+
+						<p class="left-txt fragment" data-fragment-index="5"><strong>Remarks:</strong></p>
+						<p class="left-txt fragment" data-fragment-index="5">
+							- Inverse matrices only exist for square matrices.
+						</p>
+						<p class="left-txt fragment" data-fragment-index="6">
+							- Not every square matrix has an inverse!
+						</p>
+						<p class="left-txt fragment" data-fragment-index="7">
+							- Not every set of simultaneous equations has a solution!
+						</p>
+
+					</div>
+
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>The inverse matrix</h5>
+
+					<div class="size-90 left-txt">
+						<p>
+							<span>
+								If $A$ is a square matrix,
+							</span>
+							<span>
+								its inverse matrxi $A^{-1}$ satisfies
+							</span>
+						</p>
+						<p style="text-align: center;">
+							<span>
+								$AA^{-1} $
+							</span>
+							<span>
+								$ = A^{-1}A $
+							</span>
+							<span>
+								$=I.$
+							</span>
+						</p>
+
+
+						<p>
+							Why do we need an inverse in practice?
+
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							How can we compute the inverse of a matrix?
+
+						</p>
+						<p style="text-align: center;">
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+									width="100" height="100">
+							</picture>
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							We will find inverses using augmented matrices!
+
+						</p>
+					</div>
+
+					<br /><br />
+				</section>
+
+				<section>
+					<h5>Checkpoint</h5>
+
+					<div class="size-75 left-txt">
+						<p>
+							Which of these is the inverse matrix of
+							\(
+							\left(
+							\begin{array}{r}
+							0 & 1 \\
+							1 & 0
+							\end{array}
+							\right)
+							\)
+							? <span style="text-align: center;font-size: 70%;margin-top: -10px;">
+								(How could we check?)
+							</span>
+
+						</p>
+
+
+						<p>
+							i)
+							\(
+							\left(
+							\begin{array}{r}
+							0 & 1 \\
+							1 & 0
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							ii)
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 0 \\
+							0 & 1
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							iii)
+							\(
+							\left(
+							\begin{array}{r}
+							0 & 1 & 0 \\
+							1 & 0 & 0
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							iv)
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 0 & 0 \\
+							0 & 1 & 0
+							\end{array}
+							\right)
+							\)
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h5>
+						Problem 2
+					</h5>
+
+					<div class="size-80 left-txt">
+						<p>
+							a) Find the inverse matrix of
+
+							\(
+							\left(
+							\begin{array}{r}
+							3 & 5 \\
+							2 & -1 \\
+							\end{array}
+							\right),
+							\)
+						</p>
+						<p>
+							then show that $A^{-1}$ satisfies
+							$AA^{-1} = A^{-1}A = I.$
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
+							\[
+							A^{-1} =
+							\frac{1}{13}
+							\left(
+							\begin{array}{r}
+							1 & 5 \\
+							2 & -3 \\
+							\end{array}
+							\right)
+							\]
+
+						</p>
+					</div>
+					<br /><br /><br />
+
+				</section>
+				<section>
+					<h5>
+						Problem 2
+					</h5>
+
+					<div class="size-80 left-txt">
+						<p>
+							b) Find the inverse matrix of
+
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 1 & 1 \\
+							1 & -1 & -2 \\
+							2 & 1 & -1 \\
+							\end{array}
+							\right),
+							\)
+						</p>
+						<p>
+							then show that $A^{-1}$ satisfies
+							$AA^{-1} = A^{-1}A = I.$
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
+							\[
+							A^{-1} =
+							\frac{1}{3}
+							\left(
+							\begin{array}{r}
+							3 & 2 & -1 \\
+							-3 & -3 & 3 \\
+							3 & 1 & -2 \\
+							\end{array}
+							\right)
+							\]
+
+						</p>
+					</div>
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						Problem 3
+					</h5>
+
+					<div class="size-90 left-txt">
+						<p>
+							Now we can use our inverse to solve
+						</p>
+						<p style="text-align: center;margin-top: -15px;">
+							\(\begin{array}{r}
+							x & + & y & + & z &= & 4 \\
+							x & - & y & - & 2z & = & 1\\
+							2x & + & y & - & z & = & 2 \\
+							\end{array}\)
+						</p>
+						<p class="size-80" style="color: rgb(127, 127, 127);">
+							(recall that $x= 4,$ $ y = -3,$ $z=3$).
+						</p>
+					</div>
+					<div class=" left-txt">
+
+						<p style="text-align: center;">
+
+							<span class="fragment" data-fragment-index="0">
+								$A \mathbf x = \mathbf a$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\,\Rightarrow\, $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ \mathbf x = $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$ A^{-1}A\mathbf x = A^{-1}\mathbf a$
+							</span>
+
+
+
+						</p>
+
+					</div>
+					<br /><br /><br /><br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						Problem 3
+					</h5>
+
+					<div class="size-50 left-txt">
+						<p>
+							Now we can use our inverse to solve
+						</p>
+						<p style="text-align: center;margin-top: -15px;">
+							\(\begin{array}{r}
+							x & + & y & + & z &= & 4 \\
+							x & - & y & - & 2z & = & 1\\
+							2x & + & y & - & z & = & 2 \\
+							\end{array}\)
+						</p>
+						<p class="size-80" style="color: rgb(127, 127, 127);">
+							(recall that $x= 4,$ $ y = -3,$ $z=3$).
+						</p>
+					</div>
+					<div class="left-txt">
+
+						<p style="text-align: center;">
+
+							<span>
+								$A \mathbf x = \mathbf a$
+							</span>
+							<span>
+								$\,\Rightarrow\, $
+							</span>
+							<span>
+								$ \mathbf x = $
+							</span>
+							<span>
+								$ A^{-1}A\mathbf x = A^{-1}\mathbf a$
+							</span>
+
+
+
+						</p>
+						<p style="text-align: center;">
+							<span>
+								$ \mathbf x = A^{-1} \mathbf a$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ = \frac{1}{3}
+								\left(
+								\begin{array}{r}
+								3 & 2 & -1 \\
+								-3 & -3 & 3 \\
+								3 & 1 & -2 \\
+								\end{array}
+								\right)
+								\left(
+								\begin{array}{r}
+								4 \\
+								1 \\
+								2 \\
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$ =
+								\left(
+								\begin{array}{r}
+								4 \\
+								-3 \\
+								3 \\
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+					<br /><br />
+
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h5>
+						Matrix determinant
+					</h5>
+					<div class=" left-txt">
+						<p>
+							Is there a way to tell if a square matrix has an inverse?
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							\[
+							\text{det}(A) = |A| \neq 0.
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							A matrix with zero determinant has no inverse!
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							A matrix without an inverse is called a
+							<strong>
+								singular
+								matrix
+							</strong> or
+							a
+							<strong>
+								non-invertible matrix
+							</strong>.
+						</p>
+					</div>
+
+					<br /><br />
+				</section>
+
+				<section>
+					<h5>
+						Matrix determinant
+					</h5>
+					<div class=" left-txt">
+						<p>
+							For a $2\times 2 $ matrix
+							\(\,A =
+							\left(
+							\begin{array}{r}
+							a & b \\
+							c & d \\
+							\end{array}
+							\right),\;
+							\)
+							<span class="fragment" data-fragment-index="0">
+								then
+							</span>
+						</p>
+						<p style="text-align: center;">
+							<span class="fragment" data-fragment-index="0">
+								\(
+								\text{det}(A)
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								\(= \left|
+								\begin{array}{r}
+								a & b \\
+								c & d \\
+								\end{array}
+								\right|
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\(
+								= ad - bc.
+								\)
+							</span>
+						</p>
+
+
+
+
+					</div>
+
+					<br /><br />
+					<br /><br />
+				</section>
+
+				<section>
+					<h5>
+						Matrix determinant
+					</h5>
+					<div class="size-85 left-txt">
+
+						<p>
+							For a $3\times 3 $ matrix
+							\(\,A =
+							\left(
+							\begin{array}{r}
+							a & b & c\\
+							d & e & f\\
+							g & h & i
+							\end{array}
+							\right),\;
+							\)
+							<span class="fragment" data-fragment-index="0">
+								then
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								\(
+								\text{det}(A)
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								\(= \left|
+								\begin{array}{r}
+								a & b & c\\
+								d & e & f\\
+								g & h & i
+								\end{array}
+								\right|
+								\)
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								\(\qquad \;
+								= a \left|
+								\begin{array}{r}
+								e & f \\
+								h & i \\
+								\end{array}
+								\right|
+
+
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								\(
+
+								- b \left|
+								\begin{array}{r}
+								b & f \\
+								g & i \\
+								\end{array}
+								\right|
+
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								\(
+
+								+ c \left|
+								\begin{array}{r}
+								d & e \\
+								g & h \\
+								\end{array}
+								\right|
+								\)
+							</span>
+						</p>
+						<p>
+
+							<span class="fragment" data-fragment-index="5">
+								\(\qquad \;
+								= a (e \,i - f\,h ) - b (d\,i - f\,g) + c (d\,h -e\,g)
+								\)
+							</span>
+						</p>
+
+					</div>
+
+					<br /><br />
+				</section>
+
+
+				<section>
+					<h5>
+						Checkpoint
+					</h5>
+					<div class="size-80 left-txt">
+						<p>
+							Which of these matrices is non-invertible?
+						</p>
+						<p>
+							i)
+							\(
+							\left(
+							\begin{array}{r}
+							0 & 1 \\
+							1 & 0
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							ii)
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 0 \\
+							0 & 1
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							iii)
+							\(
+							\left(
+							\begin{array}{r}
+							0 & 1 & 0 \\
+							1 & 0 & 0
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							iv)
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 0 \\
+							0 & 0
+							\end{array}
+							\right)
+							\)
+						</p>
+					</div>
+
+				</section>
+
+
+				<section>
+					<h5>
+						Problem 4
+					</h5>
+
+					<div class="size-80 left-txt">
+						<p>
+							Find the determinants of
+						</p>
+						<p>
+							a)
+							\(
+							\left[
+							\begin{array}{r}
+							3 & 2 \\
+							4 & -1
+							\end{array}
+							\right]
+							\)
+						</p>
+						<p>
+							b)
+							\(
+							\left[
+							\begin{array}{r}
+							1 & 2 & 3 \\
+							1 & -2 & 1 \\
+							-1 & -2 & 2
+							\end{array}
+							\right]
+							\)
+						</p>
+						<p>
+							c)
+							\(
+							\left[
+							\begin{array}{r}
+							1 & 2 & 3 \\
+							1 & -2 & 1
+							\end{array}
+							\right]
+							\)
+						</p>
+					</div>
+
+					<br />
+
+
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>
+
+						<span>What's next? </span>
+						<span class="fragment" data-fragment-index="4">Eigenvalues and Eigenvectors</span>
+
+
+
+					</h4>
+
+
+					<div class="size-70">
+
+
+						<div style="margin-top:-10px">
+							<table style="border:none;text-align:center;width:100%">
+
+								<tr style="border:none;width:60%">
+									<td style="border:none;text-align:center;" class="fragment" data-fragment-index="1">
+										Linear systems<br />
+										<img style="width:100%" src="images/linear-system.gif">
+									</td>
+									<td style="border:none;text-align:center;width:40%" class="fragment"
+										data-fragment-index="2">
+										<span style="text-align:center">
+											Determinants
+										</span>
+										<br />
+										<img style="width:89%" src="images/determinant.gif">
+									</td>
+								</tr>
+							</table>
+						</div>
+
+
+
+						<div style="margin-top:-20px">
+							<hr>
+						</div>
+
+						<div style="margin-top:0px">
+							<span style="text-align:center" class="fragment" data-fragment-index="3">
+								Matrices as Linear transformations
+							</span>
+							<table style="border:none;text-align:center;width:70%">
+								<tr class="fragment" data-fragment-index="3">
+
+									<td style="border:none;text-align:right;width:50%">
+										<p>
+											<span style="font-size: 90%;">
+												$\ds
+												T = \left(\begin{matrix}
+												3 & 1 \\
+												1 & 2
+												\end{matrix}\right)
+												$
+											</span>
+										</p>
+
+									</td>
+									<td style="border:none;text-align:left;width:50%">
+										<img style="width:76%" src="images/linear-transformation.gif">
+
+									</td>
+								</tr>
+							</table>
+
+
+						</div>
+
+
+
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrices as Linear transformations</h4>
+
+
+					<div>
+						<iframe allowfullscreen="" scrolling="no" title="Week 7: Transformations and Determinant"
+							src="https://www.geogebra.org/material/iframe/id/ugvur8p2/width/750/height/422/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="750px" height="422px" style="border:0px;"> </iframe>
+					</div>
+					<br />
+				</section>
+			</section>
+
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 1"
+							src="https://www.geogebra.org/material/iframe/id/qvszu8d8/width/854/height/400/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;"> </iframe>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 2"
+							src="https://www.geogebra.org/material/iframe/id/b68ajukn/width/854/height/400/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;"> </iframe>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 3"
+							src="https://www.geogebra.org/material/iframe/id/mg6d2738/width/854/height/400/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;"> </iframe>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 4"
+							src="https://www.geogebra.org/material/iframe/id/kznrr8ds/width/854/height/400/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;"> </iframe>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Linear transformation</h4>
+
+					<div class="size-60">
+						<div class="">
+							<p>
+								<span>
+									Considering the matrix
+									$A
+
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="r-stack" style="margin-top:-20px">
+						<img class="fragment fade-out" data-fragment-index="0" src="images/example-01e-text.svg"
+							width="70%">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="images/example-01e2-text.svg" width="70%">
+						<img class="fragment fade-in-then-out" data-fragment-index="1"
+							src="images/example-01e3-text.svg" width="70%">
+						<img class="fragment fade-in-then-out" data-fragment-index="2" src="images/example-01f-text.svg"
+							width="70%">
+						<img class="fragment fade-in" data-fragment-index="3" src="images/example-01g-text.svg"
+							width="70%">
+					</div>
+					<br /><br />
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="size-95">
+
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									If $A $ is an $n\times n$ matrix,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then $\v$ is an <strong>eigenvector</strong>
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									if
+								</span>
+							</p>
+
+						</div>
+
+
+
+						<div class="" style="font-size:130%">
+
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$A \v $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ = \lambda \v$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+
+								<span class="fragment" data-fragment-index="4">
+									The scalar $\lambda$ is an <strong>eigenvalue</strong> of $A$,
+								</span>
+
+								<span class="fragment" data-fragment-index="5">
+									and we say that $\v$ is an <strong>eigenvector corresponding to</strong>
+									$\lambda.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Matrix-vector multiplication $\qquad \qquad$
+							</span>
+						</p>
+					</div>
+
+					<div>
+						<table style="border:none;">
+							<tr style="border:none;">
+								<td style="border:none;text-align: center;" class="fragment" data-fragment-index="0">
+									$\uparrow$
+								</td>
+								<td style="border:none;text-align: center;">
+
+								</td>
+								<td style="border:none;text-align: center;">
+
+								</td>
+
+							</tr>
+							<tr style="border:none;font-size:130%">
+
+								<td style="border:none;">
+									$A\mathbf v $
+								</td>
+								<td style="border:none;">
+									$ = $
+								</td>
+								<td style="border:none;">
+									$\lambda \v$
+								</td>
+							</tr>
+							<tr style="border:none;">
+
+								<td style="text-align: center;">
+
+								</td>
+								<td style="text-align: center;">
+
+								</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="1">
+									$ \downarrow$
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+					<div class="">
+
+						<p>
+
+							<span class="fragment" data-fragment-index="1">
+								$\qquad \qquad$ Scalar multiplication
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:130%">
+							<p>
+								<span>
+									$A \v = \lambda \v$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								to make sense of this equation,
+								<span class="fragment" data-fragment-index="0">
+									consider the
+									$3\times 3$
+									identity matrix:
+								</span>
+							</p>
+
+						</div>
+
+						<div class="">
+							<p class="fragment" data-fragment-index="0">
+								<span>
+									$I =
+									\left(\begin{array}{ccc}
+									1 & 0 & 0 \\
+									0 & 1 & 0 \\
+									0 & 0 & 1 \\
+									\end{array}\right)
+									$
+								</span>
+							</p>
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:130%">
+							<p>
+								<span>
+									$A \v = \lambda \v$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								<span>
+									Multiply by $\lambda$ to obtain:
+								</span>
+							</p>
+
+						</div>
+
+						<div>
+
+							<p>
+								<span>
+									$\lambda I =
+									\left(\begin{array}{ccc}
+									\lambda & 0 & 0 \\
+									0 & \lambda & 0 \\
+									0 & 0 & \lambda \\
+									\end{array}\right)
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:130%">
+							<p>
+								<span>
+									$A \v =\left( \lambda I\right)\v$
+								</span>
+							</p>
+						</div>
+
+
+
+						<br>
+						<div>
+
+							<p>
+								<span>
+									$\lambda I =
+									\left(\begin{array}{ccc}
+									\lambda & 0 & 0 \\
+									0 & \lambda & 0 \\
+									0 & 0 & \lambda \\
+									\end{array}\right)
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:160%">
+							<p>
+								<span>
+									$A \v =\left( \lambda I\right)\v$
+								</span>
+							</p>
+						</div>
+
+						<div class="" style="font-size:160%">
+							<p>
+								<span>
+									$\Ra \,A \v -\left( \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								<span>
+									$\Ra \,\left(A - \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+
+						</div>
+
+
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:160%">
+
+							<p>
+								<span>
+									$\underbrace{\left(A - \lambda I\right)}{} \v=\mathbf 0$
+								</span>
+							</p>
+						</div>
+
+						<div style="font-size:80%">
+
+							<p>
+								<span>
+									This matrix looks like $\qquad\qquad\qquad $
+								</span>
+							</p>
+							<p>
+								<span>
+									$
+									\left(\begin{array}{ccc}
+									3-\lambda & -1 & 2 \\
+									2 & 5-\lambda & 4 \\
+									1 & 3 & 5-\lambda \\
+									\end{array}\right)
+									$$\qquad\qquad \qquad$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="">
+
+						<div class="" style="font-size:160%">
+							<p>
+								<span>
+									$\left(A - \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+						</div>
+						<div style="font-size:80%">
+
+							<p>
+								<span>
+									We want a <em>nonzero</em> vector $\v$ satisfying this equation.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									For this, recall that
+								</span>
+							</p>
+						</div>
+						<div style="font-size:160%">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="1">
+
+									$
+									\text{det}\left(A - \lambda I\right) =0
+									$
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br /><br /><br /><br />
+				</section>
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="size-60">
+
+						<div class="">
+							<p>
+								<span>
+									$\left(A - \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span>
+
+									$
+									\text{det}\left(A - \lambda I\right) =0
+									$
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Explore det(A-λI)"
+							src="https://www.geogebra.org/material/iframe/id/rmpkecdp/width/854/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;"> </iframe>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>Example</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									First, to compute the eigenvalues $\lambda,$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we set the matrix
+
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$A - \lambda I
+
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$
+									=
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right).
+									$
+								</span>
+
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Then we compute the determinant
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="3">
+									$
+									\text{det}
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									=
+									\left(3- \lambda \right)\left(2- \lambda \right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$
+									=
+									0.
+									$
+								</span>
+
+							</p>
+						</div>
+
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									Thus the eigenvalues are $\lambda =2$ and $\lambda = 3.$
+								</span>
+
+
+							</p>
+
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+
+
+							<p>
+								<span>
+									Thus the eigenvalues are $\lambda =2$ and $\lambda = 3.$
+								</span>
+
+
+							</p>
+
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									To figure out an eigenvector corresponging to the eigenvalue $\lambda =2,$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we plug in this value to the matrix
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
+									\left(\begin{matrix}
+									3- 2 & 1 \\
+									0 & 2 -2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									Then we use our equation
+									$\,\left(A-\lambda I\right)\v = \mathbf 0\,$ to obtain
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="4">
+									$
+
+									\left(\begin{matrix}
+									3- 2 & 1 \\
+									0 & 2 -2
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Example</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+						<div>
+							<p>
+
+								<span>
+									$
+									\left(A-\lambda I\right)\v = \mathbf 0 \,\Ra\,
+									\left(\begin{matrix}
+									3- 2 & 1 \\
+									0 & 2 -2
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+
+
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+
+								<span>
+									$
+									\; \; \Ra\,
+									\left(\begin{matrix}
+									1 & 1 \\
+									0 & 0
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+
+
+							</p>
+						</div>
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									x & +& y & = & 0\\
+									0 x &+& 0 y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span class="fragment" data-fragment-index="2">
+									$\;\;\Ra\;\;
+									x = -y.
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div>
+							<p>
+
+								<span>
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									x & +& y & = & 0\\
+									0 x &+& 0 y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span>
+									$\;\;\Ra\;\;
+									x = -y.
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+						<div class="">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Thus
+								</span>
+
+								<span class="fragment" data-fragment-index="3">
+									$\,
+									\v
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=
+									\left(\begin{matrix}
+									-y \\
+									y
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=y
+									\left(\begin{matrix}
+									-1 \\
+									1
+									\end{matrix}\right),\;
+									$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$
+									(y \text{ is a scalar}).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									Hence an eigenvector corresponding to $\lambda =2\,$ is
+								</span>
+
+								<span class="fragment" data-fragment-index="7">
+									$\,
+									\left(\begin{matrix}
+									-1 \\
+									1
+									\end{matrix}\right).
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="left-txt">
+
+
+							<p>
+								<span>
+									Now to compute an eigenvector corresponging to the eigenvalue $\lambda =3,$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we plug in this value to the matrix
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
+									\left(\begin{matrix}
+									3- 3 & 1 \\
+									0 & 2 -3
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									Again we use our equation
+									$\,\left(A-\lambda I\right)\v = \mathbf 0\,$ to obtain
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="4">
+									$
+
+									\left(\begin{matrix}
+									3- 3 & 1 \\
+									0 & 2 -3
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+
+						<div>
+							<p class="fragment" data-fragment-index="0">
+
+								<span>
+									$
+									\left(A-\lambda I\right)\v = \mathbf 0 \,\Ra\,
+									\left(\begin{matrix}
+									3- 3 & 1 \\
+									0 & 2 -3
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+
+								<span>
+									$
+									\,\Ra\,
+									\left(\begin{matrix}
+									0 & 1 \\
+									0 & -1
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+
+
+							</p>
+						</div>
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									0x & +& y & = & 0\\
+									0x &-& y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span class="fragment" data-fragment-index="3">
+									$\;\Ra
+									y = 0\,
+									$ &amp; $\,x$ is a free variable.
+								</span>
+
+
+							</p>
+						</div>
+
+
+
+
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+
+
+						<div>
+							<p>
+
+								<span>
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									0x & +& y & = & 0\\
+									0x &-& y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span>
+									$\;\Ra
+									y = 0\,
+									$ &amp; $\,x$ is a free variable.
+								</span>
+
+
+							</p>
+						</div>
+
+						<div class="">
+
+
+							<p>
+								<span>
+									Thus
+								</span>
+
+								<span>
+									$\,
+									\v
+									$
+								</span>
+								<span>
+									$=
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=
+									\left(\begin{matrix}
+									x \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=x
+									\left(\begin{matrix}
+									1 \\
+									0
+									\end{matrix}\right),\;
+									$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$
+									(x \text{ is a scalar}).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									Hence an eigenvector corresponding to $\lambda =3\,$ is
+								</span>
+
+								<span class="fragment" data-fragment-index="7">
+									$\,
+									\left(\begin{matrix}
+									1 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example</h3>
+					<div class="size-80">
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div style="margin-top:px;font-size:90%">
+
+
+						<p>
+							<span>
+								In summary
+							</span>
+						</p>
+					</div>
+
+					<div class="size-75">
+						<div class="left-txt">
+
+
+
+						</div>
+						<div>
+							<table>
+
+								<tr>
+
+									<td>
+										<table style="border: 1px solid #ddd;">
+											<tr>
+												<th style="text-align:center;border: 1px solid #ddd;">Eigenvalue</th>
+												<th style="text-align:center;border: 1px solid #ddd;">Eigenvector</th>
+											</tr>
+											<tr>
+												<td style="text-align:center;border: 1px solid #ddd;">$\lambda_1=2$</td>
+												<td style="text-align:center;border: 1px solid #ddd;">
+													$\left(
+													\begin{array}{c}
+													-1 \\
+													1 \\
+													\end{array}
+													\right)$
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align:center;border: 1px solid #ddd;">$\lambda_2=3$</td>
+												<td style="text-align:center;border: 1px solid #ddd;">
+													$\left(
+													\begin{array}{r}
+													1 \\
+													0 \\
+													\end{array}
+													\right)$
+												</td>
+											</tr>
+
+										</table>
+									</td>
+
+								</tr>
+
+							</table>
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section>
+					<h5>Problem 5</h5>
+					<div class="size-85 left-txt">
+						<p>
+							Find the eigenvalues and eigenvectors of
+						</p>
+
+						<p>
+							a)
+							\(
+							\left(
+							\begin{array}{r}
+							\sqrt{2} & 1 \\
+							1 & \sqrt{2}
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							b)
+							\(
+							\left(
+							\begin{array}{r}
+							5 & 4 \\
+							3 & 1
+							\end{array}
+							\right)
+							\)
+						</p>
+						<p>
+							b)
+							\(
+							\left(
+							\begin{array}{r}
+							1 & 1 \\
+							1 & 1
+							\end{array}
+							\right)
+							\)
+						</p>
+					</div>
+					<br /><br />
+				</section>
+			</section>
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+</body>
+
+</html>
