@@ -939,7 +939,7 @@
 						</tr>
 					</table>
 
-					<br/>
+					<br />
 
 				</section>
 				<section data-auto-animate>
@@ -1095,41 +1095,42 @@
 				<section data-auto-animate>
 					<h5>Statistical Analysis: Key concepts</h5>
 
-					
+
 					<div class="size-75" style="margin-top: 50px;">
 						<p class="fragment" data-fragment-index="0">
-							 <strong>Mean:</strong> 
+							<strong>Mean:</strong>
 							<span class="fragment" data-fragment-index="1">
 								$\;\;\bar{x} = \ds\sum \big[k \cdot P(X=k)\big]\quad$
 							</span>
 						</p>
-						
+
 					</div>
 					<div class="size-75">
 						<p class="fragment" data-fragment-index="2">
-							$\quad$ <strong>Variance:</strong> 
+							$\quad$ <strong>Variance:</strong>
 							<span class="fragment" data-fragment-index="2">
-								$\;\;\text{Var} =  \ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]$
+								$\;\;\text{Var} = \ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]$
 							</span>
 						</p>
-						
+
 					</div>
-					
+
 					<div class="size-75">
 						<p class="fragment" data-fragment-index="3">
-							<strong>Standard deviation:</strong> 
+							<strong>Standard deviation:</strong>
 							<span class="fragment" data-fragment-index="3">
-								$\;\;\text{SD} =  \sqrt{\text{Var}}\qquad\qquad \qquad \qquad \qquad  $
+								$\;\;\text{SD} = \sqrt{\text{Var}}\qquad\qquad \qquad \qquad \qquad $
 							</span>
 						</p>
-						
+
 						<p class="fragment" data-fragment-index="4">
-							$ \qquad\qquad\qquad\quad\;\;\;=  \sqrt{\ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]}$
+							$ \qquad\qquad\qquad\quad\;\;\;= \sqrt{\ds\sum \big[ \left(k - \bar{x}\right)^2\cdot
+							P(X=k)\big]}$
 						</p>
 					</div>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
 
 				</section>
 
@@ -1137,13 +1138,17 @@
 					<h5>Statistical Analysis: Sum of two dice 🎲🎲</h5>
 
 					<div class="r-stack">
-						<img class="fragment fade-out" data-fragment-index="0" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-1.png">
-						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-2.png">
-						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-3.png">
-						<img class="fragment fade-in" data-fragment-index="2" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-4.png">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 90%;"
+							src="images/week-08/prob-dist-sum-2-dice-1.png">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 90%;"
+							src="images/week-08/prob-dist-sum-2-dice-2.png">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 90%;"
+							src="images/week-08/prob-dist-sum-2-dice-3.png">
+						<img class="fragment fade-in" data-fragment-index="2" style="width: 90%;"
+							src="images/week-08/prob-dist-sum-2-dice-4.png">
 					</div>
 
-					<br/>
+					<br />
 
 				</section>
 
@@ -1154,8 +1159,8 @@
 						<p>Python code 💻</p>
 					</div>
 
-<div style="font-size: 80%;">
-<pre><code  data-line-numbers  data-trim data-noescape>
+					<div style="font-size: 80%;">
+						<pre><code  data-line-numbers  data-trim data-noescape>
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -1184,13 +1189,159 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 
 plt.tight_layout()
 plt.show()</code></pre>
-</div>	
+					</div>
 
-<div style="font-size: 50%;">
-	<p><a href="https://trinket.io/python3/d95c22f04087" target="_blank">Live demo <i
-		class="fa fa-external-link-alt"></i></a></p>
-</div>
+					<div style="font-size: 50%;">
+						<p><a href="https://trinket.io/python3/d95c22f04087" target="_blank">Live demo <i
+									class="fa fa-external-link-alt"></i></a></p>
+					</div>
 
+				</section>
+
+				<section data-auto-animate>
+					<h5>Statistical Analysis: Warning! ⚠️</h5>
+
+					<div>
+						<table style="width: 100%;">
+							<tr>
+
+								<td style="width: 20%; text-align: center;">
+
+									<table style="text-align: center; border-collapse: collapse; font-size: 35%;"
+										border="1">
+										<thead>
+											<tr style="text-align: right;">
+												<th style="text-align: center;">Sum ($k$)</th>
+												<th style="text-align: center;">$P(X = k)$</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td style="text-align: center;">$2$</td>
+												<td style="text-align: center;">$\large ^1/_{36}$</td>
+											</tr>
+
+
+											<tr>
+												<td style="text-align: center;">3</td>
+												<td style="text-align: center;">$\large^2/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">4</td>
+												<td style="text-align: center;">$\large^3/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">5</td>
+												<td style="text-align: center;">$\large^4/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">6</td>
+												<td style="text-align: center;">$\large^5/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">7</td>
+												<td style="text-align: center;">$\large^6/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">8</td>
+												<td style="text-align: center;">$\large^5/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">9</td>
+												<td style="text-align: center;">$^4/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">10</td>
+												<td style="text-align: center;">$\large^3/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">11</td>
+												<td style="text-align: center;">$\large^2/_{36}$</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;">12</td>
+												<td style="text-align: center;">$\large^1/_{36}$</td>
+											</tr>
+
+										</tbody>
+									</table>
+
+								</td>
+
+								<td style="text-align: center; font-size: 45%;width:40%;">
+
+
+									<p>$\bar{x} = \ds\sum \big[k \cdot P(X=k)\big]$</p>
+
+									<p>
+
+										$\text{Var} = \ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]$
+
+									</p>
+
+									<p>
+										$\text{SD} = \sqrt{\text{Var}}$
+									</p>
+
+
+								</td>
+
+								<td style="width: 40%;text-align: center;">
+
+									<img src="images/week-08/two-dice-sum-simulation-r.svg">
+
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Statistical Analysis: Warning! ⚠️</h5>
+
+					<div class="fragment fade-out" data-fragment-index="1" style="
+					position: fixed;
+					top: 200px;
+					left: 780px;
+					width: 90px;
+					height: 250px;
+					background-color: #ebebeb; /* No fill */
+					border: 10px solid #ebebeb;       /* Blue border */
+					z-index: 9998;                 /* On top of everything */
+					pointer-events: none;          /* Clicks pass through */
+					box-sizing: border-box;        /* Ensures border is included in size */
+					"></div>
+
+<div  class="fragment fade-in-then-out" data-fragment-index="0" style="
+position: fixed;
+top: 200px;
+left: 530px;
+width: 265px;
+height: 250px;
+background-color: transparent; /* No fill */
+border: 10px solid blue;       /* Blue border */
+z-index: 9999;                 /* On top of everything */
+pointer-events: none;          /* Clicks pass through */
+box-sizing: border-box;        /* Ensures border is included in size */
+"></div>
+
+<div class="fragment fade-in" data-fragment-index="1" style="
+position: fixed;
+top: 200px;
+left: 530px;
+width: 350px;
+height: 250px;
+background-color: transparent; /* No fill */
+border: 10px solid red;       /* Blue border */
+z-index: 9999;                 /* On top of everything */
+pointer-events: none;          /* Clicks pass through */
+box-sizing: border-box;        /* Ensures border is included in size */
+"></div>
+
+					<div>
+						<img style="width: 85%;" src="images/week-08/dino-data.gif">
+					</div>
+					<br />
 				</section>
 			</section>
 
