@@ -1095,41 +1095,97 @@
 				<section data-auto-animate>
 					<h5>Statistical Analysis: Key concepts</h5>
 
-					<div class="size-75 left-txt" style="margin-top: 50px;">
+					
+					<div class="size-75" style="margin-top: 50px;">
 						<p class="fragment" data-fragment-index="0">
-							- <strong>Mean:</strong> 
+							 <strong>Mean:</strong> 
+							<span class="fragment" data-fragment-index="1">
+								$\;\;\bar{x} = \ds\sum \big[k \cdot P(X=k)\big]\quad$
+							</span>
 						</p>
-					</div>
-					<div class="size-75">
-						<p class="fragment" data-fragment-index="1">
-							$\bar{x} = \ds\sum \big[k \cdot P(X=k)\big]$
-						</p>
-					</div>
-					<div class="size-75 left-txt">
-						<p class="fragment" data-fragment-index="2">
-							- <strong>Variance:</strong> 
-						</p>
+						
 					</div>
 					<div class="size-75">
 						<p class="fragment" data-fragment-index="2">
-							$\text{Var} =  \ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]$
+							$\quad$ <strong>Variance:</strong> 
+							<span class="fragment" data-fragment-index="2">
+								$\;\;\text{Var} =  \ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]$
+							</span>
 						</p>
+						
 					</div>
-					<div class="size-75 left-txt">
-						<p class="fragment" data-fragment-index="3">
-							- <strong>Standard deviation:</strong> 
-						</p>
-					</div>
+					
 					<div class="size-75">
 						<p class="fragment" data-fragment-index="3">
-							$\text{SD} =  \sqrt{\text{Var}}\qquad\qquad \qquad \qquad \qquad  $
+							<strong>Standard deviation:</strong> 
+							<span class="fragment" data-fragment-index="3">
+								$\;\;\text{SD} =  \sqrt{\text{Var}}\qquad\qquad \qquad \qquad \qquad  $
+							</span>
 						</p>
+						
 						<p class="fragment" data-fragment-index="4">
-							$ =  \sqrt{\ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]}$
+							$ \qquad\qquad\qquad\quad\;\;\;=  \sqrt{\ds\sum \big[ \left(k - \bar{x}\right)^2\cdot P(X=k)\big]}$
 						</p>
 					</div>
 					<br/>
+					<br/>
+					<br/>
 
+				</section>
+
+				<section>
+					<h5>Statistical Analysis: Sum of two dice 🎲🎲</h5>
+
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-1.png">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-2.png">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-3.png">
+						<img class="fragment fade-in" data-fragment-index="2" style="width: 90%;" src="images/week-08/prob-dist-sum-2-dice-4.png">
+					</div>
+
+					<br/>
+
+				</section>
+
+				<section>
+					<h5>Statistical Analysis: Sum of two dice 🎲🎲</h5>
+
+					<div class="size-50">
+						<p>Python code 💻</p>
+					</div>
+
+<div style="font-size: 80%;">
+<pre><code  data-line-numbers  data-trim data-noescape>
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Values of k and their probabilities
+k_values = np.arange(2, 13)
+p_values = np.array([1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]) / 36
+
+# Compute mean, variance, and standard deviation
+mean = np.sum(k_values * p_values)
+variance = np.sum((k_values - mean)**2 * p_values)
+std_dev = np.sqrt(variance)
+
+# Plot
+plt.figure(figsize=(10, 5))
+plt.bar(k_values, p_values, color='skyblue', edgecolor='black')
+plt.axvline(mean, color='red', linestyle='--', label=f'Mean = {mean:.2f}')
+plt.fill_between(k_values, 0, p_values, where=(k_values >= mean - std_dev) & (k_values <= mean + std_dev), 
+color='orange', alpha=0.3, label=f'±1 SD ({std_dev:.2f})')
+
+plt.title("Probability Distribution of the Sum of Two Dice")
+plt.xlabel("k (Sum of two dice)")
+plt.ylabel("P(X = k)")
+plt.xticks(k_values)
+plt.legend()
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.tight_layout()
+plt.show()</code></pre>
+</div>					
+<br/>
 				</section>
 			</section>
 
