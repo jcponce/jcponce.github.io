@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="chapter" content="cp">
+
+    <!-- For Facebook Sharing -->
+    <meta property="og:url" content="http://students.brown.edu/seeing-theory/compound-probability" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Compound Probability" />
+    <meta property="og:description" content="This chapter discusses further concepts that lie at the core of probability theory." />
+    <meta property="og:image" content="http://students.brown.edu/seeing-theory/img/share/2.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <title>Seeing Theory - Compound Probability</title>
+    <!-- CSS Imports -->
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Assistant:300,400,600,700" rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
+    <!-- General Chapter -->
+    <link rel="stylesheet" type="text/css" href="../css/chapter-style.css">
+    <!-- Specific Chapter -->
+    <link rel="stylesheet" type="text/css" href="compound-probability.css">
+    <!-- JavaScript Imports -->
+    <!-- D3 -->
+    <script src="../js/d3.min.js"></script>
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- jstat -->
+    <script src="../js/jstat.min.js"></script>
+    <!-- MathJax -->
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- Tool Tip -->
+    <script src="../js/d3.tip.v0.6.3.js"></script>
+    <!-- General Chapter -->
+    <script src="../js/chapter.js"></script>
+    <!-- Visualizations -->
+    <script src="compound-probability.js"></script>
+    <!-- Google Analytics -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-85617614-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</head>
+
+<body id='2'>
+    <div id="share-modal"></div>
+    <div class="header">
+        <div class="progress-bar">
+            <div class="progress-bar-color"></div>
+        </div>
+        <div class="header-wrapper">
+            <ul class="chapter-nav">
+                <li>
+                    <span onclick="openNav()" id="hamburger">&#9776; </span>
+                </li>
+                <li><a href="../index.html" id="seeing-theory">Seeing Theory</a></li>
+                <li><a onclick='toTop()' id='display-chapter'>Chapter 2: Compound Probability</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-left">
+        <div class="col-left-wrapper">
+            <div id="section0">
+                <div class="chapter-intro">
+                    <h4>Chapter 2</h4>
+                    <h1>Compound Probability</h1>
+                    <p>This chapter discusses further concepts that lie at the core of probability theory.
+                    </p>
+                </div>
+                <div class="scroll-down"> <img src="../img/button/bottom-arrow.svg"></div>
+            </div>
+            <div id="section1">
+                <div class="unit">
+                    <h3>Set Theory</h3>
+                    <p>A set, broadly defined, is a collection of objects. In the context of probability theory, we use set notation to specify compound events. For example, we can represent the event "roll an even number" by the set {2, 4, 6}. For this reason it is important to be familiar with the algebra of sets. </br></br>Use the set constructor below to build a set, then press "Submit" to see your set visualized in the Venn diagram. You can also move and resize the circles by dragging and dropping.</p>
+                    <div class="interactive-wrapper">
+                        <div id="setCalc">
+                            <div class="button-1-s setItem" title="A set">A</div>
+                            <div class="button-1-s setItem" title="B set">B</div>
+                            <div class="button-1-s setItem" title="C set">C</div>
+                            <div class="button-1-s setItem" title="empty set">&empty;</div>
+                            <div class="button-1-s setItem" title="universal set">U</div>
+                            </br>
+                            <div class="button-1-s setItem" title="open parentheses">(</div>
+                            <div class="button-1-s setItem" title="intersection">&cap;</div>
+                            <div class="button-1-s setItem" title="union">&cup;</div>
+                            <div class="button-1-s setItem" title="complement">'</div>
+                            <div class="button-1-s setItem" title="close parentheses">)</div>
+                            <div class="form-control text-box" id="set"></div>
+                            <div class="button-1" id="submit">Submit</div>
+                            <div class="button-1" id="delete">Delete</div>
+                            <div class="button-1" id="reset">Reset</div>
+                        </div>
+                    </div>
+                    <p class='text-center' id='invalidSet'></p>
+                    <p>You may wish to use the visualization to verify some of the following <a href='https://cs.brown.edu/courses/cs022/static/files/documents/sets.pdf'>set identities</a>.</p>
+                </div>
+            </div>
+            <div id="section2">
+                <div class="unit">
+                    <h3>Counting</h3>
+                    <p>It can be surprisingly difficult to count the number of sequences or sets satisfying certain conditions. For example, consider a bag of marbles in which each marble is a different color. If we draw marbles one at a time from the bag without replacement, how many different ordered sequences (permutations) of the marbles are possible? How many different unordered sets (combinations)?</p>
+                    <div class="interactive-wrapper">
+                        <label class="radio-inline">Permutation
+                            <input type="radio" name="radioComb" checked="checked" value=false>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-inline">Combination
+                            <input type="radio" name="radioComb" value=true>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <p> Choose how many marbles the bag should contain.</p>
+                    <div class="interactive-wrapper">
+                        <div id="sizeComb">
+                        		<img class="button-1" src="./img/marble1.svg">
+                        		<img class="button-1" src="./img/marble2.svg">
+                        		<img class="button-1" src="./img/marble3.svg">
+                        		<img class="button-1 active" src="./img/marble4.svg">
+                        </div>
+                    </div>
+                    <p> Click on the table below to visualize all possible permutations or combinations of the marbles.</p>
+                                     
+                    <table id="count_table" style="cursor:pointer" class="table table-bordered">
+                            <colgroup></colgroup>
+                            <colgroup></colgroup>
+                            <colgroup></colgroup>
+                            <colgroup></colgroup>
+                            <colgroup></colgroup>
+                            <colgroup class="click"></colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>\(\displaystyle{n}\)</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="count_label"> \(\displaystyle{P_{n,r}}\)</span>
+                                        <span class="count_label" style="display: none">\(\displaystyle{C_{n,r}}\)</span>
+                                    </td>
+                                    <td id="r0">1</td>
+                                    <td id="r1"></td>
+                                    <td id="r2"></td>
+                                    <td id="r3"></td>
+                                    <td id="r4"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+            <div id="section3">
+                <div class="unit">
+                    <h3>Conditional Probability</h3>
+                    <p>Conditional probabilities allow us to account for information we have about our system of interest. For example, we might expect the probability that it will rain tomorrow (in general) to be smaller than the probability it will rain tomorrow <em>given that it is cloudy today</em>. This latter probability is a conditional probability, since it accounts for relevant information that we possess.</p>
+                    <p>Mathematically, computing a conditional probability amounts to shrinking our sample space to a particular event. So in our rain example, instead of looking at how often it rains on any day in general, we "pretend" that our sample space consists of only those days for which the previous day was cloudy. We then determine how many of those days were rainy.</p>
+                    <p>Click on the tabs below to visualize the shrinking of the sample space.</p>
+                    <div class="interactive-wrapper">
+                        <div id="perspectiveControl">
+                            </br>
+                            <div class="button-1 perspective" id="a">A</div>
+                            <div class="button-1 perspective" id="b">B</div>
+                            <div class="button-1 perspective" id="c">C</div>
+                            <div class="button-1 perspective active" id="universe">Universe</div>
+                        </div>
+                        <div id='svgProbCP'></div>
+                    </div>
+                    <p>This visualization was adapted from Victor Powell's fantastic visualization of <a href="http://setosa.io/conditional/">conditional probability</a>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <ul>
+                <a href="../doc/compound-probability.pdf">
+                    <li><i class="fa fa-file-text-o action-icon" aria-hidden="true"></i> <span>Download</span></li>
+                </a>
+                 <a id="share-button" >
+
+                    <li class="inline-share"><i class="fa fa-share-square-o action-icon" aria-hidden="true"></i>Share</li>
+                    
+                    <li><div id="share-modal"></div></li>
+
+                </a>
+            </ul>
+        </div>
+        <a href="../probability-distributions/index.html">
+            <div class="chapter-footer" id="next-chapter-color">
+                <div class="chapter-footer-wrapper">
+                    <h4>Next</h4>
+                    <p id='next-chapter'>Probability Distribution → </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-right">
+        <div class='language-setting'>
+            <select class="languageSetting">
+                <option selected>English</option>
+                <option data-url="cn.html">中文</option>
+                <option data-url="es.html">Español</option>
+            </select>
+        </div>
+        <div class="nav-section" id="section-0">
+            <div class="nav-unit-wrapper" id='one'>
+                <img src="../img/tiles/2-1.png">
+                <span class="nav-unit-title"> Set Theory </span>
+            </div>
+            <div class="nav-unit-wrapper" id='two'>
+                <img src="../img/tiles/2-2.png">
+                <span class="nav-unit-title"> Counting </span>
+            </div>
+            <div class="nav-unit-wrapper" id='three'>
+                <img src="../img/tiles/2-3.png">
+                <span class="nav-unit-title"> Conditional Probability </span>
+            </div>
+        </div>
+        <div class="visualization-section" id="section-1">
+            <div class="visualization-wrapper" id="svgSet"></div>
+        </div>
+        <div class="visualization-section" id="section-2">
+            <div class="visualization-wrapper" id="svgComb"></div>
+        </div>
+        <div class="visualization-section" id="section-3">
+            <div class="visualization-wrapper" id="svgBallCP"></div>
+        </div>
+    </div>
+    <div id="overlay">
+        <div class="modal-header">
+            <div class="closebtn" onclick="closeNav()">&times;</div>
+            <ul>
+                <li>
+                    <select class="languageSetting">
+                        <option selected>English</option>
+                        <option data-url="cn.html">中文</option>
+                        <option data-url="es.html">Español</option>
+                    </select>
+                </li>
+                <li><a href="../index.html">HOME</a></li>
+            </ul>
+        </div>
+        <div class="modal-wrapper">
+            <div class="modal-chapter">
+                <div id="chapter-text"><span>CHAPTER</span></div>
+                <ul class="modal-chapter-titles">
+                    <li id="bp-li">Basic Probability</li>
+                    <li id="cp-li" class="chapter-highlighted">Compound Probability</li>
+                    <li id="pd-li">Probability Distributions</li>
+                    <li id="fi-li">Frequentist Inference</li>
+                    <li id="bi-li">Bayesian Inference</li>
+                    <li id="ra-li">Regression Analysis</li>
+                </ul>
+            </div>
+            <div class="modal-visualization">
+                <div id="bp">
+                    <div class="nav-unit-wrapper-s tile1">
+                        <img src="../img/tiles/1-1.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Chance Event </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile2">
+                        <img src="../img/tiles/1-2.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Expectation </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile3">
+                        <img src="../img/tiles/1-3.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Variance </span>
+                    </div>
+                </div>
+                <div id="cp" class="current">
+                    <div class="nav-unit-wrapper-s tile1">
+                        <img src="../img/tiles/2-1.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Set Theory </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile2">
+                        <img src="../img/tiles/2-2.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Counting </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile3">
+                        <img src="../img/tiles/2-3.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Conditional Probability </span>
+                    </div>
+                </div>
+                <div id="pd">
+                    <div class="nav-unit-wrapper-s tile1">
+                        <img src="../img/tiles/3-1.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Random Variable </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile2">
+                        <img src="../img/tiles/3-2.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Discrete and Continuous </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile3">
+                        <img src="../img/tiles/3-3.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Central Limit Theorem </span>
+                    </div>
+                </div>
+                <div id="fi">
+                    <div class="nav-unit-wrapper-s tile1">
+                        <img src="../img/tiles/4-1.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Point Estimation </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile2">
+                        <img src="../img/tiles/4-2.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Confidence Interval </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile3">
+                        <img src="../img/tiles/4-3.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> The Bootstrap </span>
+                    </div>
+                </div>
+                <div id="bi">
+                    <div class="nav-unit-wrapper-s tile1">
+                        <img src="../img/tiles/5-1.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Bayes' Theorem </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile2">
+                        <img src="../img/tiles/5-2.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Likelihood Function </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile3">
+                        <img src="../img/tiles/5-3.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Prior to Posterior </span>
+                    </div>
+                </div>
+                <div id="ra">
+                    <div class="nav-unit-wrapper-s tile1">
+                        <img src="../img/tiles/6-1.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Ordinary Least Squares </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile2">
+                        <img src="../img/tiles/6-2.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Correlation </span>
+                    </div>
+                    <div class="nav-unit-wrapper-s tile3">
+                        <img src="../img/tiles/6-3.png" class="nav-unit-tile-s">
+                        <span class="nav-unit-title-s"> Analysis of Variance </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="share"></div>
+    <!-- Share CSS and JavaScript -->
+    <link rel="stylesheet" type="text/css" href="../css/jssocials.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jssocials-theme-flat.css" />
+    <script src="../js/jssocials.min.js"></script>
+    <script>
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shareIn: "popup",
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin"]
+        });
+        
+        $(".languageSetting").change(function() {
+          var option = $(this).find('option:selected');
+          window.location.href = option.data("url");
+        });
+    </script>
+</body>
+
+</html>
