@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Week 10</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-JPYTNF6MB4');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div
+					style="background-color: #e41f30; padding: 0px 1px; display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center;margin-top: 0px; margin-bottom: 40px; font-family:Griffith sans text;">
+					<img src="images/gu_logo_animated_book_white_40s-90px.gif"
+						style="width: 25px; vertical-align: middle;">
+					<span style="font-size: 27px; color: white; font-weight: bold;">
+						GRIFFITH UNIVERSITY
+					</span>
+				</div>
+
+				<h2>
+					<span class="size-70">
+						Linear Algebra <br />
+						&amp;
+						<br />
+						Engineering Mathematics 1
+					</span>
+				</h2>
+
+				<p style="margin-top: 50px;">Week 10 - Practice session</p>
+				<br />
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>Determinants</h4>
+					<div class="left-txt size-90">
+
+
+						<p>
+							The determinant is number assigned to square matrices that measures
+							how the corresponding linear mapping stretches the space. In particular,
+							this number, can be used to test for invertibility of a matrix.
+						</p>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section>
+					<h4>Linear transformations in 2D</h4>
+					
+					<div>
+					
+					 <iframe scrolling="no" title="Week 7: Transformations and Determinant"
+						src="https://www.geogebra.org/material/iframe/id/ugvur8p2/width/750/height/422/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="750px" height="422px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+					
+					<div style="font-size:18px;margin-top: -10px;">
+						<p><a
+								href="https://www.dynamicmath.xyz/eng-scg/matrices-transformations.html#/"
+								target="_blank">Source <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
+					</div>
+					<br />
+
+				</section>
+
+				<section>
+					<h4>Linear transformations in 3D</h4>
+					<iframe scrolling="no" title="Matrix transformations 3D" src="https://www.geogebra.org/material/iframe/id/ckdqtztg/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="930px" height="475px" style="border:0px;"  allowfullscreen=""> </iframe>
+					<div style="font-size:18px;margin-top:-30px">
+						<p><strong>Source:</strong> <a href="https://www.geogebra.org/m/VKQmRQg6" target="_blank">Matrix
+								transformations <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
+					</div>
+				</section>
+
+				<section>
+					<h5>Affine transformations</h5>
+
+
+					<table id="eqarray" style="width:100%;">
+						<tr>
+							<td style="width:55%">
+								<div class="size-75">
+									<div>
+										<p class="fragment" data-fragment-index="0">
+											$
+											\ds
+											f(x,y)=\begin{bmatrix}
+											a & b\\
+											c & d
+											\end{bmatrix}
+											\begin{bmatrix}
+											x \\
+											y
+											\end{bmatrix} +
+											\begin{bmatrix}
+											e \\
+											f
+											\end{bmatrix}
+											$
+										</p>
+
+									</div>
+								</div>
+								<div style="font-size:60%;margin-top:40px" class="fragment" data-fragment-index="1">
+									<p>
+										$
+										\ds
+										f_1(x,y)=\begin{bmatrix}
+										0.00 & 0.00 \\
+										0.00 & 0.16
+										\end{bmatrix}
+										\begin{bmatrix}
+										x \\
+										y
+										\end{bmatrix}
+										$
+									</p>
+									<p>
+										$
+										\ds
+										f_2(x,y)=\begin{bmatrix}
+										0.85 & 0.04 \\
+										-0.04 & 0.85
+										\end{bmatrix}
+										\begin{bmatrix}
+										x \\
+										y
+										\end{bmatrix} +
+										\begin{bmatrix}
+										0.00 \\
+										1.60
+										\end{bmatrix}
+										$
+									</p>
+									<p>
+										$
+										\ds
+										f_3(x,y)=\begin{bmatrix}
+										0.20 & -0.26 \\
+										0.23 & 0.22
+										\end{bmatrix}
+										\begin{bmatrix}
+										x \\
+										y
+										\end{bmatrix} +
+										\begin{bmatrix}
+										0.00 \\
+										1.60
+										\end{bmatrix}
+										$
+									</p>
+									<p>
+										$
+										\ds
+										f_4(x,y)=\begin{bmatrix}
+										-0.15 & 0.28 \\
+										0.26 & 0.24
+										\end{bmatrix}
+										\begin{bmatrix}
+										x \\
+										y
+										\end{bmatrix} +
+										\begin{bmatrix}
+										0.00 \\
+										0.44
+										\end{bmatrix}
+										$
+									</p>
+								</div>
+							</td>
+							<td style="width:45%">
+
+								<div class="fragment" data-fragment-index="2">
+
+									<iframe style="border:none;width:300;height:500px" scrolling="no"
+										data-src="https://www.dynamicmath.xyz/math2400/sketches/fern-cindyjs"></iframe>
+								</div>
+
+							</td>
+						</tr>
+					</table>
+
+					<div style="font-size:22px;margin-top:-20px" class="fragment" data-fragment-index="2">
+						<p>
+							📘 <a href="https://www.sciencedirect.com/book/9780120790616/fractals-everywhere"
+								target="_blank"><strong>Fractals everywhere</strong> <i class="fa fa-external-link-alt"
+									aria-hidden="true"></i></a>
+							&nbsp; - &nbsp;
+							<a href="https://en.wikipedia.org/wiki/Barnsley_fern" target="_blank"><strong>Barnsley
+									fern</strong> <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h5>Barnsley fern in JavaScript</h5>
+
+					<div>
+						<script data-height="525" data-preview-width="400" type="text/p5">
+let x = 0, y = 0;
+
+function nextPoint() {
+	let nextX, nextY, r = random(1);
+  
+	if (r < 0.01) {
+	  nextX = 0;
+	  nextY = 0.16 * y;
+	} else if (r < 0.86) {
+	  nextX = 0.85 * x + 0.04 * y;
+	  nextY = -0.04 * x + 0.85 * y + 1.6;
+	} else if (r < 0.93) {
+	  nextX = 0.2 * x + -0.26 * y;
+	  nextY = 0.23 * x + 0.22 * y + 1.6;
+	} else {
+	  nextX = -0.15 * x + 0.28 * y;
+	  nextY = 0.26 * x + 0.24 * y + 0.44;
+	}
+	x = nextX, y = nextY;
+}
+
+// Range -2.1820 < x < 2.6558 and 0 ≤ y < 9.9983.
+function drawPoint() {
+  stroke(0, 255, 128); // Change color RGB
+  strokeWeight(3); // Point size
+  let px = map(x, -2.182, 2.6558, 0, width);
+  let py = map(y, 0, 9.9983, height, 0);
+  point(px, py);
+}
+
+function setup() {
+	createCanvas(350, 420);
+	background(10);
+}
+
+function draw() {
+	let max = 1; // Change this number between 1 and 1000
+	for (let i = 0; i < max; i++) {
+	  drawPoint();
+	  nextPoint();
+	}
+}
+</script>
+					</div>
+
+					<div style="font-size: 18px;margin-top: -25px;">
+						<p>
+							Click on <code>Play</code>. <strong>Explore:</strong> Modify the code and click again on
+							<code>Play</code> to see the changes. Have fun! 🌿 🤓
+						</p>
+					</div>
+
+					<br /><br /><br /><br />
+				</section>
+			</section>
+
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+	<script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+
+</body>
+
+</html>
