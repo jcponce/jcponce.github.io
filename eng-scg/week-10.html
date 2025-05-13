@@ -93,12 +93,12 @@
 							late?
 						</p>
 					</div>
-					<br/><br/><br/>
+					<br /><br /><br />
 				</section>
 
 				<section data-auto-animate>
 					<h4>Remarks from workshop problems</h4>
-						<div class="left-txt size-45">
+					<div class="left-txt size-45">
 						<p><strong>Problem 1:</strong>
 
 							A railway goods shed expects trains to arrive on time 80% of the time and depart
@@ -107,39 +107,43 @@
 							late?
 						</p>
 					</div>
-					
+
 					<div class="size-70">
 						<table style="width: 100%;">
 							<tr>
-								<td style="width:40%">
-									$A = $ arrives on time.<br/>
-									$D = $ departs on time.<br/><br/>
-									We have:
+								<td style="width:40%" class="fragment" data-fragment-index="0">
+									<span>$A = $ arrives on time.</span><br />
+									<span class="fragment" data-fragment-index="1">$D = $ departs on time.
+										
+									</span>
+									
 
-									<p>
-										$P(A) = 0.8$<br/>
-										$P(D) = 0.75$<br/>
-										$P(D\,|\,A) = 0.85$<br/>
-										$P(D \,| \, A')=\,???$
+									<p class="fragment" data-fragment-index="2">We have:<br/>
+										<span class="fragment" data-fragment-index="2">$P(A) = 0.8$</span><br />
+										<span class="fragment" data-fragment-index="3">$P(D) = 0.75$</span><br />
+										<span class="fragment" data-fragment-index="4">$P(D\,|\,A) = 0.85$</span><br />
+										<span class="fragment" data-fragment-index="5">$P(D \,| \, A')=\,???$</span>
 									</p>
 								</td>
 								<td>
-									Can we use directly the definition of conditional probability?
-
-									<p>$P(D\,|\, A')= \dfrac{P(D \text{ and } A)}{P(A')}$</p>
-									<p>$\qquad\qquad\;=\dfrac{P(D\,| \,A)P(A)}{P(A')}$</p>
-									<p>No! We can't!</p>
+									<span class="fragment" data-fragment-index="6">
+										Can we use directly the definition of conditional probability?
+									</span>
+									
+									<p class="fragment" data-fragment-index="7">$P(D\,|\, A')= \dfrac{P(D \text{ and } A)}{P(A')}$</p>
+									<p class="fragment" data-fragment-index="8">$\qquad\quad\;\;\,=\dfrac{P(D\,| \,A)P(A)}{P(A')}$</p>
+									<p class="fragment" data-fragment-index="9">❌ No, we can't! ❌</p>
 								</td>
 							</tr>
 						</table>
 					</div>
 
-					<br/>
-					
+					<br />
+
 				</section>
 				<section data-auto-animate>
 					<h4>Remarks from workshop problems</h4>
-						<div class="left-txt size-45">
+					<div class="left-txt size-45">
 						<p><strong>Problem 1:</strong>
 
 							A railway goods shed expects trains to arrive on time 80% of the time and depart
@@ -148,43 +152,53 @@
 							late?
 						</p>
 					</div>
-					
+
 					<div class="size-60">
 						<table style="width: 100%;">
 							<tr>
-								<td style="width:35%">
-									$A = $ arrives on time.<br/>
-									$D = $ departs on time.<br/><br/>
-									We have:
+								<td style="width:25%">
+									
 
 									<p>
-										$P(A) = 0.8$<br/>
-										$P(D) = 0.75$<br/>
-										$P(D\,|\,A) = 0.85$<br/>
+										$P(A) = 0.8$<br />
+										$P(D) = 0.75$<br />
+										$P(D\,|\,A) = 0.85$<br />
 										$P(D \,| \, A')=\,???$
 									</p>
+
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
 								</td>
-								<td>
-									In this case we need to use 
+								<td style="width:75%">
+									In this case we must  use:
 									<p>
 										$P(D) = P(D\,|\,A)P(A) + P(D\,|\,A')P(A')$
 									</p>
-									<p>We can use the tree diagram:</p>
+									
+									
+								
+									<div style="text-align: left; margin-top: 0px; margin-left: 50px;" class="fragment" data-fragment-index="0">
+										
+										<img style="width: 60%;margin-top: -10px;" src="images/week-10/tree-diragam-conditional-trains.svg">
+										<p class="fragment" data-fragment-index="0" style="font-size: 80%;margin-top: -20px;margin-left: 100px;">Tree diagram</p>
+									</div>
+									
 								</td>
 							</tr>
 						</table>
 					</div>
 
-					<br/>
-					<br/>
-					
+
 				</section>
 
 
 				<section data-auto-animate>
 					<h4>Remarks from workshop problems</h4>
 
-					<div class="left-txt size-75">
+					<div class="left-txt size-70">
 						<p><strong>Problem 2:</strong>
 
 							What is the chance of at least 2 people out of 6 sharing a birth hour? (you may
@@ -192,57 +206,54 @@
 						</p>
 					</div>
 
-					<div class="size-60 left-txt">
-						<p>
+					<div class="size-65 left-txt">
+						<p class="fragment" data-fragment-index="0">
 							Let's calculate the number of ways to assign distinct hours to 6 people:
 							\[24\times 23 \times 22 \times 21 \times 20\times 19\]
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							The total number of possible arrangements (allowing repeated hours) is:
 							\[24^6\]
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							So the probability that all 6 have different birth hours is:
 							\[
-							P(\text{all different})= \dfrac{24\times 23 \times 22 \times 21 \times 20\times 19}{24^6}\approx 0.5073
+							\small P(\text{all different})= \dfrac{24\times 23 \times 22 \times 21 \times 20\times
+							19}{24^6}\approx 0.5073
 							\]
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section data-auto-animate>
 					<h4>Remarks from workshop problems</h4>
 
-					<div class="left-txt size-45">
+					<div class="left-txt size-70">
 						<p><strong>Problem 2:</strong>
 
 							What is the chance of at least 2 people out of 6 sharing a birth hour? (you may
 							assume births are equally distributed throughout the day).
 						</p>
 					</div>
-					<div class="size-55 left-txt">
-						<p>
-							Let's calculate the number of ways to assign distinct hours to 6 people:
-							\[24\times 23 \times 22 \times 21 \times 20\times 19\]
-						</p>
-						<p>
-							The total number of possible arrangements (allowing repeated hours) is:
-							\[24^6\]
-						</p>
+					<div class="size-65 left-txt">
+						
 						<p>
 							So the probability that all 6 have different birth hours is:
 							\[
-							P(\text{all different})= \dfrac{24\times 23 \times 22 \times 21 \times 20\times 19}{24^6}\approx 0.5073
+							\small P(\text{all different})= \dfrac{24\times 23 \times 22 \times 21 \times 20\times
+							19}{24^6}\approx 0.5073
 							\]
 						</p>
 						<p>
 							Thus
 							\[
-							P(\text{at least 2 share a birth hour})= 1- 0.5073 = 0.4927 =49.27\%
+							\small P(\text{at least 2 share a birth hour})= 1- 0.5073 = 0.4927 =49.27\%
 							\]
 						</p>
 					</div>
-					<br/>
+					<br />
+					<br />
+					<br />
 				</section>
 				<section data-auto-animate>
 					<h4>Remarks from workshop problems</h4>
@@ -255,204 +266,217 @@
 						</p>
 					</div>
 					<div class="size-60 left-txt">
-						
 						<p>
-						
+
 							\[
-							P(\text{at least 2 share a birth hour})= 49.27\%
+							P(\text{at least 2 share a birth hour})= 1- P(\text{all different})= 49.27\%
 							\]
 						</p>
 
-						
-					</div>
-					<div class="size-75 left-txt">
-						
 
-						<p>1. Why use permutations, not combinations?</p>
-						<p><strong>Ans.</strong> Each person is an individual, distinguishable entity (e.g., Person 1, Person 2, ..., Person 6).</p>
-						<p>2. What's the value of
-							\[
-							P(\text{at least 3 share a birth hour})?
-							\]
-						</p>
-						<p><strong>Ans.</strong> This is actually hard to answer.</p>
 					</div>
-					<br/>
+					<div class="size-65 left-txt">
+
+
+						<p class="fragment" data-fragment-index="0">1. Why use permutations, not combinations?</p>
+						<p class="fragment" data-fragment-index="1" style="padding-left: 20px;padding-right: 30px;"><strong>Ans.</strong> Each person is an individual, distinguishable entity (e.g., Person 1,
+							Person 2, ..., Person 6).</p>
+						<p class="fragment" data-fragment-index="2">2. What is the probability of at least 3 people out of 6 sharing a birth hour?
+						</p>
+						<p class="fragment" data-fragment-index="3" style="padding-left: 20px;padding-right: 30px;"><strong>Ans.</strong> 
+							Here we can use the same the complement method: 
+						</p>
+					</div>
+					<div class="size-65 ">
+						<p class="fragment" data-fragment-index="4" style="padding-left: 20px;padding-right: 30px;">
+						  <span class="fragment" data-fragment-index="4">$P(\text{at least 3 share...})$</span>
+						  <span class="fragment" data-fragment-index="5">$\,= 1\, -  $</span>
+						  <span class="fragment" data-fragment-index="6">$ P(\text{at most 2 share any hour}).$</span>
+						</p>
+					</div>
+					<div class="size-65 ">
+						<p class="fragment" data-fragment-index="7" style="padding-left: 20px;padding-right: 30px;">
+							<span>This is actually harder to answer. 🤯</span>
+						</p>
+					</div>
+					<br />
 				</section>
 
 			</section>
 
-			<section data-auto-animate>
-				<h4>Determinants</h4>
-				<div class="left-txt size-90">
-
-
-					<p>
-						The determinant is number assigned to square matrices that measures
-						how the corresponding linear mapping stretches the space. In particular,
-						this number, can be used to test for invertibility of a matrix.
-					</p>
-				</div>
-				<br /><br /><br /><br />
-			</section>
-
 			<section>
-				<h4>Linear transformations in 2D</h4>
-
-				<div>
-
-					<iframe scrolling="no" title="Week 7: Transformations and Determinant"
-						src="https://www.geogebra.org/material/iframe/id/ugvur8p2/width/750/height/422/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-						width="750px" height="422px" style="border:0px;" allowfullscreen=""> </iframe>
-				</div>
-
-				<div style="font-size:18px;margin-top: -10px;">
-					<p><a href="https://www.dynamicmath.xyz/eng-scg/matrices-transformations.html#/"
-							target="_blank">Source <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
-				</div>
-				<br />
-
-			</section>
-
-			<section>
-				<h4>Linear transformations in 3D</h4>
-				<iframe scrolling="no" title="Matrix transformations 3D"
-					src="https://www.geogebra.org/material/iframe/id/ckdqtztg/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-					width="930px" height="475px" style="border:0px;" allowfullscreen=""> </iframe>
-				<div style="font-size:18px;margin-top:-30px">
-					<p><strong>Source:</strong> <a href="https://www.geogebra.org/m/VKQmRQg6" target="_blank">Matrix
-							transformations <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
-				</div>
-			</section>
-
-			<section>
-				<h5>Affine transformations</h5>
+				<section data-auto-animate>
+					<h4>Determinants</h4>
+					<div class="left-txt size-90">
 
 
-				<table id="eqarray" style="width:100%;">
-					<tr>
-						<td style="width:55%">
-							<div class="size-75">
-								<div>
-									<p class="fragment" data-fragment-index="0">
+						<p>
+							The determinant is number assigned to square matrices that measures
+							how the corresponding linear mapping stretches the space. In particular,
+							this number, can be used to test for invertibility of a matrix.
+						</p>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section>
+					<h4>Linear transformations in 2D</h4>
+
+					<div>
+
+						<iframe scrolling="no" title="Week 7: Transformations and Determinant"
+							src="https://www.geogebra.org/material/iframe/id/ugvur8p2/width/750/height/422/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="750px" height="422px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+					<div style="font-size:18px;margin-top: -10px;">
+						<p><a href="https://www.dynamicmath.xyz/eng-scg/matrices-transformations.html#/"
+								target="_blank">Source <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+						</p>
+					</div>
+					<br />
+
+				</section>
+
+				<section>
+					<h4>Linear transformations in 3D</h4>
+					<iframe scrolling="no" title="Matrix transformations 3D"
+						src="https://www.geogebra.org/material/iframe/id/ckdqtztg/width/930/height/475/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="930px" height="475px" style="border:0px;" allowfullscreen=""> </iframe>
+					<div style="font-size:18px;margin-top:-30px">
+						<p><strong>Source:</strong> <a href="https://www.geogebra.org/m/VKQmRQg6" target="_blank">Matrix
+								transformations <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
+					</div>
+				</section>
+
+				<section>
+					<h5>Affine transformations</h5>
+
+
+					<table id="eqarray" style="width:100%;">
+						<tr>
+							<td style="width:55%">
+								<div class="size-75">
+									<div>
+										<p class="fragment" data-fragment-index="0">
+											$
+											\ds
+											f(x,y)=\begin{bmatrix}
+											a & b\\
+											c & d
+											\end{bmatrix}
+											\begin{bmatrix}
+											x \\
+											y
+											\end{bmatrix} +
+											\begin{bmatrix}
+											e \\
+											f
+											\end{bmatrix}
+											$
+										</p>
+
+									</div>
+								</div>
+								<div style="font-size:60%;margin-top:40px" class="fragment" data-fragment-index="1">
+									<p>
 										$
 										\ds
-										f(x,y)=\begin{bmatrix}
-										a & b\\
-										c & d
+										f_1(x,y)=\begin{bmatrix}
+										0.00 & 0.00 \\
+										0.00 & 0.16
+										\end{bmatrix}
+										\begin{bmatrix}
+										x \\
+										y
+										\end{bmatrix}
+										$
+									</p>
+									<p>
+										$
+										\ds
+										f_2(x,y)=\begin{bmatrix}
+										0.85 & 0.04 \\
+										-0.04 & 0.85
 										\end{bmatrix}
 										\begin{bmatrix}
 										x \\
 										y
 										\end{bmatrix} +
 										\begin{bmatrix}
-										e \\
-										f
+										0.00 \\
+										1.60
 										\end{bmatrix}
 										$
 									</p>
-
+									<p>
+										$
+										\ds
+										f_3(x,y)=\begin{bmatrix}
+										0.20 & -0.26 \\
+										0.23 & 0.22
+										\end{bmatrix}
+										\begin{bmatrix}
+										x \\
+										y
+										\end{bmatrix} +
+										\begin{bmatrix}
+										0.00 \\
+										1.60
+										\end{bmatrix}
+										$
+									</p>
+									<p>
+										$
+										\ds
+										f_4(x,y)=\begin{bmatrix}
+										-0.15 & 0.28 \\
+										0.26 & 0.24
+										\end{bmatrix}
+										\begin{bmatrix}
+										x \\
+										y
+										\end{bmatrix} +
+										\begin{bmatrix}
+										0.00 \\
+										0.44
+										\end{bmatrix}
+										$
+									</p>
 								</div>
-							</div>
-							<div style="font-size:60%;margin-top:40px" class="fragment" data-fragment-index="1">
-								<p>
-									$
-									\ds
-									f_1(x,y)=\begin{bmatrix}
-									0.00 & 0.00 \\
-									0.00 & 0.16
-									\end{bmatrix}
-									\begin{bmatrix}
-									x \\
-									y
-									\end{bmatrix}
-									$
-								</p>
-								<p>
-									$
-									\ds
-									f_2(x,y)=\begin{bmatrix}
-									0.85 & 0.04 \\
-									-0.04 & 0.85
-									\end{bmatrix}
-									\begin{bmatrix}
-									x \\
-									y
-									\end{bmatrix} +
-									\begin{bmatrix}
-									0.00 \\
-									1.60
-									\end{bmatrix}
-									$
-								</p>
-								<p>
-									$
-									\ds
-									f_3(x,y)=\begin{bmatrix}
-									0.20 & -0.26 \\
-									0.23 & 0.22
-									\end{bmatrix}
-									\begin{bmatrix}
-									x \\
-									y
-									\end{bmatrix} +
-									\begin{bmatrix}
-									0.00 \\
-									1.60
-									\end{bmatrix}
-									$
-								</p>
-								<p>
-									$
-									\ds
-									f_4(x,y)=\begin{bmatrix}
-									-0.15 & 0.28 \\
-									0.26 & 0.24
-									\end{bmatrix}
-									\begin{bmatrix}
-									x \\
-									y
-									\end{bmatrix} +
-									\begin{bmatrix}
-									0.00 \\
-									0.44
-									\end{bmatrix}
-									$
-								</p>
-							</div>
-						</td>
-						<td style="width:45%">
+							</td>
+							<td style="width:45%">
 
-							<div class="fragment" data-fragment-index="2">
+								<div class="fragment" data-fragment-index="2">
 
-								<iframe style="border:none;width:300;height:500px" scrolling="no"
-									data-src="https://www.dynamicmath.xyz/math2400/sketches/fern-cindyjs"></iframe>
-							</div>
+									<iframe style="border:none;width:300;height:500px" scrolling="no"
+										data-src="https://www.dynamicmath.xyz/math2400/sketches/fern-cindyjs"></iframe>
+								</div>
 
-						</td>
-					</tr>
-				</table>
+							</td>
+						</tr>
+					</table>
 
-				<div style="font-size:22px;margin-top:-20px" class="fragment" data-fragment-index="2">
-					<p>
-						📘 <a href="https://www.sciencedirect.com/book/9780120790616/fractals-everywhere"
-							target="_blank"><strong>Fractals everywhere</strong> <i class="fa fa-external-link-alt"
-								aria-hidden="true"></i></a>
-						&nbsp; - &nbsp;
-						<a href="https://en.wikipedia.org/wiki/Barnsley_fern" target="_blank"><strong>Barnsley
-								fern</strong> <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
-					</p>
-				</div>
-				<br />
-			</section>
+					<div style="font-size:22px;margin-top:-20px" class="fragment" data-fragment-index="2">
+						<p>
+							📘 <a href="https://www.sciencedirect.com/book/9780120790616/fractals-everywhere"
+								target="_blank"><strong>Fractals everywhere</strong> <i class="fa fa-external-link-alt"
+									aria-hidden="true"></i></a>
+							&nbsp; - &nbsp;
+							<a href="https://en.wikipedia.org/wiki/Barnsley_fern" target="_blank"><strong>Barnsley
+									fern</strong> <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+						</p>
+					</div>
+					<br />
+				</section>
 
 
 
-			<section data-auto-animate>
-				<h5>Barnsley fern in JavaScript</h5>
+				<section data-auto-animate>
+					<h5>Barnsley fern in JavaScript</h5>
 
-				<div>
-					<script data-height="525" data-preview-width="400" type="text/p5">
+					<div>
+						<script data-height="525" data-preview-width="400" type="text/p5">
 let x = 0, y = 0;
 
 function nextPoint() {
@@ -496,45 +520,49 @@ function draw() {
 	}
 }
 </script>
-				</div>
+					</div>
 
-				<div style="font-size: 18px;margin-top: -25px;">
-					<p>
-						Click on <code>Play</code>. <strong>Explore:</strong> Modify the code and click again on
-						<code>Play</code> to see the changes. Have fun! 🌿 🤓
-					</p>
-				</div>
+					<div style="font-size: 18px;margin-top: -25px;">
+						<p>
+							Click on <code>Play</code>. <strong>Explore:</strong> Modify the code and click again on
+							<code>Play</code> to see the changes. Have fun! 🌿 🤓
+						</p>
+					</div>
 
-				<br /><br /><br /><br />
-			</section>
-
-
-
-			<section>
-				<h4>AI - Machine Learning</h4>
+					<br /><br /><br /><br />
+				</section>
 
 
-				<table style="text-align: center; border: none; font-size: 80%; width: 100%;">
-					<tr>
-						<td style="width: 30%;text-align: center;border: none;">Linear Algebra <br /> \(A \mathbf x =
-							\mathbf b\)</td>
-						<td style="width: 40%;text-align: center;border: none;"></td>
-						<td style="width: 30%;text-align: center;border: none;">Probability <br /> \(P(B\,|\, A)\)</td>
-					</tr>
-					<tr>
-						<td style="width: 30%;text-align: center;border: none;"></td>
-						<td style="width: 40%;text-align: center;border: none;"><img style="width: 100%;"
-								src="images/week-10/machine-learning.gif"></td>
-						<td style="width: 30%;text-align: center;border: none;"></td>
-					</tr>
-					<tr>
-						<td style="width: 30%;text-align: center;border: none;">Calculus <br /> \(\nabla f(x,y)\)</td>
-						<td style="width: 40%;text-align: center;border: none;"></td>
-						<td style="width: 30%;text-align: center;border: none;">Statistics <br /> 📊📈</td>
-					</tr>
-				</table>
 
-				<br />
+				<section>
+					<h4>AI - Machine Learning</h4>
+
+
+					<table style="text-align: center; border: none; font-size: 80%; width: 100%;">
+						<tr>
+							<td style="width: 30%;text-align: center;border: none;">Linear Algebra <br /> \(A \mathbf x
+								=
+								\mathbf b\)</td>
+							<td style="width: 40%;text-align: center;border: none;"></td>
+							<td style="width: 30%;text-align: center;border: none;">Probability <br /> \(P(B\,|\, A)\)
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 30%;text-align: center;border: none;"></td>
+							<td style="width: 40%;text-align: center;border: none;"><img style="width: 100%;"
+									src="images/week-10/machine-learning.gif"></td>
+							<td style="width: 30%;text-align: center;border: none;"></td>
+						</tr>
+						<tr>
+							<td style="width: 30%;text-align: center;border: none;">Calculus <br /> \(\nabla f(x,y)\)
+							</td>
+							<td style="width: 40%;text-align: center;border: none;"></td>
+							<td style="width: 30%;text-align: center;border: none;">Statistics <br /> 📊📈</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
 			</section>
 
 
