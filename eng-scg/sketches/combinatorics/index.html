@@ -27,20 +27,35 @@
   <div class="container">
     <div class="left">
       <div>
-        <label style="cursor: pointer; font-weight: bold; font-size: 1.2em;"><input type="radio" name="radioComb" value="false" checked> Permutations</label><br/>
-        <label style="cursor: pointer; font-weight: bold; font-size: 1.2em"><input type="radio" name="radioComb" value="true"> Combinations</label>
+
+        <p>
+          Consider a bag of marbles in which each marble is 
+          a different color. If we draw marbles one at a time from the
+          bag without replacement, how many different 
+          ordered sequences (permutations) of the marbles are possible? How
+          many different unordered sets (combinations)?
+        </p>
+
+        <label style="cursor: pointer; font-weight: bold; font-size: 1.2em;"><input type="radio" name="radioComb"
+            value="false" checked> Permutations</label><br />
+        <label style="cursor: pointer; font-weight: bold; font-size: 1.2em"><input type="radio" name="radioComb"
+            value="true"> Combinations</label>
 
         <p> Choose how many marbles the bag should contain:</p>
         <div id="sizeComb" style="cursor: pointer;">
-          <img style="width: 50px;" src="img/marble1.png">
-          <img style="width: 50px;" src="img/marble2.png">
-          <img style="width: 50px;" src="img/marble3.png">
-          <img style="width: 50px;" src="img/marble4.png">
+          <img style="width: 48px;" src="img/marble1.png">
+          <img style="width: 48px;" src="img/marble2.png">
+          <img style="width: 48px;" src="img/marble3.png">
+          <img style="width: 48px;" src="img/marble4.png">
         </div>
 
-        <br>
+        <p>
+          Select a column on the table to visualise 
+          all possible permutations or combinations 
+          of the marbles.
+        </p>
 
-        <table id="count_table" style="font-size: 1.2em;cursor: pointer;">
+        <table id="count_table" style="font-size: 1.2em;cursor: pointer; width: 100%;">
           <colgroup></colgroup>
           <colgroup></colgroup>
           <colgroup></colgroup>
@@ -56,9 +71,9 @@
             <td>4</td>
           </tr>
           <tr>
-            <td> 
-              <span class="count_label"> \(\displaystyle{P_{n,r}}\)</span>
-              <span class="count_label" style="display: none">\(\displaystyle{C_{n,r}}\)</span>
+            <td>
+              <span class="count_label"> \(\displaystyle{^{n}P_{r}}\)</span>
+              <span class="count_label" style="display: none">\(\displaystyle{^{n}C_{r}}\)</span>
             </td>
             <td id="r0">1</td>
             <td id="r1"></td>
@@ -78,7 +93,6 @@
       <div id="svgComb" style="width: 100%; height: 100%"></div>
     </div>
   </div>
-
 
   <script src="js/main.js"></script>
 
