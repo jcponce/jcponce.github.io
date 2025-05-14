@@ -27,15 +27,15 @@
   <div class="container">
     <div class="left">
       <div>
-        <label style="cursor: pointer; font-weight: bold; font-size: 1.1em;"><input type="radio" name="radioComb" value="false" checked> Permutations</label>
-        <label style="cursor: pointer; font-weight: bold; font-size: 1.1em"><input type="radio" name="radioComb" value="true"> Combinations</label>
+        <label style="cursor: pointer; font-weight: bold; font-size: 1.2em;"><input type="radio" name="radioComb" value="false" checked> Permutations</label><br/>
+        <label style="cursor: pointer; font-weight: bold; font-size: 1.2em"><input type="radio" name="radioComb" value="true"> Combinations</label>
 
         <p> Choose how many marbles the bag should contain:</p>
         <div id="sizeComb" style="cursor: pointer;">
-          <img style="width: 60px;" src="img/marble1.png">
-          <img style="width: 60px;" src="img/marble2.png">
-          <img style="width: 60px;" src="img/marble3.png">
-          <img style="width: 60px;" src="img/marble4.png">
+          <img style="width: 50px;" src="img/marble1.png">
+          <img style="width: 50px;" src="img/marble2.png">
+          <img style="width: 50px;" src="img/marble3.png">
+          <img style="width: 50px;" src="img/marble4.png">
         </div>
 
         <br>
@@ -46,6 +46,7 @@
           <colgroup></colgroup>
           <colgroup></colgroup>
           <colgroup></colgroup>
+          <colgroup class="click"></colgroup>
           <tr>
             <td>$n$</td>
             <td>0</td>
@@ -55,10 +56,11 @@
             <td>4</td>
           </tr>
           <tr>
-            <td> <span class="count_label"> \(\displaystyle{P_{n,r}}\)</span>
+            <td> 
+              <span class="count_label"> \(\displaystyle{P_{n,r}}\)</span>
               <span class="count_label" style="display: none">\(\displaystyle{C_{n,r}}\)</span>
             </td>
-            <td>1</td>
+            <td id="r0">1</td>
             <td id="r1"></td>
             <td id="r2"></td>
             <td id="r3"></td>

@@ -1,3 +1,10 @@
+/**
+ * Adapted from https://seeing-theory.brown.edu/compound-probability
+ * Source: https://github.com/seeingtheory/Seeing-Theory/tree/master/compound-probability
+ * This version by Juan Carlos Ponce Campuzano
+ * Date: 15/May/2025
+ */
+
 function counting() {
     //Adapted from: https://bl.ocks.org/mbostock/4339083
 
