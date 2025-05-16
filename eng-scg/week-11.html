@@ -81,20 +81,110 @@
 				<br />
 			</section>
 
-			<section>
-				<h4>Probability Density (and Mass) Functions</h4>
+			<section data-auto-animate>
+				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
 
-				<div class="size-70">
+				<div class="size-65 left-txt">
+
+					<p>
+						When we talk about random variables
+						(RVs) in probability, they come in two types:
+					</p>
+
+					<ul>
+						<li>
+							<strong>Discrete:</strong> Take on specific, separate values (like 0, 1, 2...).
+
+							<div>
+								<img src="images/week-11/discrete-variable.gif">
+							</div>
+						</li>
+
+						<li>
+							<strong>Continuous</strong>: Can take on any value within a range (like any real number
+							between 0 and 6).
+						</li>
+						<div>
+							<img src="images/week-11/continuous-variable.gif">
+						</div>
+					</ul>
+
+
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
+
+				<div class="size-65 left-txt">
+
+					<p>
+						Discrete Random Variables → Probability Mass Function (PMF)
+					</p>
+					<p>
+						For discrete random variables, we use a PMF, written as:
+						\[
+						f_X(x) = Pr(X = x)
+						\]
+					</p>
+					<p>
+						This means: "What is the probability that the random variable
+						$X$  is exactly equal to the value $x$?"
+					</p>
+
+					<p>
+						<strong>Example:</strong> Tossing a fai die. 🎲 →  $Pr(X=4)=\dfrac{1}{6}.$
+
+					</p>
+
+					<p>
+						To find the probability that $X$ lies in a range 
+						(like $2 ≤ X ≤ 4$), we add up the individual probabilities:
+						\[
+						Pr(2\leq X \leq 4) = f_X(2) +  f_X(3) +  f_X(4). 
+						\]
+					</p>
+
+					
+
+
+				</div>
+			</section>
+
+
+			<section>
+				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
+
+				<div class="size-70 left-txt">
+
+					<p>
+						When we talk about random variables
+						(RVs) in probability, they come in two types:
+					</p>
+
+					<ul>
+						<li>
+							Discrete: Take on specific, separate values (like 0, 1, 2...).
+						</li>
+						<li>
+							Continuous: Can take on any value within a range (like any real number between 0 and 1).
+						</li>
+					</ul>
+
+					<p>
+						- Probability Mass Functions (PMFs): 📊
+					</p>
+					<p>
+						- Probability Density Functions (PDFs): 📈
+					</p>
 					<ul>
 						<li>if <span>\(X\)</span> is discrete: <span>\(f_X(x) =
 								Pr(X = x)\)</span></li>
-						<li>if <span >\(X\)</span> is continuous: we cannot ask for probabilities of
-							<span >\(X = x,\)</span> since for a continuous random variable <span
-								>\(Pr(X = a) = 0\)</span> <span
-								>\(\forall\)</span> <span >\(a\in X\)</span>.
+						<li>if <span>\(X\)</span> is continuous: we cannot ask for probabilities of
+							<span>\(X = x,\)</span> since for a continuous random variable <span>\(Pr(X = a) =
+								0\)</span> <span>\(\forall\)</span> <span>\(a\in X\)</span>.
 							Rather, we use <span>\(f_X(x)\)</span> to find probabilities of ranges.
-							Suppose we have two values <span >\(a\)</span> and <span
-								>\(b\)</span> such that <span>\(a &lt;
+							Suppose we have two values <span>\(a\)</span> and <span>\(b\)</span> such that <span>\(a
+								&lt;
 								b\)</span>. Then:
 							\[
 							Pr(a &lt; X &lt; b) = \int^b_a f_X(x) dx.
