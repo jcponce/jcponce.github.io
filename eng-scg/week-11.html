@@ -118,36 +118,103 @@
 				<div class="size-65 left-txt">
 
 					<p>
-						Discrete Random Variables → Probability Mass Function (PMF)
-					</p>
-					<p>
-						For discrete random variables, we use a PMF, written as:
+						For discrete random variables we use a <strong>probability mass function (PMF)</strong>
+						written as:
 						\[
 						f_X(x) = Pr(X = x)
 						\]
 					</p>
 					<p>
 						This means: "What is the probability that the random variable
-						$X$  is exactly equal to the value $x$?"
+						$X$ is exactly equal to the value $x$?"
 					</p>
 
 					<p>
-						<strong>Example:</strong> Tossing a fai die. 🎲 →  $Pr(X=4)=\dfrac{1}{6}.$
+						<strong>Example:</strong> Tossing a fai die. 🎲 → $Pr(X=4)=\dfrac{1}{6}.$
 
 					</p>
 
 					<p>
-						To find the probability that $X$ lies in a range 
+						To find the probability that $X$ lies in a range
 						(like $2 ≤ X ≤ 4$), we add up the individual probabilities:
 						\[
-						Pr(2\leq X \leq 4) = f_X(2) +  f_X(3) +  f_X(4). 
+						Pr(2\leq X \leq 4) = f_X(2) + f_X(3) + f_X(4).
 						\]
 					</p>
 
-					
+
 
 
 				</div>
+				<br/>
+			</section>
+
+			<section data-auto-animate>
+				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
+
+				<div class="size-65 left-txt">
+
+					<p>
+						For continuous random variables, we use a <strong>probability density function (PDF)</strong>,
+						denoted by $f_X(x).$
+					</p>
+					<p>
+						Unlike discrete variables, we cannot calculate probabilities at exact points:
+					</p>
+					<p>
+						<strong>For all real numbers $a$:</strong>
+						$\;Pr(X = a) = 0$
+					</p>
+					<p>
+						Instead, we calculate probabilities over
+						<em>intervals</em> using integration:
+						\[
+						Pr(a\lt X\lt b) = \int_a^bf_X(x)\,dx
+						\]
+					</p>
+					<p>
+						This integral represents the <strong>area under the curve</strong> of the PDF between
+						$a$ and $b,$ which gives the probability that $X$
+						lies within that range.
+					</p>
+
+
+
+				</div>
+				<br/>
+			</section>
+
+			<section>
+				<h5>Summary: Discrete vs Continuous Random Variables</h5>
+
+				<div class="size-60">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:20%">Random Variable Type</th>
+								<th>Function Name</th>
+								<th>Notation</th>
+								<th>Probability for Range</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Discrete</td>
+								<td>PMF (mass)</td>
+								<td>\( f_X(x) \)</td>
+								<td>\( \ds \Pr(X \in A) = \sum_{x \in A} f_X(x) \)</td>
+							</tr>
+							<tr>
+								<td>Continuous</td>
+								<td>PDF (density)</td>
+								<td>\( f_X(x) \)</td>
+								<td>\( \ds\Pr(a &lt; X &lt; b) = \int_a^b f_X(x)\,dx \)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<br/>
+				<br/>
 			</section>
 
 
