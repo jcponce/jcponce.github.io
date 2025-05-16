@@ -81,140 +81,245 @@
 				<br />
 			</section>
 
-			<section data-auto-animate>
-				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
-
-				<div class="size-65 left-txt">
-
-					<p>
-						When we talk about random variables
-						(RVs) in probability, they come in two types:
-					</p>
-
-					<ul>
-						<li>
-							<strong>Discrete:</strong> Take on specific, separate values (like 0, 1, 2...).
-
-							<div>
-								<img src="images/week-11/discrete-variable.gif">
-							</div>
-						</li>
-
-						<li>
-							<strong>Continuous</strong>: Can take on any value within a range (like any real number
-							between 0 and 6).
-						</li>
-						<div>
-							<img src="images/week-11/continuous-variable.gif">
-						</div>
-					</ul>
-
-
-				</div>
-			</section>
-			<section data-auto-animate>
-				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
-
-				<div class="size-65 left-txt">
-
-					<p>
-						For discrete random variables we use a <strong>probability mass function (PMF)</strong>
-						written as:
-						\[
-						f_X(x) = Pr(X = x)
-						\]
-					</p>
-					<p>
-						This means: "What is the probability that the random variable
-						$X$ is exactly equal to the value $x$?"
-					</p>
-
-					<p>
-						<strong>Example:</strong> Tossing a fai die. 🎲 → $Pr(X=4)=\dfrac{1}{6}.$
-
-					</p>
-
-					<p>
-						To find the probability that $X$ lies in a range
-						(like $2 ≤ X ≤ 4$), we add up the individual probabilities:
-						\[
-						Pr(2\leq X \leq 4) = f_X(2) + f_X(3) + f_X(4).
-						\]
-					</p>
-
-
-
-
-				</div>
-				<br/>
-			</section>
-
-			<section data-auto-animate>
-				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
-
-				<div class="size-65 left-txt">
-
-					<p>
-						For continuous random variables, we use a <strong>probability density function (PDF)</strong>,
-						denoted by $f_X(x).$
-					</p>
-					<p>
-						Unlike discrete variables, we cannot calculate probabilities at exact points:
-					</p>
-					<p>
-						<strong>For all real numbers $a$:</strong>
-						$\;Pr(X = a) = 0$
-					</p>
-					<p>
-						Instead, we calculate probabilities over
-						<em>intervals</em> using integration:
-						\[
-						Pr(a\lt X\lt b) = \int_a^bf_X(x)\,dx
-						\]
-					</p>
-					<p>
-						This integral represents the <strong>area under the curve</strong> of the PDF between
-						$a$ and $b,$ which gives the probability that $X$
-						lies within that range.
-					</p>
-
-
-
-				</div>
-				<br/>
-			</section>
-
 			<section>
-				<h5>Summary: Discrete vs Continuous Random Variables</h5>
+				<section data-auto-animate>
+					<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
 
-				<div class="size-60">
-					<table>
-						<thead>
-							<tr>
-								<th style="width:20%">Random Variable Type</th>
-								<th>Function Name</th>
-								<th>Notation</th>
-								<th>Probability for Range</th>
+					<div class="size-65 left-txt">
+
+						<p>
+							When we talk about random variables
+							(RVs) in probability, they come in two types:
+						</p>
+
+						<ul>
+							<li>
+								<strong>Discrete:</strong> Take on specific, separate values (like 0, 1, 2...).
+
+								<div>
+									<img src="images/week-11/discrete-variable.gif">
+								</div>
+							</li>
+
+							<li>
+								<strong>Continuous</strong>: Can take on any value within a range (like any real number
+								between 0 and 6).
+							</li>
+							<div>
+								<img src="images/week-11/continuous-variable.gif">
+							</div>
+						</ul>
+
+
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
+
+					<div class="size-65 left-txt">
+
+						<p>
+							For discrete random variables we use a <strong>probability mass function (PMF)</strong>
+							written as:
+							\[
+							f_X(x) = Pr(X = x)
+							\]
+						</p>
+						<p>
+							This means: "What is the probability that the random variable
+							$X$ is exactly equal to the value $x$?"
+						</p>
+
+						<p>
+							<strong>Example:</strong> Tossing a fai die. 🎲 → $Pr(X=4)=\dfrac{1}{6}.$
+
+						</p>
+
+						<p>
+							To find the probability that $X$ lies in a range
+							(like $2 ≤ X ≤ 4$), we add up the individual probabilities:
+							\[
+							Pr(2\leq X \leq 4) = f_X(2) + f_X(3) + f_X(4).
+							\]
+						</p>
+
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
+
+					<div class="size-65 left-txt">
+
+						<p>
+							For continuous random variables, we use a <strong>probability density function
+								(PDF)</strong>,
+							denoted by $f_X(x).$
+						</p>
+						<p>
+							Unlike discrete variables, we cannot calculate probabilities at exact points:
+						</p>
+						<p>
+							<strong>For all real numbers $a$:</strong>
+							$\;Pr(X = a) = 0$
+						</p>
+						<p>
+							Instead, we calculate probabilities over
+							<em>intervals</em> using integration:
+							\[
+							Pr(a\lt X\lt b) = \int_a^bf_X(x)\,dx
+							\]
+						</p>
+						<p>
+							This integral represents the <strong>area under the curve</strong> of the PDF between
+							$a$ and $b,$ which gives the probability that $X$
+							lies within that range.
+						</p>
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h5>Summary: Discrete vs Continuous Random Variables</h5>
+
+					<div class="size-60">
+						<table>
+							<thead>
+								<tr>
+									<th style="width:18%">Random Variable Type</th>
+									<th>Function Name</th>
+									<th>Notation</th>
+									<th>Probability for Range</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Discrete</td>
+									<td>PMF (mass)</td>
+									<td>\( f_X(x) \)</td>
+									<td>\( \ds \Pr(X \in A) = \sum_{x \in A} f_X(x) \)</td>
+								</tr>
+								<tr>
+									<td>Continuous</td>
+									<td>PDF (density)</td>
+									<td>\( f_X(x) \)</td>
+									<td>\( \ds\Pr(a &lt; X &lt; b) = \int_a^b f_X(x)\,dx \)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h5>Example: Throwing a fair die 🎲</h5>
+
+					<div class="size-65 left-txt">
+						<p>
+							The probability that any of one of the six
+							sides of a fair dice lands uppermost when
+							thrown is 1/6.
+							<span>
+								This can be represented
+								be represented mathematically as:
+								\[
+								P(X = x) = \frac{1}{6}, \hspace{0.3 cm} x = 1, 2, \ldots, 6.
+								\]
+							</span>
+						</p>
+						<ul>
+							<li>
+								\(X\) represents the random variable describing the side that lands uppermost.
+							</li>
+							<li>
+								\(x\) represents the possible values \(X\) can take.
+							</li>
+						</ul>
+					</div>
+					<div>
+						<img style="width:550px" src="images/week-11/die-prob-dist.svg">
+					</div>
+				</section>
+
+				<section>
+					<h5>Cumulative Probability (CDF)</h5>
+
+					<div class="size-70 left-txt">
+						<p>The cumulative density function (CDF) of a random variable
+							is the probability that the random
+							variable takes a value less than or equal
+							to a specified value, $x$:
+							\[
+							F(x) = Pr(X \leq x)
+							\]
+						</p>
+					</div>
+
+					<div>
+						<table style="text-align: center; border-collapse: collapse; font-size: 50%;" border="1">
+							<tr style="text-align: center;">
+								<td style="text-align: center;">$X$</td>
+								<td style="text-align: center;">1</td>
+								<td style="text-align: center;">2</td>
+								<td style="text-align: center;">3</td>
+								<td style="text-align: center;">4</td>
+								<td style="text-align: center;">5</td>
+								<td style="text-align: center;">6</td>
+
 							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Discrete</td>
-								<td>PMF (mass)</td>
-								<td>\( f_X(x) \)</td>
-								<td>\( \ds \Pr(X \in A) = \sum_{x \in A} f_X(x) \)</td>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">$f(x)$</td>
+								<td style="text-align: center;">
+									$\dfrac{1}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{1}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{1}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{1}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{1}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{1}{6}$
+								</td>
 							</tr>
-							<tr>
-								<td>Continuous</td>
-								<td>PDF (density)</td>
-								<td>\( f_X(x) \)</td>
-								<td>\( \ds\Pr(a &lt; X &lt; b) = \int_a^b f_X(x)\,dx \)</td>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">$F(x)$</td>
+								<td style="text-align: center;">
+									$\dfrac{1}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{2}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{3}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{4}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{5}{6}$
+								</td>
+								<td style="text-align: center;">
+									$\dfrac{6}{6}$
+								</td>
 							</tr>
-						</tbody>
-					</table>
-				</div>
-				<br/>
-				<br/>
+						</table>
+					</div>
+				</section>
 			</section>
 
 
