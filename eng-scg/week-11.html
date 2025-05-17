@@ -249,7 +249,7 @@
 					</div>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h5>Cumulative Probability (CDF)</h5>
 
 					<div class="size-70 left-txt">
@@ -265,7 +265,7 @@
 
 					<div>
 						<table style="text-align: center; border-collapse: collapse; font-size: 60%;" border="1">
-							<tr style="text-align: center;">
+							<tr style="text-align: center;font-weight: bold;">
 								<td style="text-align: center;">$X$</td>
 								<td style="text-align: center;">1</td>
 								<td style="text-align: center;">2</td>
@@ -319,52 +319,91 @@
 							</tr>
 						</table>
 					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Cumulative Probability (CDF)</h5>
+
+					<div>
+
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 30%;">
+									<p style="font-size: 60%; text-align: center;">
+										$F(x) = Pr(X \leq x)$
+									</p>
+									<table style="text-align: center; border-collapse: collapse; font-size: 40%;"
+										border="1">
+										<tr style="text-align: center;font-weight: bold;">
+											<td style="text-align: center;">$X$</td>
+											<td style="text-align: center;">1</td>
+											<td style="text-align: center;">2</td>
+											<td style="text-align: center;">3</td>
+											<td style="text-align: center;">4</td>
+											<td style="text-align: center;">5</td>
+											<td style="text-align: center;">6</td>
+
+										</tr>
+										<tr style="text-align: center;">
+											<td style="text-align: center;">$f(x)$</td>
+											<td style="text-align: center;">
+												$\dfrac{1}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{1}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{1}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{1}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{1}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{1}{6}$
+											</td>
+										</tr>
+										<tr style="text-align: center;">
+											<td style="text-align: center;">$F(x)$</td>
+											<td style="text-align: center;">
+												$\dfrac{1}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{2}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{3}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{4}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{5}{6}$
+											</td>
+											<td style="text-align: center;">
+												$\dfrac{6}{6}$
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="width: 70%;">
+									<div class="r-stack">
+										<img style="width: 100%;" class="fragment fade-out" data-fragment-index="0" src="images/week-11/die-pmf.svg">
+										<img style="width: 100%;" class="fragment fade-in" data-fragment-index="0" src="images/week-11/die-cdf.svg">
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br/>
 				</section>
 			</section>
 
 
-			<section>
-				<h5>Probability Mass Functions vs Probability Discrete Functions</h5>
 
-				<div class="size-70 left-txt">
-
-					<p>
-						When we talk about random variables
-						(RVs) in probability, they come in two types:
-					</p>
-
-					<ul>
-						<li>
-							Discrete: Take on specific, separate values (like 0, 1, 2...).
-						</li>
-						<li>
-							Continuous: Can take on any value within a range (like any real number between 0 and 1).
-						</li>
-					</ul>
-
-					<p>
-						- Probability Mass Functions (PMFs): 📊
-					</p>
-					<p>
-						- Probability Density Functions (PDFs): 📈
-					</p>
-					<ul>
-						<li>if <span>\(X\)</span> is discrete: <span>\(f_X(x) =
-								Pr(X = x)\)</span></li>
-						<li>if <span>\(X\)</span> is continuous: we cannot ask for probabilities of
-							<span>\(X = x,\)</span> since for a continuous random variable <span>\(Pr(X = a) =
-								0\)</span> <span>\(\forall\)</span> <span>\(a\in X\)</span>.
-							Rather, we use <span>\(f_X(x)\)</span> to find probabilities of ranges.
-							Suppose we have two values <span>\(a\)</span> and <span>\(b\)</span> such that <span>\(a
-								&lt;
-								b\)</span>. Then:
-							\[
-							Pr(a &lt; X &lt; b) = \int^b_a f_X(x) dx.
-							\]
-						</li>
-					</ul>
-				</div>
-			</section>
 
 
 
