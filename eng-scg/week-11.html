@@ -87,25 +87,25 @@
 
 					<div class="size-65 left-txt">
 
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							When we talk about random variables
 							(RVs) in probability, they come in two types:
 						</p>
 
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								<strong>Discrete:</strong> Take on specific, separate values (like 0, 1, 2...).
 
-								<div>
+								<div class="fragment" data-fragment-index="2">
 									<img src="images/week-11/discrete-variable.gif">
 								</div>
 							</li>
 
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								<strong>Continuous</strong>: Can take on any value within a range (like any real number
 								between 0 and 6).
 							</li>
-							<div>
+							<div class="fragment" data-fragment-index="4">
 								<img src="images/week-11/continuous-variable.gif">
 							</div>
 						</ul>
@@ -125,22 +125,29 @@
 							f_X(x) = Pr(X = x)
 							\]
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							This means: "What is the probability that the random variable
 							$X$ is exactly equal to the value $x$?"
 						</p>
 
-						<p>
-							<strong>Example:</strong> Tossing a fai die. 🎲 → $Pr(X=4)=\dfrac{1}{6}.$
+						<p class="fragment" data-fragment-index="1">
+							<strong>Example:</strong> Tossing a fai die. 🎲
+							<span class="fragment" data-fragment-index="2">
+								→ $Pr(X=4)=\dfrac{1}{6}.$
+							</span>
 
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="3">
 							To find the probability that $X$ lies in a range
-							(like $2 ≤ X ≤ 4$), we add up the individual probabilities:
-							\[
-							Pr(2\leq X \leq 4) = f_X(2) + f_X(3) + f_X(4).
-							\]
+							(like $2 ≤ X ≤ 4$),
+							<span class="fragment" data-fragment-index="4">
+								we add up the individual probabilities:
+								\[
+								Pr(2\leq X \leq 4) = f_X(2) + f_X(3) + f_X(4).
+								\]
+							</span>
+
 						</p>
 
 
@@ -158,23 +165,23 @@
 						<p>
 							For continuous random variables, we use a <strong>probability density function
 								(PDF)</strong>,
-							denoted by $f_X(x).$
+							denoted also by $f_X(x).$
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							Unlike discrete variables, we cannot calculate probabilities at exact points:
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							<strong>For all real numbers $a$:</strong>
-							$\;Pr(X = a) = 0$
+							$\;Pr(X = a) = 0.$
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							Instead, we calculate probabilities over
 							<em>intervals</em> using integration:
 							\[
 							Pr(a\lt X\lt b) = \int_a^bf_X(x)\,dx
 							\]
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="3">
 							This integral represents the <strong>area under the curve</strong> of the PDF between
 							$a$ and $b,$ which gives the probability that $X$
 							lies within that range.
@@ -201,16 +208,18 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>Discrete</td>
-									<td>PMF (mass)</td>
-									<td>\( f_X(x) \)</td>
-									<td>\( \ds \Pr(X \in A) = \sum_{x \in A} f_X(x) \)</td>
+									<td class="fragment" data-fragment-index="0">Discrete</td>
+									<td class="fragment" data-fragment-index="1">PMF (mass)</td>
+									<td class="fragment" data-fragment-index="2">\( f_X(x) \)</td>
+									<td class="fragment" data-fragment-index="3">\( \ds \Pr(X \in A) = \sum_{x \in A}
+										f_X(x) \)</td>
 								</tr>
 								<tr>
-									<td>Continuous</td>
-									<td>PDF (density)</td>
-									<td>\( f_X(x) \)</td>
-									<td>\( \ds\Pr(a &lt; X &lt; b) = \int_a^b f_X(x)\,dx \)</td>
+									<td class="fragment" data-fragment-index="4">Continuous</td>
+									<td class="fragment" data-fragment-index="5">PDF (density)</td>
+									<td class="fragment" data-fragment-index="6">\( f_X(x) \)</td>
+									<td class="fragment" data-fragment-index="7">\( \ds\Pr(a &lt; X &lt; b) = \int_a^b
+										f_X(x)\,dx \)</td>
 								</tr>
 							</tbody>
 						</table>
@@ -223,11 +232,11 @@
 					<h5>Example: Throwing a fair die 🎲</h5>
 
 					<div class="size-65 left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="00">
 							The probability that any of one of the six
 							sides of a fair dice lands uppermost when
 							thrown is 1/6.
-							<span>
+							<span class="fragment" data-fragment-index="1">
 								This can be represented
 								be represented mathematically as:
 								\[
@@ -236,15 +245,15 @@
 							</span>
 						</p>
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								\(X\) represents the random variable describing the side that lands uppermost.
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								\(x\) represents the possible values \(X\) can take.
 							</li>
 						</ul>
 					</div>
-					<div>
+					<div class="fragment" data-fragment-index="4">
 						<img style="width:550px" src="images/week-11/die-prob-dist.svg">
 					</div>
 				</section>
@@ -263,20 +272,21 @@
 						</p>
 					</div>
 
-					<div>
+					<div class="fragment" data-fragment-index="0">
 						<table style="text-align: center; border-collapse: collapse; font-size: 60%;" border="1">
-							<tr style="text-align: center;font-weight: bold;">
-								<td style="text-align: center;">$X$</td>
-								<td style="text-align: center;">1</td>
-								<td style="text-align: center;">2</td>
-								<td style="text-align: center;">3</td>
-								<td style="text-align: center;">4</td>
-								<td style="text-align: center;">5</td>
-								<td style="text-align: center;">6</td>
+							<tr style="text-align: center;font-weight: bold; height: 40px;" class="fragment"
+								data-fragment-index="1">
+								<td style="text-align: center; width: 80px;">$X$</td>
+								<td style="text-align: center; width: 70px;">1</td>
+								<td style="text-align: center; width: 70px;">2</td>
+								<td style="text-align: center; width: 70px;">3</td>
+								<td style="text-align: center; width: 70px;">4</td>
+								<td style="text-align: center; width: 70px;">5</td>
+								<td style="text-align: center; width: 70px;">6</td>
 
 							</tr>
-							<tr style="text-align: center;">
-								<td style="text-align: center;">$f(x)$</td>
+							<tr style="text-align: center; height: 90px;" class="fragment" data-fragment-index="2">
+								<td style="text-align: center;">$f_X(x)$</td>
 								<td style="text-align: center;">
 									$\dfrac{1}{6}$
 								</td>
@@ -296,7 +306,7 @@
 									$\dfrac{1}{6}$
 								</td>
 							</tr>
-							<tr style="text-align: center;">
+							<tr style="text-align: center; height: 90px;" class="fragment" data-fragment-index="3">
 								<td style="text-align: center;">$F(x)$</td>
 								<td style="text-align: center;">
 									$\dfrac{1}{6}$
@@ -319,10 +329,13 @@
 							</tr>
 						</table>
 					</div>
+					<div class="size-50">
+						<p class="fragment" data-fragment-index="0">👆 Throwing a die 🎲</p>
+					</div>
 					<br />
 				</section>
 
-				<section data-auto-animate>
+				<section>
 					<h5>Cumulative Probability Function (CDF)</h5>
 
 					<div>
@@ -347,7 +360,7 @@
 
 										</tr>
 										<tr style="text-align: center;">
-											<td>🔵</td>
+											<td class="fragment" data-fragment-index="0">🔵</td>
 											<td style="text-align: center;">$f(x)$</td>
 											<td style="text-align: center;">
 												$\dfrac{1}{6}$
@@ -369,7 +382,8 @@
 											</td>
 										</tr>
 										<tr style="text-align: center;">
-											<td style="color: red;font-weight: bolder;font-size: 120%;">--</td>
+											<td style="color: red;font-weight: bolder;font-size: 120%;" class="fragment"
+												data-fragment-index="1">—</td>
 											<td style="text-align: center;">$F(x)$</td>
 											<td style="text-align: center;">
 												$\dfrac{1}{6}$
@@ -391,17 +405,24 @@
 											</td>
 										</tr>
 									</table>
+									<div class="size-40" style="text-align: center;">
+										<p>👆 Throwing a die 🎲</p>
+									</div>
 								</td>
 								<td style="width: 70%;">
 									<div class="r-stack">
-										<img style="width: 100%;" class="fragment fade-out" data-fragment-index="0" src="images/week-11/die-pmf.svg">
-										<img style="width: 100%;" class="fragment fade-in" data-fragment-index="0" src="images/week-11/die-cdf.svg">
+										<img style="width: 100%;" class="fragment fade-in" data-fragment-index="0"
+											src="images/week-11/die-pmf.svg">
+										<img style="width: 100%;" class="fragment fade-in-then-out"
+											data-fragment-index="1" src="images/week-11/die-cdf.svg">
+										<img style="width: 100%;" class="fragment fade-in" data-fragment-index="2"
+											src="images/week-11/die-cdf-pmf.svg">
 									</div>
 								</td>
 							</tr>
 						</table>
 					</div>
-					<br/>
+					<br /><br />
 				</section>
 			</section>
 
