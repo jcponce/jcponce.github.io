@@ -886,7 +886,8 @@
 								<td style="width: 50%; text-align: center;">
 									Poisson distribution:
 									\[
-									P\left(X=k\right) =\ds \frac{e^{-\lambda }\lambda^k}{k!}, \;k = 0, 1, \ldots, \lambda \gt 0
+									P\left(X=k\right) =\ds \frac{e^{-\lambda }\lambda^k}{k!}, \;k = 0, 1, \ldots,
+									\lambda \gt 0
 									\]
 								</td>
 								<td style="width: 50%; text-align: center;"><img style="width: 250px;"
@@ -956,6 +957,100 @@
 						src="https://www.geogebra.org/material/iframe/id/a4n7qxjt/width/795/height/543/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
 						width="795px" height="543px" style="border:0px;" allowfullscreen=""> </iframe>
 					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Checkpoint: Bank Tellers Problem</h5>
+					<div class="size-65 left-txt">
+						<p>
+							The manager of a bank branch supervises three tellers.
+							<span class="fragment" data-fragment-index="0">
+								The number of customers each teller can serve in a
+								10-minute period follows a Poisson distribution, but with different rates:
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Teller A serves customers at a rate of 2 per 10 minutes,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Teller B at a rate of 3 per 10 minutes,
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								and Teller C at a rate of 4 per 10 minutes.
+							</span>
+
+
+						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="4">
+								If the tellers serve customers independently of each other, write down the probability
+								distribution of the total number of customers this branch can serve in a 10 minute
+								period
+								when fully staffed.
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								How many customers would you expect this branch to serve in a 10 minute period if fully
+								staffed?
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								Calculate the probability that the total number of customers served in a 10 minute
+								period at
+								this branch exceeds 5 people, when fully staffed.
+							</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				
+				<section data-auto-animate>
+					<h5>Checkpoint: Bank Tellers Problem</h5>
+					<div class="size-65 left-txt">
+
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								Let \( X_A \sim \text{Poisson}(2) \), 
+								\( X_B \sim \text{Poisson}(3) \), 
+								and \( X_C \sim \text{Poisson}(4) \), <br/> all independent.
+								<p class="fragment" data-fragment-index="1">
+								The total number of customers served is:
+									\[
+									X = X_A + X_B + X_C \sim \text{Poisson}(2 + 3 + 4) = \text{Poisson}(9)
+									\]
+								</p>
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<p>
+									The expected value of a Poisson distribution 
+									is its rate parameter \( \lambda \).
+									<span  class="fragment" data-fragment-index="3">
+										Thus
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									\[
+									\mathbb{E}[X] = 2 + 3 + 4 = 9
+									\]
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								<p>
+									We want to compute \( P(X > 5) \)
+									 where \( X \sim \text{Poisson}(9) .\)<br/>
+									 <span  class="fragment" data-fragment-index="5">
+										Using the complement rule:
+									 </span>
+									
+								</p>
+								<p class="fragment" data-fragment-index="5">
+									\[
+									P(X > 5) = 1 - P(X \leq 5) 
+									\]
+								</p>
+							</li>
+						</ol>
+					</div>
+					<br />
+					<br />
 				</section>
 
 				<!-- 
