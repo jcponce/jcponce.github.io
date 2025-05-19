@@ -786,10 +786,10 @@
 								<td style="width: 30%; text-align: left;font-size: 80%;">
 									👈 $P(Z\gt a)$
 								</td>
-								
+
 							</tr>
 						</table>
-						
+
 					</div>
 				</section>
 
@@ -797,28 +797,28 @@
 					<h5>Areas under the Standard Normal Distribution</h5>
 
 					<div style="text-align: right; font-size: 70%; margin-right: 10px;">
-						<p><strong>Example 1:</strong> $Z  \sim  N(0,1).$ Find $P(Z\gt 1.52)$</p>
+						<p><strong>Example 1:</strong> $Z \sim N(0,1).$ Find $P(Z\gt 1.52)$</p>
 					</div>
 
 					<div style="margin-top: -30px;text-align: left;">
 						<img style="width: 60%" src="images/week-11/table-standar-normal-dist-examples-1-2.png">
 					</div>
 
-					<br/>
+					<br />
 
 				</section>
 				<section data-auto-animate>
 					<h5>Areas under the Standard Normal Distribution</h5>
 
 					<div style="text-align: right; font-size: 70%; margin-right: 10px;">
-						<p><strong>Example 2:</strong> $Z  \sim  N(0,1).$ Find $P(0 \lt Z \lt 1.52)$</p>
+						<p><strong>Example 2:</strong> $Z \sim N(0,1).$ Find $P(0 \lt Z \lt 1.52)$</p>
 					</div>
 
 					<div style="margin-top: -30px;text-align: left;">
 						<img style="width: 60%" src="images/week-11/table-standar-normal-dist-examples-1-2.png">
 					</div>
 
-					<br/>
+					<br />
 
 				</section>
 
@@ -834,11 +834,11 @@
 						<img style="width: 55%" src="images/week-11/table-standar-normal-dist-examples-1-2.png">
 					</div>
 
-					<br/>
+					<br />
 
 				</section>
 
-				
+
 
 			</section>
 
@@ -886,10 +886,11 @@
 								<td style="width: 50%; text-align: center;">
 									Poisson distribution:
 									\[
-									P(Y=y) =\ds \frac{e^{-\lambda }\lambda^y}{y!}, \;y = 0, 1, \ldots, \lambda \gt 0
+									P\left(X=k\right) =\ds \frac{e^{-\lambda }\lambda^k}{k!}, \;k = 0, 1, \ldots, \lambda \gt 0
 									\]
 								</td>
-								<td style="width: 50%; text-align: center;"><img style="width: 250px;" src="images/week-11/02-poisson.png"></td>
+								<td style="width: 50%; text-align: center;"><img style="width: 250px;"
+										src="images/week-11/02-poisson.png"></td>
 							</tr>
 							<tr class="fragment" data-fragment-index="1">
 								<td style="width: 50%; text-align: center;">
@@ -903,11 +904,50 @@
 									\right.
 									\]
 								</td>
-								<td style="width: 50%; text-align: center;"><img style="width: 250px;" src="images/week-11/03-exp.png"></td>
+								<td style="width: 50%; text-align: center;"><img style="width: 250px;"
+										src="images/week-11/03-exp.png"></td>
 							</tr>
 						</table>
 
 					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h6>Some properties of the Poisson distribution</h6>
+
+
+					<div class="size-75 left-txt">
+
+						<p>
+							\[
+							P\left(X=k\right) =\ds \frac{e^{-\lambda }\lambda^k}{k!}
+							\]
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">$x$ is the number of occurrences ($x = 0, 1,
+								\ldots$ ).</li>
+							<li class="fragment" data-fragment-index="1">
+								$\lambda $ is a positive parameter ($\lambda \gt 0$) known as the <strong>rate</strong>
+								of occurrence.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$E(X) = \lambda .$
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								If $X_1, X_2,\ldots , X_n$ are independent Poisson random variables with
+								parameters $\lambda_1,\lambda_2,\ldots,\lambda_n,$ respectively,
+								<span class="fragment" data-fragment-index="4">
+									then
+									\[
+									X = \sum_{k=1}^{n}X_i \sim \text{Poisson}\left(\sum_{k=1}^{n}\lambda\right)
+									\]
+								</span>
+
+							</li>
+						</ul>
+					</div>
+
+					<br />
 				</section>
 
 				<section data-auto-animate>
