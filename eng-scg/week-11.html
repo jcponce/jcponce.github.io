@@ -88,7 +88,7 @@
 					<div class="size-65 left-txt">
 
 						<p class="fragment" data-fragment-index="0">
-							When we talk about <strong>random variables(RVs)</strong> 
+							When we talk about <strong>random variables(RVs)</strong>
 							in probability, they come in two types:
 						</p>
 
@@ -720,7 +720,7 @@
 				</section>
 				<section data-auto-animate>
 					<h5>Bayes' Theorem</h5>
-					
+
 					<div class="size-75">
 						<p>
 							⭐️ $P\left(A \,|\, B\right)= \dfrac{P\left(B \,|\, A\right)P(A)}{P(B)}$ ⭐️
@@ -741,14 +741,15 @@
 							<span class="fragment" data-fragment-index="2">
 								then
 							</span>
-						</p><br/>
+						</p><br />
 					</div>
 					<div class="size-75">
 						<p class="fragment" data-fragment-index="2">
-							$P\left(A \,|\, B\right)= \dfrac{P\left(B \,|\, A\right)P(A)}{P\left(B \,|\, A\right)P(A) + P\left(B \,|\, A'\right)P(A')}$ 
+							$P\left(A \,|\, B\right)= \dfrac{P\left(B \,|\, A\right)P(A)}{P\left(B \,|\, A\right)P(A) +
+							P\left(B \,|\, A'\right)P(A')}$
 						</p>
 					</div>
-					<br /><br /><br/>
+					<br /><br /><br />
 				</section>
 				<!--
 				<section data-auto-animate>
@@ -782,6 +783,33 @@
 					</div>
 				</section>
 
+				<section data-auto-animate>
+					<h5>The Normal Distribution</h5>
+
+					<div class="size-70">
+
+						<p>
+							$ \large N\left(\mu, \sigma^2\right) =\ds \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}
+							\left(
+							\frac{x -
+							\mu}{\sigma} \right)^2}$
+						</p>
+
+						<p style="margin-top: 50px;font-size: 110%;" class="fragment" data-fragment-index="0">
+							We write $X\sim N\left(\mu, \sigma^2\right)$: <br /><br />
+							<span class="fragment" data-fragment-index="1">
+								$X$ is normally distributes with mean $\mu$ and variance $\sigma^2.$
+							</span>
+						</p>
+
+					</div>
+
+					<div>
+						<img style="width: 45%;" src="images/week-11/Normal_Distribution_Sigma.svg">
+					</div>
+
+				</section>
+
 
 				<section data-auto-animate>
 					<h5>The Normal Distribution</h5>
@@ -806,17 +834,21 @@
 					<h5>Areas under the Standard Normal Distribution</h5>
 
 					<div style="margin-top: -30px;">
-						<img style="width: 40%" src="images/week-11/table-standar-normal-dist.png">
+						<img style="width: 45%" src="images/week-11/table-standar-normal-dist.png">
 					</div>
 
 					<div style="text-align: center;margin-top: -30px;">
-						<table style="width: 75%;">
+						<table style="width: 80%">
 							<tr>
-								<td style="width: 70%; text-align: right;">
+								<td style="width: 65%; text-align: right;">
 									<img style="width: 100%" src="images/week-11/table-plot-area.png">
 								</td>
-								<td style="width: 30%; text-align: left;font-size: 80%;">
-									👈 $P(Z\gt a)$
+								<td style="width: 5%; text-align: center;">
+									👈
+								</td>
+								<td style="width: 30%; text-align: left;font-size: 70%;">
+									$X\sim N(0,1)$ <br />
+									$P(Z\gt a)$
 								</td>
 
 							</tr>
@@ -905,7 +937,7 @@
 								<td style="width: 50%; text-align: center;">
 									Normal distribution:
 									\[
-									N\left(x; \mu, \sigma^2\right) =\ds \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}
+									N\left(\mu, \sigma^2\right) =\ds \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}
 									\left( \frac{x -
 									\mu}{\sigma} \right)^2}
 									\]
@@ -931,7 +963,7 @@
 									\[
 									f_X(x) =\ds \left\{
 									\begin{array}{rl}
-									\lambda e^{-\lambda x}, & 0\leq x\\
+									\lambda e^{-\lambda x}, &  x\geq 0\\
 									0, & \text{otherwise}
 									\end{array}
 									\right.
@@ -946,7 +978,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h6>Some properties of the Poisson distribution</h6>
+					<h6>Key properties of the Poisson distribution</h6>
 
 
 					<div class="size-75 left-txt">
@@ -982,6 +1014,7 @@
 
 					<br />
 				</section>
+				
 
 				<section data-auto-animate>
 					<h6>Probability distributions</h6>
@@ -1082,6 +1115,55 @@
 						</ol>
 					</div>
 					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h6>Key properties of the Exponential distribution</h6>
+
+
+					<div class="size-75 left-txt">
+
+						<p>
+							\[
+							P\left(X=x\right) =\ds \left\{
+							\begin{array}{rl}
+							\lambda e^{-\lambda x}, & x\geq 0\\
+							0, & \text{otherwise}
+							\end{array}
+							\right.
+							\]
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								We write $X\sim Exp(\lambda).$
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								The CDF of $X\sim Exp(\lambda)$ is
+								<p style="text-align: right;">
+									$\qquad \qquad\ds F_X(x) =\ds \left\{
+									\begin{array}{rl}
+									1-e^{-\lambda x}, & x\geq 0\\
+									0, & \text{otherwise}
+									\end{array}
+									\right.$
+								</p>
+								
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$E(X) = 1/\lambda $ and $\text{Var}(X) = 1/\lambda^2.$
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								If $X\sim Exp(\lambda),$ 
+								<span>then 
+									\[
+								    \qquad \qquad P\left(X\gt s+t \,|\, X\gt t\right) = P\left( X\gt s\right).
+								    \]
+								</span>
+							</li>
+						</ul>
+					</div>
+
 					<br />
 				</section>
 
