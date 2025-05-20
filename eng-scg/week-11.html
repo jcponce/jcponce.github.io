@@ -749,21 +749,22 @@
 							P\left(B \,|\, A'\right)P(A')}$
 						</p>
 					</div>
-					<br/>
+					<br />
 
 					<div class="size-60">
 						<p class="fragment" data-fragment-index="3">
-							Example 👉 <a href="https://www.dynamicmath.xyz/eng-scg/week-09.html#/2/1/2" target="_blank">Medical Diagnosis 
+							Example 👉 <a href="https://www.dynamicmath.xyz/eng-scg/week-09.html#/2/1/2"
+								target="_blank">Medical Diagnosis
 								<i class="fa fa-external-link-alt"></i>
 							</a>
 						</p>
 					</div>
 
-					
+
 					<br />
 				</section>
 
-				
+
 				<!--
 				<section data-auto-animate>
 					<h5>Bayes' Theorem</h5>
@@ -940,13 +941,13 @@
 						</p>
 					</div>
 
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
 
 				</section>
 
@@ -1052,11 +1053,11 @@
 									then
 								</span>
 								<p class="fragment" data-fragment-index="4" style="text-align: center;">
-									
+
 									<span>
-										$X =\ds  \sum_{k=1}^{n}X_i $
+										$X =\ds \sum_{k=1}^{n}X_i $
 									</span>
-									<span class="fragment" data-fragment-index="5" >
+									<span class="fragment" data-fragment-index="5">
 										$\ds \sim \text{Poisson}\left(\sum_{k=1}^{n}\lambda\right)$
 									</span>
 								</p>
@@ -1079,7 +1080,7 @@
 
 				<section data-auto-animate>
 					<h5>Checkpoint: Bank Tellers Problem</h5>
-					<div class="size-65 left-txt">
+					<div class="size-70 left-txt">
 						<p>
 							The manager of a bank branch supervises three tellers.
 							<span class="fragment" data-fragment-index="0">
@@ -1123,53 +1124,146 @@
 
 				<section data-auto-animate>
 					<h5>Checkpoint: Bank Tellers Problem</h5>
-					<div class="size-65 left-txt">
+					<div class="size-70 left-txt">
 
 						<ol>
-							<li class="fragment" data-fragment-index="0">
-								Let \( X_A \sim \text{Poisson}(2) \),
-								\( X_B \sim \text{Poisson}(3) \),
-								and \( X_C \sim \text{Poisson}(4) \), <br /> all independent.
-								<p class="fragment" data-fragment-index="1">
-									The total number of customers served is:
-									\[
-									X = X_A + X_B + X_C \sim \text{Poisson}(2 + 3 + 4) = \text{Poisson}(9)
-									\]
-								</p>
-							</li>
-							<li class="fragment" data-fragment-index="2">
-								<p>
-									The expected value of a Poisson distribution
-									is its rate parameter \( \lambda \).
-									<span class="fragment" data-fragment-index="3">
-										Thus
-									</span>
-								</p>
-								<p class="fragment" data-fragment-index="3">
-									\[
-									E(X) = 2 + 3 + 4 = 9
-									\]
-							</li>
-							<li class="fragment" data-fragment-index="4">
-								<p>
-									We want to compute \( P(X > 5) \)
-									where \( X \sim \text{Poisson}(9) .\)<br />
-									<span class="fragment" data-fragment-index="5">
-										Using the complement rule:
-									</span>
-
-								</p>
-								<p class="fragment" data-fragment-index="5">
-									\[
-									P(X > 5) = 1 - P(X \leq 5)
-									\]
-								</p>
+							<li>
+								If the tellers serve customers independently of each other, write down the probability
+								distribution of the total number of customers this branch can serve in a 10 minute
+								period
+								when fully staffed.
 							</li>
 						</ol>
+					</div>
+
+					<div class="size-70 left-txt">
+						<p class="fragment" data-fragment-index="0" style="margin-left: 40px;margin-top: 50px;">
+							Let \( X_A \sim \text{Poisson}(2) ,\)
+							<span class="fragment" data-fragment-index="1">
+								\( X_B \sim \text{Poisson}(3),\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and \( X_C \sim \text{Poisson}(4) ,\) all independent.
+							</span>
+
+							<br /><br />
+							<span class="fragment" data-fragment-index="3">
+								The total number of customers served is:
+
+							</span>
+						</p>
+					</div>
+
+					<div class="size-70">
+						<p class="fragment" data-fragment-index="3">
+							$
+							X = X_A + X_B + X_C
+							$
+							<span class="fragment" data-fragment-index="4">
+								$\ds \sim \text{Poisson}(2 + 3 + 4) = \text{Poisson}(9)$
+							</span>
+						</p>
+
 					</div>
 					<br />
 					<br />
 				</section>
+
+				<section data-auto-animate>
+					<h5>Checkpoint: Bank Tellers Problem</h5>
+					<div class="size-70 left-txt">
+
+						<ol start="2">
+							<li>
+								How many customers would you expect this branch to serve in a 10 minute period if fully
+								staffed?
+							</li>
+						</ol>
+					</div>
+
+					<div class="size-70 left-txt">
+						<p class="fragment" data-fragment-index="0" style="margin-left: 40px;margin-top: 50px;">
+							\( X_A \sim \text{Poisson}(2) ,\)
+							<span>
+								\( X_B \sim \text{Poisson}(3),\)
+							</span>
+							<span>
+								\( X_C \sim \text{Poisson}(4) ,\) independent.
+							</span>
+
+							<br /><br />
+							The expected value of a Poisson distribution
+							is its rate parameter \( \lambda \).
+							<span class="fragment" data-fragment-index="1">
+								Thus
+							</span>
+						</p>
+					</div>
+
+					<div class="size-70">
+
+						<p class="fragment" data-fragment-index="2">
+							$
+							E(X)
+							$
+							<span class="fragment" data-fragment-index="3">
+								$= 2 + 3 + 4 =9$
+							</span>
+						</p>
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Checkpoint: Bank Tellers Problem</h5>
+					<div class="size-70 left-txt">
+
+						<ol start="3">
+							<li>
+								Calculate the probability that the total number of customers served in a 10 minute
+								period at
+								this branch exceeds 5 people, when fully staffed.
+							</li>
+						</ol>
+					</div>
+
+					<div class="size-70 left-txt">
+						<p class="fragment" data-fragment-index="0" style="margin-left: 40px;margin-top: 50px;">
+							We want to compute \( P(X > 5) \)
+							where \( X \sim \text{Poisson}(9) .\)<br />
+							<span class="fragment" data-fragment-index="1">
+								Use the complement rule:
+							</span>
+
+							
+						</p>
+					</div>
+
+					<div class="size-70 left-txt">
+
+						<p class="fragment" data-fragment-index="1">
+							$
+							\quad P(X > 5) = 1 - P(X \leq 5)
+							$
+							<span class="fragment" data-fragment-index="2">
+								$= 1 - \ds \sum_{k=0}^{5}P\left(X=k\right) $ 
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3" style="font-size: 90%;">
+							$
+							\qquad \qquad = 1 - \left[ \ds \frac{e^{-9}9^{0}}{0!} + \frac{e^{-9}9^{1}}{1!}  + \frac{e^{-9}9^{2}}{2!}  + \frac{e^{-9}9^{3}}{3!} + \frac{e^{-9}9^{4}}{4!} + \frac{e^{-9}9^{5}}{5!}\right]
+							$
+						</p>
+
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+				
 
 				<section data-auto-animate>
 					<h6>Key properties of the Exponential distribution</h6>
