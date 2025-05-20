@@ -88,8 +88,8 @@
 					<div class="size-65 left-txt">
 
 						<p class="fragment" data-fragment-index="0">
-							When we talk about random variables
-							(RVs) in probability, they come in two types:
+							When we talk about <strong>random variables(RVs)</strong> 
+							in probability, they come in two types:
 						</p>
 
 						<ul>
@@ -718,6 +718,38 @@
 					</div>
 					<br /><br />
 				</section>
+				<section data-auto-animate>
+					<h5>Bayes' Theorem</h5>
+					
+					<div class="size-75">
+						<p>
+							⭐️ $P\left(A \,|\, B\right)= \dfrac{P\left(B \,|\, A\right)P(A)}{P(B)}$ ⭐️
+						</p>
+					</div>
+					<div class="size-75">
+						<p>
+							Since $P(B) =$
+							<span class="fragment" data-fragment-index="0">
+								$\, P\left(B \,|\, A\right)P(A) $
+							</span>
+							<span>
+								$\,+$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\, P\left(B \,|\, A'\right)P(A'),$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								then
+							</span>
+						</p><br/>
+					</div>
+					<div class="size-75">
+						<p class="fragment" data-fragment-index="2">
+							$P\left(A \,|\, B\right)= \dfrac{P\left(B \,|\, A\right)P(A)}{P\left(B \,|\, A\right)P(A) + P\left(B \,|\, A'\right)P(A')}$ 
+						</p>
+					</div>
+					<br /><br /><br/>
+				</section>
 				<!--
 				<section data-auto-animate>
 					<h5>Bayes' Theorem</h5>
@@ -1002,18 +1034,18 @@
 					<br />
 				</section>
 
-				
+
 				<section data-auto-animate>
 					<h5>Checkpoint: Bank Tellers Problem</h5>
 					<div class="size-65 left-txt">
 
 						<ol>
 							<li class="fragment" data-fragment-index="0">
-								Let \( X_A \sim \text{Poisson}(2) \), 
-								\( X_B \sim \text{Poisson}(3) \), 
-								and \( X_C \sim \text{Poisson}(4) \), <br/> all independent.
+								Let \( X_A \sim \text{Poisson}(2) \),
+								\( X_B \sim \text{Poisson}(3) \),
+								and \( X_C \sim \text{Poisson}(4) \), <br /> all independent.
 								<p class="fragment" data-fragment-index="1">
-								The total number of customers served is:
+									The total number of customers served is:
 									\[
 									X = X_A + X_B + X_C \sim \text{Poisson}(2 + 3 + 4) = \text{Poisson}(9)
 									\]
@@ -1021,9 +1053,9 @@
 							</li>
 							<li class="fragment" data-fragment-index="2">
 								<p>
-									The expected value of a Poisson distribution 
+									The expected value of a Poisson distribution
 									is its rate parameter \( \lambda \).
-									<span  class="fragment" data-fragment-index="3">
+									<span class="fragment" data-fragment-index="3">
 										Thus
 									</span>
 								</p>
@@ -1035,15 +1067,15 @@
 							<li class="fragment" data-fragment-index="4">
 								<p>
 									We want to compute \( P(X > 5) \)
-									 where \( X \sim \text{Poisson}(9) .\)<br/>
-									 <span  class="fragment" data-fragment-index="5">
+									where \( X \sim \text{Poisson}(9) .\)<br />
+									<span class="fragment" data-fragment-index="5">
 										Using the complement rule:
-									 </span>
-									
+									</span>
+
 								</p>
 								<p class="fragment" data-fragment-index="5">
 									\[
-									P(X > 5) = 1 - P(X \leq 5) 
+									P(X > 5) = 1 - P(X \leq 5)
 									\]
 								</p>
 							</li>
