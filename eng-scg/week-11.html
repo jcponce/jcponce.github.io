@@ -1214,6 +1214,7 @@
 					</div>
 					<br />
 					<br />
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -1269,11 +1270,11 @@
 					<h6>Key properties of the Exponential distribution</h6>
 
 
-					<div class="size-75 left-txt">
+					<div class="size-70 left-txt">
 
 						<p>
 							\[
-							P\left(X=x\right) =\ds \left\{
+							f_{X}(x)=\ds \left\{
 							\begin{array}{rl}
 							\lambda e^{-\lambda x}, & x\geq 0\\
 							0, & \text{otherwise}
@@ -1281,14 +1282,18 @@
 							\right.
 							\]
 						</p>
-						<ul>
+						<ul style="line-height: 50px;">
 							<li class="fragment" data-fragment-index="0">
 								We write $X\sim Exp(\lambda).$
 							</li>
 							<li class="fragment" data-fragment-index="1">
 								The CDF of $X\sim Exp(\lambda)$ is
 								<p style="text-align: right;">
-									$\qquad \qquad\ds F_X(x) =\ds \left\{
+									<span class="fragment" data-fragment-index="2">
+										$\quad P(X\lt x)=$
+									</span>
+									
+									$\ds F_X(x) =\ds \left\{
 									\begin{array}{rl}
 									1-e^{-\lambda x}, & x\geq 0\\
 									0, & \text{otherwise}
@@ -1297,10 +1302,10 @@
 								</p>
 
 							</li>
-							<li class="fragment" data-fragment-index="2">
-								$E(X) = 1/\lambda $ and $\text{Var}(X) = 1/\lambda^2.$
-							</li>
 							<li class="fragment" data-fragment-index="3">
+								$E(X) = \dfrac{1}{\lambda} $ and $\text{Var}(X) = \dfrac{1}{\lambda^2}.$
+							</li>
+							<li class="fragment" data-fragment-index="4">
 								If $X\sim Exp(\lambda),$
 								<span>then
 									\[
