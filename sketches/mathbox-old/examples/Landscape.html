@@ -46,8 +46,8 @@
       mathbox
         .viewport({
           type: 'cartesian',
-          range: [[-1, 1], [-.6, 1.4], [-1, 1]],
-          scale: [.65, .65, .65],
+          range: [[-1, 1], [-.6, 2.1], [-1, 1]],
+          scale: [.55, .55, .55],
         })
         .camera({
           orbit: 3.5,
@@ -104,7 +104,7 @@
     [
       ['add', 'surface', {
         id: "wire",
-        domain: [[-1, 1], [-1, 1]],
+        domain: [[-2, 2], [-2, 2]],
         expression: function (x, y, i, j) {
           return [x, 0, y];
         },
@@ -123,7 +123,7 @@
       }],
       ['add', 'surface', {
         id: "fill",
-        domain: [[-1, 1], [-1, 1]],
+        domain: [[-2, 2], [-2, 2]],
         expression: function (x, y, i, j) {
           return [x, 0, y];
         },
@@ -132,7 +132,7 @@
         flipSided: true,
         zIndex: -20,
         shaded: true,
-        color: 0xdddddd,
+        color: 0xc65353,
       }, {
         duration: 0,
       }],
@@ -142,7 +142,7 @@
         points: true,
         line: false,
         mesh: false,
-        domain: [[-1, 1], [-1, 1]],
+        domain: [[-2, 2], [-2, 2]],
         expression: function (x, y, i, j) {
           return [x, 0, y];
         },
@@ -360,8 +360,8 @@
         duration: 1000,
       }],
       ['animate', 'camera', {
-        phi: τ/6-τ,
-        theta: .9,
+        phi: τ/6,
+        theta: .45,
       }, {
         delay: 1000,
         duration: 10000,
@@ -382,8 +382,8 @@ window.mathBoxSetup = function (mathbox) {
   mathbox
     .viewport({
       type: 'cartesian',
-      range: [[-1, 1], [-.6, 1.4], [-1, 1]],
-      scale: [.85, .85, .85],
+      range: [[-1, 1], [-.6, 2.1], [-1, 1]],
+      scale: [.55, .55, .55],
     })
     .camera({
       phi: τ/6-τ/4,
@@ -663,10 +663,10 @@ window.mathBoxScript = [
       duration: 1000,
     }],
     ['animate', 'camera', {
-      phi: τ/6-τ,
-      theta: .9,
+      phi: τ/6,
+      theta: 0.9,
     }, {
-      delay: 500,
+      delay: 900,
       duration: 1000,
     }],
   ],
