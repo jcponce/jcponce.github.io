@@ -170,7 +170,7 @@ var script = [
     }, { duration: 1000 }]
   ],
 
-  // Step 3: Noise at scale 1
+  // Step 3: Noise at scale 1 with partition
   [
     ['remove', '#points1'],
     ['animate', '#wire, #fill', {
@@ -214,7 +214,7 @@ var script = [
     }, { duration: 3000 }]
   ],
 
-  // Step 4: Same noise, different camera
+  // Step 4: Same noise, smooth partition, different camera
   [
     ['animate', '#wire, #fill', {
       expression: (x, y) => [x, octave(x, y, 1), y]
@@ -237,9 +237,10 @@ var script = [
     ['animate', '#wire, #fill', {
       expression: (x, y) =>
         [x,
-         octave(x, y, 1) * 0.7 +
+         octave(x, y, 1) * 0.8 +
          octave(x, y, 2) * 0.4 +
-         octave(x, y, 4) * 0.2,
+         octave(x, y, 4) * 0.22 +
+         octave(x, y, 8) * 0.125,
          y],
     }, { duration: 1000 }],
     ['animate', 'camera', {
