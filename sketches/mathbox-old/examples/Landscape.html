@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>MathBox - Example: Procedural Landscape Generation</title>
@@ -22,236 +23,241 @@
   </script>
 
   <script type="text/javascript">
-  /**
-   * Bootstrap
-   */
-  DomReady.ready(function() {
-    ThreeBox.preload([
-      '../shaders/snippets.glsl.html',
-    ], function () {
+    /**
+     * Bootstrap
+     */
+    DomReady.ready(function () {
+      ThreeBox.preload([
+        '../shaders/snippets.glsl.html',
+      ], function () {
 
-      // MathBox boilerplate
-      var mathbox = window.mathbox = mathBox({
-        cameraControls: true,
-        cursor:         true,
-        controlClass:   ThreeBox.OrbitControls,
-        elementResize:  true,
-        fullscreen:     true,
-        screenshot:     true,
-        stats:          false,
-        scale:          1,
-      }).start();
+        // MathBox boilerplate
+        var mathbox = window.mathbox = mathBox({
+          cameraControls: true,
+          cursor: true,
+          controlClass: ThreeBox.OrbitControls,
+          elementResize: true,
+          fullscreen: true,
+          screenshot: true,
+          stats: false,
+          scale: 1,
+        }).start();
 
-      // Viewport camera/setup
-      mathbox
-        .viewport({
-          type: 'cartesian',
-          range: [[-1, 1], [-.6, 2.1], [-1, 1]],
-          scale: [.55, .55, .55],
-        })
-        .camera({
-          orbit: 3.5,
-          phi: τ/6-τ/4,
-          theta: .45,
-        });
+        // Viewport camera/setup
+        mathbox
+          .viewport({
+            type: 'cartesian',
+            range: [[-1, 1], [-.6, 2.1], [-1, 1]],
+            scale: [.55, .55, .55],
+          })
+          .camera({
+            orbit: 3.5,
+            phi: τ / 6 - τ / 4,
+            theta: .45,
+          });
 
-      // Director
-      var director = window.director = new MathBox.Director(mathbox, script);
+        // Director
+        var director = window.director = new MathBox.Director(mathbox, script);
 
-      // Show info if not iframed.
-      if (top == window) {
-        document.getElementById('info').style.opacity = 1;
-      }
-
-      // Arrow controls
-      // Controls for stand-alone
-      window.addEventListener('touchstart', function (e) {
-        director.forward();
-        document.getElementById('info').style.opacity = '0';
-      });
-      window.addEventListener('keydown', function (e) {
-        if (e.keyCode == 38 || e.keyCode == 37) director.back();
-        else if (e.keyCode == 40 || e.keyCode == 39) director.forward();
-        else {
-          return;
+        // Show info if not iframed.
+        if (top == window) {
+          document.getElementById('info').style.opacity = 1;
         }
 
-        document.getElementById('info').style.opacity = 0;
-      });
-    });
-  });
-  </script>
-
-<script type="text/javascript">
-// Shared noise and interpolation helpers
-function point(x, y, f = 0) {
-  return Math.sin(x - y * 1.3 + Math.sin(f * .31 + 1 + x) + .31 + f) * .5 + .5;
-}
-
-function octave(x, y, scale, f = 0) {
-  x *= scale;
-  y *= scale;
-  var fx = Math.floor(x), fy = Math.floor(y);
-  var ix = x - fx, iy = y - fy;
-
-  var y11 = point(fx, fy, f), y12 = point(fx, fy + 1, f);
-  var y21 = point(fx + 1, fy, f), y22 = point(fx + 1, fy + 1, f);
-
-  var dx = .5 - .5 * Math.cos(π * iy);
-  var dy = .5 - .5 * Math.cos(π * ix);
-
-  var y1 = y11 + (y12 - y11) * dx;
-  var y2 = y21 + (y22 - y21) * dx;
-  return y1 + (y2 - y1) * dy;
-}
-
-var script = [
-  // Step 1: Grid
-  [
-    ['add', 'surface', {
-      id: "wire",
-      domain: [[-2, 2], [-2, 2]],
-      expression: (x, y) => [x, 0, y],
-      n: 32,
-      line: true,
-      mesh: false,
-      live: true,
-      doubleSided: false,
-      flipSided: true,
-      zIndex: 0,
-      color: 0x0,
-      opacity: .2,
-      shaded: false,
-    }, { duration: 500 }],
-    ['add', 'surface', {
-      id: "fill",
-      domain: [[-2, 2], [-2, 2]],
-      expression: (x, y) => [x, 0, y],
-      opacity: 1,
-      doubleSided: true,
-      flipSided: true,
-      zIndex: -20,
-      shaded: true,
-      color: 0xcc0066,
-    }, { duration: 0 }],
-    ['add', 'surface', {
-      id: 'points1',
-      n: 2,
-      points: true,
-      line: false,
-      mesh: false,
-      domain: [[-2, 2], [-2, 2]],
-      expression: (x, y) => [x, 0, y],
-      shaded: false,
-      pointSize: 20,
-      zIndex: 10,
-    }]
-  ],
-
-  // Step 2: First bump animation
-  [
-    ['animate', '#points1, #wire, #fill', {
-      expression: function (x, y) {
-        var f = Math.max(0, director.clock(2) - 0.3);
-        f = (f < 1) ? f * f / 2 : f - 0.5;
-
-        var y11 = point(-1, -1, f), y12 = point(-1, 1, f);
-        var y21 = point(1, -1, f), y22 = point(1, 1, f);
-
-        var dx = .5 - .5 * Math.cos(π * (y * .5 + .5));
-        var dy = .5 - .5 * Math.cos(π * (x * .5 + .5));
-
-        var y1 = y11 + (y12 - y11) * dx;
-        var y2 = y21 + (y22 - y21) * dx;
-        var h = y1 + (y2 - y1) * dy;
-
-        return [x, h, y];
-      }
-    }, { duration: 1000 }]
-  ],
-
-  // Step 3: Noise at scale 1 with partition
-  [
-    ['remove', '#points1'],
-    ['animate', '#wire, #fill', {
-      expression: 
-      function (x, y, i, j) {
-          var h = 0, f = 0;
-
-          function point(x, y) {
-            return Math.sin(x - y*1.3 + Math.sin(f*.31+1+x) + .31 + f)*.5 + .5;
+        // Arrow controls
+        // Controls for stand-alone
+        window.addEventListener('touchstart', function (e) {
+          director.forward();
+          document.getElementById('info').style.opacity = '0';
+        });
+        window.addEventListener('keydown', function (e) {
+          if (e.keyCode == 38 || e.keyCode == 37) director.back();
+          else if (e.keyCode == 40 || e.keyCode == 39) director.forward();
+          else {
+            return;
           }
 
-          function octave(x, y, scale) {
-            x *= scale;
-            y *= scale;
+          document.getElementById('info').style.opacity = 0;
+        });
+      });
+    });
+  </script>
 
-            var y11 = point(x, y);
-            var y12 = point(x, y+1);
-            var y21 = point(x+1, y);
-            var y22 = point(x+1, y+1);
+  <script type="text/javascript">
+    // Shared noise and interpolation helpers
+    function point(x, y, f = 0) {
+      return Math.sin(x - y * 1.3 + Math.sin(f * .31 + 1 + x) + .31 + f) * .5 + .5;
+    }
 
-            var fx = x - Math.floor(x);
-            var fy = y - Math.floor(y);
+    function octave(x, y, scale, f = 0) {
+      x *= scale;
+      y *= scale;
+      var fx = Math.floor(x), fy = Math.floor(y);
+      var ix = x - fx, iy = y - fy;
 
-            var dx = .5-.5*Math.cos(π*fx);
-            var dy = .5-.5*Math.cos(π*fy);
+      var y11 = point(fx, fy, f), y12 = point(fx, fy + 1, f);
+      var y21 = point(fx + 1, fy, f), y22 = point(fx + 1, fy + 1, f);
+
+      var dx = .5 - .5 * Math.cos(π * iy);
+      var dy = .5 - .5 * Math.cos(π * ix);
+
+      var y1 = y11 + (y12 - y11) * dx;
+      var y2 = y21 + (y22 - y21) * dx;
+      return y1 + (y2 - y1) * dy;
+    }
+
+    var script = [
+      // Step 1: Grid
+      [
+        ['add', 'surface', {
+          id: "wire",
+          domain: [[-2, 2], [-2, 2]],
+          expression: (x, y) => [x, 0, y],
+          n: 32,
+          line: true,
+          mesh: false,
+          live: true,
+          doubleSided: false,
+          flipSided: true,
+          zIndex: 0,
+          color: 0x0,
+          opacity: .2,
+          shaded: false,
+        }, { duration: 500 }],
+        ['add', 'surface', {
+          id: "fill",
+          domain: [[-2, 2], [-2, 2]],
+          expression: (x, y) => [x, 0, y],
+          opacity: 1,
+          doubleSided: true,
+          flipSided: true,
+          zIndex: -20,
+          shaded: true,
+          color: 0xcc0066,
+        }, { duration: 0 }],
+        ['add', 'surface', {
+          id: 'points1',
+          n: 2,
+          points: true,
+          line: false,
+          mesh: false,
+          domain: [[-2, 2], [-2, 2]],
+          expression: (x, y) => [x, 0, y],
+          shaded: false,
+          pointSize: 20,
+          zIndex: 10,
+        }]
+      ],
+
+      // Step 2: First bump animation
+      [
+        ['animate', '#points1, #wire, #fill', {
+          expression: function (x, y) {
+            var f = Math.max(0, director.clock(2) - 0.3);
+            f = (f < 1) ? f * f / 2 : f - 0.5;
+
+            var y11 = point(-1, -1, f), y12 = point(-1, 1, f);
+            var y21 = point(1, -1, f), y22 = point(1, 1, f);
+
+            var dx = .5 - .5 * Math.cos(π * (y * .5 + .5));
+            var dy = .5 - .5 * Math.cos(π * (x * .5 + .5));
 
             var y1 = y11 + (y12 - y11) * dx;
             var y2 = y21 + (y22 - y21) * dx;
+            var h = y1 + (y2 - y1) * dy;
 
-            return y1 + (y2 - y1) * dy;
+            return [x, h, y];
           }
+        }, { duration: 1000 }]
+      ],
 
-          h += octave(x, y, 1);
+      // Step 3: Noise at scale 1 with partition
+      [
+        ['remove', '#points1'],
+        ['animate', '#wire, #fill', {
+          expression:
+            function (x, y, i, j) {
+              var h = 0, f = 0;
 
-          return [x, h, y];
-        },
-    }, { duration: 1000 }],
-    ['animate', 'camera', {
-      phi: τ / 6,
-      theta: .9,
-    }, { duration: 3000 }]
-  ],
+              function point(x, y) {
+                return Math.sin(x - y * 1.3 + Math.sin(f * .31 + 1 + x) + .31 + f) * .5 + .5;
+              }
 
-  // Step 4: Same noise, smooth partition, different camera
-  [
-    ['animate', '#wire, #fill', {
-      expression: (x, y) => [x, octave(x, y, 1), y]
-    }, { duration: 1000 }],
-    ['animate', 'camera', {
-      phi: τ / 6 + τ / 4,
-      theta: .6,
-    }, { delay: 1000, duration: 2000 }]
-  ],
+              function octave(x, y, scale) {
+                x *= scale;
+                y *= scale;
 
-  // Step 5: Multi-octave (scale 1 + 2)
-  [
-    ['animate', '#wire, #fill', {
-      expression: (x, y) => [x, octave(x, y, 1) * 0.9 + octave(x, y, 2) * 0.5, y]
-    }, { duration: 1000 }]
-  ],
+                var y11 = point(x, y);
+                var y12 = point(x, y + 1);
+                var y21 = point(x + 1, y);
+                var y22 = point(x + 1, y + 1);
 
-  // Step 6: Multi-octave (scale 1 + 2 + 4)
-  [
-    ['animate', '#wire, #fill', {
-      expression: (x, y) =>
-        [x,
-         octave(x, y, 1) * 0.8 +
-         octave(x, y, 2) * 0.4 +
-         octave(x, y, 4) * 0.22 +
-         octave(x, y, 8) * 0.125,
-         y],
-    }, { duration: 1000 }],
-    ['animate', 'camera', {
-      phi: τ / 6,
-      theta: .45,
-    }, { delay: 1000, duration: 10000 }]
-  ]
-];
-</script>
+                var fx = x - Math.floor(x);
+                var fy = y - Math.floor(y);
 
-<!--
+                var dx = .5 - .5 * Math.cos(π * fx);
+                var dy = .5 - .5 * Math.cos(π * fy);
+
+                var y1 = y11 + (y12 - y11) * dx;
+                var y2 = y21 + (y22 - y21) * dx;
+
+                return y1 + (y2 - y1) * dy;
+              }
+
+              h += octave(x, y, 1);
+
+              return [x, h, y];
+            },
+        }, { duration: 1000 }],
+        ['animate', 'camera', {
+          phi: τ / 6,
+          theta: .9,
+        }, { duration: 3000 }]
+      ],
+
+      // Step 4: Same noise, smooth partition, different camera
+      [
+        ['animate', '#wire, #fill', {
+          expression: (x, y) => [x, octave(x, y, 1), y]
+        }, { duration: 1000 }],
+        ['animate', 'camera', {
+          phi: τ / 6 + τ / 4,
+          theta: .6,
+        }, { delay: 1000, duration: 2000 }]
+      ],
+
+      // Step 5: Multi-octave (scale 1 + 2)
+      [
+        ['animate', '#wire, #fill', {
+          expression: (x, y) => [x, octave(x, y, 1) * 0.9 + octave(x, y, 2) * 0.5, y]
+        }, { duration: 1000 }]
+      ],
+
+      // Step 6: Multi-octave (scale 1 + 2 + 4)
+      [
+        ['animate', '#wire, #fill', {
+          expression: (x, y) =>
+            [x,
+              octave(x, y, 1) * 0.8 +
+              octave(x, y, 2) * 0.4 +
+              octave(x, y, 4) * 0.22 +
+              octave(x, y, 8) * 0.125,
+              y],
+        }, { duration: 1000 }],
+        ['animate', 'camera', {
+          phi: τ / 6,
+          theta: .45,
+        }, { delay: 1000, duration: 10000 }]
+      ]
+
+      // Step 7: Expand to larger surface region
+      // To add later maybe
+
+    ];
+
+  </script>
+
+  <!--
 
 // This is the old versions 
 
@@ -552,7 +558,9 @@ var script = [
   <link href="base.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
+
 <body>
   <div id="info" class="transition">Use the <kbd>←</kbd><kbd>→</kbd> keys to step through.</div>
 </body>
+
 </html>
