@@ -100,7 +100,7 @@ const initChalkboard = function ( Reveal ) {
 	var rememberColor = [ true, false ];
 	var eraser = {
 		src: path + 'img/sponge.png',
-		radius: 30
+		radius: 20
 	};
 	var boardmarkers = [ {
 			color: 'rgba(100,100,100,1)',
