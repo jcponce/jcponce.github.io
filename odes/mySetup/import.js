@@ -1,8 +1,0 @@
-import 'revealjs/dist/reveal.js'
-import 'revealjs/plugin/math/math.js'
-import 'revealjs/plugin/highlight/highlight.js'
-import 'revealjs/plugin/zoom/zoom.js'
-import 'revealjs/plugin/search/search.js'
-import 'revealjs/third-party-plugin/chalkboard/plugin.js'
-import 'revealjs/third-party-plugin/customcontrols/plugin.js'
-import 'revealjs/third-party-plugin/menu/menu.js'
