@@ -92,8 +92,8 @@ void main() {
 		// https://openprocessing.org/sketch/2679978
 		float MN = min(iResolution.x,iResolution.y);
     // Horizontal camera rotation
-    ro.yz *= rot2D(0.5-iMouse.y*6.3/MN);
-    rd.yz *= rot2D(0.5-iMouse.y*6.3/MN);
+    ro.yz *= rot2D(-iMouse.y*6.3/MN);
+    rd.yz *= rot2D(-iMouse.y*6.3/MN);
   
     // Horizontal camera rotation
     ro.xz *= rot2D(-iMouse.x*6.3/MN);
