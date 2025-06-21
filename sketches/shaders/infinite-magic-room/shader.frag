@@ -65,10 +65,10 @@ float sdBoxFrame( vec3 p, vec3 b, float e )
 
 //https://iquilezles.org/articles/palettes/
 vec3 palette( float t ) {
-    vec3 a = vec3(0.5, 0.5, 0.5);
-    vec3 b = vec3(0.5, 0.5, 0.5);
-    vec3 c = vec3(1.0, 1.0, 2.0);
-    vec3 d = vec3(0.20, 0.30, 0.30);
+    vec3 a = vec3(0, 0.5, 0.5);
+    vec3 b = vec3(0, 0.5, 0.5);
+    vec3 c = vec3(0, 0.5, 0.333);
+    vec3 d = vec3(0, 0.5, 0.667);
 
     return a + b*cos( 6.28318*(c*t+d) );
 }
@@ -99,28 +99,26 @@ void main() {
 
     vec2 uv = ( coord * 2.0 - 1.0 ) * iResolution.xy / iResolution.y;
   
-    vec2 mousePrevious = vec2(0.0, 0.0);
-    vec2 m = (iMouse.xy * 2. - iResolution.xy) / iResolution.y;
-  
-    mousePrevious = m;
-		// Default circular motion if mouse not clicked
-    if(!iView) {
-      m = mousePrevious;
-    }  
-  
     vec3 ro = vec3(0.0, 0.0, -3.0); // ray origin
     vec3 rd = normalize(vec3(uv, 1.0)); // ray direction
     vec3 col = vec3(0.0); // final pixel color
     
     float t = 0.0; // total distance travelled
+
+    // Initial view
+		ro.yz *= rot2D(-0.2);
+		rd.yz *= rot2D(-0.2);
+  
+    // Updated thanks to Matthias Hurrle from this sketch
+		// https://openprocessing.org/sketch/2679978
+		float MN = min(iResolution.x,iResolution.y);
+    // Horizontal camera rotation
+    ro.yz *= rot2D(0.5-iMouse.y*6.3/MN);
+    rd.yz *= rot2D(0.5-iMouse.y*6.3/MN);
   
     // Horizontal camera rotation
-    ro.yz *= rot2D(-m.y);
-    rd.yz *= rot2D(-m.y);
-  
-    // Horizontal camera rotation
-    ro.xz *= rot2D(-m.x);
-    rd.xz *= rot2D(-m.x);
+    ro.xz *= rot2D(-iMouse.x*6.3/MN);
+    rd.xz *= rot2D(-iMouse.x*6.3/MN);
   
     // Raymarching
   
@@ -140,7 +138,7 @@ void main() {
     }
   
     // Coloring
-    col = palette(t*0.03 + 0.05);//vec3(t * 0.09);
+    col = palette(t*0.1 + 0.02);//vec3(t * 0.09);
     
       
   // gl_FragColor is a built in shader variable, and your .frag file must contain it

@@ -16,6 +16,8 @@ let img;
 let time_;
 let framerate;
 
+let moves = [0,0];
+
 function preload() {
   // load the shader
   theShader = loadShader("shader.vert", "shader.frag");
@@ -23,7 +25,7 @@ function preload() {
 
 function setup() {
   // disables scaling for retina screens which can create inconsistent scaling between displays
-  //pixelDensity(1);
+  pixelDensity(1);
 
   createCanvas(windowWidth, windowHeight);
   noStroke();
@@ -52,11 +54,11 @@ function draw() {
   yMouse = (yMouse ) ;
   
 
+  mouseMove();
   // pass the interactive information to the shader
   theShader.setUniform("iResolution", [width, height]);
   theShader.setUniform("iTime", millis() / 1000.0);
-  theShader.setUniform("iMouse", [viewX, viewY]);
-  theShader.setUniform("iView", imView);
+	theShader.setUniform("iMouse", moves);
 
 
 
@@ -104,36 +106,16 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-let imView = false;
-
 function mousePressed() {
-  if (imView === false) {
-    imView = true;
-  }
-  viewX = mouseX;
-  viewY = map(mouseY, 0, height, height, 0);
   cursor('grabbing');
 }
 
 function mouseReleased() {
-  if (imView === true) {
-    imView = false;
-  }
   cursor('grab');
 }
 
-// Change 3D view 
-let viewX = -100;
-let viewY = 100;
-function mouseDragged() {
-  viewX = mouseX;
-  viewY = map(mouseY, 0, height, height, 0);
-  //console.log(viewX,viewY);
-}
-
-function mouseReleased() {
-  if (imView === true) {
-    imView = false;
-  }
-  cursor('grab');
+function mouseMove() {
+	if (!mouseIsPressed) return;
+	moves[0] += mouseX - pmouseX;
+	moves[1] += pmouseY - mouseY;
 }
