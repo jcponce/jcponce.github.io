@@ -12,7 +12,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 600
+    numParticles: 500
 };
 
 let quadTree;
@@ -326,7 +326,7 @@ class Boid {
         push();
         translate(this.position.x, this.position.y)
         rotate(theta);
-        ellipse(0, 0, 15);
+        ellipse(0, 0, 13);
         pop();
     }
 }
