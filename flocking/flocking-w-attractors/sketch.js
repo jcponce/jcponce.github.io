@@ -6,6 +6,7 @@
 
 const flock = [];
 const attractors = [];
+let quadTree;
 
 const controls = {
     align: 1.5,
@@ -15,9 +16,7 @@ const controls = {
     numParticles: 600
 };
 
-let quadTree;
-
-// Palette colors
+// Palette colors for particles
 const palette = [
     [255, 228, 75],   // Bright yellow
     [5, 130, 1],      // Dark green
@@ -35,7 +34,6 @@ const attractorColors = [
     [255, 0, 0]       // Red
 ];
 
-// Add these constants at the top of your code
 const ATTRACTION_RADIUS = 130;
 const FORCE_PULSE_SPEED = 0.02;
 
@@ -59,11 +57,11 @@ class Attractor {
     display() {
         // Always show attractor
         noStroke();
-        //fill(this.color);
+        // fill(this.color);
         noFill();
         ellipse(this.position.x, this.position.y, this.radius, this.radius);
 
-        // Show pulsating influence radius
+        // Show pulsating influence radius, if needed
         // noFill();
         // stroke(this.color);
         // strokeWeight(2);
@@ -76,91 +74,6 @@ class Attractor {
     getStrength() {
         return this.currentStrength;
     }
-}
-
-function setup() {
-    createCanvas(windowWidth, windowHeight);
-
-    quadTree = new QuadTree(6, 20, new Rect(0, 0, width, height));
-
-    // Update your attractor creation in setup():
-    const frame = 100;
-    posA = createVector(random(frame, width / 3 - frame), random(frame, 2 * height / 3 - frame));
-    attractors.push(new Attractor(posA, 0)); // Pass index 0
-    posB = createVector(random(width / 3 + frame, 2 * width / 3 - frame), random(2 * height / 3 - frame, 3 * height / 3 - frame));
-    attractors.push(new Attractor(posB, 1)); // Pass index 1
-    posC = createVector(random(2 * width / 3 + frame, 3 * width / 3 - frame), random(height / 3 - frame, 2 * height / 3 - frame));
-    attractors.push(new Attractor(posC, 2)); // Pass index 2
-
-    // // create gui (dat.gui)
-    // let gui = new dat.GUI({
-    //     width: 295
-    // });
-    // gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
-    // gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
-    // gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-    // gui.add(controls, 'numParticles', 0, 800).name("Num Particles").step(1);
-    // gui.add(controls, 'trace').name("Trace").listen();
-    // for (let i = 0; i < controls.numParticles; i++) {
-    //     pushRandomBoid(); 
-    // }
-    // gui.close();
-
-    // Initialize all particles
-    for (let i = 0; i < controls.numParticles; i++) {
-        pushRandomBoid();
-    }
-
-}
-
-function draw() {
-
-    //This is for drawing the trace of particles
-    if (controls.trace == true) {
-        background(0, 10);
-    } else {
-        background(0);
-    }
-
-    quadTree.clear();
-    for (const boid of flock) {
-        quadTree.addItem(boid.position.x, boid.position.y, boid);
-    }
-    //if(controls.quad3 == true){
-    // quadTree.debugRender();
-    //}
-
-    // Update and display attractors
-    for (let attractor of attractors) {
-        attractor.update();
-        attractor.display();
-    }
-
-    for (let boid of flock) {
-        boid.edges();
-        boid.flock(flock);
-        boid.update();
-        boid.show();
-    }
-
-    // Adjust the amount of boids on screen according to the slider value
-    // let maxBoids = controls.numParticles;
-    // let difference = flock.length - maxBoids;
-    // if (difference < 0) {
-    //     for (let i = 0; i < -difference; i++) {
-    //         pushRandomBoid(); // Add boids if there are less boids than the slider value
-    //     }
-    // } else if (difference > 0) {
-    //     for (let i = 0; i < difference; i++) {
-    //         flock.pop(); // Remove boids if there are more boids than the slider value
-    //     }
-    // }
-}
-
-// Make a new boid
-function pushRandomBoid() {
-    let boid = new Boid(); // Create a new boid
-    flock.push(boid); // Add the new boid to the flock
 }
 
 class Boid {
@@ -577,3 +490,89 @@ document.addEventListener('keydown', (event) => {
         toggleFullScreen();
     }
 });
+
+// Make a new boid
+function pushRandomBoid() {
+    let boid = new Boid(); // Create a new boid
+    flock.push(boid); // Add the new boid to the flock
+}
+
+/* Setup and Draw functions */
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+
+    quadTree = new QuadTree(6, 20, new Rect(0, 0, width, height));
+
+    // Update your attractor creation in setup():
+    const frame = 100;
+    posA = createVector(random(frame, width / 3 - frame), random(frame, 2 * height / 3 - frame));
+    attractors.push(new Attractor(posA, 0)); // Pass index 0
+    posB = createVector(random(width / 3 + frame, 2 * width / 3 - frame), random(2 * height / 3 - frame, 3 * height / 3 - frame));
+    attractors.push(new Attractor(posB, 1)); // Pass index 1
+    posC = createVector(random(2 * width / 3 + frame, 3 * width / 3 - frame), random(height / 3 - frame, 2 * height / 3 - frame));
+    attractors.push(new Attractor(posC, 2)); // Pass index 2
+
+    // // create gui (dat.gui) if needed
+    // let gui = new dat.GUI({
+    //     width: 295
+    // });
+    // gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
+    // gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
+    // gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
+    // gui.add(controls, 'numParticles', 0, 800).name("Num Particles").step(1);
+    // gui.add(controls, 'trace').name("Trace").listen();
+    // for (let i = 0; i < controls.numParticles; i++) {
+    //     pushRandomBoid(); 
+    // }
+    // gui.close();
+
+    // Initialize all particles
+    for (let i = 0; i < controls.numParticles; i++) {
+        pushRandomBoid();
+    }
+
+}
+
+function draw() {
+
+    //This is for drawing the trace of particles
+    if (controls.trace == true) {
+        background(0, 10);
+    } else {
+        background(0);
+    }
+
+    quadTree.clear();
+    for (const boid of flock) {
+        quadTree.addItem(boid.position.x, boid.position.y, boid);
+    }
+    //if(controls.quad3 == true){
+    // quadTree.debugRender();
+    //}
+
+    // Update and display attractors
+    for (let attractor of attractors) {
+        attractor.update();
+        attractor.display();
+    }
+
+    for (let boid of flock) {
+        boid.edges();
+        boid.flock(flock);
+        boid.update();
+        boid.show();
+    }
+
+    // Adjust the amount of boids on screen according to the slider value
+    // let maxBoids = controls.numParticles;
+    // let difference = flock.length - maxBoids;
+    // if (difference < 0) {
+    //     for (let i = 0; i < -difference; i++) {
+    //         pushRandomBoid(); // Add boids if there are less boids than the slider value
+    //     }
+    // } else if (difference > 0) {
+    //     for (let i = 0; i < difference; i++) {
+    //         flock.pop(); // Remove boids if there are more boids than the slider value
+    //     }
+    // }
+}
