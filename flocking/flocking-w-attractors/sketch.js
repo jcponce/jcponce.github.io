@@ -19,22 +19,21 @@ let quadTree;
 
 // Palette colors
 const palette = [
-    "rgba(255, 228, 75, 1)",   // Bright yellow, like sunflower
-    "rgba(5, 130, 1, 1)",      // Dark green, like forest green
-    "rgba(123, 0, 255, 1)",    // Vivid purple
-    "rgba(255, 85, 0, 1)",     // Deep orange / coral orange
-    "rgba(255, 29, 255, 1)",   // Bright pink / magenta
-    "rgba(46, 46, 255, 1)",    // Deep blue / royal blue
-    "rgba(255, 0, 128, 1)"     // Strong pink / fuchsia
+    [255, 228, 75],   // Bright yellow
+    [5, 130, 1],      // Dark green
+    [123, 0, 255],    // Vivid purple
+    [255, 85, 0],     // Deep orange
+    [255, 29, 255],   // Bright pink
+    [46, 46, 255],    // Deep blue
+    [255, 0, 128]     // Strong pink
 ];
 
 // Attractor colors
 const attractorColors = [
-    "#00bfffff",   // Cyan / bright aqua
-    "#00ffb3ff",   // Light aqua / mint
-    "#ff0000ff"    // True red
+    [0, 191, 255],    // Cyan
+    [0, 255, 179],    // Mint
+    [255, 0, 0]       // Red
 ];
-
 
 // Add these constants at the top of your code
 const ATTRACTION_RADIUS = 130;
@@ -43,7 +42,7 @@ const FORCE_PULSE_SPEED = 0.02;
 class Attractor {
     constructor(pos, index) {  // Add index parameter
         this.position = pos;
-        this.baseStrength = random(0.4, 0.4);
+        this.baseStrength = 0.4;
         this.currentStrength = 0;
         this.pulsePhase = random(TWO_PI);
         this.color = color(attractorColors[index % attractorColors.length]); // Use index to get unique color
@@ -82,7 +81,7 @@ class Attractor {
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
-    quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
+    quadTree = new QuadTree(6, 20, new Rect(0, 0, width, height));
 
     // Update your attractor creation in setup():
     const frame = 100;
@@ -107,6 +106,11 @@ function setup() {
     // }
     // gui.close();
 
+    // Initialize all particles
+    for (let i = 0; i < controls.numParticles; i++) {
+        pushRandomBoid();
+    }
+
 }
 
 function draw() {
@@ -123,7 +127,7 @@ function draw() {
         quadTree.addItem(boid.position.x, boid.position.y, boid);
     }
     //if(controls.quad3 == true){
-    quadTree.debugRender();
+    // quadTree.debugRender();
     //}
 
     // Update and display attractors
@@ -140,17 +144,17 @@ function draw() {
     }
 
     // Adjust the amount of boids on screen according to the slider value
-    let maxBoids = controls.numParticles;
-    let difference = flock.length - maxBoids;
-    if (difference < 0) {
-        for (let i = 0; i < -difference; i++) {
-            pushRandomBoid(); // Add boids if there are less boids than the slider value
-        }
-    } else if (difference > 0) {
-        for (let i = 0; i < difference; i++) {
-            flock.pop(); // Remove boids if there are more boids than the slider value
-        }
-    }
+    // let maxBoids = controls.numParticles;
+    // let difference = flock.length - maxBoids;
+    // if (difference < 0) {
+    //     for (let i = 0; i < -difference; i++) {
+    //         pushRandomBoid(); // Add boids if there are less boids than the slider value
+    //     }
+    // } else if (difference > 0) {
+    //     for (let i = 0; i < difference; i++) {
+    //         flock.pop(); // Remove boids if there are more boids than the slider value
+    //     }
+    // }
 }
 
 // Make a new boid
@@ -162,8 +166,7 @@ function pushRandomBoid() {
 class Boid {
     constructor() {
         this.position = createVector(random(0, width), random(0, height));
-        this.velocity = p5.Vector.random2D();
-        this.velocity.setMag(random(1.5, 3.5));
+        this.velocity = p5.Vector.random2D().mult(random(1.5, 3.5));
         this.acceleration = createVector();
         this.maxForce = 0.2;
         this.maxSpeed = 2.5;
@@ -320,14 +323,9 @@ class Boid {
     }
 
     show() {
-        let theta = this.velocity.heading() + PI / 2;
         noStroke();
         fill(this.currentCol); // Use currentCol instead of this.col
-        push();
-        translate(this.position.x, this.position.y)
-        rotate(theta);
-        ellipse(0, 0, 13);
-        pop();
+        circle(this.position.x, this.position.y, 13);
     }
 }
 
