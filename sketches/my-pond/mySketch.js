@@ -15,7 +15,7 @@ let foregroundBubbles = [];
 //let backgroundBubbles = [];
 let foods = [];
 let myFish;
-let numBoids = 10;
+let numBoids = 7;
 let boids = [];
 
 let ripples = [];
