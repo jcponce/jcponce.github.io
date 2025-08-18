@@ -254,7 +254,7 @@ class Boid {
     show() {
         noStroke();
         fill(this.currentCol); // Use currentCol instead of this.col
-        circle(this.position.x, this.position.y, 13);
+        circle(this.position.x, this.position.y, 20);
     }
 }
 
