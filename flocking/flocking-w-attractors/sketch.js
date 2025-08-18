@@ -12,7 +12,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 650
+    numParticles: 600
 };
 
 let quadTree;
@@ -533,10 +533,25 @@ function windowResized() {
     // Update quad tree bounds
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
 
-    // Keep attractors within new bounds (but maintain their relative positions)
-    for (let attractor of attractors) {
-        attractor.position.x = constrain(attractor.position.x, 0, width);
-        attractor.position.y = constrain(attractor.position.y, 0, height);
+    // Reset attractor positions (same logic as setup)
+    const frame = 100;
+    if (attractors.length >= 1) {
+        attractors[0].position = createVector(
+            random(frame, width / 3 - frame),
+            random(frame, 2 * height / 3 - frame)
+        );
+    }
+    if (attractors.length >= 2) {
+        attractors[1].position = createVector(
+            random(width / 3 + frame, 2 * width / 3 - frame),
+            random(2 * height / 3 - frame, height - frame)
+        );
+    }
+    if (attractors.length >= 3) {
+        attractors[2].position = createVector(
+            random(2 * width / 3 + frame, width - frame),
+            random(height / 3 - frame, 2 * height / 3 - frame)
+        );
     }
 
     // Reset the trace if not in trace mode
@@ -544,3 +559,21 @@ function windowResized() {
         background(0);
     }
 }
+
+// Function to toggle full screen mode
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// Event listener for keydown event
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'f' || event.key === 'F') {
+        toggleFullScreen();
+    }
+});
