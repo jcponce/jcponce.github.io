@@ -4,6 +4,25 @@
  * Written by Juan Carlos Ponce Campuzano, 16/Aug/2025
  */
 
+/*
+
+Background:
+
+My partner recently asked me to help her create a 
+visualization exploring university students' emotions 
+(e.g., anxiety, stress, joy) and how these shift in 
+response to external factors such as assessment (red), 
+creativity (blue), and learning (green). 
+Human emotions are highly complex, making it 
+nearly impossible to capture an accurate 
+representation of each individual's experience. 
+However, this flocking behaviour offers a useful 
+metaphor: it resembles the chaotic flow of 
+emotions—represented here with colors—and how 
+they evolve over time.
+
+*/
+
 const flock = [];
 const attractors = [];
 let quadTree;
