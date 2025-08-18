@@ -29,7 +29,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 600
+    numParticles: 650
 };
 
 // Palette colors for particles
