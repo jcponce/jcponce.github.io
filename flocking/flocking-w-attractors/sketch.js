@@ -8,18 +8,15 @@
 
 Background:
 
-My partner recently asked me to help her create a 
-visualization exploring university students' emotions 
-(e.g., anxiety, stress, joy) and how these shift in 
-response to external factors such as assessment (red), 
-creativity (blue), and learning (green). 
-Human emotions are highly complex, making it 
-nearly impossible to capture an accurate 
-representation of each individual's experience. 
-However, this flocking behaviour offers a useful 
-metaphor: it resembles the chaotic flow of 
-emotions—represented here with colors—and how 
-they evolve over time.
+My partner recently asked me to help her create a visualization 
+exploring university students' emotions (e.g., anxiety, stress, joy) 
+and how these shift in response to external factors such as 
+assessment (red), creativity (blue), and learning (green). 
+Human emotions are highly complex, making it nearly impossible 
+to capture an accurate representation of each individual's experience. 
+However, this flocking behaviour offers a useful metaphor: 
+it resembles the chaotic flow of emotions—represented here 
+with colors—and how they evolve over time.
 
 */
 
@@ -32,7 +29,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 600
+    numParticles: 500
 };
 
 // Palette colors for particles
@@ -510,6 +507,23 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+function keyPressed() {
+  if (key === 's' || key === 'S') {
+    // Get date and time
+    let now = new Date();
+    let timestamp =
+      now.getFullYear() + "-" +
+      nf(now.getMonth() + 1, 2) + "-" +
+      nf(now.getDate(), 2) + "_" +
+      nf(now.getHours(), 2) + "-" +
+      nf(now.getMinutes(), 2) + "-" +
+      nf(now.getSeconds(), 2);
+
+    // Save canvas with custom name, date and time
+    saveCanvas(cnv, 'emotion_' + timestamp, 'jpg');
+  }
+}
+
 // Make a new boid
 function pushRandomBoid() {
     let boid = new Boid(); // Create a new boid
@@ -517,8 +531,9 @@ function pushRandomBoid() {
 }
 
 /* Setup and Draw functions */
+let cnv;
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    cnv = createCanvas(windowWidth, windowHeight);
 
     quadTree = new QuadTree(6, 20, new Rect(0, 0, width, height));
 
