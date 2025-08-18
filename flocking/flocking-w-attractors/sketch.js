@@ -50,7 +50,7 @@ const attractorColors = [
     [255, 0, 0]       // Red
 ];
 
-const ATTRACTION_RADIUS = 130;
+const ATTRACTION_RADIUS = 120;
 const FORCE_PULSE_SPEED = 0.02;
 
 class Attractor {
