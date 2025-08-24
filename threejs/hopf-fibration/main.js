@@ -19,10 +19,10 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.target.set(0, 0, 0);
 
-const ambient = new THREE.AmbientLight(0xffffff, 0.9);
+const ambient = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambient);
-const dir = new THREE.DirectionalLight(0xffffff, 1.5);
-dir.position.set(6, 1, 5);
+const dir = new THREE.DirectionalLight(0xffffff, 2.5);
+dir.position.set(4, 4, 8);
 scene.add(dir);
 
 const grid = new THREE.GridHelper(20, 20, 0xa7b9e5, 0x1c2c4f);
@@ -40,12 +40,12 @@ axesHelper.visible = false;
 const sphereGeo = new THREE.SphereGeometry(1, 48, 32);
 const sphereMat = new THREE.MeshStandardMaterial({
     color: 0x22409a,
-    roughness: 0.25,
-    metalness: 0.05,
+    roughness: 0.35,
+    metalness: 0.1,
     transparent: true,
-    opacity: 0.35,
+    opacity: 0.65,
     emissive: 0x07142e,
-    emissiveIntensity: 0.8,
+    emissiveIntensity: 0.2,
     side: THREE.DoubleSide
 });
 const sphere = new THREE.Mesh(sphereGeo, sphereMat);
