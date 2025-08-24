@@ -309,29 +309,39 @@ function addFiber(n) {
     const segments = params.segments;
     const pts = hopfFiberPoints(n, segments);
 
-    const fiber = new THREE.Group();
-
-    // Create curve geometry (no spheres)
-    const lineGeo = new THREE.BufferGeometry().setFromPoints(pts.concat([pts[0]]));
-    const lineMat = new THREE.LineBasicMaterial({
-        color: new THREE.Color().setHSL(0.6 + 0.4 * Math.random(), 0.8, 0.7),
-        linewidth: 5  // Thicker fibers
+    // Make a smooth curve from Hopf fiber points
+    const curve = new THREE.CatmullRomCurve3(pts, true); // true = closed loop
+    const tubeGeo = new THREE.TubeGeometry(
+        curve,
+        segments * 2,       // tubular segments
+        0.02,               // radius (thickness of fiber)
+        12,                 // radial segments
+        true                // closed tube
+    );
+    const tubeMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color().setHSL(0.4 + 0.8 * Math.random(), 0.9, 0.5),
+        roughness: 0.3,
+        metalness: 0.2,
+        emissive: 0x113355,
+        emissiveIntensity: 0.5
     });
-    fiber.add(new THREE.Line(lineGeo, lineMat));
 
-    fibers.add(fiber);
+    const tube = new THREE.Mesh(tubeGeo, tubeMat);
+    fibers.add(tube);
 
+    // Keep your marker
     const marker = new THREE.Mesh(markerGeo, markerMat);
     marker.position.copy(n.clone().multiplyScalar(1.001));
     pickMarkers.add(marker);
 }
+
 
 function loadExample(exampleName) {
     clearFibers();
 
     if (exampleName === 'latitude-bands') {
         const bands = 6;   // number of latitude circles
-        const perBand = 100; // points per circle
+        const perBand = 80; // points per circle
 
         for (let b = 1; b < bands; b++) {
             const phi = (b / bands) * Math.PI - Math.PI / 2; // from -90° to +90°
@@ -339,9 +349,9 @@ function loadExample(exampleName) {
             const r = Math.cos(phi);
 
             for (let i = 0; i < perBand; i++) {
-                const theta = (i / perBand) * Math.PI * 2;
-                const x = r * Math.cos(theta);
-                const y = r * Math.sin(theta);
+                const theta = (i / perBand) * Math.PI;
+                const x = r * Math.cos(theta + Math.PI);
+                const y = r * Math.sin(theta + Math.PI);
                 addFiber(new THREE.Vector3(x, y, z).normalize());
             }
         }
@@ -372,7 +382,7 @@ function loadExample(exampleName) {
         }
     } else if (exampleName === 'longitude-bands') {
         const bands = 4;   // number of longitude slices
-        const perBand = 50; // points along each slice
+        const perBand = 40; // points along each slice
 
         for (let b = 0; b < bands; b++) {
             const theta = (b / bands) * Math.PI * 2; // longitude angle
@@ -380,7 +390,7 @@ function loadExample(exampleName) {
             const sinTheta = Math.sin(theta);
 
             for (let i = 0; i < perBand; i++) {
-                const phi = (i / (perBand - 1)) * Math.PI; // latitude from north to south pole
+                const phi = (i / (perBand - 1) + Math.PI / 8) * Math.PI / 2; // latitude from north to south pole
                 const x = Math.sin(phi) * cosTheta;
                 const y = Math.sin(phi) * sinTheta;
                 const z = Math.cos(phi);
@@ -428,9 +438,6 @@ function onMouseMove(e) {
     }
 }
 
-
-
-
 function onKeyDown(e) {
     // Add fiber when 'A' key is pressed
     if (e.key === 'a' || e.key === 'A') {
@@ -449,8 +456,6 @@ function onKeyDown(e) {
     if (e.key === 's' || e.key === 'S') {
         saveCurrentView();
     }
-
-
 }
 
 window.addEventListener('mousemove', onMouseMove);
