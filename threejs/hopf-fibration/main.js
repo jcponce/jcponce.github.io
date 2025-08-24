@@ -397,6 +397,20 @@ function loadExample(exampleName) {
                 addFiber(new THREE.Vector3(x, y, z).normalize());
             }
         }
+    } else if (exampleName === 'equator-sine') {
+        // Sinusoidal closed curve along the equator
+        const numPoints = 200;   // resolution
+        const amplitude = 0.3;   // how far the sine goes up/down
+        const frequency = 5;     // number of oscillations around the equator
+
+        for (let i = 0; i < numPoints; i++) {
+            const t = (i / numPoints) * Math.PI * 2; // go around once
+            const x = Math.cos(t);
+            const y = Math.sin(t);
+            const z = amplitude * Math.sin(frequency * t); // sinusoidal wiggle
+
+            addFiber(new THREE.Vector3(x, y, z).normalize());
+        }
     }
 }
 
