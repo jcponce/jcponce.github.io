@@ -411,7 +411,7 @@ function loadExample(exampleName) {
 
             addFiber(new THREE.Vector3(x, y, z).normalize());
         }
-    }
+    } 
 }
 
 const raycaster = new THREE.Raycaster();
