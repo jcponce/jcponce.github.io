@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hopf Fibration Visualization</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
+
+    <!--MathJax starts-->
+    <script>
+        window.MathJax = {
+            tex: {
+                tags: "ams",
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <!--MathJax Ends-->
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.179.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.179.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="selection-marker" id="selection-marker"></div>
+
+    <button class="toggle-controls-btn" id="toggle-controls-btn">▼ Hide Controls</button>
+    <div class="controls" id="controls">
+        <h3>Hopf Fibration Controls</h3>
+        <div class="instructions">
+            <p>
+                <strong>Instructions:</strong>
+                Move mouse over sphere to select point,
+                then press <span class="key-shortcut">A</span>
+                to add a Hopf fiber at that location.
+            </p>
+            <!--<p>
+        Press <span class="key-shortcut">S</span> to save view.
+      </p>-->
+        </div>
+        <div class="toggle-container">
+            <span>Fibers</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-fibers" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Sphere</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-sphere" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Points</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-points" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Axes</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-axes" unchecked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Grid</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-grid" unchecked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <select class="dropdown" id="examples">
+            <option value="custom">Custom Points</option>
+            <option value="spiral">Spiral Pattern</option>
+            <option value="icosahedral">Icosahedral Pattern</option>
+            <option value="latitude-bands">Latitude Bands</option>
+            <option value="longitude-bands">Longitude Bands</option>
+        </select>
+        <button id="clear-btn">Clear All Fibers</button>
+        <button id="save-view-btn">Save View</button>
+        <button id="share-link-btn">Share Scene</button>
+        <button id="modal-btn">What is this?</button>
+
+    </div>
+    <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="info-modal-overlay"></div>
+    <div class="info-modal" id="info-modal">
+
+        <h1>Hopf Fibration Visualization</h1>
+        <hr>
+
+        <div class="section">
+            <h2>What is a Hopf fibration?</h2>
+            <div class="math">
+                <p>
+                    The <strong>Hopf fibration</strong> is a fundamental construction in topology that gives a
+                    surprising way of
+                    decomposing higher-dimensional spheres. Formally, it is a continuous map from the 3-sphere to the
+                    2-sphere:
+                </p>
+                <p style="text-align: center;">
+                    \( h: S^3 \to S^2 \)
+                </p>
+                <p>
+                    with the remarkable property that the preimage \( h^{-1}(p) \) of every point \( p \in S^2 \) is a
+                    circle
+                    \( S^1 \). In other words, \(S^3\) can be written as a disjoint union of circles (called
+                    <em>fibers</em>), one for each point on the ordinary 2-sphere.
+                </p>
+
+                <h3>Why is it important?</h3>
+                <p>
+                    The Hopf fibration is not just a mathematical curiosity; it plays a central role in both mathematics
+                    and physics:
+                </p>
+                <ul style="line-height: 25px;">
+                    <li>
+                        <strong>In Mathematics:</strong> It was the first known example of a <strong>non-trivial fiber
+                            bundle</strong>,
+                        showing that spaces can be “twisted together” in globally non-obvious ways
+                        (since \( S^3 \not\cong S^2 \times S^1 \)). It is a key example in homotopy theory, differential
+                        geometry,
+                        and the study of characteristic classes.
+                    </li>
+                    <li>
+                        <strong>In Physics:</strong> The fibration provides geometric insight into physical systems:
+                        <ul>
+                            <li><strong>Quantum Mechanics:</strong> The state space of a pure qubit is the 3-sphere \(
+                                S^3 \).
+                                The Hopf map projects this space onto the Bloch sphere \( S^2 \), which represents
+                                observable states.</li>
+                            <li><strong>Field Theory & Optics:</strong> It models the topology of magnetic fields
+                                (e.g. Dirac monopoles, Hopfions) and describes structured light beams whose
+                                polarization is linked to spatial geometry.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    In essence, the Hopf fibration builds a bridge between abstract topology and the geometry of our
+                    physical world.
+                </p>
+
+                <p>
+                    <b>Note:</b> This project was inspired by Richard Behiel's video
+                    <a href="https://youtu.be/dkyvZo68IoM" target="_blank">A Quick Intro to Fiber Bundles (Hopf
+                        Fibration)</a>.
+                    For further reading, see <a
+                        href="https://nilesjohnson.net/hopf-articles/Treisman_Guide-to-Hopf-fibration.pdf"
+                        target="_blank">Zachary Treisman's notes</a>.
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <h2>How this project works?</h2>
+            <div class="math">
+                <p>
+                    To make the Hopf fibration visible, the fibers are turned into 3D geometry and displayed with
+                    <a href="https://threejs.org/" target="_blank">Three.js</a>.
+                    The library handles real-time rendering, lighting, and shading,
+                    leaving the focus on the underlying geometry.
+                    In this way, abstract mathematics becomes something
+                    you can explore visually and intuitively.
+                </p>
+                <p>
+                    The visualization follows these steps:
+                </p>
+                <ol style="line-height: 25px;">
+                    <li>Sample directions \(n \in S^2\).</li>
+                    <li>Convert each direction into a spinor \((z_1, z_2)\).</li>
+                    <li>Generate points along the fiber by rotating the phase \(\theta \in [0, 2\pi)\).</li>
+                    <li>Apply stereographic projection \(S^3 \to \mathbb{R}^3\).</li>
+                    <li>Render the fibers using Three.js.</li>
+                </ol>
+
+                <h2>Terminology</h2>
+                <h3>The 3-Sphere \(S^3\)</h3>
+                <p>
+                    The 3-sphere is defined by
+                    \[
+                    S^3 = \{ (x_1, x_2, x_3, x_4) \in \mathbb{R}^4 \mid x_1^2 + x_2^2 + x_3^2 + x_4^2 = 1 \}.
+                    \]
+                    It can also be expressed in complex coordinates \((z_1, z_2) \in \mathbb{C}^2\) with
+                    \[
+                    z_1 = x_1 + i x_2, \quad z_2 = x_3 + i x_4, \quad |z_1|^2 + |z_2|^2 = 1.
+                    \]
+                </p>
+
+                <h3>Spinor Representation</h3>
+                <p>
+                    Given a point \(n = (x,y,z)\) on \(S^2\), a corresponding spinor is
+                    \[
+                    z_1 = \sqrt{\tfrac{1+n_z}{2}}, \quad
+                    z_2 = \frac{x + i y}{2 z_1}.
+                    \]
+                    This representation is convenient for generating Hopf fibers.
+                </p>
+
+                <h3>Hopf Fiber Parametrization</h3>
+                <p>
+                    A fiber associated to \((z_1, z_2)\) is
+                    \[
+                    (z_1 e^{i \theta},\, z_2 e^{i \theta}), \quad \theta \in [0, 2\pi).
+                    \]
+                    After stereographic projection to \(\mathbb{R}^3\), the points are
+                    \[
+                    \mathbf{p} = \left( \tfrac{x_1}{1 - x_4},\, \tfrac{x_2}{1 - x_4},\, \tfrac{x_3}{1 - x_4} \right).
+                    \]
+                </p>
+
+                <h3>Stereographic Projection</h3>
+                <p>
+                    Stereographic projection from \(S^3 \subset \mathbb{R}^4\) (excluding the north pole
+                    \(N=(0,0,0,1)\)) to \(\mathbb{R}^3\) is
+                    \[
+                    \pi(x_1, x_2, x_3, x_4) =
+                    \left( \frac{x_1}{1 - x_4},\, \frac{x_2}{1 - x_4},\, \frac{x_3}{1 - x_4} \right).
+                    \]
+                    Under this map, Hopf fibers remain circles in \(\mathbb{R}^3\).
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Patterns and Examples</h2>
+            <div class="math">
+                Some point distributions used for visualizations include:
+                <ul style="line-height: 25px;">
+                    <li><b>Spiral:</b> points arranged from the north to south pole.</li>
+                    <li><b>Icosahedral:</b> points at the vertices of an icosahedron projected onto \(S^2\).</li>
+                    <li><b>Latitude bands:</b> points along the equator and tropics of \(S^2\).</li>
+                    <li><b>Longitude bands:</b> points along meridians for a grid-like structure.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>That's it!</h2>
+            <div class="math">
+                I hope this visualization helps you explore the Hopf fibration in a more intuitive way.
+            </div>
+        </div>
+
+        <br />
+
+        <div style="text-align: center;">
+            <button onClick="window.open('https://www.patreon.com/jcponce', '_blank')">❤️ Support</button>
+            <button id="close-modal">❌ Close</button>
+            <p>\(\Large\infty\)</p>
+            <br />
+        </div>
+    </div>
+
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
