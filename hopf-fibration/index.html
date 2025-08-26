@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- dublin core -->
+    <meta name="dc.title" CONTENT="Chladni patterns">
+    <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+    <meta name="dc.date" CONTENT="01-Jul-2018">
+    <meta name="dc.type" CONTENT="Interactive Resource">
+    <meta name="dc.format" CONTENT="HTML">
+    <meta name="dc.language" CONTENT="en-US">
+    <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+    <!-- social media cards -->
+    <meta property="og:title" content="Hopf Fibrations">
+    <meta property="og:description" content="Interactive Mathematical Applets and Animations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+    <meta property="og:url" content="https://jcponce.github.io/">
+    <meta name="twitter:card" content="Interactive Mathematical Applets and Animations">
+    <meta property="og:site_name" content="Dynamic Mathematics">
+
+    <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+
+    <title>Hopf Fibrations</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+
+    <!--MathJax starts-->
+    <script>
+        window.MathJax = {
+            tex: {
+                tags: "ams",
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <!--MathJax Ends-->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
+
+    <script src="math.js"></script>
+    <script src="mathcell.js"></script>
+
+</head>
+
+
+<body class="is-preload">
+    <!--Magicbook cotainer-->
+    <div class="container">
+
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <h1><a href="../">Dynamic Mathematics</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+
+                                    <li><a href="#what-is-a-hopf-fibration">What is a Hopf fibration?</a></li>
+                                    <li><a href="#application">Interactive application</a></li>
+                                    <li><a href="#how-this-works">How this works?</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main -->
+            <article id="main">
+
+                <header>
+                    <h2>Hopf Fibrations</h2>
+                    <p>Interactive application</p>
+                </header>
+                <section class="wrapper style5">
+                    <div class="inner">
+
+                        <header>
+                            <p>By Juan Carlos Ponce Campuzano, 26/August/2025</p>
+                            <!--
+              <div style="margin-top: -30px;font-size: 80%;">
+                <p>Updated: 26/03/2025</p>
+              </div>-->
+                        </header>
+
+                        <hr>
+
+
+                        <div class="section">
+                            <h2 id="what-is-a-hopf-fibration">What is a Hopf fibration?</h2>
+                            <div class="math">
+                                <p>
+                                    The <strong>Hopf fibration</strong> is a fundamental construction in topology that
+                                    gives a
+                                    surprising way of
+                                    decomposing higher-dimensional spheres. Formally, it is a continuous map from the
+                                    3-sphere to the
+                                    2-sphere:
+                                </p>
+                                <p style="text-align: center;">
+                                    \( h: S^3 \to S^2 \)
+                                </p>
+                                <p>
+                                    with the remarkable property that the preimage \( h^{-1}(p) \) of every point \( p
+                                    \in S^2 \) is a
+                                    circle
+                                    \( S^1 \). In other words, \(S^3\) can be written as a disjoint union of circles
+                                    (called
+                                    <em>fibers</em>), one for each point on the ordinary 2-sphere.
+                                </p>
+
+                                <h3>Why is it important?</h3>
+                                <p>
+                                    The Hopf fibration is not just a mathematical curiosity; it plays a central role in
+                                    both mathematics
+                                    and physics:
+                                </p>
+                                <ul style="line-height: 25px;">
+                                    <li>
+                                        <strong>In Mathematics:</strong> It was the first known example of a
+                                        <strong>non-trivial fiber
+                                            bundle</strong>,
+                                        showing that spaces can be “twisted together” in globally non-obvious ways
+                                        (since \( S^3 \not\cong S^2 \times S^1 \)). It is a key example in homotopy
+                                        theory, differential
+                                        geometry,
+                                        and the study of characteristic classes.
+                                    </li>
+                                    <li>
+                                        <strong>In Physics:</strong> The fibration provides geometric insight into
+                                        physical systems:
+                                        <ul>
+                                            <li><strong>Quantum Mechanics:</strong> The state space of a pure qubit is
+                                                the 3-sphere \(
+                                                S^3 \).
+                                                The Hopf map projects this space onto the Bloch sphere \( S^2 \), which
+                                                represents
+                                                observable states.</li>
+                                            <li><strong>Field Theory & Optics:</strong> It models the topology of
+                                                magnetic fields
+                                                (e.g. Dirac monopoles, Hopfions) and describes structured light beams
+                                                whose
+                                                polarization is linked to spatial geometry.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p>
+                                    In essence, the Hopf fibration builds a bridge between abstract topology and the
+                                    geometry of our
+                                    physical world.
+                                </p>
+
+                                <p>
+                                    <b>Note:</b> This project was inspired by Richard Behiel's video
+                                    <a href="https://youtu.be/dkyvZo68IoM" target="_blank">A Quick Intro to Fiber
+                                        Bundles (Hopf
+                                        Fibration)</a>.
+                                    For further reading, see <a
+                                        href="https://nilesjohnson.net/hopf-articles/Treisman_Guide-to-Hopf-fibration.pdf"
+                                        target="_blank">Zachary Treisman's notes</a>. Also
+                                    check Thijs' GeoGebra applet:
+                                    <a href="https://www.geogebra.org/m/f2suuzct" target="_blank">Hopf fibration</a>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div>
+                            <h2 id="application">Interactive Application</h2>
+
+                            <iframe style="width: 100%;height: 620px;border: none;" src="hopf-app.html"></iframe>
+
+                            <div style="text-align: center;">
+                                <div class="actions">
+                                    <p>
+                                        <strong><a class="button icon solid" href="https://www.dynamicmath.xyz/threejs/hopf-fibration/" target="_blank">
+                                            Fullscreen <i class="fa-solid fa-expand"></i></a> </strong>
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="section">
+                            <h2 id="how-this-works">How this works?</h2>
+                            <div class="math">
+                                <p>
+                                    To make the Hopf fibration visible, the fibers are turned into 3D geometry and
+                                    displayed with
+                                    <a href="https://threejs.org/" target="_blank">Three.js</a>.
+                                    The library handles real-time rendering, lighting, and shading,
+                                    leaving the focus on the underlying geometry.
+                                    In this way, abstract mathematics becomes something
+                                    you can explore visually and intuitively.
+                                </p>
+                                <p>
+                                    The visualization follows these steps:
+                                </p>
+                                <ol style="line-height: 25px;">
+                                    <li>Sample directions \(n \in S^2\).</li>
+                                    <li>Convert each direction into a spinor \((z_1, z_2)\).</li>
+                                    <li>Generate points along the fiber by rotating the phase \(\theta \in [0, 2\pi)\).
+                                    </li>
+                                    <li>Apply stereographic projection \(S^3 \to \mathbb{R}^3\).</li>
+                                    <li>Render the fibers using Three.js.</li>
+                                </ol>
+
+                                <h2>Terminology</h2>
+                                <h3>The 3-Sphere \(S^3\)</h3>
+                                <p>
+                                    The 3-sphere is defined by
+                                    \[
+                                    S^3 = \{ (x_1, x_2, x_3, x_4) \in \mathbb{R}^4 \mid x_1^2 + x_2^2 + x_3^2 + x_4^2 =
+                                    1 \}.
+                                    \]
+                                    It can also be expressed in complex coordinates \((z_1, z_2) \in \mathbb{C}^2\) with
+                                    \[
+                                    z_1 = x_1 + i x_2, \quad z_2 = x_3 + i x_4, \quad |z_1|^2 + |z_2|^2 = 1.
+                                    \]
+                                </p>
+
+                                <h3>Spinor Representation</h3>
+                                <p>
+                                    Given a point \(n = (x,y,z)\) on \(S^2\), a corresponding spinor is
+                                    \[
+                                    z_1 = \sqrt{\tfrac{1+n_z}{2}}, \quad
+                                    z_2 = \frac{x + i y}{2 z_1}.
+                                    \]
+                                    This representation is convenient for generating Hopf fibers.
+                                </p>
+
+                                <h3>Hopf Fiber Parametrization</h3>
+                                <p>
+                                    A fiber associated to \((z_1, z_2)\) is
+                                    \[
+                                    (z_1 e^{i \theta},\, z_2 e^{i \theta}), \quad \theta \in [0, 2\pi).
+                                    \]
+                                    After stereographic projection to \(\mathbb{R}^3\), the points are
+                                    \[
+                                    \mathbf{p} = \left( \tfrac{x_1}{1 - x_4},\, \tfrac{x_2}{1 - x_4},\, \tfrac{x_3}{1 -
+                                    x_4} \right).
+                                    \]
+                                </p>
+
+                                <h3>Stereographic Projection</h3>
+                                <p>
+                                    Stereographic projection from \(S^3 \subset \mathbb{R}^4\) (excluding the north pole
+                                    \(N=(0,0,0,1)\)) to \(\mathbb{R}^3\) is
+                                    \[
+                                    \pi(x_1, x_2, x_3, x_4) =
+                                    \left( \frac{x_1}{1 - x_4},\, \frac{x_2}{1 - x_4},\, \frac{x_3}{1 - x_4} \right).
+                                    \]
+                                    Under this map, Hopf fibers remain circles in \(\mathbb{R}^3\).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h2>Patterns and Examples</h2>
+                            <div class="math">
+                                Some point distributions used for interesting visualizations include:
+                                <ul style="line-height: 25px;">
+                                    <li><b>Icosahedral:</b> points at the vertices of an icosahedron projected onto
+                                        \(S^2\).</li>
+                                    <li><b>Spiral:</b> points arranged from the north to south pole.</li>
+                                    <li><b>Latitude bands:</b> points along the equator and tropics of \(S^2\).</li>
+                                    <li><b>Longitude bands:</b> points along meridians of \(S^2\).</li>
+                                    <li><b>Equator sine:</b> points on a wavy curve along the equator of \(S^2\).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h2>That's it!</h2>
+                            <div class="math">
+                                I hope this visualization helps you explore the Hopf fibration in a more intuitive way.
+                                If you find this content useful, please
+                                consider supporting my work using the links below.
+                            </div>
+
+                          <br/>
+
+                            <div style="text-align: center;">
+                                <div class="actions">
+                                    <p>
+                                        <strong><a class="button icon solid" href="https://www.patreon.com/jcponce"><i
+                                                    class="fab fa-patreon"></i> Patreon</a></strong>&nbsp;&nbsp;
+                                        <strong><a class="button icon solid"
+                                                href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=WTMTR7D8RYZ26&amp;item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+site.+Sincerely+appreciate+it%21&amp;currency_code=AUD&amp;source=url">&#x2764;&#xFE0F;
+                                                PayPal</a></strong>&nbsp;&nbsp;
+                                        <strong><a class="button icon solid"
+                                                href="https://jcponcemath.secure-decoration.com">&#x2764;&#xFE0F;
+                                                Buy a T-shirt</a></strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+
+                        <h2 id="references">References</h2>
+
+                        <ol>
+                            <li>
+                                Rowland, T. <em>"Hopf Map."</em> From MathWorld--A Wolfram Resource, created by Eric W. Weisstein. 
+                                <a href="https://mathworld.wolfram.com/HopfMap.html"
+                                    target="_blank" title="Open link"><i class="fas fa-external-link-alt"></i></a>
+                            </li>
+                            <li>
+                               Treisman, Z. (2009). <em>A young person's guide to the Hopf fibration.</em>
+                                <a href="https://nilesjohnson.net/hopf-articles/Treisman_Guide-to-Hopf-fibration.pdf"
+                                    target="_blank" title="Open link"><i class="fas fa-external-link-alt"></i></a>
+                            </li>
+                          
+                        </ol>
+
+
+
+
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://github.com/jcponce" class="icon brands fa-github"><span
+                                class="label">Dribbble</span></a>
+                    </li>
+                    <li><a href="mailto: jcponcemath@gmail.com" class="icon solid fa-envelope"><span
+                                class="label">Email</span></a></li>
+                    <li><a href="https://mathstodon.xyz/@jcponcemath" class="icon brands fa-mastodon"><span
+                                class="label">Twitter</span></a></li>
+                    <li><a href="https://twitter.com/jcponcemath" class="icon brands fa-x-twitter"><span
+                                class="label">Twitter</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; 2018-<span>
+                            <script>document.write(new Date().getFullYear());</script>
+                        </span>
+                        Juan Carlos Ponce Campuzano
+                    </li>
+                    <li>&nbsp;<a href="../licence.html"><i class="fab fa-creative-commons"></i></a></li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+
+    </div>
+
+    <!--Scripts-->
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/google-analytics-ga4.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jsutil.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+
+</html>
