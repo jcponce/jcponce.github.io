@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Hopf Fibration Visualization with Threejs">
+    <meta name="keywords" content="Mathematics, Hopf, Fibration, Stereographic, Projection, Threejs">
+    <meta name="author" content="Juan Carlos Ponce Campuzano">
+    <title>Hopf Fibration Visualization</title>
+
+    <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
+
+    <!--MathJax starts-->
+    <script>
+        window.MathJax = {
+            tex: {
+                tags: "ams",
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <!--MathJax Ends-->
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.179.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.179.0/examples/jsm/"
+      }
+    }
+   </script>
+
+<style>
+/*!
+ Author: Juan Carlos Ponce Campuzano
+ https://www.dynamicmath.xyz
+ Date: 24/08/2025
+ Under Creative Commons Attribution, Non-Commercial, Share-Alike license
+ http://creativecommons.org/licenses/by-nc-sa/4.0/
+*/
+.controls,.hud{position:fixed;left:16px}#app,#loader{width:100vw;height:100vh}#loader,#small-screen-message{font-family:ui-sans-serif,system-ui,sans-serif}body,html{margin:0;height:100%;overflow:hidden;background:#0b1020}#app{position:relative}canvas{display:block}.hud{top:16px;color:#eaf2ff;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;font-size:14px;line-height:1.3}.hint{opacity:.8;max-width:340px}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#1b2a4a;border:1px solid #2b3a5a;margin-right:8px;font-size:12px}.footer{position:fixed;right:16px;bottom:16px;color:#adbff5;font-size:.95rem;opacity:.7}.controls,.dropdown{color:#eaf2ff;font-family:ui-sans-serif,system-ui}.controls{bottom:54px;background:rgba(11,16,32,.8);padding:15px;border-radius:12px;border:1px solid rgba(100,150,255,.2);box-shadow:0 4px 20px rgba(0,0,0,.3);width:200px;transition:transform .3s,opacity .3s}.slider,.slider:before{transition:.4s;position:absolute}.controls.hidden{transform:translateY(calc(100% + 20px));opacity:0;pointer-events:none}.controls h3{margin:0 0 12px;font-size:16px;color:#b4d0ff}.controls button{width:100%;padding:8px;background:#2b4a8a;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:5px;transition:background .3s}#loader,.dropdown option{background:#0b1020}.controls button:hover,.info-modal button:hover,.toggle-controls-btn:hover{background:#3a5aaa}.toggle-container{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.toggle{position:relative;display:inline-block;width:50px;height:24px}.toggle input{opacity:0;width:0;height:0}.slider{cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#1b2a4a;border-radius:24px}.slider:before{content:"";height:16px;width:16px;left:4px;bottom:4px;background-color:#4a72da;border-radius:50%}input:checked+.slider{background-color:#2b4a8a}input:checked+.slider:before{transform:translateX(26px)}.instructions{margin-top:10px;margin-bottom:10px;padding:1px 10px;background:rgba(27,42,74,.5);border-radius:8px;font-size:14px}.selection-marker{position:absolute;width:12px;height:12px;border-radius:50%;background:#f36;border:2px solid #fff;box-shadow:0 0 8px rgba(255,51,102,.8);pointer-events:none;transform:translate(-50%,-50%);z-index:100;display:none}.dropdown{width:100%;padding:6px;margin-top:2px;margin-bottom:10px;background:#1b2a4a;border:1px solid #2b3a5a;border-radius:4px}.toggle-controls-btn{position:fixed;left:16px;bottom:16px;background:#2b4a8a;color:#fff;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-family:ui-sans-serif,system-ui;font-size:12px;z-index:1000}#small-screen-message,.info-modal{top:50%;left:50%;transform:translate(-50%,-50%)}.key-shortcut{display:inline-block;background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px;margin:0 4px;font-family:monospace}.info-modal,.info-modal input{font-family:ui-sans-serif,system-ui}.info-modal{position:fixed;background:rgba(11,16,32,.95);border:1px solid rgba(100,150,255,.3);border-radius:12px;padding:20px;z-index:1001;box-shadow:0 4px 30px rgba(0,0,0,.5);color:#eaf2ff;min-width:300px;display:none;width:clamp(300px,80%,740px);max-height:80vh;overflow-y:auto;overflow-x:hidden;font-size:1.1rem}#loader,.modal-overlay{position:fixed;top:0;left:0}.info-modal .matheqn{margin-top:-.5rem;margin-bottom:1rem;overflow-y:hidden;overflow-x:auto}.info-modal h1,h2,h3{margin-top:0;color:#b4d0ff}.info-modal .section{margin-top:2rem;margin-bottom:1rem}.info-modal input{width:100%;padding:8px;margin:10px 0;background:#1b2a4a;color:#eaf2ff;border:1px solid #2b3a5a;border-radius:4px}.info-modal button{padding:8px 16px;background:#2b4a8a;color:#fff;border:none;border-radius:4px;cursor:pointer;margin-right:8px;font-size:1rem}.info-modal a{color:#50abd5}.info-modal a:hover{color:#a79ec3}hr{border:1px solid #aebcd5}.modal-overlay{width:100%;height:100%;background:rgba(0,0,0,.7);z-index:1000;display:none}#small-screen-message{display:none;position:fixed;width:100%;height:100%;background:#0b1020;color:#eaf2ff;display:flex;justify-content:center;align-items:center;text-align:center;padding:1rem;z-index:2000}#small-screen-message .message-box{max-width:13rem;background:rgba(27,42,74,.9);padding:20px;border-radius:12px;border:1px solid rgba(100,150,255,.3);box-shadow:0 4px 20px rgba(0,0,0,.6)}#loader{display:flex;align-items:center;justify-content:center;z-index:3000;color:#eaf2ff;flex-direction:column}.loader-content{text-align:center}.spinner{border:4px solid rgba(255,255,255,.1);border-top:4px solid #4a72da;border-radius:50%;width:50px;height:50px;animation:1s linear infinite spin;margin:20px auto}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="selection-marker" id="selection-marker"></div>
+
+     <div id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <div id="small-screen-message">
+        <div class="message-box">
+            <h2>Screen Too Small</h2>
+            <p>
+                For the best experience, use this app on a device with a larger screen height.
+            </p>
+
+            <picture>
+                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f636_200d_1f32b_fe0f/512.webp"
+                    type="image/webp">
+                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f636_200d_1f32b_fe0f/512.gif" alt="😶"
+                    width="64" height="64">
+            </picture>
+        </div>
+    </div>
+
+
+    <button class="toggle-controls-btn" id="toggle-controls-btn">▼ Hide Controls</button>
+    <div class="controls" id="controls">
+        <h3>Hopf Fibration Controls</h3>
+        <div class="instructions">
+            <p>
+                <strong>Instructions:</strong>
+                Move mouse over sphere to select point,
+                then press <span class="key-shortcut">A</span>
+                to add a Hopf fiber at that location.
+            </p>
+            <!--<p> Press <span class="key-shortcut">S</span> to save view.</p>-->
+        </div>
+        <div class="toggle-container">
+            <span>Fibers</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-fibers" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Sphere</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-sphere" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Points</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-points" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Axes</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-axes" unchecked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Grid</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-grid" unchecked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <select class="dropdown" id="examples">
+            <option value="custom">Custom Points</option>
+            <option value="spiral">Spiral Pattern</option>
+            <option value="icosahedral">Icosahedral Pattern</option>
+            <option value="latitude-bands">Latitude Bands</option>
+            <option value="longitude-bands">Longitude Bands</option>
+            <option value="equator-sine">Equator sine</option>
+        </select>
+        <button id="clear-btn">Clear All Fibers</button>
+        <button id="save-view-btn">Save View</button>
+        <button id="share-link-btn">Share Scene</button>
+        <button id="modal-btn">What is this?</button>
+
+    </div>
+    <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="info-modal-overlay"></div>
+    <div class="info-modal" id="info-modal">
+
+        <h1>Hopf Fibration Visualization</h1>
+        <hr>
+
+        <div class="section">
+            <h2>What is a Hopf fibration?</h2>
+            <div class="math">
+                <p>
+                    The <strong>Hopf fibration</strong> is a fundamental construction in topology that gives a
+                    surprising way of
+                    decomposing higher-dimensional spheres. Formally, it is a continuous map from the 3-sphere to the
+                    2-sphere:
+                </p>
+                <p style="text-align: center;">
+                    \( h: S^3 \to S^2 \)
+                </p>
+                <p>
+                    with the remarkable property that the preimage \( h^{-1}(p) \) of every point \( p \in S^2 \) is a
+                    circle
+                    \( S^1 \). In other words, \(S^3\) can be written as a disjoint union of circles (called
+                    <em>fibers</em>), one for each point on the ordinary 2-sphere.
+                </p>
+
+                <h3>Why is it important?</h3>
+                <p>
+                    The Hopf fibration is not just a mathematical curiosity; it plays a central role in both mathematics
+                    and physics:
+                </p>
+                <ul style="line-height: 25px;">
+                    <li>
+                        <strong>In Mathematics:</strong> It was the first known example of a <strong>non-trivial fiber
+                            bundle</strong>,
+                        showing that spaces can be “twisted together” in globally non-obvious ways
+                        (since \( S^3 \not\cong S^2 \times S^1 \)). It is a key example in homotopy theory, differential
+                        geometry,
+                        and the study of characteristic classes.
+                    </li>
+                    <li>
+                        <strong>In Physics:</strong> The fibration provides geometric insight into physical systems:
+                        <ul>
+                            <li><strong>Quantum Mechanics:</strong> The state space of a pure qubit is the 3-sphere \(
+                                S^3 \).
+                                The Hopf map projects this space onto the Bloch sphere \( S^2 \), which represents
+                                observable states.</li>
+                            <li><strong>Field Theory & Optics:</strong> It models the topology of magnetic fields
+                                (e.g. Dirac monopoles, Hopfions) and describes structured light beams whose
+                                polarization is linked to spatial geometry.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    In essence, the Hopf fibration builds a bridge between abstract topology and the geometry of our
+                    physical world.
+                </p>
+
+                <p>
+                    <b>Note:</b> This project was inspired by Richard Behiel's video
+                    <a href="https://youtu.be/dkyvZo68IoM" target="_blank">A Quick Intro to Fiber Bundles (Hopf
+                        Fibration)</a>.
+                    For further reading, see <a
+                        href="https://nilesjohnson.net/hopf-articles/Treisman_Guide-to-Hopf-fibration.pdf"
+                        target="_blank">Zachary Treisman's notes</a>. Also 
+                        check Thijs' GeoGebra applet:
+                        <a href="https://www.geogebra.org/m/f2suuzct" target="_blank">Hopf fibration</a>.
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <h2>How this project works?</h2>
+            <div class="math">
+                <p>
+                    To make the Hopf fibration visible, the fibers are turned into 3D geometry and displayed with
+                    <a href="https://threejs.org/" target="_blank">Three.js</a>.
+                    The library handles real-time rendering, lighting, and shading,
+                    leaving the focus on the underlying geometry.
+                    In this way, abstract mathematics becomes something
+                    you can explore visually and intuitively.
+                </p>
+                <p>
+                    The visualization follows these steps:
+                </p>
+                <ol style="line-height: 25px;">
+                    <li>Sample directions \(n \in S^2\).</li>
+                    <li>Convert each direction into a spinor \((z_1, z_2)\).</li>
+                    <li>Generate points along the fiber by rotating the phase \(\theta \in [0, 2\pi)\).</li>
+                    <li>Apply stereographic projection \(S^3 \to \mathbb{R}^3\).</li>
+                    <li>Render the fibers using Three.js.</li>
+                </ol>
+
+                <h2>Terminology</h2>
+                <h3>The 3-Sphere \(S^3\)</h3>
+                <p>
+                    The 3-sphere is defined by
+                    \[
+                    S^3 = \{ (x_1, x_2, x_3, x_4) \in \mathbb{R}^4 \mid x_1^2 + x_2^2 + x_3^2 + x_4^2 = 1 \}.
+                    \]
+                    It can also be expressed in complex coordinates \((z_1, z_2) \in \mathbb{C}^2\) with
+                    \[
+                    z_1 = x_1 + i x_2, \quad z_2 = x_3 + i x_4, \quad |z_1|^2 + |z_2|^2 = 1.
+                    \]
+                </p>
+
+                <h3>Spinor Representation</h3>
+                <p>
+                    Given a point \(n = (x,y,z)\) on \(S^2\), a corresponding spinor is
+                    \[
+                    z_1 = \sqrt{\tfrac{1+n_z}{2}}, \quad
+                    z_2 = \frac{x + i y}{2 z_1}.
+                    \]
+                    This representation is convenient for generating Hopf fibers.
+                </p>
+
+                <h3>Hopf Fiber Parametrization</h3>
+                <p>
+                    A fiber associated to \((z_1, z_2)\) is
+                    \[
+                    (z_1 e^{i \theta},\, z_2 e^{i \theta}), \quad \theta \in [0, 2\pi).
+                    \]
+                    After stereographic projection to \(\mathbb{R}^3\), the points are
+                    \[
+                    \mathbf{p} = \left( \tfrac{x_1}{1 - x_4},\, \tfrac{x_2}{1 - x_4},\, \tfrac{x_3}{1 - x_4} \right).
+                    \]
+                </p>
+
+                <h3>Stereographic Projection</h3>
+                <p>
+                    Stereographic projection from \(S^3 \subset \mathbb{R}^4\) (excluding the north pole
+                    \(N=(0,0,0,1)\)) to \(\mathbb{R}^3\) is
+                    \[
+                    \pi(x_1, x_2, x_3, x_4) =
+                    \left( \frac{x_1}{1 - x_4},\, \frac{x_2}{1 - x_4},\, \frac{x_3}{1 - x_4} \right).
+                    \]
+                    Under this map, Hopf fibers remain circles in \(\mathbb{R}^3\).
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Patterns and Examples</h2>
+            <div class="math">
+                Some point distributions used for visualizations include:
+                <ul style="line-height: 25px;">
+                    <li><b>Icosahedral:</b> points at the vertices of an icosahedron projected onto \(S^2\).</li>
+                    <li><b>Spiral:</b> points arranged from the north to south pole.</li>
+                    <li><b>Latitude bands:</b> points along the equator and tropics of \(S^2\).</li>
+                    <li><b>Longitude bands:</b> points along meridians of \(S^2\).</li>
+                    <li><b>Equator sine:</b> points on a wavy curve along the equator of \(S^2\).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>That's it!</h2>
+            <div class="math">
+                I hope this visualization helps you explore the Hopf fibration in a more intuitive way.
+            </div>
+        </div>
+
+        <br />
+
+        <div style="text-align: center;">
+            <button onClick="window.open('https://www.patreon.com/jcponce', '_blank')">❤️ Support</button>
+            <button id="close-modal">❌ Close</button>
+            <p>\(\Large\infty\)</p>
+            <br />
+        </div>
+    </div>
+
+
+<script type="module">
+/*!
+ Author: Juan Carlos Ponce Campuzano
+ https://www.dynamicmath.xyz
+ Date: 24/08/2025
+ Under Creative Commons Attribution, Non-Commercial, Share-Alike license
+ http://creativecommons.org/licenses/by-nc-sa/4.0/
+*/
+import*as THREE from"three";import{OrbitControls}from"three/addons/controls/OrbitControls.js";const container=document.getElementById("app"),renderer=new THREE.WebGLRenderer({antialias:!0,alpha:!0});renderer.setPixelRatio(Math.min(window.devicePixelRatio,2)),renderer.setSize(window.innerWidth,window.innerHeight),container.appendChild(renderer.domElement);const scene=new THREE.Scene;scene.fog=new THREE.FogExp2(725024,.015);const camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,.01,200);camera.position.set(2.5,4,1.5),camera.up.set(0,0,1);const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=!0,controls.target.set(0,0,0);const ambient=new THREE.AmbientLight(16777215,.5);scene.add(ambient);const dir=new THREE.DirectionalLight(16777215,2.5);dir.position.set(4,4,8),scene.add(dir);const grid=new THREE.GridHelper(20,20,10992101,1846351);grid.material.opacity=.84,grid.material.transparent=!0,grid.rotation.x=Math.PI/2,scene.add(grid),grid.visible=!1;const axesHelper=new THREE.AxesHelper(1);scene.add(axesHelper),axesHelper.visible=!1;const sphereGeo=new THREE.SphereGeometry(1,48,32),sphereMat=new THREE.MeshStandardMaterial({color:2244762,roughness:.35,metalness:.1,transparent:!0,opacity:.65,emissive:463918,emissiveIntensity:.2,side:THREE.DoubleSide}),sphere=new THREE.Mesh(sphereGeo,sphereMat);scene.add(sphere);const pickMarkers=new THREE.Group;scene.add(pickMarkers);const markerGeo=new THREE.SphereGeometry(.035,16,16),markerMat=new THREE.MeshStandardMaterial({color:11849983,emissive:2245768,emissiveIntensity:.5}),params={waves:4,amplitude:.25,segments:240},toggleFibers=document.getElementById("toggle-fibers");toggleFibers.addEventListener("change",(function(){fibers.visible=this.checked}));let sphereVisible=!0;const toggleSphere=document.getElementById("toggle-sphere");toggleSphere.addEventListener("change",(function(){sphere.visible=this.checked,sphereVisible=this.checked,sphereVisible||(selectionMarker.style.display="none",selectedPoint=null)}));const togglePoints=document.getElementById("toggle-points");togglePoints.addEventListener("change",(function(){pickMarkers.visible=this.checked}));const toggleAxes=document.getElementById("toggle-axes");toggleAxes.addEventListener("change",(function(){axesHelper.visible=this.checked}));const toggleGrid=document.getElementById("toggle-grid");toggleGrid.addEventListener("change",(function(){grid.visible=this.checked})),document.getElementById("clear-btn").addEventListener("click",clearFibers);const examplesDropdown=document.getElementById("examples");function saveCurrentView(){renderer.render(scene,camera);const e=renderer.domElement.toDataURL("image/png"),t=document.createElement("a");t.href=e;const n=(new Date).toISOString().replace(/[:.]/g,"-");t.download=`hopf_view_${n}.png`,t.click()}examplesDropdown.addEventListener("change",(function(){"custom"!==this.value&&loadExample(this.value)})),document.getElementById("save-view-btn").addEventListener("click",saveCurrentView);const shareBtn=document.getElementById("share-link-btn");shareBtn.addEventListener("click",(()=>{const e={fibers:pickMarkers.children.map((e=>e.position.clone().normalize().toArray())),toggles:{fibers:toggleFibers.checked,sphere:toggleSphere.checked,points:togglePoints.checked,axes:toggleAxes.checked,grid:toggleGrid.checked},example:examplesDropdown.value},t=JSON.stringify(e),n=btoa(t),o=`${window.location.origin}${window.location.pathname}#${n}`;navigator.clipboard.writeText(o).then((()=>{alert("Shareable link copied to clipboard!")}))})),window.addEventListener("load",(()=>{if(window.location.hash.length>1)try{const e=window.location.hash.slice(1),t=atob(e),n=JSON.parse(t);examplesDropdown.value=n.example,"custom"!==n.example&&loadExample(n.example),toggleFibers.checked=n.toggles.fibers,fibers.visible=n.toggles.fibers,toggleSphere.checked=n.toggles.sphere,sphere.visible=n.toggles.sphere,togglePoints.checked=n.toggles.points,pickMarkers.visible=n.toggles.points,toggleAxes.checked=n.toggles.axes,axesHelper.visible=n.toggles.axes,toggleGrid.checked=n.toggles.grid,grid.visible=n.toggles.grid,"custom"===n.example&&(clearFibers(),n.fibers.forEach((e=>{addFiber(new THREE.Vector3(...e))})))}catch(e){console.error("Invalid state in URL:",e)}}));const modalBtn=document.getElementById("modal-btn"),modal=document.getElementById("info-modal"),overlay=document.getElementById("info-modal-overlay"),closeBtn=document.getElementById("close-modal");modalBtn.addEventListener("click",(()=>{modal.style.display="block",overlay.style.display="block"})),closeBtn.addEventListener("click",(()=>{modal.style.display="none",overlay.style.display="none"})),overlay.addEventListener("click",(()=>{modal.style.display="none",overlay.style.display="none"})),document.addEventListener("keydown",(e=>{"Escape"===e.key&&(modal.style.display="none",overlay.style.display="none")}));const controlsElement=document.getElementById("controls"),toggleControlsBtn=document.getElementById("toggle-controls-btn");let controlsVisible=!0;function spinorFromN(e){const t=e.z,n=2*Math.sqrt((1+t)/2);if(n>1e-8){return{z1:{re:Math.sqrt((1+t)/2),im:0},z2:{re:e.x/n,im:e.y/n}}}return{z1:{re:0,im:0},z2:{re:0,im:1}}}function rotatePhase(e,t){const n=Math.cos(t),o=Math.sin(t);return{re:e.re*n-e.im*o,im:e.re*o+e.im*n}}function stereoProjectS3ToR3(e,t,n,o){const r=1/(1-o);return new THREE.Vector3(e*r,t*r,n*r)}function hopfFiberPoints(e,t){const{z1:n,z2:o}=spinorFromN(e),r=[];for(let e=0;e<t;e++){const s=e/t*Math.PI*2,i=rotatePhase(n,s),a=rotatePhase(o,s),l=stereoProjectS3ToR3(i.re,i.im,a.re,a.im);r.push(l)}return r}toggleControlsBtn.addEventListener("click",(function(){controlsVisible=!controlsVisible,controlsVisible?(controlsElement.classList.remove("hidden"),toggleControlsBtn.textContent="▼ Hide Controls"):(controlsElement.classList.add("hidden"),toggleControlsBtn.textContent="▲ Controls")}));const fibers=new THREE.Group;function clearFibers(){for(;fibers.children.length>0;){const e=fibers.children[0];e.traverse((e=>{e.geometry&&e.geometry.dispose(),e.material&&(Array.isArray(e.material)?e.material.forEach((e=>e.dispose())):e.material.dispose())})),fibers.remove(e)}for(;pickMarkers.children.length>0;){const e=pickMarkers.children[0];e.geometry&&e.geometry.dispose(),e.material&&e.material.dispose(),pickMarkers.remove(e)}examplesDropdown.value="custom"}function addFiber(e){const t=params.segments,n=hopfFiberPoints(e,t),o=new THREE.CatmullRomCurve3(n,!0),r=new THREE.TubeGeometry(o,2*t,.02,12,!0),s=new THREE.MeshStandardMaterial({color:(new THREE.Color).setHSL(.4+.8*Math.random(),.9,.5),roughness:.3,metalness:.2,emissive:1127253,emissiveIntensity:.5}),i=new THREE.Mesh(r,s);fibers.add(i);const a=new THREE.Mesh(markerGeo,markerMat);a.position.copy(e.clone().multiplyScalar(1.001)),pickMarkers.add(a)}function loadExample(e){if(clearFibers(),"latitude-bands"===e){const e=6,t=80;for(let n=1;n<e;n++){const o=n/e*Math.PI-Math.PI/2,r=Math.sin(o),s=Math.cos(o);for(let e=0;e<t;e++){const n=e/t*Math.PI+Math.PI-.45*Math.PI,o=s*Math.cos(n),i=s*Math.sin(n);addFiber(new THREE.Vector3(o,i,r).normalize())}}}else if("spiral"===e){const e=100;for(let t=0;t<e;t++){const n=t/e,o=n*Math.PI*4,r=Math.acos(1-2*n),s=Math.sin(r)*Math.cos(o),i=Math.sin(r)*Math.sin(o),a=Math.cos(r);addFiber(new THREE.Vector3(s,i,a).normalize())}}else if("icosahedral"===e){const e=(1+Math.sqrt(5))/2,t=[[-1,e,0],[1,e,0],[-1,-e,0],[1,-e,0],[0,-1,e],[0,1,e],[0,-1,-e],[0,1,-e],[e,0,-1],[e,0,1],[-e,0,-1],[-e,0,1]];for(let e of t){addFiber(new THREE.Vector3(e[0],e[1],e[2]).normalize())}}else if("longitude-bands"===e){const e=4,t=40;for(let n=0;n<e;n++){const o=n/e*Math.PI*2,r=Math.cos(o),s=Math.sin(o);for(let e=0;e<t;e++){const n=(e/(t-1)+Math.PI/8)*Math.PI/2,o=Math.sin(n)*r,i=Math.sin(n)*s,a=Math.cos(n);addFiber(new THREE.Vector3(o,i,a).normalize())}}}else if("equator-sine"===e){const e=200,t=.3,n=5;for(let o=0;o<e;o++){const r=o/e*Math.PI*2,s=Math.cos(r),i=Math.sin(r),a=t*Math.sin(n*r);addFiber(new THREE.Vector3(s,i,a).normalize())}}}scene.add(fibers);const raycaster=new THREE.Raycaster,mouse=new THREE.Vector2;let selectedPoint=null;const selectionMarker=document.getElementById("selection-marker");function onMouseMove(e){if(!sphereVisible)return selectedPoint=null,void(selectionMarker.style.display="none");mouse.x=e.clientX/window.innerWidth*2-1,mouse.y=-e.clientY/window.innerHeight*2+1,raycaster.setFromCamera(mouse,camera);const t=raycaster.intersectObject(sphere,!1)[0];if(t){selectedPoint=t.point.clone().normalize();const e=selectedPoint.clone();e.project(camera);const n=(.5*e.x+.5)*window.innerWidth,o=-(.5*e.y-.5)*window.innerHeight;selectionMarker.style.left=`${n}px`,selectionMarker.style.top=`${o}px`,selectionMarker.style.display="block"}else selectedPoint=null,selectionMarker.style.display="none"}function onKeyDown(e){"a"!==e.key&&"A"!==e.key||selectedPoint&&(addFiber(selectedPoint),examplesDropdown.value="custom"),"h"!==e.key&&"H"!==e.key||toggleControlsBtn.click(),"s"!==e.key&&"S"!==e.key||saveCurrentView()}function checkScreenSize(){const e=document.getElementById("small-screen-message");window.innerWidth<410||window.innerHeight<610?e.style.display="flex":e.style.display="none"}function render(){controls.update(),renderer.setClearColor(725024,1),renderer.clear(!0,!0,!0),renderer.render(scene,camera),requestAnimationFrame(render)}function onResize(){renderer.setSize(window.innerWidth,window.innerHeight),camera.aspect=window.innerWidth/window.innerHeight,camera.updateProjectionMatrix()}window.addEventListener("mousemove",onMouseMove),window.addEventListener("keydown",onKeyDown),window.addEventListener("load",checkScreenSize),window.addEventListener("resize",checkScreenSize),window.addEventListener("load",(()=>{const e=document.getElementById("loader");e.style.opacity="0",e.style.transition="opacity 0.5s ease",setTimeout((()=>e.style.display="none"),500)})),render(),window.addEventListener("resize",onResize),addFiber(new THREE.Vector3(0,0,1)),addFiber(new THREE.Vector3(1,0,0).normalize()),addFiber(new THREE.Vector3(0,1,0).normalize());
+    </script>
+</body>
+
+</html>
