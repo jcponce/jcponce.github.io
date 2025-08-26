@@ -9,8 +9,8 @@
     <meta name="author" content="Juan Carlos Ponce Campuzano">
     <title>Hopf Fibration Visualization</title>
 
-    <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../images/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/icon/infinity16.png" sizes="16x16">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
@@ -21,6 +21,387 @@
 
         gtag('config', 'G-JPYTNF6MB4');
     </script>
+
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #0b1020;
+        }
+
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .hud {
+            position: fixed;
+            left: 16px;
+            top: 16px;
+            color: #eaf2ff;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+
+        .hint {
+            opacity: .8;
+            max-width: 340px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: #1b2a4a;
+            border: 1px solid #2b3a5a;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+        .footer {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            color: #adbff5;
+            font-size: 0.95rem;
+            opacity: .7;
+        }
+
+        .controls {
+            position: fixed;
+            left: 16px;
+            bottom: 54px;
+            background: rgba(11, 16, 32, 0.8);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            color: #eaf2ff;
+            font-family: ui-sans-serif, system-ui;
+            width: 200px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .controls.hidden {
+            transform: translateY(calc(100% + 20px));
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .controls h3 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            color: #b4d0ff;
+        }
+
+        .controls button {
+            width: 100%;
+            padding: 8px;
+            background: #2b4a8a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background 0.3s;
+        }
+
+        .controls button:hover {
+            background: #3a5aaa;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #1b2a4a;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #4a72da;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2b4a8a;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .instructions {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            background: rgba(27, 42, 74, 0.5);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .selection-marker {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff3366;
+            border: 2px solid white;
+            box-shadow: 0 0 8px rgba(255, 51, 102, 0.8);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            display: none;
+        }
+
+        .dropdown {
+            width: 100%;
+            padding: 6px;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            background: #1b2a4a;
+            color: #eaf2ff;
+            border: 1px solid #2b3a5a;
+            border-radius: 4px;
+            font-family: ui-sans-serif, system-ui;
+        }
+
+        .dropdown option {
+            background: #0b1020;
+        }
+
+        .toggle-controls-btn {
+            position: fixed;
+            left: 16px;
+            bottom: 16px;
+            background: #2b4a8a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-family: ui-sans-serif, system-ui;
+            font-size: 12px;
+            z-index: 1000;
+        }
+
+        .toggle-controls-btn:hover {
+            background: #3a5aaa;
+        }
+
+        .key-shortcut {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin: 0 4px;
+            font-family: monospace;
+        }
+
+        .info-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(11, 16, 32, 0.95);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            z-index: 1001;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            color: #eaf2ff;
+            font-family: ui-sans-serif, system-ui;
+            min-width: 300px;
+            display: none;
+            /* Responsive width */
+            width: clamp(300px, 80%, 740px);
+            max-height: 80vh;
+            /* Enable scrolling */
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-size: 1.1rem;
+        }
+
+        .info-modal .matheqn {
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+            overflow-y: hidden;
+            overflow-x: auto;
+        }
+
+        .info-modal h1,
+        h2,
+        h3 {
+            margin-top: 0;
+            color: #b4d0ff;
+        }
+
+        .info-modal .section {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-modal input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            background: #1b2a4a;
+            color: #eaf2ff;
+            border: 1px solid #2b3a5a;
+            border-radius: 4px;
+            font-family: ui-sans-serif, system-ui;
+        }
+
+        .info-modal button {
+            padding: 8px 16px;
+            background: #2b4a8a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        .info-modal button:hover {
+            background: #3a5aaa;
+        }
+
+        .info-modal a {
+            color: #50abd5;
+        }
+
+        .info-modal a:hover {
+            color: #a79ec3;
+        }
+
+        hr {
+            border: 1px solid #aebcd5;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+        }
+
+        #small-screen-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: #0b1020;
+            color: #eaf2ff;
+            display: flex;
+            justify-content: center;
+            /* horizontal center */
+            align-items: center;
+            /* vertical center */
+            text-align: center;
+            padding: 1rem;
+            z-index: 2000;
+            font-family: ui-sans-serif, system-ui, sans-serif;
+        }
+
+        #small-screen-message .message-box {
+            max-width: 13rem;
+            background: rgba(27, 42, 74, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0b1020;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            color: #eaf2ff;
+            font-family: ui-sans-serif, system-ui, sans-serif;
+            flex-direction: column;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #4a72da;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
     <!--MathJax starts-->
     <script>
@@ -42,25 +423,14 @@
         "three/addons/": "https://unpkg.com/three@0.179.0/examples/jsm/"
       }
     }
-   </script>
-
-<style>
-/*!
- Author: Juan Carlos Ponce Campuzano
- https://www.dynamicmath.xyz
- Date: 24/08/2025
- Under Creative Commons Attribution, Non-Commercial, Share-Alike license
- http://creativecommons.org/licenses/by-nc-sa/4.0/
-*/
-.controls,.hud{position:fixed;left:16px}#app,#loader{width:100vw;height:100vh}#loader,#small-screen-message{font-family:ui-sans-serif,system-ui,sans-serif}body,html{margin:0;height:100%;overflow:hidden;background:#0b1020}#app{position:relative}canvas{display:block}.hud{top:16px;color:#eaf2ff;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;font-size:14px;line-height:1.3}.hint{opacity:.8;max-width:340px}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#1b2a4a;border:1px solid #2b3a5a;margin-right:8px;font-size:12px}.footer{position:fixed;right:16px;bottom:16px;color:#adbff5;font-size:.95rem;opacity:.7}.controls,.dropdown{color:#eaf2ff;font-family:ui-sans-serif,system-ui}.controls{bottom:54px;background:rgba(11,16,32,.8);padding:15px;border-radius:12px;border:1px solid rgba(100,150,255,.2);box-shadow:0 4px 20px rgba(0,0,0,.3);width:200px;transition:transform .3s,opacity .3s}.slider,.slider:before{transition:.4s;position:absolute}.controls.hidden{transform:translateY(calc(100% + 20px));opacity:0;pointer-events:none}.controls h3{margin:0 0 12px;font-size:16px;color:#b4d0ff}.controls button{width:100%;padding:8px;background:#2b4a8a;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:5px;transition:background .3s}#loader,.dropdown option{background:#0b1020}.controls button:hover,.info-modal button:hover,.toggle-controls-btn:hover{background:#3a5aaa}.toggle-container{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.toggle{position:relative;display:inline-block;width:50px;height:24px}.toggle input{opacity:0;width:0;height:0}.slider{cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#1b2a4a;border-radius:24px}.slider:before{content:"";height:16px;width:16px;left:4px;bottom:4px;background-color:#4a72da;border-radius:50%}input:checked+.slider{background-color:#2b4a8a}input:checked+.slider:before{transform:translateX(26px)}.instructions{margin-top:10px;margin-bottom:10px;padding:1px 10px;background:rgba(27,42,74,.5);border-radius:8px;font-size:14px}.selection-marker{position:absolute;width:12px;height:12px;border-radius:50%;background:#f36;border:2px solid #fff;box-shadow:0 0 8px rgba(255,51,102,.8);pointer-events:none;transform:translate(-50%,-50%);z-index:100;display:none}.dropdown{width:100%;padding:6px;margin-top:2px;margin-bottom:10px;background:#1b2a4a;border:1px solid #2b3a5a;border-radius:4px}.toggle-controls-btn{position:fixed;left:16px;bottom:16px;background:#2b4a8a;color:#fff;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-family:ui-sans-serif,system-ui;font-size:12px;z-index:1000}#small-screen-message,.info-modal{top:50%;left:50%;transform:translate(-50%,-50%)}.key-shortcut{display:inline-block;background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px;margin:0 4px;font-family:monospace}.info-modal,.info-modal input{font-family:ui-sans-serif,system-ui}.info-modal{position:fixed;background:rgba(11,16,32,.95);border:1px solid rgba(100,150,255,.3);border-radius:12px;padding:20px;z-index:1001;box-shadow:0 4px 30px rgba(0,0,0,.5);color:#eaf2ff;min-width:300px;display:none;width:clamp(300px,80%,740px);max-height:80vh;overflow-y:auto;overflow-x:hidden;font-size:1.1rem}#loader,.modal-overlay{position:fixed;top:0;left:0}.info-modal .matheqn{margin-top:-.5rem;margin-bottom:1rem;overflow-y:hidden;overflow-x:auto}.info-modal h1,h2,h3{margin-top:0;color:#b4d0ff}.info-modal .section{margin-top:2rem;margin-bottom:1rem}.info-modal input{width:100%;padding:8px;margin:10px 0;background:#1b2a4a;color:#eaf2ff;border:1px solid #2b3a5a;border-radius:4px}.info-modal button{padding:8px 16px;background:#2b4a8a;color:#fff;border:none;border-radius:4px;cursor:pointer;margin-right:8px;font-size:1rem}.info-modal a{color:#50abd5}.info-modal a:hover{color:#a79ec3}hr{border:1px solid #aebcd5}.modal-overlay{width:100%;height:100%;background:rgba(0,0,0,.7);z-index:1000;display:none}#small-screen-message{display:none;position:fixed;width:100%;height:100%;background:#0b1020;color:#eaf2ff;display:flex;justify-content:center;align-items:center;text-align:center;padding:1rem;z-index:2000}#small-screen-message .message-box{max-width:13rem;background:rgba(27,42,74,.9);padding:20px;border-radius:12px;border:1px solid rgba(100,150,255,.3);box-shadow:0 4px 20px rgba(0,0,0,.6)}#loader{display:flex;align-items:center;justify-content:center;z-index:3000;color:#eaf2ff;flex-direction:column}.loader-content{text-align:center}.spinner{border:4px solid rgba(255,255,255,.1);border-top:4px solid #4a72da;border-radius:50%;width:50px;height:50px;animation:1s linear infinite spin;margin:20px auto}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-</style>
+  </script>
 </head>
 
 <body>
     <div id="app"></div>
     <div class="selection-marker" id="selection-marker"></div>
 
-     <div id="loader">
+    <div id="loader">
         <div class="loader-content">
             <div class="spinner"></div>
             <p>Loading...</p>
@@ -211,9 +581,7 @@
                         Fibration)</a>.
                     For further reading, see <a
                         href="https://nilesjohnson.net/hopf-articles/Treisman_Guide-to-Hopf-fibration.pdf"
-                        target="_blank">Zachary Treisman's notes</a>. Also 
-                        check Thijs' GeoGebra applet:
-                        <a href="https://www.geogebra.org/m/f2suuzct" target="_blank">Hopf fibration</a>.
+                        target="_blank">Zachary Treisman's notes</a>.
                 </p>
             </div>
         </div>
@@ -322,15 +690,528 @@
     </div>
 
 
-<script type="module">
-/*!
- Author: Juan Carlos Ponce Campuzano
- https://www.dynamicmath.xyz
- Date: 24/08/2025
- Under Creative Commons Attribution, Non-Commercial, Share-Alike license
- http://creativecommons.org/licenses/by-nc-sa/4.0/
-*/
-import*as THREE from"three";import{OrbitControls}from"three/addons/controls/OrbitControls.js";const container=document.getElementById("app"),renderer=new THREE.WebGLRenderer({antialias:!0,alpha:!0});renderer.setPixelRatio(Math.min(window.devicePixelRatio,2)),renderer.setSize(window.innerWidth,window.innerHeight),container.appendChild(renderer.domElement);const scene=new THREE.Scene;scene.fog=new THREE.FogExp2(725024,.015);const camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,.01,200);camera.position.set(2.5,4,1.5),camera.up.set(0,0,1);const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=!0,controls.target.set(0,0,0);const ambient=new THREE.AmbientLight(16777215,.5);scene.add(ambient);const dir=new THREE.DirectionalLight(16777215,2.5);dir.position.set(4,4,8),scene.add(dir);const grid=new THREE.GridHelper(20,20,10992101,1846351);grid.material.opacity=.84,grid.material.transparent=!0,grid.rotation.x=Math.PI/2,scene.add(grid),grid.visible=!1;const axesHelper=new THREE.AxesHelper(1);scene.add(axesHelper),axesHelper.visible=!1;const sphereGeo=new THREE.SphereGeometry(1,48,32),sphereMat=new THREE.MeshStandardMaterial({color:2244762,roughness:.35,metalness:.1,transparent:!0,opacity:.65,emissive:463918,emissiveIntensity:.2,side:THREE.DoubleSide}),sphere=new THREE.Mesh(sphereGeo,sphereMat);scene.add(sphere);const pickMarkers=new THREE.Group;scene.add(pickMarkers);const markerGeo=new THREE.SphereGeometry(.035,16,16),markerMat=new THREE.MeshStandardMaterial({color:11849983,emissive:2245768,emissiveIntensity:.5}),params={waves:4,amplitude:.25,segments:240},toggleFibers=document.getElementById("toggle-fibers");toggleFibers.addEventListener("change",(function(){fibers.visible=this.checked}));let sphereVisible=!0;const toggleSphere=document.getElementById("toggle-sphere");toggleSphere.addEventListener("change",(function(){sphere.visible=this.checked,sphereVisible=this.checked,sphereVisible||(selectionMarker.style.display="none",selectedPoint=null)}));const togglePoints=document.getElementById("toggle-points");togglePoints.addEventListener("change",(function(){pickMarkers.visible=this.checked}));const toggleAxes=document.getElementById("toggle-axes");toggleAxes.addEventListener("change",(function(){axesHelper.visible=this.checked}));const toggleGrid=document.getElementById("toggle-grid");toggleGrid.addEventListener("change",(function(){grid.visible=this.checked})),document.getElementById("clear-btn").addEventListener("click",clearFibers);const examplesDropdown=document.getElementById("examples");function saveCurrentView(){renderer.render(scene,camera);const e=renderer.domElement.toDataURL("image/png"),t=document.createElement("a");t.href=e;const n=(new Date).toISOString().replace(/[:.]/g,"-");t.download=`hopf_view_${n}.png`,t.click()}examplesDropdown.addEventListener("change",(function(){"custom"!==this.value&&loadExample(this.value)})),document.getElementById("save-view-btn").addEventListener("click",saveCurrentView);const shareBtn=document.getElementById("share-link-btn");shareBtn.addEventListener("click",(()=>{const e={fibers:pickMarkers.children.map((e=>e.position.clone().normalize().toArray())),toggles:{fibers:toggleFibers.checked,sphere:toggleSphere.checked,points:togglePoints.checked,axes:toggleAxes.checked,grid:toggleGrid.checked},example:examplesDropdown.value},t=JSON.stringify(e),n=btoa(t),o=`${window.location.origin}${window.location.pathname}#${n}`;navigator.clipboard.writeText(o).then((()=>{alert("Shareable link copied to clipboard!")}))})),window.addEventListener("load",(()=>{if(window.location.hash.length>1)try{const e=window.location.hash.slice(1),t=atob(e),n=JSON.parse(t);examplesDropdown.value=n.example,"custom"!==n.example&&loadExample(n.example),toggleFibers.checked=n.toggles.fibers,fibers.visible=n.toggles.fibers,toggleSphere.checked=n.toggles.sphere,sphere.visible=n.toggles.sphere,togglePoints.checked=n.toggles.points,pickMarkers.visible=n.toggles.points,toggleAxes.checked=n.toggles.axes,axesHelper.visible=n.toggles.axes,toggleGrid.checked=n.toggles.grid,grid.visible=n.toggles.grid,"custom"===n.example&&(clearFibers(),n.fibers.forEach((e=>{addFiber(new THREE.Vector3(...e))})))}catch(e){console.error("Invalid state in URL:",e)}}));const modalBtn=document.getElementById("modal-btn"),modal=document.getElementById("info-modal"),overlay=document.getElementById("info-modal-overlay"),closeBtn=document.getElementById("close-modal");modalBtn.addEventListener("click",(()=>{modal.style.display="block",overlay.style.display="block"})),closeBtn.addEventListener("click",(()=>{modal.style.display="none",overlay.style.display="none"})),overlay.addEventListener("click",(()=>{modal.style.display="none",overlay.style.display="none"})),document.addEventListener("keydown",(e=>{"Escape"===e.key&&(modal.style.display="none",overlay.style.display="none")}));const controlsElement=document.getElementById("controls"),toggleControlsBtn=document.getElementById("toggle-controls-btn");let controlsVisible=!0;function spinorFromN(e){const t=e.z,n=2*Math.sqrt((1+t)/2);if(n>1e-8){return{z1:{re:Math.sqrt((1+t)/2),im:0},z2:{re:e.x/n,im:e.y/n}}}return{z1:{re:0,im:0},z2:{re:0,im:1}}}function rotatePhase(e,t){const n=Math.cos(t),o=Math.sin(t);return{re:e.re*n-e.im*o,im:e.re*o+e.im*n}}function stereoProjectS3ToR3(e,t,n,o){const r=1/(1-o);return new THREE.Vector3(e*r,t*r,n*r)}function hopfFiberPoints(e,t){const{z1:n,z2:o}=spinorFromN(e),r=[];for(let e=0;e<t;e++){const s=e/t*Math.PI*2,i=rotatePhase(n,s),a=rotatePhase(o,s),l=stereoProjectS3ToR3(i.re,i.im,a.re,a.im);r.push(l)}return r}toggleControlsBtn.addEventListener("click",(function(){controlsVisible=!controlsVisible,controlsVisible?(controlsElement.classList.remove("hidden"),toggleControlsBtn.textContent="▼ Hide Controls"):(controlsElement.classList.add("hidden"),toggleControlsBtn.textContent="▲ Controls")}));const fibers=new THREE.Group;function clearFibers(){for(;fibers.children.length>0;){const e=fibers.children[0];e.traverse((e=>{e.geometry&&e.geometry.dispose(),e.material&&(Array.isArray(e.material)?e.material.forEach((e=>e.dispose())):e.material.dispose())})),fibers.remove(e)}for(;pickMarkers.children.length>0;){const e=pickMarkers.children[0];e.geometry&&e.geometry.dispose(),e.material&&e.material.dispose(),pickMarkers.remove(e)}examplesDropdown.value="custom"}function addFiber(e){const t=params.segments,n=hopfFiberPoints(e,t),o=new THREE.CatmullRomCurve3(n,!0),r=new THREE.TubeGeometry(o,2*t,.02,12,!0),s=new THREE.MeshStandardMaterial({color:(new THREE.Color).setHSL(.4+.8*Math.random(),.9,.5),roughness:.3,metalness:.2,emissive:1127253,emissiveIntensity:.5}),i=new THREE.Mesh(r,s);fibers.add(i);const a=new THREE.Mesh(markerGeo,markerMat);a.position.copy(e.clone().multiplyScalar(1.001)),pickMarkers.add(a)}function loadExample(e){if(clearFibers(),"latitude-bands"===e){const e=6,t=80;for(let n=1;n<e;n++){const o=n/e*Math.PI-Math.PI/2,r=Math.sin(o),s=Math.cos(o);for(let e=0;e<t;e++){const n=e/t*Math.PI+Math.PI-.45*Math.PI,o=s*Math.cos(n),i=s*Math.sin(n);addFiber(new THREE.Vector3(o,i,r).normalize())}}}else if("spiral"===e){const e=100;for(let t=0;t<e;t++){const n=t/e,o=n*Math.PI*4,r=Math.acos(1-2*n),s=Math.sin(r)*Math.cos(o),i=Math.sin(r)*Math.sin(o),a=Math.cos(r);addFiber(new THREE.Vector3(s,i,a).normalize())}}else if("icosahedral"===e){const e=(1+Math.sqrt(5))/2,t=[[-1,e,0],[1,e,0],[-1,-e,0],[1,-e,0],[0,-1,e],[0,1,e],[0,-1,-e],[0,1,-e],[e,0,-1],[e,0,1],[-e,0,-1],[-e,0,1]];for(let e of t){addFiber(new THREE.Vector3(e[0],e[1],e[2]).normalize())}}else if("longitude-bands"===e){const e=4,t=40;for(let n=0;n<e;n++){const o=n/e*Math.PI*2,r=Math.cos(o),s=Math.sin(o);for(let e=0;e<t;e++){const n=(e/(t-1)+Math.PI/8)*Math.PI/2,o=Math.sin(n)*r,i=Math.sin(n)*s,a=Math.cos(n);addFiber(new THREE.Vector3(o,i,a).normalize())}}}else if("equator-sine"===e){const e=200,t=.3,n=5;for(let o=0;o<e;o++){const r=o/e*Math.PI*2,s=Math.cos(r),i=Math.sin(r),a=t*Math.sin(n*r);addFiber(new THREE.Vector3(s,i,a).normalize())}}}scene.add(fibers);const raycaster=new THREE.Raycaster,mouse=new THREE.Vector2;let selectedPoint=null;const selectionMarker=document.getElementById("selection-marker");function onMouseMove(e){if(!sphereVisible)return selectedPoint=null,void(selectionMarker.style.display="none");mouse.x=e.clientX/window.innerWidth*2-1,mouse.y=-e.clientY/window.innerHeight*2+1,raycaster.setFromCamera(mouse,camera);const t=raycaster.intersectObject(sphere,!1)[0];if(t){selectedPoint=t.point.clone().normalize();const e=selectedPoint.clone();e.project(camera);const n=(.5*e.x+.5)*window.innerWidth,o=-(.5*e.y-.5)*window.innerHeight;selectionMarker.style.left=`${n}px`,selectionMarker.style.top=`${o}px`,selectionMarker.style.display="block"}else selectedPoint=null,selectionMarker.style.display="none"}function onKeyDown(e){"a"!==e.key&&"A"!==e.key||selectedPoint&&(addFiber(selectedPoint),examplesDropdown.value="custom"),"h"!==e.key&&"H"!==e.key||toggleControlsBtn.click(),"s"!==e.key&&"S"!==e.key||saveCurrentView()}function checkScreenSize(){const e=document.getElementById("small-screen-message");window.innerWidth<410||window.innerHeight<610?e.style.display="flex":e.style.display="none"}function render(){controls.update(),renderer.setClearColor(725024,1),renderer.clear(!0,!0,!0),renderer.render(scene,camera),requestAnimationFrame(render)}function onResize(){renderer.setSize(window.innerWidth,window.innerHeight),camera.aspect=window.innerWidth/window.innerHeight,camera.updateProjectionMatrix()}window.addEventListener("mousemove",onMouseMove),window.addEventListener("keydown",onKeyDown),window.addEventListener("load",checkScreenSize),window.addEventListener("resize",checkScreenSize),window.addEventListener("load",(()=>{const e=document.getElementById("loader");e.style.opacity="0",e.style.transition="opacity 0.5s ease",setTimeout((()=>e.style.display="none"),500)})),render(),window.addEventListener("resize",onResize),addFiber(new THREE.Vector3(0,0,1)),addFiber(new THREE.Vector3(1,0,0).normalize()),addFiber(new THREE.Vector3(0,1,0).normalize());
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const container = document.getElementById('app');
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0b1020, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 200);
+        // Rotate the camera to have z-axis as top view
+        camera.position.set(2.5, 4, 1.5); // Position camera above the sphere looking down
+        camera.up.set(0, 0, 1); // Set Z as the up direction
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.target.set(0, 0, 0);
+
+        const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambient);
+        const dir = new THREE.DirectionalLight(0xffffff, 2.5);
+        dir.position.set(4, 4, 8);
+        scene.add(dir);
+
+        const grid = new THREE.GridHelper(20, 20, 0xa7b9e5, 0x1c2c4f);
+        grid.material.opacity = 0.84;
+        grid.material.transparent = true;
+        grid.rotation.x = Math.PI / 2; // Rotate grid to be horizontal (XY plane)
+        scene.add(grid);
+        grid.visible = false;
+
+        const axesHelper = new THREE.AxesHelper(1);
+        scene.add(axesHelper);
+        axesHelper.visible = false;
+
+        // Create the main sphere in the center of the scene
+        const sphereGeo = new THREE.SphereGeometry(1, 48, 32);
+        const sphereMat = new THREE.MeshStandardMaterial({
+            color: 0x22409a,
+            roughness: 0.35,
+            metalness: 0.1,
+            transparent: true,
+            opacity: 0.65,
+            emissive: 0x07142e,
+            emissiveIntensity: 0.2,
+            side: THREE.DoubleSide
+        });
+        const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+        scene.add(sphere);
+
+        const pickMarkers = new THREE.Group();
+        scene.add(pickMarkers);
+        const markerGeo = new THREE.SphereGeometry(0.035, 16, 16);
+        const markerMat = new THREE.MeshStandardMaterial({ color: 0xb4d0ff, emissive: 0x224488, emissiveIntensity: 0.5 });
+
+        // Parameters for the Hopf fibration
+        const params = {
+            waves: 4,
+            amplitude: 0.25,
+            segments: 240
+        };
+
+        // Set up toggle functionality
+        const toggleFibers = document.getElementById('toggle-fibers');
+        toggleFibers.addEventListener('change', function () {
+            fibers.visible = this.checked;
+        });
+
+        let sphereVisible = true;
+        const toggleSphere = document.getElementById('toggle-sphere');
+        toggleSphere.addEventListener('change', function () {
+            sphere.visible = this.checked;
+            sphereVisible = this.checked;  // track state
+            if (!sphereVisible) {
+                // Hide marker when sphere is off
+                selectionMarker.style.display = 'none';
+                selectedPoint = null;
+            }
+        });
+
+        const togglePoints = document.getElementById('toggle-points');
+        togglePoints.addEventListener('change', function () {
+            pickMarkers.visible = this.checked;
+        });
+
+        const toggleAxes = document.getElementById('toggle-axes');
+        toggleAxes.addEventListener('change', function () {
+            axesHelper.visible = this.checked;
+        });
+
+        const toggleGrid = document.getElementById('toggle-grid');
+        toggleGrid.addEventListener('change', function () {
+            grid.visible = this.checked;
+        });
+
+        document.getElementById('clear-btn').addEventListener('click', clearFibers);
+
+        // Set up examples dropdown
+        const examplesDropdown = document.getElementById('examples');
+        examplesDropdown.addEventListener('change', function () {
+            if (this.value !== 'custom') {
+                loadExample(this.value);
+            }
+        });
+
+        function saveCurrentView() {
+            // Render one more frame to ensure the canvas is up-to-date
+            renderer.render(scene, camera);
+
+            // Get image data from canvas
+            const dataURL = renderer.domElement.toDataURL("image/png");
+
+            // Create a temporary download link
+            const link = document.createElement("a");
+            link.href = dataURL;
+
+            // Name with timestamp
+            const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+            link.download = `hopf_view_${timestamp}.png`;
+
+            // Trigger download
+            link.click();
+        }
+
+        // Hook the button to the function
+        document.getElementById("save-view-btn").addEventListener("click", saveCurrentView);
+
+        // Add a "Share Scene" button under Save View
+        const shareBtn = document.getElementById("share-link-btn");
+
+        shareBtn.addEventListener("click", () => {
+            const state = {
+                fibers: pickMarkers.children.map(m => m.position.clone().normalize().toArray()),
+                toggles: {
+                    fibers: toggleFibers.checked,
+                    sphere: toggleSphere.checked,
+                    points: togglePoints.checked,
+                    axes: toggleAxes.checked,
+                    grid: toggleGrid.checked,
+                },
+                example: examplesDropdown.value
+            };
+
+            // Encode state
+            const json = JSON.stringify(state);
+            const encoded = btoa(json); // base64
+            const url = `${window.location.origin}${window.location.pathname}#${encoded}`;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(url).then(() => {
+                alert("Shareable link copied to clipboard!");
+            });
+        });
+
+        // On load, check if URL has state
+        window.addEventListener("load", () => {
+            if (window.location.hash.length > 1) {
+                try {
+                    const encoded = window.location.hash.slice(1);
+                    const json = atob(encoded);
+                    const state = JSON.parse(json);
+
+                    // Restore example
+                    examplesDropdown.value = state.example;
+                    if (state.example !== "custom") loadExample(state.example);
+
+                    // Restore toggles
+                    toggleFibers.checked = state.toggles.fibers; fibers.visible = state.toggles.fibers;
+                    toggleSphere.checked = state.toggles.sphere; sphere.visible = state.toggles.sphere;
+                    togglePoints.checked = state.toggles.points; pickMarkers.visible = state.toggles.points;
+                    toggleAxes.checked = state.toggles.axes; axesHelper.visible = state.toggles.axes;
+                    toggleGrid.checked = state.toggles.grid; grid.visible = state.toggles.grid;
+
+                    // Restore custom fibers
+                    if (state.example === "custom") {
+                        clearFibers();
+                        state.fibers.forEach(arr => {
+                            addFiber(new THREE.Vector3(...arr));
+                        });
+                    }
+                } catch (err) {
+                    console.error("Invalid state in URL:", err);
+                }
+            }
+        });
+
+        // Modal elements
+        const modalBtn = document.getElementById("modal-btn");
+        const modal = document.getElementById("info-modal");
+        const overlay = document.getElementById("info-modal-overlay");
+        const closeBtn = document.getElementById("close-modal");
+
+        // Open modal
+        modalBtn.addEventListener("click", () => {
+            modal.style.display = "block";
+            overlay.style.display = "block";
+        });
+
+        // Close modal (via button)
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        // Close modal (via overlay click)
+        overlay.addEventListener("click", () => {
+            modal.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        // Optional: close with Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                modal.style.display = "none";
+                overlay.style.display = "none";
+            }
+        });
+
+
+        // Set up controls toggle
+        const controlsElement = document.getElementById('controls');
+        const toggleControlsBtn = document.getElementById('toggle-controls-btn');
+        let controlsVisible = true;
+
+        toggleControlsBtn.addEventListener('click', function () {
+            controlsVisible = !controlsVisible;
+            if (controlsVisible) {
+                controlsElement.classList.remove('hidden');
+                toggleControlsBtn.textContent = '▼ Hide Controls';
+            } else {
+                controlsElement.classList.add('hidden');
+                toggleControlsBtn.textContent = '▲ Controls';
+            }
+        });
+
+        function spinorFromN(n) {
+            const nz = n.z;
+            const denom = 2 * Math.sqrt((1 + nz) / 2);
+            if (denom > 1e-8) {
+                const z1 = { re: Math.sqrt((1 + nz) / 2), im: 0 };
+                const z2 = { re: n.x / denom, im: n.y / denom };
+                return { z1, z2 };
+            } else {
+                return { z1: { re: 0, im: 0 }, z2: { re: 0, im: 1 } };
+            }
+        }
+
+        function rotatePhase(z, theta) {
+            const c = Math.cos(theta), s = Math.sin(theta);
+            return { re: z.re * c - z.im * s, im: z.re * s + z.im * c };
+        }
+
+        function stereoProjectS3ToR3(x1, x2, x3, x4) {
+            const d = 1 - x4;
+            const inv = 1 / d;
+            return new THREE.Vector3(x1 * inv, x2 * inv, x3 * inv);
+        }
+
+        function hopfFiberPoints(n, segments) {
+            const { z1, z2 } = spinorFromN(n);
+            const pts = [];
+            for (let i = 0; i < segments; i++) {
+                const t = i / segments;
+                const theta = t * Math.PI * 2;
+                const z1t = rotatePhase(z1, theta);
+                const z2t = rotatePhase(z2, theta);
+                const p = stereoProjectS3ToR3(z1t.re, z1t.im, z2t.re, z2t.im);
+                pts.push(p);
+            }
+            return pts;
+        }
+
+        const fibers = new THREE.Group();
+        scene.add(fibers);
+
+        function clearFibers() {
+            // Remove all fibers
+            while (fibers.children.length > 0) {
+                const fiber = fibers.children[0];
+                fiber.traverse((child) => {
+                    if (child.geometry) child.geometry.dispose();
+                    if (child.material) {
+                        if (Array.isArray(child.material)) {
+                            child.material.forEach(material => material.dispose());
+                        } else {
+                            child.material.dispose();
+                        }
+                    }
+                });
+                fibers.remove(fiber);
+            }
+
+            // Remove all markers
+            while (pickMarkers.children.length > 0) {
+                const marker = pickMarkers.children[0];
+                if (marker.geometry) marker.geometry.dispose();
+                if (marker.material) marker.material.dispose();
+                pickMarkers.remove(marker);
+            }
+
+            // Reset dropdown to custom
+            examplesDropdown.value = 'custom';
+        }
+
+        function addFiber(n) {
+            const segments = params.segments;
+            const pts = hopfFiberPoints(n, segments);
+
+            // Make a smooth curve from Hopf fiber points
+            const curve = new THREE.CatmullRomCurve3(pts, true); // true = closed loop
+            const tubeGeo = new THREE.TubeGeometry(
+                curve,
+                segments * 2,       // tubular segments
+                0.02,               // radius (thickness of fiber)
+                12,                 // radial segments
+                true                // closed tube
+            );
+            const tubeMat = new THREE.MeshStandardMaterial({
+                color: new THREE.Color().setHSL(0.4 + 0.8 * Math.random(), 0.9, 0.5),
+                roughness: 0.3,
+                metalness: 0.2,
+                emissive: 0x113355,
+                emissiveIntensity: 0.5
+            });
+
+            const tube = new THREE.Mesh(tubeGeo, tubeMat);
+            fibers.add(tube);
+
+            // Keep your marker
+            const marker = new THREE.Mesh(markerGeo, markerMat);
+            marker.position.copy(n.clone().multiplyScalar(1.001));
+            pickMarkers.add(marker);
+        }
+
+
+        function loadExample(exampleName) {
+            clearFibers();
+
+            if (exampleName === 'latitude-bands') {
+                const bands = 6;   // number of latitude circles
+                const perBand = 80; // points per circle
+
+                for (let b = 1; b < bands; b++) {
+                    const phi = (b / bands) * Math.PI - Math.PI / 2; // from -90° to +90°
+                    const z = Math.sin(phi);
+                    const r = Math.cos(phi);
+
+                    for (let i = 0; i < perBand; i++) {
+                        const theta = (i / perBand) * Math.PI + Math.PI - Math.PI * 0.45;
+                        const x = r * Math.cos(theta);
+                        const y = r * Math.sin(theta);
+                        addFiber(new THREE.Vector3(x, y, z).normalize());
+                    }
+                }
+            } else if (exampleName === 'spiral') {
+                // Spiral pattern - points along a spiral on the sphere
+                const numPoints = 100;
+                for (let i = 0; i < numPoints; i++) {
+                    const t = i / numPoints;
+                    const theta = t * Math.PI * 4; // Multiple rotations
+                    const phi = Math.acos(1 - 2 * t); // From north to south pole
+
+                    const x = Math.sin(phi) * Math.cos(theta);
+                    const y = Math.sin(phi) * Math.sin(theta);
+                    const z = Math.cos(phi);
+
+                    addFiber(new THREE.Vector3(x, y, z).normalize());
+                }
+            } else if (exampleName === 'icosahedral') {
+                const phi = (1 + Math.sqrt(5)) / 2; // golden ratio
+                const vertices = [
+                    [-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0],
+                    [0, -1, phi], [0, 1, phi], [0, -1, -phi], [0, 1, -phi],
+                    [phi, 0, -1], [phi, 0, 1], [-phi, 0, -1], [-phi, 0, 1]
+                ];
+                for (let v of vertices) {
+                    const n = new THREE.Vector3(v[0], v[1], v[2]).normalize();
+                    addFiber(n);
+                }
+            } else if (exampleName === 'longitude-bands') {
+                const bands = 4;   // number of longitude slices
+                const perBand = 40; // points along each slice
+
+                for (let b = 0; b < bands; b++) {
+                    const theta = (b / bands) * Math.PI * 2; // longitude angle
+                    const cosTheta = Math.cos(theta);
+                    const sinTheta = Math.sin(theta);
+
+                    for (let i = 0; i < perBand; i++) {
+                        const phi = (i / (perBand - 1) + Math.PI / 8) * Math.PI / 2; // latitude from north to south pole
+                        const x = Math.sin(phi) * cosTheta;
+                        const y = Math.sin(phi) * sinTheta;
+                        const z = Math.cos(phi);
+                        addFiber(new THREE.Vector3(x, y, z).normalize());
+                    }
+                }
+            } else if (exampleName === 'equator-sine') {
+                // Sinusoidal closed curve along the equator
+                const numPoints = 200;   // resolution
+                const amplitude = 0.3;   // how far the sine goes up/down
+                const frequency = 5;     // number of oscillations around the equator
+
+                for (let i = 0; i < numPoints; i++) {
+                    const t = (i / numPoints) * Math.PI * 2; // go around once
+                    const x = Math.cos(t);
+                    const y = Math.sin(t);
+                    const z = amplitude * Math.sin(frequency * t); // sinusoidal wiggle
+
+                    addFiber(new THREE.Vector3(x, y, z).normalize());
+                }
+            }
+        }
+
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let selectedPoint = null;
+        const selectionMarker = document.getElementById('selection-marker');
+
+        function onMouseMove(e) {
+            if (!sphereVisible) {
+                selectedPoint = null;
+                selectionMarker.style.display = 'none';
+                return; // don’t allow selection when sphere is off
+            }
+
+            // Normal raycasting logic
+            mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+            const hit = raycaster.intersectObject(sphere, false)[0];
+
+            if (hit) {
+                selectedPoint = hit.point.clone().normalize();
+
+                // Project 3D point to screen coords
+                const vector = selectedPoint.clone();
+                vector.project(camera);
+
+                const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+                const y = -(vector.y * 0.5 - 0.5) * window.innerHeight;
+
+                selectionMarker.style.left = `${x}px`;
+                selectionMarker.style.top = `${y}px`;
+                selectionMarker.style.display = 'block';
+            } else {
+                selectedPoint = null;
+                selectionMarker.style.display = 'none';
+            }
+        }
+
+        function onKeyDown(e) {
+            // Add fiber when 'A' key is pressed
+            if (e.key === 'a' || e.key === 'A') {
+                if (selectedPoint) {
+                    addFiber(selectedPoint);
+                    examplesDropdown.value = 'custom';
+                }
+            }
+
+            // Toggle controls with 'H' key
+            if (e.key === 'h' || e.key === 'H') {
+                toggleControlsBtn.click();
+            }
+
+            // Save current view with 'S' key
+            if (e.key === 's' || e.key === 'S') {
+                saveCurrentView();
+            }
+        }
+
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('keydown', onKeyDown);
+
+        function checkScreenSize() {
+            const msg = document.getElementById('small-screen-message');
+            if (window.innerWidth < 410 || window.innerHeight < 610) {
+                msg.style.display = 'flex';  // show overlay
+            } else {
+                msg.style.display = 'none';  // hide overlay
+            }
+        }
+
+        // Run on load and when resizing
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
+
+        // Hide loader once everything is ready
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            loader.style.opacity = "0";
+            loader.style.transition = "opacity 0.5s ease";
+            setTimeout(() => loader.style.display = "none", 500);
+        });
+
+
+        function render() {
+            controls.update();
+
+            renderer.setClearColor(0x0b1020, 1);
+            renderer.clear(true, true, true);
+            renderer.render(scene, camera);
+
+            requestAnimationFrame(render);
+        }
+        render();
+
+        function onResize() {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        }
+        window.addEventListener('resize', onResize);
+
+        // Add initial fibers
+        addFiber(new THREE.Vector3(0, 0, 1));
+        addFiber(new THREE.Vector3(1, 0, 0).normalize());
+        addFiber(new THREE.Vector3(0, 1, 0).normalize());
     </script>
 </body>
 
