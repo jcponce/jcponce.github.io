@@ -492,14 +492,13 @@
         </div>
         <select class="dropdown" id="examples">
             <option value="custom">Custom Points</option>
-            <option value="spiral">Spiral Pattern</option>
             <option value="icosahedral">Icosahedral Pattern</option>
+            <option value="spiral">Spiral Pattern</option>
             <option value="latitude-bands">Latitude Bands</option>
             <option value="longitude-bands">Longitude Bands</option>
             <option value="equator-sine">Equator sine</option>
         </select>
         <button id="clear-btn">Clear All Fibers</button>
-        <button id="save-view-btn">Save View</button>
     </div>
     
     <script type="module">
@@ -631,7 +630,7 @@
         }
 
         // Hook the button to the function
-        document.getElementById("save-view-btn").addEventListener("click", saveCurrentView);
+        // document.getElementById("save-view-btn").addEventListener("click", saveCurrentView);
 
         // Add a "Share Scene" button under Save View
         // const shareBtn = document.getElementById("share-link-btn");
@@ -982,7 +981,7 @@
 
         function checkScreenSize() {
             const msg = document.getElementById('small-screen-message');
-            if (window.innerWidth < 410 || window.innerHeight < 550) {
+            if (window.innerWidth < 410 || window.innerHeight < 500) {
                 msg.style.display = 'flex';  // show overlay
             } else {
                 msg.style.display = 'none';  // hide overlay
