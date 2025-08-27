@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Hopf Fibration Visualization with Threejs">
+    <meta name="keywords" content="Mathematics, Hopf, Fibration, Stereographic, Projection, Threejs">
+    <meta name="author" content="Juan Carlos Ponce Campuzano">
+    <title>Hopf Fibration Visualization</title>
+
+    <link rel="icon" type="image/png" href="../../images/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/icon/infinity16.png" sizes="16x16">
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
+
+
+    <!--MathJax starts-->
+    <script>
+        window.MathJax = {
+            tex: {
+                tags: "ams",
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <!--MathJax Ends-->
+
+  <script type="module" crossorigin src="./assets/index-CDA7lA5c.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-mcrQej5N.css">
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="selection-marker" id="selection-marker"></div>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <div id="small-screen-message">
+        <div class="message-box">
+            <h2>Screen Too Small</h2>
+            <p>
+                For the best experience, use this app on a device with a larger screen height.
+            </p>
+
+            <picture>
+                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f636_200d_1f32b_fe0f/512.webp"
+                    type="image/webp">
+                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f636_200d_1f32b_fe0f/512.gif" alt="😶"
+                    width="64" height="64">
+            </picture>
+        </div>
+    </div>
+
+
+    <button class="toggle-controls-btn" id="toggle-controls-btn">▼ Hide Controls</button>
+    <div class="controls" id="controls">
+        <h3>Hopf Fibration Controls</h3>
+        <div class="instructions">
+            <p>
+                <strong>Instructions:</strong>
+                Move mouse over sphere to select point,
+                then press <span class="key-shortcut">A</span>
+                to add a Hopf fiber at that location.
+            </p>
+            <!--<p> Press <span class="key-shortcut">S</span> to save view.</p>-->
+        </div>
+        <div class="toggle-container">
+            <span>Fibers</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-fibers" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Sphere</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-sphere" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Points</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-points" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Axes</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-axes" unchecked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <span>Grid</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-grid" unchecked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <select class="dropdown" id="examples">
+            <option value="custom">Custom Points</option>
+            <option value="icosahedral">Icosahedral Pattern</option>
+            <option value="spiral">Spiral Pattern</option>
+            <option value="latitude-bands">Latitude Bands</option>
+            <option value="longitude-bands">Longitude Bands</option>
+            <option value="equator-sine">Equator sine</option>
+        </select>
+        <button id="clear-btn">Clear All Fibers</button>
+    </div>
+    
+</body>
+
+</html>
