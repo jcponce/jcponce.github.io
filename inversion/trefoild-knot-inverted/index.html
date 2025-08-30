@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trefoil Knot Inverted</title>
+    <!--
+  <link rel="stylesheet" href="./style.css">-->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .webgl {
+            position: fixed;
+            top: 0;
+            left: 0;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="webgl"></canvas>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"
+        crossorigin="anonymous"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.179.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.179.0/examples/jsm/"
+      }
+    }
+  </script>
+    <script type="module">
+
+        import * as THREE from 'three';
+        import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+        import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        //import { createMaterials } from './materials.js';
+        //import { setupScene } from './sceneSetup.js';
+        //import { commonUI } from './commonUI.js';
+
+        // Define commonly used Math functions
+        const cos = Math.cos;
+        const sin = Math.sin;
+        const cosh = Math.cosh;
+        const sinh = Math.sinh;
+        const log = Math.log;
+        const exp = Math.exp;
+        const pow = Math.pow;
+        const tan = Math.tan;
+        const PI = Math.PI;
+        const max = Math.max;
+        const min = Math.min;
+
+        function torusknotSurface(u, v, target, size, translate) {
+            u = 4 * PI * u;
+            v = 2 * PI * v;
+
+            let NN = 1.5;
+            let AA = 0.6;
+            let w = 3 * cos(u) / 4;
+
+            let XX, YY, ZZ;
+            XX = -size * (cos(u) * cos(v) + 3 * cos(u) * (1.5 + sin(1.5 * u) / 2)) + translate;
+            YY = size * (sin(u) * cos(v) + 3 * sin(u) * (1.5 + sin(1.5 * u) / 2));
+            ZZ = size * (sin(v) + 2 * cos(1.5 * u));
+            let norm2 = pow(XX, 2) + pow(YY, 2) + pow(ZZ, 2);
+
+            let x = 0.5 * XX / norm2;
+            let y = 0.5 * YY / norm2;
+            let z = 0.5 * ZZ / norm2;
+
+            target.set(x, y, z);
+        }
+
+        function sphereSurface(u, v, target, r, uComponent, vComponent) {
+
+            u = uComponent * u;
+            v = vComponent * v;
+
+            let x, y, z;
+            x = r * cos(u) * sin(v);
+            y = r * sin(u) * sin(v);
+            z = r * cos(v);
+
+            target.set(x, y, z);
+        }
+
+        function knotFigure8Surface(u, v, target, e, h, uComponent, vComponent) {
+            u = uComponent * u;
+            v = vComponent * v;
+
+            let x, y, z;
+            x = sin((3 * u)) * ((e * sin((4 * u))) + 1) / ((e * sin((4 * u))) * (1.5 + sin(1.5 * v) / 4) - (1.5 + sin(1.5 * v) / 4));
+            y = cos((3 * u)) * ((e * sin((4 * u))) + 1) / ((e * sin((4 * u))) * (1.5 + sin(1.5 * v) / 4) - (1.5 + sin(1.5 * v) / 4));
+            z = (-2 * h * sin((2 * u)) * ((e * sin((4 * u))) + 1) / ((e * sin((4 * u))) - 1)) + 0.1 * cos(1.5 * v);
+
+            target.set(x, y, z);
+        }
+
+        function trefoilknotSurface(u, v, target, uComponent, vComponent, size, tx, ty, tz) {
+            u = uComponent * u;
+            v = vComponent * v;
+
+            let x, y, z;
+            x = -size * (cos(u) * cos(v) + 3 * cos(u) * (1.5 + sin(1.5 * u) / 2)) + tx;
+            y = size * (sin(u) * cos(v) + 3 * sin(u) * (1.5 + sin(1.5 * u) / 2)) + ty;
+            z = size * (sin(v) + 2 * cos(1.5 * u)) + tz;
+
+            target.set(x, y, z);
+        }
+
+        function createMaterials(options) {
+            const textureLoader = new THREE.TextureLoader();
+            const matcapTexture = textureLoader.load('../assets/textures/matcaps/3.png');
+
+            const matcapMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture, side: THREE.DoubleSide });
+            const normalMaterial = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
+            const phongMaterial = new THREE.MeshPhongMaterial({ color: options.color, shininess: 100, side: THREE.DoubleSide });
+            const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true });
+
+            return { matcapMaterial, normalMaterial, phongMaterial, wireframeMaterial };
+        }
+
+        function setupScene(canvas) {
+            const scene = new THREE.Scene();
+
+            // Camera
+            const sizes = {
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+
+            const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+            camera.position.set(1, 1, 3);
+            scene.add(camera);
+
+            // Renderer
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Controls
+            const controls = new OrbitControls(camera, canvas);
+            controls.enableDamping = true;
+
+            // Lights
+            const light = new THREE.DirectionalLight(0xffffff, 2);
+            light.position.set(5, 5, 5);
+            scene.add(light);
+
+            const ambientLight = new THREE.AmbientLight(0x404040); // Soft ambient light
+            scene.add(ambientLight);
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                sizes.width = window.innerWidth;
+                sizes.height = window.innerHeight;
+                camera.aspect = sizes.width / sizes.height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(sizes.width, sizes.height);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            });
+
+            return { scene, camera, renderer, controls };
+        }
+
+        function commonUI(gui, options, scene, materials, mesh, wireframeMesh, controls) {
+            gui.add(options, 'material', ['Matcap', 'Normal', 'Phong']).name('Style').onChange((value) => {
+                mesh.material = value === 'Matcap' ? materials.matcapMaterial :
+                    value === 'Normal' ? materials.normalMaterial :
+                        materials.phongMaterial;
+                if (value === 'Phong') {
+                    colorController.show();
+                    colorBackgroundController.show();
+                } else {
+                    colorController.hide();
+                    colorBackgroundController.hide();
+                }
+            });
+
+            const colorController = gui.addColor(options, 'color').name('Color').onChange((value) => {
+                materials.phongMaterial.color.set(value);
+            });
+            const colorBackgroundController = gui.addColor(options, 'colorBackground').name('Background').onChange((value) => {
+                scene.background.set(value);
+            });
+
+            colorController.hide();
+            colorBackgroundController.hide();
+
+            gui.add(options, 'mesh').name('Mesh').onChange((value) => {
+                if (value) {
+                    if (!scene.children.includes(wireframeMesh)) {
+                        scene.add(wireframeMesh);
+                    }
+                } else {
+                    if (scene.children.includes(wireframeMesh)) {
+                        scene.remove(wireframeMesh);
+                    }
+                }
+                wireframeMesh.visible = value;
+            });
+
+            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(value => {
+                controls.autoRotate = value;
+            });
+
+            gui.close();
+        }
+
+        // GUI setup
+        const gui = new GUI();
+        const options = {
+            material: 'Matcap', // Default material
+            mesh: false,
+            size: 0.12,
+            translate: 2.9,
+            autoRotate: false,
+            color: '#049ef4',
+            colorBackground: '#000000'
+        };
+
+        // Scene setup
+        const canvas = document.querySelector('canvas.webgl');
+        const { scene, camera, renderer, controls } = setupScene(canvas);
+
+        // Materials
+        const materials = createMaterials(options);
+
+        // Geometry
+        const meshRes = { x: 500, y: 100 };
+        const geoScale = { x: 1, y: 1, z: 1 };
+        let geometry = new ParametricGeometry((u, v, target) => torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+        geometry.rotateX(Math.PI / 2);
+        geometry.scale(geoScale.x, geoScale.y, geoScale.z);
+
+        let geometrySphere = new ParametricGeometry((u, v, target) => sphereSurface(u, v, target, 1, 6.2831, 3.1415), 20, 20);
+        geometrySphere.rotateX(Math.PI / 2);
+        geometrySphere.scale(geoScale.x, geoScale.y, geoScale.z);
+
+        // Create wireframe for sphere
+        const wireframeGeometrySphere = new THREE.WireframeGeometry(geometrySphere);
+        const wireframeMaterialSphere = new THREE.LineBasicMaterial({ color: 0xbfbfbf }); // White wireframe
+        const wireframeSphere = new THREE.LineSegments(wireframeGeometrySphere, wireframeMaterialSphere);
+
+
+        let geometryKnot = new ParametricGeometry((u, v, target) => trefoilknotSurface(u, v, target, 4 * Math.PI, 2 * Math.PI, options.size, options.translate, 0, 0), 64, 64);
+        geometryKnot.rotateX(Math.PI / 2);
+        geometryKnot.scale(geoScale.x, geoScale.y, geoScale.z);
+
+        // Mesh
+        let mesh = new THREE.Mesh(geometry, materials.matcapMaterial);
+        scene.add(mesh);
+
+        let materialSphere = new THREE.MeshPhongMaterial({
+            color: '#ffffff',
+            //shininess: 100, 
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.1,
+            wireframe: true
+        });
+
+        let meshSphere = new THREE.Mesh(geometrySphere, materialSphere);
+        scene.add(meshSphere);
+        scene.add(wireframeSphere);
+
+
+        let materialKnot = new THREE.MeshPhongMaterial({
+            color: '#00ffff',
+            shininess: 200,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.5,
+            //wireframe: true
+        });
+
+        let meshKnot = new THREE.Mesh(geometryKnot, materialKnot);
+        scene.add(meshKnot);
+
+        scene.background = new THREE.Color('#000000'); // Initial Black background
+
+        // Wireframe mesh
+        let wireframeMesh = new THREE.Mesh(geometry, materials.wireframeMaterial);
+
+        // GUI controls
+        commonUI(gui, options, scene, materials, mesh, wireframeMesh, controls); // Call commonUI with necessary arguments
+
+        gui.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(() => {
+            geometry.dispose();
+            geometry = new ParametricGeometry((u, v, target) => torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+            geometry.rotateX(Math.PI / 2);
+            geometry.scale(geoScale.x, geoScale.y, geoScale.z);
+            mesh.geometry = geometry;
+
+            wireframeMesh.geometry = geometry;
+
+            // Update the trefoil knot surface
+            geometryKnot.dispose();
+            geometryKnot = new ParametricGeometry((u, v, target) => trefoilknotSurface(u, v, target, 4 * Math.PI, 2 * Math.PI, options.size, options.translate, 0, 0), 64, 64);
+            geometryKnot.rotateX(Math.PI / 2);
+            geometryKnot.scale(geoScale.x, geoScale.y, geoScale.z);
+            meshKnot.geometry = geometryKnot;
+
+        });
+
+        gui.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(() => {
+            geometry.dispose();
+            geometry = new ParametricGeometry((u, v, target) => torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+            geometry.rotateX(Math.PI / 2);
+            geometry.scale(geoScale.x, geoScale.y, geoScale.z);
+            mesh.geometry = geometry;
+            wireframeMesh.geometry = geometry;
+
+            // Update the trefoil knot surface
+            geometryKnot.dispose();
+            geometryKnot = new ParametricGeometry((u, v, target) => trefoilknotSurface(u, v, target, 4 * Math.PI, 2 * Math.PI, options.size, options.translate, 0, 0), 64, 64);
+            geometryKnot.rotateX(Math.PI / 2);
+            geometryKnot.scale(geoScale.x, geoScale.y, geoScale.z);
+            meshKnot.geometry = geometryKnot;
+        });
+
+
+        //let time = 0; // Time variable for animation
+
+        function animate() {
+            //time += 0.001; // Adjust speed of animation here
+            //options.translate = Math.sin(time) * 3; // Example: Oscillating translation
+
+            // Update geometry dynamically
+            geometry.dispose();
+            geometry = new ParametricGeometry((u, v, target) =>
+                torusknotSurface(u, v, target, options.size, options.translate),
+                meshRes.x, meshRes.y
+            );
+            geometry.rotateX(Math.PI / 2);
+            geometry.scale(geoScale.x, geoScale.y, geoScale.z);
+            mesh.geometry = geometry;
+            wireframeMesh.geometry = geometry;
+
+            // Update the trefoil knot surface
+            geometryKnot.dispose();
+            geometryKnot = new ParametricGeometry((u, v, target) =>
+                trefoilknotSurface(u, v, target, 4 * Math.PI, 2 * Math.PI, options.size, options.translate, 0, 0),
+                64, 64
+            );
+            geometryKnot.rotateX(Math.PI / 2);
+            geometryKnot.scale(geoScale.x, geoScale.y, geoScale.z);
+            meshKnot.geometry = geometryKnot;
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation
+        animate();
+
+        gui.open();
+
+        const gridHelper = new THREE.GridHelper(10, 10);
+        scene.add(gridHelper);
+
+        const axesHelper = new THREE.AxesHelper(1);
+        scene.add(axesHelper);
+
+        controls.autoRotate = false;
+        controls.autoRotateSpeed = - 0.9;
+
+        //controls.translate = false;
+        //controls.translate = - 0.9;
+
+        // Animation loop
+        const tick = () => {
+            controls.update();
+            renderer.render(scene, camera);
+            window.requestAnimationFrame(tick);
+        };
+
+        tick();
+
+    </script>
+</body>
+
+</html>
