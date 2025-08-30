@@ -83,7 +83,7 @@
 
         function createMaterials(options) {
             const textureLoader = new THREE.TextureLoader();
-            const matcapTexture = textureLoader.load('../assets/textures/matcaps/3.png');
+            const matcapTexture = textureLoader.load('../assets/textures/matcaps/4.png');
 
             return {
                 matcapMaterial: new THREE.MeshMatcapMaterial({ matcap: matcapTexture, side: THREE.DoubleSide }),
@@ -139,7 +139,7 @@
             material: 'Matcap',
             mesh: false,
             size: 0.12,
-            translate: 1.8,
+            translate: 1.7,
             autoRotate: false,
             color: '#049ef4',      // Phong color (controller hidden unless Phong)
             knot: true,
@@ -159,27 +159,26 @@
         const meshRes = { x: 500, y: 100 };
         let geometry = new ParametricGeometry((u, v, target) =>
             torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
-        //geometry.rotateX(Math.PI / 2);
+        
         let mesh = new THREE.Mesh(geometry, materials.matcapMaterial);
         scene.add(mesh);
 
         // Geometry: trefoil knot
         let geometryKnot = new ParametricGeometry((u, v, target) =>
             trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
-        //geometryKnot.rotateX(Math.PI / 2);
+        
         let meshKnot = new THREE.Mesh(geometryKnot, new THREE.MeshPhongMaterial({
             color: '#00ffff',
             shininess: 200,
             side: THREE.DoubleSide,
             transparent: true,
-            opacity: 0.5
+            opacity: 0.8
         }));
         scene.add(meshKnot);
 
         // Geometry: sphere
         let geometrySphere = new ParametricGeometry((u, v, target) =>
             sphereSurface(u, v, target, 1, 2 * PI, PI), 24, 24);
-        //geometrySphere.rotateX(Math.PI / 2);
 
         let materialSphere = new THREE.MeshPhongMaterial({
             color: '#000',
@@ -269,14 +268,14 @@
             geometry.dispose();
             geometry = new ParametricGeometry((u, v, target) =>
                 torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
-            geometry.rotateX(Math.PI / 2);
+            
             mesh.geometry = geometry;
             wireframeMesh.geometry = geometry;
 
             geometryKnot.dispose();
             geometryKnot = new ParametricGeometry((u, v, target) =>
                 trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
-            geometryKnot.rotateX(Math.PI / 2);
+            
             meshKnot.geometry = geometryKnot;
         }
 
