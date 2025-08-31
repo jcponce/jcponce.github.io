@@ -58,6 +58,22 @@
         import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
         import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
+        // GUI setup
+        const gui = new GUI();
+        const options = {
+            material: 'Matcap',
+            mesh: false,
+            size: 0.12,
+            translate: -1.9,
+            autoRotate: false,
+            color: '#049ef4',    // Phong color (controller hidden unless Phong)
+            knot: true,
+            inversion: true,
+            sphere: true,
+            axis: false,
+            grid: true
+        };
+        
         // Shorthands
         const cos = Math.cos;
         const sin = Math.sin;
@@ -144,21 +160,7 @@
             return { scene, camera, renderer, controls };
         }
 
-        // GUI setup
-        const gui = new GUI();
-        const options = {
-            material: 'Matcap',
-            mesh: false,
-            size: 0.12,
-            translate: -0.36,
-            autoRotate: false,
-            color: '#049ef4',    // Phong color (controller hidden unless Phong)
-            knot: true,
-            inversion: true,
-            sphere: true,
-            axis: false,
-            grid: true
-        };
+        
 
         // Scene setup
         const canvas = document.querySelector('canvas.webgl');
@@ -277,7 +279,7 @@
             gui.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
             gui.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
 
-            // gui.close();
+            gui.close();
 
         }
 
