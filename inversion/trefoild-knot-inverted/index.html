@@ -25,6 +25,17 @@
             left: 0;
             outline: none;
         }
+
+        .lil-gui {
+            --font-size: 1.1rem;
+            --width: 350px;
+            --name-width: 43%;
+        }
+
+        .lil-gui .controller input[type="number"] {
+            /* make numbers bigger */
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 
@@ -101,7 +112,7 @@
             // Camera
             const sizes = { width: window.innerWidth, height: window.innerHeight };
             const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-            camera.position.set(2, 2, 2);
+            camera.position.set(3, 2, 1);
             scene.add(camera);
 
             // Renderer (white background, opaque)
@@ -139,11 +150,11 @@
             material: 'Matcap',
             mesh: false,
             size: 0.12,
-            translate: 1.7,
+            translate: 0,
             autoRotate: false,
-            color: '#049ef4',      // Phong color (controller hidden unless Phong)
+            color: '#049ef4',    // Phong color (controller hidden unless Phong)
             knot: true,
-            inversion: true,
+            inversion: false,
             sphere: true,
             axis: true
         };
@@ -159,14 +170,14 @@
         const meshRes = { x: 500, y: 100 };
         let geometry = new ParametricGeometry((u, v, target) =>
             torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
-        
+
         let mesh = new THREE.Mesh(geometry, materials.matcapMaterial);
         scene.add(mesh);
 
         // Geometry: trefoil knot
         let geometryKnot = new ParametricGeometry((u, v, target) =>
             trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
-        
+
         let meshKnot = new THREE.Mesh(geometryKnot, new THREE.MeshPhongMaterial({
             color: '#00ffff',
             shininess: 200,
@@ -231,10 +242,10 @@
                 else phongColorController.hide();
             });
 
-            gui.add(options, 'mesh').name('Wireframe').onChange(v => {
-                if (v) scene.add(wireframeMesh);
-                else scene.remove(wireframeMesh);
-            });
+            // gui.add(options, 'mesh').name('Wireframe').onChange(v => {
+            //     if (v) scene.add(wireframeMesh);
+            //     else scene.remove(wireframeMesh);
+            // });
 
             gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
                 controls.autoRotate = v;
@@ -261,21 +272,22 @@
             gui.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
             gui.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
 
-            gui.close();
+            // gui.close();
+
         }
 
         function updateGeometry() {
             geometry.dispose();
             geometry = new ParametricGeometry((u, v, target) =>
                 torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
-            
+
             mesh.geometry = geometry;
             wireframeMesh.geometry = geometry;
 
             geometryKnot.dispose();
             geometryKnot = new ParametricGeometry((u, v, target) =>
                 trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
-            
+
             meshKnot.geometry = geometryKnot;
         }
 
@@ -322,7 +334,7 @@
             return axes;
         }
 
-        const tubeAxes = createTubeAxes(1, 0.015);
+        const tubeAxes = createTubeAxes(1, 0.01);
         scene.add(tubeAxes);
 
         //scene.add(new THREE.AxesHelper(1));
