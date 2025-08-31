@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trefoil Knot Inverted</title>
+    <title>Torus Inverted</title>
     <!--
   <link rel="stylesheet" href="./style.css">-->
 
@@ -64,13 +64,16 @@
         const pow = Math.pow;
         const PI = Math.PI;
 
-        function trefoilKnotInvertedSurface(u, v, target, size, translate) {
+        function torusknotSurface(u, v, target, size, translate) {
             u = 4 * PI * u;
             v = 2 * PI * v;
 
-            const XX = -size * (cos(u) * cos(v) + 3 * cos(u) * (1.5 + sin(1.5 * u) / 2)) + translate;
-            const YY = size * (sin(u) * cos(v) + 3 * sin(u) * (1.5 + sin(1.5 * u) / 2));
-            const ZZ = size * (sin(v) + 2 * cos(1.5 * u));
+            const r = 2;
+            const R = 4;
+
+            const XX = -size * (cos(u) * (r / 2 * cos(v) + R)) + translate;
+            const YY = size * (sin(u) * (r / 2 * cos(v) + R));
+            const ZZ = size * (r / 2 * sin(v));
 
             const norm2 = pow(XX, 2) + pow(YY, 2) + pow(ZZ, 2);
             target.set(0.5 * XX / norm2, 0.5 * YY / norm2, 0.5 * ZZ / norm2);
@@ -86,15 +89,17 @@
             u = uComponent * u;
             v = vComponent * v;
 
-            const x = -size * (cos(u) * cos(v) + 3 * cos(u) * (1.5 + sin(1.5 * u) / 2)) + tx;
-            const y = size * (sin(u) * cos(v) + 3 * sin(u) * (1.5 + sin(1.5 * u) / 2)) + ty;
-            const z = size * (sin(v) + 2 * cos(1.5 * u)) + tz;
+            const r = 2;
+            const R = 4;
+            const x = -size * (cos(u) * (r / 2 * cos(v) + R)) + tx;
+            const y = size * (sin(u) * (r / 2 * cos(v) + R)) + ty;
+            const z = size * (r / 2 * sin(v)) + tz;
             target.set(x, y, z);
         }
 
         function createMaterials(options) {
             const textureLoader = new THREE.TextureLoader();
-            const matcapTexture = textureLoader.load('../assets/textures/matcaps/5.png');
+            const matcapTexture = textureLoader.load('../assets/textures/matcaps/4.png');
 
             return {
                 matcapMaterial: new THREE.MeshMatcapMaterial({ matcap: matcapTexture, side: THREE.DoubleSide }),
@@ -154,10 +159,9 @@
             autoRotate: false,
             color: '#049ef4',    // Phong color (controller hidden unless Phong)
             knot: true,
-            inversion: true,
+            inversion: false,
             sphere: true,
-            axis: false,
-            grid: true
+            axis: true
         };
 
         // Scene setup
@@ -170,7 +174,7 @@
         // Geometry: inversion surface
         const meshRes = { x: 500, y: 100 };
         let geometry = new ParametricGeometry((u, v, target) =>
-            trefoilKnotInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+            torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
         let mesh = new THREE.Mesh(geometry, materials.matcapMaterial);
         scene.add(mesh);
@@ -270,10 +274,6 @@
                 tubeAxes.visible = v;
             });
 
-            gui.add(options, 'grid').name('Show Grid').onChange(v => {
-                gridHelper.visible = v;
-            });
-
             gui.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
             gui.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
 
@@ -284,7 +284,7 @@
         function updateGeometry() {
             geometry.dispose();
             geometry = new ParametricGeometry((u, v, target) =>
-                trefoilKnotInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+                torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
             mesh.geometry = geometry;
             wireframeMesh.geometry = geometry;
@@ -302,8 +302,8 @@
         // Helpers
         const gridHelper = new THREE.GridHelper(10, 10);
         gridHelper.rotation.x = Math.PI / 2; // rotate 90° around x-axis
-        gridHelper.visible = options.grid;
         scene.add(gridHelper);
+
 
         function createTubeAxes(size = 5, radius = 0.05) {
             const axes = new THREE.Group();
@@ -340,7 +340,6 @@
         }
 
         const tubeAxes = createTubeAxes(1, 0.01);
-        tubeAxes.visible = options.axis;
         scene.add(tubeAxes);
 
         //scene.add(new THREE.AxesHelper(1));
