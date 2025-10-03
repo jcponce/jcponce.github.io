@@ -90,10 +90,19 @@
             const YY = size * (sin(u) * (r / 2 * cos(v) + R));
             const ZZ = size * (r / 2 * sin(v));
 
-            const norm2 = pow(XX, 2) + pow(YY, 2) + pow(ZZ, 2);
-            target.set(0.5 * XX / norm2, 0.5 * YY / norm2, 0.5 * ZZ / norm2);
-        }
+            let norm2 = XX * XX + YY * YY + ZZ * ZZ;
 
+            // Avoid division by zero (or tiny denominators)
+            const EPS = 1e-6;
+            if (norm2 < EPS) norm2 = EPS;
+
+            target.set(
+                0.5 * XX / norm2,
+                0.5 * YY / norm2,
+                0.5 * ZZ / norm2
+            );
+        }
+        
         // Sphere for inversion
         function sphereSurface(u, v, target, r, uComponent, vComponent) {
             u = uComponent * u;
@@ -148,7 +157,8 @@
             size: 0.12,
             translate: 0,
             autoRotate: false,
-            color: '#049ef4',    // Phong color (controller hidden unless Phong)
+            color1: '#00ffff',
+            color2: '#ff5050',
             torus: true,
             inversion: false,
             mesh: false,
@@ -220,49 +230,62 @@
 
         // Visibility defaults
         meshInversion.visible = options.inversion;
-        //wireframeMeshInversion.visible = options.meshInversion;
 
         meshTorus.visible = options.torus;
-        //wireframeMeshTorus.visible = options.mesh;
 
         meshSphere.visible = wireframeSphere.visible = options.sphere;
 
         // GUI
         function commonUI() {
-
-            gui.add(options, 'torus').name('Show Torus').onChange(v => {
+            // Torus controls
+            const torusFolder = gui.addFolder('Torus');
+            torusFolder.add(options, 'torus').name('Show Torus').onChange(v => {
                 meshTorus.visible = v;
             });
-
-            gui.add(options, 'mesh').name('Mesh Torus').onChange(v => {
+            torusFolder.add(options, 'mesh').name('Mesh Torus').onChange(v => {
                 if (v) scene.add(wireframeMeshTorus);
                 else scene.remove(wireframeMeshTorus);
             });
-
-            gui.add(options, 'inversion').name('Show Inversion').onChange(v => {
-                meshInversion.visible = v;
+            torusFolder.addColor(options, 'color1').name('Torus Color').onChange(v => {
+                meshTorus.material.color.set(v);
             });
 
-            gui.add(options, 'meshInversion').name('Mesh Inversion').onChange(v => {
+            // Inversion controls
+            const inversionFolder = gui.addFolder('Inversion');
+            inversionFolder.add(options, 'inversion').name('Show Inversion').onChange(v => {
+                meshInversion.visible = v;
+            });
+            inversionFolder.add(options, 'meshInversion').name('Mesh Inversion').onChange(v => {
                 if (v) scene.add(wireframeMeshInversion);
                 else scene.remove(wireframeMeshInversion);
             });
+            inversionFolder.addColor(options, 'color2').name('Inversion Color').onChange(v => {
+                meshInversion.material.color.set(v);
+            });
 
-            gui.add(options, 'sphere').name('Show Sphere').onChange(v => {
+            // Sphere controls
+            const sphereFolder = gui.addFolder('Sphere');
+            sphereFolder.add(options, 'sphere').name('Show Sphere').onChange(v => {
                 meshSphere.visible = v;
                 wireframeSphere.visible = v;
             });
 
+            // Axis toggle
             gui.add(options, 'axis').name('Show Axis').onChange(v => {
                 tubeAxes.visible = v;
             });
 
-            gui.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
-            gui.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
+            // Geometry transforms
+            const transformFolder = gui.addFolder('Transform');
+            transformFolder.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
+            transformFolder.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
 
-            // gui.close();
-
+            // Optional: autorotate
+            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
+                controls.autoRotate = v;
+            });
         }
+
 
         function updateGeometry() {
             geometryInversion.dispose();
