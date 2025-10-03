@@ -64,8 +64,23 @@
         const pow = Math.pow;
         const PI = Math.PI;
 
-        function torusknotSurface(u, v, target, size, translate) {
-            u = 4 * PI * u;
+        // Define parametric surfaces
+        // Torus 
+        function torusSurface(u, v, target, uComponent, vComponent, size, tx, ty, tz) {
+            u = uComponent * u;
+            v = vComponent * v;
+
+            const r = 2;
+            const R = 4;
+            const x = -size * (cos(u) * (r / 2 * cos(v) + R)) + tx;
+            const y = size * (sin(u) * (r / 2 * cos(v) + R)) + ty;
+            const z = size * (r / 2 * sin(v)) + tz;
+            target.set(x, y, z);
+        }
+
+        // Torus inverted
+        function torusInvertedSurface(u, v, target, size, translate) {
+            u = 2 * PI * u;
             v = 2 * PI * v;
 
             const r = 2;
@@ -79,34 +94,11 @@
             target.set(0.5 * XX / norm2, 0.5 * YY / norm2, 0.5 * ZZ / norm2);
         }
 
+        // Sphere for inversion
         function sphereSurface(u, v, target, r, uComponent, vComponent) {
             u = uComponent * u;
             v = vComponent * v;
             target.set(r * cos(u) * sin(v), r * sin(u) * sin(v), r * cos(v));
-        }
-
-        function trefoilknotSurface(u, v, target, uComponent, vComponent, size, tx, ty, tz) {
-            u = uComponent * u;
-            v = vComponent * v;
-
-            const r = 2;
-            const R = 4;
-            const x = -size * (cos(u) * (r / 2 * cos(v) + R)) + tx;
-            const y = size * (sin(u) * (r / 2 * cos(v) + R)) + ty;
-            const z = size * (r / 2 * sin(v)) + tz;
-            target.set(x, y, z);
-        }
-
-        function createMaterials(options) {
-            const textureLoader = new THREE.TextureLoader();
-            const matcapTexture = textureLoader.load('../assets/textures/matcaps/4.png');
-
-            return {
-                matcapMaterial: new THREE.MeshMatcapMaterial({ matcap: matcapTexture, side: THREE.DoubleSide }),
-                normalMaterial: new THREE.MeshNormalMaterial({ side: THREE.DoubleSide }),
-                phongMaterial: new THREE.MeshPhongMaterial({ color: options.color, shininess: 100, side: THREE.DoubleSide }),
-                wireframeMaterial: new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
-            };
         }
 
         function setupScene(canvas) {
@@ -152,14 +144,15 @@
         // GUI setup
         const gui = new GUI();
         const options = {
-            material: 'Matcap',
-            mesh: false,
+            // material: 'Matcap',
             size: 0.12,
             translate: 0,
             autoRotate: false,
             color: '#049ef4',    // Phong color (controller hidden unless Phong)
-            knot: true,
+            torus: true,
             inversion: false,
+            mesh: false,
+            meshInversion: false,
             sphere: true,
             axis: true
         };
@@ -168,29 +161,42 @@
         const canvas = document.querySelector('canvas.webgl');
         const { scene, camera, renderer, controls } = setupScene(canvas);
 
-        // Materials
-        const materials = createMaterials(options);
-
         // Geometry: inversion surface
-        const meshRes = { x: 500, y: 100 };
-        let geometry = new ParametricGeometry((u, v, target) =>
-            torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+        const meshRes = { x: 100, y: 100 };
+        let geometryInversion = new ParametricGeometry((u, v, target) =>
+            torusInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
-        let mesh = new THREE.Mesh(geometry, materials.matcapMaterial);
-        scene.add(mesh);
+        let materialInversion = new THREE.MeshPhongMaterial({
+            color: '#ff5050',
+            shininess: 200,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.7
+        });
 
-        // Geometry: trefoil knot
-        let geometryKnot = new ParametricGeometry((u, v, target) =>
-            trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+        // Wireframe mesh for inversion
+        let wireframeMaterialInversion = new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
+        let wireframeMeshInversion = new THREE.Mesh(geometryInversion, wireframeMaterialInversion);
 
-        let meshKnot = new THREE.Mesh(geometryKnot, new THREE.MeshPhongMaterial({
+        let meshInversion = new THREE.Mesh(geometryInversion, materialInversion);
+        scene.add(meshInversion);
+
+        // Geometry: torus knot
+        let geometryTorus = new ParametricGeometry((u, v, target) =>
+            torusSurface(u, v, target, 2 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+
+        let meshTorus = new THREE.Mesh(geometryTorus, new THREE.MeshPhongMaterial({
             color: '#00ffff',
             shininess: 200,
             side: THREE.DoubleSide,
             transparent: true,
-            opacity: 0.8
+            opacity: 0.7
         }));
-        scene.add(meshKnot);
+        scene.add(meshTorus);
+
+        // Wireframe mesh for inversion
+        let wireframeMaterialTorus = new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
+        let wireframeMeshTorus = new THREE.Mesh(geometryTorus, wireframeMaterialTorus);
 
         // Geometry: sphere
         let geometrySphere = new ParametricGeometry((u, v, target) =>
@@ -208,61 +214,38 @@
 
         const wireframeSphere = new THREE.LineSegments(
             new THREE.WireframeGeometry(geometrySphere),
-            new THREE.LineBasicMaterial({ color: 0xbfbfbf })
+            new THREE.LineBasicMaterial({ color: 0xa6a6a6 })
         );
         scene.add(wireframeSphere);
 
-        // Wireframe mesh for inversion
-        let wireframeMesh = new THREE.Mesh(geometry, materials.wireframeMaterial);
-
         // Visibility defaults
-        mesh.visible = options.inversion;
-        meshKnot.visible = options.knot;
+        meshInversion.visible = options.inversion;
+        //wireframeMeshInversion.visible = options.meshInversion;
+
+        meshTorus.visible = options.torus;
+        //wireframeMeshTorus.visible = options.mesh;
+
         meshSphere.visible = wireframeSphere.visible = options.sphere;
 
         // GUI
         function commonUI() {
-            // Style selector
-            const styleController = gui.add(options, 'material', ['Matcap', 'Normal', 'Phong']).name('Style');
 
-            // Phong color controller (create once, hide/show as needed)
-            const phongColorController = gui
-                .addColor(options, 'color')
-                .name('Phong Color')
-                .onChange(v => {
-                    materials.phongMaterial.color.set(v);
-                });
-
-            // Hide initially unless Phong is already selected
-            if (options.material !== 'Phong') phongColorController.hide();
-
-            // React to style change
-            styleController.onChange(value => {
-                mesh.material = value === 'Matcap' ? materials.matcapMaterial
-                    : value === 'Normal' ? materials.normalMaterial
-                        : materials.phongMaterial;
-
-                // Only show the Phong color when Phong is active
-                if (value === 'Phong') phongColorController.show();
-                else phongColorController.hide();
+            gui.add(options, 'torus').name('Show Torus').onChange(v => {
+                meshTorus.visible = v;
             });
 
-            // gui.add(options, 'mesh').name('Wireframe').onChange(v => {
-            //     if (v) scene.add(wireframeMesh);
-            //     else scene.remove(wireframeMesh);
-            // });
-
-            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
-                controls.autoRotate = v;
-            });
-
-            gui.add(options, 'knot').name('Show Knot').onChange(v => {
-                meshKnot.visible = v;
+            gui.add(options, 'mesh').name('Mesh Torus').onChange(v => {
+                if (v) scene.add(wireframeMeshTorus);
+                else scene.remove(wireframeMeshTorus);
             });
 
             gui.add(options, 'inversion').name('Show Inversion').onChange(v => {
-                mesh.visible = v;
-                wireframeMesh.visible = options.mesh && v;
+                meshInversion.visible = v;
+            });
+
+            gui.add(options, 'meshInversion').name('Mesh Inversion').onChange(v => {
+                if (v) scene.add(wireframeMeshInversion);
+                else scene.remove(wireframeMeshInversion);
             });
 
             gui.add(options, 'sphere').name('Show Sphere').onChange(v => {
@@ -282,18 +265,19 @@
         }
 
         function updateGeometry() {
-            geometry.dispose();
-            geometry = new ParametricGeometry((u, v, target) =>
-                torusknotSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+            geometryInversion.dispose();
+            geometryInversion = new ParametricGeometry((u, v, target) =>
+                torusInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
-            mesh.geometry = geometry;
-            wireframeMesh.geometry = geometry;
+            meshInversion.geometry = geometryInversion;
+            wireframeMeshInversion.geometry = geometryInversion;
 
-            geometryKnot.dispose();
-            geometryKnot = new ParametricGeometry((u, v, target) =>
-                trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+            geometryTorus.dispose();
+            geometryTorus = new ParametricGeometry((u, v, target) =>
+                torusSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
 
-            meshKnot.geometry = geometryKnot;
+            meshTorus.geometry = geometryTorus;
+            wireframeMeshTorus.geometry = geometryTorus;
         }
 
         // UI
@@ -354,8 +338,6 @@
             requestAnimationFrame(tick);
         }
         tick();
-
-
 
     </script>
 </body>
