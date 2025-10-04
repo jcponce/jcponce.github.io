@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torus Inverted</title>
+    <title>Sphere Inverted</title>
     <!--
   <link rel="stylesheet" href="./style.css">-->
 
@@ -65,42 +65,32 @@
         const PI = Math.PI;
 
         // Define parametric surfaces
-        // Torus 
-        function originalSurface(u, v, target, uComponent, vComponent, size, tx, ty, tz) {
+        // Sphere 
+        function originalSurface(u, v, target, uComponent, vComponent, radius, tx, ty, tz) {
             u = uComponent * u;
             v = vComponent * v;
-
-            const r = 2;
-            const R = 4;
-            const x = -size * (cos(u) * (r / 2 * cos(v) + R)) + tx;
-            const y = size * (sin(u) * (r / 2 * cos(v) + R)) + ty;
-            const z = size * (r / 2 * sin(v)) + tz;
+            const x = radius * cos(u) * sin(v) + tx;
+            const y = radius * sin(u) * sin(v);
+            const z = radius * cos(v);
             target.set(x, y, z);
         }
 
-        // Torus inverted
-        function originalInvertedSurface(u, v, target, size, translate) {
-            u = 2 * PI * u;
-            v = 2 * PI * v;
+        // Sphere inverted
+        function originalInvertedSurface(u, v, target, uComponent, vComponent, radius, translate) {
+            u = uComponent * u;
+            v = vComponent * v;
 
-            const r = 2;
-            const R = 4;
+            const X = radius * cos(u) * sin(v) + translate;
+            const Y = radius * sin(u) * sin(v);
+            const Z = radius * cos(v);
 
-            const XX = -size * (cos(u) * (r / 2 * cos(v) + R)) + translate;
-            const YY = size * (sin(u) * (r / 2 * cos(v) + R));
-            const ZZ = size * (r / 2 * sin(v));
+            let norm2 = X * X + Y * Y + Z * Z;
 
-            let norm2 = XX * XX + YY * YY + ZZ * ZZ;
-
-            // Avoid division by zero (or tiny denominators)
             const EPS = 1e-6;
             if (norm2 < EPS) norm2 = EPS;
 
-            target.set(
-                0.5 * XX / norm2,
-                0.5 * YY / norm2,
-                0.5 * ZZ / norm2
-            );
+            const factor = (1) / norm2;
+            target.set(factor * X, factor * Y, factor * Z);
         }
 
         // Sphere for inversion
@@ -153,8 +143,8 @@
         // GUI setup
         const gui = new GUI();
         const options = {
-            size: 0.1,
-            translate: 0,
+            radius: 0.5,
+            translate: 2,
             autoRotate: false,
             color1: '#00ffff',
             color2: '#ff5050',
@@ -171,9 +161,9 @@
         const { scene, camera, renderer, controls } = setupScene(canvas);
 
         // Geometry: inversion surface
-        const meshRes = { x: 100, y: 100 };
+        const meshRes = { x: 150, y: 150 };
         let geometryInversion = new ParametricGeometry((u, v, target) =>
-            originalInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+            originalInvertedSurface(u, v, target, 2 * PI, PI, options.radius, options.translate), meshRes.x, meshRes.y);
 
         let materialInversion = new THREE.MeshPhongMaterial({
             color: '#ff5050',
@@ -192,7 +182,7 @@
 
         // Geometry: original surface
         let geometryOriginal = new ParametricGeometry((u, v, target) =>
-            originalSurface(u, v, target, 2 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+            originalSurface(u, v, target, 2 * PI, PI, options.radius, options.translate, 0, 0), 20, 20);
 
         let meshOriginal = new THREE.Mesh(geometryOriginal, new THREE.MeshPhongMaterial({
             color: '#00ffff',
@@ -274,7 +264,7 @@
 
             // Geometry transforms
             const transformFolder = gui.addFolder('Transform');
-            transformFolder.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
+            transformFolder.add(options, 'radius', 0.01, 2, 0.01).name('Radius').onChange(updateGeometry);
             transformFolder.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
 
             // Optional: autorotate
@@ -286,14 +276,14 @@
         function updateGeometry() {
             geometryInversion.dispose();
             geometryInversion = new ParametricGeometry((u, v, target) =>
-                originalInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+                originalInvertedSurface(u, v, target, 2 * PI, PI, options.radius, options.translate), meshRes.x, meshRes.y);
 
             meshInversion.geometry = geometryInversion;
             wireframeMeshInversion.geometry = geometryInversion;
 
             geometryOriginal.dispose();
             geometryOriginal = new ParametricGeometry((u, v, target) =>
-                originalSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+                originalSurface(u, v, target, 2 * PI, PI, options.radius, options.translate, 0, 0), 20, 20);
 
             meshOriginal.geometry = geometryOriginal;
             wireframeMeshOriginal.geometry = geometryOriginal;
@@ -356,7 +346,6 @@
         tick();
 
     </script>
-
 </body>
 
 </html>
