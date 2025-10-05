@@ -58,67 +58,81 @@
         import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
         import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
+        // GUI setup
+        const gui = new GUI();
+        const options = {
+            material: 'Matcap',
+            mesh: false,
+            size: 0.3,
+            translate: -0.19,
+            autoRotate: false,
+            color: '#049ef4',    // Phong color (controller hidden unless Phong)
+            knot: true,
+            inversion: true,
+            sphere: true,
+            axis: false,
+            grid: true
+        };
+        
         // Shorthands
         const cos = Math.cos;
         const sin = Math.sin;
         const pow = Math.pow;
         const PI = Math.PI;
 
-        // Define parametric surfaces
-        function components(u, v){
-            const E = 0.3;
-            const h = 0.4;
-            return {
-                x: sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4)),
-                y: cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4)),
-                z: (-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v)
-            }
-        }
+        // function components(u, v){
+        //     const E = 0.3;
+        //     const h = 0.4;
+        //     return {
+        //         x: sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4)),
+        //         y: cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4)),
+        //         z: (-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v)
+        //     }
+        // }
 
-        // Figure 8 knot 
-        function originalSurface(u, v, target, uComponent, vComponent, size, tx, ty, tz) {
-            u = uComponent * u;
-            v = vComponent * v;
-
-            const E = 0.3;
-            const h = 0.4;
-
-            const x = -size * components(u,v).x + tx;
-            const y = size * components(u,v).y + ty;
-            const z = size * components(u,v).z + tz;
-            target.set(x, y, z);
-        }
-
-        // Torus inverted
-        function originalInvertedSurface(u, v, target, size, translate) {
+        function trefoilKnotInvertedSurface(u, v, target, size, translate) {
             u = 2 * PI * u;
-            v = 1.33333 * PI * v;
+            v = 2 * PI * v;
 
             const E = 0.3;
             const h = 0.4;
 
-            const XX = -size * components(u,v).x + translate;
-            const YY = size * components(u,v).y;
-            const ZZ = size * components(u,v).z;
+            const XX = -size * (sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + translate;
+            const YY = size * (cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4)));
+            const ZZ = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v));
 
-            let norm2 = XX * XX + YY * YY + ZZ * ZZ;
-
-            // Avoid division by zero (or tiny denominators)
-            const EPS = 1e-6;
-            if (norm2 < EPS) norm2 = EPS;
-
-            target.set(
-                0.5 * XX / norm2,
-                0.5 * YY / norm2,
-                0.5 * ZZ / norm2
-            );
+            const norm2 = pow(XX, 2) + pow(YY, 2) + pow(ZZ, 2);
+            target.set(0.5 * XX / norm2, 0.5 * YY / norm2, 0.5 * ZZ / norm2);
         }
 
-        // Sphere for inversion
         function sphereSurface(u, v, target, r, uComponent, vComponent) {
             u = uComponent * u;
             v = vComponent * v;
             target.set(r * cos(u) * sin(v), r * sin(u) * sin(v), r * cos(v));
+        }
+
+        function trefoilknotSurface(u, v, target, uComponent, vComponent, size, tx, ty, tz) {
+            u = uComponent * u;
+            v = vComponent * v;
+
+            const E = 0.3;
+            const h = 0.4;
+            const x = -size * (sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + tx;
+            const y = size * (cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + ty;
+            const z = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v)) + tz;
+            target.set(x, y, z);
+        }
+
+        function createMaterials(options) {
+            const textureLoader = new THREE.TextureLoader();
+            const matcapTexture = textureLoader.load('../assets/textures/matcaps/15.png');
+
+            return {
+                matcapMaterial: new THREE.MeshMatcapMaterial({ matcap: matcapTexture, side: THREE.DoubleSide }),
+                normalMaterial: new THREE.MeshNormalMaterial({ side: THREE.DoubleSide }),
+                phongMaterial: new THREE.MeshPhongMaterial({ color: options.color, shininess: 100, side: THREE.DoubleSide }),
+                wireframeMaterial: new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
+            };
         }
 
         function setupScene(canvas) {
@@ -128,8 +142,8 @@
 
             // Camera
             const sizes = { width: window.innerWidth, height: window.innerHeight };
-            const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-            camera.position.set(3, 2, 1);
+            const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
+            camera.position.set(-2, 2, 2.6);
             scene.add(camera);
 
             // Renderer (white background, opaque)
@@ -161,62 +175,35 @@
             return { scene, camera, renderer, controls };
         }
 
-        // GUI setup
-        const gui = new GUI();
-        const options = {
-            size: 0.3,
-            translate: 0.2,
-            autoRotate: false,
-            color1: '#00ffff',
-            color2: '#ff5050',
-            original: true,
-            inversion: true,
-            meshOriginal: false,
-            meshInversion: false,
-            sphere: true,
-            axis: true
-        };
+        
 
         // Scene setup
         const canvas = document.querySelector('canvas.webgl');
         const { scene, camera, renderer, controls } = setupScene(canvas);
 
+        // Materials
+        const materials = createMaterials(options);
+
         // Geometry: inversion surface
         const meshRes = { x: 1000, y: 100 };
-        let geometryInversion = new ParametricGeometry((u, v, target) =>
-            originalInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+        let geometry = new ParametricGeometry((u, v, target) =>
+            trefoilKnotInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
-        let materialInversion = new THREE.MeshPhongMaterial({
-            color: '#ff5050',
-            shininess: 200,
-            side: THREE.DoubleSide,
-            transparent: true,
-            opacity: 0.7
-        });
+        let mesh = new THREE.Mesh(geometry, materials.matcapMaterial);
+        scene.add(mesh);
 
-        // Wireframe mesh for inversion
-        let wireframeMaterialInversion = new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
-        let wireframeMeshInversion = new THREE.Mesh(geometryInversion, wireframeMaterialInversion);
+        // Geometry: trefoil knot
+        let geometryKnot = new ParametricGeometry((u, v, target) =>
+            trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 228, 228);
 
-        let meshInversion = new THREE.Mesh(geometryInversion, materialInversion);
-        scene.add(meshInversion);
-
-        // Geometry: original surface
-        let geometryOriginal = new ParametricGeometry((u, v, target) =>
-            originalSurface(u, v, target, 2 * PI, 1.333 * PI, options.size, options.translate, 0, 0), 100, 100);
-
-        let meshOriginal = new THREE.Mesh(geometryOriginal, new THREE.MeshPhongMaterial({
+        let meshKnot = new THREE.Mesh(geometryKnot, new THREE.MeshPhongMaterial({
             color: '#00ffff',
             shininess: 200,
             side: THREE.DoubleSide,
             transparent: true,
-            opacity: 0.7
+            opacity: 0.8
         }));
-        scene.add(meshOriginal);
-
-        // Wireframe mesh for original
-        let wireframeMaterialOriginal = new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
-        let wireframeMeshOriginal = new THREE.Mesh(geometryOriginal, wireframeMaterialOriginal);
+        scene.add(meshKnot);
 
         // Geometry: sphere
         let geometrySphere = new ParametricGeometry((u, v, target) =>
@@ -234,80 +221,96 @@
 
         const wireframeSphere = new THREE.LineSegments(
             new THREE.WireframeGeometry(geometrySphere),
-            new THREE.LineBasicMaterial({ color: 0x737373 })
+            new THREE.LineBasicMaterial({ color: 0xbfbfbf })
         );
         scene.add(wireframeSphere);
 
+        // Wireframe mesh for inversion
+        let wireframeMesh = new THREE.Mesh(geometry, materials.wireframeMaterial);
+
         // Visibility defaults
-        meshInversion.visible = options.inversion;
-        meshOriginal.visible = options.original;
+        mesh.visible = options.inversion;
+        meshKnot.visible = options.knot;
         meshSphere.visible = wireframeSphere.visible = options.sphere;
 
         // GUI
         function commonUI() {
-            // Original controls
-            const originalFolder = gui.addFolder('Original');
-            originalFolder.add(options, 'original').name('Show Original').onChange(v => {
-                meshOriginal.visible = v;
-            });
-            originalFolder.add(options, 'meshOriginal').name('Mesh Original').onChange(v => {
-                if (v) scene.add(wireframeMeshOriginal);
-                else scene.remove(wireframeMeshOriginal);
-            });
-            originalFolder.addColor(options, 'color1').name('Original Color').onChange(v => {
-                meshOriginal.material.color.set(v);
+            // Style selector
+            const styleController = gui.add(options, 'material', ['Matcap', 'Normal', 'Phong']).name('Style');
+
+            // Phong color controller (create once, hide/show as needed)
+            const phongColorController = gui
+                .addColor(options, 'color')
+                .name('Phong Color')
+                .onChange(v => {
+                    materials.phongMaterial.color.set(v);
+                });
+
+            // Hide initially unless Phong is already selected
+            if (options.material !== 'Phong') phongColorController.hide();
+
+            // React to style change
+            styleController.onChange(value => {
+                mesh.material = value === 'Matcap' ? materials.matcapMaterial
+                    : value === 'Normal' ? materials.normalMaterial
+                        : materials.phongMaterial;
+
+                // Only show the Phong color when Phong is active
+                if (value === 'Phong') phongColorController.show();
+                else phongColorController.hide();
             });
 
-            // Inversion controls
-            const inversionFolder = gui.addFolder('Inversion');
-            inversionFolder.add(options, 'inversion').name('Show Inversion').onChange(v => {
-                meshInversion.visible = v;
-            });
-            inversionFolder.add(options, 'meshInversion').name('Mesh Inversion').onChange(v => {
-                if (v) scene.add(wireframeMeshInversion);
-                else scene.remove(wireframeMeshInversion);
-            });
-            inversionFolder.addColor(options, 'color2').name('Inversion Color').onChange(v => {
-                meshInversion.material.color.set(v);
+            gui.add(options, 'mesh').name('Wireframe').onChange(v => {
+                if (v) scene.add(wireframeMesh);
+                else scene.remove(wireframeMesh);
             });
 
-            // Sphere controls
-            const sphereFolder = gui.addFolder('Sphere');
-            sphereFolder.add(options, 'sphere').name('Show Sphere').onChange(v => {
+            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
+                controls.autoRotate = v;
+            });
+
+            gui.add(options, 'knot').name('Show Knot').onChange(v => {
+                meshKnot.visible = v;
+            });
+
+            gui.add(options, 'inversion').name('Show Inversion').onChange(v => {
+                mesh.visible = v;
+                wireframeMesh.visible = options.mesh && v;
+            });
+
+            gui.add(options, 'sphere').name('Show Sphere').onChange(v => {
                 meshSphere.visible = v;
                 wireframeSphere.visible = v;
             });
 
-            // Axis toggle
             gui.add(options, 'axis').name('Show Axis').onChange(v => {
                 tubeAxes.visible = v;
             });
 
-            // Geometry transforms
-            const transformFolder = gui.addFolder('Transform');
-            transformFolder.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
-            transformFolder.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
-
-            // Optional: autorotate
-            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
-                controls.autoRotate = v;
+            gui.add(options, 'grid').name('Show Grid').onChange(v => {
+                gridHelper.visible = v;
             });
+
+            gui.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
+            gui.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
+
+            gui.close();
+
         }
 
         function updateGeometry() {
-            geometryInversion.dispose();
-            geometryInversion = new ParametricGeometry((u, v, target) =>
-                originalInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
+            geometry.dispose();
+            geometry = new ParametricGeometry((u, v, target) =>
+                trefoilKnotInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
-            meshInversion.geometry = geometryInversion;
-            wireframeMeshInversion.geometry = geometryInversion;
+            mesh.geometry = geometry;
+            wireframeMesh.geometry = geometry;
 
-            geometryOriginal.dispose();
-            geometryOriginal = new ParametricGeometry((u, v, target) =>
-                originalSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+            geometryKnot.dispose();
+            geometryKnot = new ParametricGeometry((u, v, target) =>
+                trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 228, 228);
 
-            meshOriginal.geometry = geometryOriginal;
-            wireframeMeshOriginal.geometry = geometryOriginal;
+            meshKnot.geometry = geometryKnot;
         }
 
         // UI
@@ -316,6 +319,7 @@
         // Helpers
         const gridHelper = new THREE.GridHelper(10, 10);
         gridHelper.rotation.x = Math.PI / 2; // rotate 90° around x-axis
+        gridHelper.visible = options.grid;
         scene.add(gridHelper);
 
         function createTubeAxes(size = 5, radius = 0.05) {
@@ -353,7 +357,10 @@
         }
 
         const tubeAxes = createTubeAxes(1, 0.01);
+        tubeAxes.visible = options.axis;
         scene.add(tubeAxes);
+
+        //scene.add(new THREE.AxesHelper(1));
 
         controls.autoRotate = false;
         controls.autoRotateSpeed = -0.9;
@@ -365,6 +372,7 @@
             requestAnimationFrame(tick);
         }
         tick();
+
 
     </script>
 
