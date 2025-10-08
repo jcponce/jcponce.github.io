@@ -86,7 +86,7 @@ ax.set_proj_type('ortho')  # Orthographic projection ✅
 ax.plot_surface(
     X, Y, Z,
     rstride=1, cstride=1,
-    color='royalblue',
+    color='#f2f2f2',
     linewidth=0.1,
     edgecolor='k',
     alpha=1.0
