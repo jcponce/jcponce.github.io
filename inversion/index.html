@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <!-- dublin core -->
+  <meta name="dc.title" CONTENT="Inversion">
+  <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+  <meta name="dc.date" CONTENT="01-Jul-2018">
+  <meta name="dc.type" CONTENT="Interactive Resource">
+  <meta name="dc.format" CONTENT="HTML">
+  <meta name="dc.language" CONTENT="en-US">
+  <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+  <!-- social media cards -->
+  <meta property="og:title" content="Inversion">
+  <meta property="og:description" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+  <meta property="og:url" content="https://jcponce.github.io/">
+  <meta name="twitter:card" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:site_name" content="Dynamic Mathematics">
+
+  <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+
+  <title>Inversion</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/noscript.css" />
+  </noscript>
+
+  <!--MathJax starts-->
+  <script>
+    window.MathJax = {
+      tex: {
+        tags: "ams",
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  <!--MathJax Ends-->
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JPYTNF6MB4');
+  </script>
+
+  <script src="math.js"></script>
+  <script src="mathcell.js"></script>
+
+</head>
+
+
+<body class="is-preload">
+  <!--Magicbook cotainer-->
+  <div class="container">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <h1><a href="../">Dynamic Mathematics</a></h1>
+        <nav id="nav">
+          <ul>
+            <li class="special">
+              <a href="#menu" class="menuToggle"><span>Menu</span></a>
+              <div id="menu">
+                <ul>
+
+                  <li><a href="#historical-background">Historical background</a></li>
+                  <li><a href="#mathematical-model">Mathematical model</a></li>
+                  <li><a href="#simulation">Simulation</a></li>
+                  <li><a href="#how-this-works">How the simulation works</a></li>
+                  <!--<li><a href="#3D">3D patterns</a></li>-->
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <article id="main">
+
+        <header>
+          <h2>Inversion</h2>
+          <p>Interactive simulations</p>
+        </header>
+        <section class="wrapper style5">
+          <div class="inner">
+
+            <header>
+              <p>By Juan Carlos Ponce Campuzano, 31/Oct/2025</p>
+              <!--
+              <div style="margin-top: -30px;font-size: 80%;">
+                <p>Updated: 26/03/2025</p>
+              </div>-->
+            </header>
+
+            <hr>
+
+
+            <h3 id="historical-background">Historical background</h3>
+
+            <p> Inversive geometry is a branch of geometry that studies transformations known as inversions, defined
+              with respect to a circle (in the plane) or a sphere (in space). Essentially, these transformations
+              preserve angles and map circles and lines to other circles or lines, providing a powerful framework for
+              analyzing geometric structures beyond Euclidean transformations. </p>
+
+            <p> According to <cite>Yates (1947, p. 127)</cite> and <cite>Kline (1972, pp. 932–933)</cite>, several
+              mathematicians contributed to the development of inversive geometry throughout the 19th century. For
+              example, Jacob Steiner (1796–1863) was one of the first to recognize the properties of geometric inversion
+              in the plane <cite>Patterson (1933, p. 155)</cite>. In addition, Adolphe Quetelet (1796–1874) and Germinal
+              Pierre Dandelin (1794–1847) explored applications of this transformation to geometric problems
+              <cite>Patterson (1933, pp. 156–164)</cite>. Likewise, August Ferdinand Möbius (1790–1868) studied
+              inversive geometry extensively <cite>Möbius (1855)</cite> and introduced the concept of <em>Möbius
+                transformations</em>. Finally, William Thomson (Lord Kelvin) (1824–1907) and Joseph Liouville
+              (1809–1882) emphasized the importance of inversion in mathematical physics, particularly in problems of
+              potentials and electrostatics <cite>Thomson (1847)</cite>. Taken together, these contributions laid the
+              foundation for inversive geometry as a central area of modern geometry, with later applications in complex
+              analysis and non-Euclidean geometry.
+            </p>
+
+
+            <p> During the 20th century, inversive geometry continued to develop in close connection with complex
+              analysis and the theory of conformal mappings. Felix Klein and Henri Poincaré used inversion ideas to
+              formulate models of hyperbolic geometry and to advance the theory of transformation groups. In the same
+              period, a major contribution was made by H. S. M. Coxeter (1907–2003), who systematically linked inversive
+              geometry with projective geometry and the models of hyperbolic geometry. His works, such as <em>The
+                Inversive Plane and Hyperbolic Space</em> (1966) <cite>Coxeter (1966)</cite> and <em>Inversive
+                Geometry</em> (1971) <cite>Coxeter (1971)</cite>, as well as his books <em>Non-Euclidean Geometry</em>
+              (1942) <cite>Coxeter (1998)</cite> and <em>Introduction to Geometry</em> (1961) <cite>Coxeter
+                (1969)</cite>, consolidated the role of inversion within a unified vision of geometries. </p>
+
+
+
+            <br>
+            <hr><br>
+            <h3 id="interactive-appltes">Interactive applets</h3>
+
+            
+
+            <hr>
+
+            <h3 id="references">References</h3>
+
+            <ol>
+              <li>Paul Bourke (2003). <i>Chladni Plate Mathematics, 2D.</i> <a
+                  href="https://paulbourke.net/geometry/chladni/" target="_blank" title="Open link"><i
+                    class="fas fa-external-link-alt"></i></a>
+              </li>
+              <li>Martin Skrodzki, Ulrich Reitebuch, and Konrad Polthier (2016). Chladni Figures Revisited:
+                A Peek Into The Third Dimension <i>Bridges Finland Conference Proceedings</i>
+                pp. 481-484. <a href="https://archive.bridgesmathart.org/2016/bridges2016-481.pdf" target="_blank"
+                  title="Open link"><i class="fas fa-external-link-alt"></i></a>
+              </li>
+              <li>
+                Martin J. Gander and Gerhard Wanner (2012).
+                From Euler, Ritz, and Galerkin to Modern Computing
+                <i>SIAM Review</i> Vol. 54, Iss. 4. <a href="https://doi.org/10.1137/100804036" target="_blank"
+                  title="Open link"><i class="fas fa-external-link-alt"></i></a>
+              </li>
+              <li>
+                G. Kirchhoff (1850).
+                Über das Gleichgewicht und die Bewegung einer elastischen Scheibe.
+                <i>Journal für die reine und angewandte Mathematik</i> Volume: 40, page 51-88. <a
+                  href="https://eudml.org/doc/147439" target="_blank" title="Open link"><i
+                    class="fas fa-external-link-alt"></i></a>
+              </li>
+            </ol>
+
+
+
+
+          </div>
+        </section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li><a href="https://github.com/jcponce" class="icon brands fa-github"><span class="label">Dribbble</span></a>
+          </li>
+          <li><a href="mailto: jcponcemath@gmail.com" class="icon solid fa-envelope"><span
+                class="label">Email</span></a></li>
+          <li><a href="https://mathstodon.xyz/@jcponcemath" class="icon brands fa-mastodon"><span
+                class="label">Twitter</span></a></li>
+          <li><a href="https://twitter.com/jcponcemath" class="icon brands fa-x-twitter"><span
+                class="label">Twitter</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2018-<span>
+              <script>document.write(new Date().getFullYear());</script>
+            </span>
+            Juan Carlos Ponce Campuzano
+          </li>
+          <li>&nbsp;<a href="../licence.html"><i class="fab fa-creative-commons"></i></a></li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+
+    </div>
+
+
+  </div>
+
+  <!--Scripts-->
+  <script src="../assets/js/breakpoints.min.js"></script>
+  <script src="../assets/js/browser.min.js"></script>
+  <script src="../assets/js/google-analytics-ga4.js"></script>
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery.scrollex.min.js"></script>
+  <script src="../assets/js/jquery.scrolly.min.js"></script>
+  <script src="../assets/js/jsutil.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+
+</html>
