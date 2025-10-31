@@ -73,7 +73,7 @@
             axis: false,
             grid: true
         };
-        
+
         // Shorthands
         const cos = Math.cos;
         const sin = Math.sin;
@@ -102,12 +102,12 @@
             // const ZZ = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v));
 
             const common = (E * sin(4 * u) + 1) / (E * sin(4 * u) - 1);
-            const XX = size * ( sin(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common ) + translate;
-            const YY = size * ( cos(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common );
-            const ZZ = size * ( 1/3 * cos(v) - sin(2 * u ) * common );
+            const XX = size * (sin(3 * u) * (3 / 2 + 1 / 4 * sin(v)) * common) + translate;
+            const YY = size * (cos(3 * u) * (3 / 2 + 1 / 4 * sin(v)) * common);
+            const ZZ = size * (1 / 3 * cos(v) - sin(2 * u) * common);
 
             const norm2 = pow(XX, 2) + pow(YY, 2) + pow(ZZ, 2);
-            target.set( XX / norm2,  YY / norm2,  ZZ / norm2);
+            target.set(XX / norm2, YY / norm2, ZZ / norm2);
         }
 
         function sphereSurface(u, v, target, r, uComponent, vComponent) {
@@ -126,9 +126,9 @@
             // const y = size * (cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + ty;
             // const z = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v)) + tz;
             const common = (E * sin(4 * u) + 1) / (E * sin(4 * u) - 1);
-            const x = size * ( sin(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common ) + tx;
-            const y = size * ( cos(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common ) + ty;
-            const z = size * ( 1/3 * cos(v) - sin(2 * u ) * common ) + tz;
+            const x = size * (sin(3 * u) * (3 / 2 + 1 / 4 * sin(v)) * common) + tx;
+            const y = size * (cos(3 * u) * (3 / 2 + 1 / 4 * sin(v)) * common) + ty;
+            const z = size * (1 / 3 * cos(v) - sin(2 * u) * common) + tz;
             target.set(x, y, z);
         }
 
@@ -184,7 +184,7 @@
             return { scene, camera, renderer, controls };
         }
 
-        
+
 
         // Scene setup
         const canvas = document.querySelector('canvas.webgl');
@@ -242,70 +242,94 @@
         meshKnot.visible = options.knot;
         meshSphere.visible = wireframeSphere.visible = options.sphere;
 
-        // GUI
         function commonUI() {
-            // Style selector
-            const styleController = gui.add(options, 'material', ['Matcap', 'Normal', 'Phong']).name('Style Inversion');
+            // === FOLDERS ===
+            const originalFolder = gui.addFolder('Original Surface');
+            const inversionFolder = gui.addFolder('Inversion');
 
-            // Phong color controller (create once, hide/show as needed)
-            const phongColorController = gui
+            // === ORIGINAL SURFACE ===
+            const styleController = originalFolder
+                .add(options, 'material', ['Matcap', 'Normal', 'Phong'])
+                .name('Style Inversion');
+
+            const phongColorController = originalFolder
                 .addColor(options, 'color')
                 .name('Phong Color')
-                .onChange(v => {
-                    materials.phongMaterial.color.set(v);
-                });
+                .onChange(v => materials.phongMaterial.color.set(v));
 
-            // Hide initially unless Phong is already selected
             if (options.material !== 'Phong') phongColorController.hide();
 
-            // React to style change
             styleController.onChange(value => {
-                mesh.material = value === 'Matcap' ? materials.matcapMaterial
-                    : value === 'Normal' ? materials.normalMaterial
+                mesh.material = value === 'Matcap'
+                    ? materials.matcapMaterial
+                    : value === 'Normal'
+                        ? materials.normalMaterial
                         : materials.phongMaterial;
 
-                // Only show the Phong color when Phong is active
                 if (value === 'Phong') phongColorController.show();
                 else phongColorController.hide();
             });
 
-            gui.add(options, 'mesh').name('Wireframe').onChange(v => {
-                if (v) scene.add(wireframeMesh);
-                else scene.remove(wireframeMesh);
-            });
+            originalFolder
+                .add(options, 'mesh')
+                .name('Wireframe')
+                .onChange(v => v ? scene.add(wireframeMesh) : scene.remove(wireframeMesh));
 
-            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
-                controls.autoRotate = v;
-            });
+            originalFolder
+                .add(options, 'autoRotate')
+                .name('Auto Rotate')
+                .onChange(v => controls.autoRotate = v);
 
-            gui.add(options, 'knot').name('Show Knot').onChange(v => {
-                meshKnot.visible = v;
-            });
+            // === INVERSION ===
+            inversionFolder
+                .add(options, 'inversion')
+                .name('Show Inversion')
+                .onChange(v => {
+                    mesh.visible = v;
+                    wireframeMesh.visible = options.mesh && v;
+                });
 
-            gui.add(options, 'inversion').name('Show Inversion').onChange(v => {
-                mesh.visible = v;
-                wireframeMesh.visible = options.mesh && v;
-            });
+            inversionFolder
+                .add(options, 'sphere')
+                .name('Show Sphere')
+                .onChange(v => {
+                    meshSphere.visible = v;
+                    wireframeSphere.visible = v;
+                });
 
-            gui.add(options, 'sphere').name('Show Sphere').onChange(v => {
-                meshSphere.visible = v;
-                wireframeSphere.visible = v;
-            });
+            inversionFolder
+                .add(options, 'knot')
+                .name('Show Knot')
+                .onChange(v => meshKnot.visible = v);
 
-            gui.add(options, 'axis').name('Show Axis').onChange(v => {
-                tubeAxes.visible = v;
-            });
+            // Geometry transforms
+            const transformFolder = gui.addFolder('Transform');
+            transformFolder
+                .add(options, 'size', 0.01, 2, 0.01)
+                .name('Dilate')
+                .onChange(updateGeometry);
 
-            gui.add(options, 'grid').name('Show Grid').onChange(v => {
-                gridHelper.visible = v;
-            });
+            transformFolder
+                .add(options, 'translate', -3, 3, 0.01)
+                .name('Translate')
+                .onChange(updateGeometry);
 
-            gui.add(options, 'size', 0.01, 2, 0.01).name('Dilate').onChange(updateGeometry);
-            gui.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
+            
+            gui.add(options, 'axis')
+                .name('Show Axis')
+                .onChange(v => tubeAxes.visible = v);
 
-            gui.close();
+            gui.add(options, 'grid')
+                .name('Show Grid')
+                .onChange(v => gridHelper.visible = v);
 
+
+            // === INITIAL STATE ===
+            originalFolder.close();
+            inversionFolder.close();
+            transformFolder.close();
         }
+
 
         function updateGeometry() {
             geometry.dispose();

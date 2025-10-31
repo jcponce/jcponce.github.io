@@ -225,7 +225,7 @@
         // GUI
         function commonUI() {
             // Original controls
-            const originalFolder = gui.addFolder('Original');
+            const originalFolder = gui.addFolder('Original Surface');
             originalFolder.add(options, 'original').name('Show Original').onChange(v => {
                 meshOriginal.visible = v;
             });
@@ -257,20 +257,26 @@
                 wireframeSphere.visible = v;
             });
 
-            // Axis toggle
-            gui.add(options, 'axis').name('Show Axis').onChange(v => {
-                tubeAxes.visible = v;
-            });
-
             // Geometry transforms
             const transformFolder = gui.addFolder('Transform');
             transformFolder.add(options, 'radius', 0.01, 2, 0.01).name('Radius').onChange(updateGeometry);
             transformFolder.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
 
+            // Axis toggle
+            gui.add(options, 'axis').name('Show Axis').onChange(v => {
+                tubeAxes.visible = v;
+            });
+
             // Optional: autorotate
             gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
                 controls.autoRotate = v;
             });
+
+            // === INITIAL STATE ===
+            originalFolder.close();
+            inversionFolder.close();
+            sphereFolder.close();
+            transformFolder.close();
         }
 
         function updateGeometry() {
