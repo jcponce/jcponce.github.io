@@ -95,11 +95,16 @@
             v = 2 * PI * v;
 
             const E = 0.3;
-            const h = 0.4;
+            // const h = 0.4;
 
-            const XX = size * (sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + translate;
-            const YY = size * (cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4)));
-            const ZZ = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v));
+            // const XX = size * (sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + translate;
+            // const YY = size * (cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4)));
+            // const ZZ = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v));
+
+            const common = (E * sin(4 * u) + 1) / (E * sin(4 * u) - 1);
+            const XX = size * ( sin(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common ) + translate;
+            const YY = size * ( cos(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common );
+            const ZZ = size * ( 1/3 * cos(v) - sin(2 * u ) * common );
 
             const norm2 = pow(XX, 2) + pow(YY, 2) + pow(ZZ, 2);
             target.set( XX / norm2,  YY / norm2,  ZZ / norm2);
@@ -116,10 +121,14 @@
             v = vComponent * v;
 
             const E = 0.3;
-            const h = 0.4;
-            const x = size * (sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + tx;
-            const y = size * (cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + ty;
-            const z = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v)) + tz;
+            // const h = 0.4;
+            // const x = size * (sin((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + tx;
+            // const y = size * (cos((3 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u)))*(1.5+sin(1.5*v)/4) - (1.5+sin(1.5*v)/4))) + ty;
+            // const z = size * ((-2*h*sin((2 * u)) * ((E * sin((4 * u))) + 1) / ((E * sin((4 * u))) - 1)) + 0.1*cos(1.5*v)) + tz;
+            const common = (E * sin(4 * u) + 1) / (E * sin(4 * u) - 1);
+            const x = size * ( sin(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common ) + tx;
+            const y = size * ( cos(3 * u) * ( 3/2 + 1/4 * sin(v) ) * common ) + ty;
+            const z = size * ( 1/3 * cos(v) - sin(2 * u ) * common ) + tz;
             target.set(x, y, z);
         }
 
