@@ -160,6 +160,18 @@
             <hr><br>
             <h3 id="interactive-applets">Interactive applets</h3>
 
+            <h4>Inversion of curves</h4>
+
+            <div style="display:block;display:block;margin-left:auto;margin-right:auto;margin-top:10px" id="ggb-element-01"></div>
+
+            <br/>
+            
+
+            <div  style="display:block;display:block;margin-left:auto;margin-right:auto;margin-top:10px" id="ggb-element-02"></div>
+
+            <br/>
+            <hr>
+
             <h4>Inversion of Sphere and Torus</h4>
 
             <div class="box alt">
@@ -555,6 +567,38 @@ plt.show()
   <script src="../assets/js/jquery.scrolly.min.js"></script>
   <script src="../assets/js/jsutil.js"></script>
   <script src="../assets/js/main.js"></script>
+
+  <!-- GeoGebra -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+        let params01 = {
+            "width": 591,
+            "height": 479,
+            "material_id": "hfrhdear",
+            "borderColor": "888888",
+            "playButton": false,
+            "showFullscreenButton": true,
+            "enableShiftDragZoom": true,
+            "showResetIcon": true
+        };
+        let params02 = {
+            "width": 591,
+            "height": 550,
+            "material_id": "zks7p5bv",
+            "borderColor": "888888",
+            "playButton": false,
+            "showFullscreenButton": true,
+            "enableShiftDragZoom": true,
+            "showResetIcon": true
+        };
+        let ggbApplet01 = new GGBApplet(params01, true);
+        let ggbApplet02 = new GGBApplet(params02, true);
+        window.addEventListener("load", () => {
+            ggbApplet01.inject('ggb-element-01');
+            ggbApplet02.inject('ggb-element-02');
+        });
+    </script>
+
 
 </body>
 
