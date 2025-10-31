@@ -66,7 +66,7 @@
             size: 1,
             translate: 0,
             autoRotate: false,
-            color: '#049ef4',    // Phong color (controller hidden unless Phong)
+            color: '#ff0000',    // Phong color (controller hidden unless Phong)
             knot: true,
             inversion: true,
             sphere: true,
@@ -248,11 +248,30 @@
             const inversionFolder = gui.addFolder('Inversion');
 
             // === ORIGINAL SURFACE ===
-            const styleController = originalFolder
+
+            originalFolder
+                .add(options, 'knot')
+                .name('Show Knot')
+                .onChange(v => meshKnot.visible = v);
+
+            originalFolder.addColor(options, 'color').name('Original Color').onChange(v => {
+                meshKnot.material.color.set(v);
+            });
+
+            // === INVERSION ===
+            inversionFolder
+                .add(options, 'inversion')
+                .name('Show Inversion')
+                .onChange(v => {
+                    mesh.visible = v;
+                    wireframeMesh.visible = options.mesh && v;
+                });
+
+            const styleController = inversionFolder
                 .add(options, 'material', ['Matcap', 'Normal', 'Phong'])
                 .name('Style Inversion');
 
-            const phongColorController = originalFolder
+            const phongColorController = inversionFolder
                 .addColor(options, 'color')
                 .name('Phong Color')
                 .onChange(v => materials.phongMaterial.color.set(v));
@@ -270,24 +289,10 @@
                 else phongColorController.hide();
             });
 
-            originalFolder
+            inversionFolder
                 .add(options, 'mesh')
                 .name('Wireframe')
                 .onChange(v => v ? scene.add(wireframeMesh) : scene.remove(wireframeMesh));
-
-            originalFolder
-                .add(options, 'autoRotate')
-                .name('Auto Rotate')
-                .onChange(v => controls.autoRotate = v);
-
-            // === INVERSION ===
-            inversionFolder
-                .add(options, 'inversion')
-                .name('Show Inversion')
-                .onChange(v => {
-                    mesh.visible = v;
-                    wireframeMesh.visible = options.mesh && v;
-                });
 
             inversionFolder
                 .add(options, 'sphere')
@@ -296,11 +301,6 @@
                     meshSphere.visible = v;
                     wireframeSphere.visible = v;
                 });
-
-            inversionFolder
-                .add(options, 'knot')
-                .name('Show Knot')
-                .onChange(v => meshKnot.visible = v);
 
             // Geometry transforms
             const transformFolder = gui.addFolder('Transform');
@@ -314,20 +314,26 @@
                 .name('Translate')
                 .onChange(updateGeometry);
 
-            
-            gui.add(options, 'axis')
+            // Extras 
+            const extrasFolder = gui.addFolder('Extras');
+            extrasFolder.add(options, 'axis')
                 .name('Show Axis')
                 .onChange(v => tubeAxes.visible = v);
 
-            gui.add(options, 'grid')
+            extrasFolder.add(options, 'grid')
                 .name('Show Grid')
                 .onChange(v => gridHelper.visible = v);
+
+            extrasFolder.add(options, 'autoRotate')
+                .name('Auto Rotate')
+                .onChange(v => controls.autoRotate = v);
 
 
             // === INITIAL STATE ===
             originalFolder.close();
             inversionFolder.close();
             transformFolder.close();
+            extrasFolder.close();
         }
 
 
