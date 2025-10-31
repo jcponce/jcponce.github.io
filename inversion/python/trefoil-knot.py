@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # --- Parameters ---
-size = 0.12     # overall size of the knot
+sigma = 0.12     # overall size of the knot
 center = np.array([-0.71, 0.0, 0.0])  # translation of original surface
 u_res, v_res = 800, 100      # mesh resolution
 
@@ -16,9 +16,9 @@ v_vals = np.linspace(0, 2 * np.pi, v_res)
 U, V = np.meshgrid(u_vals, v_vals)
 
 # --- Trefoil surface parametrization ---
-X = -size * (np.cos(U) * np.cos(V) + 3 * np.cos(U) * (1.5 + np.sin(1.5 * U) / 2)) + center[0]
-Y =  size * (np.sin(U) * np.cos(V) + 3 * np.sin(U) * (1.5 + np.sin(1.5 * U) / 2)) + center[1]
-Z =  size * (np.sin(V) + 2 * np.cos(1.5 * U)) + center[2]
+X = -sigma * (np.cos(U) * np.cos(V) + 3 * np.cos(U) * (1.5 + np.sin(1.5 * U) / 2)) + center[0]
+Y =  sigma * (np.sin(U) * np.cos(V) + 3 * np.sin(U) * (1.5 + np.sin(1.5 * U) / 2)) + center[1]
+Z =  sigma * (np.sin(V) + 2 * np.cos(1.5 * U)) + center[2]
 
 # --- Inversion transformation ---
 R2 = X**2 + Y**2 + Z**2
