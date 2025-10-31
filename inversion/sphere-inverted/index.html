@@ -262,13 +262,15 @@
             transformFolder.add(options, 'radius', 0.01, 2, 0.01).name('Radius').onChange(updateGeometry);
             transformFolder.add(options, 'translate', -3, 3, 0.01).name('Translate').onChange(updateGeometry);
 
+            // Extras folder
+            const extrasFolder = gui.addFolder('Extras');
             // Axis toggle
-            gui.add(options, 'axis').name('Show Axis').onChange(v => {
+            extrasFolder.add(options, 'axis').name('Show Axis').onChange(v => {
                 tubeAxes.visible = v;
             });
 
             // Optional: autorotate
-            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
+            extrasFolder.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
                 controls.autoRotate = v;
             });
 
@@ -277,6 +279,7 @@
             inversionFolder.close();
             sphereFolder.close();
             transformFolder.close();
+            extrasFolder.close();
         }
 
         function updateGeometry() {
