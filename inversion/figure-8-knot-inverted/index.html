@@ -63,8 +63,8 @@
         const options = {
             material: 'Matcap',
             mesh: false,
-            size: 0.3,
-            translate: -0.2,
+            size: 1,
+            translate: 0,
             autoRotate: false,
             color: '#049ef4',    // Phong color (controller hidden unless Phong)
             knot: true,
@@ -194,7 +194,7 @@
         const materials = createMaterials(options);
 
         // Geometry: inversion surface
-        const meshRes = { x: 1000, y: 100 };
+        const meshRes = { x: 1000, y: 150 };
         let geometry = new ParametricGeometry((u, v, target) =>
             trefoilKnotInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
@@ -203,7 +203,7 @@
 
         // Geometry: trefoil knot
         let geometryKnot = new ParametricGeometry((u, v, target) =>
-            trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 228, 228);
+            trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 400, 400);
 
         let meshKnot = new THREE.Mesh(geometryKnot, new THREE.MeshPhongMaterial({
             color: '#ff0000',
@@ -245,7 +245,7 @@
         // GUI
         function commonUI() {
             // Style selector
-            const styleController = gui.add(options, 'material', ['Matcap', 'Normal', 'Phong']).name('Style');
+            const styleController = gui.add(options, 'material', ['Matcap', 'Normal', 'Phong']).name('Style Inversion');
 
             // Phong color controller (create once, hide/show as needed)
             const phongColorController = gui

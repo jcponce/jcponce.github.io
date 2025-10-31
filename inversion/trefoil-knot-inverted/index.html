@@ -171,7 +171,7 @@
         const materials = createMaterials(options);
 
         // Geometry: inversion surface
-        const meshRes = { x: 500, y: 100 };
+        const meshRes = { x: 700, y: 150 };
         let geometry = new ParametricGeometry((u, v, target) =>
             trefoilKnotInvertedSurface(u, v, target, options.size, options.translate), meshRes.x, meshRes.y);
 
@@ -180,7 +180,7 @@
 
         // Geometry: trefoil knot
         let geometryKnot = new ParametricGeometry((u, v, target) =>
-            trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+            trefoilknotSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 128, 128);
 
         let meshKnot = new THREE.Mesh(geometryKnot, new THREE.MeshPhongMaterial({
             color: '#00ffff',
