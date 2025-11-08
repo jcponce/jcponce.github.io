@@ -17,7 +17,7 @@ function windowResized() {
 function draw() {
   background(11, 40); // semi-transparent for gentle blending
 
-  const padding = min(width, height) * 0.15;
+  const padding = min(width, height) * 0.09;
   const halfW = (width - padding * 3) / 2;
   const clockSize = min(halfW, height - padding * 2);
   const cy = height / 2;
