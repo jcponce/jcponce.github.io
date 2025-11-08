@@ -107,14 +107,32 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
   }
 
   // ×speed label
-  if (isFast) {
-    push();
-    translate(cx, cy);
-    noStroke();
-    fill(255, 50);
-    textSize(max(10, r * 0.06));
-    textAlign(CENTER, BOTTOM);
-    text('×' + FAST_MULTIPLIER, 0, r * 0.65);
-    pop();
-  }
+  // if (isFast) {
+  //   push();
+  //   translate(cx, cy);
+  //   noStroke();
+  //   fill(255, 50);
+  //   textSize(max(10, r * 0.06));
+  //   textAlign(CENTER, BOTTOM);
+  //   text('×' + FAST_MULTIPLIER, 0, r * 0.65);
+  //   pop();
+  // }
 }
+
+// Function to toggle full screen mode
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// Event listener for keydown event
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'f' || event.key === 'F') {
+        toggleFullScreen();
+    }
+});
