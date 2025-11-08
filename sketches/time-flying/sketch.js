@@ -24,10 +24,10 @@ function draw() {
   const leftCx = padding + halfW / 2;
   const rightCx = padding * 2 + halfW + halfW / 2;
 
-  // real-time clock
+  // real-time clock (discrete seconds)
   drawClock(leftCx, cy, clockSize, Date.now(), false);
 
-  // fast clock
+  // fast clock (smooth seconds + trail)
   const nowMs = Date.now();
   const elapsed = nowMs - startRealMs;
   const fastMs = startRefMs + elapsed * FAST_MULTIPLIER;
@@ -52,7 +52,8 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
   const seconds = d.getSeconds();
   const ms = d.getMilliseconds();
 
-  const smoothSeconds = seconds + ms / 1000;
+  // smooth only for the fast clock
+  const smoothSeconds = isFast ? seconds + ms / 1000 : seconds;
   const smoothMinutes = minutes + smoothSeconds / 60;
   const smoothHours = hours + smoothMinutes / 60;
 
@@ -95,7 +96,6 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
 
   // draw & fade trails
   if (isFast) {
-    //noFill();
     for (let t of trails) {
       fill(100, 200, 255, t.alpha);
       stroke(100, 200, 255, t.alpha);
