@@ -1,4 +1,4 @@
-const FAST_MULTIPLIER = 50; // right clock runs this many times faster
+const FAST_MULTIPLIER = 30; // right clock runs this many times faster
 let startRealMs, startRefMs;
 let trails = [];
 
@@ -93,17 +93,18 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
 
   pop();
 
-//   // draw & fade trails
-//   if (isFast) {
-//     noFill();
-//     for (let t of trails) {
-//       stroke(100, 200, 255, t.alpha);
-//       strokeWeight(2);
-//       point(t.x, t.y);
-//       t.alpha *= 0.01; // fade
-//     }
-//     trails = trails.filter(t => t.alpha > 5);
-//   }
+  // draw & fade trails
+  if (isFast) {
+    //noFill();
+    for (let t of trails) {
+      fill(100, 200, 255, t.alpha);
+      stroke(100, 200, 255, t.alpha);
+      strokeWeight(1);
+      circle(t.x, t.y, 6);
+      t.alpha *= 0.51; // fade
+    }
+    trails = trails.filter(t => t.alpha > 5);
+  }
 
   // ×speed label
   if (isFast) {
