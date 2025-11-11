@@ -33,7 +33,7 @@ function draw() {
   const nowMs = Date.now();
   const elapsed = nowMs - startRealMs;
   const fastMs = startRefMs + elapsed * FAST_MULTIPLIER;
-  drawClock(rightCx, cy, clockSize, fastMs, true, '#ff0066');
+  drawClock(rightCx, cy, clockSize, fastMs, true, '#ffd11a');
 }
 
 function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') {
