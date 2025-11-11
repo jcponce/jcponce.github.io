@@ -1,4 +1,4 @@
-const FAST_MULTIPLIER = 30; // right clock runs this many times faster
+const FAST_MULTIPLIER = 35; // right clock runs this many times faster
 let startRealMs, startRefMs;
 let trails = [];
 
@@ -8,6 +8,8 @@ function setup() {
   strokeCap(ROUND);
   startRealMs = Date.now();
   startRefMs = startRealMs;
+
+  blendMode(HARD_LIGHT);
 }
 
 function windowResized() {
@@ -15,7 +17,7 @@ function windowResized() {
 }
 
 function draw() {
-  background(11, 40); // semi-transparent for gentle blending
+  background(11, 35); // semi-transparent for gentle blending
 
   const padding = min(width, height) * 0.09;
   const halfW = (width - padding * 3) / 2;
@@ -25,16 +27,16 @@ function draw() {
   const rightCx = padding * 2 + halfW + halfW / 2;
 
   // real-time clock (discrete seconds)
-  drawClock(leftCx, cy, clockSize, Date.now(), false);
+  drawClock(leftCx, cy, clockSize, Date.now(), false, '#4da6ff');
 
   // fast clock (smooth seconds + trail)
   const nowMs = Date.now();
   const elapsed = nowMs - startRealMs;
   const fastMs = startRefMs + elapsed * FAST_MULTIPLIER;
-  drawClock(rightCx, cy, clockSize, fastMs, true);
+  drawClock(rightCx, cy, clockSize, fastMs, true, '#ff1a1a');
 }
 
-function drawClock(cx, cy, diameter, msTime, isFast = false) {
+function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') {
   push();
   translate(cx, cy);
   const r = diameter / 2;
@@ -64,7 +66,7 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
   // hour hand
   push();
   rotate(hourAngle);
-  stroke(240, 180, 60);
+  stroke(color);
   strokeWeight(max(3, r * 0.045));
   line(0, 0, r * 0.45, 0);
   pop();
@@ -72,7 +74,7 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
   // minute hand
   push();
   rotate(minuteAngle);
-  stroke(255);
+  stroke(color);
   strokeWeight(max(2, r * 0.03));
   line(0, 0, r * 0.65, 0);
   pop();
@@ -80,7 +82,7 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
   // second hand
   push();
   rotate(secondAngle);
-  stroke(100, 200, 255);
+  stroke(color);
   strokeWeight(max(1.5, r * 0.02));
   line(0, 0, r * 0.85, 0);
   pop();
@@ -97,8 +99,8 @@ function drawClock(cx, cy, diameter, msTime, isFast = false) {
   // draw & fade trails
   if (isFast) {
     for (let t of trails) {
-      fill(100, 200, 255, t.alpha);
-      stroke(100, 200, 255, t.alpha);
+      fill(color, t.alpha);
+      stroke(color, t.alpha);
       strokeWeight(1);
       circle(t.x, t.y, 6);
       t.alpha *= 0.51; // fade
