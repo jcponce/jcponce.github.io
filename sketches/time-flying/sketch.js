@@ -9,7 +9,7 @@ function setup() {
   startRealMs = Date.now();
   startRefMs = startRealMs;
 
-  blendMode(HARD_LIGHT);
+  //blendMode(HARD_LIGHT);
 }
 
 function windowResized() {
@@ -27,13 +27,13 @@ function draw() {
   const rightCx = padding * 2 + halfW + halfW / 2;
 
   // real-time clock (discrete seconds)
-  drawClock(leftCx, cy, clockSize, Date.now(), false, '#4da6ff');
+  drawClock(leftCx, cy, clockSize, Date.now(), false, '#80d4ff');
 
   // fast clock (smooth seconds + trail)
   const nowMs = Date.now();
   const elapsed = nowMs - startRealMs;
   const fastMs = startRefMs + elapsed * FAST_MULTIPLIER;
-  drawClock(rightCx, cy, clockSize, fastMs, true, '#ff1a1a');
+  drawClock(rightCx, cy, clockSize, fastMs, true, '#ff0066');
 }
 
 function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') {
