@@ -43,7 +43,7 @@ function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') 
 
   // outline
   strokeWeight(max(1, r * 0.02));
-  stroke(255, 24);
+  stroke(255, 14);
   noFill();
   ellipse(0, 0, diameter, diameter);
 
