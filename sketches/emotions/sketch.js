@@ -29,7 +29,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 500
+    numParticles: 650
 };
 
 // Palette colors for particles
@@ -465,24 +465,17 @@ function windowResized() {
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
 
     // Reset attractor positions (same logic as setup)
+    const numAttractors = attractors.length;
     const frame = 100;
-    if (attractors.length >= 1) {
-        attractors[0].position = createVector(
-            random(frame, width / 3 - frame),
-            random(frame, 2 * height / 3 - frame)
-        );
-    }
-    if (attractors.length >= 2) {
-        attractors[1].position = createVector(
-            random(width / 3 + frame, 2 * width / 3 - frame),
-            random(2 * height / 3 - frame, height - frame)
-        );
-    }
-    if (attractors.length >= 3) {
-        attractors[2].position = createVector(
-            random(2 * width / 3 + frame, width - frame),
-            random(height / 3 - frame, 2 * height / 3 - frame)
-        );
+    const regionWidth = width / numAttractors;
+
+    for (let i = 0; i < numAttractors; i++) {
+        let xMin = i * regionWidth + frame;
+        let xMax = (i + 1) * regionWidth - frame;
+        let yMin = frame;
+        let yMax = height - frame;
+
+        attractors[i].position = createVector(random(xMin, xMax), random(yMin, yMax));
     }
 
     // Reset the trace if not in trace mode
