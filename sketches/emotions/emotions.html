@@ -1,521 +1,890 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Flocking with Attractors — Three.js (Afterimage trails)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    html,body { margin:0; height:100%; background:#000; overflow:hidden; }
-    canvas { display:block; }
-    #info {
-      position: absolute; left:10px; top:10px; color:#ddd;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      font-size:13px; background: rgba(0,0,0,0.25); padding:8px 10px; border-radius:6px;
-    }
-  </style>
-
-  <!-- import map as requested -->
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@v0.180.0/build/three.module.min.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Flocking Visualization - Three.js</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            max-width: 300px;
+        }
+        #controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+    </style>
 </head>
 <body>
-  <div id="info">Flocking with 5 attractors — Press F to toggle fullscreen • S to save canvas</div>
+    <div id="info">
+        <h3>Emotion Flocking Visualization</h3>
+        <p>Press 'F' for fullscreen<br>Press 'S' to save screenshot</p>
+    </div>
+    <div id="controls">
+        <div>
+            <label>Align: <span id="alignValue">1.5</span></label>
+            <input type="range" id="alignSlider" min="0" max="3" step="0.1" value="1.5">
+        </div>
+        <div>
+            <label>Cohesion: <span id="cohesionValue">1.0</span></label>
+            <input type="range" id="cohesionSlider" min="0" max="3" step="0.1" value="1.0">
+        </div>
+        <div>
+            <label>Separation: <span id="separationValue">2.0</span></label>
+            <input type="range" id="separationSlider" min="0" max="3" step="0.1" value="2.0">
+        </div>
+        <div>
+            <button id="traceToggle">Trace: ON</button>
+            <button id="resetButton">Reset</button>
+        </div>
+    </div>
 
-  <script type="module">
-
-  // imports (EffectComposer/AfterimagePass come from 'three/addons/' path in your importmap)
-  import * as THREE from 'three';
-  import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-  import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-  import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
-
-  // ---------- Parameters ----------
-  const CONTROLS = {
-    align: 1.5,
-    cohesion: 1.0,
-    separation: 2.0,
-    numParticles: 650,
-    useTrace: true,        // Afterimage on/off (we still update the composer though)
-    afterimageDamp: 0.92  // 0..1 (closer to 1 = longer trails)
-  };
-
-  // palette (original RGB, we'll convert to 0..1 floats)
-  const PALETTE = [
-    [255, 228, 75],   // Bright yellow
-    [5, 130, 1],      // Dark green
-    [123, 0, 255],    // Vivid purple
-    [255, 85, 0],     // Deep orange
-    [255, 29, 255],   // Bright pink
-    [46, 46, 255],    // Deep blue
-    [255, 0, 128]     // Strong pink
-  ];
-
-  const ATTRACTOR_COLORS = [
-    [0, 191, 255],    // Cyan
-    [0, 255, 179],    // Mint
-    [255, 0, 0]       // Red
-  ];
-
-  const ATTRACTION_RADIUS = 120;
-  const FORCE_PULSE_SPEED = 0.02;
-
-  // ---------- Utility ----------
-  function rand(min=0, max=1){ return Math.random()*(max-min)+min; }
-  function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
-  function rgbTo01(rgb){ return rgb.map(v => v/255); }
-
-  // ---------- QuadTree (adapted from your p5.js QuadTree classes) ----------
-  class Rect {
-    constructor(x=0,y=0,w=1,h=1){ this.x=x; this.y=y; this.width=w; this.height=h; }
-    copy(){ return new Rect(this.x,this.y,this.width,this.height); }
-  }
-
-  class QuadTreeItem {
-    constructor(x,y,data){ this.x=x; this.y=y; this.data=data; }
-  }
-
-  class QuadTreeBin {
-    constructor(maxDepth, maxItemsPerBin, extent, depth=0){
-      this.rect = extent.copy();
-      this.bins = null;
-      this.maxDepth = maxDepth;
-      this.maxItemsPerBin = maxItemsPerBin;
-      this.items = [];
-      this.depth = depth;
-    }
-
-    checkWithinExtent(x,y,range=0){
-      return x >= this.rect.x - range && x < this.rect.x + this.rect.width + range &&
-             y >= this.rect.y - range && y < this.rect.y + this.rect.height + range;
-    }
-
-    addItem(item){
-      if (this.bins === null) {
-        this.items.push(item);
-        if (this.depth < this.maxDepth && this.items && this.items.length > this.maxItemsPerBin)
-          this.subDivide();
-      } else {
-        const binIndex = this._getBinIndex(item.x, item.y);
-        if (binIndex !== -1) this.bins[binIndex].addItem(item);
-      }
-    }
-
-    getItemsInRadius(x,y,radius,maxItems){
-      const radiusSq = radius*radius;
-      let out = [];
-      if (this.bins) {
-        for (let b of this.bins) if (b.checkWithinExtent(x,y,radius)) out.push(...b.getItemsInRadius(x,y,radius,maxItems));
-      } else {
-        for (let it of this.items) {
-          const dx = it.x - x, dy = it.y - y;
-          const d2 = dx*dx + dy*dy;
-          if (d2 <= radiusSq) out.push({ distSqrd: d2, data: it.data });
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.180.0/build/three.module.min.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+            }
         }
-      }
-      return out;
-    }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
-    subDivide(){
-      if (this.bins !== null) return;
-      this.bins = [];
-      let w = this.rect.width * 0.5, h = this.rect.height * 0.5;
-      for (let i=0;i<4;i++){
-        const nx = this.rect.x + (i%2)*w;
-        const ny = this.rect.y + Math.floor(i*0.5)*h;
-        this.bins.push(new QuadTreeBin(this.maxDepth, this.maxItemsPerBin, new Rect(nx,ny,w,h), this.depth+1));
-      }
-      for (let item of this.items){
-        const idx = this._getBinIndex(item.x, item.y);
-        if (idx !== -1) this.bins[idx].addItem(item);
-      }
-      this.items = null;
-    }
+        // Scene setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.body.appendChild(renderer.domElement);
 
-    _getBinIndex(x,y){
-      if (!this.checkWithinExtent(x,y)) return -1;
-      let w = this.rect.width * 0.5, h = this.rect.height * 0.5;
-      let xx = Math.floor((x - this.rect.x) / w);
-      let yy = Math.floor((y - this.rect.y) / h);
-      return xx + yy*2;
-    }
+        // Post-processing setup
+        const composer = new EffectComposer(renderer);
+        const renderPass = new RenderPass(scene, camera);
+        composer.addPass(renderPass);
 
-  }
+        const bloomPass = new UnrealBloomPass(
+            new THREE.Vector2(window.innerWidth, window.innerHeight),
+            0.5, // strength
+            0.4, // radius
+            0.85 // threshold
+        );
+        composer.addPass(bloomPass);
 
-  class QuadTree {
-    constructor(maxDepth, maxItemsPerBin, extent){
-      this.extent = extent.copy();
-      this.maxDepth = maxDepth;
-      this.maxItemsPerBin = maxItemsPerBin;
-      this.clear();
-    }
-    clear(){
-      this.rootBin = new QuadTreeBin(this.maxDepth, this.maxItemsPerBin, new Rect(0,0,this.extent.width,this.extent.height));
-    }
-    addItem(x,y,item){
-      this.rootBin.addItem(new QuadTreeItem(x,y,item));
-    }
-    getItemsInRadius(x,y,radius,maxItems){
-      if (maxItems===undefined){
-        return this.rootBin.getItemsInRadius(x,y,radius).map(v=>v.data);
-      } else {
-        return this.rootBin.getItemsInRadius(x,y,radius)
-          .sort((a,b)=>a.distSqrd - b.distSqrd)
-          .slice(0,maxItems)
-          .map(v=>v.data);
-      }
-    }
-  }
+        // Camera position
+        camera.position.z = 50;
 
-  // ---------- Attractor ----------
-  class Attractor {
-    constructor(x,y,index){
-      this.position = new THREE.Vector2(x,y);
-      this.baseStrength = 0.4;
-      this.currentStrength = 0;
-      this.pulsePhase = rand(0,Math.PI*2);
-      const col = ATTRACTOR_COLORS[index % ATTRACTOR_COLORS.length];
-      this.color = new THREE.Color(col[0]/255, col[1]/255, col[2]/255);
-      this.radius = rand(15,25);
-      this.influenceColor = this.color.clone();
-    }
-    update(){
-      this.pulsePhase += FORCE_PULSE_SPEED;
-      this.currentStrength = this.baseStrength * (0.8 + 0.2 * Math.sin(this.pulsePhase));
-    }
-    getStrength(){ return this.currentStrength; }
-  }
+        // Controls
+        const controls = {
+            align: 1.5,
+            cohesion: 1.0,
+            separation: 2.0,
+            trace: true,
+            numParticles: 2000
+        };
 
-  // ---------- Boid ----------
-  class Boid {
-    constructor(w,h,paletteColors){
-      this.position = new THREE.Vector2(rand(0,w), rand(0,h));
-      this.velocity = new THREE.Vector2(rand(-1,1), rand(-1,1)).normalize().multiplyScalar(rand(1.5,3.5));
-      this.acceleration = new THREE.Vector2();
-      this.maxForce = 0.2;
-      this.maxSpeed = 2.5;
-      this.originalCol = paletteColors[Math.floor(rand(0,paletteColors.length))].clone(); // THREE.Color
-      this.currentCol = this.originalCol.clone();
-      this.colorTransitionSpeed = 0.05;
-    }
+        // Palette colors for particles
+        const palette = [
+            new THREE.Color(1.0, 0.894, 0.294), // Bright yellow
+            new THREE.Color(0.0196, 0.5098, 0.0039), // Dark green
+            new THREE.Color(0.4824, 0.0, 1.0), // Vivid purple
+            new THREE.Color(1.0, 0.3333, 0.0), // Deep orange
+            new THREE.Color(1.0, 0.1137, 1.0), // Bright pink
+            new THREE.Color(0.1804, 0.1804, 1.0), // Deep blue
+            new THREE.Color(1.0, 0.0, 0.5019) // Strong pink
+        ];
 
-    edges(w,h){
-      if (this.position.x > w) this.position.x = 0;
-      else if (this.position.x < 0) this.position.x = w;
-      if (this.position.y > h) this.position.y = 0;
-      else if (this.position.y < 0) this.position.y = h;
-    }
+        // Attractor colors
+        const attractorColors = [
+            new THREE.Color(0.0, 0.749, 1.0), // Cyan
+            new THREE.Color(0.0, 1.0, 0.7019), // Mint
+            new THREE.Color(1.0, 0.0, 0.0), // Red
+            new THREE.Color(1.0, 0.647, 0.0), // Orange
+            new THREE.Color(0.5, 0.0, 0.5) // Purple
+        ];
 
-    align(qt){
-      const perceptionRadius = 30;
-      const perceptionCount = 5;
-      const neighbors = qt.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount);
-      const steering = new THREE.Vector2();
-      if (neighbors.length === 0) return steering;
-      for (let other of neighbors) steering.add(other.velocity);
-      steering.divideScalar(neighbors.length);
-      steering.setLength(this.maxSpeed);
-      steering.sub(this.velocity);
-      if (steering.length() > this.maxForce) steering.setLength(this.maxForce);
-      return steering;
-    }
+        // Constants
+        const ATTRACTION_RADIUS = 15;
+        const CAPTURE_RADIUS = 5; // Radius where particles are considered "captured"
+        const FORCE_PULSE_SPEED = 0.02;
+        const WORLD_BOUNDS = 50;
 
-    separation(qt){
-      const perceptionRadius = 30;
-      const perceptionCount = 5;
-      const neighbors = qt.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount);
-      const steering = new THREE.Vector2();
-      if (neighbors.length === 0) return steering;
-      for (let other of neighbors){
-        const diff = new THREE.Vector2().subVectors(this.position, other.position);
-        const d = diff.length();
-        if (d === 0) continue;
-        diff.divideScalar(d*d);
-        steering.add(diff);
-      }
-      steering.divideScalar(neighbors.length);
-      steering.setLength(this.maxSpeed);
-      steering.sub(this.velocity);
-      if (steering.length() > this.maxForce) steering.setLength(this.maxForce);
-      return steering;
-    }
-
-    cohesion(qt){
-      const perceptionRadius = 50;
-      const perceptionCount = 5;
-      const neighbors = qt.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount);
-      const steering = new THREE.Vector2();
-      if (neighbors.length === 0) return steering;
-      for (let other of neighbors) steering.add(other.position);
-      steering.divideScalar(neighbors.length);
-      steering.sub(this.position);
-      steering.setLength(this.maxSpeed);
-      steering.sub(this.velocity);
-      if (steering.length() > this.maxForce) steering.setLength(this.maxForce);
-      return steering;
-    }
-
-    flock(qt){
-      const a = this.align(qt).multiplyScalar(CONTROLS.align);
-      const c = this.cohesion(qt).multiplyScalar(CONTROLS.cohesion);
-      const s = this.separation(qt).multiplyScalar(CONTROLS.separation);
-      this.acceleration.add(a).add(c).add(s);
-    }
-
-    applyAttractors(attractors){
-      const totalForce = new THREE.Vector2();
-      let attractorCount = 0;
-      for (let at of attractors){
-        const d = this.position.distanceTo(at.position);
-        if (d < ATTRACTION_RADIUS){
-          const strength = at.getStrength() * (1 - d / ATTRACTION_RADIUS);
-          const desired = new THREE.Vector2().subVectors(at.position, this.position).normalize().multiplyScalar(strength);
-          totalForce.add(desired);
-          attractorCount++;
+        // Trace system
+        const traceGeometry = new THREE.BufferGeometry();
+        const tracePositions = new Float32Array(controls.numParticles * 3 * 10);
+        const traceColors = new Float32Array(controls.numParticles * 3 * 10);
+        const traceOpacities = new Float32Array(controls.numParticles * 10);
+        
+        // Initialize trace arrays
+        for (let i = 0; i < controls.numParticles * 10; i++) {
+            traceOpacities[i] = 0;
         }
-      }
-      if (attractorCount > 0) totalForce.divideScalar(attractorCount);
-      this.acceleration.add(totalForce);
-    }
 
-    updateColor(attractors){
-      let closest = null;
-      let minDist = Infinity;
-      for (let at of attractors){
-        const d = this.position.distanceTo(at.position);
-        if (d < ATTRACTION_RADIUS && d < minDist){
-          minDist = d; closest = at;
+        traceGeometry.setAttribute('position', new THREE.BufferAttribute(tracePositions, 3));
+        traceGeometry.setAttribute('color', new THREE.BufferAttribute(traceColors, 3));
+        traceGeometry.setAttribute('opacity', new THREE.BufferAttribute(traceOpacities, 1));
+
+        const traceMaterial = new THREE.PointsMaterial({
+            size: 0.3,
+            vertexColors: true,
+            transparent: true,
+            opacity: 1.0,
+            blending: THREE.AdditiveBlending
+        });
+
+        const traceParticles = new THREE.Points(traceGeometry, traceMaterial);
+        scene.add(traceParticles);
+
+        // Main particle system
+        const particleGeometry = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(controls.numParticles * 3);
+        const particleColors = new Float32Array(controls.numParticles * 3);
+        const particleVelocities = [];
+        const particleAccelerations = [];
+        const particleOriginalColors = [];
+        const particleCurrentColors = [];
+        
+        // New particle states for attraction behavior
+        const particleStates = []; // 'free', 'attracted', 'captured', 'repelling'
+        const particleCaptureTimes = []; // How long particle has been captured
+        const particleCurrentAttractors = []; // Which attractor is currently influencing the particle
+        const MAX_CAPTURE_TIME = 2.0; // Maximum time to be captured (in seconds)
+
+        // Initialize particles
+        for (let i = 0; i < controls.numParticles; i++) {
+            const i3 = i * 3;
+            particlePositions[i3] = (Math.random() - 0.5) * WORLD_BOUNDS * 2;
+            particlePositions[i3 + 1] = (Math.random() - 0.5) * WORLD_BOUNDS * 2;
+            particlePositions[i3 + 2] = 0;
+
+            const colorIndex = Math.floor(Math.random() * palette.length);
+            const originalColor = palette[colorIndex];
+            particleColors[i3] = originalColor.r;
+            particleColors[i3 + 1] = originalColor.g;
+            particleColors[i3 + 2] = originalColor.b;
+
+            particleOriginalColors.push(originalColor.clone());
+            particleCurrentColors.push(originalColor.clone());
+            
+            // Initialize new state arrays
+            particleStates.push('free');
+            particleCaptureTimes.push(0);
+            particleCurrentAttractors.push(null);
+
+            particleVelocities.push(new THREE.Vector3(
+                (Math.random() - 0.5) * 0.07,
+                (Math.random() - 0.5) * 0.07,
+                0
+            ));
+
+            particleAccelerations.push(new THREE.Vector3(0, 0, 0));
         }
-      }
-      let target = this.originalCol.clone();
-      if (closest){
-        let intensity = clamp(1 - (minDist / ATTRACTION_RADIUS), 0, 1); // closer => higher
-        target.lerp(closest.influenceColor, intensity);
-      }
-      // smooth transition
-      this.currentCol.lerp(target, this.colorTransitionSpeed);
-    }
 
-    update(){
-      this.position.add(this.velocity);
-      this.velocity.add(this.acceleration);
-      if (this.velocity.length() > this.maxSpeed) this.velocity.setLength(this.maxSpeed);
-      this.acceleration.set(0,0);
-    }
-  }
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+        particleGeometry.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
 
-  // ---------- Scene setup ----------
-  let renderer, scene, camera, composer, afterimagePass;
-  let points, geometry, positions, colors;
-  let boids = [];
-  let attractors = [];
-  let quadTree;
-  let width = window.innerWidth, height = window.innerHeight;
-  const paletteColors = PALETTE.map(rgb => new THREE.Color(...rgbTo01(rgb)));
+        const particleMaterial = new THREE.PointsMaterial({
+            size: 0.5,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8
+        });
 
-  init();
-  animate();
+        const particles = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particles);
 
-  function init(){
-    // Renderer
-    renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(width, height);
-    document.body.appendChild(renderer.domElement);
+        // Attractors
+        const attractors = [];
+        const attractorMeshes = [];
 
-    // Scene & orthographic camera for 2D-style coordinates (match pixels)
-    scene = new THREE.Scene();
-    camera = new THREE.OrthographicCamera(0, width, height, 0, -1000, 1000);
-    camera.position.z = 1;
+        for (let i = 0; i < 5; i++) {
+            const attractor = {
+                position: new THREE.Vector3(
+                    (Math.random() - 0.5) * WORLD_BOUNDS * 1.5,
+                    (Math.random() - 0.5) * WORLD_BOUNDS * 1.5,
+                    0
+                ),
+                baseStrength: 1.5, // Strong attraction
+                repulsionStrength: 2.0, // Even stronger repulsion
+                currentStrength: 0,
+                pulsePhase: Math.random() * Math.PI * 2,
+                color: attractorColors[i],
+                radius: 1.5 + Math.random() * 1,
+                influenceColor: attractorColors[i]
+            };
 
-    // Points geometry
-    geometry = new THREE.BufferGeometry();
-    const N = CONTROLS.numParticles;
-    positions = new Float32Array(N * 3);
-    colors = new Float32Array(N * 3);
+            attractors.push(attractor);
 
-    for (let i=0;i<N;i++){
-      const x = rand(0,width), y = rand(0,height);
-      positions[i*3] = x;
-      positions[i*3+1] = y;
-      positions[i*3+2] = 0;
-      const c = paletteColors[Math.floor(rand(0,paletteColors.length))];
-      colors[i*3] = c.r; colors[i*3+1] = c.g; colors[i*3+2] = c.b;
-    }
+            // Create visual representation for attractor
+            const geometry = new THREE.RingGeometry(attractor.radius * 0.8, attractor.radius, 32);
+            const material = new THREE.MeshBasicMaterial({
+                color: attractor.color,
+                transparent: true,
+                opacity: 0.7,
+                side: THREE.DoubleSide
+            });
+            const ring = new THREE.Mesh(geometry, material);
+            ring.position.copy(attractor.position);
+            scene.add(ring);
+            attractorMeshes.push(ring);
+        }
 
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3).setUsage(THREE.DynamicDrawUsage));
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3).setUsage(THREE.DynamicDrawUsage));
+        // Simplified QuadTree implementation
+        class QuadTree {
+            constructor(bounds, capacity = 4) {
+                this.bounds = bounds;
+                this.capacity = capacity;
+                this.points = [];
+                this.divided = false;
+            }
 
-    // simple shader material for points (size in pixels)
-    const vertex = `
-      attribute vec3 color;
-      varying vec3 vColor;
-      uniform float uPointSize;
-      void main(){
-        vColor = color;
-        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-        gl_Position = projectionMatrix * mvPosition;
-        gl_PointSize = uPointSize;
-      }
-    `;
-    const fragment = `
-      varying vec3 vColor;
-      void main(){
-        // circular point shape
-        vec2 c = gl_PointCoord.xy - vec2(0.5);
-        float r = dot(c,c);
-        if (r > 0.25) discard; // radius limit (controls softness)
-        gl_FragColor = vec4(vColor, 1.0);
-      }
-    `;
-    const material = new THREE.ShaderMaterial({
-      vertexShader: vertex,
-      fragmentShader: fragment,
-      transparent: true,
-      depthTest: false,
-      vertexColors: true,
-      uniforms: {
-        uPointSize: { value: 10.0 * (window.devicePixelRatio) } // adjust if desired
-      },
-      blending: THREE.AdditiveBlending // nicer glow with Afterimage
-    });
+            subdivide() {
+                const x = this.bounds.x;
+                const y = this.bounds.y;
+                const w = this.bounds.width / 2;
+                const h = this.bounds.height / 2;
 
-    points = new THREE.Points(geometry, material);
-    scene.add(points);
+                this.northeast = new QuadTree({ x: x + w, y: y, width: w, height: h }, this.capacity);
+                this.northwest = new QuadTree({ x: x, y: y, width: w, height: h }, this.capacity);
+                this.southeast = new QuadTree({ x: x + w, y: y + h, width: w, height: h }, this.capacity);
+                this.southwest = new QuadTree({ x: x, y: y + h, width: w, height: h }, this.capacity);
 
-    // Composer + AfterimagePass for trails
-    composer = new EffectComposer(renderer);
-    const renderPass = new RenderPass(scene, camera);
-    afterimagePass = new AfterimagePass(CONTROLS.afterimageDamp);
-    composer.addPass(renderPass);
-    composer.addPass(afterimagePass);
+                this.divided = true;
+            }
 
-    // Setup quadTree & boids
-    quadTree = new QuadTree(6, 20, new Rect(0,0,width,height));
+            insert(point) {
+                if (!this.contains(point)) {
+                    return false;
+                }
 
-    // Create attractors (5)
-    const frame = 100;
-    // we'll place 5 attractors in roughly different regions
-    const positionsForAttractors = [
-      [rand(frame, width/3 - frame), rand(frame, height/3*1 - frame)],
-      [rand(width/3 + frame, width/2 - frame), rand(frame, height/3 - frame)],
-      [rand(width/2 + frame, 2*width/3 - frame), rand(frame, height/3 - frame)],
-      [rand(frame, width/3 - frame), rand(2*height/3 + frame, height - frame)],
-      [rand(width/3 + frame, 2*width/3 - frame), rand(height/3 + frame, 2*height/3 - frame)]
-    ];
+                if (this.points.length < this.capacity) {
+                    this.points.push(point);
+                    return true;
+                }
 
-    for (let i=0;i<positionsForAttractors.length;i++){
-      const [ax,ay] = positionsForAttractors[i];
-      attractors.push(new Attractor(ax,ay,i));
-    }
+                if (!this.divided) {
+                    this.subdivide();
+                }
 
-    // Create boids
-    for (let i=0;i<CONTROLS.numParticles;i++){
-      boids.push(new Boid(width,height,paletteColors));
-    }
+                return this.northeast.insert(point) ||
+                       this.northwest.insert(point) ||
+                       this.southeast.insert(point) ||
+                       this.southwest.insert(point);
+            }
 
-    // events
-    window.addEventListener('resize', onResize);
-    document.addEventListener('keydown', onKey);
-    // save button (S)
-    // handled in keydown
-  }
+            contains(point) {
+                return point.x >= this.bounds.x &&
+                       point.x <= this.bounds.x + this.bounds.width &&
+                       point.y >= this.bounds.y &&
+                       point.y <= this.bounds.y + this.bounds.height;
+            }
 
-  function onResize(){
-    width = window.innerWidth; height = window.innerHeight;
-    renderer.setSize(width,height);
-    camera.left = 0; camera.right = width; camera.top = 0; camera.bottom = height;
-    camera.updateProjectionMatrix();
-    // update quadTree extent
-    quadTree = new QuadTree(6, 20, new Rect(0,0,width,height));
-  }
+            query(range, found = []) {
+                if (!this.intersects(range)) {
+                    return found;
+                }
 
-  function onKey(e){
-    if (e.key === 'f' || e.key === 'F'){
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-      else document.exitFullscreen();
-    } else if (e.key === 's' || e.key === 'S'){
-      // Save current canvas as png
-      const link = document.createElement('a');
-      link.href = renderer.domElement.toDataURL('image/png');
-      link.download = `emotion_${new Date().toISOString().replace(/[:.]/g,'-')}.png`;
-      link.click();
-    }
-  }
+                for (let p of this.points) {
+                    if (this.pointInRange(p, range)) {
+                        found.push(p);
+                    }
+                }
 
-  // ---------- Animation ----------
-  function animate(){
-    requestAnimationFrame(animate);
-    step();
-    // render via composer to get afterimage trails
-    if (CONTROLS.useTrace){
-      afterimagePass.uniforms['damp'].value = CONTROLS.afterimageDamp;
-      composer.render();
-    } else {
-      renderer.render(scene, camera);
-    }
-  }
+                if (this.divided) {
+                    this.northwest.query(range, found);
+                    this.northeast.query(range, found);
+                    this.southwest.query(range, found);
+                    this.southeast.query(range, found);
+                }
 
-  function step(){
-    // clear quadTree, populate
-    quadTree.clear();
-    for (let b of boids) quadTree.addItem(b.position.x, b.position.y, b);
+                return found;
+            }
 
-    // update attractors
-    for (let at of attractors) at.update();
+            intersects(range) {
+                return !(range.x > this.bounds.x + this.bounds.width ||
+                        range.x + range.width < this.bounds.x ||
+                        range.y > this.bounds.y + this.bounds.height ||
+                        range.y + range.height < this.bounds.y);
+            }
 
-    // update boids
-    for (let i=0;i<boids.length;i++){
-      const b = boids[i];
-      b.edges(width,height);
-      b.flock(quadTree);
-      b.applyAttractors(attractors);
-      b.updateColor(attractors);
-      b.update();
-      // write back positions/colors to buffers
-      positions[i*3] = b.position.x;
-      positions[i*3+1] = b.position.y;
-      // colors: smooth currentCol
-      colors[i*3] = b.currentCol.r;
-      colors[i*3+1] = b.currentCol.g;
-      colors[i*3+2] = b.currentCol.b;
-    }
-    // mark attributes needsUpdate
-    geometry.attributes.position.needsUpdate = true;
-    geometry.attributes.color.needsUpdate = true;
+            pointInRange(point, range) {
+                const dx = point.x - range.x;
+                const dy = point.y - range.y;
+                return Math.sqrt(dx * dx + dy * dy) <= range.radius;
+            }
 
-    // optionally draw attractor visuals as simple sprites/points
-    // we'll draw small circles using GL-lines? Simpler: create small meshes once and update positions
-    updateAttractorMarkers();
-  }
+            clear() {
+                this.points = [];
+                this.divided = false;
+                if (this.northeast) {
+                    this.northeast.clear();
+                    this.northwest.clear();
+                    this.southeast.clear();
+                    this.southwest.clear();
+                }
+            }
+        }
 
-  // Simple attractor markers (create on first call)
-  let attractorMarkers = [];
-  function updateAttractorMarkers(){
-    if (attractorMarkers.length === 0){
-      const g = new THREE.CircleGeometry(1.0, 12);
-      for (let i=0;i<attractors.length;i++){
-        const mat = new THREE.MeshBasicMaterial({ color: attractors[i].color, transparent:true, opacity:0.8 });
-        const m = new THREE.Mesh(g, mat);
-        m.scale.set(attractors[i].radius, attractors[i].radius, 1);
-        scene.add(m);
-        attractorMarkers.push(m);
-      }
-    }
-    for (let i=0;i<attractorMarkers.length;i++){
-      const a = attractors[i];
-      attractorMarkers[i].position.set(a.position.x, a.position.y, 0.1);
-      // pulse maybe by modulating scale slightly
-      const pulse = 1 + 0.15 * Math.sin(a.pulsePhase * 2.0);
-      attractorMarkers[i].scale.set(a.radius * pulse, a.radius * pulse, 1);
-    }
-  }
+        // Initialize QuadTree
+        const quadTree = new QuadTree({
+            x: -WORLD_BOUNDS,
+            y: -WORLD_BOUNDS,
+            width: WORLD_BOUNDS * 2,
+            height: WORLD_BOUNDS * 2
+        }, 8);
 
-  </script>
+        // Trace management
+        let traceIndex = 0;
+        const TRACE_LENGTH = 10;
+
+        function updateTrace() {
+            if (!controls.trace) return;
+
+            const position = particles.geometry.attributes.position;
+            const colors = particles.geometry.attributes.color;
+            const tracePositionsAttr = traceGeometry.getAttribute('position');
+            const traceColorsAttr = traceGeometry.getAttribute('color');
+            const traceOpacitiesAttr = traceGeometry.getAttribute('opacity');
+
+            // Update trace positions and colors
+            for (let i = 0; i < controls.numParticles; i++) {
+                const i3 = i * 3;
+                const traceI3 = (i * TRACE_LENGTH + traceIndex) * 3;
+                
+                tracePositionsAttr.array[traceI3] = position.array[i3];
+                tracePositionsAttr.array[traceI3 + 1] = position.array[i3 + 1];
+                tracePositionsAttr.array[traceI3 + 2] = position.array[i3 + 2];
+                
+                traceColorsAttr.array[traceI3] = colors.array[i3];
+                traceColorsAttr.array[traceI3 + 1] = colors.array[i3 + 1];
+                traceColorsAttr.array[traceI3 + 2] = colors.array[i3 + 2];
+                
+                traceOpacitiesAttr.array[i * TRACE_LENGTH + traceIndex] = 1.0;
+            }
+
+            // Fade all traces
+            for (let i = 0; i < controls.numParticles * TRACE_LENGTH; i++) {
+                traceOpacitiesAttr.array[i] *= 0.85;
+            }
+
+            tracePositionsAttr.needsUpdate = true;
+            traceColorsAttr.needsUpdate = true;
+            traceOpacitiesAttr.needsUpdate = true;
+
+            traceIndex = (traceIndex + 1) % TRACE_LENGTH;
+        }
+
+        function clearTrace() {
+            const traceOpacitiesAttr = traceGeometry.getAttribute('opacity');
+            for (let i = 0; i < controls.numParticles * TRACE_LENGTH; i++) {
+                traceOpacitiesAttr.array[i] = 0;
+            }
+            traceOpacitiesAttr.needsUpdate = true;
+        }
+
+        // New attraction system with state machine - ATTRACTION THEN REPULSION
+        function handleAttraction(particleIndex) {
+            const position = particles.geometry.attributes.position;
+            const i3 = particleIndex * 3;
+            const x = position.array[i3];
+            const y = position.array[i3 + 1];
+            const particlePos = new THREE.Vector3(x, y, 0);
+
+            const currentState = particleStates[particleIndex];
+            const currentAttractor = particleCurrentAttractors[particleIndex];
+
+            // Check for nearby attractors
+            let closestAttractor = null;
+            let minDist = Infinity;
+
+            for (let attractor of attractors) {
+                const d = particlePos.distanceTo(attractor.position);
+                if (d < ATTRACTION_RADIUS && d < minDist) {
+                    minDist = d;
+                    closestAttractor = attractor;
+                }
+            }
+
+            // State transitions
+            switch (currentState) {
+                case 'free':
+                    if (closestAttractor && minDist < ATTRACTION_RADIUS) {
+                        // Start being attracted
+                        particleStates[particleIndex] = 'attracted';
+                        particleCurrentAttractors[particleIndex] = closestAttractor;
+                    }
+                    break;
+
+                case 'attracted':
+                    if (!closestAttractor || closestAttractor !== currentAttractor) {
+                        // Lost the attractor
+                        particleStates[particleIndex] = 'free';
+                        particleCurrentAttractors[particleIndex] = null;
+                        particleCaptureTimes[particleIndex] = 0;
+                    } else if (minDist < CAPTURE_RADIUS) {
+                        // Close enough to be captured
+                        particleStates[particleIndex] = 'captured';
+                        particleCaptureTimes[particleIndex] = 0;
+                    }
+                    break;
+
+                case 'captured':
+                    particleCaptureTimes[particleIndex] += 0.016; // ~60fps
+                    
+                    if (!closestAttractor || closestAttractor !== currentAttractor) {
+                        // Lost the attractor while captured
+                        particleStates[particleIndex] = 'repelling';
+                    } else if (particleCaptureTimes[particleIndex] >= MAX_CAPTURE_TIME) {
+                        // Captured long enough, now repel
+                        particleStates[particleIndex] = 'repelling';
+                    }
+                    break;
+
+                case 'repelling':
+                    // Continue repelling for a short time, then return to free state
+                    particleCaptureTimes[particleIndex] += 0.016;
+                    if (particleCaptureTimes[particleIndex] >= MAX_CAPTURE_TIME + 0.5) { // Repel for 0.5 seconds
+                        particleStates[particleIndex] = 'free';
+                        particleCurrentAttractors[particleIndex] = null;
+                        particleCaptureTimes[particleIndex] = 0;
+                    }
+                    break;
+            }
+
+            // Apply forces based on current state
+            if (currentAttractor) {
+                const d = particlePos.distanceTo(currentAttractor.position);
+                
+                switch (currentState) {
+                    case 'attracted':
+                        // Strong attraction toward the attractor
+                        const desired = new THREE.Vector3().subVectors(currentAttractor.position, particlePos);
+                        desired.normalize();
+                        // Stronger attraction when farther away
+                        const attractionStrength = currentAttractor.currentStrength * (1 - d / ATTRACTION_RADIUS);
+                        desired.multiplyScalar(attractionStrength);
+                        particleAccelerations[particleIndex].add(desired);
+                        break;
+
+                    case 'captured':
+                        // Gentle holding force - slow down and stay near the attractor
+                        const holdForce = new THREE.Vector3().subVectors(currentAttractor.position, particlePos);
+                        holdForce.normalize();
+                        holdForce.multiplyScalar(0.1 * (d - CAPTURE_RADIUS * 0.5)); // Try to maintain position at half capture radius
+                        particleAccelerations[particleIndex].add(holdForce);
+                        
+                        // Slow down velocity while captured
+                        particleVelocities[particleIndex].multiplyScalar(0.95);
+                        break;
+
+                    case 'repelling':
+                        // Strong repulsion away from the attractor
+                        const repulsion = new THREE.Vector3().subVectors(particlePos, currentAttractor.position);
+                        repulsion.normalize();
+                        // Strong repulsion that decreases with distance
+                        const repulsionStrength = currentAttractor.repulsionStrength * (1 - d / ATTRACTION_RADIUS);
+                        repulsion.multiplyScalar(repulsionStrength);
+                        particleAccelerations[particleIndex].add(repulsion);
+                        break;
+                }
+            }
+
+            return closestAttractor;
+        }
+
+        // Flocking behavior functions (only apply when free)
+        function align(particleIndex, perceptionRadius = 3) {
+            if (particleStates[particleIndex] !== 'free') return new THREE.Vector3();
+
+            const position = particles.geometry.attributes.position;
+            const i3 = particleIndex * 3;
+            const x = position.array[i3];
+            const y = position.array[i3 + 1];
+
+            const steering = new THREE.Vector3();
+            let total = 0;
+
+            const range = { x: x, y: y, radius: perceptionRadius };
+            const nearbyPoints = quadTree.query(range);
+
+            for (const point of nearbyPoints) {
+                if (point.index !== particleIndex && particleStates[point.index] === 'free') {
+                    steering.add(particleVelocities[point.index]);
+                    total++;
+                }
+            }
+
+            if (total > 0) {
+                steering.divideScalar(total);
+                steering.setLength(0.07);
+                steering.sub(particleVelocities[particleIndex]);
+                steering.clampLength(0, 0.002);
+            }
+
+            return steering;
+        }
+
+        function separation(particleIndex, perceptionRadius = 3) {
+            const position = particles.geometry.attributes.position;
+            const i3 = particleIndex * 3;
+            const x = position.array[i3];
+            const y = position.array[i3 + 1];
+
+            const steering = new THREE.Vector3();
+            let total = 0;
+
+            const range = { x: x, y: y, radius: perceptionRadius };
+            const nearbyPoints = quadTree.query(range);
+
+            for (const point of nearbyPoints) {
+                if (point.index !== particleIndex) {
+                    const otherI3 = point.index * 3;
+                    const otherX = position.array[otherI3];
+                    const otherY = position.array[otherI3 + 1];
+
+                    const diff = new THREE.Vector3(x - otherX, y - otherY, 0);
+                    const d = diff.length();
+
+                    if (d > 0) {
+                        diff.divideScalar(d * d);
+                        steering.add(diff);
+                        total++;
+                    }
+                }
+            }
+
+            if (total > 0) {
+                steering.divideScalar(total);
+                steering.setLength(0.07);
+                steering.sub(particleVelocities[particleIndex]);
+                steering.clampLength(0, 0.002);
+            }
+
+            return steering;
+        }
+
+        function cohesion(particleIndex, perceptionRadius = 5) {
+            if (particleStates[particleIndex] !== 'free') return new THREE.Vector3();
+
+            const position = particles.geometry.attributes.position;
+            const i3 = particleIndex * 3;
+            const x = position.array[i3];
+            const y = position.array[i3 + 1];
+
+            const steering = new THREE.Vector3();
+            let total = 0;
+
+            const range = { x: x, y: y, radius: perceptionRadius };
+            const nearbyPoints = quadTree.query(range);
+
+            for (const point of nearbyPoints) {
+                if (point.index !== particleIndex && particleStates[point.index] === 'free') {
+                    const otherI3 = point.index * 3;
+                    const otherX = position.array[otherI3];
+                    const otherY = position.array[otherI3 + 1];
+
+                    steering.add(new THREE.Vector3(otherX, otherY, 0));
+                    total++;
+                }
+            }
+
+            if (total > 0) {
+                steering.divideScalar(total);
+                steering.sub(new THREE.Vector3(x, y, 0));
+                steering.setLength(0.07);
+                steering.sub(particleVelocities[particleIndex]);
+                steering.clampLength(0, 0.002);
+            }
+
+            return steering;
+        }
+
+        function updateColor(particleIndex, currentAttractor) {
+            const colors = particles.geometry.attributes.color;
+            const i3 = particleIndex * 3;
+
+            let targetColor = particleOriginalColors[particleIndex];
+
+            if (currentAttractor) {
+                let intensity = 0;
+                const state = particleStates[particleIndex];
+                
+                if (state === 'attracted') {
+                    intensity = 0.6; // Medium intensity when being attracted
+                } else if (state === 'captured') {
+                    intensity = 1.0; // Full intensity when captured
+                } else if (state === 'repelling') {
+                    intensity = 0.8; // Slightly less intensity when repelling
+                }
+                
+                targetColor = particleOriginalColors[particleIndex].clone().lerp(
+                    currentAttractor.influenceColor, 
+                    intensity
+                );
+            }
+
+            // Smooth color transition
+            particleCurrentColors[particleIndex].lerp(targetColor, 0.1);
+            
+            colors.array[i3] = particleCurrentColors[particleIndex].r;
+            colors.array[i3 + 1] = particleCurrentColors[particleIndex].g;
+            colors.array[i3 + 2] = particleCurrentColors[particleIndex].b;
+        }
+
+        function edges(particleIndex) {
+            const position = particles.geometry.attributes.position;
+            const i3 = particleIndex * 3;
+            let x = position.array[i3];
+            let y = position.array[i3 + 1];
+
+            if (x > WORLD_BOUNDS) {
+                position.array[i3] = -WORLD_BOUNDS;
+            } else if (x < -WORLD_BOUNDS) {
+                position.array[i3] = WORLD_BOUNDS;
+            }
+
+            if (y > WORLD_BOUNDS) {
+                position.array[i3 + 1] = -WORLD_BOUNDS;
+            } else if (y < -WORLD_BOUNDS) {
+                position.array[i3 + 1] = WORLD_BOUNDS;
+            }
+        }
+
+        // Animation loop
+        let lastTime = 0;
+        function animate(time) {
+            requestAnimationFrame(animate);
+
+            const deltaTime = time - lastTime;
+            lastTime = time;
+
+            // Update attractors
+            for (let i = 0; i < attractors.length; i++) {
+                const attractor = attractors[i];
+                attractor.pulsePhase += FORCE_PULSE_SPEED;
+                attractor.currentStrength = attractor.baseStrength * (0.8 + 0.2 * Math.sin(attractor.pulsePhase));
+                
+                const ring = attractorMeshes[i];
+                const scale = 0.8 + 0.2 * Math.sin(attractor.pulsePhase);
+                ring.scale.set(scale, scale, scale);
+            }
+
+            // Clear and rebuild QuadTree
+            quadTree.clear();
+            const position = particles.geometry.attributes.position;
+            for (let i = 0; i < controls.numParticles; i++) {
+                const i3 = i * 3;
+                quadTree.insert({
+                    x: position.array[i3],
+                    y: position.array[i3 + 1],
+                    index: i
+                });
+            }
+
+            // Update particles
+            for (let i = 0; i < controls.numParticles; i++) {
+                // Reset acceleration
+                particleAccelerations[i].set(0, 0, 0);
+
+                // Handle attraction first (this sets the state and applies attraction/capture/repulsion forces)
+                const currentAttractor = handleAttraction(i);
+
+                // Only apply flocking behaviors when particle is free
+                if (particleStates[i] === 'free') {
+                    const alignment = align(i).multiplyScalar(controls.align);
+                    const cohesionForce = cohesion(i).multiplyScalar(controls.cohesion);
+                    const separationForce = separation(i).multiplyScalar(controls.separation);
+
+                    particleAccelerations[i].add(alignment);
+                    particleAccelerations[i].add(cohesionForce);
+                    particleAccelerations[i].add(separationForce);
+                }
+
+                // Update velocity and position
+                particleVelocities[i].add(particleAccelerations[i]);
+                
+                // Limit speed based on state
+                let maxSpeed = 0.07;
+                if (particleStates[i] === 'captured') {
+                    maxSpeed = 0.02; // Very slow when captured
+                } else if (particleStates[i] === 'repelling') {
+                    maxSpeed = 0.1; // Faster when repelling
+                }
+                particleVelocities[i].clampLength(0, maxSpeed);
+
+                const i3 = i * 3;
+                position.array[i3] += particleVelocities[i].x;
+                position.array[i3 + 1] += particleVelocities[i].y;
+
+                // Handle edges
+                edges(i);
+
+                // Update color based on current attractor and state
+                updateColor(i, currentAttractor);
+            }
+
+            // Update trace
+            updateTrace();
+
+            // Mark attributes as needing update
+            particles.geometry.attributes.position.needsUpdate = true;
+            particles.geometry.attributes.color.needsUpdate = true;
+
+            // Render
+            composer.render();
+        }
+
+        // Handle window resize
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            composer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        window.addEventListener('resize', onWindowResize);
+
+        // Fullscreen toggle
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'f' || event.key === 'F') {
+                toggleFullScreen();
+            }
+            if (event.key === 's' || event.key === 'S') {
+                renderer.domElement.toBlob(function(blob) {
+                    const a = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    a.href = url;
+                    const now = new Date();
+                    const timestamp = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}-${String(now.getMinutes()).padStart(2, '0')}-${String(now.getSeconds()).padStart(2, '0')}`;
+                    a.download = `emotion_${timestamp}.png`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                });
+            }
+        });
+
+        // UI Controls
+        document.getElementById('alignSlider').addEventListener('input', function(e) {
+            controls.align = parseFloat(e.target.value);
+            document.getElementById('alignValue').textContent = controls.align.toFixed(1);
+        });
+
+        document.getElementById('cohesionSlider').addEventListener('input', function(e) {
+            controls.cohesion = parseFloat(e.target.value);
+            document.getElementById('cohesionValue').textContent = controls.cohesion.toFixed(1);
+        });
+
+        document.getElementById('separationSlider').addEventListener('input', function(e) {
+            controls.separation = parseFloat(e.target.value);
+            document.getElementById('separationValue').textContent = controls.separation.toFixed(1);
+        });
+
+        document.getElementById('traceToggle').addEventListener('click', function() {
+            controls.trace = !controls.trace;
+            this.textContent = `Trace: ${controls.trace ? 'ON' : 'OFF'}`;
+            
+            if (!controls.trace) {
+                clearTrace();
+            }
+        });
+
+        document.getElementById('resetButton').addEventListener('click', function() {
+            // Reset particles to initial state
+            for (let i = 0; i < controls.numParticles; i++) {
+                const i3 = i * 3;
+                particlePositions[i3] = (Math.random() - 0.5) * WORLD_BOUNDS * 2;
+                particlePositions[i3 + 1] = (Math.random() - 0.5) * WORLD_BOUNDS * 2;
+                particlePositions[i3 + 2] = 0;
+
+                const colorIndex = Math.floor(Math.random() * palette.length);
+                const originalColor = palette[colorIndex];
+                particleColors[i3] = originalColor.r;
+                particleColors[i3 + 1] = originalColor.g;
+                particleColors[i3 + 2] = originalColor.b;
+
+                particleOriginalColors[i] = originalColor.clone();
+                particleCurrentColors[i] = originalColor.clone();
+                
+                particleStates[i] = 'free';
+                particleCaptureTimes[i] = 0;
+                particleCurrentAttractors[i] = null;
+
+                particleVelocities[i].set(
+                    (Math.random() - 0.5) * 0.07,
+                    (Math.random() - 0.5) * 0.07,
+                    0
+                );
+
+                particleAccelerations[i].set(0, 0, 0);
+            }
+
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+            particleGeometry.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
+            
+            // Reset attractors
+            for (let i = 0; i < attractors.length; i++) {
+                attractors[i].position.set(
+                    (Math.random() - 0.5) * WORLD_BOUNDS * 1.5,
+                    (Math.random() - 0.5) * WORLD_BOUNDS * 1.5,
+                    0
+                );
+                attractorMeshes[i].position.copy(attractors[i].position);
+            }
+
+            clearTrace();
+        });
+
+        // Start animation
+        animate(0);
+    </script>
 </body>
 </html>

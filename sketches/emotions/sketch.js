@@ -47,7 +47,9 @@ const palette = [
 const attractorColors = [
     [0, 191, 255],    // Cyan
     [0, 255, 179],    // Mint
-    [255, 0, 0]       // Red
+    [255, 0, 0],      // Red
+    [255, 165, 0],    // Orange
+    [128, 0, 128]     // Purple
 ];
 
 const ATTRACTION_RADIUS = 120;
@@ -508,20 +510,20 @@ document.addEventListener('keydown', (event) => {
 });
 
 function keyPressed() {
-  if (key === 's' || key === 'S') {
-    // Get date and time
-    let now = new Date();
-    let timestamp =
-      now.getFullYear() + "-" +
-      nf(now.getMonth() + 1, 2) + "-" +
-      nf(now.getDate(), 2) + "_" +
-      nf(now.getHours(), 2) + "-" +
-      nf(now.getMinutes(), 2) + "-" +
-      nf(now.getSeconds(), 2);
+    if (key === 's' || key === 'S') {
+        // Get date and time
+        let now = new Date();
+        let timestamp =
+            now.getFullYear() + "-" +
+            nf(now.getMonth() + 1, 2) + "-" +
+            nf(now.getDate(), 2) + "_" +
+            nf(now.getHours(), 2) + "-" +
+            nf(now.getMinutes(), 2) + "-" +
+            nf(now.getSeconds(), 2);
 
-    // Save canvas with custom name, date and time
-    saveCanvas(cnv, 'emotion_' + timestamp, 'jpg');
-  }
+        // Save canvas with custom name, date and time
+        saveCanvas(cnv, 'emotion_' + timestamp, 'jpg');
+    }
 }
 
 // Make a new boid
@@ -539,12 +541,18 @@ function setup() {
 
     // Update your attractor creation in setup():
     const frame = 100;
-    posA = createVector(random(frame, width / 3 - frame), random(frame, 2 * height / 3 - frame));
-    attractors.push(new Attractor(posA, 0)); // Pass index 0
-    posB = createVector(random(width / 3 + frame, 2 * width / 3 - frame), random(2 * height / 3 - frame, 3 * height / 3 - frame));
-    attractors.push(new Attractor(posB, 1)); // Pass index 1
-    posC = createVector(random(2 * width / 3 + frame, 3 * width / 3 - frame), random(height / 3 - frame, 2 * height / 3 - frame));
-    attractors.push(new Attractor(posC, 2)); // Pass index 2
+    const numAttractors = 5;
+    const regionWidth = width / numAttractors;
+
+    for (let i = 0; i < numAttractors; i++) {
+        let xMin = i * regionWidth + frame;
+        let xMax = (i + 1) * regionWidth - frame;
+        let yMin = frame;
+        let yMax = height - frame;
+
+        let pos = createVector(random(xMin, xMax), random(yMin, yMax));
+        attractors.push(new Attractor(pos, i));
+    }
 
     // Initialize all particles
     for (let i = 0; i < controls.numParticles; i++) {
