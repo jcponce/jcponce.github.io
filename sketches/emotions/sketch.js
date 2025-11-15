@@ -29,7 +29,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 650
+    numParticles: 750
 };
 
 // Palette colors for particles
@@ -45,11 +45,11 @@ const palette = [
 
 // Attractor colors
 const attractorColors = [
-    [0, 191, 255],    // Cyan
-    [0, 255, 179],    // Mint
-    [255, 0, 0],      // Red
-    [255, 165, 0],    // Orange
-    [128, 0, 128]     // Purple
+    [0, 191, 255],    // Cyan (distinct)
+    [0, 255, 179],    // Mint (distinct)
+    [255, 0, 0],      // Red (distinct)
+    [255, 128, 0],    // Orange (not in palette)
+    [0, 255, 255]     // Bright turquoise (not in palette)
 ];
 
 const ATTRACTION_RADIUS = 120;
