@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Flocking with Attractors — Three.js (Afterimage trails)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body { margin:0; height:100%; background:#000; overflow:hidden; }
+    canvas { display:block; }
+    #info {
+      position: absolute; left:10px; top:10px; color:#ddd;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-size:13px; background: rgba(0,0,0,0.25); padding:8px 10px; border-radius:6px;
+    }
+  </style>
+
+  <!-- import map as requested -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@v0.180.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="info">Flocking with 5 attractors — Press F to toggle fullscreen • S to save canvas</div>
+
+  <script type="module">
+
+  // imports (EffectComposer/AfterimagePass come from 'three/addons/' path in your importmap)
+  import * as THREE from 'three';
+  import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+  import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+  import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
+
+  // ---------- Parameters ----------
+  const CONTROLS = {
+    align: 1.5,
+    cohesion: 1.0,
+    separation: 2.0,
+    numParticles: 650,
+    useTrace: true,        // Afterimage on/off (we still update the composer though)
+    afterimageDamp: 0.92  // 0..1 (closer to 1 = longer trails)
+  };
+
+  // palette (original RGB, we'll convert to 0..1 floats)
+  const PALETTE = [
+    [255, 228, 75],   // Bright yellow
+    [5, 130, 1],      // Dark green
+    [123, 0, 255],    // Vivid purple
+    [255, 85, 0],     // Deep orange
+    [255, 29, 255],   // Bright pink
+    [46, 46, 255],    // Deep blue
+    [255, 0, 128]     // Strong pink
+  ];
+
+  const ATTRACTOR_COLORS = [
+    [0, 191, 255],    // Cyan
+    [0, 255, 179],    // Mint
+    [255, 0, 0]       // Red
+  ];
+
+  const ATTRACTION_RADIUS = 120;
+  const FORCE_PULSE_SPEED = 0.02;
+
+  // ---------- Utility ----------
+  function rand(min=0, max=1){ return Math.random()*(max-min)+min; }
+  function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+  function rgbTo01(rgb){ return rgb.map(v => v/255); }
+
+  // ---------- QuadTree (adapted from your p5.js QuadTree classes) ----------
+  class Rect {
+    constructor(x=0,y=0,w=1,h=1){ this.x=x; this.y=y; this.width=w; this.height=h; }
+    copy(){ return new Rect(this.x,this.y,this.width,this.height); }
+  }
+
+  class QuadTreeItem {
+    constructor(x,y,data){ this.x=x; this.y=y; this.data=data; }
+  }
+
+  class QuadTreeBin {
+    constructor(maxDepth, maxItemsPerBin, extent, depth=0){
+      this.rect = extent.copy();
+      this.bins = null;
+      this.maxDepth = maxDepth;
+      this.maxItemsPerBin = maxItemsPerBin;
+      this.items = [];
+      this.depth = depth;
+    }
+
+    checkWithinExtent(x,y,range=0){
+      return x >= this.rect.x - range && x < this.rect.x + this.rect.width + range &&
+             y >= this.rect.y - range && y < this.rect.y + this.rect.height + range;
+    }
+
+    addItem(item){
+      if (this.bins === null) {
+        this.items.push(item);
+        if (this.depth < this.maxDepth && this.items && this.items.length > this.maxItemsPerBin)
+          this.subDivide();
+      } else {
+        const binIndex = this._getBinIndex(item.x, item.y);
+        if (binIndex !== -1) this.bins[binIndex].addItem(item);
+      }
+    }
+
+    getItemsInRadius(x,y,radius,maxItems){
+      const radiusSq = radius*radius;
+      let out = [];
+      if (this.bins) {
+        for (let b of this.bins) if (b.checkWithinExtent(x,y,radius)) out.push(...b.getItemsInRadius(x,y,radius,maxItems));
+      } else {
+        for (let it of this.items) {
+          const dx = it.x - x, dy = it.y - y;
+          const d2 = dx*dx + dy*dy;
+          if (d2 <= radiusSq) out.push({ distSqrd: d2, data: it.data });
+        }
+      }
+      return out;
+    }
+
+    subDivide(){
+      if (this.bins !== null) return;
+      this.bins = [];
+      let w = this.rect.width * 0.5, h = this.rect.height * 0.5;
+      for (let i=0;i<4;i++){
+        const nx = this.rect.x + (i%2)*w;
+        const ny = this.rect.y + Math.floor(i*0.5)*h;
+        this.bins.push(new QuadTreeBin(this.maxDepth, this.maxItemsPerBin, new Rect(nx,ny,w,h), this.depth+1));
+      }
+      for (let item of this.items){
+        const idx = this._getBinIndex(item.x, item.y);
+        if (idx !== -1) this.bins[idx].addItem(item);
+      }
+      this.items = null;
+    }
+
+    _getBinIndex(x,y){
+      if (!this.checkWithinExtent(x,y)) return -1;
+      let w = this.rect.width * 0.5, h = this.rect.height * 0.5;
+      let xx = Math.floor((x - this.rect.x) / w);
+      let yy = Math.floor((y - this.rect.y) / h);
+      return xx + yy*2;
+    }
+
+  }
+
+  class QuadTree {
+    constructor(maxDepth, maxItemsPerBin, extent){
+      this.extent = extent.copy();
+      this.maxDepth = maxDepth;
+      this.maxItemsPerBin = maxItemsPerBin;
+      this.clear();
+    }
+    clear(){
+      this.rootBin = new QuadTreeBin(this.maxDepth, this.maxItemsPerBin, new Rect(0,0,this.extent.width,this.extent.height));
+    }
+    addItem(x,y,item){
+      this.rootBin.addItem(new QuadTreeItem(x,y,item));
+    }
+    getItemsInRadius(x,y,radius,maxItems){
+      if (maxItems===undefined){
+        return this.rootBin.getItemsInRadius(x,y,radius).map(v=>v.data);
+      } else {
+        return this.rootBin.getItemsInRadius(x,y,radius)
+          .sort((a,b)=>a.distSqrd - b.distSqrd)
+          .slice(0,maxItems)
+          .map(v=>v.data);
+      }
+    }
+  }
+
+  // ---------- Attractor ----------
+  class Attractor {
+    constructor(x,y,index){
+      this.position = new THREE.Vector2(x,y);
+      this.baseStrength = 0.4;
+      this.currentStrength = 0;
+      this.pulsePhase = rand(0,Math.PI*2);
+      const col = ATTRACTOR_COLORS[index % ATTRACTOR_COLORS.length];
+      this.color = new THREE.Color(col[0]/255, col[1]/255, col[2]/255);
+      this.radius = rand(15,25);
+      this.influenceColor = this.color.clone();
+    }
+    update(){
+      this.pulsePhase += FORCE_PULSE_SPEED;
+      this.currentStrength = this.baseStrength * (0.8 + 0.2 * Math.sin(this.pulsePhase));
+    }
+    getStrength(){ return this.currentStrength; }
+  }
+
+  // ---------- Boid ----------
+  class Boid {
+    constructor(w,h,paletteColors){
+      this.position = new THREE.Vector2(rand(0,w), rand(0,h));
+      this.velocity = new THREE.Vector2(rand(-1,1), rand(-1,1)).normalize().multiplyScalar(rand(1.5,3.5));
+      this.acceleration = new THREE.Vector2();
+      this.maxForce = 0.2;
+      this.maxSpeed = 2.5;
+      this.originalCol = paletteColors[Math.floor(rand(0,paletteColors.length))].clone(); // THREE.Color
+      this.currentCol = this.originalCol.clone();
+      this.colorTransitionSpeed = 0.05;
+    }
+
+    edges(w,h){
+      if (this.position.x > w) this.position.x = 0;
+      else if (this.position.x < 0) this.position.x = w;
+      if (this.position.y > h) this.position.y = 0;
+      else if (this.position.y < 0) this.position.y = h;
+    }
+
+    align(qt){
+      const perceptionRadius = 30;
+      const perceptionCount = 5;
+      const neighbors = qt.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount);
+      const steering = new THREE.Vector2();
+      if (neighbors.length === 0) return steering;
+      for (let other of neighbors) steering.add(other.velocity);
+      steering.divideScalar(neighbors.length);
+      steering.setLength(this.maxSpeed);
+      steering.sub(this.velocity);
+      if (steering.length() > this.maxForce) steering.setLength(this.maxForce);
+      return steering;
+    }
+
+    separation(qt){
+      const perceptionRadius = 30;
+      const perceptionCount = 5;
+      const neighbors = qt.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount);
+      const steering = new THREE.Vector2();
+      if (neighbors.length === 0) return steering;
+      for (let other of neighbors){
+        const diff = new THREE.Vector2().subVectors(this.position, other.position);
+        const d = diff.length();
+        if (d === 0) continue;
+        diff.divideScalar(d*d);
+        steering.add(diff);
+      }
+      steering.divideScalar(neighbors.length);
+      steering.setLength(this.maxSpeed);
+      steering.sub(this.velocity);
+      if (steering.length() > this.maxForce) steering.setLength(this.maxForce);
+      return steering;
+    }
+
+    cohesion(qt){
+      const perceptionRadius = 50;
+      const perceptionCount = 5;
+      const neighbors = qt.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount);
+      const steering = new THREE.Vector2();
+      if (neighbors.length === 0) return steering;
+      for (let other of neighbors) steering.add(other.position);
+      steering.divideScalar(neighbors.length);
+      steering.sub(this.position);
+      steering.setLength(this.maxSpeed);
+      steering.sub(this.velocity);
+      if (steering.length() > this.maxForce) steering.setLength(this.maxForce);
+      return steering;
+    }
+
+    flock(qt){
+      const a = this.align(qt).multiplyScalar(CONTROLS.align);
+      const c = this.cohesion(qt).multiplyScalar(CONTROLS.cohesion);
+      const s = this.separation(qt).multiplyScalar(CONTROLS.separation);
+      this.acceleration.add(a).add(c).add(s);
+    }
+
+    applyAttractors(attractors){
+      const totalForce = new THREE.Vector2();
+      let attractorCount = 0;
+      for (let at of attractors){
+        const d = this.position.distanceTo(at.position);
+        if (d < ATTRACTION_RADIUS){
+          const strength = at.getStrength() * (1 - d / ATTRACTION_RADIUS);
+          const desired = new THREE.Vector2().subVectors(at.position, this.position).normalize().multiplyScalar(strength);
+          totalForce.add(desired);
+          attractorCount++;
+        }
+      }
+      if (attractorCount > 0) totalForce.divideScalar(attractorCount);
+      this.acceleration.add(totalForce);
+    }
+
+    updateColor(attractors){
+      let closest = null;
+      let minDist = Infinity;
+      for (let at of attractors){
+        const d = this.position.distanceTo(at.position);
+        if (d < ATTRACTION_RADIUS && d < minDist){
+          minDist = d; closest = at;
+        }
+      }
+      let target = this.originalCol.clone();
+      if (closest){
+        let intensity = clamp(1 - (minDist / ATTRACTION_RADIUS), 0, 1); // closer => higher
+        target.lerp(closest.influenceColor, intensity);
+      }
+      // smooth transition
+      this.currentCol.lerp(target, this.colorTransitionSpeed);
+    }
+
+    update(){
+      this.position.add(this.velocity);
+      this.velocity.add(this.acceleration);
+      if (this.velocity.length() > this.maxSpeed) this.velocity.setLength(this.maxSpeed);
+      this.acceleration.set(0,0);
+    }
+  }
+
+  // ---------- Scene setup ----------
+  let renderer, scene, camera, composer, afterimagePass;
+  let points, geometry, positions, colors;
+  let boids = [];
+  let attractors = [];
+  let quadTree;
+  let width = window.innerWidth, height = window.innerHeight;
+  const paletteColors = PALETTE.map(rgb => new THREE.Color(...rgbTo01(rgb)));
+
+  init();
+  animate();
+
+  function init(){
+    // Renderer
+    renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+    document.body.appendChild(renderer.domElement);
+
+    // Scene & orthographic camera for 2D-style coordinates (match pixels)
+    scene = new THREE.Scene();
+    camera = new THREE.OrthographicCamera(0, width, height, 0, -1000, 1000);
+    camera.position.z = 1;
+
+    // Points geometry
+    geometry = new THREE.BufferGeometry();
+    const N = CONTROLS.numParticles;
+    positions = new Float32Array(N * 3);
+    colors = new Float32Array(N * 3);
+
+    for (let i=0;i<N;i++){
+      const x = rand(0,width), y = rand(0,height);
+      positions[i*3] = x;
+      positions[i*3+1] = y;
+      positions[i*3+2] = 0;
+      const c = paletteColors[Math.floor(rand(0,paletteColors.length))];
+      colors[i*3] = c.r; colors[i*3+1] = c.g; colors[i*3+2] = c.b;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3).setUsage(THREE.DynamicDrawUsage));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3).setUsage(THREE.DynamicDrawUsage));
+
+    // simple shader material for points (size in pixels)
+    const vertex = `
+      attribute vec3 color;
+      varying vec3 vColor;
+      uniform float uPointSize;
+      void main(){
+        vColor = color;
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        gl_Position = projectionMatrix * mvPosition;
+        gl_PointSize = uPointSize;
+      }
+    `;
+    const fragment = `
+      varying vec3 vColor;
+      void main(){
+        // circular point shape
+        vec2 c = gl_PointCoord.xy - vec2(0.5);
+        float r = dot(c,c);
+        if (r > 0.25) discard; // radius limit (controls softness)
+        gl_FragColor = vec4(vColor, 1.0);
+      }
+    `;
+    const material = new THREE.ShaderMaterial({
+      vertexShader: vertex,
+      fragmentShader: fragment,
+      transparent: true,
+      depthTest: false,
+      vertexColors: true,
+      uniforms: {
+        uPointSize: { value: 10.0 * (window.devicePixelRatio) } // adjust if desired
+      },
+      blending: THREE.AdditiveBlending // nicer glow with Afterimage
+    });
+
+    points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    // Composer + AfterimagePass for trails
+    composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, camera);
+    afterimagePass = new AfterimagePass(CONTROLS.afterimageDamp);
+    composer.addPass(renderPass);
+    composer.addPass(afterimagePass);
+
+    // Setup quadTree & boids
+    quadTree = new QuadTree(6, 20, new Rect(0,0,width,height));
+
+    // Create attractors (5)
+    const frame = 100;
+    // we'll place 5 attractors in roughly different regions
+    const positionsForAttractors = [
+      [rand(frame, width/3 - frame), rand(frame, height/3*1 - frame)],
+      [rand(width/3 + frame, width/2 - frame), rand(frame, height/3 - frame)],
+      [rand(width/2 + frame, 2*width/3 - frame), rand(frame, height/3 - frame)],
+      [rand(frame, width/3 - frame), rand(2*height/3 + frame, height - frame)],
+      [rand(width/3 + frame, 2*width/3 - frame), rand(height/3 + frame, 2*height/3 - frame)]
+    ];
+
+    for (let i=0;i<positionsForAttractors.length;i++){
+      const [ax,ay] = positionsForAttractors[i];
+      attractors.push(new Attractor(ax,ay,i));
+    }
+
+    // Create boids
+    for (let i=0;i<CONTROLS.numParticles;i++){
+      boids.push(new Boid(width,height,paletteColors));
+    }
+
+    // events
+    window.addEventListener('resize', onResize);
+    document.addEventListener('keydown', onKey);
+    // save button (S)
+    // handled in keydown
+  }
+
+  function onResize(){
+    width = window.innerWidth; height = window.innerHeight;
+    renderer.setSize(width,height);
+    camera.left = 0; camera.right = width; camera.top = 0; camera.bottom = height;
+    camera.updateProjectionMatrix();
+    // update quadTree extent
+    quadTree = new QuadTree(6, 20, new Rect(0,0,width,height));
+  }
+
+  function onKey(e){
+    if (e.key === 'f' || e.key === 'F'){
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    } else if (e.key === 's' || e.key === 'S'){
+      // Save current canvas as png
+      const link = document.createElement('a');
+      link.href = renderer.domElement.toDataURL('image/png');
+      link.download = `emotion_${new Date().toISOString().replace(/[:.]/g,'-')}.png`;
+      link.click();
+    }
+  }
+
+  // ---------- Animation ----------
+  function animate(){
+    requestAnimationFrame(animate);
+    step();
+    // render via composer to get afterimage trails
+    if (CONTROLS.useTrace){
+      afterimagePass.uniforms['damp'].value = CONTROLS.afterimageDamp;
+      composer.render();
+    } else {
+      renderer.render(scene, camera);
+    }
+  }
+
+  function step(){
+    // clear quadTree, populate
+    quadTree.clear();
+    for (let b of boids) quadTree.addItem(b.position.x, b.position.y, b);
+
+    // update attractors
+    for (let at of attractors) at.update();
+
+    // update boids
+    for (let i=0;i<boids.length;i++){
+      const b = boids[i];
+      b.edges(width,height);
+      b.flock(quadTree);
+      b.applyAttractors(attractors);
+      b.updateColor(attractors);
+      b.update();
+      // write back positions/colors to buffers
+      positions[i*3] = b.position.x;
+      positions[i*3+1] = b.position.y;
+      // colors: smooth currentCol
+      colors[i*3] = b.currentCol.r;
+      colors[i*3+1] = b.currentCol.g;
+      colors[i*3+2] = b.currentCol.b;
+    }
+    // mark attributes needsUpdate
+    geometry.attributes.position.needsUpdate = true;
+    geometry.attributes.color.needsUpdate = true;
+
+    // optionally draw attractor visuals as simple sprites/points
+    // we'll draw small circles using GL-lines? Simpler: create small meshes once and update positions
+    updateAttractorMarkers();
+  }
+
+  // Simple attractor markers (create on first call)
+  let attractorMarkers = [];
+  function updateAttractorMarkers(){
+    if (attractorMarkers.length === 0){
+      const g = new THREE.CircleGeometry(1.0, 12);
+      for (let i=0;i<attractors.length;i++){
+        const mat = new THREE.MeshBasicMaterial({ color: attractors[i].color, transparent:true, opacity:0.8 });
+        const m = new THREE.Mesh(g, mat);
+        m.scale.set(attractors[i].radius, attractors[i].radius, 1);
+        scene.add(m);
+        attractorMarkers.push(m);
+      }
+    }
+    for (let i=0;i<attractorMarkers.length;i++){
+      const a = attractors[i];
+      attractorMarkers[i].position.set(a.position.x, a.position.y, 0.1);
+      // pulse maybe by modulating scale slightly
+      const pulse = 1 + 0.15 * Math.sin(a.pulsePhase * 2.0);
+      attractorMarkers[i].scale.set(a.radius * pulse, a.radius * pulse, 1);
+    }
+  }
+
+  </script>
+</body>
+</html>

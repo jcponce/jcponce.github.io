@@ -546,20 +546,6 @@ function setup() {
     posC = createVector(random(2 * width / 3 + frame, 3 * width / 3 - frame), random(height / 3 - frame, 2 * height / 3 - frame));
     attractors.push(new Attractor(posC, 2)); // Pass index 2
 
-    // // create gui (dat.gui) if needed
-    // let gui = new dat.GUI({
-    //     width: 295
-    // });
-    // gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
-    // gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
-    // gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-    // gui.add(controls, 'numParticles', 0, 800).name("Num Particles").step(1);
-    // gui.add(controls, 'trace').name("Trace").listen();
-    // for (let i = 0; i < controls.numParticles; i++) {
-    //     pushRandomBoid(); 
-    // }
-    // gui.close();
-
     // Initialize all particles
     for (let i = 0; i < controls.numParticles; i++) {
         pushRandomBoid();
@@ -596,17 +582,4 @@ function draw() {
         boid.update();
         boid.show();
     }
-
-    // Adjust the amount of boids on screen according to the slider value
-    // let maxBoids = controls.numParticles;
-    // let difference = flock.length - maxBoids;
-    // if (difference < 0) {
-    //     for (let i = 0; i < -difference; i++) {
-    //         pushRandomBoid(); // Add boids if there are less boids than the slider value
-    //     }
-    // } else if (difference > 0) {
-    //     for (let i = 0; i < difference; i++) {
-    //         flock.pop(); // Remove boids if there are more boids than the slider value
-    //     }
-    // }
 }
