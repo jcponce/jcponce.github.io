@@ -16,7 +16,7 @@ factor = 1
 
 # === Parametric equations ===
 x = ( -np.cos(u) * np.cos(v) - 3 * np.cos(u) * (1.5 + 0.5 * np.sin(3*u/2)) ) * factor
-y = ( np.sin(u) * np.sin(v) + 3 * np.sin(u) * (1.5 + 0.5 * np.sin(3*u/2)) ) * factor
+y = ( np.sin(u) * np.cos(v) + 3 * np.sin(u) * (1.5 + 0.5 * np.sin(3*u/2)) ) * factor
 z = ( np.sin(v) + 2 * np.cos(3*u/2) ) * factor
 
 # === Inversion ===
