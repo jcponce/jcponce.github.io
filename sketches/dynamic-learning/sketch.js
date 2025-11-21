@@ -9,7 +9,7 @@ const flock = [];
 
 let Controls = function () {
   this.align = 1;
-  this.cohesion = 0;
+  this.cohesion = 1;
   this.separation = 1.5;
   this.numPoly = 80;
   this.n = 4;
