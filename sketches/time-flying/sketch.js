@@ -121,20 +121,3 @@ function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') 
   // }
 }
 
-// Function to toggle full screen mode
-function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
-            console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-        });
-    } else {
-        document.exitFullscreen();
-    }
-}
-
-// Event listener for keydown event
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'f' || event.key === 'F') {
-        toggleFullScreen();
-    }
-});
