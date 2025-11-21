@@ -13,8 +13,8 @@ function setup() {
   colorMode(HSB, 360, 100, 100);
 
   // Number of particles per system
-  const numStaff = 100;
-  const numStudents = 250;
+  const numStaff = 40;
+  const numStudents = 200;
 
   // Left spawn region (30% width)
   for (let i = 0; i < numStaff; i++) {
