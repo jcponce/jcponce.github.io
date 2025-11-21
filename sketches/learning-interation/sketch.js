@@ -50,7 +50,7 @@ function draw() {
   for (let flower of system1) {
     for (let circle of system2) {
       let d = dist(flower.pos.x, flower.pos.y, circle.pos.x, circle.pos.y);
-      let maxDistance = 150; // Maximum distance for glow effect
+      let maxDistance = 70; // Maximum distance for glow effect
       
       if (d < maxDistance) {
         // Inverse relationship: closer = more glow
