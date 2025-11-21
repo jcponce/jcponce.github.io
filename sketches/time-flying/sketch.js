@@ -1,4 +1,4 @@
-const FAST_MULTIPLIER = 20; // right clock runs this many times faster
+const FAST_MULTIPLIER = 30; // right clock runs this many times faster
 let startRealMs, startRefMs;
 let trails = [];
 
@@ -17,7 +17,7 @@ function windowResized() {
 }
 
 function draw() {
-  background(11, 35); // semi-transparent for gentle blending
+  background(11, 20); // semi-transparent for gentle blending
 
   const padding = min(width, height) * 0.09;
   const halfW = (width - padding * 3) / 2;
@@ -80,12 +80,15 @@ function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') 
   pop();
 
   // second hand
-  push();
-  rotate(secondAngle);
-  stroke(color);
-  strokeWeight(max(1.5, r * 0.02));
-  line(0, 0, r * 0.85, 0);
-  pop();
+  if (!isFast) {
+    push();
+    rotate(secondAngle);
+    stroke(color);
+    strokeWeight(max(1.5, r * 0.02));
+    line(0, 0, r * 0.85, 0);
+    pop();
+  }
+
 
   // faded trail only for the fast clock
   if (isFast) {
@@ -101,11 +104,12 @@ function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') 
     for (let t of trails) {
       fill(color, t.alpha);
       stroke(color, t.alpha);
-      strokeWeight(1);
-      circle(t.x, t.y, 2);
-      t.alpha *= 0.51; // fade
+      strokeWeight(max(1.5, r * 0.02));
+      line(cx, cy, t.x, t.y)
+      //circle(t.x, t.y, 2);
+      t.alpha *= 0.5; // fade
     }
-    trails = trails.filter(t => t.alpha > 5);
+    trails = trails.filter(t => t.alpha > 4);
   }
 
   // ×speed label
