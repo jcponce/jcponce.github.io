@@ -51,7 +51,7 @@ function draw() {
     for (let circle of system2) {
       let d = dist(flower.pos.x, flower.pos.y, circle.pos.x, circle.pos.y);
       let maxDistance = 70; // Maximum distance for glow effect
-      
+
       if (d < maxDistance) {
         // Inverse relationship: closer = more glow
         let proximityGlow = map(d, 0, maxDistance, 1, 0);
@@ -149,17 +149,17 @@ class CircleParticle extends Particle {
 
   show() {
     push();
-    
+
     // Calculate glow effects
     let glowSize = this.baseSize * (1 + this.glow * 0.5); // Size increases with glow
     let glowBrightness = 100; // Maximum brightness when glowing
     let glowAlpha = 0.9 + this.glow * 0.3; // Alpha increases with glow
-    
+
     // Add a glow effect using multiple concentric circles
     if (this.glow > 0) {
       drawingContext.shadowBlur = 20 * this.glow;
       drawingContext.shadowColor = color(this.hue, 60, glowBrightness, 0.5).toString();
-      
+
       // Outer glow circle
       noFill();
       stroke(this.hue, 60, glowBrightness, glowAlpha * 0.3);
@@ -168,20 +168,20 @@ class CircleParticle extends Particle {
     } else {
       drawingContext.shadowBlur = 0;
     }
-    
+
     // Main circle
     noFill();
     stroke(this.hue, 60, 80 + this.glow * 20, glowAlpha);
     strokeWeight(2 + this.glow * 2);
     ellipse(this.pos.x, this.pos.y, glowSize, glowSize);
-    
+
     // Inner bright circle when glowing strongly
     if (this.glow > 0.7) {
       fill(this.hue, 40, 100, this.glow * 0.5);
       noStroke();
       ellipse(this.pos.x, this.pos.y, glowSize * 0.5, glowSize * 0.5);
     }
-    
+
     pop();
   }
 }
@@ -191,3 +191,21 @@ class CircleParticle extends Particle {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+
+// Function to toggle full screen mode
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(err => {
+      console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+} 
+
+// Event listener for keydown event
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'f' || event.key === 'F') {
+    toggleFullScreen();
+  }
+});
