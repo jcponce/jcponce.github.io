@@ -17,7 +17,7 @@ function windowResized() {
 }
 
 function draw() {
-  background(11, 20); // semi-transparent for gentle blending
+  background(11, 40); // semi-transparent for gentle blending
 
   const padding = min(width, height) * 0.09;
   const halfW = (width - padding * 3) / 2;
@@ -107,9 +107,9 @@ function drawClock(cx, cy, diameter, msTime, isFast = false, color = '#ffffff') 
       strokeWeight(max(1.5, r * 0.02));
       line(cx, cy, t.x, t.y)
       //circle(t.x, t.y, 2);
-      t.alpha *= 0.5; // fade
+      t.alpha *= 0.2; // fade
     }
-    trails = trails.filter(t => t.alpha > 4);
+    trails = trails.filter(t => t.alpha > 5);
   }
 
   // ×speed label
