@@ -163,7 +163,7 @@ class CircleParticle extends Particle {
       // Outer glow circle
       noFill();
       stroke(this.hue, 60, glowBrightness, glowAlpha * 0.3);
-      strokeWeight(2);
+      strokeWeight(4);
       ellipse(this.pos.x, this.pos.y, glowSize * 1.5, glowSize * 1.5);
     } else {
       drawingContext.shadowBlur = 0;
@@ -172,14 +172,14 @@ class CircleParticle extends Particle {
     // Main circle
     noFill();
     stroke(this.hue, 60, 80 + this.glow * 20, glowAlpha);
-    strokeWeight(1 + this.glow * 2);
+    strokeWeight(2 + this.glow * 2);
     ellipse(this.pos.x, this.pos.y, glowSize, glowSize);
     
     // Inner bright circle when glowing strongly
     if (this.glow > 0.7) {
       fill(this.hue, 40, 100, this.glow * 0.5);
       noStroke();
-      ellipse(this.pos.x, this.pos.y, glowSize * 0.3, glowSize * 0.3);
+      ellipse(this.pos.x, this.pos.y, glowSize * 0.5, glowSize * 0.5);
     }
     
     pop();
