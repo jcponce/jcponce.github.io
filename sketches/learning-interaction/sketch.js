@@ -13,7 +13,7 @@ function setup() {
   colorMode(HSB, 360, 100, 100);
 
   // Number of particles per system
-  const numStaff = 50;
+  const numStaff = 40;
   const numStudents = 350;
 
   // Left spawn region (30% width)
@@ -78,7 +78,7 @@ class Particle {
     this.vel = p5.Vector.random2D().mult(0.5);
     this.t = random(1000); // noise seed
     this.speed = 1.2;
-    this.size = random(10, 20);
+    this.size = random(20, 30);
     this.hue = random(0, 360);
     this.drift = 0; // default, will override in subclasses
   }
