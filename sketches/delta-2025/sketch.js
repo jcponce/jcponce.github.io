@@ -64,7 +64,7 @@ async function setup() {
   textureMaterial = baseMaterialShader().modify(() => {
     const t = uniformFloat(() => millis());
     getWorldInputs((inputs) => {
-      let size = [800, 500];
+      let size = [950, 500];
       inputs.texCoord = inputs.position.xy / size + 0.5;
       inputs.position = [
         inputs.position.x,
