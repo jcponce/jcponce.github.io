@@ -1,8 +1,15 @@
 // ==========================================================
+
 //  Two Particle Systems with Noise Motion and Edge Borders
 //  System 1: 5-petal flower shapes (left region)
 //  System 2: circles (right region)
 //  Fullscreen canvas
+
+// p5.js (https://p5js.org/)
+// Under Creative Commons License
+// https://creativecommons.org/licenses/by-sa/4.0/
+// Written by Juan Carlos Ponce Campuzano, 25/Nov/2025
+
 // ==========================================================
 
 let system1 = [];
