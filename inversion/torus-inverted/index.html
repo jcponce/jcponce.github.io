@@ -192,7 +192,7 @@
 
         // Geometry: original surface
         let geometryOriginal = new ParametricGeometry((u, v, target) =>
-            originalSurface(u, v, target, 2 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+            originalSurface(u, v, target, 2 * PI, 2 * PI, options.size, options.translate, 0, 0), 200, 200);
 
         let meshOriginal = new THREE.Mesh(geometryOriginal, new THREE.MeshPhongMaterial({
             color: '#00ffff',
@@ -295,7 +295,7 @@
 
             geometryOriginal.dispose();
             geometryOriginal = new ParametricGeometry((u, v, target) =>
-                originalSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 64, 64);
+                originalSurface(u, v, target, 4 * PI, 2 * PI, options.size, options.translate, 0, 0), 200, 200);
 
             meshOriginal.geometry = geometryOriginal;
             wireframeMeshOriginal.geometry = geometryOriginal;
