@@ -150,10 +150,10 @@
         // GUI setup
         const gui = new GUI();
         const options = {
-            a: 0.5,
-            b: 0.5,
+            a: 1,
+            b: 1,
             c: 1,
-            translate: 1.5,
+            translate: -0.5,
             autoRotate: false,
             color1: '#00ffff',
             color2: '#ff5050',
@@ -170,9 +170,9 @@
         const { scene, camera, renderer, controls } = setupScene(canvas);
 
         // Geometry: inversion surface
-        const meshRes = { x: 150, y: 150 };
+        const meshRes = { x: 250, y: 250 };
         let geometryInversion = new ParametricGeometry((u, v, target) =>
-            originalInvertedSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate), meshRes.x, meshRes.y);
+            originalInvertedSurface(u, v, target, 2 * PI, 0.85 * PI, options.a, options.b, options.c, options.translate), meshRes.x, meshRes.y);
 
         let materialInversion = new THREE.MeshPhongMaterial({
             color: '#ff5050',
@@ -191,7 +191,7 @@
 
         // Geometry: original surface
         let geometryOriginal = new ParametricGeometry((u, v, target) =>
-            originalSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate, 0, 0), 20, 20);
+            originalSurface(u, v, target, 2 * PI, 0.85 * PI, options.a, options.b, options.c, options.translate, 0, 0), 64, 64);
 
         let meshOriginal = new THREE.Mesh(geometryOriginal, new THREE.MeshPhongMaterial({
             color: '#00ffff',
@@ -287,14 +287,14 @@
         function updateGeometry() {
             geometryInversion.dispose();
             geometryInversion = new ParametricGeometry((u, v, target) =>
-                originalInvertedSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate), meshRes.x, meshRes.y);
+                originalInvertedSurface(u, v, target, 2 * PI, 0.85 * PI, options.a, options.b, options.c, options.translate), meshRes.x, meshRes.y);
 
             meshInversion.geometry = geometryInversion;
             wireframeMeshInversion.geometry = geometryInversion;
 
             geometryOriginal.dispose();
             geometryOriginal = new ParametricGeometry((u, v, target) =>
-                originalSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate, 0, 0), 20, 20);
+                originalSurface(u, v, target, 2 * PI, 0.85 * PI, options.a, options.b, options.c, options.translate, 0, 0), 64, 64);
 
             meshOriginal.geometry = geometryOriginal;
             wireframeMeshOriginal.geometry = geometryOriginal;
