@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperboloid Inverted</title>
+    <!--
+  <link rel="stylesheet" href="./style.css">-->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .webgl {
+            position: fixed;
+            top: 0;
+            left: 0;
+            outline: none;
+        }
+
+        .lil-gui {
+            --font-size: 1.1rem;
+            --width: 350px;
+            --name-width: 43%;
+        }
+
+        .lil-gui .controller input[type="number"] {
+            /* make numbers bigger */
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="webgl"></canvas>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"
+        crossorigin="anonymous"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.179.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.179.0/examples/jsm/"
+      }
+    }
+  </script>
+    <script type="module">
+
+        import * as THREE from 'three';
+        import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+        import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+        // Shorthands
+        const cos = Math.cos;
+        const sin = Math.sin;
+        const pow = Math.pow;
+        const PI = Math.PI;
+
+        // Define parametric surfaces
+        // Hyperboloid 
+        function originalSurface(u, v, target, uComponent, vComponent, a, b, c, tx, ty, tz) {
+            u = uComponent * u;
+            v = vComponent * (v - 0.5); // center v
+
+            const x = a * Math.cosh(v) * Math.cos(u) + tx;
+            const y = b * Math.cosh(v) * Math.sin(u) + ty;
+            const z = c * Math.sinh(v) + tz;
+
+            target.set(x, y, z);
+        }
+
+        // Hyperboloid inverted
+        function originalInvertedSurface(u, v, target, uComponent, vComponent, a, b, c, translate) {
+            u = uComponent * u;
+            v = vComponent * (v - 0.5);
+
+            // Original hyperboloid
+            const X = a * Math.cosh(v) * Math.cos(u) + translate;
+            const Y = b * Math.cosh(v) * Math.sin(u);
+            const Z = c * Math.sinh(v);
+
+            const norm2 = X * X + Y * Y + Z * Z;
+            const EPS = 1e-6;
+
+            // Unit-sphere inversion
+            const factor = 1.0 / Math.max(norm2, EPS);
+
+            target.set(
+                factor * X,
+                factor * Y,
+                factor * Z
+            );
+        }
+
+        // Sphere for inversion
+        function sphereSurface(u, v, target, r, uComponent, vComponent) {
+            u = uComponent * u;
+            v = vComponent * v;
+            target.set(r * cos(u) * sin(v), r * sin(u) * sin(v), r * cos(v));
+        }
+
+        function setupScene(canvas) {
+            // Z is up
+            THREE.Object3D.DEFAULT_UP.set(0, 0, 1);
+            const scene = new THREE.Scene();
+
+            // Camera
+            const sizes = { width: window.innerWidth, height: window.innerHeight };
+            const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+            camera.position.set(3, 2, 1);
+            scene.add(camera);
+
+            // Renderer (white background, opaque)
+            const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setClearColor(0xf2f2f2, 1); // background
+
+            // Controls
+            const controls = new OrbitControls(camera, canvas);
+            controls.enableDamping = true;
+
+            // Lights
+            const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+            dirLight.position.set(5, 5, 5);
+            scene.add(dirLight);
+            scene.add(new THREE.AmbientLight(0x404040));
+
+            // Resize
+            window.addEventListener('resize', () => {
+                sizes.width = window.innerWidth;
+                sizes.height = window.innerHeight;
+                camera.aspect = sizes.width / sizes.height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(sizes.width, sizes.height);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            });
+
+            return { scene, camera, renderer, controls };
+        }
+
+        // GUI setup
+        const gui = new GUI();
+        const options = {
+            a: 0.5,
+            b: 0.5,
+            c: 1,
+            translate: 1.5,
+            autoRotate: false,
+            color1: '#00ffff',
+            color2: '#ff5050',
+            original: true,
+            inversion: true,
+            meshOriginal: false,
+            meshInversion: false,
+            sphere: true,
+            axis: true
+        };
+
+        // Scene setup
+        const canvas = document.querySelector('canvas.webgl');
+        const { scene, camera, renderer, controls } = setupScene(canvas);
+
+        // Geometry: inversion surface
+        const meshRes = { x: 150, y: 150 };
+        let geometryInversion = new ParametricGeometry((u, v, target) =>
+            originalInvertedSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate), meshRes.x, meshRes.y);
+
+        let materialInversion = new THREE.MeshPhongMaterial({
+            color: '#ff5050',
+            shininess: 200,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.7
+        });
+
+        // Wireframe mesh for inversion
+        let wireframeMaterialInversion = new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
+        let wireframeMeshInversion = new THREE.Mesh(geometryInversion, wireframeMaterialInversion);
+
+        let meshInversion = new THREE.Mesh(geometryInversion, materialInversion);
+        scene.add(meshInversion);
+
+        // Geometry: original surface
+        let geometryOriginal = new ParametricGeometry((u, v, target) =>
+            originalSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate, 0, 0), 20, 20);
+
+        let meshOriginal = new THREE.Mesh(geometryOriginal, new THREE.MeshPhongMaterial({
+            color: '#00ffff',
+            shininess: 200,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.7
+        }));
+        scene.add(meshOriginal);
+
+        // Wireframe mesh for original
+        let wireframeMaterialOriginal = new THREE.MeshBasicMaterial({ color: 0x1a1a1a, wireframe: true })
+        let wireframeMeshOriginal = new THREE.Mesh(geometryOriginal, wireframeMaterialOriginal);
+
+        // Geometry: sphere
+        let geometrySphere = new ParametricGeometry((u, v, target) =>
+            sphereSurface(u, v, target, 1, 2 * PI, PI), 24, 24);
+
+        let materialSphere = new THREE.MeshPhongMaterial({
+            color: '#000',
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.01,
+            wireframe: true
+        });
+        let meshSphere = new THREE.Mesh(geometrySphere, materialSphere);
+        scene.add(meshSphere);
+
+        const wireframeSphere = new THREE.LineSegments(
+            new THREE.WireframeGeometry(geometrySphere),
+            new THREE.LineBasicMaterial({ color: 0x737373 })
+        );
+        scene.add(wireframeSphere);
+
+        // Visibility defaults
+        meshInversion.visible = options.inversion;
+        meshOriginal.visible = options.original;
+        meshSphere.visible = wireframeSphere.visible = options.sphere;
+
+        // GUI
+        function commonUI() {
+            // Original controls
+            const originalFolder = gui.addFolder('Original');
+            originalFolder.add(options, 'original').name('Show Original').onChange(v => {
+                meshOriginal.visible = v;
+            });
+            originalFolder.add(options, 'meshOriginal').name('Mesh Original').onChange(v => {
+                if (v) scene.add(wireframeMeshOriginal);
+                else scene.remove(wireframeMeshOriginal);
+            });
+            originalFolder.addColor(options, 'color1').name('Original Color').onChange(v => {
+                meshOriginal.material.color.set(v);
+            });
+
+            // Inversion controls
+            const inversionFolder = gui.addFolder('Inversion');
+            inversionFolder.add(options, 'inversion').name('Show Inversion').onChange(v => {
+                meshInversion.visible = v;
+            });
+            inversionFolder.add(options, 'meshInversion').name('Mesh Inversion').onChange(v => {
+                if (v) scene.add(wireframeMeshInversion);
+                else scene.remove(wireframeMeshInversion);
+            });
+            inversionFolder.addColor(options, 'color2').name('Inversion Color').onChange(v => {
+                meshInversion.material.color.set(v);
+            });
+
+            // Sphere controls
+            const sphereFolder = gui.addFolder('Sphere');
+            sphereFolder.add(options, 'sphere').name('Show Sphere').onChange(v => {
+                meshSphere.visible = v;
+                wireframeSphere.visible = v;
+            });
+
+            // Axis toggle
+            gui.add(options, 'axis').name('Show Axis').onChange(v => {
+                tubeAxes.visible = v;
+            });
+
+            // Geometry transforms
+            const transformFolder = gui.addFolder('Transform');
+            transformFolder.add(options, 'a', 0.01, 2, 0.01).name('a').onChange(updateGeometry);
+            transformFolder.add(options, 'b', 0.01, 2, 0.01).name('b').onChange(updateGeometry);
+            transformFolder.add(options, 'c', 0.01, 2, 0.01).name('c').onChange(updateGeometry);
+            transformFolder.add(options, 'translate', -4, 4, 0.01).name('Translate').onChange(updateGeometry);
+
+            // Optional: autorotate
+            gui.add(options, 'autoRotate').name('Auto Rotate').onChange(v => {
+                controls.autoRotate = v;
+            });
+        }
+
+        function updateGeometry() {
+            geometryInversion.dispose();
+            geometryInversion = new ParametricGeometry((u, v, target) =>
+                originalInvertedSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate), meshRes.x, meshRes.y);
+
+            meshInversion.geometry = geometryInversion;
+            wireframeMeshInversion.geometry = geometryInversion;
+
+            geometryOriginal.dispose();
+            geometryOriginal = new ParametricGeometry((u, v, target) =>
+                originalSurface(u, v, target, 2 * PI, PI, options.a, options.b, options.c, options.translate, 0, 0), 20, 20);
+
+            meshOriginal.geometry = geometryOriginal;
+            wireframeMeshOriginal.geometry = geometryOriginal;
+        }
+
+        // UI
+        commonUI();
+
+        // Helpers
+        const gridHelper = new THREE.GridHelper(10, 10);
+        gridHelper.rotation.x = Math.PI / 2; // rotate 90° around x-axis
+        scene.add(gridHelper);
+
+        function createTubeAxes(size = 5, radius = 0.05) {
+            const axes = new THREE.Group();
+
+            const materials = [
+                new THREE.MeshBasicMaterial({ color: 0xff0000 }), // X
+                new THREE.MeshBasicMaterial({ color: 0x00ff00 }), // Y
+                new THREE.MeshBasicMaterial({ color: 0x0000ff }), // Z
+            ];
+
+            function makeAxis(from, to, material) {
+                const direction = new THREE.Vector3().subVectors(to, from);
+                const length = direction.length();
+                const midpoint = new THREE.Vector3().addVectors(from, to).multiplyScalar(0.5);
+
+                const geometry = new THREE.CylinderGeometry(radius, radius, length, 16);
+                const mesh = new THREE.Mesh(geometry, material);
+
+                // orient cylinder
+                mesh.position.copy(midpoint);
+                mesh.quaternion.setFromUnitVectors(
+                    new THREE.Vector3(0, 1, 0), // default cylinder up
+                    direction.clone().normalize()
+                );
+
+                return mesh;
+            }
+
+            axes.add(makeAxis(new THREE.Vector3(0, 0, 0), new THREE.Vector3(size, 0, 0), materials[0])); // X
+            axes.add(makeAxis(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, size, 0), materials[1])); // Y
+            axes.add(makeAxis(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, size), materials[2])); // Z
+
+            return axes;
+        }
+
+        const tubeAxes = createTubeAxes(1, 0.01);
+        scene.add(tubeAxes);
+
+        controls.autoRotate = false;
+        controls.autoRotateSpeed = -0.9;
+
+        // Animation loop
+        function tick() {
+            controls.update();
+            renderer.render(scene, camera);
+            requestAnimationFrame(tick);
+        }
+        tick();
+
+    </script>
+</body>
+
+</html>
