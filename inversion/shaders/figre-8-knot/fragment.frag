@@ -31,7 +31,7 @@
 
 // These are necessary definitions that let your graphics card know how to render the shader
 #ifdef GL_ES
-precision highp float;
+precision mediump float;
 #endif
 
 // These are our passed in information from the sketch.js
