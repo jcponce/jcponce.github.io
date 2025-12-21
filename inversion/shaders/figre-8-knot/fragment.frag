@@ -41,7 +41,7 @@ uniform vec2 iMouse;
 varying vec2 vTexCoord;
 
 #define AA 1 // make 2 on fast machines
-const int kNum = 96; // subdivisions. make 1024 on fast machines
+const int kNum = 64; // subdivisions. make 1024 on fast machines
 const float kRad = 0.06; // thickness
 
 // knot
