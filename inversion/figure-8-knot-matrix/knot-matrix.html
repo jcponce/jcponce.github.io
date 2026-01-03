@@ -357,8 +357,25 @@
         pointLight.position.set(50, 50, 50);
         scene.add(pointLight);
 
-        // Note: GUI controls are commented out as per your code
-        // If you want to re-enable them later, uncomment the GUI section
+        // GUI controls 
+        // const knotFolder = gui.addFolder('Figure-8 Knot');
+        // knotFolder.add(options, 'autoRotate').name('Auto Rotate');
+        // knotFolder.add(options, 'autoRotateSpeed', 0, 5, 0.1).name('Rotation Speed');
+        // knotFolder.add(options, 'tubeRadius', 1, 30, 1).name('Tube Radius').onChange(updateKnotGeometry);
+        // knotFolder.add(options, 'scale', 10, 200, 1).name('Scale').onChange(updateKnotGeometry);
+        // knotFolder.addColor(options, 'knotColor').name('Knot Color').onChange(v => {
+        //     knotMaterial.color.set(v);
+        // });
+        // knotFolder.add(options, 'wireframe').name('Wireframe').onChange(v => {
+        //     wireframe.visible = v;
+        // });
+
+        // const matrixFolder = gui.addFolder('Matrix Rain');
+        // matrixFolder.add(options, 'matrixSpeed', 0.5, 5, 0.1).name('Rain Speed');
+        // matrixFolder.add(options, 'matrixOpacity', 0.1, 1, 0.1).name('Opacity');
+
+        // gui.close();
+
 
         function updateKnotGeometry() {
             knotGeometry.dispose();
