@@ -316,13 +316,15 @@
         controls.enableDamping = true;
         controls.dampingFactor = 0.05;
 
-        // Create knot mesh
-        const knotMaterial = new THREE.MeshStandardMaterial({
-            color: options.knotColor,
-            metalness: 0.9,
-            roughness: 0.5,
+        // Create texture loader and load matcap texture
+        const textureLoader = new THREE.TextureLoader();
+        const matcapTexture = textureLoader.load('3.png');
+        
+        // Create knot mesh with MeshMatcapMaterial
+        const knotMaterial = new THREE.MeshMatcapMaterial({
+            matcap: matcapTexture,
             side: THREE.DoubleSide,
-            transparent: true,
+            transparent: false,
             opacity: 1.0
         });
 
@@ -343,7 +345,7 @@
         wireframe.visible = options.wireframe;
         scene.add(wireframe);
 
-        // Lights
+        // Lights (still needed for wireframe and scene visibility)
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
         scene.add(ambientLight);
 
@@ -355,24 +357,8 @@
         pointLight.position.set(50, 50, 50);
         scene.add(pointLight);
 
-        // GUI Controls
-        // const knotFolder = gui.addFolder('Figure-8 Knot');
-        // knotFolder.add(options, 'autoRotate').name('Auto Rotate');
-        // knotFolder.add(options, 'autoRotateSpeed', 0, 5, 0.1).name('Rotation Speed');
-        // knotFolder.add(options, 'tubeRadius', 1, 30, 1).name('Tube Radius').onChange(updateKnotGeometry);
-        // knotFolder.add(options, 'scale', 10, 200, 1).name('Scale').onChange(updateKnotGeometry);
-        // knotFolder.addColor(options, 'knotColor').name('Knot Color').onChange(v => {
-        //     knotMaterial.color.set(v);
-        // });
-        // knotFolder.add(options, 'wireframe').name('Wireframe').onChange(v => {
-        //     wireframe.visible = v;
-        // });
-
-        // const matrixFolder = gui.addFolder('Matrix Rain');
-        // matrixFolder.add(options, 'matrixSpeed', 0.5, 5, 0.1).name('Rain Speed');
-        // matrixFolder.add(options, 'matrixOpacity', 0.1, 1, 0.1).name('Opacity');
-
-        // gui.close();
+        // Note: GUI controls are commented out as per your code
+        // If you want to re-enable them later, uncomment the GUI section
 
         function updateKnotGeometry() {
             knotGeometry.dispose();
