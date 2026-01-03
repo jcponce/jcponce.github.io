@@ -120,7 +120,7 @@
         const LAMBDA = 0.25;
 
         // GUI setup
-        const gui = new GUI();
+        // const gui = new GUI();
         const options = {
             autoRotate: true,
             autoRotateSpeed: 1.0,
@@ -356,23 +356,23 @@
         scene.add(pointLight);
 
         // GUI Controls
-        const knotFolder = gui.addFolder('Figure-8 Knot');
-        knotFolder.add(options, 'autoRotate').name('Auto Rotate');
-        knotFolder.add(options, 'autoRotateSpeed', 0, 5, 0.1).name('Rotation Speed');
-        knotFolder.add(options, 'tubeRadius', 1, 30, 1).name('Tube Radius').onChange(updateKnotGeometry);
-        knotFolder.add(options, 'scale', 10, 200, 1).name('Scale').onChange(updateKnotGeometry);
-        knotFolder.addColor(options, 'knotColor').name('Knot Color').onChange(v => {
-            knotMaterial.color.set(v);
-        });
-        knotFolder.add(options, 'wireframe').name('Wireframe').onChange(v => {
-            wireframe.visible = v;
-        });
+        // const knotFolder = gui.addFolder('Figure-8 Knot');
+        // knotFolder.add(options, 'autoRotate').name('Auto Rotate');
+        // knotFolder.add(options, 'autoRotateSpeed', 0, 5, 0.1).name('Rotation Speed');
+        // knotFolder.add(options, 'tubeRadius', 1, 30, 1).name('Tube Radius').onChange(updateKnotGeometry);
+        // knotFolder.add(options, 'scale', 10, 200, 1).name('Scale').onChange(updateKnotGeometry);
+        // knotFolder.addColor(options, 'knotColor').name('Knot Color').onChange(v => {
+        //     knotMaterial.color.set(v);
+        // });
+        // knotFolder.add(options, 'wireframe').name('Wireframe').onChange(v => {
+        //     wireframe.visible = v;
+        // });
 
         // const matrixFolder = gui.addFolder('Matrix Rain');
         // matrixFolder.add(options, 'matrixSpeed', 0.5, 5, 0.1).name('Rain Speed');
         // matrixFolder.add(options, 'matrixOpacity', 0.1, 1, 0.1).name('Opacity');
 
-        gui.close();
+        // gui.close();
 
         function updateKnotGeometry() {
             knotGeometry.dispose();
@@ -426,7 +426,7 @@
             }
 
             // Update controls
-            controls.update();
+            //controls.update();
 
             // Render Three.js scene
             renderer.render(scene, camera);
