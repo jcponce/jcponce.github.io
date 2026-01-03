@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figure 8 Knot with Matrix Rain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .webgl {
+            position: fixed;
+            top: 0;
+            left: 0;
+            outline: none;
+            z-index: 1;
+        }
+
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .lil-gui {
+            --font-size: 1.1rem;
+            --width: 350px;
+            --name-width: 43%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .lil-gui .controller input[type="number"] {
+            font-size: 1.1rem;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 0.5s;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: monospace;
+        }
+
+        .matrix-char {
+            font-size: 24px;
+            color: rgb(222, 223, 222);
+            margin: 0 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="loader-content">
+            <div class="matrix-char">●</div>
+            <div style="margin-top: 20px; font-size: 14px;">LOADING MATRIX...</div>
+        </div>
+    </div>
+
+    <canvas id="matrixCanvas"></canvas>
+    <canvas class="webgl"></canvas>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.182.0/build/three.module.min.js",
+        "three/addons/": "https://unpkg.com/three@0.182.0/examples/jsm/"
+      }
+    }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        import { TubeGeometry } from 'three';
+
+        // Matrix Rain variables
+        let matrixCanvas, matrixCtx;
+        let streams = [];
+        const symbolSize = 18;
+        const fadeInterval = 2;
+        const matrixChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789';
+
+        // Figure-8 knot parameters
+        const SCALE = 45;
+        const TUBE_RADIUS = 8;
+        const TUBULAR_SEGMENTS = 300;
+        const RADIAL_SEGMENTS = 16;
+        const EPSILON = 0.16;
+        const LAMBDA = 0.25;
+
+        // GUI setup
+        const gui = new GUI();
+        const options = {
+            autoRotate: true,
+            autoRotateSpeed: 1.0,
+            tubeRadius: TUBE_RADIUS,
+            scale: SCALE,
+            knotColor: '#ffffff',
+            matrixSpeed: 1.5,
+            matrixOpacity: 0.9,
+            wireframe: false
+        };
+
+        // Initialize matrix canvas
+        matrixCanvas = document.getElementById('matrixCanvas');
+        matrixCtx = matrixCanvas.getContext('2d');
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+
+        // Matrix classes
+        class MatrixSymbol {
+            constructor(x, y, speed, first, opacity) {
+                this.x = x;
+                this.y = y;
+                this.speed = speed;
+                this.switchInterval = Math.floor(Math.random() * 10 + 10);
+                this.first = first;
+                this.opacity = opacity;
+                this.value = this.getRandomChar();
+                this.lastSwitch = 0;
+            }
+
+            getRandomChar() {
+                return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+            }
+
+            update() {
+                this.y += this.speed;
+
+                // Switch character occasionally
+                if (Date.now() - this.lastSwitch > this.switchInterval * 100) {
+                    this.value = this.getRandomChar();
+                    this.lastSwitch = Date.now();
+                }
+            }
+
+            draw() {
+                matrixCtx.fillStyle = this.first ?
+                    `rgba(240, 240, 240, ${this.opacity})` :
+                    `rgba(210, 210, 210, ${this.opacity})`;
+                matrixCtx.font = `${symbolSize}px monospace`;
+                matrixCtx.fillText(this.value, this.x, this.y);
+            }
+        }
+
+        class MatrixStream {
+            constructor(xPosition) {
+                this.symbols = [];
+                this.totalSymbols = Math.floor(Math.random() * 30 + 10);
+                this.speed = Math.random() * 1.5 + 1;
+                this.x = xPosition;
+                this.generateSymbols();
+            }
+
+            generateSymbols() {
+                let y = Math.random() * -matrixCanvas.height;
+                let opacity = 0.9;
+
+                for (let i = 0; i < this.totalSymbols; i++) {
+                    let symbol = new MatrixSymbol(
+                        this.x,
+                        y - i * symbolSize,
+                        this.speed,
+                        i === 0,
+                        opacity
+                    );
+                    this.symbols.push(symbol);
+                    opacity -= 1 / this.totalSymbols / fadeInterval;
+                }
+            }
+
+            update() {
+                const lastSymbol = this.symbols[this.symbols.length - 1];
+
+                if (lastSymbol && lastSymbol.y > matrixCanvas.height) {
+                    // Reset the entire stream
+                    let opacity = 0.9;
+
+                    // Keep same X position (guaranteed no overlap)
+                    const startY = -(this.symbols.length * symbolSize) - Math.random() * 100;
+
+                    for (let i = 0; i < this.symbols.length; i++) {
+                        this.symbols[i].y = startY - i * symbolSize;
+                        this.symbols[i].x = this.x;
+                        this.symbols[i].opacity = opacity;
+                        this.symbols[i].value = this.symbols[i].getRandomChar();
+                        opacity -= 1 / this.totalSymbols / fadeInterval;
+                    }
+                } else {
+                    this.symbols.forEach(symbol => symbol.update());
+                }
+            }
+
+            draw() {
+                this.symbols.forEach(symbol => symbol.draw());
+            }
+        }
+
+        function initMatrixRain() {
+            streams = [];
+
+            // Calculate maximum number of streams with spacing
+            const spacing = symbolSize * 1.5; // Each stream gets 1.5 symbol widths of space
+            const maxStreams = Math.floor(matrixCanvas.width / spacing);
+
+            // Create streams at evenly spaced positions
+            for (let i = 0; i < maxStreams; i++) {
+                const x = i * spacing + (Math.random() * symbolSize); // Add slight randomness
+                const stream = new MatrixStream(x);
+                streams.push(stream);
+            }
+        }
+
+        function updateMatrixRain() {
+            // Clear with fade effect
+            matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+
+            // Update and draw streams
+            streams.forEach(stream => {
+                stream.update();
+                stream.draw();
+            });
+        }
+
+        // Figure-8 knot curve function for Three.js
+        function figure8KnotCurve(t) {
+            t = t * Math.PI * 2; // Convert to 0-2π
+
+            const A = EPSILON * Math.sin(4 * t);
+            const v1 = LAMBDA * Math.sin(t) - (1 - LAMBDA) * Math.sin(3 * t);
+            const v2 = LAMBDA * Math.cos(t) + (1 - LAMBDA) * Math.cos(3 * t);
+            const v3 = Math.sin(2 * t);
+
+            const scaleFactor = (1 + A) / (1 - A);
+
+            const x = options.scale * scaleFactor * v1;
+            const y = options.scale * scaleFactor * v2;
+            const z = options.scale * scaleFactor * v3;
+
+            return new THREE.Vector3(x, y, z);
+        }
+
+        // Create Tube Geometry
+        function createKnotGeometry() {
+            // Create the curve
+            const curve = new THREE.Curve();
+            curve.getPoint = figure8KnotCurve;
+
+            // Create tube geometry
+            return new TubeGeometry(
+                curve,
+                TUBULAR_SEGMENTS,
+                options.tubeRadius,
+                RADIAL_SEGMENTS,
+                true // closed
+            );
+        }
+
+        // Scene setup
+        const canvas = document.querySelector('canvas.webgl');
+        const scene = new THREE.Scene();
+        scene.background = null; // Transparent background
+
+        // Camera
+        const sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+
+        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
+        camera.position.set(100, 100, 100);
+
+        // Renderer
+        const renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            alpha: true,
+            antialias: true
+        });
+        renderer.setSize(sizes.width, sizes.height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Controls
+        const controls = new OrbitControls(camera, canvas);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Create knot mesh
+        const knotMaterial = new THREE.MeshStandardMaterial({
+            color: options.knotColor,
+            metalness: 0.9,
+            roughness: 0.5,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 1.0
+        });
+
+        let knotGeometry = createKnotGeometry();
+        let knotMesh = new THREE.Mesh(knotGeometry, knotMaterial);
+        scene.add(knotMesh);
+
+        // Wireframe
+        const wireframeMaterial = new THREE.LineBasicMaterial({
+            color: 0x000000,
+            transparent: true,
+            opacity: 0.3
+        });
+        let wireframe = new THREE.LineSegments(
+            new THREE.WireframeGeometry(knotGeometry),
+            wireframeMaterial
+        );
+        wireframe.visible = options.wireframe;
+        scene.add(wireframe);
+
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(100, 100, 50);
+        scene.add(directionalLight);
+
+        const pointLight = new THREE.PointLight(0xfff, 0.9, 100);
+        pointLight.position.set(50, 50, 50);
+        scene.add(pointLight);
+
+        // GUI Controls
+        const knotFolder = gui.addFolder('Figure-8 Knot');
+        knotFolder.add(options, 'autoRotate').name('Auto Rotate');
+        knotFolder.add(options, 'autoRotateSpeed', 0, 5, 0.1).name('Rotation Speed');
+        knotFolder.add(options, 'tubeRadius', 1, 30, 1).name('Tube Radius').onChange(updateKnotGeometry);
+        knotFolder.add(options, 'scale', 10, 200, 1).name('Scale').onChange(updateKnotGeometry);
+        knotFolder.addColor(options, 'knotColor').name('Knot Color').onChange(v => {
+            knotMaterial.color.set(v);
+        });
+        knotFolder.add(options, 'wireframe').name('Wireframe').onChange(v => {
+            wireframe.visible = v;
+        });
+
+        // const matrixFolder = gui.addFolder('Matrix Rain');
+        // matrixFolder.add(options, 'matrixSpeed', 0.5, 5, 0.1).name('Rain Speed');
+        // matrixFolder.add(options, 'matrixOpacity', 0.1, 1, 0.1).name('Opacity');
+
+        gui.close();
+
+        function updateKnotGeometry() {
+            knotGeometry.dispose();
+            knotGeometry = createKnotGeometry();
+
+            knotMesh.geometry = knotGeometry;
+
+            wireframe.geometry.dispose();
+            wireframe.geometry = new THREE.WireframeGeometry(knotGeometry);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            sizes.width = window.innerWidth;
+            sizes.height = window.innerHeight;
+
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(sizes.width, sizes.height);
+
+            matrixCanvas.width = sizes.width;
+            matrixCanvas.height = sizes.height;
+            initMatrixRain();
+        });
+
+        // Hide loader when everything is loaded
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Initialize matrix rain
+        initMatrixRain();
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Update matrix rain
+            updateMatrixRain();
+
+            // Auto rotate knot
+            const speedRot = 0.004;
+            if (options.autoRotate) {
+                knotMesh.rotation.y += speedRot * options.autoRotateSpeed;
+                wireframe.rotation.y += speedRot * options.autoRotateSpeed;
+                knotMesh.rotation.z -= speedRot * options.autoRotateSpeed;
+                wireframe.rotation.z -= speedRot * options.autoRotateSpeed;
+            }
+
+            // Update controls
+            controls.update();
+
+            // Render Three.js scene
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+    </script>
+</body>
+
+</html>
