@@ -41,10 +41,12 @@ class Vehicle {
   }
 
   show() {
-    colorMode(HSB);
-    stroke(this.i/(2),255,255);
+    push();
+    colorMode(HSB, 1, 1, 1);
+    stroke(this.i, 1, 1);
     strokeWeight(this.r);
     point(this.pos.x, this.pos.y);
+    pop();
   }
 
 
