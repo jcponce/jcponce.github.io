@@ -25,6 +25,17 @@ function setup() {
   buildText();
 }
 
+function draw() {
+  cursor(HAND);
+  background(0);
+
+  for (let v of vehicles) {
+    v.behaviors();
+    v.update();
+    v.show();
+  }
+}
+
 function buildText() {
   vehicles = [];
   points = [];
@@ -69,17 +80,6 @@ function buildText() {
     let pt = points[i];
     let col = map(i, 0, points.length, 0, 1);
     vehicles.push(new Vehicle(pt.x, pt.y, col));
-  }
-}
-
-function draw() {
-  cursor(HAND);
-  background(0);
-
-  for (let v of vehicles) {
-    v.behaviors();
-    v.update();
-    v.show();
   }
 }
 
