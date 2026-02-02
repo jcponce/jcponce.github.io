@@ -29,7 +29,8 @@ function setup() {
 
   for (var i = 0; i < points.length; i++) {
     var pt = points[i];
-    var vehicle = new Vehicle(pt.x, pt.y,i);
+    let col = map(i, 0, points.length, 0, 1);
+    var vehicle = new Vehicle(pt.x, pt.y, col);
     vehicles.push(vehicle);
   }
 }
