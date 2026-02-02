@@ -4,7 +4,7 @@
 // Steering Text Paths
 // Video: https://www.youtube.com/watch?v=4hA7G3gup-4
 
-// This version by Juan Carlos Ponce Campuzano 26/Oct/2023
+// This version by Juan Carlos Ponce Campuzano 2/Feb/2026
 
 let font;
 let vehicles = [];
