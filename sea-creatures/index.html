@@ -1,0 +1,784 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <!-- dublin core -->
+  <meta name="dc.title" CONTENT="Sea Creatures with Elementary Functions">
+  <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+  <meta name="dc.date" CONTENT="16-Dec-2025">
+  <meta name="dc.type" CONTENT="Interactive Resource">
+  <meta name="dc.format" CONTENT="HTML">
+  <meta name="dc.language" CONTENT="en-US">
+  <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+  <!-- social media cards -->
+  <meta property="og:title" content="Sea Creatures with Elementary Functions">
+  <meta property="og:description" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+  <meta property="og:url" content="https://jcponce.github.io/">
+  <meta name="twitter:card" content="Interactive Mathematical Applets and Animations">
+  <meta property="og:site_name" content="Dynamic Mathematics">
+
+  <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+
+  <title>Sea Creatures with Elementary Functions</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/noscript.css" />
+  </noscript>
+
+  <!--MathJax starts-->
+  <script>
+    window.MathJax = {
+      tex: {
+        tags: "ams",
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  <!--MathJax Ends-->
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JPYTNF6MB4');
+  </script>
+
+  <style>
+    /* Inline code */
+    code {
+      font-family: "Fira Code", "JetBrains Mono", "Source Code Pro",
+        Menlo, Consolas, Monaco, "Courier New", monospace;
+      font-size: 0.95em;
+      background: #f4f6f8;
+      color: #2d2d2d;
+      padding: 0.15em 0.35em;
+      border-radius: 4px;
+      border: 1px solid #e1e4e8;
+      white-space: nowrap;
+    }
+
+    /* Code blocks */
+    pre {
+      font-family: "Fira Code", "JetBrains Mono", "Source Code Pro",
+        Menlo, Consolas, Monaco, "Courier New", monospace;
+      font-size: 0.9em;
+      line-height: 1.6;
+      background: #0f172a;
+      /* dark slate */
+      color: #e5e7eb;
+      /* light gray text */
+      padding: 1.2rem 1.4rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      margin: 1.5rem 0;
+    }
+
+    /* Code inside pre */
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border: none;
+      white-space: pre;
+    }
+
+    /* Optional: subtle scrollbar for large blocks */
+    pre::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    pre::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+    }
+
+    #seaLinks {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+
+    #seaLinks span {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 6px 8px 0 0;
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    /* Hover effect */
+    #seaLinks span:hover {
+      background-color: black;
+      color: white;
+    }
+
+    /* Optional: Active state */
+    #seaLinks span.active {
+      background-color: black;
+      color: white;
+    }
+  </style>
+
+</head>
+
+
+<body class="is-preload">
+  <!--Magicbook cotainer-->
+  <div class="container">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <h1><a href="../">Dynamic Mathematics</a></h1>
+        <nav id="nav">
+          <ul>
+            <li class="special">
+              <a href="#menu" class="menuToggle"><span>Menu</span></a>
+              <div id="menu">
+                <ul>
+
+                  <li><a href="#historical-background">Historical background</a></li>
+
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <article id="main">
+
+        <header>
+          <h2>Sea Creatures with Elementary Functions</h2>
+        </header>
+        <section class="wrapper style5">
+          <div class="inner">
+
+            <header>
+              <p>By Juan Carlos Ponce Campuzano, 16/Feb/2026</p>
+
+            </header>
+
+            <hr>
+
+
+            <h3 id="intro">Introduction</h3>
+
+            <p>
+              I recently came across the work of the coder and artist known as
+              <a href="https://x.com/yuruyurau">@yuruyurau</a>, and I was immediately drawn to the elegance and
+              compactness of their visual sketches.
+              In particular, a piece shared in
+              <a href="https://x.com/yuruyurau/status/2005652330612736419">this post</a>
+              beautifully demonstrates how fluid, organic motion can emerge from what
+              appears to be a short line of code with only 261 characters.
+            </p>
+
+
+
+
+            <div style="display: flex; justify-content: center;">
+              <blockquote class="twitter-tweet" style="text-align: center important!;">
+                <p dir="ltr" lang="en">
+                  t=0,draw=$=&gt;{t||createCanvas(w=400,w);background(9).stroke(w,46);for(t+=PI/30,i=3e4;i--;)d=mag(k=i&lt;2e4?sin(i/9)*9:4*cos(i/49)*cos(i/3690),e=i/984-12)**2/99+1,point((q=k*(4+sin(d*16-t+k))-5*sin(atan2(k,e)*9))+60*sin(c=d*1.1-t/18+i%2*3)+200,(q+40)*sin(c-d)+d*79)}<a
+                    href="https://twitter.com/hashtag/%E3%81%A4%E3%81%B6%E3%82%84%E3%81%8DProcessing?src=hash&amp;ref_src=twsrc%5Etfw">#つぶやきProcessing</a>
+                  <a href="https://t.co/fjJpaBUQw1">pic.twitter.com/fjJpaBUQw1</a>
+                </p>
+                — ア (@yuruyurau)
+                <a href="https://twitter.com/yuruyurau/status/2005652330612736419?ref_src=twsrc%5Etfw">December 29,
+                  2025</a>
+              </blockquote>
+            </div>
+
+            <script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+
+
+            <p>
+              As a mathematician, I became curious about how these animations actually work.
+              How can such intricate, almost underwater-like forms arise from simple elementary functions?
+              That curiosity led me to recreate and explore similar ideas using p5.js, focusing on sine, cosine, and
+              other basic mathematical relationships.
+            </p>
+
+            <p>
+              This post is a reflection of my (almost obsessive) exploration. It is
+              an attempt to unpack and understand the mathematical structure behind
+              these mesmerizing animations.
+              My goal is to show how layered simplicity, built from
+              elementary functions, can generate surprisingly rich
+              and organic visual behaviour.
+            </p>
+
+
+            <hr>
+
+            <h3>Step 1: Basic Grid Structure</h3>
+
+            <p>
+              We begin with the simplest possible structure: a static grid of points. This establishes our foundation
+              for transforming linear indices into 2D coordinates.
+            </p>
+
+            <pre><code>let t = 0;
+
+function setup() {
+  createCanvas(500, 500);
+  background(0);
+  stroke(255);
+}
+
+function draw() {
+  background(0);
+  
+  // Create a grid of points
+  for (let i = 0; i < 20000; i++) {
+    // Convert linear index to 2D coordinates
+    const x = i % 200;
+    const y = floor(i / 200);
+    
+    // Center the grid
+    const k = x - 100;
+    const e = y - 50;
+    
+    // Place points with some spacing
+    const px = width / 2 + k * 2;
+    const py = height / 2 + e * 2;
+    
+    point(px, py);
+  }
+}</code></pre>
+
+            <div style="text-align: center;">
+              <img width="500px"
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvThXtLwkueUS_jN1NULww3ty5p-kU8GPaSp1AoBBUQwFhioAHFNAWOs6AC1G8DqT5LRsg5CCoFgUCbg9vIAqSNUrzd1mzAAKTpH9THvnnytojANurBbSdlA0EyvIPvZ2NeAPyDXcC-CnfDaMVI7ZzIfU_nN1QX3iOTycK_RoV9DDplQ/s1600/sea-creature-01.png">
+
+            </div>
+
+            <h4>Key concepts</h4>
+
+            <ul>
+              <li>
+                <strong>Linear index to 2D mapping</strong>:
+                Converting a single loop index into grid coordinates using
+                <code>x = i % N</code> and <code>y = floor(i / N)</code>.
+              </li>
+              <li>
+                <strong>Centering the coordinate system</strong>:
+                Shifting the grid so the origin sits at the canvas centre
+                (<code>k = x - a</code>, <code>e = y - b</code>).
+              </li>
+              <li>
+                <strong>Structured point field</strong>:
+                Establishing a static lattice as the foundation for later transformations.
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Step 2: Introducing Polar Coordinates and a Gentle Animation</h3>
+
+            <p>
+              In this step, we introduce polar coordinates using the <code>mag()</code>
+              function for distance calculation
+              and <code>atan2()</code> for angle calculation and also the time
+              variable <code>t</code> to animate.
+            </p>
+            <pre><code>let t = 0;
+
+function setup() {
+  createCanvas(500, 500);
+  pixelDensity(2);
+  background(0);
+  stroke(255, 120);
+}
+
+function draw() {
+  background(0, 40);
+
+  t += 0.01; // Update time for animation
+  
+  for (let i = 0; i < 20000; i++) {
+    const x = i % 200;
+    const y = floor(i / 200);
+    
+    const k = x - 100;
+    const e = y - 50;
+    
+    // Calculate distance from center (magnitude)
+    const o = mag(k, e) / 50;
+    
+    // Convert to angle
+    const c = atan2(e, k);
+    
+    // Simple circular pattern
+    const px = width / 2 + (k + o * 10 * cos(c + t)) * 2;
+    const py = height / 2 + (e + o * 10 * sin(c + t)) * 2;
+    
+    point(px, py);
+  }
+}</code> </pre>
+
+            <div style="text-align: center;">
+              <iframe loading="lazy" src="https://esc-maths.github.io/sketches/sea-creatures/step-02"
+                style="border: 1px solid black; height: 500px; width: 500px;"></iframe>
+            </div>
+
+            <h4>Key Concepts</h4>
+            <ul>
+              <li>
+                <strong>Polar coordinates</strong>:
+                Radius <code>r = sqrt(k² + e²)</code> and angle <code>θ = atan2(e, k)</code>.
+              </li>
+              <li>
+                <strong>Distance-based modulation</strong>:
+                Using radial distance to control displacement magnitude.
+              </li>
+              <li>
+                <strong>Time parameter</strong>:
+                Introducing a variable <code>t</code> that increments every frame.
+              </li>
+              <li>
+                <strong>Angular displacement</strong>:
+                Circular motion generated with <code>cos(θ + t)</code> and <code>sin(θ + t)</code>.
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Step 3: Adding Time-Based Animation and Gentle Distortion</h3>
+
+            <p>
+              Now we create our first animated distortion effect using sinusoidal functions.
+
+            </p>
+
+            <pre><code>let t = 0;
+
+function setup() {
+  createCanvas(500, 500);
+  pixelDensity(2);
+  background(0);
+  stroke(255, 80);
+}
+
+function draw() {
+  background(0, 40);
+  
+  t += 0.02;
+  
+  for (let i = 0; i < 20000; i++) {
+    const x = i % 200;
+    const y = floor(i / 200);
+    
+    const k = x - 100;
+    const e = y - 50;
+    
+    const o = mag(k, e) / 50;
+    const c = atan2(e, k);
+    
+    // Add time-based oscillation
+    const q = o * 20 * sin(c * 2 + t);
+    
+    const px = width / 2 + (k + q * cos(c)) * 2;
+    const py = height / 2 + (e + q * sin(c)) * 2;
+    
+    point(px, py);
+  }
+}</code> </pre>
+
+            <div style="text-align: center;">
+              <iframe loading="lazy" src="https://esc-maths.github.io/sketches/sea-creatures/step-03"
+                style="border: 1px solid black; height: 500px; width: 500px;"></iframe>
+            </div>
+
+            <h4>Key Concepts</h4>
+            <ul>
+              <li>
+                <strong>Sinusoidal modulation</strong>:
+                Creating wave-like motion with <code>sin(2θ + t)</code>.
+              </li>
+              <li>
+                <strong>Radial amplification</strong>:
+                Scaling oscillations by distance from the centre.
+              </li>
+              <li>
+                <strong>Directional displacement</strong>:
+                Applying deformation along radial directions using
+                <code>cos(θ)</code> and <code>sin(θ)</code>.
+              </li>
+              <li>
+                <strong>Emergent wave patterns</strong>:
+                Interference between angle and time produces organic motion.
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Step 4: Complex Warping Functions</h3>
+
+            <p>
+              We increase complexity by adding multiple trigonometric functions and changing the coordinate scaling.
+
+            </p>
+
+            <pre><code>let t = 0;
+
+function setup() {
+  createCanvas(500, 500);
+  pixelDensity(2);
+  background(0);
+  stroke(255, 80);
+}
+
+function draw() {
+  background(0, 40);
+  
+  t += 0.03;
+  
+  for (let i = 0; i < 30000; i++) {
+    const x = i % 250;
+    const y = floor(i / 250);
+    
+    // Different centering and scaling
+    const k = x / 2 - 62.5;
+    const e = y / 2 - 50;
+    
+    const o = mag(k, e) / 20;
+    const c = o * e / 20 - t / 5;
+    
+    // More complex warping function
+    const q = x + o * k * sin(2 * o - t);
+    
+    const px = width / 2 + q * sin(c);
+    const py = height / 2 + (y / 2) * cos(2 * c - t) - q * cos(c);
+    
+    point(px, py);
+  }
+}</code> </pre>
+
+            <div style="text-align: center;">
+              <iframe loading="lazy" src="https://esc-maths.github.io/sketches/sea-creatures/step-04"
+                style="border: 1px solid black; height: 500px; width: 500px;"></iframe>
+            </div>
+
+            <h4>Key Concepts</h4>
+            <ul>
+              <li>
+                <strong>Rescaling and reframing</strong>:
+                Adjusting coordinate scaling to alter density and proportions.
+              </li>
+              <li>
+                <strong>Composite angle definitions</strong>:
+                Building angles from multiple variables (distance, position, time).
+              </li>
+              <li>
+                <strong>Layered trigonometric transformations</strong>:
+                Combining sine and cosine functions in nested expressions.
+              </li>
+              <li>
+                <strong>Nonlinear warping</strong>:
+                Distorting the grid using multiplicative interactions such as
+                <code>o * k * sin(...)</code>.
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Step 5: Final Organic Animation</h3>
+
+            <p>
+              The complete sketch with all transformations combined, creating the organic sea-creature motion.
+            </p>
+
+            <pre><code>let t = 0;
+
+function setup() {
+  createCanvas(500, 500);
+  pixelDensity(2);
+  background(0);
+  stroke(255, 80);
+}
+
+function draw() {
+  background(0, 60);
+
+  t += 0.05;
+
+  for (let i = 0; i < 40000; i++) {
+    // High density grid with different modulo division
+    const x = i / 4 % 100;
+    const y = floor(i / 150);
+
+    // Recenter with scaling
+    const k = x / 4 - 12.5;
+    const e = y / 9 - 9;
+
+    // Polar coordinate calculations
+    const o = mag(k, e) / 9;
+    const c = o * e / 30 - t / 8;
+
+    // Complex displacement function
+    const q =
+      x +
+      cos(9 / (k + 1e-6)) +  // Avoid division by zero
+      o * k *
+      sin(4 * o - t);
+
+    // Final position with multiple transformations
+    const px = 0.9 * q * sin(c) + width / 2;
+    const py =
+      height / 2 +
+      (y / 3.6) * cos(3 * c - t / 2) -
+      (q / 2) * cos(c);
+
+    point(px, py);
+  }
+}</code> </pre>
+
+            <div style="text-align: center;">
+              <iframe loading="lazy" src="https://esc-maths.github.io/sketches/sea-creatures/step-05"
+                style="border: 1px solid black; height: 500px; width: 500px;"></iframe>
+            </div>
+
+            <h4>Key Concepts</h4>
+
+            <ul>
+              <li>
+                <strong>High-density sampling</strong>:
+                Increasing point count for smoother visual texture.
+              </li>
+              <li>
+                <strong>Singularity handling</strong>:
+                Preventing division by zero with a small epsilon value.
+              </li>
+              <li>
+                <strong>Multi-layered deformation</strong>:
+                Combining reciprocal, trigonometric, and radial terms.
+              </li>
+              <li>
+                <strong>Interference of frequencies</strong>:
+                Multiple time-dependent components interacting.
+              </li>
+              <li>
+                <strong>Emergent complexity</strong>:
+                Organic motion arising from stacked elementary functions.
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Final Mathematical Breakdown</h3>
+
+            <p>
+              The complete transformation used in the last step can be expressed as:
+              \begin{align*}
+              x &= \frac{i}{4} \mod 100 \\
+              y &= \lfloor \frac{i}{150} \rfloor \\
+              k &= \frac{x}{4} - 12.5 \\
+              e &= \frac{y}{9} - 9 \\
+              o &= \frac{\sqrt{k^2 + e^2}}{9} \\
+              c &= \frac{o \times e}{30} - \frac{t}{8} \\
+              q &= x + \cos\left(\frac{9}{k + \epsilon}\right) + o \times k \times \sin(4o - t) \\
+              x' &= 0.9 \times q \times \sin(c) + \frac{\text{width}}{2} \\
+              y' &= \frac{\text{height}}{2} + \frac{y}{3.6} \times \cos(3c - t/2) - \frac{q}{2} \times \cos(c)
+              \end{align*}
+              where $\epsilon = 10^{-6}$ prevents division by zero.
+            </p>
+
+            <hr>
+
+            <h3>Creating Variations Through Experimentation</h3>
+
+            <p>
+              Now that we have deconstructed the animation to its
+              mathematical core, the creative process becomes a game
+              of exploration. By adjusting the various constants,
+              scaling factors, and frequencies within the formulas,
+              you can generate an endless variety of patterns and motions.
+              Try modifying values like the divisor in
+              <code>mag(k, e) / 9</code>, the coefficients in front of <code>t</code>,
+              or the numbers inside trigonometric
+              functions such as <code>sin(4 * o - t)</code>. You can even
+              introduce new terms or replace existing ones with
+              different functions like <code>tan()</code> or <code>noise()</code>
+              from the p5.js library. This process of trial
+              and error is where unexpected and fantastic mathematical
+              patterns emerge, transforming the code from a
+              static algorithm into a dynamic tool for artistic discovery.
+            </p>
+
+            <div style="text-align: center;">
+              <img style="width: 500px;"
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipEX0VmqAVWBeABmaNVr_RupGdlR37tOUyF0nBnJdA5EeGioDYyBrOIWA06IPH_-aW2au_oipxw_I9y1OAJhGOlzvbVjnew4j258oYRCCXgDca7M9YXvqOwjTSsOQ6nbviQiqq-i70Bu-IB7nGJ_4BEzYf1LcO9HjXkI8TXEYTWwdb2PBbbQF9xLE-R3Y/s500/sea-creature.gif">
+
+            </div>
+            <hr>
+
+            <h3>
+              Final remarks
+            </h3>
+
+            <p>
+              I hope the steps described above provide a clearer understanding of how complex organic motion emerges
+              from the careful layering of simple mathematical transformations. By starting with basic concepts and
+              progressively adding complexity, we can create sophisticated animations that mimic natural phenomena. The
+              key insight is that intricate patterns arise from the interplay of trigonometric functions, polar
+              coordinates, and time-based variations.
+            </p>
+
+
+            <p>
+              Below are several variations of the same underlying structure.
+              All of them are adaptations inspired by the elegant visual sketches of
+              <a href="https://x.com/yuruyurau">@yuruyurau</a>.
+              Each version emerges from small adjustments in constants, frequencies, and scaling factors.
+              What fascinates me most is how delicate the balance is — tiny numerical changes
+              can completely reshape the creature.
+              This is where mathematics stops feeling mechanical and starts feeling alive.
+            </p>
+
+
+            <div>
+
+              <div style="text-align: center;">
+                <iframe loading="lazy" id="seaFrame" style="width: 500px; height: 500px;"
+                  src="https://esc-maths.github.io/sketches/sea-creatures/example-01">
+                </iframe>
+              </div>
+
+              <div>
+                <p id="seaLinks">
+                  <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-01">Sea creature 1</span>
+                  <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-02">Sea creature 2</span>
+                  <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-03">Sea creature 3</span>
+                  <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-04">Sea creature 4</span>
+                  <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-05">Sea creature 5</span>
+                  <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-06">Sea creature 6</span>
+                </p>
+              </div>
+
+            </div>
+
+
+
+            <hr>
+
+            <p>Finally, if you find this content useful, please
+              consider supporting my work using the links below.</p>
+
+            <div style="text-align: center;">
+              <div class="actions">
+                <p>
+                  <strong><a class="button icon solid" href="https://www.patreon.com/jcponce"><i
+                        class="fab fa-patreon"></i> Patreon</a></strong>&nbsp;&nbsp;
+                  <strong><a class="button icon solid"
+                      href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=WTMTR7D8RYZ26&amp;item_name=Your+support+will+help+me+to+improve+and+keep+up+to+date+the+applets+of+this+site.+Sincerely+appreciate+it%21&amp;currency_code=AUD&amp;source=url">&#x2764;&#xFE0F;
+                      PayPal</a></strong>&nbsp;&nbsp;
+                  <strong><a class="button icon solid"
+                      href="https://jcponcemath.secure-decoration.com/">&#x2764;&#xFE0F; Buy a T-shirt</a></strong>
+                </p>
+              </div>
+            </div>
+
+            <p style="text-align: center;">
+              I sincerely appreciate it. Thank you! &#x1F603;
+            </p>
+
+
+
+
+          </div>
+        </section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li><a href="https://github.com/jcponce" class="icon brands fa-github"><span class="label">Dribbble</span></a>
+          </li>
+          <li><a href="mailto: jcponcemath@gmail.com" class="icon solid fa-envelope"><span
+                class="label">Email</span></a></li>
+          <li><a href="https://mathstodon.xyz/@jcponcemath" class="icon brands fa-mastodon"><span
+                class="label">Twitter</span></a></li>
+          <li><a href="https://twitter.com/jcponcemath" class="icon brands fa-x-twitter"><span
+                class="label">Twitter</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2018-<span>
+              <script>document.write(new Date().getFullYear());</script>
+            </span>
+            Juan Carlos Ponce Campuzano
+          </li>
+          <li>&nbsp;<a href="../licence.html"><i class="fab fa-creative-commons"></i></a></li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+
+    </div>
+
+
+  </div>
+
+  <!--Scripts-->
+  <script src="../assets/js/breakpoints.min.js"></script>
+  <script src="../assets/js/browser.min.js"></script>
+  <script src="../assets/js/google-analytics-ga4.js"></script>
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery.scrollex.min.js"></script>
+  <script src="../assets/js/jquery.scrolly.min.js"></script>
+  <script src="../assets/js/jsutil.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+
+
+  <script>
+    const iframe = document.getElementById("seaFrame");
+    const links = document.querySelectorAll("#seaLinks span");
+
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        iframe.src = link.dataset.src;
+      });
+    });
+  </script>
+
+
+</body>
+
+
+</html>
