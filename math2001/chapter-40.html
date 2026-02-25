@@ -424,6 +424,48 @@ fsurf(fx,fy,fz,[0 6*pi 0 2*pi])
 					
 				</section>
 
+				<section data-auto-animate id="python">
+					<h5>Parametrisation in Python</h5>
+
+					<p style="font-size: 60%;">
+						Run Python online here: <a href="https://pythononline.net/"
+							target="_blank"><tt>python</tt> <i class="fa fa-external-link-alt"></i></a>
+					</p>
+				
+
+					<div style="font-size:74%;margin-top:20px;">
+<pre style="width: 800px;height: 540px; "><code data-trim data-noescape  class="language-python" >from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.colors as mcolors
+from matplotlib import cm
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate torus mesh
+angle = np.linspace(0, 2 * np.pi, 32)
+theta, phi = np.meshgrid(angle, angle)
+r, R = .25, 1.
+X = (R + r * np.cos(phi)) * np.cos(theta)
+Y = (R + r * np.cos(phi)) * np.sin(theta)
+Z = r * np.sin(phi)
+
+colorfunction=(X**2+Y**2)
+norm=mcolors.Normalize(colorfunction.min(),colorfunction.max())
+
+# Display the mesh
+fig = plt.figure(figsize=(7, 7))
+ax = fig.add_subplot(projection='3d')
+ax.set_xlim3d(-1, 1)
+ax.set_ylim3d(-1, 1)
+ax.set_zlim3d(-1, 1)
+ax.plot_surface(X, Y, Z, rstride = 1, cstride = 1, 
+		facecolors=cm.jet(norm(colorfunction)))
+plt.show()</code></pre>
+					</div>
+					
+					<br/>
+					
+				</section>
+
 				<section data-background-iframe="https://trinket.io/embed/python3/f9f0dc3bd2"
 					data-background-interactive id="python">
 					
