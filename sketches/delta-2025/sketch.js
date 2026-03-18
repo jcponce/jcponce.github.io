@@ -49,9 +49,9 @@ async function setup() {
   cursiveFont = await loadFont("https://fonts.googleapis.com/css2?family=Meow+Script&display=swap");
 
   bgImg = await loadImage('delta-uq.jpg');
-  fgImg = await loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Grouse_Mountain_%288598307419%29.jpg/960px-Grouse_Mountain_%288598307419%29.jpg?20210319145510');
+  fgImg = await loadImage('Grouse_Mountain_(8598307419).jpg');
   //fgImg = await loadImage('https://upload.wikimedia.org/wikipedia/commons/4/41/Exotic_Rainforest_%285141378112%29.jpg');
-  paperImg = await loadImage('https://upload.wikimedia.org/wikipedia/commons/6/6e/Brown_paper_bag_texture.jpg');
+  paperImg = await loadImage('Brown_paper_bag_texture.jpg');
 
   textAlign(CENTER, CENTER);
 
