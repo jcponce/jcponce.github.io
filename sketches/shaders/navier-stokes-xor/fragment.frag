@@ -86,7 +86,7 @@ void main() {
 
     r = length(p.xz);
 
-    d = ( length(sin(p.xz * 5.0 + 1.0)) / 6.0
+    d = ( length(sin(p.xz * 4.0 + 1.0)) / 7.0
         + pow(abs(p.y * r), 3.0) / 20.0
         + r / 45.0 - 0.1
         ) / (2.0 + r + r);
