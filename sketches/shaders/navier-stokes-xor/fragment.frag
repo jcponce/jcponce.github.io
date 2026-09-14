@@ -98,5 +98,5 @@ void main() {
   }
 
   O = sqrt(tanh4(O));
-  gl_FragColor = vec4(O.rgb, 1.0);   // white background
+  gl_FragColor = vec4(O.rgb, 1.0);   // black background
 }
