@@ -57,7 +57,7 @@ void main() {
   float d = 0.0;   // step size
   float r = 0.0;   // radial distance in the folded space
 
-  for (float i = 0.0; i < 99.0; i++) {
+  for (int i = 0; i < 99; i++) {
     vec3 p = z * dir;
 
     p.z += 1.7;
