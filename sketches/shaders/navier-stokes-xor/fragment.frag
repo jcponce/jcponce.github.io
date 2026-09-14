@@ -73,7 +73,7 @@ void main() {
   float d = 0.0;
   float r = 0.0;
 
-  for (int i = 0; i < 99; i++) {
+  for (int i = 0; i < 100; i++) {
     vec3 p = ro + z * dir;   // <-- now includes the camera offset
 
     // (the old `p.z += 1.7;` line is gone — it's baked into `ro`)
