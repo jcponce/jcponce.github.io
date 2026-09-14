@@ -57,15 +57,15 @@ void main() {
                                      // the old `p.z += 1.7` implied)
 
   // Rotate camera position around the pivot…
-  // vec3 rel = ro - pivot;
-  // rel.yz *= rot2D(ax);
-  // rel.xz *= rot2D(ay);
-  // ro = rel + pivot;
+  vec3 rel = ro - pivot;
+  rel.yz *= rot2D(ax);
+  rel.xz *= rot2D(ay);
+  ro = rel + pivot;
 
   // …and rotate the direction by the same amount, so the ray still
   // passes through the pivot after the rotation.
-  // dir.yz *= rot2D(ax);
-  // dir.xz *= rot2D(ay);
+  dir.yz *= rot2D(ax);
+  dir.xz *= rot2D(ay);
   // ---------------------------------------------------
 
   vec4 O = vec4(0.0);
@@ -98,5 +98,5 @@ void main() {
   }
 
   O = sqrt(tanh4(O));
-  gl_FragColor = vec4(1.0 - O.rgb, 1.0);   // white background
+  gl_FragColor = vec4(O.rgb, 1.0);   // white background
 }
