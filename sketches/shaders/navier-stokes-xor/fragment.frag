@@ -44,26 +44,42 @@ void main() {
   // If the image comes out upside-down, uncomment this line:
   // C.y = iResolution.y - C.y;
 
-  // The ray direction is CONSTANT across the loop, so hoist it out.
+  // Ray direction (unchanged)
   vec3 dir = normalize(vec3(C + C, 0.0) - iResolution.xyy);
 
-  // Optional: orbit the camera with the mouse (from your old template)
-  // float MN = min(iResolution.x, iResolution.y);
-  // dir.yz *= rot2D(-iMouse.y * 6.3 / MN);
-  // dir.xz *= rot2D(-iMouse.x * 6.3 / MN);
+  // ----- Orbit camera around the object's centre -----
+  float MN = min(iResolution.x, iResolution.y);
+  float ax = -iMouse.y * 6.3 / MN;   // pitch
+  float ay = -iMouse.x * 6.3 / MN;   // yaw
 
-  vec4  O = vec4(0.0);
-  float z = 0.0;   // travelled distance
-  float d = 0.0;   // step size
-  float r = 0.0;   // radial distance in the folded space
+  vec3 pivot = vec3(0.0);            // object centre = world origin
+  vec3 ro    = vec3(0.0, 0.0, 1.7);  // camera position (this is what
+                                     // the old `p.z += 1.7` implied)
+
+  // Rotate camera position around the pivot…
+  vec3 rel = ro - pivot;
+  rel.yz *= rot2D(ax);
+  rel.xz *= rot2D(ay);
+  ro = rel + pivot;
+
+  // …and rotate the direction by the same amount, so the ray still
+  // passes through the pivot after the rotation.
+  dir.yz *= rot2D(ax);
+  dir.xz *= rot2D(ay);
+  // ---------------------------------------------------
+
+  vec4 O = vec4(0.0);
+  float z = 0.0;
+  float d = 0.0;
+  float r = 0.0;
 
   for (int i = 0; i < 99; i++) {
-    vec3 p = z * dir;
+    vec3 p = ro + z * dir;   // <-- now includes the camera offset
 
-    p.z += 1.7;
+    // (the old `p.z += 1.7;` line is gone — it's baked into `ro`)
+
     p.yz *= 0.1 * mat2(7.0, 6.0, -6.0, 8.0);
 
-    // cos( (p.y - len(p.xz))*5 + z + iTime - 5.8 ) - vec4(0,11,33,0)
     float s = (p.y - length(p.xz)) * 5.0 + z + iTime - 5.8;
     vec4  k = cos(vec4(s) - vec4(0.0, 11.0, 33.0, 0.0));
     p.xz *= 4.0 * mat2(k.x, k.y, k.z, k.w);
@@ -82,6 +98,5 @@ void main() {
   }
 
   O = sqrt(tanh4(O));
-
   gl_FragColor = vec4(O.rgb, 1.0);
 }
