@@ -1,17 +1,112 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.min.js"></script>
-    
     <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
+    <title>Navier-Stokes — Xor</title>
+</head>
 
-  </head>
-  <body>
-    <main>
-    </main>
+<body>
+    <main></main>
+
+    <!-- Info button -->
+    <button id="infoBtn" aria-label="Show info" title="Info">i</button>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-panel">
+            <button class="modal-close" aria-label="Close" data-close>&times;</button>
+            <h2 id="infoTitle">About this visualization</h2>
+            <p>
+                Adapted from the original code by <strong>Xor</strong>:
+            </p>
+            <p>
+                <a href="https://fragcoord.xyz/s/nsm4hiif" target="_blank" rel="noopener">
+                    Navier-Stokes
+                </a>
+            </p>
+            <p>
+                This animation was inspired from ChatGPT's solution to the
+                <strong>Navier-Stokes existence and smoothness problem</strong>:
+            </p>
+            <p>
+                <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener">
+                   On the Navier-Stokes Millennium Prize Problem
+                </a>
+            </p>
+            <div style="text-align: center;">
+                <picture>
+                    <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f30a/512.webp" type="image/webp">
+                    <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f30a/512.gif" alt="🌊" width="52"
+                        height="52">
+                </picture>
+            </div>
+        </div>
+    </div>
+
     <script src="sketch.js"></script>
-  
+    <script>
+        (function () {
+            const btn = document.getElementById('infoBtn');
+            const modal = document.getElementById('infoModal');
+            const panel = modal.querySelector('.modal-panel');
+            const closeBtn = modal.querySelector('.modal-close');
 
-</body></html>
+            // Start closed & inert (no aria-hidden — inert replaces it)
+            modal.inert = true;
+
+            let lastFocused = null;
+
+            const open = () => {
+                lastFocused = document.activeElement;
+                modal.inert = false;            // must be lifted *before* focusing
+                modal.classList.add('open');
+                closeBtn.focus();
+            };
+
+            const close = () => {
+                modal.classList.remove('open');
+                // Move focus out FIRST, then make the subtree inert.
+                if (lastFocused && document.contains(lastFocused)) {
+                    lastFocused.focus();
+                } else {
+                    btn.focus();
+                }
+                modal.inert = true;
+            };
+
+            btn.addEventListener('click', open);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target.matches('[data-close]')) close();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.inert) close();
+            });
+
+            // Minimal focus trap: keep Tab cycling inside the open dialog.
+            panel.addEventListener('keydown', (e) => {
+                if (e.key !== 'Tab') return;
+                const focusables = panel.querySelectorAll(
+                    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                );
+                if (!focusables.length) return;
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault(); last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault(); first.focus();
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
