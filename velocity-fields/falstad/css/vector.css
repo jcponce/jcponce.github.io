@@ -1,62 +1,116 @@
-* { margin:0; padding:0; } /* to remove the top and left whitespace */
+/* ============================================================
+   Layout tokens — change the width in ONE place
+   ============================================================ */
+:root {
+  --sidebar-width: 260px;
+  --panel-bg:      #1c1d21;
+  --panel-border:  #33353c;
+  --panel-text:    #e8e8ec;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* keeps the 2px canvas border INSIDE its box */
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: var(--panel-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ============================================================
+   Canvas area — fills everything to the LEFT of the sidebar
+   ============================================================ */
+.canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: var(--sidebar-width);   /* always in sync with the sidebar */
+  background-color: #000;
+  border: 2px solid #000;
+}
 
 #glcanvas {
-	height:100%;
-	width:100%;
+  display: block;   /* removes the inline-block baseline gap */
+  width: 100%;
+  height: 100%;
 }
 
-.canvas {
-	border: 2px solid black;
-	background-color: black;
-	margin-right:255px;
-	height:100vh;
+input[type="text"]{
+	color: #000;
 }
+
+/* ============================================================
+   Sidebar — fixed right, always open, full height
+   ============================================================ */
 .sidebar {
-	width:250px;
-	position:fixed;
-	top: 0;
-	right: 0;
-}
-body {
-	overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;                 /* full height — never clipped */
+  width: var(--sidebar-width);
+  z-index: 20;               /* above #axesLabelContainer (10) */
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+
+  overflow-y: auto;          /* long control lists scroll instead of overflowing */
+  overflow-x: hidden;
+
+  background: var(--panel-bg);
+  border-left: 1px solid var(--panel-border);
+  color: var(--panel-text);
+  font-size: 14px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #4a4d57 transparent;
+  overscroll-behavior: contain;
 }
 
-.slider {
-        width:100%;
-        margin-bottom:8px;
+.sidebar::-webkit-scrollbar       { width: 10px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb {
+  background: #4a4d57;
+  border-radius: 5px;
+  border: 2px solid var(--panel-bg);
 }
-video {
-        display: none;
-}
+.sidebar::-webkit-scrollbar-thumb:hover { background: #5f636e; }
 
-button {
-        padding:5px;
-        margin:5px;
-}
-
-.checkbox {
-        margin-bottom:8px;
-}
-
-select {
-        margin-bottom:8px;
-}
-
+/* ============================================================
+   Status bar
+   ============================================================ */
 #status {
-	position:fixed;
-	bottom: 0;
-	left: 0;
-	height: 30px;
-	font-size: 25px;
-	color: white;
-	background-color: black;
-	padding:20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: var(--sidebar-width);  /* don't slide under the sidebar */
+  z-index: 15;
+  padding: 6px 16px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.65);
+  pointer-events: none;         /* lets clicks reach the canvas */
 }
 
+/* ============================================================
+   Axis labels overlay
+   ============================================================ */
 #axesLabelContainer {
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   z-index: 10;
@@ -66,99 +120,223 @@ select {
   color: white;
 }
 
-.floating-div {
-  position: absolute;
+.floating-div { position: absolute; }
+
+/* ============================================================
+   Generic controls
+   ============================================================ */
+video { display: none; }
+
+button {
+  padding: 5px;
+  margin: 5px;
 }
 
-input[type=range] {
-	width: 100%;
-	margin: 10.3px 0;
-	background-color: transparent;
-	-webkit-appearance: none;
-  }
-  input[type=range]:focus {
-	outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-	background: #848592;
-	border: 0.2px solid #010101;
-	border-radius: 1.3px;
-	width: 100%;
-	height: 5.4px;
-	cursor: pointer;
-  }
-  input[type=range]::-webkit-slider-thumb {
-	margin-top: -10.5px;
-	width: 26px;
-	height: 26px;
-	background: #969696;
-	border: 1.9px solid rgba(0, 0, 0, 0.6);
-	border-radius: 14px;
-	cursor: pointer;
-	-webkit-appearance: none;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-	background: #9495a0;
-  }
-  input[type=range]::-moz-range-track {
-	background: #848592;
-	border: 0.2px solid #010101;
-	border-radius: 1.3px;
-	width: 100%;
-	height: 5.4px;
-	cursor: pointer;
-  }
-  input[type=range]::-moz-range-thumb {
-	width: 26px;
-	height: 26px;
-	background: #969696;
-	border: 1.9px solid rgba(0, 0, 0, 0.6);
-	border-radius: 14px;
-	cursor: pointer;
-  }
-  input[type=range]::-ms-track {
-	background: transparent;
-	border-color: transparent;
-	border-width: 13.6px 0;
-	color: transparent;
-	width: 100%;
-	height: 5.4px;
-	cursor: pointer;
-  }
-  input[type=range]::-ms-fill-lower {
-	background: #747583;
-	border: 0.2px solid #010101;
-	border-radius: 2.6px;
-  }
-  input[type=range]::-ms-fill-upper {
-	background: #848592;
-	border: 0.2px solid #010101;
-	border-radius: 2.6px;
-  }
-  input[type=range]::-ms-thumb {
-	width: 26px;
-	height: 26px;
-	background: #969696;
-	border: 1.9px solid rgba(0, 0, 0, 0.6);
-	border-radius: 14px;
-	cursor: pointer;
-	margin-top: 0px;
-	/*Needed to keep the Edge thumb centred*/
-  }
-  input[type=range]:focus::-ms-fill-lower {
-	background: #848592;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-	background: #9495a0;
-  }
-  /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
-  how to remove the virtical space around the range input in IE*/
-  @supports (-ms-ime-align:auto) {
-	/* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
-	input[type=range] {
-	  margin: 0;
-	  /*Edge starts the margin from the thumb, not the track as other browsers do*/
-	}
-  }
-  
+select { margin-bottom: 8px; }
 
+.checkbox { margin-bottom: 8px; }
+
+.slider {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   Sidebar control polish (last so it wins over the generics)
+   ============================================================ */
+.sidebar > * { margin: 0; }   /* spacing comes from the flex gap */
+
+.sidebar h1,
+.sidebar h2,
+.sidebar h3 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.65;
+  margin-top: 6px;
+}
+
+.sidebar label {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.sidebar button {
+  width: 100%;
+  margin: 0;
+  padding: 5px 10px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  background: #2a2c33;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.sidebar button:hover  { background: #343741; }
+.sidebar button:active { background: #3e424e; }
+
+.sidebar select {
+  width: 100%;
+  margin: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  background: #2a2c33;
+  color: inherit;
+  font: inherit;
+}
+
+.sidebar input[type="checkbox"] { margin-right: 6px; }
+
+ /* ============================================================
+   Range inputs — polished, cross-browser
+   ============================================================ */
+input[type="range"] {
+  /* ---- tweak everything from here ---- */
+  --track-h:      6px;          /* track thickness                     */
+  --thumb-size:   22px;         /* thumb diameter                      */
+  --track-bg:     #3a3d46;      /* unfilled track                      */
+  --track-fill:   #6ea8fe;      /* filled portion (Firefox + JS hook)  */
+  --thumb-bg:     #e8e8ec;      /* thumb face                          */
+  --thumb-ring:   rgba(110, 168, 254, 0.45); /* focus glow             */
+  /* ------------------------------------ */
+
+  width: 100%;
+  height: var(--thumb-size);          /* keeps thumb from being clipped */
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: pan-y;                /* don't hijack vertical scroll   */
+}
+
+input[type="range"]:focus { outline: none; }
+
+/* ---------- WebKit / Blink (Chrome, Safari, Edge) ---------- */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: var(--track-h);
+  border: none;
+  border-radius: 999px;
+  background: var(--track-bg);
+  transition: background 0.15s ease;
+}
+input[type="range"]:hover::-webkit-slider-runnable-track {
+  background: color-mix(in srgb, var(--track-bg) 85%, white);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  box-sizing: border-box;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  margin-top: calc((var(--track-h) - var(--thumb-size)) / 2);
+  border: none;
+  border-radius: 50%;
+  background: var(--thumb-bg);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 0 0 0 var(--thumb-ring);
+  -webkit-appearance: none;
+  appearance: none;
+  transition: transform 0.12s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+input[type="range"]:hover::-webkit-slider-thumb  { transform: scale(1.08); }
+input[type="range"]:active::-webkit-slider-thumb { transform: scale(0.95); }
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 0 0 6px var(--thumb-ring);
+}
+
+/* ---------- Firefox ---------- */
+input[type="range"]::-moz-range-track {
+  height: var(--track-h);
+  border: none;
+  border-radius: 999px;
+  background: var(--track-bg);
+  transition: background 0.15s ease;
+}
+/* real progress fill — Firefox only */
+input[type="range"]::-moz-range-progress {
+  height: var(--track-h);
+  border: none;
+  border-radius: 999px;
+  background: var(--track-fill);
+}
+
+input[type="range"]::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border: none;
+  border-radius: 50%;
+  background: var(--thumb-bg);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 0 0 0 var(--thumb-ring);
+  transition: transform 0.12s ease, box-shadow 0.15s ease;
+}
+input[type="range"]:hover::-moz-range-thumb  { transform: scale(1.08); }
+input[type="range"]:active::-moz-range-thumb { transform: scale(0.95); }
+input[type="range"]:focus-visible::-moz-range-thumb {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 0 0 6px var(--thumb-ring);
+}
+
+/* ---------- Legacy Edge / IE ---------- */
+input[type="range"]::-ms-track {
+  height: var(--track-h);
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  border: none;
+  border-radius: 999px;
+  background: var(--track-fill);
+}
+input[type="range"]::-ms-fill-upper {
+  border: none;
+  border-radius: 999px;
+  background: var(--track-bg);
+}
+input[type="range"]::-ms-thumb {
+  box-sizing: border-box;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  margin-top: 0;                 /* Edge measures from the thumb */
+  border: none;
+  border-radius: 50%;
+  background: var(--thumb-bg);
+}
+input[type="range"]:focus::-ms-fill-lower { background: var(--track-fill); }
+input[type="range"]:focus::-ms-fill-upper { background: var(--track-bg); }
+
+@supports (-ms-ime-align: auto) {
+  input[type="range"] { margin: 0; }
+}
+
+/* ---------- Disabled ---------- */
+input[type="range"]:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+input[type="range"]:disabled::-webkit-slider-thumb,
+input[type="range"]:disabled::-moz-range-thumb {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ============================================================
+   Small screens
+   ============================================================ */
+@media (max-width: 700px) {
+  :root { --sidebar-width: 200px; }
+}
