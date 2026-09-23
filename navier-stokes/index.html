@@ -1,0 +1,1106 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- dublin core -->
+    <meta name="dc.title" CONTENT="Chladni patterns">
+    <meta name="dc.creator" CONTENT="Juan Carlos Ponce Campuzano">
+    <meta name="dc.date" CONTENT="01-Jul-2018">
+    <meta name="dc.type" CONTENT="Interactive Resource">
+    <meta name="dc.format" CONTENT="HTML">
+    <meta name="dc.language" CONTENT="en-US">
+    <meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+    <!-- social media cards -->
+    <meta property="og:title" content="Chladni patterns">
+    <meta property="og:description" content="Interactive Mathematical Applets and Animations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://github.com/jcponce/jcponce.github.io/blob/master/jcponceio.png">
+    <meta property="og:url" content="https://jcponce.github.io/">
+    <meta name="twitter:card" content="Interactive Mathematical Applets and Animations">
+    <meta property="og:site_name" content="Dynamic Mathematics">
+
+    <link rel="icon" type="image/png" href="../images/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/icon/infinity16.png" sizes="16x16">
+
+    <title>Chladni patterns</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+
+    <!--MathJax starts-->
+    <script>
+        window.MathJax = {
+            tex: {
+                tags: "ams",
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <!--MathJax Ends-->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPYTNF6MB4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JPYTNF6MB4');
+    </script>
+
+    <script src="math.js"></script>
+    <script src="mathcell.js"></script>
+
+</head>
+
+
+<body class="is-preload">
+    <!--Magicbook cotainer-->
+    <div class="container">
+
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <h1><a href="../">Dynamic Mathematics</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+
+                                    <li><a href="#historical-background">Historical background</a></li>
+                                    <li><a href="#mathematical-model">Mathematical model</a></li>
+                                    <li><a href="#simulation">Simulation</a></li>
+                                    <li><a href="#how-this-works">How the simulation works</a></li>
+                                    <!--<li><a href="#3D">3D patterns</a></li>-->
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main -->
+            <article id="main">
+
+                <header>
+                    <h2>Las ecuaciones de Navier–Stokes: </h2>
+                    <p>el Problema del Milenio que la IA podría haber resuelto</p>
+                </header>
+                <section class="wrapper style5">
+                    <div class="inner">
+
+                        <header>
+                            <p>By Juan Carlos Ponce Campuzano, 23/Sep/2026</p>
+                            <!--<div style="margin-top: -30px;font-size: 80%;">
+                                <p>Updated: 26/03/2025</p>
+                            </div>-->
+                        </header>
+
+                        <hr>
+
+                        <h2>Introducción</h2>
+                        <p>Las ecuaciones de Navier–Stokes están dadas por</p>
+                        <p>
+                            \[ \rho \left( \frac{\partial \mathbf{u}}{\partial t} +
+                            \left(\mathbf{u}\cdot\nabla\right)\mathbf{u} \right) = -\nabla p + \mu
+                            \nabla^2 \mathbf{u} + \mathbf{f}, \qquad \nabla \cdot \mathbf{u} = 0 \]
+                        </p>
+                        <p>
+                            y se consideran unas de las ecuaciones más importantes y, al mismo tiempo, más
+                            formidables de la física. Su principal objetivo es describir cómo se mueve un
+                            fluido en una enorme variedad de situaciones. Sin embargo, detrás de esta
+                            elegante formulación se encuentra una profunda incertidumbre. El término
+                        </p>
+                        <p>
+                            \[ \rho \left( \frac{\partial \mathbf{u}}{\partial t} +
+                            \left(\mathbf{u}\cdot\nabla\right)\mathbf{u} \right) \]
+                        </p>
+                        <p>
+                            contiene uno de los elementos fundamentales que pueden dar lugar a la
+                            turbulencia, uno de los fenómenos más complejos y elusivos de la física.
+                        </p>
+                        <p>
+                            La turbulencia presenta una enorme complejidad y dificulta la obtención de
+                            soluciones analíticas para las ecuaciones de Navier–Stokes en situaciones
+                            generales. Sin embargo, podemos utilizar estas ecuaciones para realizar
+                            cálculos numéricos y construir simulaciones del movimiento de los fluidos, lo
+                            que nos permite estudiar su comportamiento en una gran variedad de escenarios.
+                            Aunque hemos tenido un éxito considerable en el uso de métodos numéricos para
+                            aproximar soluciones, los matemáticos todavía no han podido demostrar algo
+                            aparentemente más sencillo: que, en tres dimensiones, las soluciones de las
+                            ecuaciones de Navier–Stokes permanecen suaves y bien comportadas para todo
+                            tiempo, o si, por el contrario, pueden desarrollar una singularidad en tiempo
+                            finito.
+                        </p>
+                        <p>
+                            Este desafío se convirtió en uno de los
+                            <a href="https://www.claymath.org/millennium/navier-stokes-equation/" target="_blank">
+                                siete Problemas del Milenio</a>,
+                            establecidos por el Clay Mathematics Institute, con un premio de un millón de
+                            dólares para la solución de cada uno de ellos.
+                        </p>
+                        <p>
+                            Con la reciente <a href="https://openai.com/index/navier-stokes-solution/" target="_blank">
+                                publicación de una prueba</a> impulsada por Inteligencia Artificial (IA), es
+                            posible que el problema del milenio relacionado con las
+                            ecuaciones de Navier–Stokes haya dado un nuevo paso hacia su resolución, o que
+                            al menos se haya avanzado en una parte importante del problema. En este
+                            contexto, podemos preguntarnos:
+                        </p>
+                        <ul>
+                            <li>
+                                ¿Por qué las ecuaciones de Navier–Stokes siguen siendo uno de los problemas
+                                más difíciles de las matemáticas y la física?
+                            </li>
+                            <li>
+                                ¿Cómo cambia una nueva prueba impulsada por inteligencia artificial nuestra
+                                comprensión del movimiento de los fluidos y, más ampliamente, nuestra
+                                concepción del papel de los matemáticos en la demostración y el descubrimiento
+                                matemático?
+                            </li>
+                        </ul>
+                        <h2>De Euler a Navier–Stokes</h2>
+                        <p>
+                            Setenta años después de que Newton transformara la física con sus leyes del
+                            movimiento, el matemático suizo Leonhard Euler aplicó las leyes de Newton al
+                            estudio del movimiento de los fluidos. Euler reconoció que los fluidos, al
+                            igual que los sólidos, debían obedecer la segunda ley de Newton, \(\mathbf{F}
+                            = m\mathbf{a}\). Sin embargo, los fluidos no son cuerpos rígidos: se mueven,
+                            fluyen y se deforman continuamente. Describirlos, por lo tanto, exige una
+                            perspectiva diferente.
+                        </p>
+                        <p>
+                            Euler imaginó el fluido como un conjunto continuo que puede dividirse en una
+                            gran cantidad de volúmenes extremadamente pequeños. En cada punto del espacio
+                            podemos asociar al fluido un vector velocidad. El conjunto de todas estas
+                            velocidades forma un campo vectorial, es decir, una representación instantánea
+                            del movimiento del fluido. Al estudiar cómo este campo vectorial evoluciona en
+                            el tiempo, podemos describir y predecir el movimiento del fluido.
+                        </p>
+
+                        <div style="text-align: center">
+                            <iframe style="width: 600px; height: 450px; border: none"
+                                src="https://www.dynamicmath.xyz/sketches/fluids/simple-vector-field"
+                                loading="lazy"></iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 0px;">
+                            <p><b>Figura:</b> Simulación simple de fluido con su campo vectorial.</p>
+                        </div>
+
+                        <p>
+                            Euler capturó estas ideas mediante dos ecuaciones fundamentales. La primera
+                            surge de la conservación de la masa. Para un fluido incompresible, la cantidad
+                            de fluido que entra en un volumen debe compensar la cantidad que sale de él.
+                            Matemáticamente, esto significa que la divergencia del campo de velocidades
+                            debe ser cero:
+                        </p>
+                        <p>\[ \nabla \cdot \mathbf{u} = 0. \]</p>
+                        <p>
+                            La segunda ecuación se obtiene aplicando la segunda ley de Newton al
+                            movimiento del fluido. En lugar de seguir una partícula material individual,
+                            podemos describir el cambio de velocidad del fluido desde un punto fijo del
+                            espacio. Para ello, Euler introdujo lo que hoy llamamos la
+                            <strong>derivada material</strong>:
+                        </p>
+                        <p>
+                            \[ \frac{D\mathbf{u}}{Dt} = \frac{\partial \mathbf{u}}{\partial t} +
+                            (\mathbf{u}\cdot\nabla)\mathbf{u}. \]
+                        </p>
+                        <p>
+                            Esta derivada representa la tasa de cambio de la velocidad experimentada por
+                            una partícula de fluido mientras se desplaza con el flujo.
+                        </p>
+                        <p>
+                            Por lo tanto, la expresión correspondiente a la segunda ley de Newton para un
+                            fluido puede escribirse, por unidad de volumen, como
+                        </p>
+                        <p>\[ m\mathbf{a} \quad\longmapsto\quad \rho\frac{D\mathbf{u}}{Dt}, \]</p>
+                        <p>donde \(\rho\) es la densidad del fluido.</p>
+                        <p>
+                            Del otro lado de la ecuación aparecen las fuerzas que actúan sobre el fluido.
+                            La presión ejerce una fuerza proporcional a su gradiente, mientras que
+                            \(\mathbf{f}\) representa otras fuerzas externas, como la gravedad:
+                        </p>
+                        <p>\[ \mathbf{F} \quad\longmapsto\quad -\nabla p + \mathbf{f}. \]</p>
+                        <p>
+                            Aquí, \(p\) representa la presión y el signo negativo indica que la fuerza
+                            debida a la presión apunta hacia regiones de menor presión.
+                        </p>
+                        <p>
+                            Esto produce las <strong>ecuaciones de Euler</strong> para un fluido
+                            incompresible:
+                        </p>
+                        <p>
+                            \[ \underbrace{\nabla \cdot
+                            \mathbf{u}=0}_{\substack{\text{Conservación}\\\text{de masa}}}, \qquad \rho
+                            \underbrace{\left( \frac{D\mathbf{u}}{Dt} \right)}_{\substack{\text{Cambio
+                            de}\\\text{velocidad de}\\\text{una partícula}}} = \overbrace{-\nabla
+                            p}^{\text{Presión}} +
+                            \underbrace{\mathbf{f}}_{\substack{\text{Fuerzas}\\\text{externas}}}. \]
+                        </p>
+                        <p>
+                            Con estas ecuaciones, Euler estableció una de las bases matemáticas de la
+                            mecánica de fluidos, el estudio de cómo se mueven líquidos y gases (Euler,
+                            1757). Incluso hoy en día, las ecuaciones de Euler son una aproximación
+                            fundamental para describir flujos en los que los efectos viscosos pueden
+                            despreciarse.
+                        </p>
+
+                        <div style="text-align: center">
+                            <iframe style="width: 600px; height: 400px; border: none"
+                                src="https://complex-analysis.com/applets/p5js/uniform-circle/" loading="lazy"></iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 0px;">
+                            <p><b>Figura:</b> Simulación simple de fluido con obstaculo circular.</p>
+                        </div>
+
+                        <p>
+                            Sin embargo, existe una característica esencial de los fluidos
+                            reales que estas ecuaciones no pueden capturar: la
+                            <strong>viscosidad</strong>.
+                        </p>
+
+                        <h2>Introducción de la viscosidad</h2>
+                        <p>
+                            Durante casi un siglo, matemáticos y físicos buscaron el ingrediente que
+                            faltaba para describir de manera más completa el movimiento de los fluidos
+                            reales. En 1822, el ingeniero y matemático francés Claude-Louis Navier propuso
+                            una idea audaz: ¿y si los fluidos poseyeran una forma de fricción interna? Su
+                            intuición era prometedora, aunque su formulación todavía presentaba
+                            importantes dificultades (Navier, 1827). En 1845, el físico matemático
+                            irlandés George Gabriel Stokes retomó el problema y desarrolló una formulación
+                            más rigurosa de las fuerzas internas que actúan en un fluido (Stokes, 1845).
+                            Estos trabajos condujeron a la incorporación del ingrediente que faltaba: la
+                            <strong>viscosidad</strong>, una propiedad que caracteriza la resistencia de
+                            un fluido a deformarse y fluir.
+                        </p>
+                        <p>
+                            Para un fluido newtoniano, incompresible y con viscosidad constante, esta
+                            fuerza viscosa puede escribirse de forma sencilla como
+                        </p>
+                        <p>
+                            \[ \rho\left(\frac{D\mathbf{u}}{Dt}\right) = \overbrace{-\nabla p + \mathbf{f}
+                            + \underbrace{\mu\nabla^2\mathbf{u}}_{\text{Viscosidad}}} ^{\text{Fuerzas que
+                            actúan sobre el fluido}}. \]
+                        </p>
+                        <p>
+                            El término viscoso \(\mu\nabla^2\mathbf{u}\) representa los efectos de la
+                            fricción interna entre regiones del fluido que se mueven a diferentes
+                            velocidades. El coeficiente \(\mu\), llamado
+                            <strong>viscosidad dinámica</strong>, mide la resistencia interna del fluido a
+                            la deformación: es relativamente alto para fluidos como la miel y mucho menor
+                            para el agua o el aire. El operador \(\nabla^2\), llamado
+                            <strong>laplaciano</strong>, describe cómo cambia localmente el campo de
+                            velocidades con respecto a las regiones vecinas. En términos intuitivos,
+                            cuanto mayor sea la variación espacial de la velocidad, mayor será el efecto
+                            de la viscosidad sobre el movimiento del fluido.
+                        </p>
+
+                        <div style="text-align: center">
+                            <img style="width: 300px"
+                                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Viscosities.gif">
+                            <p><b>Figura:</b> Simulación de líquidos con diferentes viscosidades. El líquido de la
+                                derecha tiene una viscosidad mayor que el líquido de la izquierda. Fuente: <a
+                                    href="https://en.wikipedia.org/wiki/Viscosity" target="_blank">Wikipedia</a></p>
+                        </div>
+
+                        <p>
+                            Al incluir este término llegamos a las modernas
+                            <strong>ecuaciones de Navier–Stokes</strong>:
+                        </p>
+                        <p>
+                            \[ \rho\left(\frac{D\mathbf{u}}{Dt}\right) = -\nabla p +\mathbf{f}
+                            +\mu\nabla^2\mathbf{u}, \qquad \nabla\cdot\mathbf{u}=0. \]
+                        </p>
+                        <p>
+                            Esta es una forma simplificada de las ecuaciones para fluidos incompresibles,
+                            es decir, aquellos cuya densidad puede considerarse constante. Bajo estas
+                            condiciones, las ecuaciones de Navier–Stokes proporcionan un modelo
+                            extraordinariamente eficaz para describir el movimiento de una enorme variedad
+                            de fluidos reales.
+                        </p>
+                        <p>
+                            Sin embargo, aquí aparece una paradoja. Las ecuaciones son conocidas desde
+                            hace más de un siglo y se utilizan habitualmente para realizar predicciones y
+                            simulaciones numéricas. Entonces, ¿por qué siguen planteando un desafío
+                            matemático tan profundo?
+                        </p>
+                        <h2>Por qué la turbulencia hace difíciles las ecuaciones</h2>
+                        <p>
+                            La respuesta está, en buena medida, en la turbulencia, uno de los fenómenos
+                            más complejos e impredecibles de la física. Imagina un río que fluye
+                            suavemente: el agua puede desplazarse de manera relativamente ordenada, con
+                            velocidades que cambian poco de un punto a otro. Pero cuando el flujo se
+                            vuelve turbulento, aparecen remolinos y estructuras de diferentes tamaños. Un
+                            remolino puede interactuar con otros, deformarse y transferir energía a
+                            estructuras cada vez más pequeñas, creando una compleja cascada de movimiento
+                            que se extiende a través de muchas escalas. Esto es lo que llamamos
+                            <strong>flujo turbulento</strong>.
+                        </p>
+
+                        <iframe style="width: 100%; height: 400px; border: none"
+                            src="https://esc-maths.github.io/sketches/fluid-sim/" loading="lazy"></iframe>
+                        <div style="text-align: center; margin-top: 0px;">
+                            <p><b>Figura:</b> Simulación de fluido creada por
+                                <a href="https://apps.amandaghassaei.com/" target="_blank">Amanda Ghassaei</a>
+                            </p>
+                        </div>
+
+                        <p>
+                            Para comprender por qué la turbulencia representa un desafío para las
+                            ecuaciones de Navier–Stokes, debemos examinar nuevamente la derivada material,
+                            definida como
+                        </p>
+                        <p>
+                            \[ \frac{D\mathbf{u}}{Dt} = \frac{\partial\mathbf{u}}{\partial t} +
+                            (\mathbf{u}\cdot\nabla)\mathbf{u}. \]
+                        </p>
+                        <p>
+                            Esta expresión representa la aceleración de una partícula de fluido a medida
+                            que se desplaza con el flujo. El primer término,
+                        </p>
+                        <p>\[ \frac{\partial\mathbf{u}}{\partial t}, \]</p>
+                        <p>
+                            describe cómo cambia la velocidad con el tiempo en un punto fijo del espacio.
+                            Sin embargo, una partícula de fluido no permanece en ese punto. A medida que
+                            se desplaza, puede encontrarse con regiones donde la velocidad es diferente.
+                            Para describir este efecto necesitamos el segundo término, conocido como
+                            <strong>término convectivo</strong>:
+                        </p>
+                        <p>\[ (\mathbf{u}\cdot\nabla)\mathbf{u}. \]</p>
+                        <p>
+                            Este término describe cómo cambia la velocidad que experimenta una partícula
+                            debido a su movimiento a través de un campo de velocidades que varía
+                            espacialmente. Para calcularlo, primero necesitamos conocer cómo cambia el
+                            campo de velocidad de un punto a otro mediante sus derivadas espaciales.
+                            Luego, esas variaciones se combinan en la dirección del movimiento de la
+                            partícula. En otras palabras, el operador
+                        </p>
+                        <p>\[ \mathbf{u}\cdot\nabla \]</p>
+                        <p>
+                            indica cómo recorrer el campo de velocidades siguiendo la dirección
+                            determinada por \(\mathbf{u}\).
+                        </p>
+                        <p>
+                            Podemos visualizar esta idea imaginando que viajamos en un globo aerostático
+                            dentro de una corriente de aire. La velocidad que experimentamos no depende
+                            únicamente de cómo cambia el viento con el tiempo en nuestra posición, sino
+                            también de cómo cambia el viento de un lugar a otro mientras nos desplazamos.
+                            Nuestra propia velocidad determina qué regiones del campo de velocidades
+                            encontramos, y esas variaciones, a su vez, determinan nuestra aceleración.
+                        </p>
+                        <p>
+                            Aquí aparece una característica fundamental de las ecuaciones de
+                            Navier–Stokes: son <strong>no lineales</strong>. La velocidad \(\mathbf{u}\)
+                            aparece tanto en el campo que estamos siguiendo como en el operador que
+                            determina cómo seguimos ese campo:
+                        </p>
+                        <p>\[ (\mathbf{u}\cdot\nabla)\mathbf{u}. \]</p>
+                        <p>
+                            Esta no linealidad permite que pequeñas variaciones en el flujo interactúen y
+                            se amplifiquen, dando lugar a comportamientos extremadamente complejos. En
+                            determinados regímenes, estas interacciones pueden producir turbulencia, en la
+                            que estructuras de diferentes escalas interactúan continuamente.
+                        </p>
+                        <p>
+                            La complejidad aumenta todavía más cuando intentamos calcular el movimiento de
+                            un fluido mediante métodos numéricos. El dominio se divide en una gran
+                            cantidad de celdas o puntos de una malla y, en cada paso temporal, se aproxima
+                            la velocidad, la presión y otras cantidades relevantes. Cuanto más fina sea la
+                            malla y mayor sea el número de escalas que queramos resolver, mayor será el
+                            costo computacional. En flujos turbulentos, además, pueden aparecer
+                            estructuras cada vez más pequeñas que deben resolverse adecuadamente para
+                            obtener una descripción precisa del movimiento.
+                        </p>
+                        <p>
+                            Las simulaciones numéricas nos permiten estudiar estos fenómenos con un
+                            detalle extraordinario, pero producen aproximaciones y dependen de la
+                            resolución de la malla, del método numérico y de los recursos computacionales
+                            disponibles. Sin embargo, existe una pregunta que va mucho más allá de cuánto
+                            poder de cómputo tenemos:
+                        </p>
+                        <p>
+                            <em>¿Podemos demostrar matemáticamente que las soluciones de las ecuaciones de
+                                Navier–Stokes permanecen suaves para todo tiempo?</em>
+                        </p>
+                        <p>Esta es la pregunta que nos lleva al corazón del Problema del Milenio.</p>
+                        <h2>La pregunta del Premio del Milenio</h2>
+                        <p>
+                            En un flujo turbulento, la energía cinética puede transferirse entre
+                            estructuras de diferentes escalas. En la imagen clásica de la <b>cascada turbulenta</b>,
+                            la energía se transfiere, en promedio, desde estructuras de mayor escala hacia
+                            estructuras progresivamente más pequeñas, donde finalmente puede ser disipada
+                            en forma de calor por la acción de la viscosidad.
+                        </p>
+
+                        <div style="text-align: center">
+                            <iframe style="width: 100%; height: 400px; border: none"
+                                src="https://www.dynamicmath.xyz/sketches/fluids/fluid-simulation/" loading="lazy">
+                            </iframe>
+                        </div>
+
+                        <p>
+                            Sin embargo, las ecuaciones de Navier–Stokes permiten una dinámica mucho más
+                            compleja: las interacciones no lineales pueden concentrar la actividad del
+                            flujo en escalas espaciales cada vez menores. La pregunta fundamental es si
+                            esta concentración puede continuar indefinidamente y producir una singularidad
+                            en un tiempo finito.
+                        </p>
+
+                        <p>
+                            En términos matemáticos, el problema es determinar si una solución que
+                            comienza siendo suave puede dejar de serlo en algún instante posterior. Una
+                            singularidad podría manifestarse, por ejemplo, mediante el crecimiento sin
+                            límite de alguna cantidad asociada al campo de velocidades o a sus derivadas.
+                            Si esto ocurriera, las ecuaciones seguirían estando formalmente definidas,
+                            pero la solución dejaría de ser suave y el modelo ya no tendría el
+                            comportamiento regular que esperamos de una solución clásica.
+                        </p>
+                        <p>
+                            Este es el núcleo del <strong>Problema del Milenio de Navier–Stokes</strong>:
+                            demostrar que, para datos iniciales suaves y apropiados, las ecuaciones
+                            tridimensionales de Navier–Stokes poseen soluciones suaves que existen para
+                            todo tiempo, o demostrar que existe al menos un caso en el que una solución
+                            inicialmente suave desarrolla una singularidad en tiempo finito, es decir, que
+                            puede producirse un "blow-up" (término inglés utilizado habitualmente en la
+                            literatura). El problema fue formulado por el Clay Mathematics Institute, en
+                            2000, como uno de sus siete Problemas del Milenio, con un premio de un millón
+                            de dólares por una solución que satisfaga los criterios establecidos por el
+                            Instituto (Clay Mathematics Institute, s.f.).
+                        </p>
+
+                        <div style="text-align: center">
+                            <img style="width: 60%; border: 1px solid black; border-radius: 5px"
+                                src="https://www.geogebra.org/resource/zduhmcem/rEVjt0FOqHZNW4zp/material-zduhmcem.png">
+                            <p style="margin-top: -5px;"><b>Figura:</b> Captura de pantalla de la descipción original
+                                del problema
+                                dada por Charles L. Fefferman. Disponible en la página del
+                                <a href="https://www.claymath.org/millennium/navier-stokes-equation/" target="_blank">
+                                    Clay Mathematics Institute</a>.
+                            </p>
+                        </div>
+
+                        <p>
+                            Uno de los primeros avances fundamentales ocurrió en 1934, cuando Jean Leray
+                            demostró la existencia de soluciones débiles para las ecuaciones
+                            tridimensionales de Navier–Stokes. Las soluciones débiles satisfacen las
+                            ecuaciones en un sentido más general y requieren menos regularidad que las
+                            soluciones clásicas. Sin embargo, el resultado de Leray no demuestra que estas
+                            soluciones sean suaves para todo tiempo. De hecho, una de las estrategias
+                            centrales en el estudio del problema consiste precisamente en intentar
+                            demostrar que las soluciones débiles de Leray son, en realidad, suaves y
+                            regulares (Leray, 1934).
+                        </p>
+                        <p>
+                            Desde entonces, numerosos matemáticos han realizado contribuciones importantes
+                            al estudio de la existencia, regularidad y posible formación de singularidades
+                            en las ecuaciones de Navier–Stokes y en ecuaciones relacionadas. Los
+                            resultados que se presentan a continuación representan solamente una pequeña
+                            selección de esta extensa línea de investigación.
+                        </p>
+                        <p>
+                            En 2016, Terence Tao introdujo otra perspectiva. En lugar de trabajar
+                            directamente con las ecuaciones originales, construyó una
+                            <strong>versión promediada de las ecuaciones de Navier–Stokes</strong> que
+                            conserva varias propiedades importantes de las ecuaciones originales, incluida
+                            la identidad de energía, pero modifica de manera controlada su término no
+                            lineal. Tao demostró que esta ecuación modificada puede desarrollar una
+                            singularidad en tiempo finito (Tao, 2016).
+                        </p>
+                        <p>
+                            El resultado de Tao no constituye un contraejemplo para el problema original.
+                            Su importancia es diferente: muestra que ciertas estimaciones generales y
+                            argumentos basados únicamente en la identidad de energía no pueden ser
+                            suficientes para demostrar la regularidad global de las ecuaciones de
+                            Navier–Stokes. Para resolver el problema original sería necesario aprovechar
+                            estructuras más específicas de su término no lineal (Tao, 2016).
+                        </p>
+                        <p>
+                            Una línea de investigación relacionada apareció en el trabajo de Diego Córdoba
+                            y Luis Martínez-Zoroa. En 2023 desarrollaron un mecanismo de formación de
+                            singularidades para las ecuaciones tridimensionales de Euler con una fuerza
+                            externa de cierta regularidad. Su construcción utiliza una estructura
+                            multiescala: diferentes regiones con vorticidad interactúan a escalas
+                            espaciales cada vez menores, produciendo una concentración que conduce a una
+                            singularidad en tiempo finito (Córdoba &amp; Martínez-Zoroa, 2023).
+                        </p>
+                        <p>
+                            Este resultado tampoco resolvía el problema de Navier–Stokes. Sin embargo,
+                            proporcionó un mecanismo de "blow-up" que podía servir como punto de partida
+                            para estudiar ecuaciones relacionadas. En 2024, Córdoba, Martínez-Zoroa y Fan
+                            Zheng extendieron estas ideas a una familia de ecuaciones de Navier–Stokes con
+                            una disipación más débil que la de las ecuaciones clásicas. Demostraron que,
+                            bajo determinadas condiciones, estas ecuaciones también pueden desarrollar
+                            singularidades en tiempo finito. Aunque este resultado representa un avance
+                            importante en el estudio de la formación de singularidades, nuevamente no
+                            demuestra que se produzca un "blow-up" en las ecuaciones tridimensionales
+                            clásicas de Navier–Stokes del Problema del Milenio (Córdoba, Martínez-Zoroa,
+                            &amp; Zheng, 2024).
+                        </p>
+                        <p>
+                            Estos resultados muestran por qué el problema es tan difícil. Existen
+                            mecanismos matemáticos capaces de producir singularidades en ecuaciones muy
+                            cercanas a Navier–Stokes, pero pequeñas diferencias en la estructura de la
+                            ecuación pueden ser decisivas. El desafío consiste precisamente en determinar
+                            qué ocurre en las ecuaciones originales, con su combinación particular de
+                            transporte no lineal, presión y disipación viscosa.
+                        </p>
+                        <p>
+                            Los trabajos mencionados son solo algunos ejemplos dentro de una historia
+                            mucho más amplia de investigación. Precisamente sobre esta base de resultados
+                            previos, ideas y técnicas desarrolladas durante décadas, surge la afirmación
+                            asistida por inteligencia artificial de 2026: ¿pueden las herramientas de IA
+                            transformar estos mecanismos conocidos en una demostración rigurosa para las
+                            ecuaciones originales?
+                        </p>
+
+                        <h2>La inteligencia artificial y el problema de Navier–Stokes</h2>
+                        <p>
+                            En septiembre de 2026, los matemáticos Tristan Buckmaster y Levent Alpöge,
+                            utilizando herramientas de inteligencia artificial, anunciaron resultados
+                            relacionados con la formación de singularidades en varias ecuaciones de
+                            dinámica de fluidos. Su trabajo se apoyó en ideas desarrolladas previamente
+                            por Diego Córdoba y Luis Martínez-Zoroa y permitió obtener resultados de
+                            "blow-up" para ecuaciones relacionadas con la dinámica de fluidos,
+                            incluyendo las ecuaciones de Euler con forzamiento suave (Alpöge &amp;
+                            Buckmaster, 2026a, 2026b; Alpöge et al., 2026). Estos resultados constituyeron
+                            un paso importante hacia el estudio de mecanismos que podrían producir
+                            singularidades, pero no constituían por sí mismos una solución del Problema
+                            del Milenio de Navier–Stokes.
+                        </p>
+                        <p>
+                            Al mismo tiempo, la compañía OpenAI anunció que un sistema interno basado en
+                            agentes de inteligencia artificial había producido una propuesta de solución
+                            para el problema de existencia y suavidad de las ecuaciones tridimensionales
+                            de Navier–Stokes. Según OpenAI, aproximadamente 10,000 agentes trabajaron de
+                            manera concurrente y llegaron a una propuesta de demostración en unas 88
+                            horas. Posteriormente, una formalización y verificación en Lean requirió otras
+                            17 horas (OpenAI, 2026a). OpenAI publicó tanto una demostración matemática
+                            como una formalización computacional de sus argumentos.
+                        </p>
+                        <p>
+                            La propuesta de OpenAI afirma demostrar que, bajo condiciones iniciales y de
+                            forzamiento apropiadas, una solución inicialmente suave de las ecuaciones de
+                            Navier–Stokes puede desarrollar una singularidad en tiempo finito, mientras
+                            que la energía total permanece acotada. En términos intuitivos, el mecanismo
+                            consiste en una concentración progresiva de la dinámica del fluido hasta que
+                            determinadas cantidades asociadas con la velocidad dejan de permanecer
+                            acotadas (OpenAI, 2026a, 2026b).
+                        </p>
+
+                        <div style="text-align: center">
+                            <img style="width: 80%;"
+                                src="https://www.geogebra.org/resource/g3fs6sax/NcIQygT63tkp2RGd/material-g3fs6sax.png">
+                            <p><b>Figura:</b> OpenAI - Finite time blowup for NAvier-Stokes, (pág. 4.)</p>
+                        </div>
+
+                        <p>
+                            Un aspecto particularmente notable de la propuesta es su formalización en
+                            <a href="https://lean-lang.org/" rel="noopener" target="_blank">
+                                <em>Lean</em>
+                            </a>
+                            , un asistente de demostración matemática capaz de verificar
+                            formalmente cada paso de una prueba una vez que este ha sido expresado dentro
+                            de su sistema lógico (Lean FRO, n.d.). Según OpenAI, la formalización fue
+                            utilizada para comprobar computacionalmente la consistencia de los pasos
+                            matemáticos de la demostración propuesta (OpenAI, 2026c).
+                        </p>
+
+                        <div style="text-align: center">
+                            <img style="width: 80%;"
+                                src="https://www.geogebra.org/resource/zayfphgh/Y1GgyKlaPT4PQ6h7/material-zayfphgh.png">
+                        </div>
+
+                        <p>
+                            Sin embargo, es importante distinguir entre una
+                            <strong>demostración propuesta y formalizada</strong> y una
+                            <strong>solución matemáticamente reconocida del Problema del Milenio</strong>.
+                            El resultado de OpenAI todavía debe ser sometido al escrutinio de la comunidad
+                            matemática y superar el proceso establecido por el Clay Mathematics Institute
+                            antes de que pueda considerarse oficialmente una solución del problema. Por lo
+                            tanto, a septiembre de 2026, es más preciso hablar de una
+                            <strong>afirmación de resolución</strong> o de una
+                            <strong>solución propuesta asistida por inteligencia artificial</strong>, y no
+                            de un problema definitivamente resuelto (Clay Mathematics Institute, s.f.).
+                        </p>
+                        <p>
+                            Esto plantea una pregunta que va más allá de las propias ecuaciones: si una
+                            inteligencia artificial puede producir y formalizar una demostración de esta
+                            magnitud, ¿qué papel desempeñan los matemáticos en el proceso de
+                            descubrimiento, comprensión y validación de las matemáticas?
+                        </p>
+
+                        <h2>Reflexión: qué significa la solución impulsada por IA para las
+                            matemáticas</h2>
+                        <p>
+                            El anuncio de que la inteligencia artificial podría haber producido una
+                            solución a uno de los Problemas del Milenio representa más que un logro
+                            técnico. Si la demostración propuesta resiste el escrutinio de la comunidad
+                            matemática, podría marcar un cambio importante en la manera en que abordamos
+                            algunos de los problemas más profundos de las matemáticas.
+                        </p>
+                        <p>
+                            Lo que más me llama la atención no es simplemente que una IA haya llegado a un
+                            resultado que durante décadas se resistió a los matemáticos, sino cómo lo
+                            hizo. El camino no comenzó desde cero: se apoyó en décadas de intuición y
+                            trabajo humano, desde las ideas de Terence Tao y las construcciones de
+                            singularidades de Córdoba y Martínez-Zoroa hasta los resultados de Buckmaster
+                            y Alpöge. Los miles de agentes de IA utilizados por OpenAI no reemplazaron
+                            esta historia de investigación; exploraron y desarrollaron ideas dentro de un
+                            marco matemático construido por humanos.
+                        </p>
+                        <p>
+                            Esto sugiere una posible nueva forma de hacer matemáticas, en la que la
+                            creatividad humana y la capacidad de exploración de la IA se complementan. Una
+                            idea matemática puede servir como punto de partida para una búsqueda a una
+                            escala que sería imposible para un investigador individual. La cuestión,
+                            entonces, no es si humanos o máquinas son mejores matemáticos, sino qué pueden
+                            descubrir juntos.
+                        </p>
+                        <p>
+                            El resultado de Navier–Stokes también plantea una cuestión profunda sobre la
+                            relación entre las matemáticas y la realidad. Según la propuesta de OpenAI,
+                            ciertas soluciones inicialmente suaves pueden desarrollar una singularidad en
+                            tiempo finito, asociada con un vórtice que se concentra e intensifica hasta
+                            que determinadas cantidades de la velocidad dejan de estar acotadas.
+                            Matemáticamente, esto corresponde a un fenómeno de ``blow-up''. Sin embargo,
+                            una singularidad matemática no significa necesariamente que un fluido físico
+                            real alcance una velocidad infinita. Puede revelar propiedades de las
+                            soluciones del modelo que no se realizan físicamente o, incluso, señalar
+                            límites en el régimen de aplicabilidad de las ecuaciones.
+                        </p>
+                        <p>
+                            La formalización en <em>Lean</em> introduce otra dimensión importante. Un
+                            asistente de demostración formal permite verificar mecánicamente los pasos
+                            lógicos de una prueba formalizada. Esto proporciona un nivel extraordinario de
+                            confianza en su corrección lógica, pero no elimina la necesidad de comprender
+                            qué se ha demostrado y si la formalización representa adecuadamente el
+                            problema original.
+                        </p>
+                        <p>
+                            Aquí surge una pregunta que considero fundamental: ¿es suficiente verificar
+                            una verdad matemática, o necesitamos también comprenderla? Durante siglos, las
+                            matemáticas han valorado no solo las demostraciones correctas, sino también
+                            las ideas que explican por qué un resultado es verdadero. Si las futuras
+                            demostraciones generadas con IA llegan a ser demasiado complejas para que un
+                            ser humano pueda comprenderlas completamente, nuestra concepción del
+                            conocimiento matemático podría cambiar.
+                        </p>
+                        <p>
+                            Por eso, independientemente de que la propuesta de 2026 resista finalmente el
+                            escrutinio, este episodio ya plantea preguntas importantes sobre el futuro de
+                            la investigación matemática. ¿Se convertirá la IA en una herramienta habitual
+                            para descubrir, demostrar y verificar resultados? ¿Cómo cambiará la formación
+                            de los matemáticos? ¿Y qué papel tendrá la comprensión humana cuando las
+                            máquinas participen cada vez más profundamente en el proceso de
+                            descubrimiento?
+                        </p>
+                        <p>
+                            Las ecuaciones de Navier–Stokes, después de casi dos siglos, podrían
+                            convertirse así no solo en un problema fundamental de la matemática, sino
+                            también en un campo de pruebas para una nueva forma de hacer matemáticas: una
+                            en la que la intuición humana, la exploración computacional y la verificación
+                            formal trabajen conjuntamente.
+                        </p>
+                        <p>
+                            El río de las matemáticas siempre ha fluido hacia adelante, a veces suavemente
+                            y a veces en remolinos turbulentos. Con la inteligencia artificial ahora en la
+                            corriente, todavía no sabemos hacia dónde nos llevará.
+                        </p>
+
+
+                        <h2>Bibliografía</h2>
+                        <ul>
+                            <li>
+                                Alpöge, L., &amp; Buckmaster, T. (2026a).
+                                <em>Blowup for the Euler equations with smooth forcing</em> [Manuscrito].
+                                <a href="https://cims.nyu.edu/~tristanb/euler.pdf" rel="noopener" target="_blank">
+                                    https://cims.nyu.edu/~tristanb/euler.pdf
+                                </a>
+                            </li>
+
+                            <li>
+                                Alpöge, L., &amp; Buckmaster, T. (2026b).
+                                <em>Blowup for the Boussinesq equations with smooth forcing</em> [Manuscrito].
+                                <a href="https://cims.nyu.edu/~tristanb/boussinesq.pdf" rel="noopener" target="_blank">
+                                    https://cims.nyu.edu/~tristanb/boussinesq.pdf
+                                </a>
+                            </li>
+
+                            <li>
+                                Alpöge, L., Buckmaster, T., &amp; Coiculescu, M. P. (2026).
+                                <em>Extending the Córdoba-Martínez-Zoroa IPM blow-up to uniformly space-time smooth
+                                    forcing</em>.
+                                arXiv.
+                                <a href="https://arxiv.org/pdf/2609.16470" rel="noopener" target="_blank">
+                                    https://arxiv.org/pdf/2609.16470
+                                </a>
+                            </li>
+
+                            <li>
+                                Buckmaster, T. (2026).
+                                <em>fluid_lean</em> [Software de computadora].
+                                GitHub.
+                                <a href="https://github.com/tristanbuckmaster/fluid_lean" rel="noopener"
+                                    target="_blank">
+                                    https://github.com/tristanbuckmaster/fluid_lean
+                                </a>
+                            </li>
+
+                            <li>
+                                Córdoba, D., &amp; Martínez-Zoroa, L. (2023).
+                                <em>Blow-up for the incompressible 3D-Euler equations with uniform
+                                    C<sup>1,1/2−ε</sup> ∩ L<sup>2</sup> force</em>.
+                                arXiv.
+                                <a href="https://arxiv.org/abs/2309.08495" rel="noopener" target="_blank">
+                                    https://arxiv.org/abs/2309.08495
+                                </a>
+                            </li>
+
+                            <li>
+                                Córdoba, D., &amp; Martínez-Zoroa, L. (2024).
+                                <em>Finite time singularities of smooth solutions for the 2D incompressible
+                                    porous media (IPM) equation with a smooth source</em>.
+                                arXiv.
+                                <a href="https://arxiv.org/abs/2410.22920" rel="noopener" target="_blank">
+                                    https://arxiv.org/abs/2410.22920
+                                </a>
+                            </li>
+
+                            <li>
+                                Córdoba, D., Martínez-Zoroa, L., &amp; Zheng, F. (2024).
+                                <em>Finite time blow-up for the hypodissipative Navier Stokes equations
+                                    with a force in L<sub>t</sub><sup>2</sup>C<sub>x</sub><sup>1,ε</sup>
+                                    ∩ L<sub>t</sub><sup>∞</sup>L<sub>x</sub><sup>2</sup></em>.
+                                <em>Archive for Rational Mechanics and Analysis, 250</em>, 38.
+                                <a href="https://doi.org/10.1007/s00205-026-02198-0" rel="noopener" target="_blank">
+                                    https://doi.org/10.1007/s00205-026-02198-0
+                                </a>
+                            </li>
+
+                            <li>
+                                Clay Mathematics Institute. (s.f.).
+                                <em>Navier--Stokes equation</em>.
+                                <a href="https://www.claymath.org/millennium/navier-stokes-equation/" rel="noopener"
+                                    target="_blank">
+                                    https://www.claymath.org/millennium/navier-stokes-equation/
+                                </a>
+                            </li>
+
+                            <li>
+                                Fefferman, C. L. (2000).
+                                <em>Existence and smoothness of the Navier--Stokes equation</em>.
+                                Clay Mathematics Institute.
+                                <a href="https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf"
+                                    rel="noopener" target="_blank">
+                                    https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+                                </a>
+                            </li>
+
+                            <li>
+                                Lean FRO. (n.d.).
+                                <em>Lean programming language</em>.
+                                <a href="https://lean-lang.org/" rel="noopener" target="_blank">
+                                    https://lean-lang.org/
+                                </a>
+                            </li>
+
+                            <li>
+                                Euler, L. (1757).
+                                <em>Principes généraux du mouvement des fluides</em>.
+                                <em>Mémoires de l'Académie des Sciences de Berlin, 11</em>, 274--315.
+                            </li>
+
+                            <li>
+                                Navier, C. L. M. H. (1827).
+                                <em>Mémoire sur les lois du mouvement des fluides</em>.
+                                <em>Mémoires de l'Académie Royale des Sciences de l'Institut de France, 6</em>,
+                                389--416.
+                                <a href="https://gallica.bnf.fr/ark:/12148/bd6t54644559x" rel="noopener"
+                                    target="_blank">
+                                    https://gallica.bnf.fr/ark:/12148/bd6t54644559x
+                                </a>
+                            </li>
+
+                            <li>
+                                OpenAI. (2026a).
+                                <em>On the Navier--Stokes Millennium Prize problem</em>.
+                                <a href="https://openai.com/index/navier-stokes-solution/" rel="noopener"
+                                    target="_blank">
+                                    https://openai.com/index/navier-stokes-solution/
+                                </a>
+                            </li>
+
+                            <li>
+                                OpenAI. (2026b).
+                                <em>Finite time blowup for Navier--Stokes</em> [Preprint].
+                                <a href="https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+                                    rel="noopener" target="_blank">
+                                    https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf
+                                </a>
+                            </li>
+
+                            <li>
+                                OpenAI. (2026c).
+                                <em>NavierStokesAndEuler: Finite time blowup for Navier--Stokes and Euler equations</em>
+                                [Software de computadora]. GitHub.
+                                <a href="https://github.com/openai/NavierStokesAndEuler" rel="noopener" target="_blank">
+                                    https://github.com/openai/NavierStokesAndEuler
+                                </a>
+                            </li>
+
+                            <li>
+                                Leray, J. (1934).
+                                <em>Sur le mouvement d'un liquide visqueux emplissant l'espace</em>.
+                                <em>Acta Mathematica, 63</em>(1), 193--248.
+                                <a href="https://doi.org/10.1007/BF02547354" rel="noopener" target="_blank">
+                                    https://doi.org/10.1007/BF02547354
+                                </a>
+                            </li>
+
+                            <li>
+                                Stokes, G. G. (1845).
+                                <em>On the theories of the internal friction of fluids in motion, and of
+                                    the equilibrium and motion of elastic solids</em>.
+                                <em>Transactions of the Cambridge Philosophical Society, 8</em>, 287--319.
+                                <a href="https://doi.org/10.1017/CBO9780511702242.005" rel="noopener" target="_blank">
+                                    https://doi.org/10.1017/CBO9780511702242.005
+                                </a>
+                            </li>
+
+                            <li>
+                                Tao, T. (2016).
+                                <em>Finite time blowup for an averaged three-dimensional Navier--Stokes equation</em>.
+                                <em>Journal of the American Mathematical Society, 29</em>(3), 601--674.
+                                <a href="https://doi.org/10.1090/jams/838" rel="noopener" target="_blank">
+                                    https://doi.org/10.1090/jams/838
+                                </a>
+                            </li>
+                        </ul>
+                        <h2>Apéndice: Algunos detalles matemáticos</h2>
+                        <p>
+                            Para precisar las expresiones utilizadas a lo largo del texto, consideremos un
+                            fluido que ocupa una región del espacio tridimensional. La velocidad del
+                            fluido se describe mediante un <strong>campo vectorial</strong>
+                        </p>
+                        <p>
+                            \[ \mathbf{u}(\mathbf{x},t) =
+                            \bigl(u_1(\mathbf{x},t),\,u_2(\mathbf{x},t),\,u_3(\mathbf{x},t)\bigr), \quad
+                            \mathbf{x}=(x,y,z). \]
+                        </p>
+                        <p>
+                            Así, \(\mathbf{u}(\mathbf{x},t)\) asigna a cada punto del espacio y a cada
+                            instante de tiempo \(t\) un vector que representa la velocidad del fluido en
+                            ese lugar. Las funciones \(u_1\), \(u_2\) y \(u_3\) son las componentes de la
+                            velocidad en las direcciones \(x\), \(y\) y \(z\), respectivamente. La
+                            trayectoria de una partícula del fluido puede representarse, en cambio,
+                            mediante
+                        </p>
+                        <p>\[ \mathbf{x}(t)=\bigl(x(t),y(t),z(t)\bigr). \]</p>
+                        <p>El símbolo</p>
+                        <p>
+                            \[ \nabla = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y},
+                            \frac{\partial}{\partial z} \right) \]
+                        </p>
+                        <p>
+                            se denomina <strong>operador nabla</strong> o <strong>del</strong>. Aunque
+                            tiene la forma de un vector, no es un vector ordinario, sino un operador
+                            diferencial. Cuando actúa sobre una función escalar \(f\), produce su
+                            gradiente:
+                        </p>
+                        <p>
+                            \[ \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial
+                            y}, \frac{\partial f}{\partial z} \right). \]
+                        </p>
+                        <p>
+                            Cuando \(\nabla\) se combina con el campo de velocidades mediante un producto
+                            punto, obtenemos la <strong>divergencia</strong>:
+                        </p>
+                        <p>
+                            \[ \nabla\cdot\mathbf{u} = \frac{\partial u_1}{\partial x} + \frac{\partial
+                            u_2}{\partial y} + \frac{\partial u_3}{\partial z}. \]
+                        </p>
+                        <p>Para un fluido incompresible se cumple</p>
+                        <p>\[ \nabla\cdot\mathbf{u}=0. \]</p>
+                        <p>
+                            Esta condición expresa matemáticamente que un elemento de fluido puede cambiar
+                            de forma, pero no cambia su volumen de manera neta.
+                        </p>
+                        <p>
+                            El operador \(\nabla^2\) se denomina <strong>Laplaciano</strong>. En
+                            coordenadas cartesianas, para un campo vectorial se aplica componente a
+                            componente:
+                        </p>
+                        <p>
+                            \[ \nabla^2\mathbf{u} = \big( \nabla^2u_1,\, \nabla^2u_2,\, \nabla^2u_3 \big),
+                            \]
+                        </p>
+                        <p>donde, para una función escalar,</p>
+                        <p>
+                            \[ \nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2
+                            f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}. \]
+                        </p>
+                        <p>
+                            Por tanto, para un fluido incompresible con viscosidad constante, el término
+                            \(\mu\nabla^2\mathbf{u}\) de las ecuaciones de Navier–Stokes representa
+                            matemáticamente la acción de la viscosidad sobre el campo de velocidades. Si
+                            el fluido fuese compresible o si la viscosidad no fuese constante, aparecerían
+                            términos adicionales.
+                        </p>
+                        <p>Uno de los términos más importantes y menos intuitivos es</p>
+                        <p>\[ \left(\mathbf{u}\cdot\nabla\right)\mathbf{u}. \]</p>
+                        <p>Podemos escribir primero</p>
+                        <p>
+                            \[ \mathbf{u}\cdot\nabla = u_1\frac{\partial}{\partial x} +
+                            u_2\frac{\partial}{\partial y} + u_3\frac{\partial}{\partial z}. \]
+                        </p>
+                        <p>Por lo tanto,</p>
+                        <p>
+                            \[ \left(\mathbf{u}\cdot\nabla\right)\mathbf{u} =
+                            u_1\frac{\partial\mathbf{u}}{\partial x} +
+                            u_2\frac{\partial\mathbf{u}}{\partial y} +
+                            u_3\frac{\partial\mathbf{u}}{\partial z}. \]
+                        </p>
+                        <p>
+                            Este término describe el cambio de la velocidad debido al propio movimiento
+                            del fluido: las partículas se desplazan a través de un campo de velocidades
+                            que, en general, cambia de un punto a otro. Es también el término que
+                            introduce la <strong>no linealidad</strong> fundamental de las ecuaciones de
+                            Navier–Stokes.
+                        </p>
+                        <p>Finalmente, la derivada</p>
+                        <p>
+                            \[ \frac{D\mathbf{u}}{Dt} = \frac{\partial\mathbf{u}}{\partial t} +
+                            \left(\mathbf{u}\cdot\nabla\right)\mathbf{u} \]
+                        </p>
+                        <p>
+                            se denomina <strong>derivada material</strong>. A diferencia de la derivada
+                            parcial \(\partial\mathbf{u}/\partial t\), que describe cómo cambia la
+                            velocidad en un punto fijo del espacio, la derivada material describe cómo
+                            cambia la velocidad experimentada por una partícula que se mueve con el
+                            fluido.
+                        </p>
+                        <p>
+                            Con estas definiciones, las ecuaciones de Navier–Stokes pueden interpretarse
+                            como una expresión de la segunda ley de Newton para cada pequeña región del
+                            fluido: la aceleración de las partículas está determinada por el gradiente de
+                            presión, las fuerzas externas y la viscosidad. En particular, la fuerza por
+                            unidad de volumen asociada a la presión es \(-\nabla p.\)
+                        </p>
+                        <p>
+                            Los siguientes textos pueden ser de utilidad para ahondar más en el tema:
+                        </p>
+                        <ul>
+                            <li>
+                                Batchelor, G. K. (1967). <em>An Introduction to Fluid Dynamics</em>. Cambridge
+                                University Press.
+                                <a href="https://doi.org/10.1017/CBO9780511800955"
+                                    target="_blank">https://doi.org/10.1017/CBO9780511800955</a>
+                            </li>
+                            <li>
+                                Constantin, P., &amp; Foias, C. (1988).
+                                <a href="https://press.uchicago.edu/ucp/books/book/chicago/N/bo5973146.html"
+                                    target="_blank">
+                                    <em>Navier-Stokes Equations</em></a>. University of Chicago Press.
+                            </li>
+                        </ul>
+
+                        <hr />
+
+                        <p>
+                            <b>Nota:</b>
+                            Este texto fue inspirado, en parte, por el video
+                            <a href="https://www.youtube.com/watch?v=PsWR1rQEWYo" tartget="_blank">
+                                Why Navier-Stokes Pushes Math and Physics to the Edge</a>.
+                            Aunque algunos de los temas y datos presentados aquí coinciden con los discutidos
+                            en el video, este escrito no pretende ser una transcripción ni una reproducción
+                            del mismo. He ampliado algunos de los aspectos matemáticos, especialmente
+                            aquellos relacionados con las ecuaciones de Navier-Stokes, la formación de
+                            singularidades y la formulación del Problema del Milenio. Asimismo,
+                            he incorporado explicaciones, ejemplos y reflexiones propias, incluyendo
+                            mi perspectiva sobre el papel que la inteligencia artificial puede desempeñar
+                            en la investigación matemática.
+
+                            Las ideas y opiniones expresadas en este texto son responsabilidad del autor.
+                        </p>
+
+                        <hr />
+
+                        <p style="text-align: center;">¡Hola! Has llegado al final de este artículo. <br />
+                            Si te ha sido útil, puedes apoyar mi trabajo en
+                            <a href="https://www.patreon.com/jcponce">Patreon</a><br />
+                            ¡Gracias por tu apoyo!
+                        </p>
+
+
+
+
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://github.com/jcponce" class="icon brands fa-github"><span
+                                class="label">Dribbble</span></a>
+                    </li>
+                    <li><a href="mailto: jcponcemath@gmail.com" class="icon solid fa-envelope"><span
+                                class="label">Email</span></a></li>
+                    <li><a href="https://mathstodon.xyz/@jcponcemath" class="icon brands fa-mastodon"><span
+                                class="label">Twitter</span></a></li>
+                    <li><a href="https://twitter.com/jcponcemath" class="icon brands fa-x-twitter"><span
+                                class="label">Twitter</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; 2018-<span>
+                            <script>document.write(new Date().getFullYear());</script>
+                        </span>
+                        Juan Carlos Ponce Campuzano
+                    </li>
+                    <li>&nbsp;<a href="../licence.html"><i class="fab fa-creative-commons"></i></a></li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+
+    </div>
+
+    <!--Scripts-->
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/google-analytics-ga4.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jsutil.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+
+</html>
