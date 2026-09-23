@@ -31,7 +31,7 @@ function normalize(x, y) {
 }
 
 function setup() {
-  createCanvas(windowWidth, 500);
+  createCanvas(windowWidth, 450);
   pixelDensity(1);
   background(0);
   stroke(255,0,0);
