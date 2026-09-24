@@ -33,7 +33,7 @@ const distortion = 22;
 let time = 0;
 let particles = [];
 
-const NUM_PARTICLES = 2000;
+const NUM_PARTICLES = 1000;
 const NOISE_SCALE = 0.006;
 const PARTICLE_SPEED = 1.6;
 
