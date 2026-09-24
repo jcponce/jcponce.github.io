@@ -164,7 +164,7 @@ class Particle {
   }
 
   display() {
-    trailLayer.stroke(255, 255, 255, 50);
+    trailLayer.stroke(255, 255, 255, 70);
     trailLayer.strokeWeight(1.5);
 
     trailLayer.line(
