@@ -8,7 +8,7 @@
 
   Author: Juan Carlos Ponce Campuzano
   Date: 24/Sep/2026
-  Used here:
+  Usado aquí:
   https://bestiariotopologico.blogspot.com/2026/09/las-ecuaciones-de-navierstokes-el.html
   
 */
@@ -35,7 +35,7 @@ let particles = [];
 
 const NUM_PARTICLES = 1000;
 const NOISE_SCALE = 0.006;
-const PARTICLE_SPEED = 1.6;
+const PARTICLE_SPEED = 0.9;
 
 // Escala de las flechas: sube/baja para cambiar el largo máximo
 const ARROW_SCALE = 16;
@@ -164,7 +164,7 @@ class Particle {
   }
 
   display() {
-    trailLayer.stroke(255, 255, 255, 70);
+    trailLayer.stroke(255, 255, 255, 50);
     trailLayer.strokeWeight(1.5);
 
     trailLayer.line(
