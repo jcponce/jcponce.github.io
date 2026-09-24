@@ -5,6 +5,12 @@
   - Partículas en todo el canvas (wrap-around)
   - Flechas cuya longitud representa la magnitud
   600 x 450
+
+  Author: Juan Carlos Ponce Campuzano
+  Date: 24/Sep/2026
+  Used here:
+  https://bestiariotopologico.blogspot.com/2026/09/las-ecuaciones-de-navierstokes-el.html
+  
 */
 
 const W = 600;
@@ -27,15 +33,22 @@ const distortion = 22;
 let time = 0;
 let particles = [];
 
-const NUM_PARTICLES = 1800;
+const NUM_PARTICLES = 2000;
 const NOISE_SCALE = 0.006;
 const PARTICLE_SPEED = 1.6;
 
 // Escala de las flechas: sube/baja para cambiar el largo máximo
 const ARROW_SCALE = 16;
 
+let trailLayer;
+
 function setup() {
   createCanvas(W, H);
+
+  trailLayer = createGraphics(W, H);
+  trailLayer.background(10, 30, 60);
+  trailLayer.strokeCap(ROUND);
+
   noiseSeed(4);
   noiseDetail(3, 0.5);
   strokeCap(ROUND);
@@ -50,13 +63,20 @@ function draw() {
 
   time += 0.003;
 
-  drawGrid();
+  // Slowly fade old particle traces
+  trailLayer.noStroke();
+  trailLayer.fill(10, 30, 60, 18);
+  trailLayer.rect(0, 0, width, height);
 
   for (let p of particles) {
     p.update();
     p.display();
   }
 
+  // Draw the accumulated trails
+  image(trailLayer, 0, 0);
+
+  drawGrid();
   drawArrows();
 }
 
@@ -89,9 +109,9 @@ class Particle {
   }
 
   reset() {
-    // Aparecen en cualquier parte del canvas
     this.x = random(width);
     this.y = random(height);
+
     this.px = this.x;
     this.py = this.y;
   }
@@ -100,8 +120,13 @@ class Particle {
     const v = flowAt(this.x, this.y);
     const m = sqrt(v.x * v.x + v.y * v.y) || 1;
 
-    // Variación suave de rapidez para que no se muevan todas igual
-    const speedMod = 0.7 + 0.6 * noise(this.x * 0.01, this.y * 0.01, time * 2);
+    const speedMod =
+      0.7 + 0.6 * noise(
+        this.x * 0.01,
+        this.y * 0.01,
+        time * 2
+      );
+
     const speed = PARTICLE_SPEED * speedMod;
 
     this.px = this.x;
@@ -110,14 +135,28 @@ class Particle {
     this.x += (v.x / m) * speed;
     this.y += (v.y / m) * speed;
 
-    // Wrap-around en los bordes
     let wrapped = false;
-    if (this.x < 0)     { this.x += width;  wrapped = true; }
-    if (this.x > width) { this.x -= width;  wrapped = true; }
-    if (this.y < 0)     { this.y += height; wrapped = true; }
-    if (this.y > height){ this.y -= height; wrapped = true; }
 
-    // Si cruzó un borde, no dibujar la línea (evita la raya de lado a lado)
+    if (this.x < 0) {
+      this.x += width;
+      wrapped = true;
+    }
+
+    if (this.x > width) {
+      this.x -= width;
+      wrapped = true;
+    }
+
+    if (this.y < 0) {
+      this.y += height;
+      wrapped = true;
+    }
+
+    if (this.y > height) {
+      this.y -= height;
+      wrapped = true;
+    }
+
     if (wrapped) {
       this.px = this.x;
       this.py = this.y;
@@ -125,9 +164,15 @@ class Particle {
   }
 
   display() {
-    stroke(255, 255, 255, 90);
-    strokeWeight(2);
-    line(this.px, this.py, this.x, this.y);
+    trailLayer.stroke(255, 255, 255, 70);
+    trailLayer.strokeWeight(1.5);
+
+    trailLayer.line(
+      this.px,
+      this.py,
+      this.x,
+      this.y
+    );
   }
 }
 
