@@ -1,4 +1,5 @@
-// Source: Real-Time Fluid Dynamics for Games by Jos Stam - http://www.intpowertechcorp.com/GDC03.pdf
+// Source: Real-Time Fluid Dynamics for Games by Jos Stam - 
+// https://www.dgp.toronto.edu/public_user/stam/reality/Research/pdf/GDC03.pdf
 
 const N = 128;
 
