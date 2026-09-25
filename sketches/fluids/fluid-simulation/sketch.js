@@ -65,6 +65,20 @@ function setup() {
   cursor('pointer')
 
   initSim();
+
+  const resetButton = createButton('Reset');
+  
+  resetButton.position(15, 15);
+  resetButton.mousePressed(resetSketch);
+
+  resetButton.style('background', '#222');
+  resetButton.style('color', '#fff');
+  resetButton.style('border', '1px solid #666');
+  resetButton.style('border-radius', '4px');
+  resetButton.style('padding', '6px 12px');
+  resetButton.style('font-family', 'sans-serif');
+  resetButton.style('font-size', '14px');
+  resetButton.style('cursor', 'pointer');
 }
 
 
@@ -658,4 +672,12 @@ function windowResized() {
   );
 
   drawingContext.imageSmoothingEnabled = true;
+}
+
+// ==================================================
+// RESET SKETCH
+// ==================================================
+function resetSketch() {
+  initSim();
+  background(0);
 }
