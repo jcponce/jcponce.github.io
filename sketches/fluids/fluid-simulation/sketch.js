@@ -121,10 +121,10 @@ function draw() {
   dens_step();
   vort_step();
 
-  // drawVelocity();
-
   drawDensity();
   drawVorticity();
+
+  //drawVelocity();
 }
 
 
