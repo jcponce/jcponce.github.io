@@ -561,10 +561,7 @@ function drawDensity() {
 
       const index = PX(x, y);
 
-      pixels[index] =
-        pixels[index] * (1 - df) +
-        di * df;
-
+      pixels[index] = pixels[index] * (1 - df) + di * df;
       pixels[index + 1] = 0;
       pixels[index + 2] = 0;
       pixels[index + 3] = 255;
