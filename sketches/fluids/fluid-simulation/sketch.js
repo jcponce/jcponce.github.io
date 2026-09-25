@@ -561,9 +561,9 @@ function drawDensity() {
 
       const index = PX(x, y);
 
-      pixels[index] = pixels[index] * (1 - df) + di * df;
+      pixels[index] = 0;
       pixels[index + 1] = 0;
-      pixels[index + 2] = 0;
+      pixels[index + 2] = pixels[index] * (1 - df) + di * df;
       pixels[index + 3] = 255;
     }
   }
@@ -615,8 +615,8 @@ function drawVorticity() {
 
       const index = PX(x, y);
 
-      pixels[index + 1] = di;
-      pixels[index + 2] = din;
+      pixels[index ] = di;
+      pixels[index + 1] = din;
     }
   }
 
