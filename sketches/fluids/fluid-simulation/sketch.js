@@ -124,7 +124,7 @@ function draw() {
   drawDensity();
   drawVorticity();
 
-  //drawVelocity();
+  // drawVelocity();
 }
 
 
