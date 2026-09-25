@@ -16,8 +16,8 @@ let dens_prev = [];
 let om = [];
 
 const source = 10;
-const diff = 0.0002;
-const visc = 0.00001;
+const diff = 0.0;
+const visc = 0.0;
 const dt = 0.01;
 const dx = 1.0;
 const vc = 5.0;
@@ -223,10 +223,10 @@ function confine_vorticity(om0, u0, v0) {
         Math.abs(om0[IX(i, j - 1)]) -
         Math.abs(om0[IX(i, j + 1)]);
 
-      const normalized = normalize(omgrad_x, omgrad_y);
+      // const normalized = normalize(omgrad_x, omgrad_y);
 
-      omgrad_x = normalized.x;
-      omgrad_y = normalized.y;
+      // omgrad_x = normalized.x;
+      // omgrad_y = normalized.y;
 
       const i0 = IX(i, j);
 
