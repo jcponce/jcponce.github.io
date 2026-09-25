@@ -31,8 +31,7 @@ function normalize(x, y) {
 }
 
 function setup() {
-  createCanvas(windowWidth, 400);
-  pixelDensity(1);
+  createCanvas(500, 500);
   background(0);
   stroke(255,0,0);
   initSim();
@@ -50,6 +49,7 @@ function initSim() {
 
 function draw() {
   background(0);
+  pixelDensity(1);
   dens_prev = dens.slice();
   u_prev = u.slice();
   v_prev = v.slice();
