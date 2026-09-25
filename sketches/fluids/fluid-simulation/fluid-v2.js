@@ -719,84 +719,34 @@ function drawFluid() {
 
   for (let y = 0; y < N; y++) {
 
-    const row =
-      STRIDE * (y + 1);
-
-    const imageRow =
-      N * y;
+    const row = STRIDE * (y + 1);
+    const imageRow = N * y;
 
     for (let x = 0; x < N; x++) {
 
-      const id =
-        row + x + 1;
+      const id = row + x + 1;
+      const p = 4 * (imageRow + x);
 
-      const p =
-        4 * (imageRow + x);
+      let d = dens[id] * 255;
+      d = constrain(d, 0, 255);
 
-      // --------------------------------------------
-      // Density
-      // --------------------------------------------
+      let w = om[id] * 255;
 
-      let d =
-        dens[id] * 255;
+      let positive = constrain(w, 0, 255);
+      let negative = constrain(-w, 0, 255);
 
-      if (d < 0) {
-        d = 0;
-      }
-
-      if (d > 255) {
-        d = 255;
-      }
-
-      // --------------------------------------------
-      // Vorticity
-      // --------------------------------------------
-
-      let w =
-        om[id] * 255;
-
-      let positive = w;
-      let negative = -w;
-
-      if (positive < 0) {
-        positive = 0;
-      }
-
-      if (positive > 255) {
-        positive = 255;
-      }
-
-      if (negative < 0) {
-        negative = 0;
-      }
-
-      if (negative > 255) {
-        negative = 255;
-      }
-
-      // --------------------------------------------
-      // RGB
-      // --------------------------------------------
-
-      pixels[p] =
-        d;
-
-      pixels[p + 1] =
-        positive;
-
-      pixels[p + 2] =
-        negative;
-
-      pixels[p + 3] =
-        255;
+      pixels[p]     = d;
+      pixels[p + 1] = positive;
+      pixels[p + 2] = negative;
+      pixels[p + 3] = 255;
     }
   }
 
   fluidImage.updatePixels();
 
-  // ------------------------------------------------
-  // Scale simulation to the window.
-  // ------------------------------------------------
+  // IMPORTANT:
+  // Use the browser/GPU's interpolation when scaling.
+  drawingContext.imageSmoothingEnabled = true;
 
   image(
     fluidImage,
