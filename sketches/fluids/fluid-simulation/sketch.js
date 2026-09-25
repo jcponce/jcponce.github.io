@@ -16,8 +16,8 @@ let dens_prev = [];
 let om = [];
 
 const source = 10;
-const diff = 0.0;
-const visc = 0.0;
+const diff = 0.0002;
+const visc = 0.00001;
 const dt = 0.01;
 const dx = 1.0;
 const vc = 5.0;
