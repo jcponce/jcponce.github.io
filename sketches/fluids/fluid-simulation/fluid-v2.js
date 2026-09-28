@@ -134,6 +134,8 @@ function draw() {
 
   drawFluid();
 
+  // drawVelocity();
+
   /*
   // Uncomment for FPS display.
 
