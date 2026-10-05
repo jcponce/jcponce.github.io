@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.min.js"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async>
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+</head>
+
+<body>
+
+  <!-- Math button -->
+  <button id="mathButton" onclick="openMathModal()">?</button>
+
+  <!-- Modal -->
+  <div id="mathModal" class="modal">
+
+    <div class="modal-content">
+
+      <button class="close-button" onclick="closeMathModal()">
+        &times;
+      </button>
+
+      <h2>The Mathematics of the ASCII Donut</h2>
+
+      <p>
+        The animation represents a three-dimensional torus using only
+        ASCII characters. The main steps to create this effect are
+        as follows:
+      </p>
+
+      <ol>
+        <li>Parametrize the torus in 3D.</li>
+        <li>Rotate the torus.</li>
+        <li>Project the 3D points onto the screen.</li>
+        <li>Calculate lighting using surface normals.</li>
+        <li>Use a depth buffer to determine visibility.</li>
+      </ol>
+
+      <p>
+        This is a p5.js version of the
+        <a href="https://www.a1k0n.net/2006/09/15/obfuscated-c-donut.html">
+          Have a donut
+        </a>
+        (ASCII 3D donut in C) created in 2006 by the amazing
+        <a href="https://www.a1k0n.net/" target="_blank">Andy Sloane</a>.
+      </p>
+
+      <hr />
+
+
+      <h3>1. The torus</h3>
+
+      <p>
+        A torus can be constructed by taking a circle of radius
+        \(R_1\) and moving its centre around a larger circle of radius
+        \(R_2\).
+      </p>
+
+      <div style="text-align: center;">
+        <img style="width: 300px" src="torus.gif">
+      </div>
+
+      <p>
+        Using two parameters \(\theta\) and \(\phi\), the torus is
+        parametrized by
+      </p>
+
+      \[
+      \begin{aligned}
+      x &= (R_2 + R_1\cos\theta)\cos\phi,\\
+      y &= (R_2 + R_1\cos\theta)\sin\phi,\\
+      z &= R_1\sin\theta,
+      \end{aligned}
+      \]
+
+      <p>
+        where
+        \[
+        0\leq\theta\lt 2\pi,
+        \qquad
+        0\leq\phi\lt 2\pi. \]
+      </p>
+
+      <p>
+        Here \(R_1\) controls the thickness of the tube, while
+        \(R_2\) controls the size of the central ring.
+      </p>
+
+
+      <h3>2. Rotating the torus</h3>
+
+      <p>
+        The torus is rotated around the \(x\)-axis and then around the
+        \(z\)-axis. These rotations can be written either component-by-component
+        or, equivalently, as matrix multiplications.
+      </p>
+
+      <p>
+        A rotation around the \(x\)-axis is given by
+      </p>
+
+      \[
+      \begin{aligned}
+      x' &= x,\\
+      y' &= y\cos A-z\sin A,\\
+      z' &= y\sin A+z\cos A.
+      \end{aligned}
+      \]
+
+      <p>
+        In matrix form, this is
+      </p>
+
+      \[
+      \begin{pmatrix}
+      x'\\
+      y'\\
+      z'
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+      1 & 0 & 0\\
+      0 & \cos A & -\sin A\\
+      0 & \sin A & \cos A
+      \end{pmatrix}
+      \begin{pmatrix}
+      x\\
+      y\\
+      z
+      \end{pmatrix}.
+      \]
+
+      <p>
+        A rotation around the \(z\)-axis is
+      </p>
+
+      \[
+      \begin{aligned}
+      x'' &= x'\cos B-y'\sin B,\\
+      y'' &= x'\sin B+y'\cos B,\\
+      z'' &= z'.
+      \end{aligned}
+      \]
+
+      <p>
+        In matrix form,
+      </p>
+
+      \[
+      \begin{pmatrix}
+      x''\\
+      y''\\
+      z''
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+      \cos B & -\sin B & 0\\
+      \sin B & \cos B & 0\\
+      0 & 0 & 1
+      \end{pmatrix}
+      \begin{pmatrix}
+      x'\\
+      y'\\
+      z'
+      \end{pmatrix}.
+      \]
+
+      <p>
+        Therefore, the two rotations can also be combined into a single matrix
+        multiplication:
+      </p>
+
+      \[
+      \begin{pmatrix}
+      x''\\
+      y''\\
+      z''
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+      \cos B & -\sin B & 0\\
+      \sin B & \cos B & 0\\
+      0 & 0 & 1
+      \end{pmatrix}
+      \begin{pmatrix}
+      1 & 0 & 0\\
+      0 & \cos A & -\sin A\\
+      0 & \sin A & \cos A
+      \end{pmatrix}
+      \begin{pmatrix}
+      x\\
+      y\\
+      z
+      \end{pmatrix}.
+      \]
+
+      <p>
+        The angles \(A\) and \(B\) are increased slightly every frame,
+        producing the animation.
+      </p>
+
+
+      <h3>3. Perspective projection</h3>
+
+      <p>
+        To obtain the perspective projection formulas, consider
+        the geometry shown in the diagram below.
+      </p>
+
+      <div style="text-align: center;">
+        <img style="width: 500px" src="perpectiveprojection.svg">
+      </div>
+
+      <p>
+        Let the eye be at
+        the origin, and let the projection screen be a distance \(Z\)
+        from the eye. A point of the object has coordinates
+        \[\left(x'', y'', z''\right).\]
+      </p>
+
+      <p>
+        We first derive the expression for the projected vertical coordinate \(Y\).
+      </p>
+
+      <p>
+        From the two right triangles in the diagram, notice that they are similar.
+        Therefore,
+        \[
+        \frac{Y}{Z}= \frac{y''}{z''}
+        \]
+        Hence,
+        \[
+        Y = Z\frac{y'}{z''}
+        \]
+        If we denote the distance from the eye to
+        the screen by the constant \(K_1\), this becomes
+        \[Y = K_1\frac{y''}{z''}.\]
+        The same argument applied horizontally gives
+        the corresponding expression for the \(X\)-coordinate,
+        \[
+        X = K_1\frac{x''}{z''}.
+        \]
+        Thus, after rotation,
+        the perspective projection can be written in the form
+        \[
+        \left(X,Y\right) = \left(K_1\frac{x''}{z''},K_1\frac{y''}{z''}\right)
+        \]
+        The important feature is the division by \(z''\): points that are
+        farther from the eye appear smaller on the screen, which
+        produces the characteristic perspective effect.
+      </p>
+
+      <h3>4. Surface normals and lighting</h3>
+
+      <p>
+        To make the torus look three-dimensional, we calculate a
+        normal vector at every point on its surface:
+      </p>
+
+      \[
+      \mathbf n =
+      \begin{pmatrix}
+      \cos\theta\cos\phi\\
+      \cos\theta\sin\phi\\
+      \sin\theta
+      \end{pmatrix}.
+      \]
+
+      <p>
+        With this expression the normal is rotated together with the surface.
+      </p>
+
+      <p>
+        We then compare the normal with the direction of the light
+        using the dot product:
+      </p>
+
+      \[
+      L =
+      \max\left(
+      0,
+      \frac{\mathbf n\cdot\mathbf l}
+      {\|\mathbf l\|}
+      \right).
+      \]
+
+      <p>
+        In the animation the light direction is approximately
+      </p>
+
+      \[
+      \mathbf l=(0,-1,1).
+      \]
+
+      <p>
+        If the normal points towards the light, the dot product is
+        large and the surface is bright. If it points away from the
+        light, the value is close to zero.
+      </p>
+
+
+      <h3>5. The depth buffer</h3>
+
+      <p>
+        Several points on the torus can project onto the same position
+        on the ASCII grid. We therefore keep track of the depth of the
+        closest visible point.
+      </p>
+
+      \[
+      z_{\text{new}}>z_{\text{buffer}}.
+      \]
+
+      <p>
+        When this condition is satisfied, the new point replaces the
+        previous one. This is what allows the front of the torus to
+        hide the back.
+      </p>
+
+      <h3>6. From light to ASCII</h3>
+
+      <p>
+        Finally, the lighting value \(L\), approximately between \(0\)
+        and \(1\), is converted into an index in the character string
+      </p>
+
+      <p class="ascii-chars">
+        <code>.,-~:;=!*#$@</code>
+      </p>
+
+      <p>
+        Darker parts of the surface use characters near the beginning
+        of the string, while brighter parts use characters near the end.
+      </p>
+
+      <!--
+      <p>
+        To make the brightest parts of the torus clearly visible, values
+        of \(L\) greater than \(0.97\) are assigned directly to the
+        brightest character, <code>@</code>. For lower values, the
+        lighting value is scaled to the remaining range of characters.
+      </p>
+
+      <p>
+        Thus, the conversion is
+      </p>
+
+      \[
+      i =
+      \begin{cases}
+      |\text{chars}|-1, & L>0.97,\\[4pt]
+      \displaystyle
+      \left\lfloor
+      \frac{L}{0.97}(|\text{chars}|-1)
+      \right\rfloor, & 0\leq L\leq0.97.
+      \end{cases}
+      \]
+
+      <p>
+        The character at position \(i\) is then used to represent the
+        brightness of the visible point.
+      </p>-->
+
+      <p class="summary">
+        <strong>
+          Parametric surface → Rotation → Perspective projection <br />
+          → Lighting → Depth test → ASCII character
+        </strong>
+      </p>
+
+      <div style="text-align: center; margin-top: 0px; font-size: 0.9em;">
+        <p>Made with &#9829; by <a href="https://www.patreon.com/jcponce">JCPC</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <main>
+  </main>
+
+  <script src="sketch.js"></script>
+
+  <script>
+    function openMathModal() {
+      document.getElementById("mathModal").classList.add("show");
+
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    function closeMathModal() {
+      document.getElementById("mathModal").classList.remove("show");
+    }
+
+    // Close when clicking outside the modal
+    window.addEventListener("click", function (event) {
+      const modal = document.getElementById("mathModal");
+
+      if (event.target === modal) {
+        closeMathModal();
+      }
+    });
+
+    // Close with Escape
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMathModal();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
