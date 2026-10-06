@@ -133,7 +133,6 @@ function drawCursor() {
   let cursorX = lastLine.x + textWidth(lastLine.text) + 6;
   let cursorY = lastLine.y - fontSize + 4;
 
-  drawingContext.shadowBlur = 6;
   drawingContext.shadowColor = themeColor;
 
   noStroke();
@@ -147,7 +146,7 @@ function drawCursor() {
 // Glowing text
 // -------------------------
 function drawGlowingText(txt, x, y) {
-  for (let i = 4; i > 0; i--) {
+  for (let i = 5; i > 0; i--) {
     fill(themeColor, 40 * i);
     text(txt, x, y);
   }
