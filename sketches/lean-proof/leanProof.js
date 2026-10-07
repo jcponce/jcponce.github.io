@@ -1,10 +1,13 @@
 /**
-* Lean proof: The irrationality of the Square Root of 2
-* Authors: Mario Carneiro, Abhimanyu Pallavi Sudhir, Jean Lo, Calle Sönne, Yury Kudryashov (2018)
-* Source: https://github.com/leanprover-community/mathlib4/blob/7414889cb3a5af9f4e5ce1157fc548d43d7dcc45/Mathlib/NumberTheory/Real/Irrational.lean#L140-L142
-* This version displayed in p5.js by Juan Carlos Ponce Campuzano
-* 07/Oct/2026
-*/
+ * Lean proof: The irrationality of the Square Root of 2
+ * Authors: Mario Carneiro, Abhimanyu Pallavi Sudhir, Jean Lo,
+ *          Calle Sönne, Yury Kudryashov (2018)
+ * Source:
+ * https://github.com/leanprover-community/mathlib4/blob/7414889cb3a5af9f4e5ce1157fc548d43d7dcc45/Mathlib/NumberTheory/Real/Irrational.lean#L140-L142
+ *
+ * This version displayed in p5.js by Juan Carlos Ponce Campuzano
+ * 07/Oct/2026
+ */
 
 let leanProof = [
   "/-- **Lean proof: The irrationality of the Square Root of 2** -/",
