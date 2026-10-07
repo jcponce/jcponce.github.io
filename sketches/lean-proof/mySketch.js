@@ -7,9 +7,6 @@
 */
 
 let codeLines = [];
-let fontSize = 19;
-let lineHeight = 30;
-let margin = 70;
 
 let scrollSpeed = 35; // frames between new lines
 let frameCounter = 0;
@@ -30,12 +27,13 @@ let snippetIndex = 0;
 let cursorBlinkSpeed = 10;
 let cursorVisible = true;
 let cursorCounter = 0;
-let cursorSize = 16;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont("monospace");
-  textSize(fontSize);
+
+  updateTextSize();
+
   frameRate(60);
 
   // Initialize your theme color in one place
@@ -130,14 +128,22 @@ function handleScroll() {
 // -------------------------
 function drawCursor() {
   let lastLine = codeLines[codeLines.length - 1];
-  let cursorX = lastLine.x + textWidth(lastLine.text) + 6;
-  let cursorY = lastLine.y - fontSize + 4;
+
+  let cursorX = lastLine.x + textWidth(lastLine.text) + fontSize * 0.3;
+  let cursorY = lastLine.y - fontSize + fontSize * 0.2;
 
   drawingContext.shadowColor = themeColor;
+  drawingContext.shadowBlur = fontSize * 0.5;
 
   noStroke();
   fill(themeColor);
-  rect(cursorX, cursorY, cursorSize, cursorSize);
+
+  rect(
+    cursorX,
+    cursorY,
+    cursorSize,
+    cursorSize
+  );
 
   drawingContext.shadowBlur = 0;
 }
@@ -154,8 +160,29 @@ function drawGlowingText(txt, x, y) {
   text(txt, x, y);
 }
 
+let fontSize;
+let lineHeight;
+let margin;
+let cursorSize;
+
+function updateTextSize() {
+  // Font size relative to the canvas
+  fontSize = min(width, height) * 0.028;
+
+  // Keep a sensible minimum and maximum
+  fontSize = constrain(fontSize, 12, 32);
+
+  lineHeight = fontSize * 1.6;
+  margin = fontSize * 3.5;
+  cursorSize = fontSize * 0.9;
+
+  textSize(fontSize);
+}
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+
+  updateTextSize();
 
   // Clear all previous lines
   codeLines = [];
@@ -166,7 +193,7 @@ function windowResized() {
   currentIndex = 0;
   typingCounter = 0;
   frameCounter = 0;
-  snippetIndex = 0; // optional: reset sequence back to the first snippet
+  snippetIndex = 0;
 
   // Reset cursor
   cursorCounter = 0;
